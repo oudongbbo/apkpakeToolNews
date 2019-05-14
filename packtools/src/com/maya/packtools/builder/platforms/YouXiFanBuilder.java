@@ -18,6 +18,13 @@ public class YouXiFanBuilder extends BaseBuilder {
     protected void handleSdkPlugins(String sdkplugin, Properties prop) {
         super.handleSdkPlugins(sdkplugin, prop);
 
+      /*  <meta-data android:name="screenOrientation" android:value="screenOrientation:0"/>
+        <meta-data android:name="YG_APPID" android:value="YG_APPID:190110295422"/>
+        <meta-data android:name="YG_SPLASH" android:value="YG_SPLASH:0"/>
+        <meta-data android:name="SDK_APPID" android:value="6428"/>
+        <meta-data android:name="SDK_GAMEID" android:value="7146"/>
+        <meta-data android:name="SDK_AGENT" android:value="default"/>*/
+
 
         String YiKeYouContent = FileUtil.read(sdkplugin);
         Pattern p = Pattern.compile("android:authorities=\"(.*?)\"");
@@ -27,24 +34,25 @@ public class YouXiFanBuilder extends BaseBuilder {
         YiKeYouContent = YiKeYouContent.replaceAll(pName, pname);
         FileUtil.write(sdkplugin, YiKeYouContent);
 
-       /* String  screenOrientation=prop.getProperty("screenOrientation");
+        String  screenOrientation=prop.getProperty("screenOrientation");
         String  YG_APPID=prop.getProperty("YG_APPID");
-        String YG_SPLASH=prop.getProperty("YG_SPLASH");
         String SDK_APPID=prop.getProperty("SDK_APPID");
         String SDK_GAMEID=prop.getProperty("SDK_GAMEID");
-        String SDK_AGENT=prop.getProperty("SDK_AGENT");
+       // String SDK_AGENT=prop.getProperty("SDK_AGENT");
 
 
-        String YiKeYouContent = FileUtil.read(sdkplugin);
-        Pattern p = Pattern.compile("android:name=\"screenOrientation\" android:value=\"(.*?)");
-        Matcher m = p.matcher(YiKeYouContent);
-        m.find();
+
+        //screenOrientation:0
+         p = Pattern.compile("<meta-data android:name=\"screenOrientation\" android:value=\"(.*?)\"/>");
+         m = p.matcher(YiKeYouContent);
+         m.find();
         String orientation = m.group(1);
         YiKeYouContent = YiKeYouContent.replaceAll(orientation, "screenOrientation:"+screenOrientation);
 
 
 
-        p = Pattern.compile("android:name=\"YG_APPID\" android:value=\"(.*?)\"");
+        //YG_APPID:190110295422
+        p = Pattern.compile("<meta-data android:name=\"YG_APPID\" android:value=\"(.*?)\"/>");
         m = p.matcher(YiKeYouContent);
         m.find();
         String yg_appid = m.group(1);
@@ -52,15 +60,16 @@ public class YouXiFanBuilder extends BaseBuilder {
 
 
 
-        p = Pattern.compile("android:name=\"YG_SPLASH\" android:value=\"(.*?)\"");
+     /*   //YG_SPLASH:0
+        p = Pattern.compile("<meta-data android:name=\"YG_SPLASH\" android:value=\"(.*?)\"/>");
         m = p.matcher(YiKeYouContent);
         m.find();
         String splash = m.group(1);
-        YiKeYouContent = YiKeYouContent.replaceAll(splash, "YG_SPLASH:"+YG_SPLASH);
+        YiKeYouContent = YiKeYouContent.replaceAll(splash, "YG_SPLASH:"+YG_SPLASH);*/
 
 
 
-        p = Pattern.compile("android:name=\"SDK_APPID\" android:value=\"(.*?)\"");
+        p = Pattern.compile("<meta-data android:name=\"SDK_APPID\" android:value=\"(.*?)\"/>");
         m = p.matcher(YiKeYouContent);
         m.find();
         String sdk_appid = m.group(1);
@@ -68,7 +77,7 @@ public class YouXiFanBuilder extends BaseBuilder {
 
 
 
-        p = Pattern.compile("android:name=\"SDK_GAMEID\" android:value=\"(.*?)\"");
+        p = Pattern.compile("<meta-data android:name=\"SDK_GAMEID\" android:value=\"(.*?)\"/>");
         m = p.matcher(YiKeYouContent);
         m.find();
         String gameid = m.group(1);
@@ -77,27 +86,35 @@ public class YouXiFanBuilder extends BaseBuilder {
 
 
 
-        p = Pattern.compile("android:name=\"SDK_AGENT\" android:value=\"(.*?)\"");
+      /*  p = Pattern.compile("<meta-data android:name=\"SDK_AGENT\" android:value=\"default\"/>");
         m = p.matcher(YiKeYouContent);
         m.find();
         String agent = m.group(1);
-        YiKeYouContent = YiKeYouContent.replaceAll(agent, SDK_AGENT);
+        YiKeYouContent = YiKeYouContent.replaceAll(agent, SDK_AGENT);*/
 
 
 
-        p = Pattern.compile("android:authorities=\"(.*?).sdkinsapk\"");
+        /*p = Pattern.compile("<provider android:authorities=\"(.*?).sdkinsapk\"");
         m = p.matcher(YiKeYouContent);
         m.find();
-        String pn = m.group(1);
-        YiKeYouContent = YiKeYouContent.replaceAll(pn, pname);
+        String pn = m.group(1);*/
 
 
-        FileUtil.write(sdkplugin, YiKeYouContent);*/
+        YiKeYouContent = YiKeYouContent.replaceAll("com.demo.sdkinsapk", pname+".sdkinsapk");
+
+
+        FileUtil.write(sdkplugin, YiKeYouContent);
     }
 
 
     @Override
     protected String handleApplication(String manifest) {
-        return replaceApplication("com.leidong.sdk.m.platform.YxFanApplication", manifest);
+        return replaceApplication("com.maya.sdk.m.platform.YxFanApplication", manifest);
     }
+
+
+
+
+
+
 }
