@@ -24,9 +24,8 @@
 # direct methods
 .method constructor <init>(Lcom/leidong/sdk/s/app/login/view/LoginByPhone;)V
     .locals 0
-    .param p1, "this$0"    # Lcom/leidong/sdk/s/app/login/view/LoginByPhone;
 
-    .line 342
+    .line 343
     iput-object p1, p0, Lcom/leidong/sdk/s/app/login/view/LoginByPhone$3;->this$0:Lcom/leidong/sdk/s/app/login/view/LoginByPhone;
 
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -37,27 +36,22 @@
 
 # virtual methods
 .method public onFail(ILjava/lang/String;)V
-    .locals 1
-    .param p1, "code"    # I
-    .param p2, "errorMsg"    # Ljava/lang/String;
-
-    .line 379
-    iget-object v0, p0, Lcom/leidong/sdk/s/app/login/view/LoginByPhone$3;->this$0:Lcom/leidong/sdk/s/app/login/view/LoginByPhone;
-
-    invoke-virtual {v0, p2}, Lcom/leidong/sdk/s/app/login/view/LoginByPhone;->showToast(Ljava/lang/String;)V
+    .locals 0
 
     .line 380
+    iget-object p1, p0, Lcom/leidong/sdk/s/app/login/view/LoginByPhone$3;->this$0:Lcom/leidong/sdk/s/app/login/view/LoginByPhone;
+
+    invoke-virtual {p1, p2}, Lcom/leidong/sdk/s/app/login/view/LoginByPhone;->showToast(Ljava/lang/String;)V
+
     return-void
 .end method
 
 .method public onSuccess(Ljava/lang/String;)V
     .locals 2
-    .param p1, "content"    # Ljava/lang/String;
 
-    .line 347
+    .line 348
     iget-object v0, p0, Lcom/leidong/sdk/s/app/login/view/LoginByPhone$3;->this$0:Lcom/leidong/sdk/s/app/login/view/LoginByPhone;
 
-    # getter for: Lcom/leidong/sdk/s/app/login/view/LoginByPhone;->loginMain:Lcom/leidong/sdk/s/app/login/view/LoginContent;
     invoke-static {v0}, Lcom/leidong/sdk/s/app/login/view/LoginByPhone;->access$600(Lcom/leidong/sdk/s/app/login/view/LoginByPhone;)Lcom/leidong/sdk/s/app/login/view/LoginContent;
 
     move-result-object v0
@@ -72,6 +66,5 @@
 
     invoke-virtual {v0, p1, v1}, Lcom/leidong/sdk/s/core/http/ResponseManager;->handleRepContent(Ljava/lang/String;Lcom/leidong/sdk/framework/http/HttpCallBack;)V
 
-    .line 375
     return-void
 .end method

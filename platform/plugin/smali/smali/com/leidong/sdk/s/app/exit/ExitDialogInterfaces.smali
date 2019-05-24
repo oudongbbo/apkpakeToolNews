@@ -15,10 +15,7 @@
 
 # direct methods
 .method public constructor <init>(Landroid/content/Context;Lcom/leidong/sdk/framework/web/SdkWebDialog;Lcom/leidong/sdk/framework/interfaces/SdkResultCallback;)V
-    .locals 2
-    .param p1, "context"    # Landroid/content/Context;
-    .param p2, "webDialog"    # Lcom/leidong/sdk/framework/web/SdkWebDialog;
-    .param p3, "callback"    # Lcom/leidong/sdk/framework/interfaces/SdkResultCallback;
+    .locals 1
 
     .line 19
     invoke-direct {p0}, Lcom/leidong/sdk/framework/web/plugs/SdkWebJsInterface;-><init>()V
@@ -39,18 +36,17 @@
     .line 23
     iput-object p1, p0, Lcom/leidong/sdk/s/app/exit/ExitDialogInterfaces;->mContext:Landroid/content/Context;
 
+    const-string p1, "leidong_exit_tips_cancel"
+
     .line 24
-    const-string v0, "leidong_exit_tips_cancel"
+    iget-object p2, p0, Lcom/leidong/sdk/s/app/exit/ExitDialogInterfaces;->mContext:Landroid/content/Context;
 
-    iget-object v1, p0, Lcom/leidong/sdk/s/app/exit/ExitDialogInterfaces;->mContext:Landroid/content/Context;
+    invoke-static {p1, p2}, Lcom/leidong/sdk/framework/utils/CommonUtil;->getStringByName(Ljava/lang/String;Landroid/content/Context;)Ljava/lang/String;
 
-    invoke-static {v0, v1}, Lcom/leidong/sdk/framework/utils/CommonUtil;->getStringByName(Ljava/lang/String;Landroid/content/Context;)Ljava/lang/String;
+    move-result-object p1
 
-    move-result-object v0
+    iput-object p1, p0, Lcom/leidong/sdk/s/app/exit/ExitDialogInterfaces;->tips:Ljava/lang/String;
 
-    iput-object v0, p0, Lcom/leidong/sdk/s/app/exit/ExitDialogInterfaces;->tips:Ljava/lang/String;
-
-    .line 25
     return-void
 .end method
 
@@ -89,7 +85,6 @@
 
     invoke-virtual {v0}, Lcom/leidong/sdk/framework/web/SdkWebDialog;->dismiss()V
 
-    .line 43
     :cond_0
     return-void
 .end method
@@ -108,6 +103,5 @@
 
     invoke-interface {v0, v1}, Lcom/leidong/sdk/framework/interfaces/SdkResultCallback;->onSuccess(Landroid/os/Bundle;)V
 
-    .line 31
     return-void
 .end method

@@ -23,8 +23,6 @@
 # direct methods
 .method constructor <init>(Lcom/leidong/open/http/okhttp3/Cache$CacheResponseBody;Lcom/leidong/open/http/okio/Source;Lcom/leidong/open/http/okhttp3/internal/cache/DiskLruCache$Snapshot;)V
     .locals 0
-    .param p1, "this$0"    # Lcom/leidong/open/http/okhttp3/Cache$CacheResponseBody;
-    .param p2, "delegate"    # Lcom/leidong/open/http/okio/Source;
 
     .line 750
     iput-object p1, p0, Lcom/leidong/open/http/okhttp3/Cache$CacheResponseBody$1;->this$0:Lcom/leidong/open/http/okhttp3/Cache$CacheResponseBody;
@@ -54,6 +52,5 @@
     .line 753
     invoke-super {p0}, Lcom/leidong/open/http/okio/ForwardingSource;->close()V
 
-    .line 754
     return-void
 .end method

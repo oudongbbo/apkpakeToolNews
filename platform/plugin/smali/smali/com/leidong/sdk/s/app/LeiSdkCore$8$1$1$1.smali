@@ -24,7 +24,6 @@
 # direct methods
 .method constructor <init>(Lcom/leidong/sdk/s/app/LeiSdkCore$8$1$1;)V
     .locals 0
-    .param p1, "this$3"    # Lcom/leidong/sdk/s/app/LeiSdkCore$8$1$1;
 
     .line 382
     iput-object p1, p0, Lcom/leidong/sdk/s/app/LeiSdkCore$8$1$1$1;->this$3:Lcom/leidong/sdk/s/app/LeiSdkCore$8$1$1;
@@ -38,7 +37,6 @@
 # virtual methods
 .method public onFail(Ljava/lang/String;)V
     .locals 1
-    .param p1, "errorMsg"    # Ljava/lang/String;
 
     .line 390
     iget-object v0, p0, Lcom/leidong/sdk/s/app/LeiSdkCore$8$1$1$1;->this$3:Lcom/leidong/sdk/s/app/LeiSdkCore$8$1$1;
@@ -51,7 +49,6 @@
 
     invoke-interface {v0, p1}, Lcom/leidong/sdk/framework/interfaces/ResultCallback;->onFail(Ljava/lang/String;)V
 
-    .line 391
     return-void
 .end method
 
@@ -69,6 +66,5 @@
 
     invoke-interface {v0}, Lcom/leidong/sdk/framework/interfaces/ResultCallback;->onSuccess()V
 
-    .line 387
     return-void
 .end method

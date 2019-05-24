@@ -4,17 +4,12 @@
 
 
 # static fields
-.field public static CONFIG_FILE_NAME:Ljava/lang/String;
+.field public static CONFIG_FILE_NAME:Ljava/lang/String; = "leidongGame.ini"
 
 
 # direct methods
 .method static constructor <clinit>()V
-    .locals 1
-
-    .line 16
-    const-string v0, "leidongGame.ini"
-
-    sput-object v0, Lcom/leidong/sdk/s/core/model/GameConfig;->CONFIG_FILE_NAME:Ljava/lang/String;
+    .locals 0
 
     return-void
 .end method
@@ -29,8 +24,7 @@
 .end method
 
 .method public static initConfig(Landroid/content/Context;)V
-    .locals 9
-    .param p0, "context"    # Landroid/content/Context;
+    .locals 8
 
     .line 20
     sget-object v0, Lcom/leidong/sdk/s/core/model/GameConfig;->CONFIG_FILE_NAME:Ljava/lang/String;
@@ -39,149 +33,137 @@
 
     move-result-object v0
 
-    .line 21
-    .local v0, "pro":Ljava/util/Properties;
     if-eqz v0, :cond_7
 
-    .line 22
     const-string v1, "gid"
 
+    .line 22
     invoke-virtual {v0, v1}, Ljava/util/Properties;->getProperty(Ljava/lang/String;)Ljava/lang/String;
 
     move-result-object v1
 
-    .line 23
-    .local v1, "appid":Ljava/lang/String;
     const-string v2, "pid"
 
+    .line 23
     invoke-virtual {v0, v2}, Ljava/util/Properties;->getProperty(Ljava/lang/String;)Ljava/lang/String;
 
     move-result-object v2
 
-    .line 24
-    .local v2, "cchid":Ljava/lang/String;
     const-string v3, "mid"
 
+    .line 24
     invoke-virtual {v0, v3}, Ljava/util/Properties;->getProperty(Ljava/lang/String;)Ljava/lang/String;
 
     move-result-object v3
 
-    .line 25
-    .local v3, "mdid":Ljava/lang/String;
     const-string v4, "sdkversion"
 
+    .line 25
     invoke-virtual {v0, v4}, Ljava/util/Properties;->getProperty(Ljava/lang/String;)Ljava/lang/String;
 
     move-result-object v4
 
-    .line 26
-    .local v4, "sdkversion":Ljava/lang/String;
     const-string v5, "sdk_float_position"
 
+    .line 26
     invoke-virtual {v0, v5}, Ljava/util/Properties;->getProperty(Ljava/lang/String;)Ljava/lang/String;
 
     move-result-object v5
 
-    .line 28
-    .local v5, "sdkFloatPosition":Ljava/lang/String;
     const-string v6, "sdk_id"
 
+    .line 28
     invoke-virtual {v0, v6}, Ljava/util/Properties;->getProperty(Ljava/lang/String;)Ljava/lang/String;
 
     move-result-object v6
 
-    .line 29
-    .local v6, "sdkid":Ljava/lang/String;
     const-string v7, "sdk_float_switch"
 
+    .line 29
     invoke-virtual {v0, v7}, Ljava/util/Properties;->getProperty(Ljava/lang/String;)Ljava/lang/String;
 
-    move-result-object v7
+    move-result-object v0
 
     .line 31
-    .local v7, "floatSwitch":Ljava/lang/String;
     invoke-static {v1}, Landroid/text/TextUtils;->isEmpty(Ljava/lang/CharSequence;)Z
 
-    move-result v8
+    move-result v7
 
-    if-eqz v8, :cond_0
+    if-eqz v7, :cond_0
+
+    const-string v7, "check assets/leidongGame.ini\uff0cgid is null!"
 
     .line 32
-    const-string v8, "check assets/leidongGame.ini\uff0cgid is null!"
-
-    invoke-static {p0, v8}, Lcom/leidong/sdk/framework/utils/ViewUtil;->showToast(Landroid/content/Context;Ljava/lang/String;)V
+    invoke-static {p0, v7}, Lcom/leidong/sdk/framework/utils/ViewUtil;->showToast(Landroid/content/Context;Ljava/lang/String;)V
 
     .line 34
     :cond_0
     invoke-static {v2}, Landroid/text/TextUtils;->isEmpty(Ljava/lang/CharSequence;)Z
 
-    move-result v8
+    move-result v7
 
-    if-eqz v8, :cond_1
+    if-eqz v7, :cond_1
+
+    const-string v7, "check assets/leidongGame.ini\uff0cpid is null!"
 
     .line 35
-    const-string v8, "check assets/leidongGame.ini\uff0cpid is null!"
-
-    invoke-static {p0, v8}, Lcom/leidong/sdk/framework/utils/ViewUtil;->showToast(Landroid/content/Context;Ljava/lang/String;)V
+    invoke-static {p0, v7}, Lcom/leidong/sdk/framework/utils/ViewUtil;->showToast(Landroid/content/Context;Ljava/lang/String;)V
 
     .line 37
     :cond_1
     invoke-static {v3}, Landroid/text/TextUtils;->isEmpty(Ljava/lang/CharSequence;)Z
 
-    move-result v8
+    move-result v7
 
-    if-eqz v8, :cond_2
+    if-eqz v7, :cond_2
+
+    const-string v7, "check assets/leidongGame.ini\uff0cmid is null!"
 
     .line 38
-    const-string v8, "check assets/leidongGame.ini\uff0cmid is null!"
-
-    invoke-static {p0, v8}, Lcom/leidong/sdk/framework/utils/ViewUtil;->showToast(Landroid/content/Context;Ljava/lang/String;)V
+    invoke-static {p0, v7}, Lcom/leidong/sdk/framework/utils/ViewUtil;->showToast(Landroid/content/Context;Ljava/lang/String;)V
 
     .line 40
     :cond_2
     invoke-static {v4}, Landroid/text/TextUtils;->isEmpty(Ljava/lang/CharSequence;)Z
 
-    move-result v8
+    move-result v7
 
-    if-eqz v8, :cond_3
+    if-eqz v7, :cond_3
+
+    const-string v7, "check assets/leidongGame.ini\uff0csdkversion is null!"
 
     .line 41
-    const-string v8, "check assets/leidongGame.ini\uff0csdkversion is null!"
-
-    invoke-static {p0, v8}, Lcom/leidong/sdk/framework/utils/ViewUtil;->showToast(Landroid/content/Context;Ljava/lang/String;)V
+    invoke-static {p0, v7}, Lcom/leidong/sdk/framework/utils/ViewUtil;->showToast(Landroid/content/Context;Ljava/lang/String;)V
 
     .line 43
     :cond_3
     invoke-static {v5}, Landroid/text/TextUtils;->isEmpty(Ljava/lang/CharSequence;)Z
 
-    move-result v8
+    move-result v7
 
-    if-eqz v8, :cond_4
+    if-eqz v7, :cond_4
 
-    .line 44
     const-string v5, "2"
 
     .line 46
     :cond_4
     invoke-static {v6}, Landroid/text/TextUtils;->isEmpty(Ljava/lang/CharSequence;)Z
 
-    move-result v8
+    move-result v7
 
-    if-eqz v8, :cond_5
+    if-eqz v7, :cond_5
 
-    .line 47
     const-string v6, "0"
 
     .line 49
     :cond_5
-    invoke-static {v7}, Landroid/text/TextUtils;->isEmpty(Ljava/lang/CharSequence;)Z
+    invoke-static {v0}, Landroid/text/TextUtils;->isEmpty(Ljava/lang/CharSequence;)Z
 
-    move-result v8
+    move-result v7
 
-    if-eqz v8, :cond_6
+    if-eqz v7, :cond_6
 
-    .line 50
-    const-string v7, "1"
+    const-string v0, "1"
 
     .line 53
     :cond_6
@@ -199,24 +181,16 @@
     .line 57
     invoke-static {v5}, Ljava/lang/Integer;->parseInt(Ljava/lang/String;)I
 
-    move-result v8
+    move-result v1
 
-    invoke-static {p0, v8}, Lcom/leidong/sdk/framework/model/config/ConfigManager;->setSdkFloatPosition(Landroid/content/Context;I)V
+    invoke-static {p0, v1}, Lcom/leidong/sdk/framework/model/config/ConfigManager;->setSdkFloatPosition(Landroid/content/Context;I)V
 
     .line 59
     invoke-static {p0, v6}, Lcom/leidong/sdk/s/core/model/SdkConfigManager;->setSdkId(Landroid/content/Context;Ljava/lang/String;)V
 
     .line 60
-    invoke-static {p0, v7}, Lcom/leidong/sdk/s/core/model/SdkConfigManager;->setSdkFloatSwitch(Landroid/content/Context;Ljava/lang/String;)V
+    invoke-static {p0, v0}, Lcom/leidong/sdk/s/core/model/SdkConfigManager;->setSdkFloatSwitch(Landroid/content/Context;Ljava/lang/String;)V
 
-    .line 62
-    .end local v1    # "appid":Ljava/lang/String;
-    .end local v2    # "cchid":Ljava/lang/String;
-    .end local v3    # "mdid":Ljava/lang/String;
-    .end local v4    # "sdkversion":Ljava/lang/String;
-    .end local v5    # "sdkFloatPosition":Ljava/lang/String;
-    .end local v6    # "sdkid":Ljava/lang/String;
-    .end local v7    # "floatSwitch":Ljava/lang/String;
     :cond_7
     return-void
 .end method

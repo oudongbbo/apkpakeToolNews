@@ -24,9 +24,8 @@
 # direct methods
 .method constructor <init>(Lcom/leidong/sdk/s/app/login/view/LoginByPhone;)V
     .locals 0
-    .param p1, "this$0"    # Lcom/leidong/sdk/s/app/login/view/LoginByPhone;
 
-    .line 232
+    .line 233
     iput-object p1, p0, Lcom/leidong/sdk/s/app/login/view/LoginByPhone$LoginPhoneBackListener;->this$0:Lcom/leidong/sdk/s/app/login/view/LoginByPhone;
 
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -37,19 +36,16 @@
 
 # virtual methods
 .method public onClick(Landroid/view/View;)V
-    .locals 1
-    .param p1, "v"    # Landroid/view/View;
+    .locals 0
 
-    .line 236
-    iget-object v0, p0, Lcom/leidong/sdk/s/app/login/view/LoginByPhone$LoginPhoneBackListener;->this$0:Lcom/leidong/sdk/s/app/login/view/LoginByPhone;
+    .line 237
+    iget-object p1, p0, Lcom/leidong/sdk/s/app/login/view/LoginByPhone$LoginPhoneBackListener;->this$0:Lcom/leidong/sdk/s/app/login/view/LoginByPhone;
 
-    # getter for: Lcom/leidong/sdk/s/app/login/view/LoginByPhone;->loginMain:Lcom/leidong/sdk/s/app/login/view/LoginContent;
-    invoke-static {v0}, Lcom/leidong/sdk/s/app/login/view/LoginByPhone;->access$600(Lcom/leidong/sdk/s/app/login/view/LoginByPhone;)Lcom/leidong/sdk/s/app/login/view/LoginContent;
+    invoke-static {p1}, Lcom/leidong/sdk/s/app/login/view/LoginByPhone;->access$600(Lcom/leidong/sdk/s/app/login/view/LoginByPhone;)Lcom/leidong/sdk/s/app/login/view/LoginContent;
 
-    move-result-object v0
+    move-result-object p1
 
-    invoke-virtual {v0}, Lcom/leidong/sdk/s/app/login/view/LoginContent;->swtichToLoginHome()V
+    invoke-virtual {p1}, Lcom/leidong/sdk/s/app/login/view/LoginContent;->swtichToLoginHome()V
 
-    .line 238
     return-void
 .end method

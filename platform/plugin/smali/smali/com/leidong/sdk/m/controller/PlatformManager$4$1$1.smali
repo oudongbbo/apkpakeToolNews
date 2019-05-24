@@ -24,9 +24,8 @@
 # direct methods
 .method constructor <init>(Lcom/leidong/sdk/m/controller/PlatformManager$4$1;)V
     .locals 0
-    .param p1, "this$2"    # Lcom/leidong/sdk/m/controller/PlatformManager$4$1;
 
-    .line 309
+    .line 312
     iput-object p1, p0, Lcom/leidong/sdk/m/controller/PlatformManager$4$1$1;->this$2:Lcom/leidong/sdk/m/controller/PlatformManager$4$1;
 
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -38,9 +37,8 @@
 # virtual methods
 .method public onFail(Ljava/lang/String;)V
     .locals 1
-    .param p1, "msg"    # Ljava/lang/String;
 
-    .line 362
+    .line 365
     iget-object v0, p0, Lcom/leidong/sdk/m/controller/PlatformManager$4$1$1;->this$2:Lcom/leidong/sdk/m/controller/PlatformManager$4$1;
 
     iget-object v0, v0, Lcom/leidong/sdk/m/controller/PlatformManager$4$1;->this$1:Lcom/leidong/sdk/m/controller/PlatformManager$4;
@@ -51,333 +49,316 @@
 
     invoke-interface {v0, p1}, Lcom/leidong/sdk/m/LeiMsdkCallback;->onPayFail(Ljava/lang/String;)V
 
-    .line 363
     return-void
 .end method
 
 .method public onSuccess(Landroid/os/Bundle;)V
-    .locals 8
-    .param p1, "bundle"    # Landroid/os/Bundle;
+    .locals 4
 
-    .line 312
     const-string v0, "no"
 
+    .line 315
     invoke-virtual {p1, v0}, Landroid/os/Bundle;->getString(Ljava/lang/String;)Ljava/lang/String;
 
     move-result-object v0
 
-    .line 313
-    .local v0, "no":Ljava/lang/String;
     const-string v1, "type"
 
+    .line 316
     invoke-virtual {p1, v1}, Landroid/os/Bundle;->getString(Ljava/lang/String;)Ljava/lang/String;
 
     move-result-object v1
 
-    .line 314
-    .local v1, "type":Ljava/lang/String;
     const-string v2, "cch_data"
 
+    .line 317
     invoke-virtual {p1, v2}, Landroid/os/Bundle;->getString(Ljava/lang/String;)Ljava/lang/String;
 
     move-result-object v2
 
-    .line 315
-    .local v2, "cch_data":Ljava/lang/String;
     const-string v3, "url"
 
+    .line 318
     invoke-virtual {p1, v3}, Landroid/os/Bundle;->getString(Ljava/lang/String;)Ljava/lang/String;
 
-    move-result-object v3
+    move-result-object p1
 
-    .line 317
-    .local v3, "url":Ljava/lang/String;
-    const-string v4, "new"
+    const-string v3, "new"
 
-    invoke-virtual {v4, v1}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+    .line 320
+    invoke-virtual {v3, v1}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
 
-    move-result v4
+    move-result v1
 
-    if-eqz v4, :cond_1
-
-    .line 319
-    iget-object v4, p0, Lcom/leidong/sdk/m/controller/PlatformManager$4$1$1;->this$2:Lcom/leidong/sdk/m/controller/PlatformManager$4$1;
-
-    iget-object v4, v4, Lcom/leidong/sdk/m/controller/PlatformManager$4$1;->this$1:Lcom/leidong/sdk/m/controller/PlatformManager$4;
-
-    iget-object v4, v4, Lcom/leidong/sdk/m/controller/PlatformManager$4;->this$0:Lcom/leidong/sdk/m/controller/PlatformManager;
-
-    iget-object v4, v4, Lcom/leidong/sdk/m/controller/PlatformManager;->mContext:Landroid/content/Context;
-
-    const/4 v5, 0x1
-
-    invoke-static {v4, v5}, Lcom/leidong/sdk/m/model/MConfigManager;->setIsNewPay(Landroid/content/Context;Z)V
+    if-eqz v1, :cond_1
 
     .line 322
-    new-instance v4, Lcom/leidong/sdk/framework/pay/PayInfoBean;
+    iget-object v1, p0, Lcom/leidong/sdk/m/controller/PlatformManager$4$1$1;->this$2:Lcom/leidong/sdk/m/controller/PlatformManager$4$1;
 
-    invoke-direct {v4}, Lcom/leidong/sdk/framework/pay/PayInfoBean;-><init>()V
+    iget-object v1, v1, Lcom/leidong/sdk/m/controller/PlatformManager$4$1;->this$1:Lcom/leidong/sdk/m/controller/PlatformManager$4;
 
-    .line 323
-    .local v4, "infos":Lcom/leidong/sdk/framework/pay/PayInfoBean;
-    iget-object v5, p0, Lcom/leidong/sdk/m/controller/PlatformManager$4$1$1;->this$2:Lcom/leidong/sdk/m/controller/PlatformManager$4$1;
+    iget-object v1, v1, Lcom/leidong/sdk/m/controller/PlatformManager$4;->this$0:Lcom/leidong/sdk/m/controller/PlatformManager;
 
-    iget-object v5, v5, Lcom/leidong/sdk/m/controller/PlatformManager$4$1;->this$1:Lcom/leidong/sdk/m/controller/PlatformManager$4;
+    iget-object v1, v1, Lcom/leidong/sdk/m/controller/PlatformManager;->mContext:Landroid/content/Context;
 
-    iget-object v5, v5, Lcom/leidong/sdk/m/controller/PlatformManager$4;->val$payinfos:Ljava/util/HashMap;
+    const/4 v2, 0x1
 
-    const-string v6, "money"
-
-    invoke-virtual {v5, v6}, Ljava/util/HashMap;->get(Ljava/lang/Object;)Ljava/lang/Object;
-
-    move-result-object v5
-
-    check-cast v5, Ljava/lang/String;
-
-    invoke-virtual {v4, v5}, Lcom/leidong/sdk/framework/pay/PayInfoBean;->setMoney(Ljava/lang/String;)V
-
-    .line 324
-    iget-object v5, p0, Lcom/leidong/sdk/m/controller/PlatformManager$4$1$1;->this$2:Lcom/leidong/sdk/m/controller/PlatformManager$4$1;
-
-    iget-object v5, v5, Lcom/leidong/sdk/m/controller/PlatformManager$4$1;->this$1:Lcom/leidong/sdk/m/controller/PlatformManager$4;
-
-    iget-object v5, v5, Lcom/leidong/sdk/m/controller/PlatformManager$4;->val$payinfos:Ljava/util/HashMap;
-
-    const-string v6, "order_no"
-
-    invoke-virtual {v5, v6}, Ljava/util/HashMap;->get(Ljava/lang/Object;)Ljava/lang/Object;
-
-    move-result-object v5
-
-    check-cast v5, Ljava/lang/String;
-
-    invoke-virtual {v4, v5}, Lcom/leidong/sdk/framework/pay/PayInfoBean;->setOrder_no(Ljava/lang/String;)V
+    invoke-static {v1, v2}, Lcom/leidong/sdk/m/model/MConfigManager;->setIsNewPay(Landroid/content/Context;Z)V
 
     .line 325
-    iget-object v5, p0, Lcom/leidong/sdk/m/controller/PlatformManager$4$1$1;->this$2:Lcom/leidong/sdk/m/controller/PlatformManager$4$1;
+    new-instance v1, Lcom/leidong/sdk/framework/pay/PayInfoBean;
 
-    iget-object v5, v5, Lcom/leidong/sdk/m/controller/PlatformManager$4$1;->this$1:Lcom/leidong/sdk/m/controller/PlatformManager$4;
-
-    iget-object v5, v5, Lcom/leidong/sdk/m/controller/PlatformManager$4;->val$payinfos:Ljava/util/HashMap;
-
-    const-string v6, "order_name"
-
-    invoke-virtual {v5, v6}, Ljava/util/HashMap;->get(Ljava/lang/Object;)Ljava/lang/Object;
-
-    move-result-object v5
-
-    check-cast v5, Ljava/lang/String;
-
-    invoke-virtual {v4, v5}, Lcom/leidong/sdk/framework/pay/PayInfoBean;->setOrder_name(Ljava/lang/String;)V
+    invoke-direct {v1}, Lcom/leidong/sdk/framework/pay/PayInfoBean;-><init>()V
 
     .line 326
-    iget-object v5, p0, Lcom/leidong/sdk/m/controller/PlatformManager$4$1$1;->this$2:Lcom/leidong/sdk/m/controller/PlatformManager$4$1;
+    iget-object v2, p0, Lcom/leidong/sdk/m/controller/PlatformManager$4$1$1;->this$2:Lcom/leidong/sdk/m/controller/PlatformManager$4$1;
 
-    iget-object v5, v5, Lcom/leidong/sdk/m/controller/PlatformManager$4$1;->this$1:Lcom/leidong/sdk/m/controller/PlatformManager$4;
+    iget-object v2, v2, Lcom/leidong/sdk/m/controller/PlatformManager$4$1;->this$1:Lcom/leidong/sdk/m/controller/PlatformManager$4;
 
-    iget-object v5, v5, Lcom/leidong/sdk/m/controller/PlatformManager$4;->val$payinfos:Ljava/util/HashMap;
+    iget-object v2, v2, Lcom/leidong/sdk/m/controller/PlatformManager$4;->val$payinfos:Ljava/util/HashMap;
 
-    const-string v6, "order_ext"
+    const-string v3, "money"
 
-    invoke-virtual {v5, v6}, Ljava/util/HashMap;->get(Ljava/lang/Object;)Ljava/lang/Object;
+    invoke-virtual {v2, v3}, Ljava/util/HashMap;->get(Ljava/lang/Object;)Ljava/lang/Object;
 
-    move-result-object v5
+    move-result-object v2
 
-    check-cast v5, Ljava/lang/String;
+    check-cast v2, Ljava/lang/String;
 
-    invoke-virtual {v4, v5}, Lcom/leidong/sdk/framework/pay/PayInfoBean;->setOrder_ext(Ljava/lang/String;)V
+    invoke-virtual {v1, v2}, Lcom/leidong/sdk/framework/pay/PayInfoBean;->setMoney(Ljava/lang/String;)V
 
     .line 327
-    iget-object v5, p0, Lcom/leidong/sdk/m/controller/PlatformManager$4$1$1;->this$2:Lcom/leidong/sdk/m/controller/PlatformManager$4$1;
+    iget-object v2, p0, Lcom/leidong/sdk/m/controller/PlatformManager$4$1$1;->this$2:Lcom/leidong/sdk/m/controller/PlatformManager$4$1;
 
-    iget-object v5, v5, Lcom/leidong/sdk/m/controller/PlatformManager$4$1;->this$1:Lcom/leidong/sdk/m/controller/PlatformManager$4;
+    iget-object v2, v2, Lcom/leidong/sdk/m/controller/PlatformManager$4$1;->this$1:Lcom/leidong/sdk/m/controller/PlatformManager$4;
 
-    iget-object v5, v5, Lcom/leidong/sdk/m/controller/PlatformManager$4;->val$payinfos:Ljava/util/HashMap;
+    iget-object v2, v2, Lcom/leidong/sdk/m/controller/PlatformManager$4;->val$payinfos:Ljava/util/HashMap;
 
-    const-string v6, "role_id"
+    const-string v3, "order_no"
 
-    invoke-virtual {v5, v6}, Ljava/util/HashMap;->get(Ljava/lang/Object;)Ljava/lang/Object;
+    invoke-virtual {v2, v3}, Ljava/util/HashMap;->get(Ljava/lang/Object;)Ljava/lang/Object;
 
-    move-result-object v5
+    move-result-object v2
 
-    check-cast v5, Ljava/lang/String;
+    check-cast v2, Ljava/lang/String;
 
-    invoke-virtual {v4, v5}, Lcom/leidong/sdk/framework/pay/PayInfoBean;->setRole_id(Ljava/lang/String;)V
+    invoke-virtual {v1, v2}, Lcom/leidong/sdk/framework/pay/PayInfoBean;->setOrder_no(Ljava/lang/String;)V
 
     .line 328
-    iget-object v5, p0, Lcom/leidong/sdk/m/controller/PlatformManager$4$1$1;->this$2:Lcom/leidong/sdk/m/controller/PlatformManager$4$1;
+    iget-object v2, p0, Lcom/leidong/sdk/m/controller/PlatformManager$4$1$1;->this$2:Lcom/leidong/sdk/m/controller/PlatformManager$4$1;
 
-    iget-object v5, v5, Lcom/leidong/sdk/m/controller/PlatformManager$4$1;->this$1:Lcom/leidong/sdk/m/controller/PlatformManager$4;
+    iget-object v2, v2, Lcom/leidong/sdk/m/controller/PlatformManager$4$1;->this$1:Lcom/leidong/sdk/m/controller/PlatformManager$4;
 
-    iget-object v5, v5, Lcom/leidong/sdk/m/controller/PlatformManager$4;->val$payinfos:Ljava/util/HashMap;
+    iget-object v2, v2, Lcom/leidong/sdk/m/controller/PlatformManager$4;->val$payinfos:Ljava/util/HashMap;
 
-    const-string v6, "role_name"
+    const-string v3, "order_name"
 
-    invoke-virtual {v5, v6}, Ljava/util/HashMap;->get(Ljava/lang/Object;)Ljava/lang/Object;
+    invoke-virtual {v2, v3}, Ljava/util/HashMap;->get(Ljava/lang/Object;)Ljava/lang/Object;
 
-    move-result-object v5
+    move-result-object v2
 
-    check-cast v5, Ljava/lang/String;
+    check-cast v2, Ljava/lang/String;
 
-    invoke-virtual {v4, v5}, Lcom/leidong/sdk/framework/pay/PayInfoBean;->setRole_name(Ljava/lang/String;)V
+    invoke-virtual {v1, v2}, Lcom/leidong/sdk/framework/pay/PayInfoBean;->setOrder_name(Ljava/lang/String;)V
 
     .line 329
-    iget-object v5, p0, Lcom/leidong/sdk/m/controller/PlatformManager$4$1$1;->this$2:Lcom/leidong/sdk/m/controller/PlatformManager$4$1;
+    iget-object v2, p0, Lcom/leidong/sdk/m/controller/PlatformManager$4$1$1;->this$2:Lcom/leidong/sdk/m/controller/PlatformManager$4$1;
 
-    iget-object v5, v5, Lcom/leidong/sdk/m/controller/PlatformManager$4$1;->this$1:Lcom/leidong/sdk/m/controller/PlatformManager$4;
+    iget-object v2, v2, Lcom/leidong/sdk/m/controller/PlatformManager$4$1;->this$1:Lcom/leidong/sdk/m/controller/PlatformManager$4;
 
-    iget-object v5, v5, Lcom/leidong/sdk/m/controller/PlatformManager$4;->val$payinfos:Ljava/util/HashMap;
+    iget-object v2, v2, Lcom/leidong/sdk/m/controller/PlatformManager$4;->val$payinfos:Ljava/util/HashMap;
 
-    const-string v6, "role_level"
+    const-string v3, "order_ext"
 
-    invoke-virtual {v5, v6}, Ljava/util/HashMap;->get(Ljava/lang/Object;)Ljava/lang/Object;
+    invoke-virtual {v2, v3}, Ljava/util/HashMap;->get(Ljava/lang/Object;)Ljava/lang/Object;
 
-    move-result-object v5
+    move-result-object v2
 
-    check-cast v5, Ljava/lang/String;
+    check-cast v2, Ljava/lang/String;
 
-    invoke-virtual {v4, v5}, Lcom/leidong/sdk/framework/pay/PayInfoBean;->setRole_level(Ljava/lang/String;)V
+    invoke-virtual {v1, v2}, Lcom/leidong/sdk/framework/pay/PayInfoBean;->setOrder_ext(Ljava/lang/String;)V
 
     .line 330
-    iget-object v5, p0, Lcom/leidong/sdk/m/controller/PlatformManager$4$1$1;->this$2:Lcom/leidong/sdk/m/controller/PlatformManager$4$1;
+    iget-object v2, p0, Lcom/leidong/sdk/m/controller/PlatformManager$4$1$1;->this$2:Lcom/leidong/sdk/m/controller/PlatformManager$4$1;
 
-    iget-object v5, v5, Lcom/leidong/sdk/m/controller/PlatformManager$4$1;->this$1:Lcom/leidong/sdk/m/controller/PlatformManager$4;
+    iget-object v2, v2, Lcom/leidong/sdk/m/controller/PlatformManager$4$1;->this$1:Lcom/leidong/sdk/m/controller/PlatformManager$4;
 
-    iget-object v5, v5, Lcom/leidong/sdk/m/controller/PlatformManager$4;->val$payinfos:Ljava/util/HashMap;
+    iget-object v2, v2, Lcom/leidong/sdk/m/controller/PlatformManager$4;->val$payinfos:Ljava/util/HashMap;
 
-    const-string v6, "server_id"
+    const-string v3, "role_id"
 
-    invoke-virtual {v5, v6}, Ljava/util/HashMap;->get(Ljava/lang/Object;)Ljava/lang/Object;
+    invoke-virtual {v2, v3}, Ljava/util/HashMap;->get(Ljava/lang/Object;)Ljava/lang/Object;
 
-    move-result-object v5
+    move-result-object v2
 
-    check-cast v5, Ljava/lang/String;
+    check-cast v2, Ljava/lang/String;
 
-    invoke-virtual {v4, v5}, Lcom/leidong/sdk/framework/pay/PayInfoBean;->setServer_id(Ljava/lang/String;)V
+    invoke-virtual {v1, v2}, Lcom/leidong/sdk/framework/pay/PayInfoBean;->setRole_id(Ljava/lang/String;)V
 
     .line 331
-    iget-object v5, p0, Lcom/leidong/sdk/m/controller/PlatformManager$4$1$1;->this$2:Lcom/leidong/sdk/m/controller/PlatformManager$4$1;
+    iget-object v2, p0, Lcom/leidong/sdk/m/controller/PlatformManager$4$1$1;->this$2:Lcom/leidong/sdk/m/controller/PlatformManager$4$1;
 
-    iget-object v5, v5, Lcom/leidong/sdk/m/controller/PlatformManager$4$1;->this$1:Lcom/leidong/sdk/m/controller/PlatformManager$4;
+    iget-object v2, v2, Lcom/leidong/sdk/m/controller/PlatformManager$4$1;->this$1:Lcom/leidong/sdk/m/controller/PlatformManager$4;
 
-    iget-object v5, v5, Lcom/leidong/sdk/m/controller/PlatformManager$4;->val$payinfos:Ljava/util/HashMap;
+    iget-object v2, v2, Lcom/leidong/sdk/m/controller/PlatformManager$4;->val$payinfos:Ljava/util/HashMap;
 
-    const-string v6, "server_name"
+    const-string v3, "role_name"
 
-    invoke-virtual {v5, v6}, Ljava/util/HashMap;->get(Ljava/lang/Object;)Ljava/lang/Object;
+    invoke-virtual {v2, v3}, Ljava/util/HashMap;->get(Ljava/lang/Object;)Ljava/lang/Object;
 
-    move-result-object v5
+    move-result-object v2
 
-    check-cast v5, Ljava/lang/String;
+    check-cast v2, Ljava/lang/String;
 
-    invoke-virtual {v4, v5}, Lcom/leidong/sdk/framework/pay/PayInfoBean;->setServer_name(Ljava/lang/String;)V
+    invoke-virtual {v1, v2}, Lcom/leidong/sdk/framework/pay/PayInfoBean;->setRole_name(Ljava/lang/String;)V
 
     .line 332
-    invoke-virtual {v4, v0}, Lcom/leidong/sdk/framework/pay/PayInfoBean;->setOrder_no_m(Ljava/lang/String;)V
+    iget-object v2, p0, Lcom/leidong/sdk/m/controller/PlatformManager$4$1$1;->this$2:Lcom/leidong/sdk/m/controller/PlatformManager$4$1;
+
+    iget-object v2, v2, Lcom/leidong/sdk/m/controller/PlatformManager$4$1;->this$1:Lcom/leidong/sdk/m/controller/PlatformManager$4;
+
+    iget-object v2, v2, Lcom/leidong/sdk/m/controller/PlatformManager$4;->val$payinfos:Ljava/util/HashMap;
+
+    const-string v3, "role_level"
+
+    invoke-virtual {v2, v3}, Ljava/util/HashMap;->get(Ljava/lang/Object;)Ljava/lang/Object;
+
+    move-result-object v2
+
+    check-cast v2, Ljava/lang/String;
+
+    invoke-virtual {v1, v2}, Lcom/leidong/sdk/framework/pay/PayInfoBean;->setRole_level(Ljava/lang/String;)V
 
     .line 333
-    const-string v5, ""
+    iget-object v2, p0, Lcom/leidong/sdk/m/controller/PlatformManager$4$1$1;->this$2:Lcom/leidong/sdk/m/controller/PlatformManager$4$1;
 
-    invoke-virtual {v4, v5}, Lcom/leidong/sdk/framework/pay/PayInfoBean;->setOrder_ext_m(Ljava/lang/String;)V
+    iget-object v2, v2, Lcom/leidong/sdk/m/controller/PlatformManager$4$1;->this$1:Lcom/leidong/sdk/m/controller/PlatformManager$4;
+
+    iget-object v2, v2, Lcom/leidong/sdk/m/controller/PlatformManager$4;->val$payinfos:Ljava/util/HashMap;
+
+    const-string v3, "server_id"
+
+    invoke-virtual {v2, v3}, Ljava/util/HashMap;->get(Ljava/lang/Object;)Ljava/lang/Object;
+
+    move-result-object v2
+
+    check-cast v2, Ljava/lang/String;
+
+    invoke-virtual {v1, v2}, Lcom/leidong/sdk/framework/pay/PayInfoBean;->setServer_id(Ljava/lang/String;)V
+
+    .line 334
+    iget-object v2, p0, Lcom/leidong/sdk/m/controller/PlatformManager$4$1$1;->this$2:Lcom/leidong/sdk/m/controller/PlatformManager$4$1;
+
+    iget-object v2, v2, Lcom/leidong/sdk/m/controller/PlatformManager$4$1;->this$1:Lcom/leidong/sdk/m/controller/PlatformManager$4;
+
+    iget-object v2, v2, Lcom/leidong/sdk/m/controller/PlatformManager$4;->val$payinfos:Ljava/util/HashMap;
+
+    const-string v3, "server_name"
+
+    invoke-virtual {v2, v3}, Ljava/util/HashMap;->get(Ljava/lang/Object;)Ljava/lang/Object;
+
+    move-result-object v2
+
+    check-cast v2, Ljava/lang/String;
+
+    invoke-virtual {v1, v2}, Lcom/leidong/sdk/framework/pay/PayInfoBean;->setServer_name(Ljava/lang/String;)V
 
     .line 335
-    invoke-static {v3}, Landroid/text/TextUtils;->isEmpty(Ljava/lang/CharSequence;)Z
+    invoke-virtual {v1, v0}, Lcom/leidong/sdk/framework/pay/PayInfoBean;->setOrder_no_m(Ljava/lang/String;)V
 
-    move-result v5
+    const-string v0, ""
 
-    if-eqz v5, :cond_0
+    .line 336
+    invoke-virtual {v1, v0}, Lcom/leidong/sdk/framework/pay/PayInfoBean;->setOrder_ext_m(Ljava/lang/String;)V
 
-    sget-object v5, Lcom/leidong/sdk/s/core/http/RequestUrls;->WEB_PAY_PAGE:Ljava/lang/String;
+    .line 338
+    invoke-static {p1}, Landroid/text/TextUtils;->isEmpty(Ljava/lang/CharSequence;)Z
+
+    move-result v0
+
+    if-eqz v0, :cond_0
+
+    sget-object p1, Lcom/leidong/sdk/s/core/http/RequestUrls;->WEB_PAY_PAGE:Ljava/lang/String;
+
+    .line 340
+    :cond_0
+    iget-object v0, p0, Lcom/leidong/sdk/m/controller/PlatformManager$4$1$1;->this$2:Lcom/leidong/sdk/m/controller/PlatformManager$4$1;
+
+    iget-object v0, v0, Lcom/leidong/sdk/m/controller/PlatformManager$4$1;->this$1:Lcom/leidong/sdk/m/controller/PlatformManager$4;
+
+    iget-object v0, v0, Lcom/leidong/sdk/m/controller/PlatformManager$4;->this$0:Lcom/leidong/sdk/m/controller/PlatformManager;
+
+    iget-object v0, v0, Lcom/leidong/sdk/m/controller/PlatformManager;->mContext:Landroid/content/Context;
+
+    new-instance v2, Lcom/leidong/sdk/m/controller/PlatformManager$4$1$1$1;
+
+    invoke-direct {v2, p0}, Lcom/leidong/sdk/m/controller/PlatformManager$4$1$1$1;-><init>(Lcom/leidong/sdk/m/controller/PlatformManager$4$1$1;)V
+
+    invoke-static {v0, p1, v1, v2}, Lcom/leidong/sdk/m/utils/MsdkUtils;->showSdkPayDialog(Landroid/content/Context;Ljava/lang/String;Lcom/leidong/sdk/framework/pay/PayInfoBean;Lcom/leidong/sdk/framework/interfaces/SdkResultCallback;)V
 
     goto :goto_0
 
-    :cond_0
-    move-object v5, v3
-
-    .line 337
-    .local v5, "host":Ljava/lang/String;
-    :goto_0
-    iget-object v6, p0, Lcom/leidong/sdk/m/controller/PlatformManager$4$1$1;->this$2:Lcom/leidong/sdk/m/controller/PlatformManager$4$1;
-
-    iget-object v6, v6, Lcom/leidong/sdk/m/controller/PlatformManager$4$1;->this$1:Lcom/leidong/sdk/m/controller/PlatformManager$4;
-
-    iget-object v6, v6, Lcom/leidong/sdk/m/controller/PlatformManager$4;->this$0:Lcom/leidong/sdk/m/controller/PlatformManager;
-
-    iget-object v6, v6, Lcom/leidong/sdk/m/controller/PlatformManager;->mContext:Landroid/content/Context;
-
-    new-instance v7, Lcom/leidong/sdk/m/controller/PlatformManager$4$1$1$1;
-
-    invoke-direct {v7, p0}, Lcom/leidong/sdk/m/controller/PlatformManager$4$1$1$1;-><init>(Lcom/leidong/sdk/m/controller/PlatformManager$4$1$1;)V
-
-    invoke-static {v6, v5, v4, v7}, Lcom/leidong/sdk/m/utils/MsdkUtils;->showSdkPayDialog(Landroid/content/Context;Ljava/lang/String;Lcom/leidong/sdk/framework/pay/PayInfoBean;Lcom/leidong/sdk/framework/interfaces/SdkResultCallback;)V
-
-    .line 351
-    .end local v4    # "infos":Lcom/leidong/sdk/framework/pay/PayInfoBean;
-    .end local v5    # "host":Ljava/lang/String;
-    goto :goto_1
-
-    .line 353
-    :cond_1
-    iget-object v4, p0, Lcom/leidong/sdk/m/controller/PlatformManager$4$1$1;->this$2:Lcom/leidong/sdk/m/controller/PlatformManager$4$1;
-
-    iget-object v4, v4, Lcom/leidong/sdk/m/controller/PlatformManager$4$1;->this$1:Lcom/leidong/sdk/m/controller/PlatformManager$4;
-
-    iget-object v4, v4, Lcom/leidong/sdk/m/controller/PlatformManager$4;->this$0:Lcom/leidong/sdk/m/controller/PlatformManager;
-
-    iget-object v4, v4, Lcom/leidong/sdk/m/controller/PlatformManager;->mContext:Landroid/content/Context;
-
-    const/4 v5, 0x0
-
-    invoke-static {v4, v5}, Lcom/leidong/sdk/m/model/MConfigManager;->setIsNewPay(Landroid/content/Context;Z)V
-
-    .line 355
-    iget-object v4, p0, Lcom/leidong/sdk/m/controller/PlatformManager$4$1$1;->this$2:Lcom/leidong/sdk/m/controller/PlatformManager$4$1;
-
-    iget-object v4, v4, Lcom/leidong/sdk/m/controller/PlatformManager$4$1;->this$1:Lcom/leidong/sdk/m/controller/PlatformManager$4;
-
-    iget-object v4, v4, Lcom/leidong/sdk/m/controller/PlatformManager$4;->val$payinfos:Ljava/util/HashMap;
-
-    const-string v5, "order_no_m"
-
-    invoke-virtual {v4, v5, v0}, Ljava/util/HashMap;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
-
     .line 356
-    iget-object v4, p0, Lcom/leidong/sdk/m/controller/PlatformManager$4$1$1;->this$2:Lcom/leidong/sdk/m/controller/PlatformManager$4$1;
+    :cond_1
+    iget-object p1, p0, Lcom/leidong/sdk/m/controller/PlatformManager$4$1$1;->this$2:Lcom/leidong/sdk/m/controller/PlatformManager$4$1;
 
-    iget-object v4, v4, Lcom/leidong/sdk/m/controller/PlatformManager$4$1;->this$1:Lcom/leidong/sdk/m/controller/PlatformManager$4;
+    iget-object p1, p1, Lcom/leidong/sdk/m/controller/PlatformManager$4$1;->this$1:Lcom/leidong/sdk/m/controller/PlatformManager$4;
 
-    iget-object v4, v4, Lcom/leidong/sdk/m/controller/PlatformManager$4;->val$payinfos:Ljava/util/HashMap;
+    iget-object p1, p1, Lcom/leidong/sdk/m/controller/PlatformManager$4;->this$0:Lcom/leidong/sdk/m/controller/PlatformManager;
 
-    const-string v5, "order_cch_data"
+    iget-object p1, p1, Lcom/leidong/sdk/m/controller/PlatformManager;->mContext:Landroid/content/Context;
 
-    invoke-virtual {v4, v5, v2}, Ljava/util/HashMap;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
+    const/4 v1, 0x0
 
-    .line 357
-    iget-object v4, p0, Lcom/leidong/sdk/m/controller/PlatformManager$4$1$1;->this$2:Lcom/leidong/sdk/m/controller/PlatformManager$4$1;
+    invoke-static {p1, v1}, Lcom/leidong/sdk/m/model/MConfigManager;->setIsNewPay(Landroid/content/Context;Z)V
 
-    iget-object v4, v4, Lcom/leidong/sdk/m/controller/PlatformManager$4$1;->this$1:Lcom/leidong/sdk/m/controller/PlatformManager$4;
+    .line 358
+    iget-object p1, p0, Lcom/leidong/sdk/m/controller/PlatformManager$4$1$1;->this$2:Lcom/leidong/sdk/m/controller/PlatformManager$4$1;
 
-    iget-object v4, v4, Lcom/leidong/sdk/m/controller/PlatformManager$4;->this$0:Lcom/leidong/sdk/m/controller/PlatformManager;
+    iget-object p1, p1, Lcom/leidong/sdk/m/controller/PlatformManager$4$1;->this$1:Lcom/leidong/sdk/m/controller/PlatformManager$4;
 
-    iget-object v4, v4, Lcom/leidong/sdk/m/controller/PlatformManager;->mPlatform:Lcom/leidong/sdk/m/controller/PlatformCore;
+    iget-object p1, p1, Lcom/leidong/sdk/m/controller/PlatformManager$4;->val$payinfos:Ljava/util/HashMap;
 
-    iget-object v5, p0, Lcom/leidong/sdk/m/controller/PlatformManager$4$1$1;->this$2:Lcom/leidong/sdk/m/controller/PlatformManager$4$1;
+    const-string v1, "order_no_m"
 
-    iget-object v5, v5, Lcom/leidong/sdk/m/controller/PlatformManager$4$1;->this$1:Lcom/leidong/sdk/m/controller/PlatformManager$4;
-
-    iget-object v5, v5, Lcom/leidong/sdk/m/controller/PlatformManager$4;->this$0:Lcom/leidong/sdk/m/controller/PlatformManager;
-
-    iget-object v5, v5, Lcom/leidong/sdk/m/controller/PlatformManager;->mContext:Landroid/content/Context;
-
-    iget-object v6, p0, Lcom/leidong/sdk/m/controller/PlatformManager$4$1$1;->this$2:Lcom/leidong/sdk/m/controller/PlatformManager$4$1;
-
-    iget-object v6, v6, Lcom/leidong/sdk/m/controller/PlatformManager$4$1;->this$1:Lcom/leidong/sdk/m/controller/PlatformManager$4;
-
-    iget-object v6, v6, Lcom/leidong/sdk/m/controller/PlatformManager$4;->val$payinfos:Ljava/util/HashMap;
-
-    invoke-virtual {v4, v5, v6}, Lcom/leidong/sdk/m/controller/PlatformCore;->mUserPay(Landroid/content/Context;Ljava/util/HashMap;)V
+    invoke-virtual {p1, v1, v0}, Ljava/util/HashMap;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
 
     .line 359
-    :goto_1
+    iget-object p1, p0, Lcom/leidong/sdk/m/controller/PlatformManager$4$1$1;->this$2:Lcom/leidong/sdk/m/controller/PlatformManager$4$1;
+
+    iget-object p1, p1, Lcom/leidong/sdk/m/controller/PlatformManager$4$1;->this$1:Lcom/leidong/sdk/m/controller/PlatformManager$4;
+
+    iget-object p1, p1, Lcom/leidong/sdk/m/controller/PlatformManager$4;->val$payinfos:Ljava/util/HashMap;
+
+    const-string v0, "order_cch_data"
+
+    invoke-virtual {p1, v0, v2}, Ljava/util/HashMap;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
+
+    .line 360
+    iget-object p1, p0, Lcom/leidong/sdk/m/controller/PlatformManager$4$1$1;->this$2:Lcom/leidong/sdk/m/controller/PlatformManager$4$1;
+
+    iget-object p1, p1, Lcom/leidong/sdk/m/controller/PlatformManager$4$1;->this$1:Lcom/leidong/sdk/m/controller/PlatformManager$4;
+
+    iget-object p1, p1, Lcom/leidong/sdk/m/controller/PlatformManager$4;->this$0:Lcom/leidong/sdk/m/controller/PlatformManager;
+
+    iget-object p1, p1, Lcom/leidong/sdk/m/controller/PlatformManager;->mPlatform:Lcom/leidong/sdk/m/controller/PlatformCore;
+
+    iget-object v0, p0, Lcom/leidong/sdk/m/controller/PlatformManager$4$1$1;->this$2:Lcom/leidong/sdk/m/controller/PlatformManager$4$1;
+
+    iget-object v0, v0, Lcom/leidong/sdk/m/controller/PlatformManager$4$1;->this$1:Lcom/leidong/sdk/m/controller/PlatformManager$4;
+
+    iget-object v0, v0, Lcom/leidong/sdk/m/controller/PlatformManager$4;->this$0:Lcom/leidong/sdk/m/controller/PlatformManager;
+
+    iget-object v0, v0, Lcom/leidong/sdk/m/controller/PlatformManager;->mContext:Landroid/content/Context;
+
+    iget-object v1, p0, Lcom/leidong/sdk/m/controller/PlatformManager$4$1$1;->this$2:Lcom/leidong/sdk/m/controller/PlatformManager$4$1;
+
+    iget-object v1, v1, Lcom/leidong/sdk/m/controller/PlatformManager$4$1;->this$1:Lcom/leidong/sdk/m/controller/PlatformManager$4;
+
+    iget-object v1, v1, Lcom/leidong/sdk/m/controller/PlatformManager$4;->val$payinfos:Ljava/util/HashMap;
+
+    invoke-virtual {p1, v0, v1}, Lcom/leidong/sdk/m/controller/PlatformCore;->mUserPay(Landroid/content/Context;Ljava/util/HashMap;)V
+
+    :goto_0
     return-void
 .end method

@@ -21,7 +21,6 @@
 # direct methods
 .method constructor <init>(Lcom/leidong/sdk/framework/view/loading/LoadingSmile;)V
     .locals 0
-    .param p1, "this$0"    # Lcom/leidong/sdk/framework/view/loading/LoadingSmile;
 
     .line 129
     iput-object p1, p0, Lcom/leidong/sdk/framework/view/loading/LoadingSmile$2;->this$0:Lcom/leidong/sdk/framework/view/loading/LoadingSmile;
@@ -35,33 +34,27 @@
 # virtual methods
 .method public onAnimationEnd(Landroid/animation/Animator;)V
     .locals 0
-    .param p1, "animation"    # Landroid/animation/Animator;
 
     .line 132
     invoke-super {p0, p1}, Landroid/animation/AnimatorListenerAdapter;->onAnimationEnd(Landroid/animation/Animator;)V
 
-    .line 134
     return-void
 .end method
 
 .method public onAnimationRepeat(Landroid/animation/Animator;)V
     .locals 0
-    .param p1, "animation"    # Landroid/animation/Animator;
 
     .line 143
     invoke-super {p0, p1}, Landroid/animation/AnimatorListenerAdapter;->onAnimationRepeat(Landroid/animation/Animator;)V
 
-    .line 144
     return-void
 .end method
 
 .method public onAnimationStart(Landroid/animation/Animator;)V
     .locals 0
-    .param p1, "animation"    # Landroid/animation/Animator;
 
     .line 138
     invoke-super {p0, p1}, Landroid/animation/AnimatorListenerAdapter;->onAnimationStart(Landroid/animation/Animator;)V
 
-    .line 139
     return-void
 .end method

@@ -24,7 +24,6 @@
 # direct methods
 .method constructor <init>(Lcom/leidong/sdk/s/app/login/view/LoginByForgetPwd$2;)V
     .locals 0
-    .param p1, "this$1"    # Lcom/leidong/sdk/s/app/login/view/LoginByForgetPwd$2;
 
     .line 161
     iput-object p1, p0, Lcom/leidong/sdk/s/app/login/view/LoginByForgetPwd$2$1;->this$1:Lcom/leidong/sdk/s/app/login/view/LoginByForgetPwd$2;
@@ -37,31 +36,26 @@
 
 # virtual methods
 .method public onFail(ILjava/lang/String;)V
-    .locals 1
-    .param p1, "errorCode"    # I
-    .param p2, "message"    # Ljava/lang/String;
+    .locals 0
 
     .line 209
-    iget-object v0, p0, Lcom/leidong/sdk/s/app/login/view/LoginByForgetPwd$2$1;->this$1:Lcom/leidong/sdk/s/app/login/view/LoginByForgetPwd$2;
+    iget-object p1, p0, Lcom/leidong/sdk/s/app/login/view/LoginByForgetPwd$2$1;->this$1:Lcom/leidong/sdk/s/app/login/view/LoginByForgetPwd$2;
 
-    iget-object v0, v0, Lcom/leidong/sdk/s/app/login/view/LoginByForgetPwd$2;->this$0:Lcom/leidong/sdk/s/app/login/view/LoginByForgetPwd;
+    iget-object p1, p1, Lcom/leidong/sdk/s/app/login/view/LoginByForgetPwd$2;->this$0:Lcom/leidong/sdk/s/app/login/view/LoginByForgetPwd;
 
-    invoke-virtual {v0, p2}, Lcom/leidong/sdk/s/app/login/view/LoginByForgetPwd;->showToast(Ljava/lang/String;)V
+    invoke-virtual {p1, p2}, Lcom/leidong/sdk/s/app/login/view/LoginByForgetPwd;->showToast(Ljava/lang/String;)V
 
-    .line 210
     return-void
 .end method
 
 .method public onSuccess(Ljava/lang/String;)V
     .locals 2
-    .param p1, "content"    # Ljava/lang/String;
 
     .line 166
     iget-object v0, p0, Lcom/leidong/sdk/s/app/login/view/LoginByForgetPwd$2$1;->this$1:Lcom/leidong/sdk/s/app/login/view/LoginByForgetPwd$2;
 
     iget-object v0, v0, Lcom/leidong/sdk/s/app/login/view/LoginByForgetPwd$2;->this$0:Lcom/leidong/sdk/s/app/login/view/LoginByForgetPwd;
 
-    # getter for: Lcom/leidong/sdk/s/app/login/view/LoginByForgetPwd;->loginMain:Lcom/leidong/sdk/s/app/login/view/LoginContent;
     invoke-static {v0}, Lcom/leidong/sdk/s/app/login/view/LoginByForgetPwd;->access$500(Lcom/leidong/sdk/s/app/login/view/LoginByForgetPwd;)Lcom/leidong/sdk/s/app/login/view/LoginContent;
 
     move-result-object v0
@@ -76,6 +70,5 @@
 
     invoke-virtual {v0, p1, v1}, Lcom/leidong/sdk/s/core/http/ResponseManager;->handleBindInfoByName(Ljava/lang/String;Lcom/leidong/sdk/framework/interfaces/ResultCallback2;)V
 
-    .line 205
     return-void
 .end method

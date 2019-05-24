@@ -39,50 +39,47 @@
 
 # direct methods
 .method constructor <init>(ZLcom/leidong/open/http/okio/BufferedSource;Lcom/leidong/open/http/okhttp3/internal/ws/WebSocketReader$FrameCallback;)V
-    .locals 2
-    .param p1, "isClient"    # Z
-    .param p2, "source"    # Lcom/leidong/open/http/okio/BufferedSource;
-    .param p3, "frameCallback"    # Lcom/leidong/open/http/okhttp3/internal/ws/WebSocketReader$FrameCallback;
+    .locals 1
 
     .line 79
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
-    .line 76
     const/4 v0, 0x4
 
+    .line 76
     new-array v0, v0, [B
 
     iput-object v0, p0, Lcom/leidong/open/http/okhttp3/internal/ws/WebSocketReader;->maskKey:[B
 
-    .line 77
     const/16 v0, 0x2000
 
+    .line 77
     new-array v0, v0, [B
 
     iput-object v0, p0, Lcom/leidong/open/http/okhttp3/internal/ws/WebSocketReader;->maskBuffer:[B
 
-    .line 80
     if-nez p2, :cond_0
 
-    new-instance v0, Ljava/lang/NullPointerException;
+    .line 80
+    new-instance p1, Ljava/lang/NullPointerException;
 
-    const-string v1, "source == null"
+    const-string p2, "source == null"
 
-    invoke-direct {v0, v1}, Ljava/lang/NullPointerException;-><init>(Ljava/lang/String;)V
+    invoke-direct {p1, p2}, Ljava/lang/NullPointerException;-><init>(Ljava/lang/String;)V
 
-    throw v0
+    throw p1
 
-    .line 81
     :cond_0
     if-nez p3, :cond_1
 
-    new-instance v0, Ljava/lang/NullPointerException;
+    .line 81
+    new-instance p1, Ljava/lang/NullPointerException;
 
-    const-string v1, "frameCallback == null"
+    const-string p2, "frameCallback == null"
 
-    invoke-direct {v0, v1}, Ljava/lang/NullPointerException;-><init>(Ljava/lang/String;)V
+    invoke-direct {p1, p2}, Ljava/lang/NullPointerException;-><init>(Ljava/lang/String;)V
 
-    throw v0
+    throw p1
 
     .line 82
     :cond_1
@@ -94,7 +91,6 @@
     .line 84
     iput-object p3, p0, Lcom/leidong/open/http/okhttp3/internal/ws/WebSocketReader;->frameCallback:Lcom/leidong/open/http/okhttp3/internal/ws/WebSocketReader$FrameCallback;
 
-    .line 85
     return-void
 .end method
 
@@ -112,7 +108,6 @@
     invoke-direct {v0}, Lcom/leidong/open/http/okio/Buffer;-><init>()V
 
     .line 171
-    .local v0, "buffer":Lcom/leidong/open/http/okio/Buffer;
     iget-wide v1, p0, Lcom/leidong/open/http/okhttp3/internal/ws/WebSocketReader;->frameBytesRead:J
 
     iget-wide v3, p0, Lcom/leidong/open/http/okhttp3/internal/ws/WebSocketReader;->frameLength:J
@@ -166,7 +161,6 @@
     long-to-int v1, v1
 
     .line 177
-    .local v1, "toRead":I
     iget-object v2, p0, Lcom/leidong/open/http/okhttp3/internal/ws/WebSocketReader;->source:Lcom/leidong/open/http/okio/BufferedSource;
 
     iget-object v3, p0, Lcom/leidong/open/http/okhttp3/internal/ws/WebSocketReader;->maskBuffer:[B
@@ -175,49 +169,45 @@
 
     invoke-interface {v2, v3, v4, v1}, Lcom/leidong/open/http/okio/BufferedSource;->read([BII)I
 
-    move-result v2
+    move-result v1
+
+    const/4 v2, -0x1
+
+    if-ne v1, v2, :cond_1
 
     .line 178
-    .local v2, "read":I
-    const/4 v3, -0x1
+    new-instance v0, Ljava/io/EOFException;
 
-    if-ne v2, v3, :cond_1
+    invoke-direct {v0}, Ljava/io/EOFException;-><init>()V
 
-    new-instance v3, Ljava/io/EOFException;
-
-    invoke-direct {v3}, Ljava/io/EOFException;-><init>()V
-
-    throw v3
+    throw v0
 
     .line 179
     :cond_1
     iget-object v5, p0, Lcom/leidong/open/http/okhttp3/internal/ws/WebSocketReader;->maskBuffer:[B
 
-    int-to-long v6, v2
+    int-to-long v2, v1
 
     iget-object v8, p0, Lcom/leidong/open/http/okhttp3/internal/ws/WebSocketReader;->maskKey:[B
 
     iget-wide v9, p0, Lcom/leidong/open/http/okhttp3/internal/ws/WebSocketReader;->frameBytesRead:J
 
+    move-wide v6, v2
+
     invoke-static/range {v5 .. v10}, Lcom/leidong/open/http/okhttp3/internal/ws/WebSocketProtocol;->toggleMask([BJ[BJ)V
 
     .line 180
-    iget-object v3, p0, Lcom/leidong/open/http/okhttp3/internal/ws/WebSocketReader;->maskBuffer:[B
+    iget-object v5, p0, Lcom/leidong/open/http/okhttp3/internal/ws/WebSocketReader;->maskBuffer:[B
 
-    invoke-virtual {v0, v3, v4, v2}, Lcom/leidong/open/http/okio/Buffer;->write([BII)Lcom/leidong/open/http/okio/Buffer;
+    invoke-virtual {v0, v5, v4, v1}, Lcom/leidong/open/http/okio/Buffer;->write([BII)Lcom/leidong/open/http/okio/Buffer;
 
     .line 181
-    iget-wide v3, p0, Lcom/leidong/open/http/okhttp3/internal/ws/WebSocketReader;->frameBytesRead:J
+    iget-wide v4, p0, Lcom/leidong/open/http/okhttp3/internal/ws/WebSocketReader;->frameBytesRead:J
 
-    int-to-long v5, v2
+    add-long v6, v4, v2
 
-    add-long v7, v3, v5
+    iput-wide v6, p0, Lcom/leidong/open/http/okhttp3/internal/ws/WebSocketReader;->frameBytesRead:J
 
-    iput-wide v7, p0, Lcom/leidong/open/http/okhttp3/internal/ws/WebSocketReader;->frameBytesRead:J
-
-    .line 182
-    .end local v1    # "toRead":I
-    .end local v2    # "read":I
     goto :goto_0
 
     .line 186
@@ -228,31 +218,31 @@
     packed-switch v1, :pswitch_data_0
 
     .line 209
-    new-instance v1, Ljava/net/ProtocolException;
+    new-instance v0, Ljava/net/ProtocolException;
 
-    new-instance v2, Ljava/lang/StringBuilder;
+    new-instance v1, Ljava/lang/StringBuilder;
 
-    invoke-direct {v2}, Ljava/lang/StringBuilder;-><init>()V
+    invoke-direct {v1}, Ljava/lang/StringBuilder;-><init>()V
 
-    const-string v3, "Unknown control opcode: "
+    const-string v2, "Unknown control opcode: "
 
-    invoke-virtual {v2, v3}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-virtual {v1, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    iget v3, p0, Lcom/leidong/open/http/okhttp3/internal/ws/WebSocketReader;->opcode:I
+    iget v2, p0, Lcom/leidong/open/http/okhttp3/internal/ws/WebSocketReader;->opcode:I
 
-    invoke-static {v3}, Ljava/lang/Integer;->toHexString(I)Ljava/lang/String;
-
-    move-result-object v3
-
-    invoke-virtual {v2, v3}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    invoke-virtual {v2}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+    invoke-static {v2}, Ljava/lang/Integer;->toHexString(I)Ljava/lang/String;
 
     move-result-object v2
 
-    invoke-direct {v1, v2}, Ljava/net/ProtocolException;-><init>(Ljava/lang/String;)V
+    invoke-virtual {v1, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    throw v1
+    invoke-virtual {v1}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+
+    move-result-object v1
+
+    invoke-direct {v0, v1}, Ljava/net/ProtocolException;-><init>(Ljava/lang/String;)V
+
+    throw v0
 
     .line 191
     :pswitch_0
@@ -260,11 +250,10 @@
 
     invoke-virtual {v0}, Lcom/leidong/open/http/okio/Buffer;->readByteString()Lcom/leidong/open/http/okio/ByteString;
 
-    move-result-object v2
+    move-result-object v0
 
-    invoke-interface {v1, v2}, Lcom/leidong/open/http/okhttp3/internal/ws/WebSocketReader$FrameCallback;->onReadPong(Lcom/leidong/open/http/okio/ByteString;)V
+    invoke-interface {v1, v0}, Lcom/leidong/open/http/okhttp3/internal/ws/WebSocketReader$FrameCallback;->onReadPong(Lcom/leidong/open/http/okio/ByteString;)V
 
-    .line 192
     goto :goto_2
 
     .line 188
@@ -273,29 +262,22 @@
 
     invoke-virtual {v0}, Lcom/leidong/open/http/okio/Buffer;->readByteString()Lcom/leidong/open/http/okio/ByteString;
 
-    move-result-object v2
+    move-result-object v0
 
-    invoke-interface {v1, v2}, Lcom/leidong/open/http/okhttp3/internal/ws/WebSocketReader$FrameCallback;->onReadPing(Lcom/leidong/open/http/okio/ByteString;)V
+    invoke-interface {v1, v0}, Lcom/leidong/open/http/okhttp3/internal/ws/WebSocketReader$FrameCallback;->onReadPing(Lcom/leidong/open/http/okio/ByteString;)V
 
-    .line 189
     goto :goto_2
 
-    .line 194
     :pswitch_2
     const/16 v1, 0x3ed
 
-    .line 195
-    .local v1, "code":I
     const-string v2, ""
 
     .line 196
-    .local v2, "reason":Ljava/lang/String;
     invoke-virtual {v0}, Lcom/leidong/open/http/okio/Buffer;->size()J
 
     move-result-wide v3
 
-    .line 197
-    .local v3, "bufferSize":J
     const-wide/16 v5, 0x1
 
     cmp-long v7, v3, v5
@@ -303,15 +285,14 @@
     if-nez v7, :cond_3
 
     .line 198
-    new-instance v5, Ljava/net/ProtocolException;
+    new-instance v0, Ljava/net/ProtocolException;
 
-    const-string v6, "Malformed close payload length of 1."
+    const-string v1, "Malformed close payload length of 1."
 
-    invoke-direct {v5, v6}, Ljava/net/ProtocolException;-><init>(Ljava/lang/String;)V
+    invoke-direct {v0, v1}, Ljava/net/ProtocolException;-><init>(Ljava/lang/String;)V
 
-    throw v5
+    throw v0
 
-    .line 199
     :cond_3
     const-wide/16 v5, 0x0
 
@@ -332,41 +313,30 @@
     .line 202
     invoke-static {v1}, Lcom/leidong/open/http/okhttp3/internal/ws/WebSocketProtocol;->closeCodeExceptionMessage(I)Ljava/lang/String;
 
-    move-result-object v5
+    move-result-object v0
+
+    if-eqz v0, :cond_4
 
     .line 203
-    .local v5, "codeExceptionMessage":Ljava/lang/String;
-    if-eqz v5, :cond_4
+    new-instance v1, Ljava/net/ProtocolException;
 
-    new-instance v6, Ljava/net/ProtocolException;
+    invoke-direct {v1, v0}, Ljava/net/ProtocolException;-><init>(Ljava/lang/String;)V
 
-    invoke-direct {v6, v5}, Ljava/net/ProtocolException;-><init>(Ljava/lang/String;)V
-
-    throw v6
+    throw v1
 
     .line 205
-    .end local v5    # "codeExceptionMessage":Ljava/lang/String;
     :cond_4
-    iget-object v5, p0, Lcom/leidong/open/http/okhttp3/internal/ws/WebSocketReader;->frameCallback:Lcom/leidong/open/http/okhttp3/internal/ws/WebSocketReader$FrameCallback;
+    iget-object v0, p0, Lcom/leidong/open/http/okhttp3/internal/ws/WebSocketReader;->frameCallback:Lcom/leidong/open/http/okhttp3/internal/ws/WebSocketReader$FrameCallback;
 
-    invoke-interface {v5, v1, v2}, Lcom/leidong/open/http/okhttp3/internal/ws/WebSocketReader$FrameCallback;->onReadClose(ILjava/lang/String;)V
+    invoke-interface {v0, v1, v2}, Lcom/leidong/open/http/okhttp3/internal/ws/WebSocketReader$FrameCallback;->onReadClose(ILjava/lang/String;)V
+
+    const/4 v0, 0x1
 
     .line 206
-    const/4 v5, 0x1
+    iput-boolean v0, p0, Lcom/leidong/open/http/okhttp3/internal/ws/WebSocketReader;->closed:Z
 
-    iput-boolean v5, p0, Lcom/leidong/open/http/okhttp3/internal/ws/WebSocketReader;->closed:Z
-
-    .line 207
-    nop
-
-    .line 211
-    .end local v1    # "code":I
-    .end local v2    # "reason":Ljava/lang/String;
-    .end local v3    # "bufferSize":J
     :goto_2
     return-void
-
-    nop
 
     :pswitch_data_0
     .packed-switch 0x8
@@ -377,7 +347,7 @@
 .end method
 
 .method private readHeader()V
-    .locals 15
+    .locals 8
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Ljava/io/IOException;
@@ -410,7 +380,6 @@
     move-result-wide v0
 
     .line 112
-    .local v0, "timeoutBefore":J
     iget-object v2, p0, Lcom/leidong/open/http/okhttp3/internal/ws/WebSocketReader;->source:Lcom/leidong/open/http/okio/BufferedSource;
 
     invoke-interface {v2}, Lcom/leidong/open/http/okio/BufferedSource;->timeout()Lcom/leidong/open/http/okio/Timeout;
@@ -432,7 +401,6 @@
     and-int/lit16 v2, v2, 0xff
 
     .line 116
-    .local v2, "b0":I
     iget-object v3, p0, Lcom/leidong/open/http/okhttp3/internal/ws/WebSocketReader;->source:Lcom/leidong/open/http/okio/BufferedSource;
 
     invoke-interface {v3}, Lcom/leidong/open/http/okio/BufferedSource;->timeout()Lcom/leidong/open/http/okio/Timeout;
@@ -443,328 +411,306 @@
 
     invoke-virtual {v3, v0, v1, v4}, Lcom/leidong/open/http/okio/Timeout;->timeout(JLjava/util/concurrent/TimeUnit;)Lcom/leidong/open/http/okio/Timeout;
 
-    .line 117
-    nop
-
-    .line 116
-    nop
+    and-int/lit8 v0, v2, 0xf
 
     .line 119
-    and-int/lit8 v3, v2, 0xf
+    iput v0, p0, Lcom/leidong/open/http/okhttp3/internal/ws/WebSocketReader;->opcode:I
 
-    iput v3, p0, Lcom/leidong/open/http/okhttp3/internal/ws/WebSocketReader;->opcode:I
+    and-int/lit16 v0, v2, 0x80
 
-    .line 120
-    and-int/lit16 v3, v2, 0x80
-
-    const/4 v4, 0x0
-
-    const/4 v5, 0x1
-
-    if-eqz v3, :cond_1
+    const/4 v1, 0x0
 
     const/4 v3, 0x1
+
+    if-eqz v0, :cond_1
+
+    const/4 v0, 0x1
 
     goto :goto_0
 
     :cond_1
-    const/4 v3, 0x0
+    const/4 v0, 0x0
 
+    .line 120
     :goto_0
-    iput-boolean v3, p0, Lcom/leidong/open/http/okhttp3/internal/ws/WebSocketReader;->isFinalFrame:Z
+    iput-boolean v0, p0, Lcom/leidong/open/http/okhttp3/internal/ws/WebSocketReader;->isFinalFrame:Z
 
-    .line 121
-    and-int/lit8 v3, v2, 0x8
+    and-int/lit8 v0, v2, 0x8
 
-    if-eqz v3, :cond_2
+    if-eqz v0, :cond_2
 
-    const/4 v3, 0x1
+    const/4 v0, 0x1
 
     goto :goto_1
 
     :cond_2
-    const/4 v3, 0x0
+    const/4 v0, 0x0
 
+    .line 121
     :goto_1
-    iput-boolean v3, p0, Lcom/leidong/open/http/okhttp3/internal/ws/WebSocketReader;->isControlFrame:Z
+    iput-boolean v0, p0, Lcom/leidong/open/http/okhttp3/internal/ws/WebSocketReader;->isControlFrame:Z
 
     .line 124
-    iget-boolean v3, p0, Lcom/leidong/open/http/okhttp3/internal/ws/WebSocketReader;->isControlFrame:Z
+    iget-boolean v0, p0, Lcom/leidong/open/http/okhttp3/internal/ws/WebSocketReader;->isControlFrame:Z
 
-    if-eqz v3, :cond_3
+    if-eqz v0, :cond_3
 
-    iget-boolean v3, p0, Lcom/leidong/open/http/okhttp3/internal/ws/WebSocketReader;->isFinalFrame:Z
+    iget-boolean v0, p0, Lcom/leidong/open/http/okhttp3/internal/ws/WebSocketReader;->isFinalFrame:Z
 
-    if-nez v3, :cond_3
+    if-nez v0, :cond_3
 
     .line 125
-    new-instance v3, Ljava/net/ProtocolException;
+    new-instance v0, Ljava/net/ProtocolException;
 
-    const-string v4, "Control frames must be final."
+    const-string v1, "Control frames must be final."
 
-    invoke-direct {v3, v4}, Ljava/net/ProtocolException;-><init>(Ljava/lang/String;)V
+    invoke-direct {v0, v1}, Ljava/net/ProtocolException;-><init>(Ljava/lang/String;)V
 
-    throw v3
+    throw v0
 
-    .line 128
     :cond_3
-    and-int/lit8 v3, v2, 0x40
+    and-int/lit8 v0, v2, 0x40
 
-    if-eqz v3, :cond_4
+    if-eqz v0, :cond_4
 
-    const/4 v3, 0x1
+    const/4 v0, 0x1
 
     goto :goto_2
 
     :cond_4
-    const/4 v3, 0x0
+    const/4 v0, 0x0
 
-    .line 129
-    .local v3, "reservedFlag1":Z
     :goto_2
-    and-int/lit8 v6, v2, 0x20
+    and-int/lit8 v4, v2, 0x20
 
-    if-eqz v6, :cond_5
+    if-eqz v4, :cond_5
 
-    const/4 v6, 0x1
+    const/4 v4, 0x1
 
     goto :goto_3
 
     :cond_5
-    const/4 v6, 0x0
+    const/4 v4, 0x0
 
-    .line 130
-    .local v6, "reservedFlag2":Z
     :goto_3
-    and-int/lit8 v7, v2, 0x10
+    and-int/lit8 v2, v2, 0x10
 
-    if-eqz v7, :cond_6
+    if-eqz v2, :cond_6
 
-    const/4 v7, 0x1
+    const/4 v2, 0x1
 
     goto :goto_4
 
     :cond_6
-    const/4 v7, 0x0
+    const/4 v2, 0x0
 
-    .line 131
-    .local v7, "reservedFlag3":Z
     :goto_4
-    if-nez v3, :cond_f
+    if-nez v0, :cond_f
 
-    if-nez v6, :cond_f
+    if-nez v4, :cond_f
 
-    if-eqz v7, :cond_7
+    if-eqz v2, :cond_7
 
     goto/16 :goto_7
 
     .line 136
     :cond_7
-    iget-object v8, p0, Lcom/leidong/open/http/okhttp3/internal/ws/WebSocketReader;->source:Lcom/leidong/open/http/okio/BufferedSource;
+    iget-object v0, p0, Lcom/leidong/open/http/okhttp3/internal/ws/WebSocketReader;->source:Lcom/leidong/open/http/okio/BufferedSource;
 
-    invoke-interface {v8}, Lcom/leidong/open/http/okio/BufferedSource;->readByte()B
+    invoke-interface {v0}, Lcom/leidong/open/http/okio/BufferedSource;->readByte()B
 
-    move-result v8
+    move-result v0
 
-    and-int/lit16 v8, v8, 0xff
+    and-int/lit16 v0, v0, 0xff
+
+    and-int/lit16 v2, v0, 0x80
+
+    if-eqz v2, :cond_8
+
+    const/4 v1, 0x1
 
     .line 138
-    .local v8, "b1":I
-    and-int/lit16 v9, v8, 0x80
-
-    if-eqz v9, :cond_8
-
-    const/4 v4, 0x1
-
-    nop
-
     :cond_8
-    iput-boolean v4, p0, Lcom/leidong/open/http/okhttp3/internal/ws/WebSocketReader;->isMasked:Z
+    iput-boolean v1, p0, Lcom/leidong/open/http/okhttp3/internal/ws/WebSocketReader;->isMasked:Z
 
     .line 139
-    iget-boolean v4, p0, Lcom/leidong/open/http/okhttp3/internal/ws/WebSocketReader;->isMasked:Z
+    iget-boolean v1, p0, Lcom/leidong/open/http/okhttp3/internal/ws/WebSocketReader;->isMasked:Z
 
-    iget-boolean v5, p0, Lcom/leidong/open/http/okhttp3/internal/ws/WebSocketReader;->isClient:Z
+    iget-boolean v2, p0, Lcom/leidong/open/http/okhttp3/internal/ws/WebSocketReader;->isClient:Z
 
-    if-ne v4, v5, :cond_a
+    if-ne v1, v2, :cond_a
 
     .line 141
-    new-instance v4, Ljava/net/ProtocolException;
+    new-instance v0, Ljava/net/ProtocolException;
 
-    iget-boolean v5, p0, Lcom/leidong/open/http/okhttp3/internal/ws/WebSocketReader;->isClient:Z
+    iget-boolean v1, p0, Lcom/leidong/open/http/okhttp3/internal/ws/WebSocketReader;->isClient:Z
 
-    if-eqz v5, :cond_9
+    if-eqz v1, :cond_9
 
-    const-string v5, "Server-sent frames must not be masked."
+    const-string v1, "Server-sent frames must not be masked."
 
     goto :goto_5
 
     :cond_9
-    const-string v5, "Client-sent frames must be masked."
+    const-string v1, "Client-sent frames must be masked."
 
     :goto_5
-    invoke-direct {v4, v5}, Ljava/net/ProtocolException;-><init>(Ljava/lang/String;)V
+    invoke-direct {v0, v1}, Ljava/net/ProtocolException;-><init>(Ljava/lang/String;)V
 
-    throw v4
+    throw v0
+
+    :cond_a
+    and-int/lit8 v0, v0, 0x7f
+
+    int-to-long v0, v0
 
     .line 147
-    :cond_a
-    and-int/lit8 v4, v8, 0x7f
-
-    int-to-long v4, v4
-
-    iput-wide v4, p0, Lcom/leidong/open/http/okhttp3/internal/ws/WebSocketReader;->frameLength:J
+    iput-wide v0, p0, Lcom/leidong/open/http/okhttp3/internal/ws/WebSocketReader;->frameLength:J
 
     .line 148
-    iget-wide v4, p0, Lcom/leidong/open/http/okhttp3/internal/ws/WebSocketReader;->frameLength:J
+    iget-wide v0, p0, Lcom/leidong/open/http/okhttp3/internal/ws/WebSocketReader;->frameLength:J
 
-    const-wide/16 v9, 0x7e
+    const-wide/16 v2, 0x7e
 
-    cmp-long v11, v4, v9
+    cmp-long v4, v0, v2
 
-    const-wide/16 v4, 0x0
+    const-wide/16 v0, 0x0
 
-    if-nez v11, :cond_b
+    if-nez v4, :cond_b
 
     .line 149
-    iget-object v9, p0, Lcom/leidong/open/http/okhttp3/internal/ws/WebSocketReader;->source:Lcom/leidong/open/http/okio/BufferedSource;
+    iget-object v2, p0, Lcom/leidong/open/http/okhttp3/internal/ws/WebSocketReader;->source:Lcom/leidong/open/http/okio/BufferedSource;
 
-    invoke-interface {v9}, Lcom/leidong/open/http/okio/BufferedSource;->readShort()S
+    invoke-interface {v2}, Lcom/leidong/open/http/okio/BufferedSource;->readShort()S
 
-    move-result v9
+    move-result v2
 
-    int-to-long v9, v9
+    int-to-long v2, v2
 
-    const-wide/32 v11, 0xffff
+    const-wide/32 v4, 0xffff
 
-    and-long v13, v9, v11
+    and-long v6, v2, v4
 
-    iput-wide v13, p0, Lcom/leidong/open/http/okhttp3/internal/ws/WebSocketReader;->frameLength:J
+    iput-wide v6, p0, Lcom/leidong/open/http/okhttp3/internal/ws/WebSocketReader;->frameLength:J
 
     goto :goto_6
 
     .line 150
     :cond_b
-    iget-wide v9, p0, Lcom/leidong/open/http/okhttp3/internal/ws/WebSocketReader;->frameLength:J
+    iget-wide v2, p0, Lcom/leidong/open/http/okhttp3/internal/ws/WebSocketReader;->frameLength:J
 
-    const-wide/16 v11, 0x7f
+    const-wide/16 v4, 0x7f
 
-    cmp-long v13, v9, v11
+    cmp-long v6, v2, v4
 
-    if-nez v13, :cond_c
+    if-nez v6, :cond_c
 
     .line 151
-    iget-object v9, p0, Lcom/leidong/open/http/okhttp3/internal/ws/WebSocketReader;->source:Lcom/leidong/open/http/okio/BufferedSource;
+    iget-object v2, p0, Lcom/leidong/open/http/okhttp3/internal/ws/WebSocketReader;->source:Lcom/leidong/open/http/okio/BufferedSource;
 
-    invoke-interface {v9}, Lcom/leidong/open/http/okio/BufferedSource;->readLong()J
+    invoke-interface {v2}, Lcom/leidong/open/http/okio/BufferedSource;->readLong()J
 
-    move-result-wide v9
+    move-result-wide v2
 
-    iput-wide v9, p0, Lcom/leidong/open/http/okhttp3/internal/ws/WebSocketReader;->frameLength:J
+    iput-wide v2, p0, Lcom/leidong/open/http/okhttp3/internal/ws/WebSocketReader;->frameLength:J
 
     .line 152
-    iget-wide v9, p0, Lcom/leidong/open/http/okhttp3/internal/ws/WebSocketReader;->frameLength:J
+    iget-wide v2, p0, Lcom/leidong/open/http/okhttp3/internal/ws/WebSocketReader;->frameLength:J
 
-    cmp-long v11, v9, v4
+    cmp-long v4, v2, v0
 
-    if-gez v11, :cond_c
+    if-gez v4, :cond_c
 
     .line 153
-    new-instance v4, Ljava/net/ProtocolException;
+    new-instance v0, Ljava/net/ProtocolException;
 
-    new-instance v5, Ljava/lang/StringBuilder;
+    new-instance v1, Ljava/lang/StringBuilder;
 
-    invoke-direct {v5}, Ljava/lang/StringBuilder;-><init>()V
+    invoke-direct {v1}, Ljava/lang/StringBuilder;-><init>()V
 
-    const-string v9, "Frame length 0x"
+    const-string v2, "Frame length 0x"
 
-    invoke-virtual {v5, v9}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-virtual {v1, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    iget-wide v9, p0, Lcom/leidong/open/http/okhttp3/internal/ws/WebSocketReader;->frameLength:J
+    iget-wide v2, p0, Lcom/leidong/open/http/okhttp3/internal/ws/WebSocketReader;->frameLength:J
 
     .line 154
-    invoke-static {v9, v10}, Ljava/lang/Long;->toHexString(J)Ljava/lang/String;
+    invoke-static {v2, v3}, Ljava/lang/Long;->toHexString(J)Ljava/lang/String;
 
-    move-result-object v9
+    move-result-object v2
 
-    invoke-virtual {v5, v9}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-virtual {v1, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    const-string v9, " > 0x7FFFFFFFFFFFFFFF"
+    const-string v2, " > 0x7FFFFFFFFFFFFFFF"
 
-    invoke-virtual {v5, v9}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-virtual {v1, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    invoke-virtual {v5}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+    invoke-virtual {v1}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
 
-    move-result-object v5
+    move-result-object v1
 
-    invoke-direct {v4, v5}, Ljava/net/ProtocolException;-><init>(Ljava/lang/String;)V
+    invoke-direct {v0, v1}, Ljava/net/ProtocolException;-><init>(Ljava/lang/String;)V
 
-    throw v4
+    throw v0
 
     .line 157
     :cond_c
     :goto_6
-    iput-wide v4, p0, Lcom/leidong/open/http/okhttp3/internal/ws/WebSocketReader;->frameBytesRead:J
+    iput-wide v0, p0, Lcom/leidong/open/http/okhttp3/internal/ws/WebSocketReader;->frameBytesRead:J
 
     .line 159
-    iget-boolean v4, p0, Lcom/leidong/open/http/okhttp3/internal/ws/WebSocketReader;->isControlFrame:Z
+    iget-boolean v0, p0, Lcom/leidong/open/http/okhttp3/internal/ws/WebSocketReader;->isControlFrame:Z
 
-    if-eqz v4, :cond_d
+    if-eqz v0, :cond_d
 
-    iget-wide v4, p0, Lcom/leidong/open/http/okhttp3/internal/ws/WebSocketReader;->frameLength:J
+    iget-wide v0, p0, Lcom/leidong/open/http/okhttp3/internal/ws/WebSocketReader;->frameLength:J
 
-    const-wide/16 v9, 0x7d
+    const-wide/16 v2, 0x7d
 
-    cmp-long v11, v4, v9
+    cmp-long v4, v0, v2
 
-    if-lez v11, :cond_d
+    if-lez v4, :cond_d
 
     .line 160
-    new-instance v4, Ljava/net/ProtocolException;
+    new-instance v0, Ljava/net/ProtocolException;
 
-    const-string v5, "Control frame must be less than 125B."
+    const-string v1, "Control frame must be less than 125B."
 
-    invoke-direct {v4, v5}, Ljava/net/ProtocolException;-><init>(Ljava/lang/String;)V
+    invoke-direct {v0, v1}, Ljava/net/ProtocolException;-><init>(Ljava/lang/String;)V
 
-    throw v4
+    throw v0
 
     .line 163
     :cond_d
-    iget-boolean v4, p0, Lcom/leidong/open/http/okhttp3/internal/ws/WebSocketReader;->isMasked:Z
+    iget-boolean v0, p0, Lcom/leidong/open/http/okhttp3/internal/ws/WebSocketReader;->isMasked:Z
 
-    if-eqz v4, :cond_e
+    if-eqz v0, :cond_e
 
     .line 165
-    iget-object v4, p0, Lcom/leidong/open/http/okhttp3/internal/ws/WebSocketReader;->source:Lcom/leidong/open/http/okio/BufferedSource;
+    iget-object v0, p0, Lcom/leidong/open/http/okhttp3/internal/ws/WebSocketReader;->source:Lcom/leidong/open/http/okio/BufferedSource;
 
-    iget-object v5, p0, Lcom/leidong/open/http/okhttp3/internal/ws/WebSocketReader;->maskKey:[B
+    iget-object v1, p0, Lcom/leidong/open/http/okhttp3/internal/ws/WebSocketReader;->maskKey:[B
 
-    invoke-interface {v4, v5}, Lcom/leidong/open/http/okio/BufferedSource;->readFully([B)V
+    invoke-interface {v0, v1}, Lcom/leidong/open/http/okio/BufferedSource;->readFully([B)V
 
-    .line 167
     :cond_e
     return-void
 
     .line 133
-    .end local v8    # "b1":I
     :cond_f
     :goto_7
-    new-instance v4, Ljava/net/ProtocolException;
+    new-instance v0, Ljava/net/ProtocolException;
 
-    const-string v5, "Reserved flags are unsupported."
+    const-string v1, "Reserved flags are unsupported."
 
-    invoke-direct {v4, v5}, Ljava/net/ProtocolException;-><init>(Ljava/lang/String;)V
+    invoke-direct {v0, v1}, Ljava/net/ProtocolException;-><init>(Ljava/lang/String;)V
 
-    throw v4
+    throw v0
 
-    .line 116
-    .end local v2    # "b0":I
-    .end local v3    # "reservedFlag1":Z
-    .end local v6    # "reservedFlag2":Z
-    .end local v7    # "reservedFlag3":Z
     :catchall_0
     move-exception v2
 
+    .line 116
     iget-object v3, p0, Lcom/leidong/open/http/okhttp3/internal/ws/WebSocketReader;->source:Lcom/leidong/open/http/okio/BufferedSource;
 
     invoke-interface {v3}, Lcom/leidong/open/http/okio/BufferedSource;->timeout()Lcom/leidong/open/http/okio/Timeout;
@@ -779,220 +725,197 @@
 .end method
 
 .method private readMessage(Lcom/leidong/open/http/okio/Buffer;)V
-    .locals 16
-    .param p1, "sink"    # Lcom/leidong/open/http/okio/Buffer;
+    .locals 13
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Ljava/io/IOException;
         }
     .end annotation
 
-    move-object/from16 v0, p0
-
     .line 247
-    move-object/from16 v1, p1
-
     :goto_0
-    iget-boolean v2, v0, Lcom/leidong/open/http/okhttp3/internal/ws/WebSocketReader;->closed:Z
+    iget-boolean v0, p0, Lcom/leidong/open/http/okhttp3/internal/ws/WebSocketReader;->closed:Z
 
-    if-eqz v2, :cond_0
+    if-eqz v0, :cond_0
 
-    new-instance v2, Ljava/io/IOException;
+    new-instance p1, Ljava/io/IOException;
 
-    const-string v3, "closed"
+    const-string v0, "closed"
 
-    invoke-direct {v2, v3}, Ljava/io/IOException;-><init>(Ljava/lang/String;)V
+    invoke-direct {p1, v0}, Ljava/io/IOException;-><init>(Ljava/lang/String;)V
 
-    throw v2
+    throw p1
 
     .line 249
     :cond_0
-    iget-wide v2, v0, Lcom/leidong/open/http/okhttp3/internal/ws/WebSocketReader;->frameBytesRead:J
+    iget-wide v0, p0, Lcom/leidong/open/http/okhttp3/internal/ws/WebSocketReader;->frameBytesRead:J
 
-    iget-wide v4, v0, Lcom/leidong/open/http/okhttp3/internal/ws/WebSocketReader;->frameLength:J
+    iget-wide v2, p0, Lcom/leidong/open/http/okhttp3/internal/ws/WebSocketReader;->frameLength:J
 
-    cmp-long v6, v2, v4
+    cmp-long v4, v0, v2
 
-    if-nez v6, :cond_3
+    if-nez v4, :cond_3
 
     .line 250
-    iget-boolean v2, v0, Lcom/leidong/open/http/okhttp3/internal/ws/WebSocketReader;->isFinalFrame:Z
+    iget-boolean v0, p0, Lcom/leidong/open/http/okhttp3/internal/ws/WebSocketReader;->isFinalFrame:Z
 
-    if-eqz v2, :cond_1
+    if-eqz v0, :cond_1
 
     return-void
 
     .line 252
     :cond_1
-    invoke-virtual/range {p0 .. p0}, Lcom/leidong/open/http/okhttp3/internal/ws/WebSocketReader;->readUntilNonControlFrame()V
+    invoke-virtual {p0}, Lcom/leidong/open/http/okhttp3/internal/ws/WebSocketReader;->readUntilNonControlFrame()V
 
     .line 253
-    iget v2, v0, Lcom/leidong/open/http/okhttp3/internal/ws/WebSocketReader;->opcode:I
+    iget v0, p0, Lcom/leidong/open/http/okhttp3/internal/ws/WebSocketReader;->opcode:I
 
-    if-eqz v2, :cond_2
+    if-eqz v0, :cond_2
 
     .line 254
-    new-instance v2, Ljava/net/ProtocolException;
+    new-instance p1, Ljava/net/ProtocolException;
 
-    new-instance v3, Ljava/lang/StringBuilder;
+    new-instance v0, Ljava/lang/StringBuilder;
 
-    invoke-direct {v3}, Ljava/lang/StringBuilder;-><init>()V
+    invoke-direct {v0}, Ljava/lang/StringBuilder;-><init>()V
 
-    const-string v4, "Expected continuation opcode. Got: "
+    const-string v1, "Expected continuation opcode. Got: "
 
-    invoke-virtual {v3, v4}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    iget v4, v0, Lcom/leidong/open/http/okhttp3/internal/ws/WebSocketReader;->opcode:I
+    iget v1, p0, Lcom/leidong/open/http/okhttp3/internal/ws/WebSocketReader;->opcode:I
 
-    invoke-static {v4}, Ljava/lang/Integer;->toHexString(I)Ljava/lang/String;
+    invoke-static {v1}, Ljava/lang/Integer;->toHexString(I)Ljava/lang/String;
 
-    move-result-object v4
+    move-result-object v1
 
-    invoke-virtual {v3, v4}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    invoke-virtual {v3}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+    invoke-virtual {v0}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
 
-    move-result-object v3
+    move-result-object v0
 
-    invoke-direct {v2, v3}, Ljava/net/ProtocolException;-><init>(Ljava/lang/String;)V
+    invoke-direct {p1, v0}, Ljava/net/ProtocolException;-><init>(Ljava/lang/String;)V
 
-    throw v2
+    throw p1
 
     .line 256
     :cond_2
-    iget-boolean v2, v0, Lcom/leidong/open/http/okhttp3/internal/ws/WebSocketReader;->isFinalFrame:Z
+    iget-boolean v0, p0, Lcom/leidong/open/http/okhttp3/internal/ws/WebSocketReader;->isFinalFrame:Z
 
-    if-eqz v2, :cond_3
+    if-eqz v0, :cond_3
 
-    iget-wide v2, v0, Lcom/leidong/open/http/okhttp3/internal/ws/WebSocketReader;->frameLength:J
+    iget-wide v0, p0, Lcom/leidong/open/http/okhttp3/internal/ws/WebSocketReader;->frameLength:J
 
-    const-wide/16 v4, 0x0
+    const-wide/16 v2, 0x0
 
-    cmp-long v6, v2, v4
+    cmp-long v4, v0, v2
 
-    if-nez v6, :cond_3
+    if-nez v4, :cond_3
 
-    .line 257
     return-void
 
     .line 261
     :cond_3
-    iget-wide v2, v0, Lcom/leidong/open/http/okhttp3/internal/ws/WebSocketReader;->frameLength:J
+    iget-wide v0, p0, Lcom/leidong/open/http/okhttp3/internal/ws/WebSocketReader;->frameLength:J
 
-    iget-wide v4, v0, Lcom/leidong/open/http/okhttp3/internal/ws/WebSocketReader;->frameBytesRead:J
+    iget-wide v2, p0, Lcom/leidong/open/http/okhttp3/internal/ws/WebSocketReader;->frameBytesRead:J
 
-    sub-long v6, v2, v4
+    sub-long v4, v0, v2
 
     .line 264
-    .local v6, "toRead":J
-    iget-boolean v2, v0, Lcom/leidong/open/http/okhttp3/internal/ws/WebSocketReader;->isMasked:Z
+    iget-boolean v0, p0, Lcom/leidong/open/http/okhttp3/internal/ws/WebSocketReader;->isMasked:Z
 
-    const-wide/16 v3, -0x1
+    const-wide/16 v1, -0x1
 
-    if-eqz v2, :cond_5
+    if-eqz v0, :cond_5
 
     .line 265
-    iget-object v2, v0, Lcom/leidong/open/http/okhttp3/internal/ws/WebSocketReader;->maskBuffer:[B
+    iget-object v0, p0, Lcom/leidong/open/http/okhttp3/internal/ws/WebSocketReader;->maskBuffer:[B
 
-    array-length v2, v2
+    array-length v0, v0
 
-    int-to-long v8, v2
+    int-to-long v6, v0
 
-    invoke-static {v6, v7, v8, v9}, Ljava/lang/Math;->min(JJ)J
+    invoke-static {v4, v5, v6, v7}, Ljava/lang/Math;->min(JJ)J
 
-    move-result-wide v6
+    move-result-wide v3
 
     .line 266
-    iget-object v2, v0, Lcom/leidong/open/http/okhttp3/internal/ws/WebSocketReader;->source:Lcom/leidong/open/http/okio/BufferedSource;
+    iget-object v0, p0, Lcom/leidong/open/http/okhttp3/internal/ws/WebSocketReader;->source:Lcom/leidong/open/http/okio/BufferedSource;
 
-    iget-object v5, v0, Lcom/leidong/open/http/okhttp3/internal/ws/WebSocketReader;->maskBuffer:[B
+    iget-object v5, p0, Lcom/leidong/open/http/okhttp3/internal/ws/WebSocketReader;->maskBuffer:[B
 
-    long-to-int v8, v6
+    long-to-int v3, v3
 
-    const/4 v9, 0x0
+    const/4 v4, 0x0
 
-    invoke-interface {v2, v5, v9, v8}, Lcom/leidong/open/http/okio/BufferedSource;->read([BII)I
+    invoke-interface {v0, v5, v4, v3}, Lcom/leidong/open/http/okio/BufferedSource;->read([BII)I
 
-    move-result v2
+    move-result v0
 
-    int-to-long v14, v2
+    int-to-long v11, v0
+
+    cmp-long v0, v11, v1
+
+    if-nez v0, :cond_4
 
     .line 267
-    .local v14, "read":J
-    cmp-long v2, v14, v3
+    new-instance p1, Ljava/io/EOFException;
 
-    if-nez v2, :cond_4
+    invoke-direct {p1}, Ljava/io/EOFException;-><init>()V
 
-    new-instance v2, Ljava/io/EOFException;
-
-    invoke-direct {v2}, Ljava/io/EOFException;-><init>()V
-
-    throw v2
+    throw p1
 
     .line 268
     :cond_4
-    iget-object v10, v0, Lcom/leidong/open/http/okhttp3/internal/ws/WebSocketReader;->maskBuffer:[B
+    iget-object v5, p0, Lcom/leidong/open/http/okhttp3/internal/ws/WebSocketReader;->maskBuffer:[B
 
-    iget-object v13, v0, Lcom/leidong/open/http/okhttp3/internal/ws/WebSocketReader;->maskKey:[B
+    iget-object v8, p0, Lcom/leidong/open/http/okhttp3/internal/ws/WebSocketReader;->maskKey:[B
 
-    iget-wide v2, v0, Lcom/leidong/open/http/okhttp3/internal/ws/WebSocketReader;->frameBytesRead:J
+    iget-wide v9, p0, Lcom/leidong/open/http/okhttp3/internal/ws/WebSocketReader;->frameBytesRead:J
 
-    move-wide v11, v14
+    move-wide v6, v11
 
-    move-wide v4, v14
-
-    move-wide v14, v2
-
-    .line 268
-    .end local v14    # "read":J
-    .local v4, "read":J
-    invoke-static/range {v10 .. v15}, Lcom/leidong/open/http/okhttp3/internal/ws/WebSocketProtocol;->toggleMask([BJ[BJ)V
+    invoke-static/range {v5 .. v10}, Lcom/leidong/open/http/okhttp3/internal/ws/WebSocketProtocol;->toggleMask([BJ[BJ)V
 
     .line 269
-    iget-object v2, v0, Lcom/leidong/open/http/okhttp3/internal/ws/WebSocketReader;->maskBuffer:[B
+    iget-object v0, p0, Lcom/leidong/open/http/okhttp3/internal/ws/WebSocketReader;->maskBuffer:[B
 
-    long-to-int v3, v4
+    long-to-int v1, v11
 
-    invoke-virtual {v1, v2, v9, v3}, Lcom/leidong/open/http/okio/Buffer;->write([BII)Lcom/leidong/open/http/okio/Buffer;
-
-    .line 275
-    move-wide v14, v4
+    invoke-virtual {p1, v0, v4, v1}, Lcom/leidong/open/http/okio/Buffer;->write([BII)Lcom/leidong/open/http/okio/Buffer;
 
     goto :goto_1
 
     .line 271
-    .end local v4    # "read":J
     :cond_5
-    iget-object v2, v0, Lcom/leidong/open/http/okhttp3/internal/ws/WebSocketReader;->source:Lcom/leidong/open/http/okio/BufferedSource;
+    iget-object v0, p0, Lcom/leidong/open/http/okhttp3/internal/ws/WebSocketReader;->source:Lcom/leidong/open/http/okio/BufferedSource;
 
-    invoke-interface {v2, v1, v6, v7}, Lcom/leidong/open/http/okio/BufferedSource;->read(Lcom/leidong/open/http/okio/Buffer;J)J
+    invoke-interface {v0, p1, v4, v5}, Lcom/leidong/open/http/okio/BufferedSource;->read(Lcom/leidong/open/http/okio/Buffer;J)J
 
-    move-result-wide v14
+    move-result-wide v11
+
+    cmp-long v0, v11, v1
+
+    if-nez v0, :cond_6
 
     .line 272
-    .restart local v14    # "read":J
-    cmp-long v2, v14, v3
+    new-instance p1, Ljava/io/EOFException;
 
-    if-nez v2, :cond_6
+    invoke-direct {p1}, Ljava/io/EOFException;-><init>()V
 
-    new-instance v2, Ljava/io/EOFException;
-
-    invoke-direct {v2}, Ljava/io/EOFException;-><init>()V
-
-    throw v2
+    throw p1
 
     .line 275
     :cond_6
     :goto_1
-    iget-wide v2, v0, Lcom/leidong/open/http/okhttp3/internal/ws/WebSocketReader;->frameBytesRead:J
+    iget-wide v0, p0, Lcom/leidong/open/http/okhttp3/internal/ws/WebSocketReader;->frameBytesRead:J
 
-    add-long v4, v2, v14
+    add-long v2, v0, v11
 
-    iput-wide v4, v0, Lcom/leidong/open/http/okhttp3/internal/ws/WebSocketReader;->frameBytesRead:J
+    iput-wide v2, p0, Lcom/leidong/open/http/okhttp3/internal/ws/WebSocketReader;->frameBytesRead:J
 
-    .line 276
-    .end local v6    # "toRead":J
-    .end local v14    # "read":J
     goto/16 :goto_0
 .end method
 
@@ -1007,8 +930,6 @@
     .line 214
     iget v0, p0, Lcom/leidong/open/http/okhttp3/internal/ws/WebSocketReader;->opcode:I
 
-    .line 215
-    .local v0, "opcode":I
     const/4 v1, 0x1
 
     if-eq v0, v1, :cond_0
@@ -1030,15 +951,15 @@
 
     invoke-static {v0}, Ljava/lang/Integer;->toHexString(I)Ljava/lang/String;
 
-    move-result-object v3
+    move-result-object v0
 
-    invoke-virtual {v2, v3}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-virtual {v2, v0}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
     invoke-virtual {v2}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
 
-    move-result-object v2
+    move-result-object v0
 
-    invoke-direct {v1, v2}, Ljava/net/ProtocolException;-><init>(Ljava/lang/String;)V
+    invoke-direct {v1, v0}, Ljava/net/ProtocolException;-><init>(Ljava/lang/String;)V
 
     throw v1
 
@@ -1049,34 +970,31 @@
     invoke-direct {v2}, Lcom/leidong/open/http/okio/Buffer;-><init>()V
 
     .line 220
-    .local v2, "message":Lcom/leidong/open/http/okio/Buffer;
     invoke-direct {p0, v2}, Lcom/leidong/open/http/okhttp3/internal/ws/WebSocketReader;->readMessage(Lcom/leidong/open/http/okio/Buffer;)V
 
-    .line 222
     if-ne v0, v1, :cond_1
 
     .line 223
-    iget-object v1, p0, Lcom/leidong/open/http/okhttp3/internal/ws/WebSocketReader;->frameCallback:Lcom/leidong/open/http/okhttp3/internal/ws/WebSocketReader$FrameCallback;
+    iget-object v0, p0, Lcom/leidong/open/http/okhttp3/internal/ws/WebSocketReader;->frameCallback:Lcom/leidong/open/http/okhttp3/internal/ws/WebSocketReader$FrameCallback;
 
     invoke-virtual {v2}, Lcom/leidong/open/http/okio/Buffer;->readUtf8()Ljava/lang/String;
 
-    move-result-object v3
+    move-result-object v1
 
-    invoke-interface {v1, v3}, Lcom/leidong/open/http/okhttp3/internal/ws/WebSocketReader$FrameCallback;->onReadMessage(Ljava/lang/String;)V
+    invoke-interface {v0, v1}, Lcom/leidong/open/http/okhttp3/internal/ws/WebSocketReader$FrameCallback;->onReadMessage(Ljava/lang/String;)V
 
     goto :goto_0
 
     .line 225
     :cond_1
-    iget-object v1, p0, Lcom/leidong/open/http/okhttp3/internal/ws/WebSocketReader;->frameCallback:Lcom/leidong/open/http/okhttp3/internal/ws/WebSocketReader$FrameCallback;
+    iget-object v0, p0, Lcom/leidong/open/http/okhttp3/internal/ws/WebSocketReader;->frameCallback:Lcom/leidong/open/http/okhttp3/internal/ws/WebSocketReader$FrameCallback;
 
     invoke-virtual {v2}, Lcom/leidong/open/http/okio/Buffer;->readByteString()Lcom/leidong/open/http/okio/ByteString;
 
-    move-result-object v3
+    move-result-object v1
 
-    invoke-interface {v1, v3}, Lcom/leidong/open/http/okhttp3/internal/ws/WebSocketReader$FrameCallback;->onReadMessage(Lcom/leidong/open/http/okio/ByteString;)V
+    invoke-interface {v0, v1}, Lcom/leidong/open/http/okhttp3/internal/ws/WebSocketReader$FrameCallback;->onReadMessage(Lcom/leidong/open/http/okio/ByteString;)V
 
-    .line 227
     :goto_0
     return-void
 .end method
@@ -1108,7 +1026,6 @@
     :cond_0
     invoke-direct {p0}, Lcom/leidong/open/http/okhttp3/internal/ws/WebSocketReader;->readMessageFrame()V
 
-    .line 104
     :goto_0
     return-void
 .end method
@@ -1135,7 +1052,6 @@
 
     if-nez v0, :cond_0
 
-    .line 234
     goto :goto_1
 
     .line 236
@@ -1144,7 +1060,6 @@
 
     goto :goto_0
 
-    .line 238
     :cond_1
     :goto_1
     return-void

@@ -24,7 +24,6 @@
 # direct methods
 .method constructor <init>(Lcom/leidong/sdk/m/activity/SdkCustomerServiceActivity;)V
     .locals 0
-    .param p1, "this$0"    # Lcom/leidong/sdk/m/activity/SdkCustomerServiceActivity;
 
     .line 355
     iput-object p1, p0, Lcom/leidong/sdk/m/activity/SdkCustomerServiceActivity$5;->this$0:Lcom/leidong/sdk/m/activity/SdkCustomerServiceActivity;
@@ -38,37 +37,30 @@
 # virtual methods
 .method public loadError(Ljava/lang/String;)V
     .locals 0
-    .param p1, "errorMsg"    # Ljava/lang/String;
 
-    .line 377
     return-void
 .end method
 
 .method public loadFinish()V
     .locals 0
 
-    .line 372
     return-void
 .end method
 
 .method public loadStart(Ljava/lang/String;)V
     .locals 0
-    .param p1, "url"    # Ljava/lang/String;
 
-    .line 367
     return-void
 .end method
 
 .method public loading(I)V
-    .locals 4
-    .param p1, "progress"    # I
+    .locals 3
 
-    .line 360
     const-string v0, "leidong_loading"
 
+    .line 360
     iget-object v1, p0, Lcom/leidong/sdk/m/activity/SdkCustomerServiceActivity$5;->this$0:Lcom/leidong/sdk/m/activity/SdkCustomerServiceActivity;
 
-    # getter for: Lcom/leidong/sdk/m/activity/SdkCustomerServiceActivity;->mContext:Landroid/content/Context;
     invoke-static {v1}, Lcom/leidong/sdk/m/activity/SdkCustomerServiceActivity;->access$200(Lcom/leidong/sdk/m/activity/SdkCustomerServiceActivity;)Landroid/content/Context;
 
     move-result-object v1
@@ -78,7 +70,6 @@
     move-result-object v0
 
     .line 361
-    .local v0, "loadingMsg":Ljava/lang/String;
     iget-object v1, p0, Lcom/leidong/sdk/m/activity/SdkCustomerServiceActivity$5;->this$0:Lcom/leidong/sdk/m/activity/SdkCustomerServiceActivity;
 
     new-instance v2, Ljava/lang/StringBuilder;
@@ -89,17 +80,15 @@
 
     invoke-virtual {v2, p1}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
 
-    const-string v3, "%"
+    const-string p1, "%"
 
-    invoke-virtual {v2, v3}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-virtual {v2, p1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
     invoke-virtual {v2}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
 
-    move-result-object v2
+    move-result-object p1
 
-    # invokes: Lcom/leidong/sdk/m/activity/SdkCustomerServiceActivity;->updateWaitDialog(Ljava/lang/String;)V
-    invoke-static {v1, v2}, Lcom/leidong/sdk/m/activity/SdkCustomerServiceActivity;->access$1100(Lcom/leidong/sdk/m/activity/SdkCustomerServiceActivity;Ljava/lang/String;)V
+    invoke-static {v1, p1}, Lcom/leidong/sdk/m/activity/SdkCustomerServiceActivity;->access$1100(Lcom/leidong/sdk/m/activity/SdkCustomerServiceActivity;Ljava/lang/String;)V
 
-    .line 362
     return-void
 .end method

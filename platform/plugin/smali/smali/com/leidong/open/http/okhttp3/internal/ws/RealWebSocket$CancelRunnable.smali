@@ -24,7 +24,6 @@
 # direct methods
 .method constructor <init>(Lcom/leidong/open/http/okhttp3/internal/ws/RealWebSocket;)V
     .locals 0
-    .param p1, "this$0"    # Lcom/leidong/open/http/okhttp3/internal/ws/RealWebSocket;
 
     .line 584
     iput-object p1, p0, Lcom/leidong/open/http/okhttp3/internal/ws/RealWebSocket$CancelRunnable;->this$0:Lcom/leidong/open/http/okhttp3/internal/ws/RealWebSocket;
@@ -44,6 +43,5 @@
 
     invoke-virtual {v0}, Lcom/leidong/open/http/okhttp3/internal/ws/RealWebSocket;->cancel()V
 
-    .line 587
     return-void
 .end method

@@ -24,7 +24,6 @@
 # direct methods
 .method constructor <init>(Lcom/leidong/sdk/s/app/exit/ExitDialog;)V
     .locals 0
-    .param p1, "this$0"    # Lcom/leidong/sdk/s/app/exit/ExitDialog;
 
     .line 184
     iput-object p1, p0, Lcom/leidong/sdk/s/app/exit/ExitDialog$ExitDialogExitListener;->this$0:Lcom/leidong/sdk/s/app/exit/ExitDialog;
@@ -37,32 +36,28 @@
 
 # virtual methods
 .method public onClick(Landroid/view/View;)V
-    .locals 2
-    .param p1, "v"    # Landroid/view/View;
+    .locals 1
 
     .line 187
-    iget-object v0, p0, Lcom/leidong/sdk/s/app/exit/ExitDialog$ExitDialogExitListener;->this$0:Lcom/leidong/sdk/s/app/exit/ExitDialog;
+    iget-object p1, p0, Lcom/leidong/sdk/s/app/exit/ExitDialog$ExitDialogExitListener;->this$0:Lcom/leidong/sdk/s/app/exit/ExitDialog;
 
-    const/4 v1, 0x1
+    const/4 v0, 0x1
 
-    # setter for: Lcom/leidong/sdk/s/app/exit/ExitDialog;->isExitClick:Z
-    invoke-static {v0, v1}, Lcom/leidong/sdk/s/app/exit/ExitDialog;->access$002(Lcom/leidong/sdk/s/app/exit/ExitDialog;Z)Z
+    invoke-static {p1, v0}, Lcom/leidong/sdk/s/app/exit/ExitDialog;->access$002(Lcom/leidong/sdk/s/app/exit/ExitDialog;Z)Z
 
     .line 188
-    iget-object v0, p0, Lcom/leidong/sdk/s/app/exit/ExitDialog$ExitDialogExitListener;->this$0:Lcom/leidong/sdk/s/app/exit/ExitDialog;
+    iget-object p1, p0, Lcom/leidong/sdk/s/app/exit/ExitDialog$ExitDialogExitListener;->this$0:Lcom/leidong/sdk/s/app/exit/ExitDialog;
 
-    # getter for: Lcom/leidong/sdk/s/app/exit/ExitDialog;->mCallback:Lcom/leidong/sdk/s/app/exit/ExitDialog$ExitCallBack;
-    invoke-static {v0}, Lcom/leidong/sdk/s/app/exit/ExitDialog;->access$100(Lcom/leidong/sdk/s/app/exit/ExitDialog;)Lcom/leidong/sdk/s/app/exit/ExitDialog$ExitCallBack;
+    invoke-static {p1}, Lcom/leidong/sdk/s/app/exit/ExitDialog;->access$100(Lcom/leidong/sdk/s/app/exit/ExitDialog;)Lcom/leidong/sdk/s/app/exit/ExitDialog$ExitCallBack;
 
-    move-result-object v0
+    move-result-object p1
 
-    invoke-interface {v0}, Lcom/leidong/sdk/s/app/exit/ExitDialog$ExitCallBack;->exit()V
+    invoke-interface {p1}, Lcom/leidong/sdk/s/app/exit/ExitDialog$ExitCallBack;->exit()V
 
     .line 189
-    iget-object v0, p0, Lcom/leidong/sdk/s/app/exit/ExitDialog$ExitDialogExitListener;->this$0:Lcom/leidong/sdk/s/app/exit/ExitDialog;
+    iget-object p1, p0, Lcom/leidong/sdk/s/app/exit/ExitDialog$ExitDialogExitListener;->this$0:Lcom/leidong/sdk/s/app/exit/ExitDialog;
 
-    invoke-virtual {v0}, Lcom/leidong/sdk/s/app/exit/ExitDialog;->dismiss()V
+    invoke-virtual {p1}, Lcom/leidong/sdk/s/app/exit/ExitDialog;->dismiss()V
 
-    .line 190
     return-void
 .end method

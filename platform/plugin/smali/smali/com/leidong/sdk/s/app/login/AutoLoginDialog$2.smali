@@ -24,7 +24,6 @@
 # direct methods
 .method constructor <init>(Lcom/leidong/sdk/s/app/login/AutoLoginDialog;)V
     .locals 0
-    .param p1, "this$0"    # Lcom/leidong/sdk/s/app/login/AutoLoginDialog;
 
     .line 95
     iput-object p1, p0, Lcom/leidong/sdk/s/app/login/AutoLoginDialog$2;->this$0:Lcom/leidong/sdk/s/app/login/AutoLoginDialog;
@@ -37,33 +36,30 @@
 
 # virtual methods
 .method public onClick(Landroid/view/View;)V
-    .locals 2
-    .param p1, "arg0"    # Landroid/view/View;
+    .locals 1
 
     .line 99
-    iget-object v0, p0, Lcom/leidong/sdk/s/app/login/AutoLoginDialog$2;->this$0:Lcom/leidong/sdk/s/app/login/AutoLoginDialog;
+    iget-object p1, p0, Lcom/leidong/sdk/s/app/login/AutoLoginDialog$2;->this$0:Lcom/leidong/sdk/s/app/login/AutoLoginDialog;
 
-    invoke-virtual {v0}, Lcom/leidong/sdk/s/app/login/AutoLoginDialog;->dismiss()V
+    invoke-virtual {p1}, Lcom/leidong/sdk/s/app/login/AutoLoginDialog;->dismiss()V
 
     .line 100
-    iget-object v0, p0, Lcom/leidong/sdk/s/app/login/AutoLoginDialog$2;->this$0:Lcom/leidong/sdk/s/app/login/AutoLoginDialog;
+    iget-object p1, p0, Lcom/leidong/sdk/s/app/login/AutoLoginDialog$2;->this$0:Lcom/leidong/sdk/s/app/login/AutoLoginDialog;
 
-    iget-object v0, v0, Lcom/leidong/sdk/s/app/login/AutoLoginDialog;->mHandler:Landroid/os/Handler;
+    iget-object p1, p1, Lcom/leidong/sdk/s/app/login/AutoLoginDialog;->mHandler:Landroid/os/Handler;
 
-    const/4 v1, 0x0
+    const/4 v0, 0x0
 
-    invoke-virtual {v0, v1}, Landroid/os/Handler;->removeCallbacksAndMessages(Ljava/lang/Object;)V
+    invoke-virtual {p1, v0}, Landroid/os/Handler;->removeCallbacksAndMessages(Ljava/lang/Object;)V
 
     .line 101
-    iget-object v0, p0, Lcom/leidong/sdk/s/app/login/AutoLoginDialog$2;->this$0:Lcom/leidong/sdk/s/app/login/AutoLoginDialog;
+    iget-object p1, p0, Lcom/leidong/sdk/s/app/login/AutoLoginDialog$2;->this$0:Lcom/leidong/sdk/s/app/login/AutoLoginDialog;
 
-    # getter for: Lcom/leidong/sdk/s/app/login/AutoLoginDialog;->autoListener:Lcom/leidong/sdk/s/app/login/AutoLoginDialog$AutoLoginListener;
-    invoke-static {v0}, Lcom/leidong/sdk/s/app/login/AutoLoginDialog;->access$300(Lcom/leidong/sdk/s/app/login/AutoLoginDialog;)Lcom/leidong/sdk/s/app/login/AutoLoginDialog$AutoLoginListener;
+    invoke-static {p1}, Lcom/leidong/sdk/s/app/login/AutoLoginDialog;->access$300(Lcom/leidong/sdk/s/app/login/AutoLoginDialog;)Lcom/leidong/sdk/s/app/login/AutoLoginDialog$AutoLoginListener;
 
-    move-result-object v0
+    move-result-object p1
 
-    invoke-interface {v0}, Lcom/leidong/sdk/s/app/login/AutoLoginDialog$AutoLoginListener;->clickSwitch()V
+    invoke-interface {p1}, Lcom/leidong/sdk/s/app/login/AutoLoginDialog$AutoLoginListener;->clickSwitch()V
 
-    .line 102
     return-void
 .end method

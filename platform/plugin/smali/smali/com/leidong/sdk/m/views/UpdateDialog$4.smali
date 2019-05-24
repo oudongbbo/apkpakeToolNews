@@ -26,7 +26,6 @@
 # direct methods
 .method constructor <init>(Lcom/leidong/sdk/m/views/UpdateDialog;Lcom/leidong/sdk/framework/view/dialog/MaterialDialog;)V
     .locals 0
-    .param p1, "this$0"    # Lcom/leidong/sdk/m/views/UpdateDialog;
 
     .line 320
     iput-object p1, p0, Lcom/leidong/sdk/m/views/UpdateDialog$4;->this$0:Lcom/leidong/sdk/m/views/UpdateDialog;
@@ -41,14 +40,12 @@
 
 # virtual methods
 .method public onClick(Landroid/view/View;)V
-    .locals 1
-    .param p1, "v"    # Landroid/view/View;
+    .locals 0
 
     .line 323
-    iget-object v0, p0, Lcom/leidong/sdk/m/views/UpdateDialog$4;->val$mMaterialDialog:Lcom/leidong/sdk/framework/view/dialog/MaterialDialog;
+    iget-object p1, p0, Lcom/leidong/sdk/m/views/UpdateDialog$4;->val$mMaterialDialog:Lcom/leidong/sdk/framework/view/dialog/MaterialDialog;
 
-    invoke-virtual {v0}, Lcom/leidong/sdk/framework/view/dialog/MaterialDialog;->dismiss()V
+    invoke-virtual {p1}, Lcom/leidong/sdk/framework/view/dialog/MaterialDialog;->dismiss()V
 
-    .line 324
     return-void
 .end method

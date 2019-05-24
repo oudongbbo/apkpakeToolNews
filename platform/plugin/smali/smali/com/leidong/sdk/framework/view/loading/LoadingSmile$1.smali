@@ -24,7 +24,6 @@
 # direct methods
 .method constructor <init>(Lcom/leidong/sdk/framework/view/loading/LoadingSmile;)V
     .locals 0
-    .param p1, "this$0"    # Lcom/leidong/sdk/framework/view/loading/LoadingSmile;
 
     .line 113
     iput-object p1, p0, Lcom/leidong/sdk/framework/view/loading/LoadingSmile$1;->this$0:Lcom/leidong/sdk/framework/view/loading/LoadingSmile;
@@ -37,82 +36,76 @@
 
 # virtual methods
 .method public onAnimationUpdate(Landroid/animation/ValueAnimator;)V
-    .locals 5
-    .param p1, "valueAnimator"    # Landroid/animation/ValueAnimator;
+    .locals 4
 
     .line 117
     iget-object v0, p0, Lcom/leidong/sdk/framework/view/loading/LoadingSmile$1;->this$0:Lcom/leidong/sdk/framework/view/loading/LoadingSmile;
 
     invoke-virtual {p1}, Landroid/animation/ValueAnimator;->getAnimatedValue()Ljava/lang/Object;
 
-    move-result-object v1
+    move-result-object p1
 
-    check-cast v1, Ljava/lang/Float;
+    check-cast p1, Ljava/lang/Float;
 
-    invoke-virtual {v1}, Ljava/lang/Float;->floatValue()F
+    invoke-virtual {p1}, Ljava/lang/Float;->floatValue()F
 
-    move-result v1
+    move-result p1
 
-    iput v1, v0, Lcom/leidong/sdk/framework/view/loading/LoadingSmile;->mAnimatedValue:F
+    iput p1, v0, Lcom/leidong/sdk/framework/view/loading/LoadingSmile;->mAnimatedValue:F
 
     .line 118
-    iget-object v0, p0, Lcom/leidong/sdk/framework/view/loading/LoadingSmile$1;->this$0:Lcom/leidong/sdk/framework/view/loading/LoadingSmile;
+    iget-object p1, p0, Lcom/leidong/sdk/framework/view/loading/LoadingSmile$1;->this$0:Lcom/leidong/sdk/framework/view/loading/LoadingSmile;
 
-    iget v0, v0, Lcom/leidong/sdk/framework/view/loading/LoadingSmile;->mAnimatedValue:F
+    iget p1, p1, Lcom/leidong/sdk/framework/view/loading/LoadingSmile;->mAnimatedValue:F
 
-    float-to-double v0, v0
+    float-to-double v0, p1
 
     const-wide/high16 v2, 0x3fe0000000000000L    # 0.5
 
-    cmpg-double v4, v0, v2
+    cmpg-double p1, v0, v2
 
     const/high16 v0, 0x44340000    # 720.0f
 
-    if-gez v4, :cond_0
+    if-gez p1, :cond_0
 
     .line 119
-    iget-object v1, p0, Lcom/leidong/sdk/framework/view/loading/LoadingSmile$1;->this$0:Lcom/leidong/sdk/framework/view/loading/LoadingSmile;
+    iget-object p1, p0, Lcom/leidong/sdk/framework/view/loading/LoadingSmile$1;->this$0:Lcom/leidong/sdk/framework/view/loading/LoadingSmile;
 
-    const/4 v2, 0x0
+    const/4 v1, 0x0
 
-    # setter for: Lcom/leidong/sdk/framework/view/loading/LoadingSmile;->isSmile:Z
-    invoke-static {v1, v2}, Lcom/leidong/sdk/framework/view/loading/LoadingSmile;->access$002(Lcom/leidong/sdk/framework/view/loading/LoadingSmile;Z)Z
+    invoke-static {p1, v1}, Lcom/leidong/sdk/framework/view/loading/LoadingSmile;->access$002(Lcom/leidong/sdk/framework/view/loading/LoadingSmile;Z)Z
 
     .line 120
+    iget-object p1, p0, Lcom/leidong/sdk/framework/view/loading/LoadingSmile$1;->this$0:Lcom/leidong/sdk/framework/view/loading/LoadingSmile;
+
     iget-object v1, p0, Lcom/leidong/sdk/framework/view/loading/LoadingSmile$1;->this$0:Lcom/leidong/sdk/framework/view/loading/LoadingSmile;
 
-    iget-object v2, p0, Lcom/leidong/sdk/framework/view/loading/LoadingSmile$1;->this$0:Lcom/leidong/sdk/framework/view/loading/LoadingSmile;
+    iget v1, v1, Lcom/leidong/sdk/framework/view/loading/LoadingSmile;->mAnimatedValue:F
 
-    iget v2, v2, Lcom/leidong/sdk/framework/view/loading/LoadingSmile;->mAnimatedValue:F
+    mul-float v1, v1, v0
 
-    mul-float v2, v2, v0
-
-    # setter for: Lcom/leidong/sdk/framework/view/loading/LoadingSmile;->startAngle:F
-    invoke-static {v1, v2}, Lcom/leidong/sdk/framework/view/loading/LoadingSmile;->access$102(Lcom/leidong/sdk/framework/view/loading/LoadingSmile;F)F
+    invoke-static {p1, v1}, Lcom/leidong/sdk/framework/view/loading/LoadingSmile;->access$102(Lcom/leidong/sdk/framework/view/loading/LoadingSmile;F)F
 
     goto :goto_0
 
     .line 122
     :cond_0
-    iget-object v1, p0, Lcom/leidong/sdk/framework/view/loading/LoadingSmile$1;->this$0:Lcom/leidong/sdk/framework/view/loading/LoadingSmile;
+    iget-object p1, p0, Lcom/leidong/sdk/framework/view/loading/LoadingSmile$1;->this$0:Lcom/leidong/sdk/framework/view/loading/LoadingSmile;
 
-    # setter for: Lcom/leidong/sdk/framework/view/loading/LoadingSmile;->startAngle:F
-    invoke-static {v1, v0}, Lcom/leidong/sdk/framework/view/loading/LoadingSmile;->access$102(Lcom/leidong/sdk/framework/view/loading/LoadingSmile;F)F
+    invoke-static {p1, v0}, Lcom/leidong/sdk/framework/view/loading/LoadingSmile;->access$102(Lcom/leidong/sdk/framework/view/loading/LoadingSmile;F)F
 
     .line 123
-    iget-object v0, p0, Lcom/leidong/sdk/framework/view/loading/LoadingSmile$1;->this$0:Lcom/leidong/sdk/framework/view/loading/LoadingSmile;
+    iget-object p1, p0, Lcom/leidong/sdk/framework/view/loading/LoadingSmile$1;->this$0:Lcom/leidong/sdk/framework/view/loading/LoadingSmile;
 
-    const/4 v1, 0x1
+    const/4 v0, 0x1
 
-    # setter for: Lcom/leidong/sdk/framework/view/loading/LoadingSmile;->isSmile:Z
-    invoke-static {v0, v1}, Lcom/leidong/sdk/framework/view/loading/LoadingSmile;->access$002(Lcom/leidong/sdk/framework/view/loading/LoadingSmile;Z)Z
+    invoke-static {p1, v0}, Lcom/leidong/sdk/framework/view/loading/LoadingSmile;->access$002(Lcom/leidong/sdk/framework/view/loading/LoadingSmile;Z)Z
 
     .line 126
     :goto_0
-    iget-object v0, p0, Lcom/leidong/sdk/framework/view/loading/LoadingSmile$1;->this$0:Lcom/leidong/sdk/framework/view/loading/LoadingSmile;
+    iget-object p1, p0, Lcom/leidong/sdk/framework/view/loading/LoadingSmile$1;->this$0:Lcom/leidong/sdk/framework/view/loading/LoadingSmile;
 
-    invoke-virtual {v0}, Lcom/leidong/sdk/framework/view/loading/LoadingSmile;->invalidate()V
+    invoke-virtual {p1}, Lcom/leidong/sdk/framework/view/loading/LoadingSmile;->invalidate()V
 
-    .line 127
     return-void
 .end method

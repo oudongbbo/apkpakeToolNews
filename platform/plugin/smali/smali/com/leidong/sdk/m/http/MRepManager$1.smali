@@ -28,7 +28,6 @@
 # direct methods
 .method constructor <init>(Lcom/leidong/sdk/m/http/MRepManager;Lorg/json/JSONObject;Lcom/leidong/sdk/framework/http/HttpCallBack;)V
     .locals 0
-    .param p1, "this$0"    # Lcom/leidong/sdk/m/http/MRepManager;
 
     .line 92
     iput-object p1, p0, Lcom/leidong/sdk/m/http/MRepManager$1;->this$0:Lcom/leidong/sdk/m/http/MRepManager;
@@ -45,20 +44,17 @@
 
 # virtual methods
 .method public onFail(Ljava/lang/String;)V
-    .locals 3
-    .param p1, "msg"    # Ljava/lang/String;
+    .locals 2
 
     .line 101
-    iget-object v0, p0, Lcom/leidong/sdk/m/http/MRepManager$1;->this$0:Lcom/leidong/sdk/m/http/MRepManager;
+    iget-object p1, p0, Lcom/leidong/sdk/m/http/MRepManager$1;->this$0:Lcom/leidong/sdk/m/http/MRepManager;
 
-    iget-object v1, p0, Lcom/leidong/sdk/m/http/MRepManager$1;->val$dataObj:Lorg/json/JSONObject;
+    iget-object v0, p0, Lcom/leidong/sdk/m/http/MRepManager$1;->val$dataObj:Lorg/json/JSONObject;
 
-    iget-object v2, p0, Lcom/leidong/sdk/m/http/MRepManager$1;->val$callback:Lcom/leidong/sdk/framework/http/HttpCallBack;
+    iget-object v1, p0, Lcom/leidong/sdk/m/http/MRepManager$1;->val$callback:Lcom/leidong/sdk/framework/http/HttpCallBack;
 
-    # invokes: Lcom/leidong/sdk/m/http/MRepManager;->handleInitUpdate(Lorg/json/JSONObject;Lcom/leidong/sdk/framework/http/HttpCallBack;)V
-    invoke-static {v0, v1, v2}, Lcom/leidong/sdk/m/http/MRepManager;->access$000(Lcom/leidong/sdk/m/http/MRepManager;Lorg/json/JSONObject;Lcom/leidong/sdk/framework/http/HttpCallBack;)V
+    invoke-static {p1, v0, v1}, Lcom/leidong/sdk/m/http/MRepManager;->access$000(Lcom/leidong/sdk/m/http/MRepManager;Lorg/json/JSONObject;Lcom/leidong/sdk/framework/http/HttpCallBack;)V
 
-    .line 102
     return-void
 .end method
 
@@ -72,9 +68,7 @@
 
     iget-object v2, p0, Lcom/leidong/sdk/m/http/MRepManager$1;->val$callback:Lcom/leidong/sdk/framework/http/HttpCallBack;
 
-    # invokes: Lcom/leidong/sdk/m/http/MRepManager;->handleInitUpdate(Lorg/json/JSONObject;Lcom/leidong/sdk/framework/http/HttpCallBack;)V
     invoke-static {v0, v1, v2}, Lcom/leidong/sdk/m/http/MRepManager;->access$000(Lcom/leidong/sdk/m/http/MRepManager;Lorg/json/JSONObject;Lcom/leidong/sdk/framework/http/HttpCallBack;)V
 
-    .line 97
     return-void
 .end method

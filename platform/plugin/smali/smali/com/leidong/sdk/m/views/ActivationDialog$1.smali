@@ -24,7 +24,6 @@
 # direct methods
 .method constructor <init>(Lcom/leidong/sdk/m/views/ActivationDialog;)V
     .locals 0
-    .param p1, "this$0"    # Lcom/leidong/sdk/m/views/ActivationDialog;
 
     .line 164
     iput-object p1, p0, Lcom/leidong/sdk/m/views/ActivationDialog$1;->this$0:Lcom/leidong/sdk/m/views/ActivationDialog;
@@ -37,44 +36,38 @@
 
 # virtual methods
 .method public onFail(ILjava/lang/String;)V
-    .locals 3
-    .param p1, "code"    # I
-    .param p2, "msg"    # Ljava/lang/String;
+    .locals 2
 
     .line 207
-    iget-object v0, p0, Lcom/leidong/sdk/m/views/ActivationDialog$1;->this$0:Lcom/leidong/sdk/m/views/ActivationDialog;
+    iget-object p1, p0, Lcom/leidong/sdk/m/views/ActivationDialog$1;->this$0:Lcom/leidong/sdk/m/views/ActivationDialog;
 
-    new-instance v1, Ljava/lang/StringBuilder;
+    new-instance v0, Ljava/lang/StringBuilder;
 
-    invoke-direct {v1}, Ljava/lang/StringBuilder;-><init>()V
+    invoke-direct {v0}, Ljava/lang/StringBuilder;-><init>()V
 
-    const-string v2, "\u6fc0\u6d3b\u5931\u8d25:"
+    const-string v1, "\u6fc0\u6d3b\u5931\u8d25:"
 
-    invoke-virtual {v1, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    invoke-virtual {v1, p2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-virtual {v0, p2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    invoke-virtual {v1}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+    invoke-virtual {v0}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
 
-    move-result-object v1
+    move-result-object p2
 
-    const/4 v2, 0x1
+    const/4 v0, 0x1
 
-    # invokes: Lcom/leidong/sdk/m/views/ActivationDialog;->controlErrorTips(ZLjava/lang/String;)V
-    invoke-static {v0, v2, v1}, Lcom/leidong/sdk/m/views/ActivationDialog;->access$000(Lcom/leidong/sdk/m/views/ActivationDialog;ZLjava/lang/String;)V
+    invoke-static {p1, v0, p2}, Lcom/leidong/sdk/m/views/ActivationDialog;->access$000(Lcom/leidong/sdk/m/views/ActivationDialog;ZLjava/lang/String;)V
 
-    .line 208
     return-void
 .end method
 
 .method public onSuccess(Ljava/lang/String;)V
     .locals 2
-    .param p1, "content"    # Ljava/lang/String;
 
     .line 168
     iget-object v0, p0, Lcom/leidong/sdk/m/views/ActivationDialog$1;->this$0:Lcom/leidong/sdk/m/views/ActivationDialog;
 
-    # getter for: Lcom/leidong/sdk/m/views/ActivationDialog;->mrepManager:Lcom/leidong/sdk/m/http/MRepManager;
     invoke-static {v0}, Lcom/leidong/sdk/m/views/ActivationDialog;->access$100(Lcom/leidong/sdk/m/views/ActivationDialog;)Lcom/leidong/sdk/m/http/MRepManager;
 
     move-result-object v0
@@ -85,6 +78,5 @@
 
     invoke-virtual {v0, p1, v1}, Lcom/leidong/sdk/m/http/MRepManager;->handleRepContent(Ljava/lang/String;Lcom/leidong/sdk/framework/http/HttpCallBack;)V
 
-    .line 203
     return-void
 .end method

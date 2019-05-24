@@ -24,9 +24,8 @@
 # direct methods
 .method constructor <init>(Lcom/leidong/sdk/s/app/login/view/LoginByRegister;)V
     .locals 0
-    .param p1, "this$0"    # Lcom/leidong/sdk/s/app/login/view/LoginByRegister;
 
-    .line 640
+    .line 641
     iput-object p1, p0, Lcom/leidong/sdk/s/app/login/view/LoginByRegister$PhoneClearLisener;->this$0:Lcom/leidong/sdk/s/app/login/view/LoginByRegister;
 
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -37,21 +36,18 @@
 
 # virtual methods
 .method public onClick(Landroid/view/View;)V
-    .locals 2
-    .param p1, "v"    # Landroid/view/View;
-
-    .line 644
-    iget-object v0, p0, Lcom/leidong/sdk/s/app/login/view/LoginByRegister$PhoneClearLisener;->this$0:Lcom/leidong/sdk/s/app/login/view/LoginByRegister;
-
-    # getter for: Lcom/leidong/sdk/s/app/login/view/LoginByRegister;->login_regist_phonenumber_input:Landroid/widget/EditText;
-    invoke-static {v0}, Lcom/leidong/sdk/s/app/login/view/LoginByRegister;->access$600(Lcom/leidong/sdk/s/app/login/view/LoginByRegister;)Landroid/widget/EditText;
-
-    move-result-object v0
-
-    const-string v1, ""
-
-    invoke-virtual {v0, v1}, Landroid/widget/EditText;->setText(Ljava/lang/CharSequence;)V
+    .locals 1
 
     .line 645
+    iget-object p1, p0, Lcom/leidong/sdk/s/app/login/view/LoginByRegister$PhoneClearLisener;->this$0:Lcom/leidong/sdk/s/app/login/view/LoginByRegister;
+
+    invoke-static {p1}, Lcom/leidong/sdk/s/app/login/view/LoginByRegister;->access$600(Lcom/leidong/sdk/s/app/login/view/LoginByRegister;)Landroid/widget/EditText;
+
+    move-result-object p1
+
+    const-string v0, ""
+
+    invoke-virtual {p1, v0}, Landroid/widget/EditText;->setText(Ljava/lang/CharSequence;)V
+
     return-void
 .end method

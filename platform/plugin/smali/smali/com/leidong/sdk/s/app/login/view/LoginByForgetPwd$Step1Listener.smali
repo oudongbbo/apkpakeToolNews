@@ -24,7 +24,6 @@
 # direct methods
 .method constructor <init>(Lcom/leidong/sdk/s/app/login/view/LoginByForgetPwd;)V
     .locals 0
-    .param p1, "this$0"    # Lcom/leidong/sdk/s/app/login/view/LoginByForgetPwd;
 
     .line 277
     iput-object p1, p0, Lcom/leidong/sdk/s/app/login/view/LoginByForgetPwd$Step1Listener;->this$0:Lcom/leidong/sdk/s/app/login/view/LoginByForgetPwd;
@@ -37,50 +36,43 @@
 
 # virtual methods
 .method public onClick(Landroid/view/View;)V
-    .locals 2
-    .param p1, "v"    # Landroid/view/View;
+    .locals 1
 
     .line 282
-    iget-object v0, p0, Lcom/leidong/sdk/s/app/login/view/LoginByForgetPwd$Step1Listener;->this$0:Lcom/leidong/sdk/s/app/login/view/LoginByForgetPwd;
+    iget-object p1, p0, Lcom/leidong/sdk/s/app/login/view/LoginByForgetPwd$Step1Listener;->this$0:Lcom/leidong/sdk/s/app/login/view/LoginByForgetPwd;
 
-    # invokes: Lcom/leidong/sdk/s/app/login/view/LoginByForgetPwd;->isQuickClick()Z
-    invoke-static {v0}, Lcom/leidong/sdk/s/app/login/view/LoginByForgetPwd;->access$600(Lcom/leidong/sdk/s/app/login/view/LoginByForgetPwd;)Z
+    invoke-static {p1}, Lcom/leidong/sdk/s/app/login/view/LoginByForgetPwd;->access$600(Lcom/leidong/sdk/s/app/login/view/LoginByForgetPwd;)Z
 
-    move-result v0
+    move-result p1
 
-    if-eqz v0, :cond_0
+    if-eqz p1, :cond_0
 
-    .line 283
     return-void
 
     .line 286
     :cond_0
-    iget-object v0, p0, Lcom/leidong/sdk/s/app/login/view/LoginByForgetPwd$Step1Listener;->this$0:Lcom/leidong/sdk/s/app/login/view/LoginByForgetPwd;
+    iget-object p1, p0, Lcom/leidong/sdk/s/app/login/view/LoginByForgetPwd$Step1Listener;->this$0:Lcom/leidong/sdk/s/app/login/view/LoginByForgetPwd;
 
-    # getter for: Lcom/leidong/sdk/s/app/login/view/LoginByForgetPwd;->login_forgetpwd_step1_phone:Landroid/widget/EditText;
-    invoke-static {v0}, Lcom/leidong/sdk/s/app/login/view/LoginByForgetPwd;->access$700(Lcom/leidong/sdk/s/app/login/view/LoginByForgetPwd;)Landroid/widget/EditText;
+    invoke-static {p1}, Lcom/leidong/sdk/s/app/login/view/LoginByForgetPwd;->access$700(Lcom/leidong/sdk/s/app/login/view/LoginByForgetPwd;)Landroid/widget/EditText;
 
-    move-result-object v0
+    move-result-object p1
 
-    invoke-virtual {v0}, Landroid/widget/EditText;->getText()Landroid/text/Editable;
+    invoke-virtual {p1}, Landroid/widget/EditText;->getText()Landroid/text/Editable;
 
-    move-result-object v0
+    move-result-object p1
 
-    invoke-virtual {v0}, Ljava/lang/Object;->toString()Ljava/lang/String;
+    invoke-virtual {p1}, Ljava/lang/Object;->toString()Ljava/lang/String;
 
-    move-result-object v0
+    move-result-object p1
 
-    invoke-virtual {v0}, Ljava/lang/String;->trim()Ljava/lang/String;
+    invoke-virtual {p1}, Ljava/lang/String;->trim()Ljava/lang/String;
 
-    move-result-object v0
+    move-result-object p1
 
     .line 288
-    .local v0, "regName":Ljava/lang/String;
-    iget-object v1, p0, Lcom/leidong/sdk/s/app/login/view/LoginByForgetPwd$Step1Listener;->this$0:Lcom/leidong/sdk/s/app/login/view/LoginByForgetPwd;
+    iget-object v0, p0, Lcom/leidong/sdk/s/app/login/view/LoginByForgetPwd$Step1Listener;->this$0:Lcom/leidong/sdk/s/app/login/view/LoginByForgetPwd;
 
-    # invokes: Lcom/leidong/sdk/s/app/login/view/LoginByForgetPwd;->requestBindInfo(Ljava/lang/String;)V
-    invoke-static {v1, v0}, Lcom/leidong/sdk/s/app/login/view/LoginByForgetPwd;->access$800(Lcom/leidong/sdk/s/app/login/view/LoginByForgetPwd;Ljava/lang/String;)V
+    invoke-static {v0, p1}, Lcom/leidong/sdk/s/app/login/view/LoginByForgetPwd;->access$800(Lcom/leidong/sdk/s/app/login/view/LoginByForgetPwd;Ljava/lang/String;)V
 
-    .line 290
     return-void
 .end method

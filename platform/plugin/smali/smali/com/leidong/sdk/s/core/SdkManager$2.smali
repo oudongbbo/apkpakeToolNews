@@ -26,7 +26,6 @@
 # direct methods
 .method constructor <init>(Lcom/leidong/sdk/s/core/SdkManager;Landroid/content/Context;)V
     .locals 0
-    .param p1, "this$0"    # Lcom/leidong/sdk/s/core/SdkManager;
 
     .line 201
     iput-object p1, p0, Lcom/leidong/sdk/s/core/SdkManager$2;->this$0:Lcom/leidong/sdk/s/core/SdkManager;
@@ -41,16 +40,14 @@
 
 # virtual methods
 .method public onDismiss(Landroid/content/DialogInterface;)V
-    .locals 2
-    .param p1, "dialog"    # Landroid/content/DialogInterface;
+    .locals 1
 
     .line 204
-    iget-object v0, p0, Lcom/leidong/sdk/s/core/SdkManager$2;->this$0:Lcom/leidong/sdk/s/core/SdkManager;
+    iget-object p1, p0, Lcom/leidong/sdk/s/core/SdkManager$2;->this$0:Lcom/leidong/sdk/s/core/SdkManager;
 
-    iget-object v1, p0, Lcom/leidong/sdk/s/core/SdkManager$2;->val$context:Landroid/content/Context;
+    iget-object v0, p0, Lcom/leidong/sdk/s/core/SdkManager$2;->val$context:Landroid/content/Context;
 
-    invoke-virtual {v0, v1}, Lcom/leidong/sdk/s/core/SdkManager;->showFloat(Landroid/content/Context;)V
+    invoke-virtual {p1, v0}, Lcom/leidong/sdk/s/core/SdkManager;->showFloat(Landroid/content/Context;)V
 
-    .line 205
     return-void
 .end method

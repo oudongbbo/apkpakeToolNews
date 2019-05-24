@@ -24,9 +24,8 @@
 # direct methods
 .method constructor <init>(Lcom/leidong/sdk/m/controller/MsdkManager$1;)V
     .locals 0
-    .param p1, "this$1"    # Lcom/leidong/sdk/m/controller/MsdkManager$1;
 
-    .line 210
+    .line 211
     iput-object p1, p0, Lcom/leidong/sdk/m/controller/MsdkManager$1$1;->this$1:Lcom/leidong/sdk/m/controller/MsdkManager$1;
 
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -37,32 +36,27 @@
 
 # virtual methods
 .method public onFail(ILjava/lang/String;)V
-    .locals 1
-    .param p1, "code"    # I
-    .param p2, "msg"    # Ljava/lang/String;
-
-    .line 217
-    iget-object v0, p0, Lcom/leidong/sdk/m/controller/MsdkManager$1$1;->this$1:Lcom/leidong/sdk/m/controller/MsdkManager$1;
-
-    iget-object v0, v0, Lcom/leidong/sdk/m/controller/MsdkManager$1;->val$callback:Lcom/leidong/sdk/m/LeiMsdkCallback;
-
-    invoke-interface {v0}, Lcom/leidong/sdk/m/LeiMsdkCallback;->onExitGameSuccess()V
+    .locals 0
 
     .line 218
+    iget-object p1, p0, Lcom/leidong/sdk/m/controller/MsdkManager$1$1;->this$1:Lcom/leidong/sdk/m/controller/MsdkManager$1;
+
+    iget-object p1, p1, Lcom/leidong/sdk/m/controller/MsdkManager$1;->val$callback:Lcom/leidong/sdk/m/LeiMsdkCallback;
+
+    invoke-interface {p1}, Lcom/leidong/sdk/m/LeiMsdkCallback;->onExitGameSuccess()V
+
     return-void
 .end method
 
 .method public onSuccess(Ljava/lang/String;)V
-    .locals 1
-    .param p1, "content"    # Ljava/lang/String;
-
-    .line 213
-    iget-object v0, p0, Lcom/leidong/sdk/m/controller/MsdkManager$1$1;->this$1:Lcom/leidong/sdk/m/controller/MsdkManager$1;
-
-    iget-object v0, v0, Lcom/leidong/sdk/m/controller/MsdkManager$1;->val$callback:Lcom/leidong/sdk/m/LeiMsdkCallback;
-
-    invoke-interface {v0}, Lcom/leidong/sdk/m/LeiMsdkCallback;->onExitGameSuccess()V
+    .locals 0
 
     .line 214
+    iget-object p1, p0, Lcom/leidong/sdk/m/controller/MsdkManager$1$1;->this$1:Lcom/leidong/sdk/m/controller/MsdkManager$1;
+
+    iget-object p1, p1, Lcom/leidong/sdk/m/controller/MsdkManager$1;->val$callback:Lcom/leidong/sdk/m/LeiMsdkCallback;
+
+    invoke-interface {p1}, Lcom/leidong/sdk/m/LeiMsdkCallback;->onExitGameSuccess()V
+
     return-void
 .end method

@@ -30,12 +30,9 @@
 
 # virtual methods
 .method public verify(Ljava/lang/String;Ljavax/net/ssl/SSLSession;)Z
-    .locals 1
-    .param p1, "hostname"    # Ljava/lang/String;
-    .param p2, "session"    # Ljavax/net/ssl/SSLSession;
+    .locals 0
 
-    .line 155
-    const/4 v0, 0x1
+    const/4 p1, 0x1
 
-    return v0
+    return p1
 .end method

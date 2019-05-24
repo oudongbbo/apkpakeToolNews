@@ -26,7 +26,6 @@
 # direct methods
 .method constructor <init>(Lcom/leidong/sdk/s/core/view/BaseTagView;Ljava/lang/String;)V
     .locals 0
-    .param p1, "this$0"    # Lcom/leidong/sdk/s/core/view/BaseTagView;
 
     .line 124
     iput-object p1, p0, Lcom/leidong/sdk/s/core/view/BaseTagView$1;->this$0:Lcom/leidong/sdk/s/core/view/BaseTagView;
@@ -46,7 +45,6 @@
     .line 128
     iget-object v0, p0, Lcom/leidong/sdk/s/core/view/BaseTagView$1;->this$0:Lcom/leidong/sdk/s/core/view/BaseTagView;
 
-    # getter for: Lcom/leidong/sdk/s/core/view/BaseTagView;->mActivity:Landroid/app/Activity;
     invoke-static {v0}, Lcom/leidong/sdk/s/core/view/BaseTagView;->access$000(Lcom/leidong/sdk/s/core/view/BaseTagView;)Landroid/app/Activity;
 
     move-result-object v0
@@ -61,6 +59,5 @@
 
     invoke-virtual {v0}, Landroid/widget/Toast;->show()V
 
-    .line 129
     return-void
 .end method

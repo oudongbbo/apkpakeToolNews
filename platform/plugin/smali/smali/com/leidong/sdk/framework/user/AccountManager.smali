@@ -16,36 +16,33 @@
 # direct methods
 .method public constructor <init>(Landroid/content/Context;)V
     .locals 1
-    .param p1, "mContext"    # Landroid/content/Context;
 
     .line 32
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
-    .line 25
     const-string v0, ".com.leidong.system"
 
+    .line 25
     iput-object v0, p0, Lcom/leidong/sdk/framework/user/AccountManager;->accountDir:Ljava/lang/String;
 
-    .line 26
     const-string v0, "system.config"
 
+    .line 26
     iput-object v0, p0, Lcom/leidong/sdk/framework/user/AccountManager;->accountFile:Ljava/lang/String;
 
-    .line 27
     const-string v0, "visitor.config"
 
+    .line 27
     iput-object v0, p0, Lcom/leidong/sdk/framework/user/AccountManager;->accountVisitorFile:Ljava/lang/String;
 
     .line 33
     iput-object p1, p0, Lcom/leidong/sdk/framework/user/AccountManager;->mContext:Landroid/content/Context;
 
-    .line 34
     return-void
 .end method
 
 .method private getAccountDir(Landroid/content/Context;)Ljava/lang/String;
     .locals 3
-    .param p1, "context"    # Landroid/content/Context;
 
     .line 38
     new-instance v0, Ljava/io/File;
@@ -75,7 +72,6 @@
     invoke-direct {v0, v1}, Ljava/io/File;-><init>(Ljava/lang/String;)V
 
     .line 39
-    .local v0, "file":Ljava/io/File;
     invoke-virtual {v0}, Ljava/io/File;->exists()Z
 
     move-result v1
@@ -87,201 +83,174 @@
 
     .line 42
     :cond_0
-    new-instance v1, Ljava/lang/StringBuilder;
+    new-instance v0, Ljava/lang/StringBuilder;
 
-    invoke-direct {v1}, Ljava/lang/StringBuilder;-><init>()V
+    invoke-direct {v0}, Ljava/lang/StringBuilder;-><init>()V
 
     invoke-virtual {p0, p1}, Lcom/leidong/sdk/framework/user/AccountManager;->getSDPath(Landroid/content/Context;)Ljava/lang/String;
 
-    move-result-object v2
+    move-result-object p1
 
-    invoke-virtual {v1, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-virtual {v0, p1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    sget-object v2, Ljava/io/File;->separator:Ljava/lang/String;
+    sget-object p1, Ljava/io/File;->separator:Ljava/lang/String;
 
-    invoke-virtual {v1, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-virtual {v0, p1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    const-string v2, ".com.leidong.system"
+    const-string p1, ".com.leidong.system"
 
-    invoke-virtual {v1, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-virtual {v0, p1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    sget-object v2, Ljava/io/File;->separator:Ljava/lang/String;
+    sget-object p1, Ljava/io/File;->separator:Ljava/lang/String;
 
-    invoke-virtual {v1, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-virtual {v0, p1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    invoke-virtual {v1}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+    invoke-virtual {v0}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
 
-    move-result-object v1
+    move-result-object p1
 
-    return-object v1
+    return-object p1
 .end method
 
 .method private getAccountFileName(Landroid/content/Context;)Ljava/lang/String;
-    .locals 4
-    .param p1, "context"    # Landroid/content/Context;
-
-    .line 67
-    const-string v0, "system.config"
+    .locals 2
 
     .line 69
-    .local v0, "fileName":Ljava/lang/String;
     invoke-static {p1}, Lcom/leidong/sdk/framework/model/config/ConfigManager;->getGamePid(Landroid/content/Context;)Ljava/lang/String;
 
-    move-result-object v1
+    move-result-object v0
 
-    invoke-static {v1}, Landroid/text/TextUtils;->isEmpty(Ljava/lang/CharSequence;)Z
+    invoke-static {v0}, Landroid/text/TextUtils;->isEmpty(Ljava/lang/CharSequence;)Z
 
-    move-result v1
+    move-result v0
 
-    if-nez v1, :cond_2
+    if-nez v0, :cond_2
 
     .line 71
     invoke-static {p1}, Lcom/leidong/sdk/framework/model/config/ConfigManager;->getGamePid(Landroid/content/Context;)Ljava/lang/String;
 
-    move-result-object v1
+    move-result-object v0
 
-    invoke-static {v1}, Ljava/lang/Integer;->parseInt(Ljava/lang/String;)I
+    invoke-static {v0}, Ljava/lang/Integer;->parseInt(Ljava/lang/String;)I
 
-    move-result v1
+    move-result v0
 
-    .line 73
-    .local v1, "pid":I
-    const/16 v2, 0x68
+    const/16 v1, 0x68
 
-    if-eq v1, v2, :cond_1
+    if-eq v0, v1, :cond_1
 
-    const/16 v2, 0x65
+    const/16 v1, 0x65
 
-    if-ne v1, v2, :cond_0
+    if-ne v0, v1, :cond_0
 
     goto :goto_0
 
     .line 80
     :cond_0
-    new-instance v2, Ljava/lang/StringBuilder;
+    new-instance v0, Ljava/lang/StringBuilder;
 
-    invoke-direct {v2}, Ljava/lang/StringBuilder;-><init>()V
+    invoke-direct {v0}, Ljava/lang/StringBuilder;-><init>()V
 
-    const-string v3, "system.config."
+    const-string v1, "system.config."
 
-    invoke-virtual {v2, v3}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
     invoke-static {p1}, Lcom/leidong/sdk/framework/model/config/ConfigManager;->getGamePid(Landroid/content/Context;)Ljava/lang/String;
 
-    move-result-object v3
+    move-result-object p1
 
-    invoke-virtual {v2, v3}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-virtual {v0, p1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    invoke-virtual {v2}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+    invoke-virtual {v0}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+
+    move-result-object p1
+
+    .line 81
+    new-instance v0, Ljava/lang/StringBuilder;
+
+    invoke-direct {v0}, Ljava/lang/StringBuilder;-><init>()V
+
+    const-string v1, "\u83b7\u53d6\u5230\u7684\u6587\u4ef6\u540d:"
+
+    invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    invoke-virtual {v0, p1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    invoke-virtual {v0}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
 
     move-result-object v0
 
-    .line 81
-    new-instance v2, Ljava/lang/StringBuilder;
+    invoke-static {v0}, Lcom/leidong/sdk/framework/utils/LogUtil;->i(Ljava/lang/String;)V
 
-    invoke-direct {v2}, Ljava/lang/StringBuilder;-><init>()V
+    return-object p1
 
-    const-string v3, "\u83b7\u53d6\u5230\u7684\u6587\u4ef6\u540d:"
-
-    invoke-virtual {v2, v3}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    invoke-virtual {v2, v0}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    invoke-virtual {v2}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
-
-    move-result-object v2
-
-    invoke-static {v2}, Lcom/leidong/sdk/framework/utils/LogUtil;->i(Ljava/lang/String;)V
-
-    .line 82
-    return-object v0
-
-    .line 75
     :cond_1
     :goto_0
-    const-string v0, "system.config.101"
+    const-string p1, "system.config.101"
 
     .line 76
-    new-instance v2, Ljava/lang/StringBuilder;
+    new-instance v0, Ljava/lang/StringBuilder;
 
-    invoke-direct {v2}, Ljava/lang/StringBuilder;-><init>()V
+    invoke-direct {v0}, Ljava/lang/StringBuilder;-><init>()V
 
-    const-string v3, "\u81ea\u8425\u5e73\u53f0\u83b7\u53d6\u5230\u7684\u6587\u4ef6\u540d:"
+    const-string v1, "\u81ea\u8425\u5e73\u53f0\u83b7\u53d6\u5230\u7684\u6587\u4ef6\u540d:"
 
-    invoke-virtual {v2, v3}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    invoke-virtual {v2, v0}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-virtual {v0, p1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    invoke-virtual {v2}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+    invoke-virtual {v0}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
 
-    move-result-object v2
+    move-result-object v0
 
-    invoke-static {v2}, Lcom/leidong/sdk/framework/utils/LogUtil;->i(Ljava/lang/String;)V
+    invoke-static {v0}, Lcom/leidong/sdk/framework/utils/LogUtil;->i(Ljava/lang/String;)V
 
-    .line 77
-    return-object v0
+    return-object p1
 
-    .line 86
-    .end local v1    # "pid":I
     :cond_2
-    const-string v1, "system.config"
+    const-string p1, "system.config"
 
-    return-object v1
+    return-object p1
 .end method
 
 .method private getAccountVisitorFileName(Landroid/content/Context;)Ljava/lang/String;
-    .locals 1
-    .param p1, "context"    # Landroid/content/Context;
+    .locals 0
 
-    .line 320
-    const-string v0, "visitor.config"
+    const-string p1, "visitor.config"
 
-    return-object v0
+    return-object p1
 .end method
 
 
 # virtual methods
 .method public addAccountToFile(Landroid/content/Context;Lcom/leidong/sdk/framework/user/UserInfoBean;)V
     .locals 6
-    .param p1, "context"    # Landroid/content/Context;
-    .param p2, "uinfo"    # Lcom/leidong/sdk/framework/user/UserInfoBean;
 
     .line 146
     invoke-virtual {p0, p1}, Lcom/leidong/sdk/framework/user/AccountManager;->getAccountsFromFile(Landroid/content/Context;)Ljava/util/List;
 
     move-result-object v0
 
-    .line 148
-    .local v0, "accountList":Ljava/util/List;, "Ljava/util/List<Lcom/leidong/sdk/framework/user/UserInfoBean;>;"
     const/4 v1, 0x0
 
     if-nez v0, :cond_0
 
     .line 150
-    new-instance v2, Ljava/util/ArrayList;
+    new-instance v0, Ljava/util/ArrayList;
 
-    invoke-direct {v2}, Ljava/util/ArrayList;-><init>()V
-
-    move-object v0, v2
+    invoke-direct {v0}, Ljava/util/ArrayList;-><init>()V
 
     .line 151
     invoke-interface {v0, p2}, Ljava/util/List;->add(Ljava/lang/Object;)Z
 
     goto :goto_1
 
-    .line 155
     :cond_0
     const/4 v2, 0x0
 
-    .line 156
-    .local v2, "hasAccount":Z
-    move v3, v2
-
-    const/4 v2, 0x0
+    const/4 v3, 0x0
 
     .line 156
-    .local v2, "i":I
-    .local v3, "hasAccount":Z
     :goto_0
     invoke-interface {v0}, Ljava/util/List;->size()I
 
@@ -310,94 +279,90 @@
 
     if-eqz v4, :cond_2
 
-    .line 159
-    const/4 v3, 0x1
-
     .line 162
     invoke-virtual {p2}, Lcom/leidong/sdk/framework/user/UserInfoBean;->getPwd()Ljava/lang/String;
 
-    move-result-object v4
+    move-result-object v3
 
-    invoke-static {v4}, Landroid/text/TextUtils;->isEmpty(Ljava/lang/CharSequence;)Z
+    invoke-static {v3}, Landroid/text/TextUtils;->isEmpty(Ljava/lang/CharSequence;)Z
 
-    move-result v4
+    move-result v3
 
-    if-nez v4, :cond_1
+    if-nez v3, :cond_1
 
     .line 165
     invoke-interface {v0, v2}, Ljava/util/List;->get(I)Ljava/lang/Object;
 
-    move-result-object v4
+    move-result-object v3
 
-    check-cast v4, Lcom/leidong/sdk/framework/user/UserInfoBean;
+    check-cast v3, Lcom/leidong/sdk/framework/user/UserInfoBean;
 
     invoke-virtual {p2}, Lcom/leidong/sdk/framework/user/UserInfoBean;->getPwd()Ljava/lang/String;
 
-    move-result-object v5
+    move-result-object v4
 
-    invoke-virtual {v4, v5}, Lcom/leidong/sdk/framework/user/UserInfoBean;->setPwd(Ljava/lang/String;)V
+    invoke-virtual {v3, v4}, Lcom/leidong/sdk/framework/user/UserInfoBean;->setPwd(Ljava/lang/String;)V
 
     .line 167
     :cond_1
     invoke-interface {v0, v2}, Ljava/util/List;->get(I)Ljava/lang/Object;
 
-    move-result-object v4
+    move-result-object v3
 
-    check-cast v4, Lcom/leidong/sdk/framework/user/UserInfoBean;
+    check-cast v3, Lcom/leidong/sdk/framework/user/UserInfoBean;
 
     invoke-virtual {p2}, Lcom/leidong/sdk/framework/user/UserInfoBean;->getVname()Ljava/lang/String;
 
-    move-result-object v5
+    move-result-object v4
 
-    invoke-virtual {v4, v5}, Lcom/leidong/sdk/framework/user/UserInfoBean;->setVname(Ljava/lang/String;)V
+    invoke-virtual {v3, v4}, Lcom/leidong/sdk/framework/user/UserInfoBean;->setVname(Ljava/lang/String;)V
 
     .line 168
     invoke-interface {v0, v2}, Ljava/util/List;->get(I)Ljava/lang/Object;
 
-    move-result-object v4
+    move-result-object v3
 
-    check-cast v4, Lcom/leidong/sdk/framework/user/UserInfoBean;
+    check-cast v3, Lcom/leidong/sdk/framework/user/UserInfoBean;
 
     invoke-virtual {p2}, Lcom/leidong/sdk/framework/user/UserInfoBean;->getPlatform()Ljava/lang/String;
 
-    move-result-object v5
+    move-result-object v4
 
-    invoke-virtual {v4, v5}, Lcom/leidong/sdk/framework/user/UserInfoBean;->setPlatform(Ljava/lang/String;)V
+    invoke-virtual {v3, v4}, Lcom/leidong/sdk/framework/user/UserInfoBean;->setPlatform(Ljava/lang/String;)V
 
     .line 169
     invoke-interface {v0, v2}, Ljava/util/List;->get(I)Ljava/lang/Object;
 
-    move-result-object v4
+    move-result-object v3
 
-    check-cast v4, Lcom/leidong/sdk/framework/user/UserInfoBean;
+    check-cast v3, Lcom/leidong/sdk/framework/user/UserInfoBean;
 
     invoke-virtual {p2}, Lcom/leidong/sdk/framework/user/UserInfoBean;->isAdult()Z
 
-    move-result v5
+    move-result v4
 
-    invoke-virtual {v4, v5}, Lcom/leidong/sdk/framework/user/UserInfoBean;->setAdult(Z)V
+    invoke-virtual {v3, v4}, Lcom/leidong/sdk/framework/user/UserInfoBean;->setAdult(Z)V
 
     .line 170
     invoke-interface {v0, v2}, Ljava/util/List;->get(I)Ljava/lang/Object;
 
-    move-result-object v4
+    move-result-object v3
 
-    check-cast v4, Lcom/leidong/sdk/framework/user/UserInfoBean;
+    check-cast v3, Lcom/leidong/sdk/framework/user/UserInfoBean;
 
     invoke-virtual {p2}, Lcom/leidong/sdk/framework/user/UserInfoBean;->isAuth()Z
 
-    move-result v5
+    move-result v4
 
-    invoke-virtual {v4, v5}, Lcom/leidong/sdk/framework/user/UserInfoBean;->setAuth(Z)V
+    invoke-virtual {v3, v4}, Lcom/leidong/sdk/framework/user/UserInfoBean;->setAuth(Z)V
 
-    .line 156
+    const/4 v3, 0x1
+
     :cond_2
     add-int/lit8 v2, v2, 0x1
 
     goto :goto_0
 
-    .line 174
-    .end local v2    # "i":I
     :cond_3
     if-nez v3, :cond_4
 
@@ -405,99 +370,79 @@
     invoke-interface {v0, p2}, Ljava/util/List;->add(Ljava/lang/Object;)Z
 
     .line 181
-    .end local v3    # "hasAccount":Z
     :cond_4
     :goto_1
     :try_start_0
     invoke-direct {p0, p1}, Lcom/leidong/sdk/framework/user/AccountManager;->getAccountFileName(Landroid/content/Context;)Ljava/lang/String;
 
-    move-result-object v2
+    move-result-object p2
 
-    invoke-virtual {p0, p1, v2}, Lcom/leidong/sdk/framework/user/AccountManager;->getAccountFile(Landroid/content/Context;Ljava/lang/String;)Ljava/io/File;
+    invoke-virtual {p0, p1, p2}, Lcom/leidong/sdk/framework/user/AccountManager;->getAccountFile(Landroid/content/Context;Ljava/lang/String;)Ljava/io/File;
 
-    move-result-object v2
+    move-result-object p1
 
     .line 182
-    .local v2, "file":Ljava/io/File;
-    invoke-virtual {v2}, Ljava/io/File;->exists()Z
+    invoke-virtual {p1}, Ljava/io/File;->exists()Z
 
-    move-result v3
+    move-result p2
 
-    if-eqz v3, :cond_5
+    if-eqz p2, :cond_5
 
     .line 183
-    new-instance v3, Ljava/io/FileWriter;
+    new-instance p2, Ljava/io/FileWriter;
 
-    invoke-virtual {v2}, Ljava/io/File;->getAbsolutePath()Ljava/lang/String;
+    invoke-virtual {p1}, Ljava/io/File;->getAbsolutePath()Ljava/lang/String;
 
-    move-result-object v4
+    move-result-object p1
 
-    invoke-direct {v3, v4, v1}, Ljava/io/FileWriter;-><init>(Ljava/lang/String;Z)V
-
-    move-object v1, v3
+    invoke-direct {p2, p1, v1}, Ljava/io/FileWriter;-><init>(Ljava/lang/String;Z)V
 
     .line 184
-    .local v1, "writer":Ljava/io/FileWriter;
     invoke-virtual {p0, v0}, Lcom/leidong/sdk/framework/user/AccountManager;->userListToString(Ljava/util/List;)Ljava/lang/String;
 
-    move-result-object v3
+    move-result-object p1
+
+    const-string v0, ".com.leidong.system"
 
     .line 185
-    .local v3, "json":Ljava/lang/String;
-    const-string v4, ".com.leidong.system"
+    invoke-static {p1, v0}, Lcom/leidong/sdk/framework/encrypt/CodeManager;->encodeCommon(Ljava/lang/String;Ljava/lang/String;)Ljava/lang/String;
 
-    invoke-static {v3, v4}, Lcom/leidong/sdk/framework/encrypt/CodeManager;->encodeCommon(Ljava/lang/String;Ljava/lang/String;)Ljava/lang/String;
+    move-result-object p1
 
-    move-result-object v4
-
-    invoke-virtual {v1, v4}, Ljava/io/FileWriter;->write(Ljava/lang/String;)V
+    invoke-virtual {p2, p1}, Ljava/io/FileWriter;->write(Ljava/lang/String;)V
 
     .line 186
-    invoke-virtual {v1}, Ljava/io/FileWriter;->close()V
+    invoke-virtual {p2}, Ljava/io/FileWriter;->close()V
     :try_end_0
     .catch Ljava/io/IOException; {:try_start_0 .. :try_end_0} :catch_0
 
-    .line 191
-    .end local v1    # "writer":Ljava/io/FileWriter;
-    .end local v2    # "file":Ljava/io/File;
-    .end local v3    # "json":Ljava/lang/String;
-    :cond_5
     goto :goto_2
 
-    .line 189
     :catch_0
-    move-exception v1
+    move-exception p1
 
     .line 190
-    .local v1, "e":Ljava/io/IOException;
-    invoke-virtual {v1}, Ljava/io/IOException;->printStackTrace()V
+    invoke-virtual {p1}, Ljava/io/IOException;->printStackTrace()V
 
-    .line 192
-    .end local v1    # "e":Ljava/io/IOException;
+    :cond_5
     :goto_2
     return-void
 .end method
 
 .method public addVisitorAccountToFile(Landroid/content/Context;Lcom/leidong/sdk/framework/user/UserInfoBean;)V
-    .locals 5
-    .param p1, "context"    # Landroid/content/Context;
-    .param p2, "uinfo"    # Lcom/leidong/sdk/framework/user/UserInfoBean;
+    .locals 2
 
     .line 382
     invoke-virtual {p0, p1}, Lcom/leidong/sdk/framework/user/AccountManager;->getAccountsFromVisitorFile(Landroid/content/Context;)Ljava/util/List;
 
     move-result-object v0
 
-    .line 384
-    .local v0, "accountList":Ljava/util/List;, "Ljava/util/List<Lcom/leidong/sdk/framework/user/UserInfoBean;>;"
     if-nez v0, :cond_1
 
     .line 386
-    new-instance v1, Ljava/util/ArrayList;
+    new-instance v0, Ljava/util/ArrayList;
 
-    invoke-direct {v1}, Ljava/util/ArrayList;-><init>()V
-
-    move-object v0, v1
+    invoke-direct {v0}, Ljava/util/ArrayList;-><init>()V
 
     .line 387
     invoke-interface {v0, p2}, Ljava/util/List;->add(Ljava/lang/Object;)Z
@@ -506,76 +451,63 @@
     :try_start_0
     invoke-virtual {p0, p1}, Lcom/leidong/sdk/framework/user/AccountManager;->getAccountVisitorFile(Landroid/content/Context;)Ljava/io/File;
 
-    move-result-object v1
+    move-result-object p1
 
     .line 396
-    .local v1, "file":Ljava/io/File;
-    invoke-virtual {v1}, Ljava/io/File;->exists()Z
+    invoke-virtual {p1}, Ljava/io/File;->exists()Z
 
-    move-result v2
+    move-result p2
 
-    if-eqz v2, :cond_0
+    if-eqz p2, :cond_0
 
     .line 398
-    new-instance v2, Ljava/io/FileWriter;
+    new-instance p2, Ljava/io/FileWriter;
 
-    invoke-virtual {v1}, Ljava/io/File;->getAbsolutePath()Ljava/lang/String;
+    invoke-virtual {p1}, Ljava/io/File;->getAbsolutePath()Ljava/lang/String;
 
-    move-result-object v3
+    move-result-object p1
 
-    const/4 v4, 0x0
+    const/4 v1, 0x0
 
-    invoke-direct {v2, v3, v4}, Ljava/io/FileWriter;-><init>(Ljava/lang/String;Z)V
+    invoke-direct {p2, p1, v1}, Ljava/io/FileWriter;-><init>(Ljava/lang/String;Z)V
 
     .line 400
-    .local v2, "writer":Ljava/io/FileWriter;
     invoke-virtual {p0, v0}, Lcom/leidong/sdk/framework/user/AccountManager;->userVisitorListToString(Ljava/util/List;)Ljava/lang/String;
 
-    move-result-object v3
+    move-result-object p1
+
+    const-string v0, ".com.leidong.system"
 
     .line 402
-    .local v3, "json":Ljava/lang/String;
-    const-string v4, ".com.leidong.system"
+    invoke-static {p1, v0}, Lcom/leidong/sdk/framework/encrypt/CodeManager;->encodeCommon(Ljava/lang/String;Ljava/lang/String;)Ljava/lang/String;
 
-    invoke-static {v3, v4}, Lcom/leidong/sdk/framework/encrypt/CodeManager;->encodeCommon(Ljava/lang/String;Ljava/lang/String;)Ljava/lang/String;
+    move-result-object p1
 
-    move-result-object v4
-
-    invoke-virtual {v2, v4}, Ljava/io/FileWriter;->write(Ljava/lang/String;)V
+    invoke-virtual {p2, p1}, Ljava/io/FileWriter;->write(Ljava/lang/String;)V
 
     .line 403
-    invoke-virtual {v2}, Ljava/io/FileWriter;->close()V
+    invoke-virtual {p2}, Ljava/io/FileWriter;->close()V
     :try_end_0
     .catch Ljava/io/IOException; {:try_start_0 .. :try_end_0} :catch_0
 
-    .line 408
-    .end local v1    # "file":Ljava/io/File;
-    .end local v2    # "writer":Ljava/io/FileWriter;
-    .end local v3    # "json":Ljava/lang/String;
-    :cond_0
     goto :goto_0
 
-    .line 406
     :catch_0
-    move-exception v1
+    move-exception p1
 
     .line 407
-    .local v1, "e":Ljava/io/IOException;
-    invoke-virtual {v1}, Ljava/io/IOException;->printStackTrace()V
+    invoke-virtual {p1}, Ljava/io/IOException;->printStackTrace()V
 
-    .line 409
-    .end local v1    # "e":Ljava/io/IOException;
+    :cond_0
     :goto_0
     return-void
 
-    .line 391
     :cond_1
     return-void
 .end method
 
 .method public cleanAccountInfoCache(Landroid/content/Context;)V
     .locals 0
-    .param p1, "context"    # Landroid/content/Context;
 
     .line 502
     invoke-virtual {p0, p1}, Lcom/leidong/sdk/framework/user/AccountManager;->cleanAccountNormal(Landroid/content/Context;)V
@@ -583,13 +515,11 @@
     .line 503
     invoke-virtual {p0, p1}, Lcom/leidong/sdk/framework/user/AccountManager;->cleanAccountVistor(Landroid/content/Context;)V
 
-    .line 504
     return-void
 .end method
 
 .method public cleanAccountNormal(Landroid/content/Context;)V
-    .locals 2
-    .param p1, "context"    # Landroid/content/Context;
+    .locals 1
 
     .line 297
     invoke-direct {p0, p1}, Lcom/leidong/sdk/framework/user/AccountManager;->getAccountFileName(Landroid/content/Context;)Ljava/lang/String;
@@ -598,64 +528,54 @@
 
     invoke-virtual {p0, p1, v0}, Lcom/leidong/sdk/framework/user/AccountManager;->getAccountFile(Landroid/content/Context;Ljava/lang/String;)Ljava/io/File;
 
-    move-result-object v0
+    move-result-object p1
 
     .line 298
-    .local v0, "accountFile":Ljava/io/File;
-    invoke-virtual {v0}, Ljava/io/File;->exists()Z
+    invoke-virtual {p1}, Ljava/io/File;->exists()Z
 
-    move-result v1
+    move-result v0
 
-    if-eqz v1, :cond_0
+    if-eqz v0, :cond_0
 
     .line 299
-    invoke-virtual {v0}, Ljava/io/File;->delete()Z
+    invoke-virtual {p1}, Ljava/io/File;->delete()Z
 
-    .line 301
     :cond_0
     return-void
 .end method
 
 .method public cleanAccountVistor(Landroid/content/Context;)V
-    .locals 2
-    .param p1, "context"    # Landroid/content/Context;
+    .locals 1
 
     .line 492
     invoke-virtual {p0, p1}, Lcom/leidong/sdk/framework/user/AccountManager;->getAccountVisitorFile(Landroid/content/Context;)Ljava/io/File;
 
-    move-result-object v0
+    move-result-object p1
 
     .line 493
-    .local v0, "accountVistorFile":Ljava/io/File;
-    invoke-virtual {v0}, Ljava/io/File;->exists()Z
+    invoke-virtual {p1}, Ljava/io/File;->exists()Z
 
-    move-result v1
+    move-result v0
 
-    if-eqz v1, :cond_0
+    if-eqz v0, :cond_0
 
     .line 494
-    invoke-virtual {v0}, Ljava/io/File;->delete()Z
+    invoke-virtual {p1}, Ljava/io/File;->delete()Z
 
-    .line 496
     :cond_0
     return-void
 .end method
 
 .method public delAccountFromFile(Landroid/content/Context;Ljava/lang/String;)V
-    .locals 7
-    .param p1, "context"    # Landroid/content/Context;
-    .param p2, "uname"    # Ljava/lang/String;
+    .locals 4
 
     .line 195
     invoke-virtual {p0, p1}, Lcom/leidong/sdk/framework/user/AccountManager;->getAccountsFromFile(Landroid/content/Context;)Ljava/util/List;
 
     move-result-object v0
 
-    .line 197
-    .local v0, "accountList":Ljava/util/List;, "Ljava/util/List<Lcom/leidong/sdk/framework/user/UserInfoBean;>;"
     if-nez v0, :cond_0
 
-    .line 199
     return-void
 
     .line 202
@@ -665,42 +585,38 @@
     invoke-direct {v1}, Ljava/util/ArrayList;-><init>()V
 
     .line 203
-    .local v1, "saveList":Ljava/util/List;, "Ljava/util/List<Lcom/leidong/sdk/framework/user/UserInfoBean;>;"
     invoke-interface {v0}, Ljava/util/List;->iterator()Ljava/util/Iterator;
+
+    move-result-object v0
+
+    :cond_1
+    :goto_0
+    invoke-interface {v0}, Ljava/util/Iterator;->hasNext()Z
+
+    move-result v2
+
+    if-eqz v2, :cond_2
+
+    invoke-interface {v0}, Ljava/util/Iterator;->next()Ljava/lang/Object;
 
     move-result-object v2
 
-    :goto_0
-    invoke-interface {v2}, Ljava/util/Iterator;->hasNext()Z
+    check-cast v2, Lcom/leidong/sdk/framework/user/UserInfoBean;
 
-    move-result v3
-
-    if-eqz v3, :cond_2
-
-    invoke-interface {v2}, Ljava/util/Iterator;->next()Ljava/lang/Object;
+    .line 204
+    invoke-virtual {v2}, Lcom/leidong/sdk/framework/user/UserInfoBean;->getUname()Ljava/lang/String;
 
     move-result-object v3
 
-    check-cast v3, Lcom/leidong/sdk/framework/user/UserInfoBean;
+    invoke-virtual {v3, p2}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
 
-    .line 204
-    .local v3, "userinfo":Lcom/leidong/sdk/framework/user/UserInfoBean;
-    invoke-virtual {v3}, Lcom/leidong/sdk/framework/user/UserInfoBean;->getUname()Ljava/lang/String;
+    move-result v3
 
-    move-result-object v4
-
-    invoke-virtual {v4, p2}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
-
-    move-result v4
-
-    if-nez v4, :cond_1
+    if-nez v3, :cond_1
 
     .line 206
-    invoke-interface {v1, v3}, Ljava/util/List;->add(Ljava/lang/Object;)Z
+    invoke-interface {v1, v2}, Ljava/util/List;->add(Ljava/lang/Object;)Z
 
-    .line 208
-    .end local v3    # "userinfo":Lcom/leidong/sdk/framework/user/UserInfoBean;
-    :cond_1
     goto :goto_0
 
     .line 211
@@ -708,103 +624,86 @@
     :try_start_0
     invoke-direct {p0, p1}, Lcom/leidong/sdk/framework/user/AccountManager;->getAccountFileName(Landroid/content/Context;)Ljava/lang/String;
 
-    move-result-object v2
+    move-result-object p2
 
-    invoke-virtual {p0, p1, v2}, Lcom/leidong/sdk/framework/user/AccountManager;->getAccountFile(Landroid/content/Context;Ljava/lang/String;)Ljava/io/File;
+    invoke-virtual {p0, p1, p2}, Lcom/leidong/sdk/framework/user/AccountManager;->getAccountFile(Landroid/content/Context;Ljava/lang/String;)Ljava/io/File;
 
-    move-result-object v2
+    move-result-object p1
 
     .line 212
-    .local v2, "file":Ljava/io/File;
-    invoke-virtual {v2}, Ljava/io/File;->exists()Z
+    invoke-virtual {p1}, Ljava/io/File;->exists()Z
 
-    move-result v3
+    move-result p2
 
-    if-eqz v3, :cond_3
+    if-eqz p2, :cond_3
 
     .line 213
     invoke-virtual {p0, v1}, Lcom/leidong/sdk/framework/user/AccountManager;->userListToString(Ljava/util/List;)Ljava/lang/String;
 
-    move-result-object v3
+    move-result-object p2
 
     .line 214
-    .local v3, "json":Ljava/lang/String;
-    new-instance v4, Ljava/io/FileWriter;
+    new-instance v0, Ljava/io/FileWriter;
 
-    invoke-virtual {v2}, Ljava/io/File;->getAbsolutePath()Ljava/lang/String;
+    invoke-virtual {p1}, Ljava/io/File;->getAbsolutePath()Ljava/lang/String;
 
-    move-result-object v5
+    move-result-object p1
 
-    const/4 v6, 0x0
+    const/4 v1, 0x0
 
-    invoke-direct {v4, v5, v6}, Ljava/io/FileWriter;-><init>(Ljava/lang/String;Z)V
+    invoke-direct {v0, p1, v1}, Ljava/io/FileWriter;-><init>(Ljava/lang/String;Z)V
+
+    const-string p1, ".com.leidong.system"
 
     .line 215
-    .local v4, "writer":Ljava/io/FileWriter;
-    const-string v5, ".com.leidong.system"
+    invoke-static {p2, p1}, Lcom/leidong/sdk/framework/encrypt/CodeManager;->encodeCommon(Ljava/lang/String;Ljava/lang/String;)Ljava/lang/String;
 
-    invoke-static {v3, v5}, Lcom/leidong/sdk/framework/encrypt/CodeManager;->encodeCommon(Ljava/lang/String;Ljava/lang/String;)Ljava/lang/String;
+    move-result-object p1
 
-    move-result-object v5
-
-    invoke-virtual {v4, v5}, Ljava/io/FileWriter;->write(Ljava/lang/String;)V
+    invoke-virtual {v0, p1}, Ljava/io/FileWriter;->write(Ljava/lang/String;)V
 
     .line 216
-    invoke-virtual {v4}, Ljava/io/FileWriter;->close()V
+    invoke-virtual {v0}, Ljava/io/FileWriter;->close()V
     :try_end_0
     .catch Ljava/io/IOException; {:try_start_0 .. :try_end_0} :catch_0
 
-    .line 221
-    .end local v2    # "file":Ljava/io/File;
-    .end local v3    # "json":Ljava/lang/String;
-    .end local v4    # "writer":Ljava/io/FileWriter;
-    :cond_3
     goto :goto_1
 
-    .line 219
     :catch_0
-    move-exception v2
+    move-exception p1
 
     .line 220
-    .local v2, "e":Ljava/io/IOException;
-    invoke-virtual {v2}, Ljava/io/IOException;->printStackTrace()V
+    invoke-virtual {p1}, Ljava/io/IOException;->printStackTrace()V
 
-    .line 222
-    .end local v2    # "e":Ljava/io/IOException;
+    :cond_3
     :goto_1
     return-void
 .end method
 
 .method public delVisitorAccountFromFile(Landroid/content/Context;Ljava/lang/String;)V
-    .locals 2
-    .param p1, "context"    # Landroid/content/Context;
-    .param p2, "uname"    # Ljava/lang/String;
+    .locals 0
 
     .line 412
     invoke-virtual {p0, p1}, Lcom/leidong/sdk/framework/user/AccountManager;->getAccountVisitorFile(Landroid/content/Context;)Ljava/io/File;
 
-    move-result-object v0
+    move-result-object p1
 
     .line 413
-    .local v0, "file":Ljava/io/File;
-    invoke-virtual {v0}, Ljava/io/File;->exists()Z
+    invoke-virtual {p1}, Ljava/io/File;->exists()Z
 
-    move-result v1
+    move-result p2
 
-    if-eqz v1, :cond_0
+    if-eqz p2, :cond_0
 
     .line 414
-    invoke-virtual {v0}, Ljava/io/File;->delete()Z
+    invoke-virtual {p1}, Ljava/io/File;->delete()Z
 
-    .line 416
     :cond_0
     return-void
 .end method
 
 .method public getAccountFile(Landroid/content/Context;Ljava/lang/String;)Ljava/io/File;
-    .locals 3
-    .param p1, "context"    # Landroid/content/Context;
-    .param p2, "fileName"    # Ljava/lang/String;
+    .locals 2
 
     .line 304
     new-instance v0, Ljava/io/File;
@@ -815,57 +714,50 @@
 
     invoke-direct {p0, p1}, Lcom/leidong/sdk/framework/user/AccountManager;->getAccountDir(Landroid/content/Context;)Ljava/lang/String;
 
-    move-result-object v2
+    move-result-object p1
 
-    invoke-virtual {v1, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-virtual {v1, p1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    sget-object v2, Ljava/io/File;->separator:Ljava/lang/String;
+    sget-object p1, Ljava/io/File;->separator:Ljava/lang/String;
 
-    invoke-virtual {v1, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-virtual {v1, p1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
     invoke-virtual {v1, p2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
     invoke-virtual {v1}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
 
-    move-result-object v1
+    move-result-object p1
 
-    invoke-direct {v0, v1}, Ljava/io/File;-><init>(Ljava/lang/String;)V
+    invoke-direct {v0, p1}, Ljava/io/File;-><init>(Ljava/lang/String;)V
 
     .line 306
-    .local v0, "file":Ljava/io/File;
     :try_start_0
     invoke-virtual {v0}, Ljava/io/File;->exists()Z
 
-    move-result v1
+    move-result p1
 
-    if-nez v1, :cond_0
+    if-nez p1, :cond_0
 
     .line 307
     invoke-virtual {v0}, Ljava/io/File;->createNewFile()Z
     :try_end_0
     .catch Ljava/lang/Exception; {:try_start_0 .. :try_end_0} :catch_0
 
-    .line 311
-    :cond_0
     goto :goto_0
 
-    .line 309
     :catch_0
-    move-exception v1
+    move-exception p1
 
     .line 310
-    .local v1, "e":Ljava/lang/Exception;
-    invoke-virtual {v1}, Ljava/lang/Exception;->printStackTrace()V
+    invoke-virtual {p1}, Ljava/lang/Exception;->printStackTrace()V
 
-    .line 312
-    .end local v1    # "e":Ljava/lang/Exception;
+    :cond_0
     :goto_0
     return-object v0
 .end method
 
 .method public getAccountVisitorFile(Landroid/content/Context;)Ljava/io/File;
     .locals 3
-    .param p1, "context"    # Landroid/content/Context;
 
     .line 324
     new-instance v0, Ljava/io/File;
@@ -886,51 +778,44 @@
 
     invoke-direct {p0, p1}, Lcom/leidong/sdk/framework/user/AccountManager;->getAccountVisitorFileName(Landroid/content/Context;)Ljava/lang/String;
 
-    move-result-object v2
+    move-result-object p1
 
-    invoke-virtual {v1, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-virtual {v1, p1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
     invoke-virtual {v1}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
 
-    move-result-object v1
+    move-result-object p1
 
-    invoke-direct {v0, v1}, Ljava/io/File;-><init>(Ljava/lang/String;)V
+    invoke-direct {v0, p1}, Ljava/io/File;-><init>(Ljava/lang/String;)V
 
     .line 326
-    .local v0, "file":Ljava/io/File;
     :try_start_0
     invoke-virtual {v0}, Ljava/io/File;->exists()Z
 
-    move-result v1
+    move-result p1
 
-    if-nez v1, :cond_0
+    if-nez p1, :cond_0
 
     .line 327
     invoke-virtual {v0}, Ljava/io/File;->createNewFile()Z
     :try_end_0
     .catch Ljava/lang/Exception; {:try_start_0 .. :try_end_0} :catch_0
 
-    .line 331
-    :cond_0
     goto :goto_0
 
-    .line 329
     :catch_0
-    move-exception v1
+    move-exception p1
 
     .line 330
-    .local v1, "e":Ljava/lang/Exception;
-    invoke-virtual {v1}, Ljava/lang/Exception;->printStackTrace()V
+    invoke-virtual {p1}, Ljava/lang/Exception;->printStackTrace()V
 
-    .line 332
-    .end local v1    # "e":Ljava/lang/Exception;
+    :cond_0
     :goto_0
     return-object v0
 .end method
 
 .method public getAccountsFromFile(Landroid/content/Context;)Ljava/util/List;
     .locals 1
-    .param p1, "context"    # Landroid/content/Context;
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -949,17 +834,13 @@
 
     invoke-virtual {p0, v0, p1}, Lcom/leidong/sdk/framework/user/AccountManager;->getAccountsFromFileBase(Ljava/lang/String;Landroid/content/Context;)Ljava/util/List;
 
-    move-result-object v0
+    move-result-object p1
 
-    .line 95
-    .local v0, "accountList":Ljava/util/List;, "Ljava/util/List<Lcom/leidong/sdk/framework/user/UserInfoBean;>;"
-    return-object v0
+    return-object p1
 .end method
 
 .method public getAccountsFromFileBase(Ljava/lang/String;Landroid/content/Context;)Ljava/util/List;
-    .locals 7
-    .param p1, "fileName"    # Ljava/lang/String;
-    .param p2, "context"    # Landroid/content/Context;
+    .locals 4
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -975,231 +856,193 @@
     .line 100
     invoke-virtual {p0, p2, p1}, Lcom/leidong/sdk/framework/user/AccountManager;->getAccountFile(Landroid/content/Context;Ljava/lang/String;)Ljava/io/File;
 
-    move-result-object v0
+    move-result-object p2
 
     .line 102
-    .local v0, "file":Ljava/io/File;
-    invoke-virtual {v0}, Ljava/io/File;->exists()Z
+    invoke-virtual {p2}, Ljava/io/File;->exists()Z
 
-    move-result v1
+    move-result v0
 
-    const/4 v2, 0x0
+    const/4 v1, 0x0
 
-    if-nez v1, :cond_0
+    if-nez v0, :cond_0
 
-    .line 103
-    return-object v2
+    return-object v1
 
-    .line 105
     :cond_0
-    const-string v1, ""
-
-    .line 106
-    .local v1, "json":Ljava/lang/String;
-    move-object v3, v2
+    const-string v0, ""
 
     .line 108
-    .local v3, "reader":Ljava/io/BufferedReader;
     :try_start_0
-    new-instance v4, Ljava/io/BufferedReader;
+    new-instance v2, Ljava/io/BufferedReader;
 
-    new-instance v5, Ljava/io/FileReader;
+    new-instance v3, Ljava/io/FileReader;
 
-    invoke-direct {v5, v0}, Ljava/io/FileReader;-><init>(Ljava/io/File;)V
+    invoke-direct {v3, p2}, Ljava/io/FileReader;-><init>(Ljava/io/File;)V
 
-    invoke-direct {v4, v5}, Ljava/io/BufferedReader;-><init>(Ljava/io/Reader;)V
-
-    move-object v3, v4
-
-    .line 109
-    const/4 v4, 0x0
-
-    .line 110
-    .local v4, "tempString":Ljava/lang/String;
-    const/4 v5, 0x1
+    invoke-direct {v2, v3}, Ljava/io/BufferedReader;-><init>(Ljava/io/Reader;)V
+    :try_end_0
+    .catch Ljava/lang/Exception; {:try_start_0 .. :try_end_0} :catch_2
+    .catchall {:try_start_0 .. :try_end_0} :catchall_0
 
     .line 111
-    .local v5, "line":I
     :goto_0
-    invoke-virtual {v3}, Ljava/io/BufferedReader;->readLine()Ljava/lang/String;
+    :try_start_1
+    invoke-virtual {v2}, Ljava/io/BufferedReader;->readLine()Ljava/lang/String;
 
-    move-result-object v6
+    move-result-object p2
 
-    move-object v4, v6
-
-    if-eqz v6, :cond_1
+    if-eqz p2, :cond_1
 
     .line 112
-    new-instance v6, Ljava/lang/StringBuilder;
+    new-instance v3, Ljava/lang/StringBuilder;
 
-    invoke-direct {v6}, Ljava/lang/StringBuilder;-><init>()V
+    invoke-direct {v3}, Ljava/lang/StringBuilder;-><init>()V
 
-    invoke-virtual {v6, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-virtual {v3, v0}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    invoke-virtual {v6, v4}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-virtual {v3, p2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    invoke-virtual {v6}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+    invoke-virtual {v3}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
 
-    move-result-object v6
+    move-result-object p2
 
-    move-object v1, v6
-
-    .line 113
-    add-int/lit8 v5, v5, 0x1
+    move-object v0, p2
 
     goto :goto_0
 
     .line 115
     :cond_1
-    invoke-virtual {v3}, Ljava/io/BufferedReader;->close()V
-    :try_end_0
-    .catch Ljava/lang/Exception; {:try_start_0 .. :try_end_0} :catch_1
-    .catchall {:try_start_0 .. :try_end_0} :catchall_0
+    invoke-virtual {v2}, Ljava/io/BufferedReader;->close()V
+    :try_end_1
+    .catch Ljava/lang/Exception; {:try_start_1 .. :try_end_1} :catch_1
+    .catchall {:try_start_1 .. :try_end_1} :catchall_1
 
-    .line 119
-    .end local v4    # "tempString":Ljava/lang/String;
-    .end local v5    # "line":I
-    if-eqz v3, :cond_2
+    if-eqz v2, :cond_2
 
     .line 121
-    :try_start_1
-    invoke-virtual {v3}, Ljava/io/BufferedReader;->close()V
-    :try_end_1
-    .catch Ljava/lang/Exception; {:try_start_1 .. :try_end_1} :catch_0
+    :try_start_2
+    invoke-virtual {v2}, Ljava/io/BufferedReader;->close()V
+    :try_end_2
+    .catch Ljava/lang/Exception; {:try_start_2 .. :try_end_2} :catch_0
 
-    .line 124
-    :goto_1
     goto :goto_2
 
-    .line 122
     :catch_0
-    move-exception v4
+    move-exception p2
 
     .line 123
-    .local v4, "e1":Ljava/lang/Exception;
-    invoke-virtual {v4}, Ljava/lang/Exception;->printStackTrace()V
+    invoke-virtual {p2}, Ljava/lang/Exception;->printStackTrace()V
 
-    .line 123
-    .end local v4    # "e1":Ljava/lang/Exception;
+    goto :goto_2
+
+    :catch_1
+    move-exception p2
+
     goto :goto_1
 
-    .line 119
     :catchall_0
-    move-exception v2
+    move-exception p1
+
+    move-object v2, v1
 
     goto :goto_4
 
-    .line 116
-    :catch_1
-    move-exception v4
+    :catch_2
+    move-exception p2
+
+    move-object v2, v1
 
     .line 117
-    .local v4, "e":Ljava/lang/Exception;
-    :try_start_2
-    invoke-virtual {v4}, Ljava/lang/Exception;->printStackTrace()V
-    :try_end_2
-    .catchall {:try_start_2 .. :try_end_2} :catchall_0
+    :goto_1
+    :try_start_3
+    invoke-virtual {p2}, Ljava/lang/Exception;->printStackTrace()V
+    :try_end_3
+    .catchall {:try_start_3 .. :try_end_3} :catchall_1
 
-    .line 119
-    .end local v4    # "e":Ljava/lang/Exception;
-    if-eqz v3, :cond_2
+    if-eqz v2, :cond_2
 
     .line 121
-    :try_start_3
-    invoke-virtual {v3}, Ljava/io/BufferedReader;->close()V
-    :try_end_3
-    .catch Ljava/lang/Exception; {:try_start_3 .. :try_end_3} :catch_0
+    :try_start_4
+    invoke-virtual {v2}, Ljava/io/BufferedReader;->close()V
+    :try_end_4
+    .catch Ljava/lang/Exception; {:try_start_4 .. :try_end_4} :catch_0
 
-    goto :goto_1
-
-    .line 127
     :cond_2
     :goto_2
-    const-string v4, ""
+    const-string p2, ""
 
-    invoke-virtual {v1, v4}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+    .line 127
+    invoke-virtual {v0, p2}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
 
-    move-result v4
+    move-result p2
 
-    if-eqz v4, :cond_3
+    if-eqz p2, :cond_3
 
-    .line 128
-    return-object v2
+    return-object v1
 
     .line 131
     :cond_3
-    new-instance v2, Ljava/util/ArrayList;
+    new-instance p2, Ljava/util/ArrayList;
 
-    invoke-direct {v2}, Ljava/util/ArrayList;-><init>()V
+    invoke-direct {p2}, Ljava/util/ArrayList;-><init>()V
+
+    :try_start_5
+    const-string v1, ".com.leidong.system"
 
     .line 133
-    .local v2, "accountList":Ljava/util/List;, "Ljava/util/List<Lcom/leidong/sdk/framework/user/UserInfoBean;>;"
-    :try_start_4
-    const-string v4, ".com.leidong.system"
+    invoke-static {v0, v1}, Lcom/leidong/sdk/framework/encrypt/CodeManager;->decodeCommon(Ljava/lang/String;Ljava/lang/String;)Ljava/lang/String;
 
-    invoke-static {v1, v4}, Lcom/leidong/sdk/framework/encrypt/CodeManager;->decodeCommon(Ljava/lang/String;Ljava/lang/String;)Ljava/lang/String;
-
-    move-result-object v4
+    move-result-object v0
 
     .line 134
-    .local v4, "json_":Ljava/lang/String;
-    invoke-virtual {p0, v4, p1}, Lcom/leidong/sdk/framework/user/AccountManager;->stringToUserList(Ljava/lang/String;Ljava/lang/String;)Ljava/util/List;
+    invoke-virtual {p0, v0, p1}, Lcom/leidong/sdk/framework/user/AccountManager;->stringToUserList(Ljava/lang/String;Ljava/lang/String;)Ljava/util/List;
 
-    move-result-object v5
-    :try_end_4
-    .catch Ljava/lang/Exception; {:try_start_4 .. :try_end_4} :catch_2
-
-    move-object v2, v5
-
-    .line 138
-    .end local v4    # "json_":Ljava/lang/String;
-    goto :goto_3
-
-    .line 136
-    :catch_2
-    move-exception v4
-
-    .line 137
-    .local v4, "e":Ljava/lang/Exception;
-    invoke-virtual {v4}, Ljava/lang/Exception;->printStackTrace()V
-
-    .line 140
-    .end local v4    # "e":Ljava/lang/Exception;
-    :goto_3
-    return-object v2
-
-    .line 119
-    .end local v2    # "accountList":Ljava/util/List;, "Ljava/util/List<Lcom/leidong/sdk/framework/user/UserInfoBean;>;"
-    :goto_4
-    if-eqz v3, :cond_4
-
-    .line 121
-    :try_start_5
-    invoke-virtual {v3}, Ljava/io/BufferedReader;->close()V
+    move-result-object p1
     :try_end_5
     .catch Ljava/lang/Exception; {:try_start_5 .. :try_end_5} :catch_3
 
-    .line 124
+    goto :goto_3
+
+    :catch_3
+    move-exception p1
+
+    .line 137
+    invoke-virtual {p1}, Ljava/lang/Exception;->printStackTrace()V
+
+    move-object p1, p2
+
+    :goto_3
+    return-object p1
+
+    :catchall_1
+    move-exception p1
+
+    :goto_4
+    if-eqz v2, :cond_4
+
+    .line 121
+    :try_start_6
+    invoke-virtual {v2}, Ljava/io/BufferedReader;->close()V
+    :try_end_6
+    .catch Ljava/lang/Exception; {:try_start_6 .. :try_end_6} :catch_4
+
     goto :goto_5
 
-    .line 122
-    :catch_3
-    move-exception v4
+    :catch_4
+    move-exception p2
 
     .line 123
-    .local v4, "e1":Ljava/lang/Exception;
-    invoke-virtual {v4}, Ljava/lang/Exception;->printStackTrace()V
+    invoke-virtual {p2}, Ljava/lang/Exception;->printStackTrace()V
 
-    .line 126
-    .end local v4    # "e1":Ljava/lang/Exception;
+    .line 124
     :cond_4
     :goto_5
-    throw v2
+    throw p1
 .end method
 
 .method public getAccountsFromVisitorFile(Landroid/content/Context;)Ljava/util/List;
-    .locals 7
-    .param p1, "context"    # Landroid/content/Context;
+    .locals 4
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -1214,326 +1057,279 @@
     .line 336
     invoke-virtual {p0, p1}, Lcom/leidong/sdk/framework/user/AccountManager;->getAccountVisitorFile(Landroid/content/Context;)Ljava/io/File;
 
-    move-result-object v0
+    move-result-object p1
 
     .line 338
-    .local v0, "file":Ljava/io/File;
-    invoke-virtual {v0}, Ljava/io/File;->exists()Z
+    invoke-virtual {p1}, Ljava/io/File;->exists()Z
 
-    move-result v1
+    move-result v0
 
-    const/4 v2, 0x0
+    const/4 v1, 0x0
 
-    if-nez v1, :cond_0
+    if-nez v0, :cond_0
 
-    .line 339
-    return-object v2
+    return-object v1
 
-    .line 341
     :cond_0
-    const-string v1, ""
-
-    .line 342
-    .local v1, "json":Ljava/lang/String;
-    move-object v3, v2
+    const-string v0, ""
 
     .line 344
-    .local v3, "reader":Ljava/io/BufferedReader;
     :try_start_0
-    new-instance v4, Ljava/io/BufferedReader;
+    new-instance v2, Ljava/io/BufferedReader;
 
-    new-instance v5, Ljava/io/FileReader;
+    new-instance v3, Ljava/io/FileReader;
 
-    invoke-direct {v5, v0}, Ljava/io/FileReader;-><init>(Ljava/io/File;)V
+    invoke-direct {v3, p1}, Ljava/io/FileReader;-><init>(Ljava/io/File;)V
 
-    invoke-direct {v4, v5}, Ljava/io/BufferedReader;-><init>(Ljava/io/Reader;)V
-
-    move-object v3, v4
-
-    .line 345
-    const/4 v4, 0x0
-
-    .line 346
-    .local v4, "tempString":Ljava/lang/String;
-    const/4 v5, 0x1
+    invoke-direct {v2, v3}, Ljava/io/BufferedReader;-><init>(Ljava/io/Reader;)V
+    :try_end_0
+    .catch Ljava/lang/Exception; {:try_start_0 .. :try_end_0} :catch_2
+    .catchall {:try_start_0 .. :try_end_0} :catchall_0
 
     .line 347
-    .local v5, "line":I
     :goto_0
-    invoke-virtual {v3}, Ljava/io/BufferedReader;->readLine()Ljava/lang/String;
+    :try_start_1
+    invoke-virtual {v2}, Ljava/io/BufferedReader;->readLine()Ljava/lang/String;
 
-    move-result-object v6
+    move-result-object p1
 
-    move-object v4, v6
-
-    if-eqz v6, :cond_1
+    if-eqz p1, :cond_1
 
     .line 348
-    new-instance v6, Ljava/lang/StringBuilder;
+    new-instance v3, Ljava/lang/StringBuilder;
 
-    invoke-direct {v6}, Ljava/lang/StringBuilder;-><init>()V
+    invoke-direct {v3}, Ljava/lang/StringBuilder;-><init>()V
 
-    invoke-virtual {v6, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-virtual {v3, v0}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    invoke-virtual {v6, v4}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-virtual {v3, p1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    invoke-virtual {v6}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+    invoke-virtual {v3}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
 
-    move-result-object v6
+    move-result-object p1
 
-    move-object v1, v6
-
-    .line 349
-    add-int/lit8 v5, v5, 0x1
+    move-object v0, p1
 
     goto :goto_0
 
     .line 351
     :cond_1
-    invoke-virtual {v3}, Ljava/io/BufferedReader;->close()V
-    :try_end_0
-    .catch Ljava/lang/Exception; {:try_start_0 .. :try_end_0} :catch_1
-    .catchall {:try_start_0 .. :try_end_0} :catchall_0
+    invoke-virtual {v2}, Ljava/io/BufferedReader;->close()V
+    :try_end_1
+    .catch Ljava/lang/Exception; {:try_start_1 .. :try_end_1} :catch_1
+    .catchall {:try_start_1 .. :try_end_1} :catchall_1
 
-    .line 355
-    .end local v4    # "tempString":Ljava/lang/String;
-    .end local v5    # "line":I
-    if-eqz v3, :cond_2
+    if-eqz v2, :cond_2
 
     .line 357
-    :try_start_1
-    invoke-virtual {v3}, Ljava/io/BufferedReader;->close()V
-    :try_end_1
-    .catch Ljava/lang/Exception; {:try_start_1 .. :try_end_1} :catch_0
+    :try_start_2
+    invoke-virtual {v2}, Ljava/io/BufferedReader;->close()V
+    :try_end_2
+    .catch Ljava/lang/Exception; {:try_start_2 .. :try_end_2} :catch_0
 
-    .line 360
-    :goto_1
     goto :goto_2
 
-    .line 358
     :catch_0
-    move-exception v4
+    move-exception p1
 
     .line 359
-    .local v4, "e1":Ljava/lang/Exception;
-    invoke-virtual {v4}, Ljava/lang/Exception;->printStackTrace()V
+    invoke-virtual {p1}, Ljava/lang/Exception;->printStackTrace()V
 
-    .line 359
-    .end local v4    # "e1":Ljava/lang/Exception;
+    goto :goto_2
+
+    :catch_1
+    move-exception p1
+
     goto :goto_1
 
-    .line 355
     :catchall_0
-    move-exception v2
+    move-exception p1
+
+    move-object v2, v1
 
     goto :goto_4
 
-    .line 352
-    :catch_1
-    move-exception v4
+    :catch_2
+    move-exception p1
+
+    move-object v2, v1
 
     .line 353
-    .local v4, "e":Ljava/lang/Exception;
-    :try_start_2
-    invoke-virtual {v4}, Ljava/lang/Exception;->printStackTrace()V
-    :try_end_2
-    .catchall {:try_start_2 .. :try_end_2} :catchall_0
+    :goto_1
+    :try_start_3
+    invoke-virtual {p1}, Ljava/lang/Exception;->printStackTrace()V
+    :try_end_3
+    .catchall {:try_start_3 .. :try_end_3} :catchall_1
 
-    .line 355
-    .end local v4    # "e":Ljava/lang/Exception;
-    if-eqz v3, :cond_2
+    if-eqz v2, :cond_2
 
     .line 357
-    :try_start_3
-    invoke-virtual {v3}, Ljava/io/BufferedReader;->close()V
-    :try_end_3
-    .catch Ljava/lang/Exception; {:try_start_3 .. :try_end_3} :catch_0
+    :try_start_4
+    invoke-virtual {v2}, Ljava/io/BufferedReader;->close()V
+    :try_end_4
+    .catch Ljava/lang/Exception; {:try_start_4 .. :try_end_4} :catch_0
 
-    goto :goto_1
-
-    .line 363
     :cond_2
     :goto_2
-    const-string v4, ""
+    const-string p1, ""
 
-    invoke-virtual {v1, v4}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+    .line 363
+    invoke-virtual {v0, p1}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
 
-    move-result v4
+    move-result p1
 
-    if-eqz v4, :cond_3
+    if-eqz p1, :cond_3
 
-    .line 364
-    return-object v2
+    return-object v1
 
     .line 367
     :cond_3
-    new-instance v2, Ljava/util/ArrayList;
+    new-instance p1, Ljava/util/ArrayList;
 
-    invoke-direct {v2}, Ljava/util/ArrayList;-><init>()V
+    invoke-direct {p1}, Ljava/util/ArrayList;-><init>()V
+
+    :try_start_5
+    const-string v1, ".com.leidong.system"
 
     .line 369
-    .local v2, "accountList":Ljava/util/List;, "Ljava/util/List<Lcom/leidong/sdk/framework/user/UserInfoBean;>;"
-    :try_start_4
-    const-string v4, ".com.leidong.system"
+    invoke-static {v0, v1}, Lcom/leidong/sdk/framework/encrypt/CodeManager;->decodeCommon(Ljava/lang/String;Ljava/lang/String;)Ljava/lang/String;
 
-    invoke-static {v1, v4}, Lcom/leidong/sdk/framework/encrypt/CodeManager;->decodeCommon(Ljava/lang/String;Ljava/lang/String;)Ljava/lang/String;
-
-    move-result-object v4
+    move-result-object v0
 
     .line 370
-    .local v4, "json_":Ljava/lang/String;
-    invoke-virtual {p0, v4}, Lcom/leidong/sdk/framework/user/AccountManager;->stringToVisitorUserList(Ljava/lang/String;)Ljava/util/List;
+    invoke-virtual {p0, v0}, Lcom/leidong/sdk/framework/user/AccountManager;->stringToVisitorUserList(Ljava/lang/String;)Ljava/util/List;
 
-    move-result-object v5
-    :try_end_4
-    .catch Ljava/lang/Exception; {:try_start_4 .. :try_end_4} :catch_2
-
-    move-object v2, v5
-
-    .line 374
-    .end local v4    # "json_":Ljava/lang/String;
-    goto :goto_3
-
-    .line 372
-    :catch_2
-    move-exception v4
-
-    .line 373
-    .local v4, "e":Ljava/lang/Exception;
-    invoke-virtual {v4}, Ljava/lang/Exception;->printStackTrace()V
-
-    .line 376
-    .end local v4    # "e":Ljava/lang/Exception;
-    :goto_3
-    return-object v2
-
-    .line 355
-    .end local v2    # "accountList":Ljava/util/List;, "Ljava/util/List<Lcom/leidong/sdk/framework/user/UserInfoBean;>;"
-    :goto_4
-    if-eqz v3, :cond_4
-
-    .line 357
-    :try_start_5
-    invoke-virtual {v3}, Ljava/io/BufferedReader;->close()V
+    move-result-object v0
     :try_end_5
     .catch Ljava/lang/Exception; {:try_start_5 .. :try_end_5} :catch_3
 
-    .line 360
+    move-object p1, v0
+
+    goto :goto_3
+
+    :catch_3
+    move-exception v0
+
+    .line 373
+    invoke-virtual {v0}, Ljava/lang/Exception;->printStackTrace()V
+
+    :goto_3
+    return-object p1
+
+    :catchall_1
+    move-exception p1
+
+    :goto_4
+    if-eqz v2, :cond_4
+
+    .line 357
+    :try_start_6
+    invoke-virtual {v2}, Ljava/io/BufferedReader;->close()V
+    :try_end_6
+    .catch Ljava/lang/Exception; {:try_start_6 .. :try_end_6} :catch_4
+
     goto :goto_5
 
-    .line 358
-    :catch_3
-    move-exception v4
+    :catch_4
+    move-exception v0
 
     .line 359
-    .local v4, "e1":Ljava/lang/Exception;
-    invoke-virtual {v4}, Ljava/lang/Exception;->printStackTrace()V
+    invoke-virtual {v0}, Ljava/lang/Exception;->printStackTrace()V
 
-    .line 362
-    .end local v4    # "e1":Ljava/lang/Exception;
+    .line 360
     :cond_4
     :goto_5
-    throw v2
+    throw p1
 .end method
 
 .method public getSDPath(Landroid/content/Context;)Ljava/lang/String;
-    .locals 3
-    .param p1, "context"    # Landroid/content/Context;
+    .locals 2
 
     .line 47
     invoke-static {}, Landroid/os/Environment;->getExternalStorageState()Ljava/lang/String;
 
-    move-result-object v0
+    move-result-object p1
 
-    const-string v1, "mounted"
+    const-string v0, "mounted"
 
-    invoke-virtual {v0, v1}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+    invoke-virtual {p1, v0}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
 
-    move-result v0
+    move-result p1
 
-    if-eqz v0, :cond_2
+    if-eqz p1, :cond_2
 
     .line 49
-    new-instance v0, Ljava/io/File;
+    new-instance p1, Ljava/io/File;
 
-    new-instance v1, Ljava/lang/StringBuilder;
+    new-instance v0, Ljava/lang/StringBuilder;
 
-    invoke-direct {v1}, Ljava/lang/StringBuilder;-><init>()V
+    invoke-direct {v0}, Ljava/lang/StringBuilder;-><init>()V
 
     invoke-static {}, Landroid/os/Environment;->getExternalStorageDirectory()Ljava/io/File;
 
-    move-result-object v2
+    move-result-object v1
 
-    invoke-virtual {v2}, Ljava/io/File;->getAbsolutePath()Ljava/lang/String;
-
-    move-result-object v2
-
-    invoke-virtual {v1, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    const-string v2, "/"
-
-    invoke-virtual {v1, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    invoke-virtual {v1}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+    invoke-virtual {v1}, Ljava/io/File;->getAbsolutePath()Ljava/lang/String;
 
     move-result-object v1
 
-    invoke-direct {v0, v1}, Ljava/io/File;-><init>(Ljava/lang/String;)V
+    invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    const-string v1, "/"
+
+    invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    invoke-virtual {v0}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+
+    move-result-object v0
+
+    invoke-direct {p1, v0}, Ljava/io/File;-><init>(Ljava/lang/String;)V
 
     .line 52
-    .local v0, "dirFile":Ljava/io/File;
     :try_start_0
-    invoke-virtual {v0}, Ljava/io/File;->exists()Z
+    invoke-virtual {p1}, Ljava/io/File;->exists()Z
 
-    move-result v1
+    move-result v0
 
-    if-eqz v1, :cond_0
+    if-eqz v0, :cond_0
 
-    invoke-virtual {v0}, Ljava/io/File;->isDirectory()Z
+    invoke-virtual {p1}, Ljava/io/File;->isDirectory()Z
 
-    move-result v1
+    move-result v0
 
-    if-eqz v1, :cond_1
+    if-eqz v0, :cond_1
 
     .line 53
     :cond_0
-    invoke-virtual {v0}, Ljava/io/File;->mkdirs()Z
+    invoke-virtual {p1}, Ljava/io/File;->mkdirs()Z
     :try_end_0
     .catch Ljava/lang/Exception; {:try_start_0 .. :try_end_0} :catch_0
 
-    .line 57
-    :cond_1
     goto :goto_0
 
-    .line 55
     :catch_0
-    move-exception v1
+    move-exception v0
 
     .line 56
-    .local v1, "e":Ljava/lang/Exception;
-    invoke-virtual {v1}, Ljava/lang/Exception;->printStackTrace()V
+    invoke-virtual {v0}, Ljava/lang/Exception;->printStackTrace()V
 
     .line 59
-    .end local v1    # "e":Ljava/lang/Exception;
+    :cond_1
     :goto_0
-    invoke-virtual {v0}, Ljava/io/File;->getAbsolutePath()Ljava/lang/String;
+    invoke-virtual {p1}, Ljava/io/File;->getAbsolutePath()Ljava/lang/String;
 
-    move-result-object v1
+    move-result-object p1
 
-    return-object v1
+    return-object p1
 
-    .line 61
-    .end local v0    # "dirFile":Ljava/io/File;
     :cond_2
-    const/4 v0, 0x0
+    const/4 p1, 0x0
 
-    return-object v0
+    return-object p1
 .end method
 
 .method public stringToUserList(Ljava/lang/String;Ljava/lang/String;)Ljava/util/List;
-    .locals 7
-    .param p1, "json"    # Ljava/lang/String;
-    .param p2, "name"    # Ljava/lang/String;
+    .locals 5
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -1570,112 +1366,93 @@
     invoke-direct {v0, p1}, Lorg/json/JSONObject;-><init>(Ljava/lang/String;)V
 
     .line 240
-    .local v0, "obj":Lorg/json/JSONObject;
-    new-instance v1, Ljava/util/ArrayList;
+    new-instance p1, Ljava/util/ArrayList;
 
-    invoke-direct {v1}, Ljava/util/ArrayList;-><init>()V
+    invoke-direct {p1}, Ljava/util/ArrayList;-><init>()V
+
+    const-string v1, "user"
 
     .line 243
-    .local v1, "user_lists":Ljava/util/List;, "Ljava/util/List<Lcom/leidong/sdk/framework/user/UserInfoBean;>;"
-    const-string v2, "user"
+    invoke-virtual {v0, v1}, Lorg/json/JSONObject;->getJSONArray(Ljava/lang/String;)Lorg/json/JSONArray;
 
-    invoke-virtual {v0, v2}, Lorg/json/JSONObject;->getJSONArray(Ljava/lang/String;)Lorg/json/JSONArray;
+    move-result-object v0
+
+    const/4 v1, 0x0
+
+    .line 244
+    :goto_0
+    invoke-virtual {v0}, Lorg/json/JSONArray;->length()I
+
+    move-result v2
+
+    if-ge v1, v2, :cond_0
+
+    .line 245
+    invoke-virtual {v0, v1}, Lorg/json/JSONArray;->getJSONObject(I)Lorg/json/JSONObject;
 
     move-result-object v2
 
-    .line 244
-    .local v2, "array":Lorg/json/JSONArray;
-    const/4 v3, 0x0
+    .line 246
+    new-instance v3, Lcom/leidong/sdk/framework/user/UserInfoBean;
 
-    .line 244
-    .local v3, "i":I
-    :goto_0
-    invoke-virtual {v2}, Lorg/json/JSONArray;->length()I
+    invoke-direct {v3}, Lcom/leidong/sdk/framework/user/UserInfoBean;-><init>()V
 
-    move-result v4
+    const-string v4, "uname"
 
-    if-ge v3, v4, :cond_0
-
-    .line 245
-    invoke-virtual {v2, v3}, Lorg/json/JSONArray;->getJSONObject(I)Lorg/json/JSONObject;
+    .line 247
+    invoke-virtual {v2, v4}, Lorg/json/JSONObject;->getString(Ljava/lang/String;)Ljava/lang/String;
 
     move-result-object v4
 
-    .line 246
-    .local v4, "user_data":Lorg/json/JSONObject;
-    new-instance v5, Lcom/leidong/sdk/framework/user/UserInfoBean;
+    invoke-virtual {v3, v4}, Lcom/leidong/sdk/framework/user/UserInfoBean;->setUname(Ljava/lang/String;)V
 
-    invoke-direct {v5}, Lcom/leidong/sdk/framework/user/UserInfoBean;-><init>()V
-
-    .line 247
-    .local v5, "user_info":Lcom/leidong/sdk/framework/user/UserInfoBean;
-    const-string v6, "uname"
-
-    invoke-virtual {v4, v6}, Lorg/json/JSONObject;->getString(Ljava/lang/String;)Ljava/lang/String;
-
-    move-result-object v6
-
-    invoke-virtual {v5, v6}, Lcom/leidong/sdk/framework/user/UserInfoBean;->setUname(Ljava/lang/String;)V
+    const-string v4, "vname"
 
     .line 248
-    const-string v6, "vname"
+    invoke-virtual {v2, v4}, Lorg/json/JSONObject;->getString(Ljava/lang/String;)Ljava/lang/String;
 
-    invoke-virtual {v4, v6}, Lorg/json/JSONObject;->getString(Ljava/lang/String;)Ljava/lang/String;
+    move-result-object v4
 
-    move-result-object v6
+    invoke-virtual {v3, v4}, Lcom/leidong/sdk/framework/user/UserInfoBean;->setVname(Ljava/lang/String;)V
 
-    invoke-virtual {v5, v6}, Lcom/leidong/sdk/framework/user/UserInfoBean;->setVname(Ljava/lang/String;)V
+    const-string v4, "pwd"
 
     .line 249
-    const-string v6, "pwd"
+    invoke-virtual {v2, v4}, Lorg/json/JSONObject;->getString(Ljava/lang/String;)Ljava/lang/String;
 
-    invoke-virtual {v4, v6}, Lorg/json/JSONObject;->getString(Ljava/lang/String;)Ljava/lang/String;
+    move-result-object v2
 
-    move-result-object v6
+    invoke-static {v2, p2}, Lcom/leidong/sdk/framework/encrypt/CodeManager;->decodeCommon(Ljava/lang/String;Ljava/lang/String;)Ljava/lang/String;
 
-    invoke-static {v6, p2}, Lcom/leidong/sdk/framework/encrypt/CodeManager;->decodeCommon(Ljava/lang/String;Ljava/lang/String;)Ljava/lang/String;
+    move-result-object v2
 
-    move-result-object v6
-
-    invoke-virtual {v5, v6}, Lcom/leidong/sdk/framework/user/UserInfoBean;->setPwd(Ljava/lang/String;)V
+    invoke-virtual {v3, v2}, Lcom/leidong/sdk/framework/user/UserInfoBean;->setPwd(Ljava/lang/String;)V
 
     .line 250
-    invoke-interface {v1, v5}, Ljava/util/List;->add(Ljava/lang/Object;)Z
+    invoke-interface {p1, v3}, Ljava/util/List;->add(Ljava/lang/Object;)Z
     :try_end_0
     .catch Ljava/lang/Exception; {:try_start_0 .. :try_end_0} :catch_0
 
-    .line 244
-    add-int/lit8 v3, v3, 0x1
+    add-int/lit8 v1, v1, 0x1
 
     goto :goto_0
 
-    .line 252
-    .end local v3    # "i":I
-    .end local v4    # "user_data":Lorg/json/JSONObject;
-    .end local v5    # "user_info":Lcom/leidong/sdk/framework/user/UserInfoBean;
     :cond_0
-    return-object v1
+    return-object p1
 
-    .line 253
-    .end local v0    # "obj":Lorg/json/JSONObject;
-    .end local v1    # "user_lists":Ljava/util/List;, "Ljava/util/List<Lcom/leidong/sdk/framework/user/UserInfoBean;>;"
-    .end local v2    # "array":Lorg/json/JSONArray;
     :catch_0
-    move-exception v0
+    move-exception p1
 
     .line 254
-    .local v0, "e":Ljava/lang/Exception;
-    invoke-virtual {v0}, Ljava/lang/Exception;->printStackTrace()V
+    invoke-virtual {p1}, Ljava/lang/Exception;->printStackTrace()V
 
-    .line 255
-    const/4 v1, 0x0
+    const/4 p1, 0x0
 
-    return-object v1
+    return-object p1
 .end method
 
 .method public stringToVisitorUserList(Ljava/lang/String;)Ljava/util/List;
-    .locals 8
-    .param p1, "json"    # Ljava/lang/String;
+    .locals 5
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -1711,115 +1488,96 @@
     invoke-direct {v0, p1}, Lorg/json/JSONObject;-><init>(Ljava/lang/String;)V
 
     .line 434
-    .local v0, "obj":Lorg/json/JSONObject;
-    new-instance v1, Ljava/util/ArrayList;
+    new-instance p1, Ljava/util/ArrayList;
 
-    invoke-direct {v1}, Ljava/util/ArrayList;-><init>()V
+    invoke-direct {p1}, Ljava/util/ArrayList;-><init>()V
+
+    const-string v1, "user"
 
     .line 437
-    .local v1, "user_lists":Ljava/util/List;, "Ljava/util/List<Lcom/leidong/sdk/framework/user/UserInfoBean;>;"
-    const-string v2, "user"
+    invoke-virtual {v0, v1}, Lorg/json/JSONObject;->getJSONArray(Ljava/lang/String;)Lorg/json/JSONArray;
 
-    invoke-virtual {v0, v2}, Lorg/json/JSONObject;->getJSONArray(Ljava/lang/String;)Lorg/json/JSONArray;
+    move-result-object v0
+
+    const/4 v1, 0x0
+
+    .line 438
+    :goto_0
+    invoke-virtual {v0}, Lorg/json/JSONArray;->length()I
+
+    move-result v2
+
+    if-ge v1, v2, :cond_0
+
+    .line 439
+    invoke-virtual {v0, v1}, Lorg/json/JSONArray;->getJSONObject(I)Lorg/json/JSONObject;
 
     move-result-object v2
 
-    .line 438
-    .local v2, "array":Lorg/json/JSONArray;
-    const/4 v3, 0x0
+    .line 440
+    new-instance v3, Lcom/leidong/sdk/framework/user/UserInfoBean;
 
-    .line 438
-    .local v3, "i":I
-    :goto_0
-    invoke-virtual {v2}, Lorg/json/JSONArray;->length()I
+    invoke-direct {v3}, Lcom/leidong/sdk/framework/user/UserInfoBean;-><init>()V
 
-    move-result v4
+    const-string v4, "uname"
 
-    if-ge v3, v4, :cond_0
-
-    .line 439
-    invoke-virtual {v2, v3}, Lorg/json/JSONArray;->getJSONObject(I)Lorg/json/JSONObject;
+    .line 441
+    invoke-virtual {v2, v4}, Lorg/json/JSONObject;->getString(Ljava/lang/String;)Ljava/lang/String;
 
     move-result-object v4
 
-    .line 440
-    .local v4, "user_data":Lorg/json/JSONObject;
-    new-instance v5, Lcom/leidong/sdk/framework/user/UserInfoBean;
+    invoke-virtual {v3, v4}, Lcom/leidong/sdk/framework/user/UserInfoBean;->setUname(Ljava/lang/String;)V
 
-    invoke-direct {v5}, Lcom/leidong/sdk/framework/user/UserInfoBean;-><init>()V
-
-    .line 441
-    .local v5, "user_info":Lcom/leidong/sdk/framework/user/UserInfoBean;
-    const-string v6, "uname"
-
-    invoke-virtual {v4, v6}, Lorg/json/JSONObject;->getString(Ljava/lang/String;)Ljava/lang/String;
-
-    move-result-object v6
-
-    invoke-virtual {v5, v6}, Lcom/leidong/sdk/framework/user/UserInfoBean;->setUname(Ljava/lang/String;)V
+    const-string v4, "vname"
 
     .line 442
-    const-string v6, "vname"
+    invoke-virtual {v2, v4}, Lorg/json/JSONObject;->getString(Ljava/lang/String;)Ljava/lang/String;
 
-    invoke-virtual {v4, v6}, Lorg/json/JSONObject;->getString(Ljava/lang/String;)Ljava/lang/String;
+    move-result-object v4
 
-    move-result-object v6
+    invoke-virtual {v3, v4}, Lcom/leidong/sdk/framework/user/UserInfoBean;->setVname(Ljava/lang/String;)V
 
-    invoke-virtual {v5, v6}, Lcom/leidong/sdk/framework/user/UserInfoBean;->setVname(Ljava/lang/String;)V
-
-    .line 443
-    const-string v6, "pwd"
+    const-string v4, "pwd"
 
     .line 444
-    invoke-virtual {v4, v6}, Lorg/json/JSONObject;->getString(Ljava/lang/String;)Ljava/lang/String;
+    invoke-virtual {v2, v4}, Lorg/json/JSONObject;->getString(Ljava/lang/String;)Ljava/lang/String;
 
-    move-result-object v6
+    move-result-object v2
 
-    iget-object v7, p0, Lcom/leidong/sdk/framework/user/AccountManager;->mContext:Landroid/content/Context;
+    iget-object v4, p0, Lcom/leidong/sdk/framework/user/AccountManager;->mContext:Landroid/content/Context;
 
-    invoke-direct {p0, v7}, Lcom/leidong/sdk/framework/user/AccountManager;->getAccountVisitorFileName(Landroid/content/Context;)Ljava/lang/String;
+    invoke-direct {p0, v4}, Lcom/leidong/sdk/framework/user/AccountManager;->getAccountVisitorFileName(Landroid/content/Context;)Ljava/lang/String;
 
-    move-result-object v7
+    move-result-object v4
 
-    invoke-static {v6, v7}, Lcom/leidong/sdk/framework/encrypt/CodeManager;->decodeCommon(Ljava/lang/String;Ljava/lang/String;)Ljava/lang/String;
+    invoke-static {v2, v4}, Lcom/leidong/sdk/framework/encrypt/CodeManager;->decodeCommon(Ljava/lang/String;Ljava/lang/String;)Ljava/lang/String;
 
-    move-result-object v6
+    move-result-object v2
 
     .line 443
-    invoke-virtual {v5, v6}, Lcom/leidong/sdk/framework/user/UserInfoBean;->setPwd(Ljava/lang/String;)V
+    invoke-virtual {v3, v2}, Lcom/leidong/sdk/framework/user/UserInfoBean;->setPwd(Ljava/lang/String;)V
 
     .line 445
-    invoke-interface {v1, v5}, Ljava/util/List;->add(Ljava/lang/Object;)Z
+    invoke-interface {p1, v3}, Ljava/util/List;->add(Ljava/lang/Object;)Z
     :try_end_0
     .catch Ljava/lang/Exception; {:try_start_0 .. :try_end_0} :catch_0
 
-    .line 438
-    add-int/lit8 v3, v3, 0x1
+    add-int/lit8 v1, v1, 0x1
 
     goto :goto_0
 
-    .line 447
-    .end local v3    # "i":I
-    .end local v4    # "user_data":Lorg/json/JSONObject;
-    .end local v5    # "user_info":Lcom/leidong/sdk/framework/user/UserInfoBean;
     :cond_0
-    return-object v1
+    return-object p1
 
-    .line 448
-    .end local v0    # "obj":Lorg/json/JSONObject;
-    .end local v1    # "user_lists":Ljava/util/List;, "Ljava/util/List<Lcom/leidong/sdk/framework/user/UserInfoBean;>;"
-    .end local v2    # "array":Lorg/json/JSONArray;
     :catch_0
-    move-exception v0
+    move-exception p1
 
     .line 449
-    .local v0, "e":Ljava/lang/Exception;
-    invoke-virtual {v0}, Ljava/lang/Exception;->printStackTrace()V
+    invoke-virtual {p1}, Ljava/lang/Exception;->printStackTrace()V
 
-    .line 450
-    const/4 v1, 0x0
+    const/4 p1, 0x0
 
-    return-object v1
+    return-object p1
 .end method
 
 .method public userListToString(Ljava/util/List;)Ljava/lang/String;
@@ -1834,12 +1592,11 @@
         }
     .end annotation
 
-    .line 271
-    .local p1, "user_lists":Ljava/util/List;, "Ljava/util/List<Lcom/leidong/sdk/framework/user/UserInfoBean;>;"
     const/4 v0, 0x0
 
     if-eqz p1, :cond_1
 
+    .line 271
     :try_start_0
     invoke-interface {p1}, Ljava/util/List;->size()I
 
@@ -1853,17 +1610,13 @@
     invoke-direct {v1}, Lorg/json/JSONObject;-><init>()V
 
     .line 273
-    .local v1, "obj":Lorg/json/JSONObject;
     new-instance v2, Lorg/json/JSONArray;
 
     invoke-direct {v2}, Lorg/json/JSONArray;-><init>()V
 
-    .line 275
-    .local v2, "array":Lorg/json/JSONArray;
     const/4 v3, 0x0
 
     .line 275
-    .local v3, "i":I
     :goto_0
     invoke-interface {p1}, Ljava/util/List;->size()I
 
@@ -1876,10 +1629,9 @@
 
     invoke-direct {v4}, Lorg/json/JSONObject;-><init>()V
 
-    .line 277
-    .local v4, "child":Lorg/json/JSONObject;
     const-string v5, "uname"
 
+    .line 277
     invoke-interface {p1, v3}, Ljava/util/List;->get(I)Ljava/lang/Object;
 
     move-result-object v6
@@ -1892,9 +1644,9 @@
 
     invoke-virtual {v4, v5, v6}, Lorg/json/JSONObject;->put(Ljava/lang/String;Ljava/lang/Object;)Lorg/json/JSONObject;
 
-    .line 278
     const-string v5, "vname"
 
+    .line 278
     invoke-interface {p1, v3}, Ljava/util/List;->get(I)Ljava/lang/Object;
 
     move-result-object v6
@@ -1907,7 +1659,6 @@
 
     invoke-virtual {v4, v5, v6}, Lorg/json/JSONObject;->put(Ljava/lang/String;Ljava/lang/Object;)Lorg/json/JSONObject;
 
-    .line 279
     const-string v5, "pwd"
 
     .line 280
@@ -1937,43 +1688,33 @@
     .line 281
     invoke-virtual {v2, v4}, Lorg/json/JSONArray;->put(Ljava/lang/Object;)Lorg/json/JSONArray;
 
-    .line 275
     add-int/lit8 v3, v3, 0x1
 
     goto :goto_0
 
-    .line 283
-    .end local v3    # "i":I
-    .end local v4    # "child":Lorg/json/JSONObject;
     :cond_0
-    const-string v3, "user"
+    const-string p1, "user"
 
-    invoke-virtual {v1, v3, v2}, Lorg/json/JSONObject;->put(Ljava/lang/String;Ljava/lang/Object;)Lorg/json/JSONObject;
+    .line 283
+    invoke-virtual {v1, p1, v2}, Lorg/json/JSONObject;->put(Ljava/lang/String;Ljava/lang/Object;)Lorg/json/JSONObject;
 
     .line 284
     invoke-virtual {v1}, Lorg/json/JSONObject;->toString()Ljava/lang/String;
 
-    move-result-object v3
+    move-result-object p1
     :try_end_0
     .catch Ljava/lang/Exception; {:try_start_0 .. :try_end_0} :catch_0
 
-    return-object v3
+    return-object p1
 
-    .line 288
-    .end local v1    # "obj":Lorg/json/JSONObject;
-    .end local v2    # "array":Lorg/json/JSONArray;
     :catch_0
-    move-exception v1
+    move-exception p1
 
     .line 289
-    .local v1, "e":Ljava/lang/Exception;
-    invoke-virtual {v1}, Ljava/lang/Exception;->printStackTrace()V
+    invoke-virtual {p1}, Ljava/lang/Exception;->printStackTrace()V
 
-    .line 290
     return-object v0
 
-    .line 286
-    .end local v1    # "e":Ljava/lang/Exception;
     :cond_1
     return-object v0
 .end method
@@ -1990,12 +1731,11 @@
         }
     .end annotation
 
-    .line 466
-    .local p1, "user_lists":Ljava/util/List;, "Ljava/util/List<Lcom/leidong/sdk/framework/user/UserInfoBean;>;"
     const/4 v0, 0x0
 
     if-eqz p1, :cond_1
 
+    .line 466
     :try_start_0
     invoke-interface {p1}, Ljava/util/List;->size()I
 
@@ -2009,17 +1749,13 @@
     invoke-direct {v1}, Lorg/json/JSONObject;-><init>()V
 
     .line 468
-    .local v1, "obj":Lorg/json/JSONObject;
     new-instance v2, Lorg/json/JSONArray;
 
     invoke-direct {v2}, Lorg/json/JSONArray;-><init>()V
 
-    .line 470
-    .local v2, "array":Lorg/json/JSONArray;
     const/4 v3, 0x0
 
     .line 470
-    .local v3, "i":I
     :goto_0
     invoke-interface {p1}, Ljava/util/List;->size()I
 
@@ -2032,10 +1768,9 @@
 
     invoke-direct {v4}, Lorg/json/JSONObject;-><init>()V
 
-    .line 472
-    .local v4, "child":Lorg/json/JSONObject;
     const-string v5, "uname"
 
+    .line 472
     invoke-interface {p1, v3}, Ljava/util/List;->get(I)Ljava/lang/Object;
 
     move-result-object v6
@@ -2048,9 +1783,9 @@
 
     invoke-virtual {v4, v5, v6}, Lorg/json/JSONObject;->put(Ljava/lang/String;Ljava/lang/Object;)Lorg/json/JSONObject;
 
-    .line 473
     const-string v5, "vname"
 
+    .line 473
     invoke-interface {p1, v3}, Ljava/util/List;->get(I)Ljava/lang/Object;
 
     move-result-object v6
@@ -2063,7 +1798,6 @@
 
     invoke-virtual {v4, v5, v6}, Lorg/json/JSONObject;->put(Ljava/lang/String;Ljava/lang/Object;)Lorg/json/JSONObject;
 
-    .line 474
     const-string v5, "pwd"
 
     .line 475
@@ -2093,43 +1827,33 @@
     .line 476
     invoke-virtual {v2, v4}, Lorg/json/JSONArray;->put(Ljava/lang/Object;)Lorg/json/JSONArray;
 
-    .line 470
     add-int/lit8 v3, v3, 0x1
 
     goto :goto_0
 
-    .line 478
-    .end local v3    # "i":I
-    .end local v4    # "child":Lorg/json/JSONObject;
     :cond_0
-    const-string v3, "user"
+    const-string p1, "user"
 
-    invoke-virtual {v1, v3, v2}, Lorg/json/JSONObject;->put(Ljava/lang/String;Ljava/lang/Object;)Lorg/json/JSONObject;
+    .line 478
+    invoke-virtual {v1, p1, v2}, Lorg/json/JSONObject;->put(Ljava/lang/String;Ljava/lang/Object;)Lorg/json/JSONObject;
 
     .line 479
     invoke-virtual {v1}, Lorg/json/JSONObject;->toString()Ljava/lang/String;
 
-    move-result-object v3
+    move-result-object p1
     :try_end_0
     .catch Ljava/lang/Exception; {:try_start_0 .. :try_end_0} :catch_0
 
-    return-object v3
+    return-object p1
 
-    .line 483
-    .end local v1    # "obj":Lorg/json/JSONObject;
-    .end local v2    # "array":Lorg/json/JSONArray;
     :catch_0
-    move-exception v1
+    move-exception p1
 
     .line 484
-    .local v1, "e":Ljava/lang/Exception;
-    invoke-virtual {v1}, Ljava/lang/Exception;->printStackTrace()V
+    invoke-virtual {p1}, Ljava/lang/Exception;->printStackTrace()V
 
-    .line 485
     return-object v0
 
-    .line 481
-    .end local v1    # "e":Ljava/lang/Exception;
     :cond_1
     return-object v0
 .end method

@@ -26,9 +26,8 @@
 # direct methods
 .method constructor <init>(Lcom/leidong/sdk/m/controller/PlatformManager$5$1;Landroid/os/Bundle;)V
     .locals 0
-    .param p1, "this$2"    # Lcom/leidong/sdk/m/controller/PlatformManager$5$1;
 
-    .line 919
+    .line 922
     iput-object p1, p0, Lcom/leidong/sdk/m/controller/PlatformManager$5$1$1;->this$2:Lcom/leidong/sdk/m/controller/PlatformManager$5$1;
 
     iput-object p2, p0, Lcom/leidong/sdk/m/controller/PlatformManager$5$1$1;->val$result:Landroid/os/Bundle;
@@ -42,9 +41,8 @@
 # virtual methods
 .method public onFail(Ljava/lang/String;)V
     .locals 1
-    .param p1, "msg"    # Ljava/lang/String;
 
-    .line 922
+    .line 925
     iget-object v0, p0, Lcom/leidong/sdk/m/controller/PlatformManager$5$1$1;->this$2:Lcom/leidong/sdk/m/controller/PlatformManager$5$1;
 
     iget-object v0, v0, Lcom/leidong/sdk/m/controller/PlatformManager$5$1;->this$1:Lcom/leidong/sdk/m/controller/PlatformManager$5;
@@ -53,14 +51,13 @@
 
     invoke-interface {v0, p1}, Lcom/leidong/sdk/m/interfaces/MLoginCallback;->onFail(Ljava/lang/String;)V
 
-    .line 923
     return-void
 .end method
 
 .method public onSuccess()V
     .locals 2
 
-    .line 927
+    .line 930
     iget-object v0, p0, Lcom/leidong/sdk/m/controller/PlatformManager$5$1$1;->this$2:Lcom/leidong/sdk/m/controller/PlatformManager$5$1;
 
     iget-object v0, v0, Lcom/leidong/sdk/m/controller/PlatformManager$5$1;->this$1:Lcom/leidong/sdk/m/controller/PlatformManager$5;
@@ -71,6 +68,5 @@
 
     invoke-interface {v0, v1}, Lcom/leidong/sdk/m/interfaces/MLoginCallback;->onSuccess(Landroid/os/Bundle;)V
 
-    .line 928
     return-void
 .end method

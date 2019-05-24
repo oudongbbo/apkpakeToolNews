@@ -12,28 +12,26 @@
 
 # direct methods
 .method public constructor <init>(Lcom/leidong/open/http/okio/Source;)V
-    .locals 2
-    .param p1, "delegate"    # Lcom/leidong/open/http/okio/Source;
+    .locals 1
 
     .line 28
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
-    .line 29
     if-nez p1, :cond_0
 
-    new-instance v0, Ljava/lang/IllegalArgumentException;
+    .line 29
+    new-instance p1, Ljava/lang/IllegalArgumentException;
 
-    const-string v1, "delegate == null"
+    const-string v0, "delegate == null"
 
-    invoke-direct {v0, v1}, Ljava/lang/IllegalArgumentException;-><init>(Ljava/lang/String;)V
+    invoke-direct {p1, v0}, Ljava/lang/IllegalArgumentException;-><init>(Ljava/lang/String;)V
 
-    throw v0
+    throw p1
 
     .line 30
     :cond_0
     iput-object p1, p0, Lcom/leidong/open/http/okio/ForwardingSource;->delegate:Lcom/leidong/open/http/okio/Source;
 
-    .line 31
     return-void
 .end method
 
@@ -52,7 +50,6 @@
 
     invoke-interface {v0}, Lcom/leidong/open/http/okio/Source;->close()V
 
-    .line 48
     return-void
 .end method
 
@@ -66,9 +63,7 @@
 .end method
 
 .method public read(Lcom/leidong/open/http/okio/Buffer;J)J
-    .locals 2
-    .param p1, "sink"    # Lcom/leidong/open/http/okio/Buffer;
-    .param p2, "byteCount"    # J
+    .locals 1
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Ljava/io/IOException;
@@ -80,9 +75,9 @@
 
     invoke-interface {v0, p1, p2, p3}, Lcom/leidong/open/http/okio/Source;->read(Lcom/leidong/open/http/okio/Buffer;J)J
 
-    move-result-wide v0
+    move-result-wide p1
 
-    return-wide v0
+    return-wide p1
 .end method
 
 .method public timeout()Lcom/leidong/open/http/okio/Timeout;

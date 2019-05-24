@@ -20,26 +20,20 @@
 
 # direct methods
 .method public constructor <init>(Lcom/leidong/sdk/m/activity/SdkCustomerServiceActivity;Landroid/content/Context;)V
-    .locals 2
-    .param p1, "this$0"    # Lcom/leidong/sdk/m/activity/SdkCustomerServiceActivity;
-    .param p2, "context"    # Landroid/content/Context;
+    .locals 0
 
     .line 227
     iput-object p1, p0, Lcom/leidong/sdk/m/activity/SdkCustomerServiceActivity$JsObj;->this$0:Lcom/leidong/sdk/m/activity/SdkCustomerServiceActivity;
 
     .line 228
-    move-object v0, p2
+    check-cast p2, Landroid/app/Activity;
 
-    check-cast v0, Landroid/app/Activity;
-
-    # getter for: Lcom/leidong/sdk/m/activity/SdkCustomerServiceActivity;->webView:Lcom/leidong/sdk/framework/web/webview/WebViewBase;
     invoke-static {p1}, Lcom/leidong/sdk/m/activity/SdkCustomerServiceActivity;->access$300(Lcom/leidong/sdk/m/activity/SdkCustomerServiceActivity;)Lcom/leidong/sdk/framework/web/webview/WebViewBase;
 
-    move-result-object v1
+    move-result-object p1
 
-    invoke-direct {p0, v0, v1}, Lcom/leidong/sdk/framework/web/plugs/SdkWebJsInterface;-><init>(Landroid/app/Activity;Landroid/webkit/WebView;)V
+    invoke-direct {p0, p2, p1}, Lcom/leidong/sdk/framework/web/plugs/SdkWebJsInterface;-><init>(Landroid/app/Activity;Landroid/webkit/WebView;)V
 
-    .line 229
     return-void
 .end method
 
@@ -58,7 +52,6 @@
 
     const-string v1, "wap \u8c03\u7528enClose"
 
-    # invokes: Lcom/leidong/sdk/m/activity/SdkCustomerServiceActivity;->sendLog(Ljava/lang/String;)V
     invoke-static {v0, v1}, Lcom/leidong/sdk/m/activity/SdkCustomerServiceActivity;->access$500(Lcom/leidong/sdk/m/activity/SdkCustomerServiceActivity;Ljava/lang/String;)V
 
     .line 243
@@ -70,7 +63,6 @@
 
     invoke-virtual {v0, v1}, Landroid/os/Handler;->sendEmptyMessage(I)Z
 
-    .line 244
     return-void
 .end method
 
@@ -84,7 +76,6 @@
 
     const-string v1, "wap \u8c03\u7528enRefresh"
 
-    # invokes: Lcom/leidong/sdk/m/activity/SdkCustomerServiceActivity;->sendLog(Ljava/lang/String;)V
     invoke-static {v0, v1}, Lcom/leidong/sdk/m/activity/SdkCustomerServiceActivity;->access$500(Lcom/leidong/sdk/m/activity/SdkCustomerServiceActivity;Ljava/lang/String;)V
 
     .line 235
@@ -98,6 +89,5 @@
 
     invoke-virtual {v0, v1, v2, v3}, Landroid/os/Handler;->sendEmptyMessageDelayed(IJ)Z
 
-    .line 236
     return-void
 .end method

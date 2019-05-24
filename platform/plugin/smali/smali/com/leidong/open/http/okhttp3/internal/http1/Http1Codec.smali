@@ -50,17 +50,13 @@
 # direct methods
 .method public constructor <init>(Lcom/leidong/open/http/okhttp3/OkHttpClient;Lcom/leidong/open/http/okhttp3/internal/connection/StreamAllocation;Lcom/leidong/open/http/okio/BufferedSource;Lcom/leidong/open/http/okio/BufferedSink;)V
     .locals 1
-    .param p1, "client"    # Lcom/leidong/open/http/okhttp3/OkHttpClient;
-    .param p2, "streamAllocation"    # Lcom/leidong/open/http/okhttp3/internal/connection/StreamAllocation;
-    .param p3, "source"    # Lcom/leidong/open/http/okio/BufferedSource;
-    .param p4, "sink"    # Lcom/leidong/open/http/okio/BufferedSink;
 
     .line 89
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
-    .line 86
     const/4 v0, 0x0
 
+    .line 86
     iput v0, p0, Lcom/leidong/open/http/okhttp3/internal/http1/Http1Codec;->state:I
 
     .line 90
@@ -75,13 +71,11 @@
     .line 93
     iput-object p4, p0, Lcom/leidong/open/http/okhttp3/internal/http1/Http1Codec;->sink:Lcom/leidong/open/http/okio/BufferedSink;
 
-    .line 94
     return-void
 .end method
 
 .method private getTransferStream(Lcom/leidong/open/http/okhttp3/Response;)Lcom/leidong/open/http/okio/Source;
-    .locals 5
-    .param p1, "response"    # Lcom/leidong/open/http/okhttp3/Response;
+    .locals 4
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Ljava/io/IOException;
@@ -95,21 +89,21 @@
 
     if-nez v0, :cond_0
 
-    .line 139
     const-wide/16 v0, 0x0
 
+    .line 139
     invoke-virtual {p0, v0, v1}, Lcom/leidong/open/http/okhttp3/internal/http1/Http1Codec;->newFixedLengthSource(J)Lcom/leidong/open/http/okio/Source;
 
-    move-result-object v0
+    move-result-object p1
 
-    return-object v0
+    return-object p1
 
-    .line 142
     :cond_0
     const-string v0, "chunked"
 
     const-string v1, "Transfer-Encoding"
 
+    .line 142
     invoke-virtual {p1, v1}, Lcom/leidong/open/http/okhttp3/Response;->header(Ljava/lang/String;)Ljava/lang/String;
 
     move-result-object v1
@@ -123,17 +117,17 @@
     .line 143
     invoke-virtual {p1}, Lcom/leidong/open/http/okhttp3/Response;->request()Lcom/leidong/open/http/okhttp3/Request;
 
-    move-result-object v0
+    move-result-object p1
 
-    invoke-virtual {v0}, Lcom/leidong/open/http/okhttp3/Request;->url()Lcom/leidong/open/http/okhttp3/HttpUrl;
+    invoke-virtual {p1}, Lcom/leidong/open/http/okhttp3/Request;->url()Lcom/leidong/open/http/okhttp3/HttpUrl;
 
-    move-result-object v0
+    move-result-object p1
 
-    invoke-virtual {p0, v0}, Lcom/leidong/open/http/okhttp3/internal/http1/Http1Codec;->newChunkedSource(Lcom/leidong/open/http/okhttp3/HttpUrl;)Lcom/leidong/open/http/okio/Source;
+    invoke-virtual {p0, p1}, Lcom/leidong/open/http/okhttp3/internal/http1/Http1Codec;->newChunkedSource(Lcom/leidong/open/http/okhttp3/HttpUrl;)Lcom/leidong/open/http/okio/Source;
 
-    move-result-object v0
+    move-result-object p1
 
-    return-object v0
+    return-object p1
 
     .line 146
     :cond_1
@@ -141,28 +135,26 @@
 
     move-result-wide v0
 
-    .line 147
-    .local v0, "contentLength":J
     const-wide/16 v2, -0x1
 
-    cmp-long v4, v0, v2
+    cmp-long p1, v0, v2
 
-    if-eqz v4, :cond_2
+    if-eqz p1, :cond_2
 
     .line 148
     invoke-virtual {p0, v0, v1}, Lcom/leidong/open/http/okhttp3/internal/http1/Http1Codec;->newFixedLengthSource(J)Lcom/leidong/open/http/okio/Source;
 
-    move-result-object v2
+    move-result-object p1
 
-    return-object v2
+    return-object p1
 
     .line 154
     :cond_2
     invoke-virtual {p0}, Lcom/leidong/open/http/okhttp3/internal/http1/Http1Codec;->newUnknownLengthSource()Lcom/leidong/open/http/okio/Source;
 
-    move-result-object v2
+    move-result-object p1
 
-    return-object v2
+    return-object p1
 .end method
 
 
@@ -177,73 +169,67 @@
 
     move-result-object v0
 
-    .line 113
-    .local v0, "connection":Lcom/leidong/open/http/okhttp3/internal/connection/RealConnection;
     if-eqz v0, :cond_0
 
+    .line 113
     invoke-virtual {v0}, Lcom/leidong/open/http/okhttp3/internal/connection/RealConnection;->cancel()V
 
-    .line 114
     :cond_0
     return-void
 .end method
 
 .method public createRequestBody(Lcom/leidong/open/http/okhttp3/Request;J)Lcom/leidong/open/http/okio/Sink;
-    .locals 3
-    .param p1, "request"    # Lcom/leidong/open/http/okhttp3/Request;
-    .param p2, "contentLength"    # J
+    .locals 2
 
-    .line 97
     const-string v0, "chunked"
 
     const-string v1, "Transfer-Encoding"
 
+    .line 97
     invoke-virtual {p1, v1}, Lcom/leidong/open/http/okhttp3/Request;->header(Ljava/lang/String;)Ljava/lang/String;
 
-    move-result-object v1
+    move-result-object p1
 
-    invoke-virtual {v0, v1}, Ljava/lang/String;->equalsIgnoreCase(Ljava/lang/String;)Z
+    invoke-virtual {v0, p1}, Ljava/lang/String;->equalsIgnoreCase(Ljava/lang/String;)Z
 
-    move-result v0
+    move-result p1
 
-    if-eqz v0, :cond_0
+    if-eqz p1, :cond_0
 
     .line 99
     invoke-virtual {p0}, Lcom/leidong/open/http/okhttp3/internal/http1/Http1Codec;->newChunkedSink()Lcom/leidong/open/http/okio/Sink;
 
-    move-result-object v0
+    move-result-object p1
 
-    return-object v0
+    return-object p1
 
-    .line 102
     :cond_0
     const-wide/16 v0, -0x1
 
-    cmp-long v2, p2, v0
+    cmp-long p1, p2, v0
 
-    if-eqz v2, :cond_1
+    if-eqz p1, :cond_1
 
     .line 104
     invoke-virtual {p0, p2, p3}, Lcom/leidong/open/http/okhttp3/internal/http1/Http1Codec;->newFixedLengthSink(J)Lcom/leidong/open/http/okio/Sink;
 
-    move-result-object v0
+    move-result-object p1
 
-    return-object v0
+    return-object p1
 
     .line 107
     :cond_1
-    new-instance v0, Ljava/lang/IllegalStateException;
+    new-instance p1, Ljava/lang/IllegalStateException;
 
-    const-string v1, "Cannot stream a request body without chunked encoding or a known content length!"
+    const-string p2, "Cannot stream a request body without chunked encoding or a known content length!"
 
-    invoke-direct {v0, v1}, Ljava/lang/IllegalStateException;-><init>(Ljava/lang/String;)V
+    invoke-direct {p1, p2}, Ljava/lang/IllegalStateException;-><init>(Ljava/lang/String;)V
 
-    throw v0
+    throw p1
 .end method
 
 .method detachTimeout(Lcom/leidong/open/http/okio/ForwardingTimeout;)V
     .locals 2
-    .param p1, "timeout"    # Lcom/leidong/open/http/okio/ForwardingTimeout;
 
     .line 260
     invoke-virtual {p1}, Lcom/leidong/open/http/okio/ForwardingTimeout;->delegate()Lcom/leidong/open/http/okio/Timeout;
@@ -251,7 +237,6 @@
     move-result-object v0
 
     .line 261
-    .local v0, "oldDelegate":Lcom/leidong/open/http/okio/Timeout;
     sget-object v1, Lcom/leidong/open/http/okio/Timeout;->NONE:Lcom/leidong/open/http/okio/Timeout;
 
     invoke-virtual {p1, v1}, Lcom/leidong/open/http/okio/ForwardingTimeout;->setDelegate(Lcom/leidong/open/http/okio/Timeout;)Lcom/leidong/open/http/okio/ForwardingTimeout;
@@ -262,7 +247,6 @@
     .line 263
     invoke-virtual {v0}, Lcom/leidong/open/http/okio/Timeout;->clearTimeout()Lcom/leidong/open/http/okio/Timeout;
 
-    .line 264
     return-void
 .end method
 
@@ -279,7 +263,6 @@
 
     invoke-interface {v0}, Lcom/leidong/open/http/okio/BufferedSink;->flush()V
 
-    .line 168
     return-void
 .end method
 
@@ -296,7 +279,6 @@
 
     invoke-interface {v0}, Lcom/leidong/open/http/okio/BufferedSink;->flush()V
 
-    .line 164
     return-void
 .end method
 
@@ -353,10 +335,10 @@
 
     throw v0
 
-    .line 224
     :cond_0
     const/4 v0, 0x2
 
+    .line 224
     iput v0, p0, Lcom/leidong/open/http/okhttp3/internal/http1/Http1Codec;->state:I
 
     .line 225
@@ -368,8 +350,7 @@
 .end method
 
 .method public newChunkedSource(Lcom/leidong/open/http/okhttp3/HttpUrl;)Lcom/leidong/open/http/okio/Source;
-    .locals 3
-    .param p1, "url"    # Lcom/leidong/open/http/okhttp3/HttpUrl;
+    .locals 2
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Ljava/io/IOException;
@@ -383,32 +364,32 @@
 
     if-eq v0, v1, :cond_0
 
-    new-instance v0, Ljava/lang/IllegalStateException;
+    new-instance p1, Ljava/lang/IllegalStateException;
 
-    new-instance v1, Ljava/lang/StringBuilder;
+    new-instance v0, Ljava/lang/StringBuilder;
 
-    invoke-direct {v1}, Ljava/lang/StringBuilder;-><init>()V
+    invoke-direct {v0}, Ljava/lang/StringBuilder;-><init>()V
 
-    const-string v2, "state: "
+    const-string v1, "state: "
 
-    invoke-virtual {v1, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    iget v2, p0, Lcom/leidong/open/http/okhttp3/internal/http1/Http1Codec;->state:I
+    iget v1, p0, Lcom/leidong/open/http/okhttp3/internal/http1/Http1Codec;->state:I
 
-    invoke-virtual {v1, v2}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
+    invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
 
-    invoke-virtual {v1}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+    invoke-virtual {v0}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
 
-    move-result-object v1
+    move-result-object v0
 
-    invoke-direct {v0, v1}, Ljava/lang/IllegalStateException;-><init>(Ljava/lang/String;)V
+    invoke-direct {p1, v0}, Ljava/lang/IllegalStateException;-><init>(Ljava/lang/String;)V
 
-    throw v0
+    throw p1
 
-    .line 242
     :cond_0
     const/4 v0, 0x5
 
+    .line 242
     iput v0, p0, Lcom/leidong/open/http/okhttp3/internal/http1/Http1Codec;->state:I
 
     .line 243
@@ -420,8 +401,7 @@
 .end method
 
 .method public newFixedLengthSink(J)Lcom/leidong/open/http/okio/Sink;
-    .locals 3
-    .param p1, "contentLength"    # J
+    .locals 2
 
     .line 229
     iget v0, p0, Lcom/leidong/open/http/okhttp3/internal/http1/Http1Codec;->state:I
@@ -430,32 +410,32 @@
 
     if-eq v0, v1, :cond_0
 
-    new-instance v0, Ljava/lang/IllegalStateException;
+    new-instance p1, Ljava/lang/IllegalStateException;
 
-    new-instance v1, Ljava/lang/StringBuilder;
+    new-instance p2, Ljava/lang/StringBuilder;
 
-    invoke-direct {v1}, Ljava/lang/StringBuilder;-><init>()V
+    invoke-direct {p2}, Ljava/lang/StringBuilder;-><init>()V
 
-    const-string v2, "state: "
+    const-string v0, "state: "
 
-    invoke-virtual {v1, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-virtual {p2, v0}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    iget v2, p0, Lcom/leidong/open/http/okhttp3/internal/http1/Http1Codec;->state:I
+    iget v0, p0, Lcom/leidong/open/http/okhttp3/internal/http1/Http1Codec;->state:I
 
-    invoke-virtual {v1, v2}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
+    invoke-virtual {p2, v0}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
 
-    invoke-virtual {v1}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+    invoke-virtual {p2}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
 
-    move-result-object v1
+    move-result-object p2
 
-    invoke-direct {v0, v1}, Ljava/lang/IllegalStateException;-><init>(Ljava/lang/String;)V
+    invoke-direct {p1, p2}, Ljava/lang/IllegalStateException;-><init>(Ljava/lang/String;)V
 
-    throw v0
+    throw p1
 
-    .line 230
     :cond_0
     const/4 v0, 0x2
 
+    .line 230
     iput v0, p0, Lcom/leidong/open/http/okhttp3/internal/http1/Http1Codec;->state:I
 
     .line 231
@@ -467,8 +447,7 @@
 .end method
 
 .method public newFixedLengthSource(J)Lcom/leidong/open/http/okio/Source;
-    .locals 3
-    .param p1, "length"    # J
+    .locals 2
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Ljava/io/IOException;
@@ -482,32 +461,32 @@
 
     if-eq v0, v1, :cond_0
 
-    new-instance v0, Ljava/lang/IllegalStateException;
+    new-instance p1, Ljava/lang/IllegalStateException;
 
-    new-instance v1, Ljava/lang/StringBuilder;
+    new-instance p2, Ljava/lang/StringBuilder;
 
-    invoke-direct {v1}, Ljava/lang/StringBuilder;-><init>()V
+    invoke-direct {p2}, Ljava/lang/StringBuilder;-><init>()V
 
-    const-string v2, "state: "
+    const-string v0, "state: "
 
-    invoke-virtual {v1, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-virtual {p2, v0}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    iget v2, p0, Lcom/leidong/open/http/okhttp3/internal/http1/Http1Codec;->state:I
+    iget v0, p0, Lcom/leidong/open/http/okhttp3/internal/http1/Http1Codec;->state:I
 
-    invoke-virtual {v1, v2}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
+    invoke-virtual {p2, v0}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
 
-    invoke-virtual {v1}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+    invoke-virtual {p2}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
 
-    move-result-object v1
+    move-result-object p2
 
-    invoke-direct {v0, v1}, Ljava/lang/IllegalStateException;-><init>(Ljava/lang/String;)V
+    invoke-direct {p1, p2}, Ljava/lang/IllegalStateException;-><init>(Ljava/lang/String;)V
 
-    throw v0
+    throw p1
 
-    .line 236
     :cond_0
     const/4 v0, 0x5
 
+    .line 236
     iput v0, p0, Lcom/leidong/open/http/okhttp3/internal/http1/Http1Codec;->state:I
 
     .line 237
@@ -569,10 +548,10 @@
 
     throw v0
 
-    .line 249
     :cond_1
     const/4 v0, 0x5
 
+    .line 249
     iput v0, p0, Lcom/leidong/open/http/okhttp3/internal/http1/Http1Codec;->state:I
 
     .line 250
@@ -589,8 +568,7 @@
 .end method
 
 .method public openResponseBody(Lcom/leidong/open/http/okhttp3/Response;)Lcom/leidong/open/http/okhttp3/ResponseBody;
-    .locals 4
-    .param p1, "response"    # Lcom/leidong/open/http/okhttp3/Response;
+    .locals 2
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Ljava/io/IOException;
@@ -603,18 +581,17 @@
     move-result-object v0
 
     .line 134
-    .local v0, "source":Lcom/leidong/open/http/okio/Source;
     new-instance v1, Lcom/leidong/open/http/okhttp3/internal/http/RealResponseBody;
 
     invoke-virtual {p1}, Lcom/leidong/open/http/okhttp3/Response;->headers()Lcom/leidong/open/http/okhttp3/Headers;
 
-    move-result-object v2
+    move-result-object p1
 
     invoke-static {v0}, Lcom/leidong/open/http/okio/Okio;->buffer(Lcom/leidong/open/http/okio/Source;)Lcom/leidong/open/http/okio/BufferedSource;
 
-    move-result-object v3
+    move-result-object v0
 
-    invoke-direct {v1, v2, v3}, Lcom/leidong/open/http/okhttp3/internal/http/RealResponseBody;-><init>(Lcom/leidong/open/http/okhttp3/Headers;Lcom/leidong/open/http/okio/BufferedSource;)V
+    invoke-direct {v1, p1, v0}, Lcom/leidong/open/http/okhttp3/internal/http/RealResponseBody;-><init>(Lcom/leidong/open/http/okhttp3/Headers;Lcom/leidong/open/http/okio/BufferedSource;)V
 
     return-object v1
 .end method
@@ -633,7 +610,6 @@
     invoke-direct {v0}, Lcom/leidong/open/http/okhttp3/Headers$Builder;-><init>()V
 
     .line 216
-    .local v0, "headers":Lcom/leidong/open/http/okhttp3/Headers$Builder;
     :goto_0
     iget-object v1, p0, Lcom/leidong/open/http/okhttp3/internal/http1/Http1Codec;->source:Lcom/leidong/open/http/okio/BufferedSource;
 
@@ -641,36 +617,30 @@
 
     move-result-object v1
 
-    move-object v2, v1
-
-    .line 216
-    .local v2, "line":Ljava/lang/String;
     invoke-virtual {v1}, Ljava/lang/String;->length()I
 
-    move-result v1
+    move-result v2
 
-    if-eqz v1, :cond_0
+    if-eqz v2, :cond_0
 
     .line 217
-    sget-object v1, Lcom/leidong/open/http/okhttp3/internal/Internal;->instance:Lcom/leidong/open/http/okhttp3/internal/Internal;
+    sget-object v2, Lcom/leidong/open/http/okhttp3/internal/Internal;->instance:Lcom/leidong/open/http/okhttp3/internal/Internal;
 
-    invoke-virtual {v1, v0, v2}, Lcom/leidong/open/http/okhttp3/internal/Internal;->addLenient(Lcom/leidong/open/http/okhttp3/Headers$Builder;Ljava/lang/String;)V
+    invoke-virtual {v2, v0, v1}, Lcom/leidong/open/http/okhttp3/internal/Internal;->addLenient(Lcom/leidong/open/http/okhttp3/Headers$Builder;Ljava/lang/String;)V
 
     goto :goto_0
 
     .line 219
-    .end local v2    # "line":Ljava/lang/String;
     :cond_0
     invoke-virtual {v0}, Lcom/leidong/open/http/okhttp3/Headers$Builder;->build()Lcom/leidong/open/http/okhttp3/Headers;
 
-    move-result-object v1
+    move-result-object v0
 
-    return-object v1
+    return-object v0
 .end method
 
 .method public readResponseHeaders(Z)Lcom/leidong/open/http/okhttp3/Response$Builder;
-    .locals 4
-    .param p1, "expectContinue"    # Z
+    .locals 3
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Ljava/io/IOException;
@@ -691,27 +661,27 @@
     if-eq v0, v1, :cond_0
 
     .line 186
-    new-instance v0, Ljava/lang/IllegalStateException;
+    new-instance p1, Ljava/lang/IllegalStateException;
 
-    new-instance v1, Ljava/lang/StringBuilder;
+    new-instance v0, Ljava/lang/StringBuilder;
 
-    invoke-direct {v1}, Ljava/lang/StringBuilder;-><init>()V
+    invoke-direct {v0}, Ljava/lang/StringBuilder;-><init>()V
 
-    const-string v2, "state: "
+    const-string v1, "state: "
 
-    invoke-virtual {v1, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    iget v2, p0, Lcom/leidong/open/http/okhttp3/internal/http1/Http1Codec;->state:I
+    iget v1, p0, Lcom/leidong/open/http/okhttp3/internal/http1/Http1Codec;->state:I
 
-    invoke-virtual {v1, v2}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
+    invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
 
-    invoke-virtual {v1}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+    invoke-virtual {v0}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
 
-    move-result-object v1
+    move-result-object v0
 
-    invoke-direct {v0, v1}, Ljava/lang/IllegalStateException;-><init>(Ljava/lang/String;)V
+    invoke-direct {p1, v0}, Ljava/lang/IllegalStateException;-><init>(Ljava/lang/String;)V
 
-    throw v0
+    throw p1
 
     .line 190
     :cond_0
@@ -727,7 +697,6 @@
     move-result-object v0
 
     .line 192
-    .local v0, "statusLine":Lcom/leidong/open/http/okhttp3/internal/http/StatusLine;
     new-instance v1, Lcom/leidong/open/http/okhttp3/Response$Builder;
 
     invoke-direct {v1}, Lcom/leidong/open/http/okhttp3/Response$Builder;-><init>()V
@@ -762,72 +731,62 @@
 
     move-result-object v1
 
-    .line 198
-    .local v1, "responseBuilder":Lcom/leidong/open/http/okhttp3/Response$Builder;
     if-eqz p1, :cond_1
 
-    iget v2, v0, Lcom/leidong/open/http/okhttp3/internal/http/StatusLine;->code:I
+    .line 198
+    iget p1, v0, Lcom/leidong/open/http/okhttp3/internal/http/StatusLine;->code:I
 
-    const/16 v3, 0x64
+    const/16 v0, 0x64
 
-    if-ne v2, v3, :cond_1
+    if-ne p1, v0, :cond_1
 
-    .line 199
-    const/4 v2, 0x0
+    const/4 p1, 0x0
 
-    return-object v2
+    return-object p1
+
+    :cond_1
+    const/4 p1, 0x4
 
     .line 202
-    :cond_1
-    const/4 v2, 0x4
-
-    iput v2, p0, Lcom/leidong/open/http/okhttp3/internal/http1/Http1Codec;->state:I
+    iput p1, p0, Lcom/leidong/open/http/okhttp3/internal/http1/Http1Codec;->state:I
     :try_end_0
     .catch Ljava/io/EOFException; {:try_start_0 .. :try_end_0} :catch_0
 
-    .line 203
     return-object v1
 
-    .line 204
-    .end local v0    # "statusLine":Lcom/leidong/open/http/okhttp3/internal/http/StatusLine;
-    .end local v1    # "responseBuilder":Lcom/leidong/open/http/okhttp3/Response$Builder;
     :catch_0
-    move-exception v0
+    move-exception p1
 
     .line 206
-    .local v0, "e":Ljava/io/EOFException;
-    new-instance v1, Ljava/io/IOException;
+    new-instance v0, Ljava/io/IOException;
 
-    new-instance v2, Ljava/lang/StringBuilder;
+    new-instance v1, Ljava/lang/StringBuilder;
 
-    invoke-direct {v2}, Ljava/lang/StringBuilder;-><init>()V
+    invoke-direct {v1}, Ljava/lang/StringBuilder;-><init>()V
 
-    const-string v3, "unexpected end of stream on "
+    const-string v2, "unexpected end of stream on "
 
-    invoke-virtual {v2, v3}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-virtual {v1, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    iget-object v3, p0, Lcom/leidong/open/http/okhttp3/internal/http1/Http1Codec;->streamAllocation:Lcom/leidong/open/http/okhttp3/internal/connection/StreamAllocation;
+    iget-object v2, p0, Lcom/leidong/open/http/okhttp3/internal/http1/Http1Codec;->streamAllocation:Lcom/leidong/open/http/okhttp3/internal/connection/StreamAllocation;
 
-    invoke-virtual {v2, v3}, Ljava/lang/StringBuilder;->append(Ljava/lang/Object;)Ljava/lang/StringBuilder;
+    invoke-virtual {v1, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/Object;)Ljava/lang/StringBuilder;
 
-    invoke-virtual {v2}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+    invoke-virtual {v1}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
 
-    move-result-object v2
+    move-result-object v1
 
-    invoke-direct {v1, v2}, Ljava/io/IOException;-><init>(Ljava/lang/String;)V
+    invoke-direct {v0, v1}, Ljava/io/IOException;-><init>(Ljava/lang/String;)V
 
     .line 207
-    .local v1, "exception":Ljava/io/IOException;
-    invoke-virtual {v1, v0}, Ljava/io/IOException;->initCause(Ljava/lang/Throwable;)Ljava/lang/Throwable;
+    invoke-virtual {v0, p1}, Ljava/io/IOException;->initCause(Ljava/lang/Throwable;)Ljava/lang/Throwable;
 
     .line 208
-    throw v1
+    throw v0
 .end method
 
 .method public writeRequest(Lcom/leidong/open/http/okhttp3/Headers;Ljava/lang/String;)V
-    .locals 4
-    .param p1, "headers"    # Lcom/leidong/open/http/okhttp3/Headers;
-    .param p2, "requestLine"    # Ljava/lang/String;
+    .locals 3
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Ljava/io/IOException;
@@ -839,27 +798,27 @@
 
     if-eqz v0, :cond_0
 
-    new-instance v0, Ljava/lang/IllegalStateException;
+    new-instance p1, Ljava/lang/IllegalStateException;
 
-    new-instance v1, Ljava/lang/StringBuilder;
+    new-instance p2, Ljava/lang/StringBuilder;
 
-    invoke-direct {v1}, Ljava/lang/StringBuilder;-><init>()V
+    invoke-direct {p2}, Ljava/lang/StringBuilder;-><init>()V
 
-    const-string v2, "state: "
+    const-string v0, "state: "
 
-    invoke-virtual {v1, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-virtual {p2, v0}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    iget v2, p0, Lcom/leidong/open/http/okhttp3/internal/http1/Http1Codec;->state:I
+    iget v0, p0, Lcom/leidong/open/http/okhttp3/internal/http1/Http1Codec;->state:I
 
-    invoke-virtual {v1, v2}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
+    invoke-virtual {p2, v0}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
 
-    invoke-virtual {v1}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+    invoke-virtual {p2}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
 
-    move-result-object v1
+    move-result-object p2
 
-    invoke-direct {v0, v1}, Ljava/lang/IllegalStateException;-><init>(Ljava/lang/String;)V
+    invoke-direct {p1, p2}, Ljava/lang/IllegalStateException;-><init>(Ljava/lang/String;)V
 
-    throw v0
+    throw p1
 
     .line 173
     :cond_0
@@ -867,85 +826,76 @@
 
     invoke-interface {v0, p2}, Lcom/leidong/open/http/okio/BufferedSink;->writeUtf8(Ljava/lang/String;)Lcom/leidong/open/http/okio/BufferedSink;
 
-    move-result-object v0
+    move-result-object p2
 
-    const-string v1, "\r\n"
+    const-string v0, "\r\n"
 
-    invoke-interface {v0, v1}, Lcom/leidong/open/http/okio/BufferedSink;->writeUtf8(Ljava/lang/String;)Lcom/leidong/open/http/okio/BufferedSink;
+    invoke-interface {p2, v0}, Lcom/leidong/open/http/okio/BufferedSink;->writeUtf8(Ljava/lang/String;)Lcom/leidong/open/http/okio/BufferedSink;
+
+    const/4 p2, 0x0
 
     .line 174
-    const/4 v0, 0x0
-
-    .line 174
-    .local v0, "i":I
     invoke-virtual {p1}, Lcom/leidong/open/http/okhttp3/Headers;->size()I
 
-    move-result v1
+    move-result v0
 
-    .line 174
-    .local v1, "size":I
     :goto_0
-    if-ge v0, v1, :cond_1
+    if-ge p2, v0, :cond_1
 
     .line 175
-    iget-object v2, p0, Lcom/leidong/open/http/okhttp3/internal/http1/Http1Codec;->sink:Lcom/leidong/open/http/okio/BufferedSink;
+    iget-object v1, p0, Lcom/leidong/open/http/okhttp3/internal/http1/Http1Codec;->sink:Lcom/leidong/open/http/okio/BufferedSink;
 
-    invoke-virtual {p1, v0}, Lcom/leidong/open/http/okhttp3/Headers;->name(I)Ljava/lang/String;
-
-    move-result-object v3
-
-    invoke-interface {v2, v3}, Lcom/leidong/open/http/okio/BufferedSink;->writeUtf8(Ljava/lang/String;)Lcom/leidong/open/http/okio/BufferedSink;
+    invoke-virtual {p1, p2}, Lcom/leidong/open/http/okhttp3/Headers;->name(I)Ljava/lang/String;
 
     move-result-object v2
 
-    const-string v3, ": "
+    invoke-interface {v1, v2}, Lcom/leidong/open/http/okio/BufferedSink;->writeUtf8(Ljava/lang/String;)Lcom/leidong/open/http/okio/BufferedSink;
+
+    move-result-object v1
+
+    const-string v2, ": "
 
     .line 176
-    invoke-interface {v2, v3}, Lcom/leidong/open/http/okio/BufferedSink;->writeUtf8(Ljava/lang/String;)Lcom/leidong/open/http/okio/BufferedSink;
+    invoke-interface {v1, v2}, Lcom/leidong/open/http/okio/BufferedSink;->writeUtf8(Ljava/lang/String;)Lcom/leidong/open/http/okio/BufferedSink;
 
-    move-result-object v2
+    move-result-object v1
 
     .line 177
-    invoke-virtual {p1, v0}, Lcom/leidong/open/http/okhttp3/Headers;->value(I)Ljava/lang/String;
-
-    move-result-object v3
-
-    invoke-interface {v2, v3}, Lcom/leidong/open/http/okio/BufferedSink;->writeUtf8(Ljava/lang/String;)Lcom/leidong/open/http/okio/BufferedSink;
+    invoke-virtual {p1, p2}, Lcom/leidong/open/http/okhttp3/Headers;->value(I)Ljava/lang/String;
 
     move-result-object v2
 
-    const-string v3, "\r\n"
+    invoke-interface {v1, v2}, Lcom/leidong/open/http/okio/BufferedSink;->writeUtf8(Ljava/lang/String;)Lcom/leidong/open/http/okio/BufferedSink;
+
+    move-result-object v1
+
+    const-string v2, "\r\n"
 
     .line 178
-    invoke-interface {v2, v3}, Lcom/leidong/open/http/okio/BufferedSink;->writeUtf8(Ljava/lang/String;)Lcom/leidong/open/http/okio/BufferedSink;
+    invoke-interface {v1, v2}, Lcom/leidong/open/http/okio/BufferedSink;->writeUtf8(Ljava/lang/String;)Lcom/leidong/open/http/okio/BufferedSink;
 
-    .line 174
-    add-int/lit8 v0, v0, 0x1
+    add-int/lit8 p2, p2, 0x1
 
     goto :goto_0
 
     .line 180
-    .end local v0    # "i":I
-    .end local v1    # "size":I
     :cond_1
-    iget-object v0, p0, Lcom/leidong/open/http/okhttp3/internal/http1/Http1Codec;->sink:Lcom/leidong/open/http/okio/BufferedSink;
+    iget-object p1, p0, Lcom/leidong/open/http/okhttp3/internal/http1/Http1Codec;->sink:Lcom/leidong/open/http/okio/BufferedSink;
 
-    const-string v1, "\r\n"
+    const-string p2, "\r\n"
 
-    invoke-interface {v0, v1}, Lcom/leidong/open/http/okio/BufferedSink;->writeUtf8(Ljava/lang/String;)Lcom/leidong/open/http/okio/BufferedSink;
+    invoke-interface {p1, p2}, Lcom/leidong/open/http/okio/BufferedSink;->writeUtf8(Ljava/lang/String;)Lcom/leidong/open/http/okio/BufferedSink;
+
+    const/4 p1, 0x1
 
     .line 181
-    const/4 v0, 0x1
+    iput p1, p0, Lcom/leidong/open/http/okhttp3/internal/http1/Http1Codec;->state:I
 
-    iput v0, p0, Lcom/leidong/open/http/okhttp3/internal/http1/Http1Codec;->state:I
-
-    .line 182
     return-void
 .end method
 
 .method public writeRequestHeaders(Lcom/leidong/open/http/okhttp3/Request;)V
-    .locals 2
-    .param p1, "request"    # Lcom/leidong/open/http/okhttp3/Request;
+    .locals 1
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Ljava/io/IOException;
@@ -978,13 +928,11 @@
     move-result-object v0
 
     .line 129
-    .local v0, "requestLine":Ljava/lang/String;
     invoke-virtual {p1}, Lcom/leidong/open/http/okhttp3/Request;->headers()Lcom/leidong/open/http/okhttp3/Headers;
 
-    move-result-object v1
+    move-result-object p1
 
-    invoke-virtual {p0, v1, v0}, Lcom/leidong/open/http/okhttp3/internal/http1/Http1Codec;->writeRequest(Lcom/leidong/open/http/okhttp3/Headers;Ljava/lang/String;)V
+    invoke-virtual {p0, p1, v0}, Lcom/leidong/open/http/okhttp3/internal/http1/Http1Codec;->writeRequest(Lcom/leidong/open/http/okhttp3/Headers;Ljava/lang/String;)V
 
-    .line 130
     return-void
 .end method

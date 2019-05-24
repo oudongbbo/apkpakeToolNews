@@ -24,9 +24,8 @@
 # direct methods
 .method constructor <init>(Lcom/leidong/sdk/s/app/login/view/LoginByRegister$6$1;)V
     .locals 0
-    .param p1, "this$2"    # Lcom/leidong/sdk/s/app/login/view/LoginByRegister$6$1;
 
-    .line 303
+    .line 304
     iput-object p1, p0, Lcom/leidong/sdk/s/app/login/view/LoginByRegister$6$1$1;->this$2:Lcom/leidong/sdk/s/app/login/view/LoginByRegister$6$1;
 
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -37,79 +36,69 @@
 
 # virtual methods
 .method public onCancel(Ljava/lang/String;)V
-    .locals 1
-    .param p1, "message"    # Ljava/lang/String;
-
-    .line 323
-    iget-object v0, p0, Lcom/leidong/sdk/s/app/login/view/LoginByRegister$6$1$1;->this$2:Lcom/leidong/sdk/s/app/login/view/LoginByRegister$6$1;
-
-    iget-object v0, v0, Lcom/leidong/sdk/s/app/login/view/LoginByRegister$6$1;->this$1:Lcom/leidong/sdk/s/app/login/view/LoginByRegister$6;
-
-    iget-object v0, v0, Lcom/leidong/sdk/s/app/login/view/LoginByRegister$6;->this$0:Lcom/leidong/sdk/s/app/login/view/LoginByRegister;
-
-    # invokes: Lcom/leidong/sdk/s/app/login/view/LoginByRegister;->loadLocalName()V
-    invoke-static {v0}, Lcom/leidong/sdk/s/app/login/view/LoginByRegister;->access$400(Lcom/leidong/sdk/s/app/login/view/LoginByRegister;)V
+    .locals 0
 
     .line 324
+    iget-object p1, p0, Lcom/leidong/sdk/s/app/login/view/LoginByRegister$6$1$1;->this$2:Lcom/leidong/sdk/s/app/login/view/LoginByRegister$6$1;
+
+    iget-object p1, p1, Lcom/leidong/sdk/s/app/login/view/LoginByRegister$6$1;->this$1:Lcom/leidong/sdk/s/app/login/view/LoginByRegister$6;
+
+    iget-object p1, p1, Lcom/leidong/sdk/s/app/login/view/LoginByRegister$6;->this$0:Lcom/leidong/sdk/s/app/login/view/LoginByRegister;
+
+    invoke-static {p1}, Lcom/leidong/sdk/s/app/login/view/LoginByRegister;->access$400(Lcom/leidong/sdk/s/app/login/view/LoginByRegister;)V
+
     return-void
 .end method
 
 .method public onFail(Ljava/lang/String;)V
-    .locals 1
-    .param p1, "message"    # Ljava/lang/String;
+    .locals 0
 
-    .line 319
+    .line 320
+    iget-object p1, p0, Lcom/leidong/sdk/s/app/login/view/LoginByRegister$6$1$1;->this$2:Lcom/leidong/sdk/s/app/login/view/LoginByRegister$6$1;
+
+    iget-object p1, p1, Lcom/leidong/sdk/s/app/login/view/LoginByRegister$6$1;->this$1:Lcom/leidong/sdk/s/app/login/view/LoginByRegister$6;
+
+    iget-object p1, p1, Lcom/leidong/sdk/s/app/login/view/LoginByRegister$6;->this$0:Lcom/leidong/sdk/s/app/login/view/LoginByRegister;
+
+    invoke-static {p1}, Lcom/leidong/sdk/s/app/login/view/LoginByRegister;->access$400(Lcom/leidong/sdk/s/app/login/view/LoginByRegister;)V
+
+    return-void
+.end method
+
+.method public onSuccess(Landroid/os/Bundle;)V
+    .locals 2
+
+    const-string v0, "uname"
+
+    .line 307
+    invoke-virtual {p1, v0}, Landroid/os/Bundle;->getString(Ljava/lang/String;)Ljava/lang/String;
+
+    move-result-object p1
+
+    .line 309
+    invoke-static {p1}, Landroid/text/TextUtils;->isEmpty(Ljava/lang/CharSequence;)Z
+
+    move-result v0
+
+    if-nez v0, :cond_0
+
+    .line 311
     iget-object v0, p0, Lcom/leidong/sdk/s/app/login/view/LoginByRegister$6$1$1;->this$2:Lcom/leidong/sdk/s/app/login/view/LoginByRegister$6$1;
 
     iget-object v0, v0, Lcom/leidong/sdk/s/app/login/view/LoginByRegister$6$1;->this$1:Lcom/leidong/sdk/s/app/login/view/LoginByRegister$6;
 
     iget-object v0, v0, Lcom/leidong/sdk/s/app/login/view/LoginByRegister$6;->this$0:Lcom/leidong/sdk/s/app/login/view/LoginByRegister;
 
-    # invokes: Lcom/leidong/sdk/s/app/login/view/LoginByRegister;->loadLocalName()V
-    invoke-static {v0}, Lcom/leidong/sdk/s/app/login/view/LoginByRegister;->access$400(Lcom/leidong/sdk/s/app/login/view/LoginByRegister;)V
-
-    .line 320
-    return-void
-.end method
-
-.method public onSuccess(Landroid/os/Bundle;)V
-    .locals 3
-    .param p1, "bundle"    # Landroid/os/Bundle;
-
-    .line 306
-    const-string v0, "uname"
-
-    invoke-virtual {p1, v0}, Landroid/os/Bundle;->getString(Ljava/lang/String;)Ljava/lang/String;
+    invoke-static {v0}, Lcom/leidong/sdk/s/app/login/view/LoginByRegister;->access$300(Lcom/leidong/sdk/s/app/login/view/LoginByRegister;)Landroid/widget/EditText;
 
     move-result-object v0
 
-    .line 308
-    .local v0, "vname":Ljava/lang/String;
-    invoke-static {v0}, Landroid/text/TextUtils;->isEmpty(Ljava/lang/CharSequence;)Z
+    new-instance v1, Lcom/leidong/sdk/s/app/login/view/LoginByRegister$6$1$1$1;
 
-    move-result v1
+    invoke-direct {v1, p0, p1}, Lcom/leidong/sdk/s/app/login/view/LoginByRegister$6$1$1$1;-><init>(Lcom/leidong/sdk/s/app/login/view/LoginByRegister$6$1$1;Ljava/lang/String;)V
 
-    if-nez v1, :cond_0
+    invoke-virtual {v0, v1}, Landroid/widget/EditText;->post(Ljava/lang/Runnable;)Z
 
-    .line 310
-    iget-object v1, p0, Lcom/leidong/sdk/s/app/login/view/LoginByRegister$6$1$1;->this$2:Lcom/leidong/sdk/s/app/login/view/LoginByRegister$6$1;
-
-    iget-object v1, v1, Lcom/leidong/sdk/s/app/login/view/LoginByRegister$6$1;->this$1:Lcom/leidong/sdk/s/app/login/view/LoginByRegister$6;
-
-    iget-object v1, v1, Lcom/leidong/sdk/s/app/login/view/LoginByRegister$6;->this$0:Lcom/leidong/sdk/s/app/login/view/LoginByRegister;
-
-    # getter for: Lcom/leidong/sdk/s/app/login/view/LoginByRegister;->login_regist_normalaccount_input:Landroid/widget/EditText;
-    invoke-static {v1}, Lcom/leidong/sdk/s/app/login/view/LoginByRegister;->access$300(Lcom/leidong/sdk/s/app/login/view/LoginByRegister;)Landroid/widget/EditText;
-
-    move-result-object v1
-
-    new-instance v2, Lcom/leidong/sdk/s/app/login/view/LoginByRegister$6$1$1$1;
-
-    invoke-direct {v2, p0, v0}, Lcom/leidong/sdk/s/app/login/view/LoginByRegister$6$1$1$1;-><init>(Lcom/leidong/sdk/s/app/login/view/LoginByRegister$6$1$1;Ljava/lang/String;)V
-
-    invoke-virtual {v1, v2}, Landroid/widget/EditText;->post(Ljava/lang/Runnable;)Z
-
-    .line 316
     :cond_0
     return-void
 .end method

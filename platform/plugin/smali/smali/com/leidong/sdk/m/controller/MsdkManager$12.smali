@@ -26,9 +26,8 @@
 # direct methods
 .method constructor <init>(Lcom/leidong/sdk/m/controller/MsdkManager;Lcom/leidong/sdk/m/interfaces/MsdkCallback;)V
     .locals 0
-    .param p1, "this$0"    # Lcom/leidong/sdk/m/controller/MsdkManager;
 
-    .line 583
+    .line 584
     iput-object p1, p0, Lcom/leidong/sdk/m/controller/MsdkManager$12;->this$0:Lcom/leidong/sdk/m/controller/MsdkManager;
 
     iput-object p2, p0, Lcom/leidong/sdk/m/controller/MsdkManager$12;->val$callback:Lcom/leidong/sdk/m/interfaces/MsdkCallback;
@@ -42,26 +41,22 @@
 # virtual methods
 .method public onFail(Ljava/lang/String;)V
     .locals 1
-    .param p1, "msg"    # Ljava/lang/String;
 
-    .line 590
+    .line 591
     iget-object v0, p0, Lcom/leidong/sdk/m/controller/MsdkManager$12;->val$callback:Lcom/leidong/sdk/m/interfaces/MsdkCallback;
 
     invoke-interface {v0, p1}, Lcom/leidong/sdk/m/interfaces/MsdkCallback;->onFail(Ljava/lang/String;)V
 
-    .line 591
     return-void
 .end method
 
 .method public onSuccess(Landroid/os/Bundle;)V
     .locals 1
-    .param p1, "bundle"    # Landroid/os/Bundle;
 
-    .line 586
+    .line 587
     iget-object v0, p0, Lcom/leidong/sdk/m/controller/MsdkManager$12;->val$callback:Lcom/leidong/sdk/m/interfaces/MsdkCallback;
 
     invoke-interface {v0, p1}, Lcom/leidong/sdk/m/interfaces/MsdkCallback;->onSuccess(Landroid/os/Bundle;)V
 
-    .line 587
     return-void
 .end method

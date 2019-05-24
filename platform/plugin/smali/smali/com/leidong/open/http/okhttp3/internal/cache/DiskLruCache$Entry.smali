@@ -34,8 +34,7 @@
 
 # direct methods
 .method constructor <init>(Lcom/leidong/open/http/okhttp3/internal/cache/DiskLruCache;Ljava/lang/String;)V
-    .locals 7
-    .param p2, "key"    # Ljava/lang/String;
+    .locals 6
 
     .line 976
     iput-object p1, p0, Lcom/leidong/open/http/okhttp3/internal/cache/DiskLruCache$Entry;->this$0:Lcom/leidong/open/http/okhttp3/internal/cache/DiskLruCache;
@@ -71,84 +70,74 @@
 
     invoke-direct {v0, p2}, Ljava/lang/StringBuilder;-><init>(Ljava/lang/String;)V
 
-    const/16 v1, 0x2e
+    const/16 p2, 0x2e
 
-    invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(C)Ljava/lang/StringBuilder;
-
-    move-result-object v0
+    invoke-virtual {v0, p2}, Ljava/lang/StringBuilder;->append(C)Ljava/lang/StringBuilder;
 
     .line 985
-    .local v0, "fileBuilder":Ljava/lang/StringBuilder;
     invoke-virtual {v0}, Ljava/lang/StringBuilder;->length()I
 
-    move-result v1
+    move-result p2
+
+    const/4 v1, 0x0
 
     .line 986
-    .local v1, "truncateTo":I
-    const/4 v2, 0x0
-
-    .line 986
-    .local v2, "i":I
     :goto_0
-    iget v3, p1, Lcom/leidong/open/http/okhttp3/internal/cache/DiskLruCache;->valueCount:I
+    iget v2, p1, Lcom/leidong/open/http/okhttp3/internal/cache/DiskLruCache;->valueCount:I
 
-    if-ge v2, v3, :cond_0
+    if-ge v1, v2, :cond_0
 
     .line 987
-    invoke-virtual {v0, v2}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
+    invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
 
     .line 988
-    iget-object v3, p0, Lcom/leidong/open/http/okhttp3/internal/cache/DiskLruCache$Entry;->cleanFiles:[Ljava/io/File;
+    iget-object v2, p0, Lcom/leidong/open/http/okhttp3/internal/cache/DiskLruCache$Entry;->cleanFiles:[Ljava/io/File;
 
-    new-instance v4, Ljava/io/File;
+    new-instance v3, Ljava/io/File;
 
-    iget-object v5, p1, Lcom/leidong/open/http/okhttp3/internal/cache/DiskLruCache;->directory:Ljava/io/File;
+    iget-object v4, p1, Lcom/leidong/open/http/okhttp3/internal/cache/DiskLruCache;->directory:Ljava/io/File;
 
     invoke-virtual {v0}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
 
-    move-result-object v6
+    move-result-object v5
 
-    invoke-direct {v4, v5, v6}, Ljava/io/File;-><init>(Ljava/io/File;Ljava/lang/String;)V
+    invoke-direct {v3, v4, v5}, Ljava/io/File;-><init>(Ljava/io/File;Ljava/lang/String;)V
 
-    aput-object v4, v3, v2
+    aput-object v3, v2, v1
+
+    const-string v2, ".tmp"
 
     .line 989
-    const-string v3, ".tmp"
-
-    invoke-virtual {v0, v3}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-virtual {v0, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
     .line 990
-    iget-object v3, p0, Lcom/leidong/open/http/okhttp3/internal/cache/DiskLruCache$Entry;->dirtyFiles:[Ljava/io/File;
+    iget-object v2, p0, Lcom/leidong/open/http/okhttp3/internal/cache/DiskLruCache$Entry;->dirtyFiles:[Ljava/io/File;
 
-    new-instance v4, Ljava/io/File;
+    new-instance v3, Ljava/io/File;
 
-    iget-object v5, p1, Lcom/leidong/open/http/okhttp3/internal/cache/DiskLruCache;->directory:Ljava/io/File;
+    iget-object v4, p1, Lcom/leidong/open/http/okhttp3/internal/cache/DiskLruCache;->directory:Ljava/io/File;
 
     invoke-virtual {v0}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
 
-    move-result-object v6
+    move-result-object v5
 
-    invoke-direct {v4, v5, v6}, Ljava/io/File;-><init>(Ljava/io/File;Ljava/lang/String;)V
+    invoke-direct {v3, v4, v5}, Ljava/io/File;-><init>(Ljava/io/File;Ljava/lang/String;)V
 
-    aput-object v4, v3, v2
+    aput-object v3, v2, v1
 
     .line 991
-    invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->setLength(I)V
+    invoke-virtual {v0, p2}, Ljava/lang/StringBuilder;->setLength(I)V
 
-    .line 986
-    add-int/lit8 v2, v2, 0x1
+    add-int/lit8 v1, v1, 0x1
 
     goto :goto_0
 
-    .line 993
-    .end local v2    # "i":I
     :cond_0
     return-void
 .end method
 
 .method private invalidLengths([Ljava/lang/String;)Ljava/io/IOException;
     .locals 3
-    .param p1, "strings"    # [Ljava/lang/String;
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Ljava/io/IOException;
@@ -168,15 +157,15 @@
 
     invoke-static {p1}, Ljava/util/Arrays;->toString([Ljava/lang/Object;)Ljava/lang/String;
 
-    move-result-object v2
+    move-result-object p1
 
-    invoke-virtual {v1, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-virtual {v1, p1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
     invoke-virtual {v1}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
 
-    move-result-object v1
+    move-result-object p1
 
-    invoke-direct {v0, v1}, Ljava/io/IOException;-><init>(Ljava/lang/String;)V
+    invoke-direct {v0, p1}, Ljava/io/IOException;-><init>(Ljava/lang/String;)V
 
     throw v0
 .end method
@@ -185,7 +174,6 @@
 # virtual methods
 .method setLengths([Ljava/lang/String;)V
     .locals 4
-    .param p1, "strings"    # [Ljava/lang/String;
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Ljava/io/IOException;
@@ -204,16 +192,14 @@
     .line 998
     invoke-direct {p0, p1}, Lcom/leidong/open/http/okhttp3/internal/cache/DiskLruCache$Entry;->invalidLengths([Ljava/lang/String;)Ljava/io/IOException;
 
-    move-result-object v0
+    move-result-object p1
 
-    throw v0
+    throw p1
 
-    .line 1002
     :cond_0
     const/4 v0, 0x0
 
     .line 1002
-    .local v0, "i":I
     :goto_0
     :try_start_0
     array-length v1, p1
@@ -233,30 +219,20 @@
     :try_end_0
     .catch Ljava/lang/NumberFormatException; {:try_start_0 .. :try_end_0} :catch_0
 
-    .line 1002
     add-int/lit8 v0, v0, 0x1
 
     goto :goto_0
 
-    .line 1007
-    .end local v0    # "i":I
     :cond_1
-    nop
-
-    .line 1008
     return-void
 
-    .line 1005
-    :catch_0
-    move-exception v0
-
     .line 1006
-    .local v0, "e":Ljava/lang/NumberFormatException;
+    :catch_0
     invoke-direct {p0, p1}, Lcom/leidong/open/http/okhttp3/internal/cache/DiskLruCache$Entry;->invalidLengths([Ljava/lang/String;)Ljava/io/IOException;
 
-    move-result-object v1
+    move-result-object p1
 
-    throw v1
+    throw p1
 .end method
 
 .method snapshot()Lcom/leidong/open/http/okhttp3/internal/cache/DiskLruCache$Snapshot;
@@ -286,7 +262,6 @@
     new-array v0, v0, [Lcom/leidong/open/http/okio/Source;
 
     .line 1030
-    .local v0, "sources":[Lcom/leidong/open/http/okio/Source;
     iget-object v1, p0, Lcom/leidong/open/http/okhttp3/internal/cache/DiskLruCache$Entry;->lengths:[J
 
     invoke-virtual {v1}, [J->clone()Ljava/lang/Object;
@@ -297,14 +272,11 @@
 
     check-cast v7, [J
 
-    .line 1032
-    .local v7, "lengths":[J
     const/4 v8, 0x0
 
     const/4 v1, 0x0
 
     .line 1032
-    .local v1, "i":I
     :goto_0
     :try_start_0
     iget-object v2, p0, Lcom/leidong/open/http/okhttp3/internal/cache/DiskLruCache$Entry;->this$0:Lcom/leidong/open/http/okhttp3/internal/cache/DiskLruCache;
@@ -328,13 +300,11 @@
 
     aput-object v2, v0, v1
 
-    .line 1032
     add-int/lit8 v1, v1, 0x1
 
     goto :goto_0
 
     .line 1035
-    .end local v1    # "i":I
     :cond_1
     new-instance v9, Lcom/leidong/open/http/okhttp3/internal/cache/DiskLruCache$Snapshot;
 
@@ -354,73 +324,46 @@
 
     return-object v9
 
-    .line 1036
+    .line 1038
     :catch_0
-    move-exception v1
-
-    .line 1038
-    .local v1, "e":Ljava/io/FileNotFoundException;
-    nop
-
-    .line 1038
-    .local v8, "i":I
     :goto_1
-    move v2, v8
+    iget-object v1, p0, Lcom/leidong/open/http/okhttp3/internal/cache/DiskLruCache$Entry;->this$0:Lcom/leidong/open/http/okhttp3/internal/cache/DiskLruCache;
 
-    .line 1038
-    .end local v8    # "i":I
-    .local v2, "i":I
-    iget-object v3, p0, Lcom/leidong/open/http/okhttp3/internal/cache/DiskLruCache$Entry;->this$0:Lcom/leidong/open/http/okhttp3/internal/cache/DiskLruCache;
+    iget v1, v1, Lcom/leidong/open/http/okhttp3/internal/cache/DiskLruCache;->valueCount:I
 
-    iget v3, v3, Lcom/leidong/open/http/okhttp3/internal/cache/DiskLruCache;->valueCount:I
-
-    if-ge v2, v3, :cond_2
+    if-ge v8, v1, :cond_2
 
     .line 1039
-    aget-object v3, v0, v2
+    aget-object v1, v0, v8
 
-    if-eqz v3, :cond_2
+    if-eqz v1, :cond_2
 
     .line 1040
-    aget-object v3, v0, v2
+    aget-object v1, v0, v8
 
-    invoke-static {v3}, Lcom/leidong/open/http/okhttp3/internal/Util;->closeQuietly(Ljava/io/Closeable;)V
+    invoke-static {v1}, Lcom/leidong/open/http/okhttp3/internal/Util;->closeQuietly(Ljava/io/Closeable;)V
 
-    .line 1038
-    add-int/lit8 v8, v2, 0x1
+    add-int/lit8 v8, v8, 0x1
 
-    .line 1038
-    .end local v2    # "i":I
-    .restart local v8    # "i":I
     goto :goto_1
 
     .line 1048
-    .end local v8    # "i":I
     :cond_2
     :try_start_1
-    iget-object v2, p0, Lcom/leidong/open/http/okhttp3/internal/cache/DiskLruCache$Entry;->this$0:Lcom/leidong/open/http/okhttp3/internal/cache/DiskLruCache;
+    iget-object v0, p0, Lcom/leidong/open/http/okhttp3/internal/cache/DiskLruCache$Entry;->this$0:Lcom/leidong/open/http/okhttp3/internal/cache/DiskLruCache;
 
-    invoke-virtual {v2, p0}, Lcom/leidong/open/http/okhttp3/internal/cache/DiskLruCache;->removeEntry(Lcom/leidong/open/http/okhttp3/internal/cache/DiskLruCache$Entry;)Z
+    invoke-virtual {v0, p0}, Lcom/leidong/open/http/okhttp3/internal/cache/DiskLruCache;->removeEntry(Lcom/leidong/open/http/okhttp3/internal/cache/DiskLruCache$Entry;)Z
     :try_end_1
     .catch Ljava/io/IOException; {:try_start_1 .. :try_end_1} :catch_1
 
-    .line 1050
-    goto :goto_2
-
-    .line 1049
     :catch_1
-    move-exception v2
+    const/4 v0, 0x0
 
-    .line 1051
-    :goto_2
-    const/4 v2, 0x0
-
-    return-object v2
+    return-object v0
 .end method
 
 .method writeLengths(Lcom/leidong/open/http/okio/BufferedSink;)V
     .locals 6
-    .param p1, "writer"    # Lcom/leidong/open/http/okio/BufferedSink;
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Ljava/io/IOException;
@@ -439,23 +382,19 @@
 
     aget-wide v3, v0, v2
 
-    .line 1013
-    .local v3, "length":J
     const/16 v5, 0x20
 
+    .line 1013
     invoke-interface {p1, v5}, Lcom/leidong/open/http/okio/BufferedSink;->writeByte(I)Lcom/leidong/open/http/okio/BufferedSink;
 
     move-result-object v5
 
     invoke-interface {v5, v3, v4}, Lcom/leidong/open/http/okio/BufferedSink;->writeDecimalLong(J)Lcom/leidong/open/http/okio/BufferedSink;
 
-    .line 1012
-    .end local v3    # "length":J
     add-int/lit8 v2, v2, 0x1
 
     goto :goto_0
 
-    .line 1015
     :cond_0
     return-void
 .end method

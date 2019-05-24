@@ -40,7 +40,6 @@
     .locals 0
 
     .line 17
-    .local p0, "this":Lcom/leidong/open/http/okserver/listener/UploadListener;, "Lcom/leidong/open/http/okserver/listener/UploadListener<TT;>;"
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
     return-void
@@ -52,7 +51,6 @@
     .locals 1
 
     .line 40
-    .local p0, "this":Lcom/leidong/open/http/okserver/listener/UploadListener;, "Lcom/leidong/open/http/okserver/listener/UploadListener<TT;>;"
     iget-object v0, p0, Lcom/leidong/open/http/okserver/listener/UploadListener;->userTag:Ljava/lang/Object;
 
     return-object v0
@@ -60,10 +58,7 @@
 
 .method public onAdd(Lcom/leidong/open/http/okserver/upload/UploadInfo;)V
     .locals 0
-    .param p1, "uploadInfo"    # Lcom/leidong/open/http/okserver/upload/UploadInfo;
 
-    .line 32
-    .local p0, "this":Lcom/leidong/open/http/okserver/listener/UploadListener;, "Lcom/leidong/open/http/okserver/listener/UploadListener<TT;>;"
     return-void
 .end method
 
@@ -83,10 +78,7 @@
 
 .method public onRemove(Lcom/leidong/open/http/okserver/upload/UploadInfo;)V
     .locals 0
-    .param p1, "uploadInfo"    # Lcom/leidong/open/http/okserver/upload/UploadInfo;
 
-    .line 36
-    .local p0, "this":Lcom/leidong/open/http/okserver/listener/UploadListener;, "Lcom/leidong/open/http/okserver/listener/UploadListener<TT;>;"
     return-void
 .end method
 
@@ -108,12 +100,9 @@
 
 .method public setUserTag(Ljava/lang/Object;)V
     .locals 0
-    .param p1, "userTag"    # Ljava/lang/Object;
 
     .line 45
-    .local p0, "this":Lcom/leidong/open/http/okserver/listener/UploadListener;, "Lcom/leidong/open/http/okserver/listener/UploadListener<TT;>;"
     iput-object p1, p0, Lcom/leidong/open/http/okserver/listener/UploadListener;->userTag:Ljava/lang/Object;
 
-    .line 46
     return-void
 .end method

@@ -24,7 +24,6 @@
 # direct methods
 .method constructor <init>(Lcom/leidong/sdk/s/app/exit/ExitDialog;)V
     .locals 0
-    .param p1, "this$0"    # Lcom/leidong/sdk/s/app/exit/ExitDialog;
 
     .line 158
     iput-object p1, p0, Lcom/leidong/sdk/s/app/exit/ExitDialog$ExitDialogBBSListener;->this$0:Lcom/leidong/sdk/s/app/exit/ExitDialog;
@@ -37,42 +36,38 @@
 
 # virtual methods
 .method public onClick(Landroid/view/View;)V
-    .locals 2
-    .param p1, "v"    # Landroid/view/View;
+    .locals 1
 
     .line 161
-    sget-object v0, Lcom/leidong/sdk/s/core/http/RequestUrls;->WEB_SIDEBAR_BBS:Ljava/lang/String;
+    sget-object p1, Lcom/leidong/sdk/s/core/http/RequestUrls;->WEB_SIDEBAR_BBS:Ljava/lang/String;
 
-    invoke-static {v0}, Landroid/text/TextUtils;->isEmpty(Ljava/lang/CharSequence;)Z
+    invoke-static {p1}, Landroid/text/TextUtils;->isEmpty(Ljava/lang/CharSequence;)Z
 
-    move-result v0
+    move-result p1
 
-    if-eqz v0, :cond_0
+    if-eqz p1, :cond_0
 
     .line 163
-    iget-object v0, p0, Lcom/leidong/sdk/s/app/exit/ExitDialog$ExitDialogBBSListener;->this$0:Lcom/leidong/sdk/s/app/exit/ExitDialog;
+    iget-object p1, p0, Lcom/leidong/sdk/s/app/exit/ExitDialog$ExitDialogBBSListener;->this$0:Lcom/leidong/sdk/s/app/exit/ExitDialog;
 
-    const-string v1, "\u8bba\u575b\u5efa\u8bbe\u4e2d\uff0c\u5c3d\u60c5\u671f\u5f85"
+    const-string v0, "\u8bba\u575b\u5efa\u8bbe\u4e2d\uff0c\u5c3d\u60c5\u671f\u5f85"
 
-    # invokes: Lcom/leidong/sdk/s/app/exit/ExitDialog;->showToas(Ljava/lang/String;)V
-    invoke-static {v0, v1}, Lcom/leidong/sdk/s/app/exit/ExitDialog;->access$500(Lcom/leidong/sdk/s/app/exit/ExitDialog;Ljava/lang/String;)V
+    invoke-static {p1, v0}, Lcom/leidong/sdk/s/app/exit/ExitDialog;->access$500(Lcom/leidong/sdk/s/app/exit/ExitDialog;Ljava/lang/String;)V
 
     goto :goto_0
 
     .line 165
     :cond_0
-    iget-object v0, p0, Lcom/leidong/sdk/s/app/exit/ExitDialog$ExitDialogBBSListener;->this$0:Lcom/leidong/sdk/s/app/exit/ExitDialog;
+    iget-object p1, p0, Lcom/leidong/sdk/s/app/exit/ExitDialog$ExitDialogBBSListener;->this$0:Lcom/leidong/sdk/s/app/exit/ExitDialog;
 
-    # getter for: Lcom/leidong/sdk/s/app/exit/ExitDialog;->mContext:Landroid/content/Context;
-    invoke-static {v0}, Lcom/leidong/sdk/s/app/exit/ExitDialog;->access$400(Lcom/leidong/sdk/s/app/exit/ExitDialog;)Landroid/content/Context;
+    invoke-static {p1}, Lcom/leidong/sdk/s/app/exit/ExitDialog;->access$400(Lcom/leidong/sdk/s/app/exit/ExitDialog;)Landroid/content/Context;
 
-    move-result-object v0
+    move-result-object p1
 
-    sget-object v1, Lcom/leidong/sdk/s/core/http/RequestUrls;->WEB_SIDEBAR_BBS:Ljava/lang/String;
+    sget-object v0, Lcom/leidong/sdk/s/core/http/RequestUrls;->WEB_SIDEBAR_BBS:Ljava/lang/String;
 
-    invoke-static {v0, v1}, Lcom/leidong/sdk/s/core/utils/SdkUtil;->openWebActivity(Landroid/content/Context;Ljava/lang/String;)V
+    invoke-static {p1, v0}, Lcom/leidong/sdk/s/core/utils/SdkUtil;->openWebActivity(Landroid/content/Context;Ljava/lang/String;)V
 
-    .line 167
     :goto_0
     return-void
 .end method

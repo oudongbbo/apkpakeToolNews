@@ -23,7 +23,6 @@
 # direct methods
 .method public constructor <init>(Lcom/leidong/open/http/okhttp3/RequestBody;)V
     .locals 0
-    .param p1, "delegate"    # Lcom/leidong/open/http/okhttp3/RequestBody;
 
     .line 26
     invoke-direct {p0}, Lcom/leidong/open/http/okhttp3/RequestBody;-><init>()V
@@ -31,14 +30,11 @@
     .line 27
     iput-object p1, p0, Lcom/leidong/open/http/okgo/request/ProgressRequestBody;->delegate:Lcom/leidong/open/http/okhttp3/RequestBody;
 
-    .line 28
     return-void
 .end method
 
 .method public constructor <init>(Lcom/leidong/open/http/okhttp3/RequestBody;Lcom/leidong/open/http/okgo/request/ProgressRequestBody$Listener;)V
     .locals 0
-    .param p1, "delegate"    # Lcom/leidong/open/http/okhttp3/RequestBody;
-    .param p2, "listener"    # Lcom/leidong/open/http/okgo/request/ProgressRequestBody$Listener;
 
     .line 30
     invoke-direct {p0}, Lcom/leidong/open/http/okhttp3/RequestBody;-><init>()V
@@ -49,14 +45,13 @@
     .line 32
     iput-object p2, p0, Lcom/leidong/open/http/okgo/request/ProgressRequestBody;->listener:Lcom/leidong/open/http/okgo/request/ProgressRequestBody$Listener;
 
-    .line 33
     return-void
 .end method
 
 
 # virtual methods
 .method public contentLength()J
-    .locals 3
+    .locals 2
 
     .line 49
     :try_start_0
@@ -70,18 +65,15 @@
 
     return-wide v0
 
-    .line 50
     :catch_0
     move-exception v0
 
     .line 51
-    .local v0, "e":Ljava/io/IOException;
     invoke-static {v0}, Lcom/leidong/open/http/okgo/utils/OkLogger;->e(Ljava/lang/Throwable;)V
 
-    .line 52
-    const-wide/16 v1, -0x1
+    const-wide/16 v0, -0x1
 
-    return-wide v1
+    return-wide v0
 .end method
 
 .method public contentType()Lcom/leidong/open/http/okhttp3/MediaType;
@@ -99,18 +91,15 @@
 
 .method public setListener(Lcom/leidong/open/http/okgo/request/ProgressRequestBody$Listener;)V
     .locals 0
-    .param p1, "listener"    # Lcom/leidong/open/http/okgo/request/ProgressRequestBody$Listener;
 
     .line 36
     iput-object p1, p0, Lcom/leidong/open/http/okgo/request/ProgressRequestBody;->listener:Lcom/leidong/open/http/okgo/request/ProgressRequestBody$Listener;
 
-    .line 37
     return-void
 .end method
 
 .method public writeTo(Lcom/leidong/open/http/okio/BufferedSink;)V
-    .locals 2
-    .param p1, "sink"    # Lcom/leidong/open/http/okio/BufferedSink;
+    .locals 1
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Ljava/io/IOException;
@@ -125,21 +114,19 @@
     iput-object v0, p0, Lcom/leidong/open/http/okgo/request/ProgressRequestBody;->countingSink:Lcom/leidong/open/http/okgo/request/ProgressRequestBody$CountingSink;
 
     .line 60
-    iget-object v0, p0, Lcom/leidong/open/http/okgo/request/ProgressRequestBody;->countingSink:Lcom/leidong/open/http/okgo/request/ProgressRequestBody$CountingSink;
+    iget-object p1, p0, Lcom/leidong/open/http/okgo/request/ProgressRequestBody;->countingSink:Lcom/leidong/open/http/okgo/request/ProgressRequestBody$CountingSink;
 
-    invoke-static {v0}, Lcom/leidong/open/http/okio/Okio;->buffer(Lcom/leidong/open/http/okio/Sink;)Lcom/leidong/open/http/okio/BufferedSink;
+    invoke-static {p1}, Lcom/leidong/open/http/okio/Okio;->buffer(Lcom/leidong/open/http/okio/Sink;)Lcom/leidong/open/http/okio/BufferedSink;
 
-    move-result-object v0
+    move-result-object p1
 
     .line 61
-    .local v0, "bufferedSink":Lcom/leidong/open/http/okio/BufferedSink;
-    iget-object v1, p0, Lcom/leidong/open/http/okgo/request/ProgressRequestBody;->delegate:Lcom/leidong/open/http/okhttp3/RequestBody;
+    iget-object v0, p0, Lcom/leidong/open/http/okgo/request/ProgressRequestBody;->delegate:Lcom/leidong/open/http/okhttp3/RequestBody;
 
-    invoke-virtual {v1, v0}, Lcom/leidong/open/http/okhttp3/RequestBody;->writeTo(Lcom/leidong/open/http/okio/BufferedSink;)V
+    invoke-virtual {v0, p1}, Lcom/leidong/open/http/okhttp3/RequestBody;->writeTo(Lcom/leidong/open/http/okio/BufferedSink;)V
 
     .line 62
-    invoke-interface {v0}, Lcom/leidong/open/http/okio/BufferedSink;->flush()V
+    invoke-interface {p1}, Lcom/leidong/open/http/okio/BufferedSink;->flush()V
 
-    .line 63
     return-void
 .end method

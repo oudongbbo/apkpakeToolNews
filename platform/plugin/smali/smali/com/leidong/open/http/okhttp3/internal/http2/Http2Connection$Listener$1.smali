@@ -28,7 +28,6 @@
 # virtual methods
 .method public onStream(Lcom/leidong/open/http/okhttp3/internal/http2/Http2Stream;)V
     .locals 1
-    .param p1, "stream"    # Lcom/leidong/open/http/okhttp3/internal/http2/Http2Stream;
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Ljava/io/IOException;
@@ -40,6 +39,5 @@
 
     invoke-virtual {p1, v0}, Lcom/leidong/open/http/okhttp3/internal/http2/Http2Stream;->close(Lcom/leidong/open/http/okhttp3/internal/http2/ErrorCode;)V
 
-    .line 864
     return-void
 .end method

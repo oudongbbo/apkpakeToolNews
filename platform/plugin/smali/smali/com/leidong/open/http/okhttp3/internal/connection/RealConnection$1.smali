@@ -23,10 +23,6 @@
 # direct methods
 .method constructor <init>(Lcom/leidong/open/http/okhttp3/internal/connection/RealConnection;ZLcom/leidong/open/http/okio/BufferedSource;Lcom/leidong/open/http/okio/BufferedSink;Lcom/leidong/open/http/okhttp3/internal/connection/StreamAllocation;)V
     .locals 0
-    .param p1, "this$0"    # Lcom/leidong/open/http/okhttp3/internal/connection/RealConnection;
-    .param p2, "client"    # Z
-    .param p3, "source"    # Lcom/leidong/open/http/okio/BufferedSource;
-    .param p4, "sink"    # Lcom/leidong/open/http/okio/BufferedSink;
 
     .line 398
     iput-object p1, p0, Lcom/leidong/open/http/okhttp3/internal/connection/RealConnection$1;->this$0:Lcom/leidong/open/http/okhttp3/internal/connection/RealConnection;
@@ -61,6 +57,5 @@
 
     invoke-virtual {v0, v2, v1}, Lcom/leidong/open/http/okhttp3/internal/connection/StreamAllocation;->streamFinished(ZLcom/leidong/open/http/okhttp3/internal/http/HttpCodec;)V
 
-    .line 401
     return-void
 .end method

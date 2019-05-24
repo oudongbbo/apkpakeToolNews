@@ -24,9 +24,8 @@
 # direct methods
 .method constructor <init>(Lcom/leidong/sdk/s/app/login/view/LoginSwitchAccount;)V
     .locals 0
-    .param p1, "this$0"    # Lcom/leidong/sdk/s/app/login/view/LoginSwitchAccount;
 
-    .line 368
+    .line 364
     iput-object p1, p0, Lcom/leidong/sdk/s/app/login/view/LoginSwitchAccount$3;->this$0:Lcom/leidong/sdk/s/app/login/view/LoginSwitchAccount;
 
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -37,39 +36,33 @@
 
 # virtual methods
 .method public onFail(ILjava/lang/String;)V
-    .locals 2
-    .param p1, "errorCode"    # I
-    .param p2, "errorMsg"    # Ljava/lang/String;
+    .locals 1
 
-    .line 389
-    iget-object v0, p0, Lcom/leidong/sdk/s/app/login/view/LoginSwitchAccount$3;->this$0:Lcom/leidong/sdk/s/app/login/view/LoginSwitchAccount;
+    .line 387
+    iget-object p1, p0, Lcom/leidong/sdk/s/app/login/view/LoginSwitchAccount$3;->this$0:Lcom/leidong/sdk/s/app/login/view/LoginSwitchAccount;
 
-    # getter for: Lcom/leidong/sdk/s/app/login/view/LoginSwitchAccount;->login_home_second_enterGame:Landroid/widget/Button;
-    invoke-static {v0}, Lcom/leidong/sdk/s/app/login/view/LoginSwitchAccount;->access$1100(Lcom/leidong/sdk/s/app/login/view/LoginSwitchAccount;)Landroid/widget/Button;
+    invoke-static {p1}, Lcom/leidong/sdk/s/app/login/view/LoginSwitchAccount;->access$1100(Lcom/leidong/sdk/s/app/login/view/LoginSwitchAccount;)Landroid/widget/Button;
 
-    move-result-object v0
+    move-result-object p1
 
-    const/4 v1, 0x1
+    const/4 v0, 0x1
 
-    invoke-virtual {v0, v1}, Landroid/widget/Button;->setEnabled(Z)V
+    invoke-virtual {p1, v0}, Landroid/widget/Button;->setEnabled(Z)V
 
-    .line 390
-    iget-object v0, p0, Lcom/leidong/sdk/s/app/login/view/LoginSwitchAccount$3;->this$0:Lcom/leidong/sdk/s/app/login/view/LoginSwitchAccount;
+    .line 388
+    iget-object p1, p0, Lcom/leidong/sdk/s/app/login/view/LoginSwitchAccount$3;->this$0:Lcom/leidong/sdk/s/app/login/view/LoginSwitchAccount;
 
-    invoke-virtual {v0, p2}, Lcom/leidong/sdk/s/app/login/view/LoginSwitchAccount;->showToast(Ljava/lang/String;)V
+    invoke-virtual {p1, p2}, Lcom/leidong/sdk/s/app/login/view/LoginSwitchAccount;->showToast(Ljava/lang/String;)V
 
-    .line 391
     return-void
 .end method
 
 .method public onSuccess(Ljava/lang/String;)V
     .locals 2
-    .param p1, "content"    # Ljava/lang/String;
 
-    .line 372
+    .line 368
     iget-object v0, p0, Lcom/leidong/sdk/s/app/login/view/LoginSwitchAccount$3;->this$0:Lcom/leidong/sdk/s/app/login/view/LoginSwitchAccount;
 
-    # getter for: Lcom/leidong/sdk/s/app/login/view/LoginSwitchAccount;->father:Lcom/leidong/sdk/s/app/login/view/LoginContent;
     invoke-static {v0}, Lcom/leidong/sdk/s/app/login/view/LoginSwitchAccount;->access$1000(Lcom/leidong/sdk/s/app/login/view/LoginSwitchAccount;)Lcom/leidong/sdk/s/app/login/view/LoginContent;
 
     move-result-object v0
@@ -84,6 +77,5 @@
 
     invoke-virtual {v0, p1, v1}, Lcom/leidong/sdk/s/core/http/ResponseManager;->handleRepContent(Ljava/lang/String;Lcom/leidong/sdk/framework/http/HttpCallBack;)V
 
-    .line 386
     return-void
 .end method

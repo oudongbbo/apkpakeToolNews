@@ -24,9 +24,8 @@
 # direct methods
 .method constructor <init>(Lcom/leidong/sdk/s/app/login/view/LoginByRegister$6;)V
     .locals 0
-    .param p1, "this$1"    # Lcom/leidong/sdk/s/app/login/view/LoginByRegister$6;
 
-    .line 299
+    .line 300
     iput-object p1, p0, Lcom/leidong/sdk/s/app/login/view/LoginByRegister$6$1;->this$1:Lcom/leidong/sdk/s/app/login/view/LoginByRegister$6;
 
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -37,32 +36,26 @@
 
 # virtual methods
 .method public onFail(ILjava/lang/String;)V
-    .locals 1
-    .param p1, "errorCode"    # I
-    .param p2, "message"    # Ljava/lang/String;
-
-    .line 329
-    iget-object v0, p0, Lcom/leidong/sdk/s/app/login/view/LoginByRegister$6$1;->this$1:Lcom/leidong/sdk/s/app/login/view/LoginByRegister$6;
-
-    iget-object v0, v0, Lcom/leidong/sdk/s/app/login/view/LoginByRegister$6;->this$0:Lcom/leidong/sdk/s/app/login/view/LoginByRegister;
-
-    # invokes: Lcom/leidong/sdk/s/app/login/view/LoginByRegister;->loadLocalName()V
-    invoke-static {v0}, Lcom/leidong/sdk/s/app/login/view/LoginByRegister;->access$400(Lcom/leidong/sdk/s/app/login/view/LoginByRegister;)V
+    .locals 0
 
     .line 330
+    iget-object p1, p0, Lcom/leidong/sdk/s/app/login/view/LoginByRegister$6$1;->this$1:Lcom/leidong/sdk/s/app/login/view/LoginByRegister$6;
+
+    iget-object p1, p1, Lcom/leidong/sdk/s/app/login/view/LoginByRegister$6;->this$0:Lcom/leidong/sdk/s/app/login/view/LoginByRegister;
+
+    invoke-static {p1}, Lcom/leidong/sdk/s/app/login/view/LoginByRegister;->access$400(Lcom/leidong/sdk/s/app/login/view/LoginByRegister;)V
+
     return-void
 .end method
 
 .method public onSuccess(Ljava/lang/String;)V
     .locals 2
-    .param p1, "content"    # Ljava/lang/String;
 
-    .line 303
+    .line 304
     iget-object v0, p0, Lcom/leidong/sdk/s/app/login/view/LoginByRegister$6$1;->this$1:Lcom/leidong/sdk/s/app/login/view/LoginByRegister$6;
 
     iget-object v0, v0, Lcom/leidong/sdk/s/app/login/view/LoginByRegister$6;->this$0:Lcom/leidong/sdk/s/app/login/view/LoginByRegister;
 
-    # getter for: Lcom/leidong/sdk/s/app/login/view/LoginByRegister;->loginMain:Lcom/leidong/sdk/s/app/login/view/LoginContent;
     invoke-static {v0}, Lcom/leidong/sdk/s/app/login/view/LoginByRegister;->access$200(Lcom/leidong/sdk/s/app/login/view/LoginByRegister;)Lcom/leidong/sdk/s/app/login/view/LoginContent;
 
     move-result-object v0
@@ -77,6 +70,5 @@
 
     invoke-virtual {v0, p1, v1}, Lcom/leidong/sdk/s/core/http/ResponseManager;->handlGetUname(Ljava/lang/String;Lcom/leidong/sdk/framework/interfaces/SdkResultCallback;)V
 
-    .line 326
     return-void
 .end method

@@ -107,6 +107,8 @@
 
 .field public static final leidong_floatbutton_user:I = 0x7f04002d
 
+.field public static final leidong_loading:I = 0x7f04002e
+
 .field public static final leidong_login_bg_dialog:I = 0x7f04002f
 
 .field public static final leidong_login_down:I = 0x7f040030
@@ -206,7 +208,7 @@
 .method public constructor <init>()V
     .locals 0
 
-    .line 116
+    .line 115
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
     return-void

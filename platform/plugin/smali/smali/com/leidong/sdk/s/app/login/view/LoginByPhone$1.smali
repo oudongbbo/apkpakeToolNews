@@ -24,9 +24,8 @@
 # direct methods
 .method constructor <init>(Lcom/leidong/sdk/s/app/login/view/LoginByPhone;)V
     .locals 0
-    .param p1, "this$0"    # Lcom/leidong/sdk/s/app/login/view/LoginByPhone;
 
-    .line 116
+    .line 117
     iput-object p1, p0, Lcom/leidong/sdk/s/app/login/view/LoginByPhone$1;->this$0:Lcom/leidong/sdk/s/app/login/view/LoginByPhone;
 
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -37,41 +36,35 @@
 
 # virtual methods
 .method public onFocusChange(Landroid/view/View;Z)V
-    .locals 2
-    .param p1, "v"    # Landroid/view/View;
-    .param p2, "hasFocus"    # Z
+    .locals 0
 
-    .line 120
     if-eqz p2, :cond_0
 
-    .line 121
-    iget-object v0, p0, Lcom/leidong/sdk/s/app/login/view/LoginByPhone$1;->this$0:Lcom/leidong/sdk/s/app/login/view/LoginByPhone;
+    .line 122
+    iget-object p1, p0, Lcom/leidong/sdk/s/app/login/view/LoginByPhone$1;->this$0:Lcom/leidong/sdk/s/app/login/view/LoginByPhone;
 
-    # getter for: Lcom/leidong/sdk/s/app/login/view/LoginByPhone;->login_phone_clear:Landroid/widget/ImageView;
-    invoke-static {v0}, Lcom/leidong/sdk/s/app/login/view/LoginByPhone;->access$000(Lcom/leidong/sdk/s/app/login/view/LoginByPhone;)Landroid/widget/ImageView;
+    invoke-static {p1}, Lcom/leidong/sdk/s/app/login/view/LoginByPhone;->access$000(Lcom/leidong/sdk/s/app/login/view/LoginByPhone;)Landroid/widget/ImageView;
 
-    move-result-object v0
+    move-result-object p1
 
-    const/4 v1, 0x0
+    const/4 p2, 0x0
 
-    invoke-virtual {v0, v1}, Landroid/widget/ImageView;->setVisibility(I)V
+    invoke-virtual {p1, p2}, Landroid/widget/ImageView;->setVisibility(I)V
 
     goto :goto_0
 
-    .line 123
+    .line 124
     :cond_0
-    iget-object v0, p0, Lcom/leidong/sdk/s/app/login/view/LoginByPhone$1;->this$0:Lcom/leidong/sdk/s/app/login/view/LoginByPhone;
+    iget-object p1, p0, Lcom/leidong/sdk/s/app/login/view/LoginByPhone$1;->this$0:Lcom/leidong/sdk/s/app/login/view/LoginByPhone;
 
-    # getter for: Lcom/leidong/sdk/s/app/login/view/LoginByPhone;->login_phone_clear:Landroid/widget/ImageView;
-    invoke-static {v0}, Lcom/leidong/sdk/s/app/login/view/LoginByPhone;->access$000(Lcom/leidong/sdk/s/app/login/view/LoginByPhone;)Landroid/widget/ImageView;
+    invoke-static {p1}, Lcom/leidong/sdk/s/app/login/view/LoginByPhone;->access$000(Lcom/leidong/sdk/s/app/login/view/LoginByPhone;)Landroid/widget/ImageView;
 
-    move-result-object v0
+    move-result-object p1
 
-    const/16 v1, 0x8
+    const/16 p2, 0x8
 
-    invoke-virtual {v0, v1}, Landroid/widget/ImageView;->setVisibility(I)V
+    invoke-virtual {p1, p2}, Landroid/widget/ImageView;->setVisibility(I)V
 
-    .line 126
     :goto_0
     return-void
 .end method

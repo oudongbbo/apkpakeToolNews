@@ -24,20 +24,17 @@
 
 # direct methods
 .method public constructor <init>(Lcom/leidong/sdk/s/core/activity/SdkWebActivity;Lcom/leidong/sdk/framework/web/SdkWebDialog;Landroid/content/Context;)V
-    .locals 1
-    .param p1, "this$0"    # Lcom/leidong/sdk/s/core/activity/SdkWebActivity;
-    .param p2, "dialog"    # Lcom/leidong/sdk/framework/web/SdkWebDialog;
-    .param p3, "context"    # Landroid/content/Context;
+    .locals 0
 
     .line 102
     iput-object p1, p0, Lcom/leidong/sdk/s/core/activity/SdkWebActivity$SdkWebJavaScriptInterface;->this$0:Lcom/leidong/sdk/s/core/activity/SdkWebActivity;
 
     .line 103
-    move-object v0, p3
+    move-object p1, p3
 
-    check-cast v0, Landroid/app/Activity;
+    check-cast p1, Landroid/app/Activity;
 
-    invoke-direct {p0, v0}, Lcom/leidong/sdk/framework/web/plugs/SdkWebJsInterface;-><init>(Landroid/app/Activity;)V
+    invoke-direct {p0, p1}, Lcom/leidong/sdk/framework/web/plugs/SdkWebJsInterface;-><init>(Landroid/app/Activity;)V
 
     .line 105
     iput-object p3, p0, Lcom/leidong/sdk/s/core/activity/SdkWebActivity$SdkWebJavaScriptInterface;->jsContext:Landroid/content/Context;
@@ -46,15 +43,14 @@
     iput-object p2, p0, Lcom/leidong/sdk/s/core/activity/SdkWebActivity$SdkWebJavaScriptInterface;->jsDialog:Lcom/leidong/sdk/framework/web/SdkWebDialog;
 
     .line 108
-    iget-object v0, p0, Lcom/leidong/sdk/s/core/activity/SdkWebActivity$SdkWebJavaScriptInterface;->jsDialog:Lcom/leidong/sdk/framework/web/SdkWebDialog;
+    iget-object p1, p0, Lcom/leidong/sdk/s/core/activity/SdkWebActivity$SdkWebJavaScriptInterface;->jsDialog:Lcom/leidong/sdk/framework/web/SdkWebDialog;
 
-    invoke-virtual {v0}, Lcom/leidong/sdk/framework/web/SdkWebDialog;->getWebview()Landroid/webkit/WebView;
+    invoke-virtual {p1}, Lcom/leidong/sdk/framework/web/SdkWebDialog;->getWebview()Landroid/webkit/WebView;
 
-    move-result-object v0
+    move-result-object p1
 
-    invoke-virtual {p0, v0}, Lcom/leidong/sdk/s/core/activity/SdkWebActivity$SdkWebJavaScriptInterface;->setWebview(Landroid/webkit/WebView;)V
+    invoke-virtual {p0, p1}, Lcom/leidong/sdk/s/core/activity/SdkWebActivity$SdkWebJavaScriptInterface;->setWebview(Landroid/webkit/WebView;)V
 
-    .line 109
     return-void
 .end method
 
@@ -65,9 +61,9 @@
     .annotation runtime Landroid/webkit/JavascriptInterface;
     .end annotation
 
-    .line 154
     const-string v0, "bindVistor"
 
+    .line 154
     invoke-static {v0}, Lcom/leidong/sdk/framework/utils/LogUtil;->i(Ljava/lang/String;)V
 
     .line 155
@@ -82,7 +78,6 @@
 
     invoke-virtual {v0}, Lcom/leidong/sdk/s/core/activity/SdkWebActivity;->closeWebActivity()V
 
-    .line 157
     return-void
 .end method
 
@@ -94,9 +89,9 @@
     .line 122
     invoke-super {p0}, Lcom/leidong/sdk/framework/web/plugs/SdkWebJsInterface;->enClose()V
 
-    .line 123
     const-string v0, "wap \u8c03\u7528enClose"
 
+    .line 123
     invoke-static {v0}, Lcom/leidong/sdk/framework/utils/LogUtil;->i(Ljava/lang/String;)V
 
     .line 124
@@ -104,7 +99,6 @@
 
     invoke-virtual {v0}, Lcom/leidong/sdk/framework/web/SdkWebDialog;->closeWeb()V
 
-    .line 125
     return-void
 .end method
 
@@ -116,9 +110,9 @@
     .line 114
     invoke-super {p0}, Lcom/leidong/sdk/framework/web/plugs/SdkWebJsInterface;->enRefresh()V
 
-    .line 115
     const-string v0, "wap \u8c03\u7528enRefresh"
 
+    .line 115
     invoke-static {v0}, Lcom/leidong/sdk/framework/utils/LogUtil;->i(Ljava/lang/String;)V
 
     .line 116
@@ -126,7 +120,6 @@
 
     invoke-virtual {v0}, Lcom/leidong/sdk/framework/web/SdkWebDialog;->refreshWeb()V
 
-    .line 117
     return-void
 .end method
 
@@ -135,9 +128,9 @@
     .annotation runtime Landroid/webkit/JavascriptInterface;
     .end annotation
 
-    .line 147
     const-string v0, "logoutSdkAccount"
 
+    .line 147
     invoke-static {v0}, Lcom/leidong/sdk/framework/utils/LogUtil;->i(Ljava/lang/String;)V
 
     .line 148
@@ -148,7 +141,6 @@
 
     invoke-virtual {v0}, Lcom/leidong/sdk/s/core/activity/SdkWebActivity;->closeWebActivity()V
 
-    .line 150
     return-void
 .end method
 
@@ -157,9 +149,9 @@
     .annotation runtime Landroid/webkit/JavascriptInterface;
     .end annotation
 
-    .line 137
     const-string v0, "userLogout"
 
+    .line 137
     invoke-static {v0}, Lcom/leidong/sdk/framework/utils/LogUtil;->i(Ljava/lang/String;)V
 
     .line 138
@@ -176,7 +168,6 @@
 
     invoke-interface {v0, v1}, Lcom/leidong/sdk/framework/interfaces/SdkResultCallback;->onSuccess(Landroid/os/Bundle;)V
 
-    .line 141
     :cond_0
     return-void
 .end method
@@ -186,9 +177,9 @@
     .annotation runtime Landroid/webkit/JavascriptInterface;
     .end annotation
 
-    .line 129
     const-string v0, "userSwitch"
 
+    .line 129
     invoke-static {v0}, Lcom/leidong/sdk/framework/utils/LogUtil;->i(Ljava/lang/String;)V
 
     .line 130
@@ -207,7 +198,6 @@
 
     invoke-virtual {v0, v1, v2}, Lcom/leidong/sdk/s/app/LeiSdkCore;->userSwitch(Landroid/content/Context;Lcom/leidong/sdk/framework/interfaces/SdkResultCallback;)V
 
-    .line 133
     :cond_0
     return-void
 .end method

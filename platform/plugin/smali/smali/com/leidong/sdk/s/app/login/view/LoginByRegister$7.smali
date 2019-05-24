@@ -24,9 +24,8 @@
 # direct methods
 .method constructor <init>(Lcom/leidong/sdk/s/app/login/view/LoginByRegister;)V
     .locals 0
-    .param p1, "this$0"    # Lcom/leidong/sdk/s/app/login/view/LoginByRegister;
 
-    .line 342
+    .line 343
     iput-object p1, p0, Lcom/leidong/sdk/s/app/login/view/LoginByRegister$7;->this$0:Lcom/leidong/sdk/s/app/login/view/LoginByRegister;
 
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -39,10 +38,9 @@
 .method public run()V
     .locals 3
 
-    .line 345
+    .line 346
     iget-object v0, p0, Lcom/leidong/sdk/s/app/login/view/LoginByRegister$7;->this$0:Lcom/leidong/sdk/s/app/login/view/LoginByRegister;
 
-    # getter for: Lcom/leidong/sdk/s/app/login/view/LoginByRegister;->login_regist_normalaccount_input:Landroid/widget/EditText;
     invoke-static {v0}, Lcom/leidong/sdk/s/app/login/view/LoginByRegister;->access$300(Lcom/leidong/sdk/s/app/login/view/LoginByRegister;)Landroid/widget/EditText;
 
     move-result-object v0
@@ -55,9 +53,9 @@
 
     invoke-virtual {v1, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    .line 346
     const/4 v2, 0x3
 
+    .line 347
     invoke-static {v2}, Lcom/leidong/sdk/framework/utils/CommonUtil;->getRandLetter(I)Ljava/lang/String;
 
     move-result-object v2
@@ -76,9 +74,8 @@
 
     move-result-object v1
 
-    .line 345
+    .line 346
     invoke-virtual {v0, v1}, Landroid/widget/EditText;->setText(Ljava/lang/CharSequence;)V
 
-    .line 347
     return-void
 .end method

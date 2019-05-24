@@ -40,31 +40,29 @@
 
 # virtual methods
 .method public onClick(Landroid/view/View;)V
-    .locals 2
-    .param p1, "v"    # Landroid/view/View;
+    .locals 1
 
     .line 116
-    iget-object v0, p0, Lcom/leidong/sdk/m/controller/UpdateManager$2;->val$context:Landroid/content/Context;
+    iget-object p1, p0, Lcom/leidong/sdk/m/controller/UpdateManager$2;->val$context:Landroid/content/Context;
 
-    const-string v1, "notification"
+    const-string v0, "notification"
 
-    invoke-virtual {v0, v1}, Landroid/content/Context;->getSystemService(Ljava/lang/String;)Ljava/lang/Object;
+    invoke-virtual {p1, v0}, Landroid/content/Context;->getSystemService(Ljava/lang/String;)Ljava/lang/Object;
 
-    move-result-object v0
+    move-result-object p1
 
-    check-cast v0, Landroid/app/NotificationManager;
+    check-cast p1, Landroid/app/NotificationManager;
 
-    sget v1, Lcom/leidong/sdk/m/views/UpdateDialog;->notificationId:I
+    sget v0, Lcom/leidong/sdk/m/views/UpdateDialog;->notificationId:I
 
-    invoke-virtual {v0, v1}, Landroid/app/NotificationManager;->cancel(I)V
+    invoke-virtual {p1, v0}, Landroid/app/NotificationManager;->cancel(I)V
 
     .line 118
-    iget-object v0, p0, Lcom/leidong/sdk/m/controller/UpdateManager$2;->val$context:Landroid/content/Context;
+    iget-object p1, p0, Lcom/leidong/sdk/m/controller/UpdateManager$2;->val$context:Landroid/content/Context;
 
-    iget-object v1, p0, Lcom/leidong/sdk/m/controller/UpdateManager$2;->val$file:Ljava/io/File;
+    iget-object v0, p0, Lcom/leidong/sdk/m/controller/UpdateManager$2;->val$file:Ljava/io/File;
 
-    invoke-static {v0, v1}, Lcom/leidong/sdk/m/controller/UpdateManager;->installApk(Landroid/content/Context;Ljava/io/File;)V
+    invoke-static {p1, v0}, Lcom/leidong/sdk/m/controller/UpdateManager;->installApk(Landroid/content/Context;Ljava/io/File;)V
 
-    .line 119
     return-void
 .end method

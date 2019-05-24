@@ -81,23 +81,19 @@
 
 .method public setLoading(Z)V
     .locals 0
-    .param p1, "isLoading"    # Z
 
     .line 30
     iput-boolean p1, p0, Lcom/leidong/sdk/framework/http/HttpBean;->isLoading:Z
 
-    .line 31
     return-void
 .end method
 
 .method public setLoadingText(Ljava/lang/String;)V
     .locals 0
-    .param p1, "loadingText"    # Ljava/lang/String;
 
     .line 36
     iput-object p1, p0, Lcom/leidong/sdk/framework/http/HttpBean;->loadingText:Ljava/lang/String;
 
-    .line 37
     return-void
 .end method
 
@@ -114,20 +110,16 @@
     .end annotation
 
     .line 24
-    .local p1, "params":Ljava/util/HashMap;, "Ljava/util/HashMap<Ljava/lang/String;Ljava/lang/String;>;"
     iput-object p1, p0, Lcom/leidong/sdk/framework/http/HttpBean;->params:Ljava/util/HashMap;
 
-    .line 25
     return-void
 .end method
 
 .method public setReqUrl(Ljava/lang/String;)V
     .locals 0
-    .param p1, "reqUrl"    # Ljava/lang/String;
 
     .line 18
     iput-object p1, p0, Lcom/leidong/sdk/framework/http/HttpBean;->reqUrl:Ljava/lang/String;
 
-    .line 19
     return-void
 .end method

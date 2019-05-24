@@ -85,67 +85,55 @@
 
 .method public setAdult(Z)V
     .locals 0
-    .param p1, "isAdult"    # Z
 
     .line 49
     iput-boolean p1, p0, Lcom/leidong/sdk/framework/user/UserInfoBean;->isAdult:Z
 
-    .line 50
     return-void
 .end method
 
 .method public setAuth(Z)V
     .locals 0
-    .param p1, "isAuth"    # Z
 
     .line 43
     iput-boolean p1, p0, Lcom/leidong/sdk/framework/user/UserInfoBean;->isAuth:Z
 
-    .line 44
     return-void
 .end method
 
 .method public setPlatform(Ljava/lang/String;)V
     .locals 0
-    .param p1, "platform"    # Ljava/lang/String;
 
     .line 36
     iput-object p1, p0, Lcom/leidong/sdk/framework/user/UserInfoBean;->platform:Ljava/lang/String;
 
-    .line 37
     return-void
 .end method
 
 .method public setPwd(Ljava/lang/String;)V
     .locals 0
-    .param p1, "pwd"    # Ljava/lang/String;
 
     .line 30
     iput-object p1, p0, Lcom/leidong/sdk/framework/user/UserInfoBean;->pwd:Ljava/lang/String;
 
-    .line 31
     return-void
 .end method
 
 .method public setUname(Ljava/lang/String;)V
     .locals 0
-    .param p1, "uname"    # Ljava/lang/String;
 
     .line 24
     iput-object p1, p0, Lcom/leidong/sdk/framework/user/UserInfoBean;->uname:Ljava/lang/String;
 
-    .line 25
     return-void
 .end method
 
 .method public setVname(Ljava/lang/String;)V
     .locals 0
-    .param p1, "vname"    # Ljava/lang/String;
 
     .line 18
     iput-object p1, p0, Lcom/leidong/sdk/framework/user/UserInfoBean;->vname:Ljava/lang/String;
 
-    .line 19
     return-void
 .end method
 

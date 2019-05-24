@@ -39,8 +39,6 @@
 
 .method public static copyToAFromB(Lcom/leidong/sdk/framework/pay/PayInfoBean;Lcom/leidong/sdk/framework/pay/PayInfoBean;)V
     .locals 1
-    .param p0, "a"    # Lcom/leidong/sdk/framework/pay/PayInfoBean;
-    .param p1, "b"    # Lcom/leidong/sdk/framework/pay/PayInfoBean;
 
     .line 132
     invoke-virtual {p1}, Lcom/leidong/sdk/framework/pay/PayInfoBean;->getMoney()Ljava/lang/String;
@@ -115,11 +113,10 @@
     .line 142
     invoke-virtual {p1}, Lcom/leidong/sdk/framework/pay/PayInfoBean;->getServer_name()Ljava/lang/String;
 
-    move-result-object v0
+    move-result-object p1
 
-    invoke-virtual {p0, v0}, Lcom/leidong/sdk/framework/pay/PayInfoBean;->setServer_name(Ljava/lang/String;)V
+    invoke-virtual {p0, p1}, Lcom/leidong/sdk/framework/pay/PayInfoBean;->setServer_name(Ljava/lang/String;)V
 
-    .line 143
     return-void
 .end method
 
@@ -226,122 +223,100 @@
 
 .method public setMoney(Ljava/lang/String;)V
     .locals 0
-    .param p1, "money"    # Ljava/lang/String;
 
     .line 22
     iput-object p1, p0, Lcom/leidong/sdk/framework/pay/PayInfoBean;->money:Ljava/lang/String;
 
-    .line 23
     return-void
 .end method
 
 .method public setOrder_ext(Ljava/lang/String;)V
     .locals 0
-    .param p1, "order_ext"    # Ljava/lang/String;
 
     .line 70
     iput-object p1, p0, Lcom/leidong/sdk/framework/pay/PayInfoBean;->order_ext:Ljava/lang/String;
 
-    .line 71
     return-void
 .end method
 
 .method public setOrder_ext_m(Ljava/lang/String;)V
     .locals 0
-    .param p1, "order_ext_m"    # Ljava/lang/String;
 
     .line 102
     iput-object p1, p0, Lcom/leidong/sdk/framework/pay/PayInfoBean;->order_ext_m:Ljava/lang/String;
 
-    .line 103
     return-void
 .end method
 
 .method public setOrder_name(Ljava/lang/String;)V
     .locals 0
-    .param p1, "order_name"    # Ljava/lang/String;
 
     .line 62
     iput-object p1, p0, Lcom/leidong/sdk/framework/pay/PayInfoBean;->order_name:Ljava/lang/String;
 
-    .line 63
     return-void
 .end method
 
 .method public setOrder_no(Ljava/lang/String;)V
     .locals 0
-    .param p1, "order_no"    # Ljava/lang/String;
 
     .line 30
     iput-object p1, p0, Lcom/leidong/sdk/framework/pay/PayInfoBean;->order_no:Ljava/lang/String;
 
-    .line 31
     return-void
 .end method
 
 .method public setOrder_no_m(Ljava/lang/String;)V
     .locals 0
-    .param p1, "order_no_m"    # Ljava/lang/String;
 
     .line 94
     iput-object p1, p0, Lcom/leidong/sdk/framework/pay/PayInfoBean;->order_no_m:Ljava/lang/String;
 
-    .line 95
     return-void
 .end method
 
 .method public setRole_id(Ljava/lang/String;)V
     .locals 0
-    .param p1, "role_id"    # Ljava/lang/String;
 
     .line 38
     iput-object p1, p0, Lcom/leidong/sdk/framework/pay/PayInfoBean;->role_id:Ljava/lang/String;
 
-    .line 39
     return-void
 .end method
 
 .method public setRole_level(Ljava/lang/String;)V
     .locals 0
-    .param p1, "role_level"    # Ljava/lang/String;
 
     .line 54
     iput-object p1, p0, Lcom/leidong/sdk/framework/pay/PayInfoBean;->role_level:Ljava/lang/String;
 
-    .line 55
     return-void
 .end method
 
 .method public setRole_name(Ljava/lang/String;)V
     .locals 0
-    .param p1, "role_name"    # Ljava/lang/String;
 
     .line 46
     iput-object p1, p0, Lcom/leidong/sdk/framework/pay/PayInfoBean;->role_name:Ljava/lang/String;
 
-    .line 47
     return-void
 .end method
 
 .method public setServer_id(Ljava/lang/String;)V
     .locals 0
-    .param p1, "server_id"    # Ljava/lang/String;
 
     .line 78
     iput-object p1, p0, Lcom/leidong/sdk/framework/pay/PayInfoBean;->server_id:Ljava/lang/String;
 
-    .line 79
     return-void
 .end method
 
 .method public setServer_name(Ljava/lang/String;)V
     .locals 0
-    .param p1, "server_name"    # Ljava/lang/String;
 
     .line 86
     iput-object p1, p0, Lcom/leidong/sdk/framework/pay/PayInfoBean;->server_name:Ljava/lang/String;
 
-    .line 87
     return-void
 .end method
 

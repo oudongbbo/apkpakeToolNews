@@ -30,7 +30,6 @@
 # direct methods
 .method constructor <init>(Lcom/leidong/sdk/framework/view/common/CountDownView;Landroid/widget/TextView;Landroid/app/Activity;Ljava/lang/String;)V
     .locals 0
-    .param p1, "this$0"    # Lcom/leidong/sdk/framework/view/common/CountDownView;
 
     .line 21
     iput-object p1, p0, Lcom/leidong/sdk/framework/view/common/CountDownView$1;->this$0:Lcom/leidong/sdk/framework/view/common/CountDownView;
@@ -82,7 +81,6 @@
 
     iget-object v5, p0, Lcom/leidong/sdk/framework/view/common/CountDownView$1;->val$activity:Landroid/app/Activity;
 
-    # invokes: Lcom/leidong/sdk/framework/view/common/CountDownView;->getResourcesID(Ljava/lang/String;Ljava/lang/String;Landroid/app/Activity;)I
     invoke-static {v2, v3, v4, v5}, Lcom/leidong/sdk/framework/view/common/CountDownView;->access$000(Lcom/leidong/sdk/framework/view/common/CountDownView;Ljava/lang/String;Ljava/lang/String;Landroid/app/Activity;)I
 
     move-result v2
@@ -105,7 +103,6 @@
 
     invoke-virtual {v0, v1}, Landroid/widget/TextView;->setClickable(Z)V
 
-    .line 43
     return-void
 .end method
 
@@ -124,13 +121,11 @@
 
     invoke-virtual {v0, v1}, Landroid/widget/TextView;->setClickable(Z)V
 
-    .line 34
     return-void
 .end method
 
 .method public onTick(I)V
-    .locals 6
-    .param p1, "delta"    # I
+    .locals 5
 
     .line 25
     iget-object v0, p0, Lcom/leidong/sdk/framework/view/common/CountDownView$1;->val$view:Landroid/widget/TextView;
@@ -141,44 +136,42 @@
 
     invoke-virtual {v1, p1}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
 
-    const-string v2, "s"
+    const-string p1, "s"
 
-    invoke-virtual {v1, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-virtual {v1, p1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
     invoke-virtual {v1}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
 
-    move-result-object v1
+    move-result-object p1
 
-    invoke-virtual {v0, v1}, Landroid/widget/TextView;->setText(Ljava/lang/CharSequence;)V
+    invoke-virtual {v0, p1}, Landroid/widget/TextView;->setText(Ljava/lang/CharSequence;)V
 
     .line 26
-    iget-object v0, p0, Lcom/leidong/sdk/framework/view/common/CountDownView$1;->val$view:Landroid/widget/TextView;
+    iget-object p1, p0, Lcom/leidong/sdk/framework/view/common/CountDownView$1;->val$view:Landroid/widget/TextView;
 
-    iget-object v1, p0, Lcom/leidong/sdk/framework/view/common/CountDownView$1;->val$activity:Landroid/app/Activity;
+    iget-object v0, p0, Lcom/leidong/sdk/framework/view/common/CountDownView$1;->val$activity:Landroid/app/Activity;
 
-    invoke-virtual {v1}, Landroid/app/Activity;->getResources()Landroid/content/res/Resources;
+    invoke-virtual {v0}, Landroid/app/Activity;->getResources()Landroid/content/res/Resources;
 
-    move-result-object v1
+    move-result-object v0
 
-    iget-object v2, p0, Lcom/leidong/sdk/framework/view/common/CountDownView$1;->this$0:Lcom/leidong/sdk/framework/view/common/CountDownView;
+    iget-object v1, p0, Lcom/leidong/sdk/framework/view/common/CountDownView$1;->this$0:Lcom/leidong/sdk/framework/view/common/CountDownView;
 
-    const-string v3, "leidong_countdown_number"
+    const-string v2, "leidong_countdown_number"
 
-    const-string v4, "color"
+    const-string v3, "color"
 
-    iget-object v5, p0, Lcom/leidong/sdk/framework/view/common/CountDownView$1;->val$activity:Landroid/app/Activity;
+    iget-object v4, p0, Lcom/leidong/sdk/framework/view/common/CountDownView$1;->val$activity:Landroid/app/Activity;
 
-    # invokes: Lcom/leidong/sdk/framework/view/common/CountDownView;->getResourcesID(Ljava/lang/String;Ljava/lang/String;Landroid/app/Activity;)I
-    invoke-static {v2, v3, v4, v5}, Lcom/leidong/sdk/framework/view/common/CountDownView;->access$000(Lcom/leidong/sdk/framework/view/common/CountDownView;Ljava/lang/String;Ljava/lang/String;Landroid/app/Activity;)I
-
-    move-result v2
-
-    invoke-virtual {v1, v2}, Landroid/content/res/Resources;->getColor(I)I
+    invoke-static {v1, v2, v3, v4}, Lcom/leidong/sdk/framework/view/common/CountDownView;->access$000(Lcom/leidong/sdk/framework/view/common/CountDownView;Ljava/lang/String;Ljava/lang/String;Landroid/app/Activity;)I
 
     move-result v1
 
-    invoke-virtual {v0, v1}, Landroid/widget/TextView;->setTextColor(I)V
+    invoke-virtual {v0, v1}, Landroid/content/res/Resources;->getColor(I)I
 
-    .line 28
+    move-result v0
+
+    invoke-virtual {p1, v0}, Landroid/widget/TextView;->setTextColor(I)V
+
     return-void
 .end method

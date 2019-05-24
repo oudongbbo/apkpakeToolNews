@@ -33,29 +33,27 @@
     .line 40
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
-    .line 41
     return-void
 .end method
 
 .method public static appendingSink(Ljava/io/File;)Lcom/leidong/open/http/okio/Sink;
     .locals 2
-    .param p0, "file"    # Ljava/io/File;
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Ljava/io/FileNotFoundException;
         }
     .end annotation
 
-    .line 184
     if-nez p0, :cond_0
 
-    new-instance v0, Ljava/lang/IllegalArgumentException;
+    .line 184
+    new-instance p0, Ljava/lang/IllegalArgumentException;
 
-    const-string v1, "file == null"
+    const-string v0, "file == null"
 
-    invoke-direct {v0, v1}, Ljava/lang/IllegalArgumentException;-><init>(Ljava/lang/String;)V
+    invoke-direct {p0, v0}, Ljava/lang/IllegalArgumentException;-><init>(Ljava/lang/String;)V
 
-    throw v0
+    throw p0
 
     .line 185
     :cond_0
@@ -67,9 +65,9 @@
 
     invoke-static {v0}, Lcom/leidong/open/http/okio/Okio;->sink(Ljava/io/OutputStream;)Lcom/leidong/open/http/okio/Sink;
 
-    move-result-object v0
+    move-result-object p0
 
-    return-object v0
+    return-object p0
 .end method
 
 .method public static blackhole()Lcom/leidong/open/http/okio/Sink;
@@ -85,7 +83,6 @@
 
 .method public static buffer(Lcom/leidong/open/http/okio/Sink;)Lcom/leidong/open/http/okio/BufferedSink;
     .locals 1
-    .param p0, "sink"    # Lcom/leidong/open/http/okio/Sink;
 
     .line 58
     new-instance v0, Lcom/leidong/open/http/okio/RealBufferedSink;
@@ -97,7 +94,6 @@
 
 .method public static buffer(Lcom/leidong/open/http/okio/Source;)Lcom/leidong/open/http/okio/BufferedSource;
     .locals 1
-    .param p0, "source"    # Lcom/leidong/open/http/okio/Source;
 
     .line 49
     new-instance v0, Lcom/leidong/open/http/okio/RealBufferedSource;
@@ -108,8 +104,7 @@
 .end method
 
 .method static isAndroidGetsocknameError(Ljava/lang/AssertionError;)Z
-    .locals 2
-    .param p0, "e"    # Ljava/lang/AssertionError;
+    .locals 1
 
     .line 260
     invoke-virtual {p0}, Ljava/lang/AssertionError;->getCause()Ljava/lang/Throwable;
@@ -126,48 +121,46 @@
 
     invoke-virtual {p0}, Ljava/lang/AssertionError;->getMessage()Ljava/lang/String;
 
-    move-result-object v0
+    move-result-object p0
 
-    const-string v1, "getsockname failed"
+    const-string v0, "getsockname failed"
 
     .line 261
-    invoke-virtual {v0, v1}, Ljava/lang/String;->contains(Ljava/lang/CharSequence;)Z
+    invoke-virtual {p0, v0}, Ljava/lang/String;->contains(Ljava/lang/CharSequence;)Z
 
-    move-result v0
+    move-result p0
 
-    if-eqz v0, :cond_0
+    if-eqz p0, :cond_0
 
-    const/4 v0, 0x1
+    const/4 p0, 0x1
 
     goto :goto_0
 
     :cond_0
-    const/4 v0, 0x0
+    const/4 p0, 0x0
 
-    .line 260
     :goto_0
-    return v0
+    return p0
 .end method
 
 .method public static sink(Ljava/io/File;)Lcom/leidong/open/http/okio/Sink;
-    .locals 2
-    .param p0, "file"    # Ljava/io/File;
+    .locals 1
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Ljava/io/FileNotFoundException;
         }
     .end annotation
 
-    .line 178
     if-nez p0, :cond_0
 
-    new-instance v0, Ljava/lang/IllegalArgumentException;
+    .line 178
+    new-instance p0, Ljava/lang/IllegalArgumentException;
 
-    const-string v1, "file == null"
+    const-string v0, "file == null"
 
-    invoke-direct {v0, v1}, Ljava/lang/IllegalArgumentException;-><init>(Ljava/lang/String;)V
+    invoke-direct {p0, v0}, Ljava/lang/IllegalArgumentException;-><init>(Ljava/lang/String;)V
 
-    throw v0
+    throw p0
 
     .line 179
     :cond_0
@@ -177,14 +170,13 @@
 
     invoke-static {v0}, Lcom/leidong/open/http/okio/Okio;->sink(Ljava/io/OutputStream;)Lcom/leidong/open/http/okio/Sink;
 
-    move-result-object v0
+    move-result-object p0
 
-    return-object v0
+    return-object p0
 .end method
 
 .method public static sink(Ljava/io/OutputStream;)Lcom/leidong/open/http/okio/Sink;
     .locals 1
-    .param p0, "out"    # Ljava/io/OutputStream;
 
     .line 63
     new-instance v0, Lcom/leidong/open/http/okio/Timeout;
@@ -193,38 +185,36 @@
 
     invoke-static {p0, v0}, Lcom/leidong/open/http/okio/Okio;->sink(Ljava/io/OutputStream;Lcom/leidong/open/http/okio/Timeout;)Lcom/leidong/open/http/okio/Sink;
 
-    move-result-object v0
+    move-result-object p0
 
-    return-object v0
+    return-object p0
 .end method
 
 .method private static sink(Ljava/io/OutputStream;Lcom/leidong/open/http/okio/Timeout;)Lcom/leidong/open/http/okio/Sink;
-    .locals 2
-    .param p0, "out"    # Ljava/io/OutputStream;
-    .param p1, "timeout"    # Lcom/leidong/open/http/okio/Timeout;
+    .locals 1
 
-    .line 67
     if-nez p0, :cond_0
 
-    new-instance v0, Ljava/lang/IllegalArgumentException;
+    .line 67
+    new-instance p0, Ljava/lang/IllegalArgumentException;
 
-    const-string v1, "out == null"
+    const-string p1, "out == null"
 
-    invoke-direct {v0, v1}, Ljava/lang/IllegalArgumentException;-><init>(Ljava/lang/String;)V
+    invoke-direct {p0, p1}, Ljava/lang/IllegalArgumentException;-><init>(Ljava/lang/String;)V
 
-    throw v0
+    throw p0
 
-    .line 68
     :cond_0
     if-nez p1, :cond_1
 
-    new-instance v0, Ljava/lang/IllegalArgumentException;
+    .line 68
+    new-instance p0, Ljava/lang/IllegalArgumentException;
 
-    const-string v1, "timeout == null"
+    const-string p1, "timeout == null"
 
-    invoke-direct {v0, v1}, Ljava/lang/IllegalArgumentException;-><init>(Ljava/lang/String;)V
+    invoke-direct {p0, p1}, Ljava/lang/IllegalArgumentException;-><init>(Ljava/lang/String;)V
 
-    throw v0
+    throw p0
 
     .line 70
     :cond_1
@@ -236,24 +226,23 @@
 .end method
 
 .method public static sink(Ljava/net/Socket;)Lcom/leidong/open/http/okio/Sink;
-    .locals 3
-    .param p0, "socket"    # Ljava/net/Socket;
+    .locals 1
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Ljava/io/IOException;
         }
     .end annotation
 
-    .line 114
     if-nez p0, :cond_0
 
-    new-instance v0, Ljava/lang/IllegalArgumentException;
+    .line 114
+    new-instance p0, Ljava/lang/IllegalArgumentException;
 
-    const-string v1, "socket == null"
+    const-string v0, "socket == null"
 
-    invoke-direct {v0, v1}, Ljava/lang/IllegalArgumentException;-><init>(Ljava/lang/String;)V
+    invoke-direct {p0, v0}, Ljava/lang/IllegalArgumentException;-><init>(Ljava/lang/String;)V
 
-    throw v0
+    throw p0
 
     .line 115
     :cond_0
@@ -262,77 +251,72 @@
     move-result-object v0
 
     .line 116
-    .local v0, "timeout":Lcom/leidong/open/http/okio/AsyncTimeout;
     invoke-virtual {p0}, Ljava/net/Socket;->getOutputStream()Ljava/io/OutputStream;
 
-    move-result-object v1
+    move-result-object p0
 
-    invoke-static {v1, v0}, Lcom/leidong/open/http/okio/Okio;->sink(Ljava/io/OutputStream;Lcom/leidong/open/http/okio/Timeout;)Lcom/leidong/open/http/okio/Sink;
+    invoke-static {p0, v0}, Lcom/leidong/open/http/okio/Okio;->sink(Ljava/io/OutputStream;Lcom/leidong/open/http/okio/Timeout;)Lcom/leidong/open/http/okio/Sink;
 
-    move-result-object v1
+    move-result-object p0
 
     .line 117
-    .local v1, "sink":Lcom/leidong/open/http/okio/Sink;
-    invoke-virtual {v0, v1}, Lcom/leidong/open/http/okio/AsyncTimeout;->sink(Lcom/leidong/open/http/okio/Sink;)Lcom/leidong/open/http/okio/Sink;
+    invoke-virtual {v0, p0}, Lcom/leidong/open/http/okio/AsyncTimeout;->sink(Lcom/leidong/open/http/okio/Sink;)Lcom/leidong/open/http/okio/Sink;
 
-    move-result-object v2
+    move-result-object p0
 
-    return-object v2
+    return-object p0
 .end method
 
 .method public static varargs sink(Ljava/nio/file/Path;[Ljava/nio/file/OpenOption;)Lcom/leidong/open/http/okio/Sink;
-    .locals 2
-    .param p0, "path"    # Ljava/nio/file/Path;
-    .param p1, "options"    # [Ljava/nio/file/OpenOption;
+    .locals 0
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Ljava/io/IOException;
         }
     .end annotation
 
-    .line 192
     if-nez p0, :cond_0
 
-    new-instance v0, Ljava/lang/IllegalArgumentException;
+    .line 192
+    new-instance p0, Ljava/lang/IllegalArgumentException;
 
-    const-string v1, "path == null"
+    const-string p1, "path == null"
 
-    invoke-direct {v0, v1}, Ljava/lang/IllegalArgumentException;-><init>(Ljava/lang/String;)V
+    invoke-direct {p0, p1}, Ljava/lang/IllegalArgumentException;-><init>(Ljava/lang/String;)V
 
-    throw v0
+    throw p0
 
     .line 193
     :cond_0
     invoke-static {p0, p1}, Ljava/nio/file/Files;->newOutputStream(Ljava/nio/file/Path;[Ljava/nio/file/OpenOption;)Ljava/io/OutputStream;
 
-    move-result-object v0
+    move-result-object p0
 
-    invoke-static {v0}, Lcom/leidong/open/http/okio/Okio;->sink(Ljava/io/OutputStream;)Lcom/leidong/open/http/okio/Sink;
+    invoke-static {p0}, Lcom/leidong/open/http/okio/Okio;->sink(Ljava/io/OutputStream;)Lcom/leidong/open/http/okio/Sink;
 
-    move-result-object v0
+    move-result-object p0
 
-    return-object v0
+    return-object p0
 .end method
 
 .method public static source(Ljava/io/File;)Lcom/leidong/open/http/okio/Source;
-    .locals 2
-    .param p0, "file"    # Ljava/io/File;
+    .locals 1
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Ljava/io/FileNotFoundException;
         }
     .end annotation
 
-    .line 164
     if-nez p0, :cond_0
 
-    new-instance v0, Ljava/lang/IllegalArgumentException;
+    .line 164
+    new-instance p0, Ljava/lang/IllegalArgumentException;
 
-    const-string v1, "file == null"
+    const-string v0, "file == null"
 
-    invoke-direct {v0, v1}, Ljava/lang/IllegalArgumentException;-><init>(Ljava/lang/String;)V
+    invoke-direct {p0, v0}, Ljava/lang/IllegalArgumentException;-><init>(Ljava/lang/String;)V
 
-    throw v0
+    throw p0
 
     .line 165
     :cond_0
@@ -342,14 +326,13 @@
 
     invoke-static {v0}, Lcom/leidong/open/http/okio/Okio;->source(Ljava/io/InputStream;)Lcom/leidong/open/http/okio/Source;
 
-    move-result-object v0
+    move-result-object p0
 
-    return-object v0
+    return-object p0
 .end method
 
 .method public static source(Ljava/io/InputStream;)Lcom/leidong/open/http/okio/Source;
     .locals 1
-    .param p0, "in"    # Ljava/io/InputStream;
 
     .line 122
     new-instance v0, Lcom/leidong/open/http/okio/Timeout;
@@ -358,38 +341,36 @@
 
     invoke-static {p0, v0}, Lcom/leidong/open/http/okio/Okio;->source(Ljava/io/InputStream;Lcom/leidong/open/http/okio/Timeout;)Lcom/leidong/open/http/okio/Source;
 
-    move-result-object v0
+    move-result-object p0
 
-    return-object v0
+    return-object p0
 .end method
 
 .method private static source(Ljava/io/InputStream;Lcom/leidong/open/http/okio/Timeout;)Lcom/leidong/open/http/okio/Source;
-    .locals 2
-    .param p0, "in"    # Ljava/io/InputStream;
-    .param p1, "timeout"    # Lcom/leidong/open/http/okio/Timeout;
+    .locals 1
 
-    .line 126
     if-nez p0, :cond_0
 
-    new-instance v0, Ljava/lang/IllegalArgumentException;
+    .line 126
+    new-instance p0, Ljava/lang/IllegalArgumentException;
 
-    const-string v1, "in == null"
+    const-string p1, "in == null"
 
-    invoke-direct {v0, v1}, Ljava/lang/IllegalArgumentException;-><init>(Ljava/lang/String;)V
+    invoke-direct {p0, p1}, Ljava/lang/IllegalArgumentException;-><init>(Ljava/lang/String;)V
 
-    throw v0
+    throw p0
 
-    .line 127
     :cond_0
     if-nez p1, :cond_1
 
-    new-instance v0, Ljava/lang/IllegalArgumentException;
+    .line 127
+    new-instance p0, Ljava/lang/IllegalArgumentException;
 
-    const-string v1, "timeout == null"
+    const-string p1, "timeout == null"
 
-    invoke-direct {v0, v1}, Ljava/lang/IllegalArgumentException;-><init>(Ljava/lang/String;)V
+    invoke-direct {p0, p1}, Ljava/lang/IllegalArgumentException;-><init>(Ljava/lang/String;)V
 
-    throw v0
+    throw p0
 
     .line 129
     :cond_1
@@ -401,24 +382,23 @@
 .end method
 
 .method public static source(Ljava/net/Socket;)Lcom/leidong/open/http/okio/Source;
-    .locals 3
-    .param p0, "socket"    # Ljava/net/Socket;
+    .locals 1
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Ljava/io/IOException;
         }
     .end annotation
 
-    .line 221
     if-nez p0, :cond_0
 
-    new-instance v0, Ljava/lang/IllegalArgumentException;
+    .line 221
+    new-instance p0, Ljava/lang/IllegalArgumentException;
 
-    const-string v1, "socket == null"
+    const-string v0, "socket == null"
 
-    invoke-direct {v0, v1}, Ljava/lang/IllegalArgumentException;-><init>(Ljava/lang/String;)V
+    invoke-direct {p0, v0}, Ljava/lang/IllegalArgumentException;-><init>(Ljava/lang/String;)V
 
-    throw v0
+    throw p0
 
     .line 222
     :cond_0
@@ -427,61 +407,56 @@
     move-result-object v0
 
     .line 223
-    .local v0, "timeout":Lcom/leidong/open/http/okio/AsyncTimeout;
     invoke-virtual {p0}, Ljava/net/Socket;->getInputStream()Ljava/io/InputStream;
 
-    move-result-object v1
+    move-result-object p0
 
-    invoke-static {v1, v0}, Lcom/leidong/open/http/okio/Okio;->source(Ljava/io/InputStream;Lcom/leidong/open/http/okio/Timeout;)Lcom/leidong/open/http/okio/Source;
+    invoke-static {p0, v0}, Lcom/leidong/open/http/okio/Okio;->source(Ljava/io/InputStream;Lcom/leidong/open/http/okio/Timeout;)Lcom/leidong/open/http/okio/Source;
 
-    move-result-object v1
+    move-result-object p0
 
     .line 224
-    .local v1, "source":Lcom/leidong/open/http/okio/Source;
-    invoke-virtual {v0, v1}, Lcom/leidong/open/http/okio/AsyncTimeout;->source(Lcom/leidong/open/http/okio/Source;)Lcom/leidong/open/http/okio/Source;
+    invoke-virtual {v0, p0}, Lcom/leidong/open/http/okio/AsyncTimeout;->source(Lcom/leidong/open/http/okio/Source;)Lcom/leidong/open/http/okio/Source;
 
-    move-result-object v2
+    move-result-object p0
 
-    return-object v2
+    return-object p0
 .end method
 
 .method public static varargs source(Ljava/nio/file/Path;[Ljava/nio/file/OpenOption;)Lcom/leidong/open/http/okio/Source;
-    .locals 2
-    .param p0, "path"    # Ljava/nio/file/Path;
-    .param p1, "options"    # [Ljava/nio/file/OpenOption;
+    .locals 0
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Ljava/io/IOException;
         }
     .end annotation
 
-    .line 172
     if-nez p0, :cond_0
 
-    new-instance v0, Ljava/lang/IllegalArgumentException;
+    .line 172
+    new-instance p0, Ljava/lang/IllegalArgumentException;
 
-    const-string v1, "path == null"
+    const-string p1, "path == null"
 
-    invoke-direct {v0, v1}, Ljava/lang/IllegalArgumentException;-><init>(Ljava/lang/String;)V
+    invoke-direct {p0, p1}, Ljava/lang/IllegalArgumentException;-><init>(Ljava/lang/String;)V
 
-    throw v0
+    throw p0
 
     .line 173
     :cond_0
     invoke-static {p0, p1}, Ljava/nio/file/Files;->newInputStream(Ljava/nio/file/Path;[Ljava/nio/file/OpenOption;)Ljava/io/InputStream;
 
-    move-result-object v0
+    move-result-object p0
 
-    invoke-static {v0}, Lcom/leidong/open/http/okio/Okio;->source(Ljava/io/InputStream;)Lcom/leidong/open/http/okio/Source;
+    invoke-static {p0}, Lcom/leidong/open/http/okio/Okio;->source(Ljava/io/InputStream;)Lcom/leidong/open/http/okio/Source;
 
-    move-result-object v0
+    move-result-object p0
 
-    return-object v0
+    return-object p0
 .end method
 
 .method private static timeout(Ljava/net/Socket;)Lcom/leidong/open/http/okio/AsyncTimeout;
     .locals 1
-    .param p0, "socket"    # Ljava/net/Socket;
 
     .line 228
     new-instance v0, Lcom/leidong/open/http/okio/Okio$4;

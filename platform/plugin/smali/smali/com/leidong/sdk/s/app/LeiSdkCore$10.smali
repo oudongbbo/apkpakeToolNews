@@ -26,7 +26,6 @@
 # direct methods
 .method constructor <init>(Lcom/leidong/sdk/s/app/LeiSdkCore;Lcom/leidong/sdk/framework/interfaces/ResultCallback;)V
     .locals 0
-    .param p1, "this$0"    # Lcom/leidong/sdk/s/app/LeiSdkCore;
 
     .line 506
     iput-object p1, p0, Lcom/leidong/sdk/s/app/LeiSdkCore$10;->this$0:Lcom/leidong/sdk/s/app/LeiSdkCore;
@@ -41,27 +40,22 @@
 
 # virtual methods
 .method public onFail(ILjava/lang/String;)V
-    .locals 1
-    .param p1, "code"    # I
-    .param p2, "errorMsg"    # Ljava/lang/String;
+    .locals 0
 
     .line 549
-    iget-object v0, p0, Lcom/leidong/sdk/s/app/LeiSdkCore$10;->val$callback:Lcom/leidong/sdk/framework/interfaces/ResultCallback;
+    iget-object p1, p0, Lcom/leidong/sdk/s/app/LeiSdkCore$10;->val$callback:Lcom/leidong/sdk/framework/interfaces/ResultCallback;
 
-    invoke-interface {v0, p2}, Lcom/leidong/sdk/framework/interfaces/ResultCallback;->onFail(Ljava/lang/String;)V
+    invoke-interface {p1, p2}, Lcom/leidong/sdk/framework/interfaces/ResultCallback;->onFail(Ljava/lang/String;)V
 
-    .line 550
     return-void
 .end method
 
 .method public onSuccess(Ljava/lang/String;)V
     .locals 2
-    .param p1, "content"    # Ljava/lang/String;
 
     .line 510
     iget-object v0, p0, Lcom/leidong/sdk/s/app/LeiSdkCore$10;->this$0:Lcom/leidong/sdk/s/app/LeiSdkCore;
 
-    # getter for: Lcom/leidong/sdk/s/app/LeiSdkCore;->responseManager:Lcom/leidong/sdk/s/core/http/ResponseManager;
     invoke-static {v0}, Lcom/leidong/sdk/s/app/LeiSdkCore;->access$400(Lcom/leidong/sdk/s/app/LeiSdkCore;)Lcom/leidong/sdk/s/core/http/ResponseManager;
 
     move-result-object v0
@@ -72,6 +66,5 @@
 
     invoke-virtual {v0, p1, v1}, Lcom/leidong/sdk/s/core/http/ResponseManager;->handleRepContent(Ljava/lang/String;Lcom/leidong/sdk/framework/http/HttpCallBack;)V
 
-    .line 546
     return-void
 .end method

@@ -94,413 +94,365 @@
 
 # direct methods
 .method public constructor <init>(Landroid/app/Activity;Ljava/lang/String;Lcom/leidong/sdk/s/app/login/view/LoginContent;)V
-    .locals 1
-    .param p1, "activity"    # Landroid/app/Activity;
-    .param p2, "title"    # Ljava/lang/String;
-    .param p3, "ucView"    # Lcom/leidong/sdk/s/app/login/view/LoginContent;
-
-    .line 83
-    invoke-direct {p0, p1, p2}, Lcom/leidong/sdk/s/core/view/BaseTagView;-><init>(Landroid/app/Activity;Ljava/lang/String;)V
-
-    .line 57
-    const/4 v0, 0x1
-
-    iput-boolean v0, p0, Lcom/leidong/sdk/s/app/login/view/LoginByRegister;->isShowNormalPwd:Z
-
-    .line 58
-    iput-boolean v0, p0, Lcom/leidong/sdk/s/app/login/view/LoginByRegister;->isShowPhonePwd:Z
-
-    .line 59
-    iput-boolean v0, p0, Lcom/leidong/sdk/s/app/login/view/LoginByRegister;->isPhoneAgreementchecked:Z
-
-    .line 60
-    iput-boolean v0, p0, Lcom/leidong/sdk/s/app/login/view/LoginByRegister;->isNormalAgreementchecked:Z
-
-    .line 69
-    iput-boolean v0, p0, Lcom/leidong/sdk/s/app/login/view/LoginByRegister;->showPhoneFirst:Z
-
-    .line 264
-    new-instance v0, Lcom/leidong/sdk/s/app/login/view/LoginByRegister$5;
-
-    invoke-direct {v0, p0}, Lcom/leidong/sdk/s/app/login/view/LoginByRegister$5;-><init>(Lcom/leidong/sdk/s/app/login/view/LoginByRegister;)V
-
-    iput-object v0, p0, Lcom/leidong/sdk/s/app/login/view/LoginByRegister;->regHandler:Landroid/os/Handler;
+    .locals 0
 
     .line 84
-    iput-object p3, p0, Lcom/leidong/sdk/s/app/login/view/LoginByRegister;->loginMain:Lcom/leidong/sdk/s/app/login/view/LoginContent;
+    invoke-direct {p0, p1, p2}, Lcom/leidong/sdk/s/core/view/BaseTagView;-><init>(Landroid/app/Activity;Ljava/lang/String;)V
+
+    const/4 p1, 0x1
+
+    .line 58
+    iput-boolean p1, p0, Lcom/leidong/sdk/s/app/login/view/LoginByRegister;->isShowNormalPwd:Z
+
+    .line 59
+    iput-boolean p1, p0, Lcom/leidong/sdk/s/app/login/view/LoginByRegister;->isShowPhonePwd:Z
+
+    .line 60
+    iput-boolean p1, p0, Lcom/leidong/sdk/s/app/login/view/LoginByRegister;->isPhoneAgreementchecked:Z
+
+    .line 61
+    iput-boolean p1, p0, Lcom/leidong/sdk/s/app/login/view/LoginByRegister;->isNormalAgreementchecked:Z
+
+    .line 70
+    iput-boolean p1, p0, Lcom/leidong/sdk/s/app/login/view/LoginByRegister;->showPhoneFirst:Z
+
+    .line 265
+    new-instance p1, Lcom/leidong/sdk/s/app/login/view/LoginByRegister$5;
+
+    invoke-direct {p1, p0}, Lcom/leidong/sdk/s/app/login/view/LoginByRegister$5;-><init>(Lcom/leidong/sdk/s/app/login/view/LoginByRegister;)V
+
+    iput-object p1, p0, Lcom/leidong/sdk/s/app/login/view/LoginByRegister;->regHandler:Landroid/os/Handler;
 
     .line 85
+    iput-object p3, p0, Lcom/leidong/sdk/s/app/login/view/LoginByRegister;->loginMain:Lcom/leidong/sdk/s/app/login/view/LoginContent;
+
     return-void
 .end method
 
 .method static synthetic access$000(Lcom/leidong/sdk/s/app/login/view/LoginByRegister;)Landroid/widget/ImageView;
-    .locals 1
-    .param p0, "x0"    # Lcom/leidong/sdk/s/app/login/view/LoginByRegister;
+    .locals 0
 
-    .line 35
-    iget-object v0, p0, Lcom/leidong/sdk/s/app/login/view/LoginByRegister;->login_regist_normal_phone_clear:Landroid/widget/ImageView;
+    .line 36
+    iget-object p0, p0, Lcom/leidong/sdk/s/app/login/view/LoginByRegister;->login_regist_normal_phone_clear:Landroid/widget/ImageView;
 
-    return-object v0
+    return-object p0
 .end method
 
 .method static synthetic access$100(Lcom/leidong/sdk/s/app/login/view/LoginByRegister;)Landroid/widget/ImageView;
-    .locals 1
-    .param p0, "x0"    # Lcom/leidong/sdk/s/app/login/view/LoginByRegister;
+    .locals 0
 
-    .line 35
-    iget-object v0, p0, Lcom/leidong/sdk/s/app/login/view/LoginByRegister;->login_regist_phone_clear:Landroid/widget/ImageView;
+    .line 36
+    iget-object p0, p0, Lcom/leidong/sdk/s/app/login/view/LoginByRegister;->login_regist_phone_clear:Landroid/widget/ImageView;
 
-    return-object v0
+    return-object p0
 .end method
 
 .method static synthetic access$1000(Lcom/leidong/sdk/s/app/login/view/LoginByRegister;)V
     .locals 0
-    .param p0, "x0"    # Lcom/leidong/sdk/s/app/login/view/LoginByRegister;
 
-    .line 35
+    .line 36
     invoke-direct {p0}, Lcom/leidong/sdk/s/app/login/view/LoginByRegister;->loadPhoneRegView()V
 
     return-void
 .end method
 
 .method static synthetic access$1100(Lcom/leidong/sdk/s/app/login/view/LoginByRegister;)Z
-    .locals 1
-    .param p0, "x0"    # Lcom/leidong/sdk/s/app/login/view/LoginByRegister;
+    .locals 0
 
-    .line 35
+    .line 36
     invoke-virtual {p0}, Lcom/leidong/sdk/s/app/login/view/LoginByRegister;->isQuickClick()Z
 
-    move-result v0
+    move-result p0
 
-    return v0
+    return p0
 .end method
 
 .method static synthetic access$1200(Lcom/leidong/sdk/s/app/login/view/LoginByRegister;)V
     .locals 0
-    .param p0, "x0"    # Lcom/leidong/sdk/s/app/login/view/LoginByRegister;
 
-    .line 35
+    .line 36
     invoke-direct {p0}, Lcom/leidong/sdk/s/app/login/view/LoginByRegister;->loadNameRegView()V
 
     return-void
 .end method
 
 .method static synthetic access$1300(Lcom/leidong/sdk/s/app/login/view/LoginByRegister;)Z
-    .locals 1
-    .param p0, "x0"    # Lcom/leidong/sdk/s/app/login/view/LoginByRegister;
+    .locals 0
 
-    .line 35
+    .line 36
     invoke-virtual {p0}, Lcom/leidong/sdk/s/app/login/view/LoginByRegister;->isQuickClick()Z
 
-    move-result v0
+    move-result p0
 
-    return v0
+    return p0
 .end method
 
 .method static synthetic access$1400(Lcom/leidong/sdk/s/app/login/view/LoginByRegister;)Landroid/widget/EditText;
-    .locals 1
-    .param p0, "x0"    # Lcom/leidong/sdk/s/app/login/view/LoginByRegister;
+    .locals 0
 
-    .line 35
-    iget-object v0, p0, Lcom/leidong/sdk/s/app/login/view/LoginByRegister;->login_regist_password_input:Landroid/widget/EditText;
+    .line 36
+    iget-object p0, p0, Lcom/leidong/sdk/s/app/login/view/LoginByRegister;->login_regist_password_input:Landroid/widget/EditText;
 
-    return-object v0
+    return-object p0
 .end method
 
 .method static synthetic access$1500(Lcom/leidong/sdk/s/app/login/view/LoginByRegister;)Landroid/widget/EditText;
-    .locals 1
-    .param p0, "x0"    # Lcom/leidong/sdk/s/app/login/view/LoginByRegister;
+    .locals 0
 
-    .line 35
-    iget-object v0, p0, Lcom/leidong/sdk/s/app/login/view/LoginByRegister;->login_regist_idcode_input:Landroid/widget/EditText;
+    .line 36
+    iget-object p0, p0, Lcom/leidong/sdk/s/app/login/view/LoginByRegister;->login_regist_idcode_input:Landroid/widget/EditText;
 
-    return-object v0
+    return-object p0
 .end method
 
 .method static synthetic access$1600(Lcom/leidong/sdk/s/app/login/view/LoginByRegister;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;)V
     .locals 0
-    .param p0, "x0"    # Lcom/leidong/sdk/s/app/login/view/LoginByRegister;
-    .param p1, "x1"    # Ljava/lang/String;
-    .param p2, "x2"    # Ljava/lang/String;
-    .param p3, "x3"    # Ljava/lang/String;
 
-    .line 35
+    .line 36
     invoke-direct {p0, p1, p2, p3}, Lcom/leidong/sdk/s/app/login/view/LoginByRegister;->registerByPhone(Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;)V
 
     return-void
 .end method
 
 .method static synthetic access$1700(Lcom/leidong/sdk/s/app/login/view/LoginByRegister;)Z
-    .locals 1
-    .param p0, "x0"    # Lcom/leidong/sdk/s/app/login/view/LoginByRegister;
+    .locals 0
 
-    .line 35
+    .line 36
     invoke-virtual {p0}, Lcom/leidong/sdk/s/app/login/view/LoginByRegister;->isQuickClick()Z
 
-    move-result v0
+    move-result p0
 
-    return v0
+    return p0
 .end method
 
 .method static synthetic access$1800(Lcom/leidong/sdk/s/app/login/view/LoginByRegister;)Landroid/widget/EditText;
-    .locals 1
-    .param p0, "x0"    # Lcom/leidong/sdk/s/app/login/view/LoginByRegister;
+    .locals 0
 
-    .line 35
-    iget-object v0, p0, Lcom/leidong/sdk/s/app/login/view/LoginByRegister;->login_regist_normalpassword_input:Landroid/widget/EditText;
+    .line 36
+    iget-object p0, p0, Lcom/leidong/sdk/s/app/login/view/LoginByRegister;->login_regist_normalpassword_input:Landroid/widget/EditText;
 
-    return-object v0
+    return-object p0
 .end method
 
 .method static synthetic access$1900(Lcom/leidong/sdk/s/app/login/view/LoginByRegister;Ljava/lang/String;Ljava/lang/String;)V
     .locals 0
-    .param p0, "x0"    # Lcom/leidong/sdk/s/app/login/view/LoginByRegister;
-    .param p1, "x1"    # Ljava/lang/String;
-    .param p2, "x2"    # Ljava/lang/String;
 
-    .line 35
+    .line 36
     invoke-direct {p0, p1, p2}, Lcom/leidong/sdk/s/app/login/view/LoginByRegister;->registerByName(Ljava/lang/String;Ljava/lang/String;)V
 
     return-void
 .end method
 
 .method static synthetic access$200(Lcom/leidong/sdk/s/app/login/view/LoginByRegister;)Lcom/leidong/sdk/s/app/login/view/LoginContent;
-    .locals 1
-    .param p0, "x0"    # Lcom/leidong/sdk/s/app/login/view/LoginByRegister;
+    .locals 0
 
-    .line 35
-    iget-object v0, p0, Lcom/leidong/sdk/s/app/login/view/LoginByRegister;->loginMain:Lcom/leidong/sdk/s/app/login/view/LoginContent;
+    .line 36
+    iget-object p0, p0, Lcom/leidong/sdk/s/app/login/view/LoginByRegister;->loginMain:Lcom/leidong/sdk/s/app/login/view/LoginContent;
 
-    return-object v0
+    return-object p0
 .end method
 
 .method static synthetic access$2000(Lcom/leidong/sdk/s/app/login/view/LoginByRegister;)Z
-    .locals 1
-    .param p0, "x0"    # Lcom/leidong/sdk/s/app/login/view/LoginByRegister;
+    .locals 0
 
-    .line 35
-    iget-boolean v0, p0, Lcom/leidong/sdk/s/app/login/view/LoginByRegister;->isShowNormalPwd:Z
+    .line 36
+    iget-boolean p0, p0, Lcom/leidong/sdk/s/app/login/view/LoginByRegister;->isShowNormalPwd:Z
 
-    return v0
+    return p0
 .end method
 
 .method static synthetic access$2002(Lcom/leidong/sdk/s/app/login/view/LoginByRegister;Z)Z
     .locals 0
-    .param p0, "x0"    # Lcom/leidong/sdk/s/app/login/view/LoginByRegister;
-    .param p1, "x1"    # Z
 
-    .line 35
+    .line 36
     iput-boolean p1, p0, Lcom/leidong/sdk/s/app/login/view/LoginByRegister;->isShowNormalPwd:Z
 
     return p1
 .end method
 
 .method static synthetic access$2100(Lcom/leidong/sdk/s/app/login/view/LoginByRegister;)Landroid/widget/ImageView;
-    .locals 1
-    .param p0, "x0"    # Lcom/leidong/sdk/s/app/login/view/LoginByRegister;
+    .locals 0
 
-    .line 35
-    iget-object v0, p0, Lcom/leidong/sdk/s/app/login/view/LoginByRegister;->login_regist_normal_eye:Landroid/widget/ImageView;
+    .line 36
+    iget-object p0, p0, Lcom/leidong/sdk/s/app/login/view/LoginByRegister;->login_regist_normal_eye:Landroid/widget/ImageView;
 
-    return-object v0
+    return-object p0
 .end method
 
 .method static synthetic access$2200(Lcom/leidong/sdk/s/app/login/view/LoginByRegister;)Z
-    .locals 1
-    .param p0, "x0"    # Lcom/leidong/sdk/s/app/login/view/LoginByRegister;
+    .locals 0
 
-    .line 35
-    iget-boolean v0, p0, Lcom/leidong/sdk/s/app/login/view/LoginByRegister;->isShowPhonePwd:Z
+    .line 36
+    iget-boolean p0, p0, Lcom/leidong/sdk/s/app/login/view/LoginByRegister;->isShowPhonePwd:Z
 
-    return v0
+    return p0
 .end method
 
 .method static synthetic access$2202(Lcom/leidong/sdk/s/app/login/view/LoginByRegister;Z)Z
     .locals 0
-    .param p0, "x0"    # Lcom/leidong/sdk/s/app/login/view/LoginByRegister;
-    .param p1, "x1"    # Z
 
-    .line 35
+    .line 36
     iput-boolean p1, p0, Lcom/leidong/sdk/s/app/login/view/LoginByRegister;->isShowPhonePwd:Z
 
     return p1
 .end method
 
 .method static synthetic access$2300(Lcom/leidong/sdk/s/app/login/view/LoginByRegister;)Landroid/widget/ImageView;
-    .locals 1
-    .param p0, "x0"    # Lcom/leidong/sdk/s/app/login/view/LoginByRegister;
+    .locals 0
 
-    .line 35
-    iget-object v0, p0, Lcom/leidong/sdk/s/app/login/view/LoginByRegister;->login_regist_phone_eye:Landroid/widget/ImageView;
+    .line 36
+    iget-object p0, p0, Lcom/leidong/sdk/s/app/login/view/LoginByRegister;->login_regist_phone_eye:Landroid/widget/ImageView;
 
-    return-object v0
+    return-object p0
 .end method
 
 .method static synthetic access$2400(Lcom/leidong/sdk/s/app/login/view/LoginByRegister;)Z
-    .locals 1
-    .param p0, "x0"    # Lcom/leidong/sdk/s/app/login/view/LoginByRegister;
+    .locals 0
 
-    .line 35
-    iget-boolean v0, p0, Lcom/leidong/sdk/s/app/login/view/LoginByRegister;->isNormalAgreementchecked:Z
+    .line 36
+    iget-boolean p0, p0, Lcom/leidong/sdk/s/app/login/view/LoginByRegister;->isNormalAgreementchecked:Z
 
-    return v0
+    return p0
 .end method
 
 .method static synthetic access$2402(Lcom/leidong/sdk/s/app/login/view/LoginByRegister;Z)Z
     .locals 0
-    .param p0, "x0"    # Lcom/leidong/sdk/s/app/login/view/LoginByRegister;
-    .param p1, "x1"    # Z
 
-    .line 35
+    .line 36
     iput-boolean p1, p0, Lcom/leidong/sdk/s/app/login/view/LoginByRegister;->isNormalAgreementchecked:Z
 
     return p1
 .end method
 
 .method static synthetic access$2500(Lcom/leidong/sdk/s/app/login/view/LoginByRegister;)Landroid/widget/ImageView;
-    .locals 1
-    .param p0, "x0"    # Lcom/leidong/sdk/s/app/login/view/LoginByRegister;
+    .locals 0
 
-    .line 35
-    iget-object v0, p0, Lcom/leidong/sdk/s/app/login/view/LoginByRegister;->login_regist_normal_checkBox:Landroid/widget/ImageView;
+    .line 36
+    iget-object p0, p0, Lcom/leidong/sdk/s/app/login/view/LoginByRegister;->login_regist_normal_checkBox:Landroid/widget/ImageView;
 
-    return-object v0
+    return-object p0
 .end method
 
 .method static synthetic access$2600(Lcom/leidong/sdk/s/app/login/view/LoginByRegister;)Landroid/widget/TextView;
-    .locals 1
-    .param p0, "x0"    # Lcom/leidong/sdk/s/app/login/view/LoginByRegister;
+    .locals 0
 
-    .line 35
-    iget-object v0, p0, Lcom/leidong/sdk/s/app/login/view/LoginByRegister;->login_regist_agreement_tips2:Landroid/widget/TextView;
+    .line 36
+    iget-object p0, p0, Lcom/leidong/sdk/s/app/login/view/LoginByRegister;->login_regist_agreement_tips2:Landroid/widget/TextView;
 
-    return-object v0
+    return-object p0
 .end method
 
 .method static synthetic access$2700(Lcom/leidong/sdk/s/app/login/view/LoginByRegister;)Z
-    .locals 1
-    .param p0, "x0"    # Lcom/leidong/sdk/s/app/login/view/LoginByRegister;
+    .locals 0
 
-    .line 35
-    iget-boolean v0, p0, Lcom/leidong/sdk/s/app/login/view/LoginByRegister;->isPhoneAgreementchecked:Z
+    .line 36
+    iget-boolean p0, p0, Lcom/leidong/sdk/s/app/login/view/LoginByRegister;->isPhoneAgreementchecked:Z
 
-    return v0
+    return p0
 .end method
 
 .method static synthetic access$2702(Lcom/leidong/sdk/s/app/login/view/LoginByRegister;Z)Z
     .locals 0
-    .param p0, "x0"    # Lcom/leidong/sdk/s/app/login/view/LoginByRegister;
-    .param p1, "x1"    # Z
 
-    .line 35
+    .line 36
     iput-boolean p1, p0, Lcom/leidong/sdk/s/app/login/view/LoginByRegister;->isPhoneAgreementchecked:Z
 
     return p1
 .end method
 
 .method static synthetic access$2800(Lcom/leidong/sdk/s/app/login/view/LoginByRegister;)Landroid/widget/ImageView;
-    .locals 1
-    .param p0, "x0"    # Lcom/leidong/sdk/s/app/login/view/LoginByRegister;
+    .locals 0
 
-    .line 35
-    iget-object v0, p0, Lcom/leidong/sdk/s/app/login/view/LoginByRegister;->login_regist_checkBox:Landroid/widget/ImageView;
+    .line 36
+    iget-object p0, p0, Lcom/leidong/sdk/s/app/login/view/LoginByRegister;->login_regist_checkBox:Landroid/widget/ImageView;
 
-    return-object v0
+    return-object p0
 .end method
 
 .method static synthetic access$2900(Lcom/leidong/sdk/s/app/login/view/LoginByRegister;)Landroid/widget/TextView;
-    .locals 1
-    .param p0, "x0"    # Lcom/leidong/sdk/s/app/login/view/LoginByRegister;
+    .locals 0
 
-    .line 35
-    iget-object v0, p0, Lcom/leidong/sdk/s/app/login/view/LoginByRegister;->login_regist_agreement_tips:Landroid/widget/TextView;
+    .line 36
+    iget-object p0, p0, Lcom/leidong/sdk/s/app/login/view/LoginByRegister;->login_regist_agreement_tips:Landroid/widget/TextView;
 
-    return-object v0
+    return-object p0
 .end method
 
 .method static synthetic access$300(Lcom/leidong/sdk/s/app/login/view/LoginByRegister;)Landroid/widget/EditText;
-    .locals 1
-    .param p0, "x0"    # Lcom/leidong/sdk/s/app/login/view/LoginByRegister;
+    .locals 0
 
-    .line 35
-    iget-object v0, p0, Lcom/leidong/sdk/s/app/login/view/LoginByRegister;->login_regist_normalaccount_input:Landroid/widget/EditText;
+    .line 36
+    iget-object p0, p0, Lcom/leidong/sdk/s/app/login/view/LoginByRegister;->login_regist_normalaccount_input:Landroid/widget/EditText;
 
-    return-object v0
+    return-object p0
 .end method
 
 .method static synthetic access$400(Lcom/leidong/sdk/s/app/login/view/LoginByRegister;)V
     .locals 0
-    .param p0, "x0"    # Lcom/leidong/sdk/s/app/login/view/LoginByRegister;
 
-    .line 35
+    .line 36
     invoke-direct {p0}, Lcom/leidong/sdk/s/app/login/view/LoginByRegister;->loadLocalName()V
 
     return-void
 .end method
 
 .method static synthetic access$500(Lcom/leidong/sdk/s/app/login/view/LoginByRegister;)Z
-    .locals 1
-    .param p0, "x0"    # Lcom/leidong/sdk/s/app/login/view/LoginByRegister;
+    .locals 0
 
-    .line 35
+    .line 36
     invoke-virtual {p0}, Lcom/leidong/sdk/s/app/login/view/LoginByRegister;->isQuickClick()Z
 
-    move-result v0
+    move-result p0
 
-    return v0
+    return p0
 .end method
 
 .method static synthetic access$600(Lcom/leidong/sdk/s/app/login/view/LoginByRegister;)Landroid/widget/EditText;
-    .locals 1
-    .param p0, "x0"    # Lcom/leidong/sdk/s/app/login/view/LoginByRegister;
+    .locals 0
 
-    .line 35
-    iget-object v0, p0, Lcom/leidong/sdk/s/app/login/view/LoginByRegister;->login_regist_phonenumber_input:Landroid/widget/EditText;
+    .line 36
+    iget-object p0, p0, Lcom/leidong/sdk/s/app/login/view/LoginByRegister;->login_regist_phonenumber_input:Landroid/widget/EditText;
 
-    return-object v0
+    return-object p0
 .end method
 
 .method static synthetic access$700(Lcom/leidong/sdk/s/app/login/view/LoginByRegister;)Lcom/leidong/sdk/framework/view/common/CountDownView;
-    .locals 1
-    .param p0, "x0"    # Lcom/leidong/sdk/s/app/login/view/LoginByRegister;
+    .locals 0
 
-    .line 35
-    iget-object v0, p0, Lcom/leidong/sdk/s/app/login/view/LoginByRegister;->countDown:Lcom/leidong/sdk/framework/view/common/CountDownView;
+    .line 36
+    iget-object p0, p0, Lcom/leidong/sdk/s/app/login/view/LoginByRegister;->countDown:Lcom/leidong/sdk/framework/view/common/CountDownView;
 
-    return-object v0
+    return-object p0
 .end method
 
 .method static synthetic access$800(Lcom/leidong/sdk/s/app/login/view/LoginByRegister;)Lcom/leidong/sdk/s/core/http/RequsetManager;
-    .locals 1
-    .param p0, "x0"    # Lcom/leidong/sdk/s/app/login/view/LoginByRegister;
+    .locals 0
 
-    .line 35
-    iget-object v0, p0, Lcom/leidong/sdk/s/app/login/view/LoginByRegister;->requestManager:Lcom/leidong/sdk/s/core/http/RequsetManager;
+    .line 36
+    iget-object p0, p0, Lcom/leidong/sdk/s/app/login/view/LoginByRegister;->requestManager:Lcom/leidong/sdk/s/core/http/RequsetManager;
 
-    return-object v0
+    return-object p0
 .end method
 
 .method static synthetic access$900(Lcom/leidong/sdk/s/app/login/view/LoginByRegister;)Z
-    .locals 1
-    .param p0, "x0"    # Lcom/leidong/sdk/s/app/login/view/LoginByRegister;
+    .locals 0
 
-    .line 35
+    .line 36
     invoke-virtual {p0}, Lcom/leidong/sdk/s/app/login/view/LoginByRegister;->isQuickClick()Z
 
-    move-result v0
+    move-result p0
 
-    return v0
+    return p0
 .end method
 
 .method private initViews()V
     .locals 4
 
-    .line 118
     const-string v0, "login_regist_phonenumber_input"
 
     const-string v1, "id"
 
-    .line 119
+    .line 120
     invoke-virtual {p0}, Lcom/leidong/sdk/s/app/login/view/LoginByRegister;->getActivity()Landroid/app/Activity;
 
     move-result-object v2
@@ -509,7 +461,7 @@
 
     move-result v0
 
-    .line 118
+    .line 119
     invoke-virtual {p0, v0}, Lcom/leidong/sdk/s/app/login/view/LoginByRegister;->findViewById(I)Landroid/view/View;
 
     move-result-object v0
@@ -518,12 +470,11 @@
 
     iput-object v0, p0, Lcom/leidong/sdk/s/app/login/view/LoginByRegister;->login_regist_phonenumber_input:Landroid/widget/EditText;
 
-    .line 120
     const-string v0, "login_regist_idcode_input"
 
     const-string v1, "id"
 
-    .line 121
+    .line 122
     invoke-virtual {p0}, Lcom/leidong/sdk/s/app/login/view/LoginByRegister;->getActivity()Landroid/app/Activity;
 
     move-result-object v2
@@ -532,7 +483,7 @@
 
     move-result v0
 
-    .line 120
+    .line 121
     invoke-virtual {p0, v0}, Lcom/leidong/sdk/s/app/login/view/LoginByRegister;->findViewById(I)Landroid/view/View;
 
     move-result-object v0
@@ -541,12 +492,11 @@
 
     iput-object v0, p0, Lcom/leidong/sdk/s/app/login/view/LoginByRegister;->login_regist_idcode_input:Landroid/widget/EditText;
 
-    .line 122
     const-string v0, "login_regist_idcode_tv"
 
     const-string v1, "id"
 
-    .line 123
+    .line 124
     invoke-virtual {p0}, Lcom/leidong/sdk/s/app/login/view/LoginByRegister;->getActivity()Landroid/app/Activity;
 
     move-result-object v2
@@ -555,7 +505,7 @@
 
     move-result v0
 
-    .line 122
+    .line 123
     invoke-virtual {p0, v0}, Lcom/leidong/sdk/s/app/login/view/LoginByRegister;->findViewById(I)Landroid/view/View;
 
     move-result-object v0
@@ -564,12 +514,11 @@
 
     iput-object v0, p0, Lcom/leidong/sdk/s/app/login/view/LoginByRegister;->login_regist_idcode_tv:Landroid/widget/TextView;
 
-    .line 124
     const-string v0, "login_regist_tvphone"
 
     const-string v1, "id"
 
-    .line 125
+    .line 126
     invoke-virtual {p0}, Lcom/leidong/sdk/s/app/login/view/LoginByRegister;->getActivity()Landroid/app/Activity;
 
     move-result-object v2
@@ -578,7 +527,7 @@
 
     move-result v0
 
-    .line 124
+    .line 125
     invoke-virtual {p0, v0}, Lcom/leidong/sdk/s/app/login/view/LoginByRegister;->findViewById(I)Landroid/view/View;
 
     move-result-object v0
@@ -587,12 +536,11 @@
 
     iput-object v0, p0, Lcom/leidong/sdk/s/app/login/view/LoginByRegister;->login_regist_tvphone:Landroid/widget/TextView;
 
-    .line 126
     const-string v0, "login_regist_tvphone_line"
 
     const-string v1, "id"
 
-    .line 127
+    .line 128
     invoke-virtual {p0}, Lcom/leidong/sdk/s/app/login/view/LoginByRegister;->getActivity()Landroid/app/Activity;
 
     move-result-object v2
@@ -601,7 +549,7 @@
 
     move-result v0
 
-    .line 126
+    .line 127
     invoke-virtual {p0, v0}, Lcom/leidong/sdk/s/app/login/view/LoginByRegister;->findViewById(I)Landroid/view/View;
 
     move-result-object v0
@@ -610,12 +558,11 @@
 
     iput-object v0, p0, Lcom/leidong/sdk/s/app/login/view/LoginByRegister;->login_regist_tvphone_line:Landroid/widget/TextView;
 
-    .line 128
     const-string v0, "login_regist_tvnormal"
 
     const-string v1, "id"
 
-    .line 129
+    .line 130
     invoke-virtual {p0}, Lcom/leidong/sdk/s/app/login/view/LoginByRegister;->getActivity()Landroid/app/Activity;
 
     move-result-object v2
@@ -624,7 +571,7 @@
 
     move-result v0
 
-    .line 128
+    .line 129
     invoke-virtual {p0, v0}, Lcom/leidong/sdk/s/app/login/view/LoginByRegister;->findViewById(I)Landroid/view/View;
 
     move-result-object v0
@@ -633,12 +580,11 @@
 
     iput-object v0, p0, Lcom/leidong/sdk/s/app/login/view/LoginByRegister;->login_regist_tvnormal:Landroid/widget/TextView;
 
-    .line 130
     const-string v0, "login_regist_phone_btn_rl"
 
     const-string v1, "id"
 
-    .line 131
+    .line 132
     invoke-virtual {p0}, Lcom/leidong/sdk/s/app/login/view/LoginByRegister;->getActivity()Landroid/app/Activity;
 
     move-result-object v2
@@ -647,7 +593,7 @@
 
     move-result v0
 
-    .line 130
+    .line 131
     invoke-virtual {p0, v0}, Lcom/leidong/sdk/s/app/login/view/LoginByRegister;->findViewById(I)Landroid/view/View;
 
     move-result-object v0
@@ -656,12 +602,11 @@
 
     iput-object v0, p0, Lcom/leidong/sdk/s/app/login/view/LoginByRegister;->login_regist_phone_btn_rl:Landroid/widget/LinearLayout;
 
-    .line 132
     const-string v0, "login_regist_normal_btn_rl"
 
     const-string v1, "id"
 
-    .line 133
+    .line 134
     invoke-virtual {p0}, Lcom/leidong/sdk/s/app/login/view/LoginByRegister;->getActivity()Landroid/app/Activity;
 
     move-result-object v2
@@ -670,7 +615,7 @@
 
     move-result v0
 
-    .line 132
+    .line 133
     invoke-virtual {p0, v0}, Lcom/leidong/sdk/s/app/login/view/LoginByRegister;->findViewById(I)Landroid/view/View;
 
     move-result-object v0
@@ -679,12 +624,11 @@
 
     iput-object v0, p0, Lcom/leidong/sdk/s/app/login/view/LoginByRegister;->login_regist_normal_btn_rl:Landroid/widget/LinearLayout;
 
-    .line 135
     const-string v0, "login_regist_checkBox"
 
     const-string v1, "id"
 
-    .line 136
+    .line 137
     invoke-virtual {p0}, Lcom/leidong/sdk/s/app/login/view/LoginByRegister;->getActivity()Landroid/app/Activity;
 
     move-result-object v2
@@ -693,7 +637,7 @@
 
     move-result v0
 
-    .line 135
+    .line 136
     invoke-virtual {p0, v0}, Lcom/leidong/sdk/s/app/login/view/LoginByRegister;->findViewById(I)Landroid/view/View;
 
     move-result-object v0
@@ -702,12 +646,11 @@
 
     iput-object v0, p0, Lcom/leidong/sdk/s/app/login/view/LoginByRegister;->login_regist_checkBox:Landroid/widget/ImageView;
 
-    .line 138
     const-string v0, "login_regist_agreement_tips"
 
     const-string v1, "id"
 
-    .line 139
+    .line 140
     invoke-virtual {p0}, Lcom/leidong/sdk/s/app/login/view/LoginByRegister;->getActivity()Landroid/app/Activity;
 
     move-result-object v2
@@ -716,7 +659,7 @@
 
     move-result v0
 
-    .line 138
+    .line 139
     invoke-virtual {p0, v0}, Lcom/leidong/sdk/s/app/login/view/LoginByRegister;->findViewById(I)Landroid/view/View;
 
     move-result-object v0
@@ -725,12 +668,11 @@
 
     iput-object v0, p0, Lcom/leidong/sdk/s/app/login/view/LoginByRegister;->login_regist_agreement_tips:Landroid/widget/TextView;
 
-    .line 141
     const-string v0, "login_regist_agreement_tips2"
 
     const-string v1, "id"
 
-    .line 142
+    .line 143
     invoke-virtual {p0}, Lcom/leidong/sdk/s/app/login/view/LoginByRegister;->getActivity()Landroid/app/Activity;
 
     move-result-object v2
@@ -739,7 +681,7 @@
 
     move-result v0
 
-    .line 141
+    .line 142
     invoke-virtual {p0, v0}, Lcom/leidong/sdk/s/app/login/view/LoginByRegister;->findViewById(I)Landroid/view/View;
 
     move-result-object v0
@@ -748,12 +690,11 @@
 
     iput-object v0, p0, Lcom/leidong/sdk/s/app/login/view/LoginByRegister;->login_regist_agreement_tips2:Landroid/widget/TextView;
 
-    .line 145
     const-string v0, "login_regist_back"
 
     const-string v1, "id"
 
-    .line 146
+    .line 147
     invoke-virtual {p0}, Lcom/leidong/sdk/s/app/login/view/LoginByRegister;->getActivity()Landroid/app/Activity;
 
     move-result-object v2
@@ -762,7 +703,7 @@
 
     move-result v0
 
-    .line 145
+    .line 146
     invoke-virtual {p0, v0}, Lcom/leidong/sdk/s/app/login/view/LoginByRegister;->findViewById(I)Landroid/view/View;
 
     move-result-object v0
@@ -771,12 +712,11 @@
 
     iput-object v0, p0, Lcom/leidong/sdk/s/app/login/view/LoginByRegister;->login_regist_back:Landroid/widget/RelativeLayout;
 
-    .line 147
     const-string v0, "login_regist_rl_rl"
 
     const-string v1, "id"
 
-    .line 148
+    .line 149
     invoke-virtual {p0}, Lcom/leidong/sdk/s/app/login/view/LoginByRegister;->getActivity()Landroid/app/Activity;
 
     move-result-object v2
@@ -785,7 +725,7 @@
 
     move-result v0
 
-    .line 147
+    .line 148
     invoke-virtual {p0, v0}, Lcom/leidong/sdk/s/app/login/view/LoginByRegister;->findViewById(I)Landroid/view/View;
 
     move-result-object v0
@@ -794,12 +734,11 @@
 
     iput-object v0, p0, Lcom/leidong/sdk/s/app/login/view/LoginByRegister;->login_regist_rl_rl:Landroid/widget/RelativeLayout;
 
-    .line 149
     const-string v0, "login_regist_rl_rl2"
 
     const-string v1, "id"
 
-    .line 150
+    .line 151
     invoke-virtual {p0}, Lcom/leidong/sdk/s/app/login/view/LoginByRegister;->getActivity()Landroid/app/Activity;
 
     move-result-object v2
@@ -808,7 +747,7 @@
 
     move-result v0
 
-    .line 149
+    .line 150
     invoke-virtual {p0, v0}, Lcom/leidong/sdk/s/app/login/view/LoginByRegister;->findViewById(I)Landroid/view/View;
 
     move-result-object v0
@@ -817,12 +756,11 @@
 
     iput-object v0, p0, Lcom/leidong/sdk/s/app/login/view/LoginByRegister;->login_regist_rl_rl2:Landroid/widget/RelativeLayout;
 
-    .line 151
     const-string v0, "login_regist_password_input"
 
     const-string v1, "id"
 
-    .line 152
+    .line 153
     invoke-virtual {p0}, Lcom/leidong/sdk/s/app/login/view/LoginByRegister;->getActivity()Landroid/app/Activity;
 
     move-result-object v2
@@ -831,7 +769,7 @@
 
     move-result v0
 
-    .line 151
+    .line 152
     invoke-virtual {p0, v0}, Lcom/leidong/sdk/s/app/login/view/LoginByRegister;->findViewById(I)Landroid/view/View;
 
     move-result-object v0
@@ -840,12 +778,11 @@
 
     iput-object v0, p0, Lcom/leidong/sdk/s/app/login/view/LoginByRegister;->login_regist_password_input:Landroid/widget/EditText;
 
-    .line 153
     const-string v0, "login_regist_normalaccount_input"
 
     const-string v1, "id"
 
-    .line 154
+    .line 155
     invoke-virtual {p0}, Lcom/leidong/sdk/s/app/login/view/LoginByRegister;->getActivity()Landroid/app/Activity;
 
     move-result-object v2
@@ -854,7 +791,7 @@
 
     move-result v0
 
-    .line 153
+    .line 154
     invoke-virtual {p0, v0}, Lcom/leidong/sdk/s/app/login/view/LoginByRegister;->findViewById(I)Landroid/view/View;
 
     move-result-object v0
@@ -863,12 +800,11 @@
 
     iput-object v0, p0, Lcom/leidong/sdk/s/app/login/view/LoginByRegister;->login_regist_normalaccount_input:Landroid/widget/EditText;
 
-    .line 155
     const-string v0, "login_regist_normalpassword_input"
 
     const-string v1, "id"
 
-    .line 156
+    .line 157
     invoke-virtual {p0}, Lcom/leidong/sdk/s/app/login/view/LoginByRegister;->getActivity()Landroid/app/Activity;
 
     move-result-object v2
@@ -877,7 +813,7 @@
 
     move-result v0
 
-    .line 155
+    .line 156
     invoke-virtual {p0, v0}, Lcom/leidong/sdk/s/app/login/view/LoginByRegister;->findViewById(I)Landroid/view/View;
 
     move-result-object v0
@@ -886,12 +822,11 @@
 
     iput-object v0, p0, Lcom/leidong/sdk/s/app/login/view/LoginByRegister;->login_regist_normalpassword_input:Landroid/widget/EditText;
 
-    .line 157
     const-string v0, "login_regist_entergame"
 
     const-string v1, "id"
 
-    .line 158
+    .line 159
     invoke-virtual {p0}, Lcom/leidong/sdk/s/app/login/view/LoginByRegister;->getActivity()Landroid/app/Activity;
 
     move-result-object v2
@@ -900,7 +835,7 @@
 
     move-result v0
 
-    .line 157
+    .line 158
     invoke-virtual {p0, v0}, Lcom/leidong/sdk/s/app/login/view/LoginByRegister;->findViewById(I)Landroid/view/View;
 
     move-result-object v0
@@ -909,12 +844,11 @@
 
     iput-object v0, p0, Lcom/leidong/sdk/s/app/login/view/LoginByRegister;->login_regist_entergame:Landroid/widget/Button;
 
-    .line 159
     const-string v0, "login_regist_normal_entergame"
 
     const-string v1, "id"
 
-    .line 160
+    .line 161
     invoke-virtual {p0}, Lcom/leidong/sdk/s/app/login/view/LoginByRegister;->getActivity()Landroid/app/Activity;
 
     move-result-object v2
@@ -923,7 +857,7 @@
 
     move-result v0
 
-    .line 159
+    .line 160
     invoke-virtual {p0, v0}, Lcom/leidong/sdk/s/app/login/view/LoginByRegister;->findViewById(I)Landroid/view/View;
 
     move-result-object v0
@@ -932,12 +866,11 @@
 
     iput-object v0, p0, Lcom/leidong/sdk/s/app/login/view/LoginByRegister;->login_regist_normal_entergame:Landroid/widget/Button;
 
-    .line 161
     const-string v0, "login_regist_tvnormal_line"
 
     const-string v1, "id"
 
-    .line 162
+    .line 163
     invoke-virtual {p0}, Lcom/leidong/sdk/s/app/login/view/LoginByRegister;->getActivity()Landroid/app/Activity;
 
     move-result-object v2
@@ -946,7 +879,7 @@
 
     move-result v0
 
-    .line 161
+    .line 162
     invoke-virtual {p0, v0}, Lcom/leidong/sdk/s/app/login/view/LoginByRegister;->findViewById(I)Landroid/view/View;
 
     move-result-object v0
@@ -955,12 +888,11 @@
 
     iput-object v0, p0, Lcom/leidong/sdk/s/app/login/view/LoginByRegister;->login_regist_tvnormal_line:Landroid/widget/TextView;
 
-    .line 164
     const-string v0, "login_regist_normal_checkBox"
 
     const-string v1, "id"
 
-    .line 165
+    .line 166
     invoke-virtual {p0}, Lcom/leidong/sdk/s/app/login/view/LoginByRegister;->getActivity()Landroid/app/Activity;
 
     move-result-object v2
@@ -969,7 +901,7 @@
 
     move-result v0
 
-    .line 164
+    .line 165
     invoke-virtual {p0, v0}, Lcom/leidong/sdk/s/app/login/view/LoginByRegister;->findViewById(I)Landroid/view/View;
 
     move-result-object v0
@@ -978,12 +910,11 @@
 
     iput-object v0, p0, Lcom/leidong/sdk/s/app/login/view/LoginByRegister;->login_regist_normal_checkBox:Landroid/widget/ImageView;
 
-    .line 168
     const-string v0, "login_regist_normal_phone_clear"
 
     const-string v1, "id"
 
-    .line 169
+    .line 170
     invoke-virtual {p0}, Lcom/leidong/sdk/s/app/login/view/LoginByRegister;->getActivity()Landroid/app/Activity;
 
     move-result-object v2
@@ -992,7 +923,7 @@
 
     move-result v0
 
-    .line 168
+    .line 169
     invoke-virtual {p0, v0}, Lcom/leidong/sdk/s/app/login/view/LoginByRegister;->findViewById(I)Landroid/view/View;
 
     move-result-object v0
@@ -1001,12 +932,11 @@
 
     iput-object v0, p0, Lcom/leidong/sdk/s/app/login/view/LoginByRegister;->login_regist_normal_phone_clear:Landroid/widget/ImageView;
 
-    .line 171
     const-string v0, "login_regist_phone_clear"
 
     const-string v1, "id"
 
-    .line 172
+    .line 173
     invoke-virtual {p0}, Lcom/leidong/sdk/s/app/login/view/LoginByRegister;->getActivity()Landroid/app/Activity;
 
     move-result-object v2
@@ -1015,7 +945,7 @@
 
     move-result v0
 
-    .line 171
+    .line 172
     invoke-virtual {p0, v0}, Lcom/leidong/sdk/s/app/login/view/LoginByRegister;->findViewById(I)Landroid/view/View;
 
     move-result-object v0
@@ -1024,12 +954,11 @@
 
     iput-object v0, p0, Lcom/leidong/sdk/s/app/login/view/LoginByRegister;->login_regist_phone_clear:Landroid/widget/ImageView;
 
-    .line 174
     const-string v0, "login_regist_normal_eye"
 
     const-string v1, "id"
 
-    .line 175
+    .line 176
     invoke-virtual {p0}, Lcom/leidong/sdk/s/app/login/view/LoginByRegister;->getActivity()Landroid/app/Activity;
 
     move-result-object v2
@@ -1038,7 +967,7 @@
 
     move-result v0
 
-    .line 174
+    .line 175
     invoke-virtual {p0, v0}, Lcom/leidong/sdk/s/app/login/view/LoginByRegister;->findViewById(I)Landroid/view/View;
 
     move-result-object v0
@@ -1047,12 +976,11 @@
 
     iput-object v0, p0, Lcom/leidong/sdk/s/app/login/view/LoginByRegister;->login_regist_normal_eye:Landroid/widget/ImageView;
 
-    .line 178
     const-string v0, "login_regist_phone_eye"
 
     const-string v1, "id"
 
-    .line 179
+    .line 180
     invoke-virtual {p0}, Lcom/leidong/sdk/s/app/login/view/LoginByRegister;->getActivity()Landroid/app/Activity;
 
     move-result-object v2
@@ -1061,7 +989,7 @@
 
     move-result v0
 
-    .line 178
+    .line 179
     invoke-virtual {p0, v0}, Lcom/leidong/sdk/s/app/login/view/LoginByRegister;->findViewById(I)Landroid/view/View;
 
     move-result-object v0
@@ -1070,7 +998,7 @@
 
     iput-object v0, p0, Lcom/leidong/sdk/s/app/login/view/LoginByRegister;->login_regist_phone_eye:Landroid/widget/ImageView;
 
-    .line 181
+    .line 182
     iget-object v0, p0, Lcom/leidong/sdk/s/app/login/view/LoginByRegister;->login_regist_normalaccount_input:Landroid/widget/EditText;
 
     new-instance v1, Lcom/leidong/sdk/s/app/login/view/LoginByRegister$1;
@@ -1079,7 +1007,7 @@
 
     invoke-virtual {v0, v1}, Landroid/widget/EditText;->setOnFocusChangeListener(Landroid/view/View$OnFocusChangeListener;)V
 
-    .line 192
+    .line 193
     iget-object v0, p0, Lcom/leidong/sdk/s/app/login/view/LoginByRegister;->login_regist_phonenumber_input:Landroid/widget/EditText;
 
     new-instance v1, Lcom/leidong/sdk/s/app/login/view/LoginByRegister$2;
@@ -1088,7 +1016,7 @@
 
     invoke-virtual {v0, v1}, Landroid/widget/EditText;->setOnFocusChangeListener(Landroid/view/View$OnFocusChangeListener;)V
 
-    .line 203
+    .line 204
     iget-object v0, p0, Lcom/leidong/sdk/s/app/login/view/LoginByRegister;->login_regist_checkBox:Landroid/widget/ImageView;
 
     new-instance v1, Lcom/leidong/sdk/s/app/login/view/LoginByRegister$RegistPhoneCheckListener;
@@ -1097,7 +1025,7 @@
 
     invoke-virtual {v0, v1}, Landroid/widget/ImageView;->setOnClickListener(Landroid/view/View$OnClickListener;)V
 
-    .line 205
+    .line 206
     iget-object v0, p0, Lcom/leidong/sdk/s/app/login/view/LoginByRegister;->login_regist_normal_checkBox:Landroid/widget/ImageView;
 
     new-instance v1, Lcom/leidong/sdk/s/app/login/view/LoginByRegister$RegistNormalCheckListener;
@@ -1106,7 +1034,7 @@
 
     invoke-virtual {v0, v1}, Landroid/widget/ImageView;->setOnClickListener(Landroid/view/View$OnClickListener;)V
 
-    .line 207
+    .line 208
     iget-object v0, p0, Lcom/leidong/sdk/s/app/login/view/LoginByRegister;->login_regist_phone_btn_rl:Landroid/widget/LinearLayout;
 
     invoke-virtual {v0}, Landroid/widget/LinearLayout;->getVisibility()I
@@ -1115,12 +1043,12 @@
 
     if-nez v0, :cond_0
 
-    .line 208
+    .line 209
     iget-object v0, p0, Lcom/leidong/sdk/s/app/login/view/LoginByRegister;->countDown:Lcom/leidong/sdk/framework/view/common/CountDownView;
 
     if-nez v0, :cond_0
 
-    .line 209
+    .line 210
     new-instance v0, Lcom/leidong/sdk/framework/view/common/CountDownView;
 
     iget-object v1, p0, Lcom/leidong/sdk/s/app/login/view/LoginByRegister;->login_regist_idcode_tv:Landroid/widget/TextView;
@@ -1135,7 +1063,7 @@
 
     iput-object v0, p0, Lcom/leidong/sdk/s/app/login/view/LoginByRegister;->countDown:Lcom/leidong/sdk/framework/view/common/CountDownView;
 
-    .line 214
+    .line 215
     :cond_0
     iget-object v0, p0, Lcom/leidong/sdk/s/app/login/view/LoginByRegister;->login_regist_tvphone:Landroid/widget/TextView;
 
@@ -1145,7 +1073,7 @@
 
     invoke-virtual {v0, v1}, Landroid/widget/TextView;->setOnClickListener(Landroid/view/View$OnClickListener;)V
 
-    .line 217
+    .line 218
     iget-object v0, p0, Lcom/leidong/sdk/s/app/login/view/LoginByRegister;->login_regist_tvnormal:Landroid/widget/TextView;
 
     new-instance v1, Lcom/leidong/sdk/s/app/login/view/LoginByRegister$NormalRegistListener;
@@ -1154,7 +1082,7 @@
 
     invoke-virtual {v0, v1}, Landroid/widget/TextView;->setOnClickListener(Landroid/view/View$OnClickListener;)V
 
-    .line 220
+    .line 221
     iget-object v0, p0, Lcom/leidong/sdk/s/app/login/view/LoginByRegister;->login_regist_entergame:Landroid/widget/Button;
 
     new-instance v1, Lcom/leidong/sdk/s/app/login/view/LoginByRegister$RegistEnterGameListener;
@@ -1163,7 +1091,7 @@
 
     invoke-virtual {v0, v1}, Landroid/widget/Button;->setOnClickListener(Landroid/view/View$OnClickListener;)V
 
-    .line 223
+    .line 224
     iget-object v0, p0, Lcom/leidong/sdk/s/app/login/view/LoginByRegister;->login_regist_normal_entergame:Landroid/widget/Button;
 
     new-instance v1, Lcom/leidong/sdk/s/app/login/view/LoginByRegister$RegistNormalEnterGameListener;
@@ -1172,7 +1100,7 @@
 
     invoke-virtual {v0, v1}, Landroid/widget/Button;->setOnClickListener(Landroid/view/View$OnClickListener;)V
 
-    .line 226
+    .line 227
     iget-object v0, p0, Lcom/leidong/sdk/s/app/login/view/LoginByRegister;->login_regist_idcode_tv:Landroid/widget/TextView;
 
     new-instance v1, Lcom/leidong/sdk/s/app/login/view/LoginByRegister$RegistGetCodeListener;
@@ -1181,7 +1109,7 @@
 
     invoke-virtual {v0, v1}, Landroid/widget/TextView;->setOnClickListener(Landroid/view/View$OnClickListener;)V
 
-    .line 229
+    .line 230
     iget-object v0, p0, Lcom/leidong/sdk/s/app/login/view/LoginByRegister;->login_regist_back:Landroid/widget/RelativeLayout;
 
     new-instance v1, Lcom/leidong/sdk/s/app/login/view/LoginByRegister$RegistBackListener;
@@ -1190,7 +1118,7 @@
 
     invoke-virtual {v0, v1}, Landroid/widget/RelativeLayout;->setOnClickListener(Landroid/view/View$OnClickListener;)V
 
-    .line 232
+    .line 233
     iget-object v0, p0, Lcom/leidong/sdk/s/app/login/view/LoginByRegister;->login_regist_normal_phone_clear:Landroid/widget/ImageView;
 
     new-instance v1, Lcom/leidong/sdk/s/app/login/view/LoginByRegister$NormalClearListener;
@@ -1199,7 +1127,7 @@
 
     invoke-virtual {v0, v1}, Landroid/widget/ImageView;->setOnClickListener(Landroid/view/View$OnClickListener;)V
 
-    .line 234
+    .line 235
     iget-object v0, p0, Lcom/leidong/sdk/s/app/login/view/LoginByRegister;->login_regist_phone_clear:Landroid/widget/ImageView;
 
     new-instance v1, Lcom/leidong/sdk/s/app/login/view/LoginByRegister$PhoneClearLisener;
@@ -1208,7 +1136,7 @@
 
     invoke-virtual {v0, v1}, Landroid/widget/ImageView;->setOnClickListener(Landroid/view/View$OnClickListener;)V
 
-    .line 237
+    .line 238
     iget-object v0, p0, Lcom/leidong/sdk/s/app/login/view/LoginByRegister;->login_regist_normal_eye:Landroid/widget/ImageView;
 
     new-instance v1, Lcom/leidong/sdk/s/app/login/view/LoginByRegister$NormalSeeListener;
@@ -1217,7 +1145,7 @@
 
     invoke-virtual {v0, v1}, Landroid/widget/ImageView;->setOnClickListener(Landroid/view/View$OnClickListener;)V
 
-    .line 239
+    .line 240
     iget-object v0, p0, Lcom/leidong/sdk/s/app/login/view/LoginByRegister;->login_regist_phone_eye:Landroid/widget/ImageView;
 
     new-instance v1, Lcom/leidong/sdk/s/app/login/view/LoginByRegister$PhoneSeeListener;
@@ -1226,7 +1154,7 @@
 
     invoke-virtual {v0, v1}, Landroid/widget/ImageView;->setOnClickListener(Landroid/view/View$OnClickListener;)V
 
-    .line 241
+    .line 242
     iget-object v0, p0, Lcom/leidong/sdk/s/app/login/view/LoginByRegister;->login_regist_agreement_tips:Landroid/widget/TextView;
 
     new-instance v1, Lcom/leidong/sdk/s/app/login/view/LoginByRegister$3;
@@ -1235,7 +1163,7 @@
 
     invoke-virtual {v0, v1}, Landroid/widget/TextView;->setOnClickListener(Landroid/view/View$OnClickListener;)V
 
-    .line 252
+    .line 253
     iget-object v0, p0, Lcom/leidong/sdk/s/app/login/view/LoginByRegister;->login_regist_agreement_tips2:Landroid/widget/TextView;
 
     new-instance v1, Lcom/leidong/sdk/s/app/login/view/LoginByRegister$4;
@@ -1244,14 +1172,13 @@
 
     invoke-virtual {v0, v1}, Landroid/widget/TextView;->setOnClickListener(Landroid/view/View$OnClickListener;)V
 
-    .line 262
     return-void
 .end method
 
 .method private loadDefaultUserNameAndPwd()V
     .locals 3
 
-    .line 295
+    .line 296
     iget-object v0, p0, Lcom/leidong/sdk/s/app/login/view/LoginByRegister;->requestManager:Lcom/leidong/sdk/s/core/http/RequsetManager;
 
     new-instance v1, Lcom/leidong/sdk/s/app/login/view/LoginByRegister$6;
@@ -1262,24 +1189,22 @@
 
     invoke-virtual {v0, v1, v2}, Lcom/leidong/sdk/s/core/http/RequsetManager;->requestGetRegName(Lcom/leidong/sdk/framework/http/HttpCallBack;Z)V
 
-    .line 338
     return-void
 .end method
 
 .method private loadDefaultregview()V
     .locals 0
 
-    .line 113
+    .line 114
     invoke-direct {p0}, Lcom/leidong/sdk/s/app/login/view/LoginByRegister;->loadNameRegView()V
 
-    .line 114
     return-void
 .end method
 
 .method private loadLocalName()V
     .locals 2
 
-    .line 342
+    .line 343
     iget-object v0, p0, Lcom/leidong/sdk/s/app/login/view/LoginByRegister;->login_regist_normalaccount_input:Landroid/widget/EditText;
 
     new-instance v1, Lcom/leidong/sdk/s/app/login/view/LoginByRegister$7;
@@ -1288,28 +1213,27 @@
 
     invoke-virtual {v0, v1}, Landroid/widget/EditText;->post(Ljava/lang/Runnable;)Z
 
-    .line 349
     return-void
 .end method
 
 .method private loadNameRegView()V
     .locals 5
 
-    .line 563
+    .line 564
     sget-object v0, Ljava/lang/System;->out:Ljava/io/PrintStream;
 
     const-string v1, "\u666e\u901a\u6ce8\u518c\u3002\u3002\u3002"
 
     invoke-virtual {v0, v1}, Ljava/io/PrintStream;->println(Ljava/lang/String;)V
 
-    .line 566
+    .line 567
     iget-object v0, p0, Lcom/leidong/sdk/s/app/login/view/LoginByRegister;->requestManager:Lcom/leidong/sdk/s/core/http/RequsetManager;
 
     const-string v1, "reg_show_name"
 
     invoke-virtual {v0, v1}, Lcom/leidong/sdk/s/core/http/RequsetManager;->submitSdkAction(Ljava/lang/String;)V
 
-    .line 568
+    .line 569
     iget-object v0, p0, Lcom/leidong/sdk/s/app/login/view/LoginByRegister;->login_regist_tvnormal:Landroid/widget/TextView;
 
     invoke-virtual {p0}, Lcom/leidong/sdk/s/app/login/view/LoginByRegister;->getActivity()Landroid/app/Activity;
@@ -1324,7 +1248,7 @@
 
     const-string v3, "color"
 
-    .line 569
+    .line 570
     invoke-virtual {p0}, Lcom/leidong/sdk/s/app/login/view/LoginByRegister;->getActivity()Landroid/app/Activity;
 
     move-result-object v4
@@ -1337,10 +1261,10 @@
 
     move-result v1
 
-    .line 568
+    .line 569
     invoke-virtual {v0, v1}, Landroid/widget/TextView;->setTextColor(I)V
 
-    .line 570
+    .line 571
     iget-object v0, p0, Lcom/leidong/sdk/s/app/login/view/LoginByRegister;->login_regist_tvphone:Landroid/widget/TextView;
 
     invoke-virtual {p0}, Lcom/leidong/sdk/s/app/login/view/LoginByRegister;->getActivity()Landroid/app/Activity;
@@ -1355,7 +1279,7 @@
 
     const-string v3, "color"
 
-    .line 572
+    .line 573
     invoke-virtual {p0}, Lcom/leidong/sdk/s/app/login/view/LoginByRegister;->getActivity()Landroid/app/Activity;
 
     move-result-object v4
@@ -1364,71 +1288,71 @@
 
     move-result v2
 
-    .line 571
+    .line 572
     invoke-virtual {v1, v2}, Landroid/content/res/Resources;->getColor(I)I
 
     move-result v1
 
-    .line 570
+    .line 571
     invoke-virtual {v0, v1}, Landroid/widget/TextView;->setTextColor(I)V
 
-    .line 575
+    .line 576
     iget-object v0, p0, Lcom/leidong/sdk/s/app/login/view/LoginByRegister;->login_regist_normal_btn_rl:Landroid/widget/LinearLayout;
 
     const/4 v1, 0x0
 
     invoke-virtual {v0, v1}, Landroid/widget/LinearLayout;->setVisibility(I)V
 
-    .line 576
+    .line 577
     iget-object v0, p0, Lcom/leidong/sdk/s/app/login/view/LoginByRegister;->login_regist_tvnormal_line:Landroid/widget/TextView;
 
     invoke-virtual {v0, v1}, Landroid/widget/TextView;->setVisibility(I)V
 
-    .line 578
+    .line 579
     iget-object v0, p0, Lcom/leidong/sdk/s/app/login/view/LoginByRegister;->login_regist_phone_btn_rl:Landroid/widget/LinearLayout;
 
     const/16 v2, 0x8
 
     invoke-virtual {v0, v2}, Landroid/widget/LinearLayout;->setVisibility(I)V
 
-    .line 579
+    .line 580
     iget-object v0, p0, Lcom/leidong/sdk/s/app/login/view/LoginByRegister;->login_regist_tvphone_line:Landroid/widget/TextView;
 
     invoke-virtual {v0, v2}, Landroid/widget/TextView;->setVisibility(I)V
 
-    .line 581
+    .line 582
     iget-object v0, p0, Lcom/leidong/sdk/s/app/login/view/LoginByRegister;->login_regist_rl_rl:Landroid/widget/RelativeLayout;
 
     invoke-virtual {v0, v1}, Landroid/widget/RelativeLayout;->setVisibility(I)V
 
-    .line 582
+    .line 583
     iget-object v0, p0, Lcom/leidong/sdk/s/app/login/view/LoginByRegister;->login_regist_rl_rl2:Landroid/widget/RelativeLayout;
 
     invoke-virtual {v0, v1}, Landroid/widget/RelativeLayout;->setVisibility(I)V
 
-    .line 584
+    .line 585
     iget-object v0, p0, Lcom/leidong/sdk/s/app/login/view/LoginByRegister;->login_regist_normalaccount_input:Landroid/widget/EditText;
 
     if-eqz v0, :cond_0
 
     iget-object v0, p0, Lcom/leidong/sdk/s/app/login/view/LoginByRegister;->login_regist_normalaccount_input:Landroid/widget/EditText;
 
-    .line 585
+    .line 586
     invoke-virtual {v0}, Landroid/widget/EditText;->getText()Landroid/text/Editable;
 
     move-result-object v0
 
-    .line 584
+    .line 585
     invoke-static {v0}, Landroid/text/TextUtils;->isEmpty(Ljava/lang/CharSequence;)Z
 
     move-result v0
 
     if-eqz v0, :cond_0
 
-    .line 587
+    .line 588
     invoke-direct {p0}, Lcom/leidong/sdk/s/app/login/view/LoginByRegister;->loadDefaultUserNameAndPwd()V
 
-    .line 589
+    .line 590
     :cond_0
     iget-object v0, p0, Lcom/leidong/sdk/s/app/login/view/LoginByRegister;->login_regist_normalpassword_input:Landroid/widget/EditText;
 
@@ -1436,19 +1360,19 @@
 
     iget-object v0, p0, Lcom/leidong/sdk/s/app/login/view/LoginByRegister;->login_regist_normalpassword_input:Landroid/widget/EditText;
 
-    .line 590
+    .line 591
     invoke-virtual {v0}, Landroid/widget/EditText;->getText()Landroid/text/Editable;
 
     move-result-object v0
 
-    .line 589
+    .line 590
     invoke-static {v0}, Landroid/text/TextUtils;->isEmpty(Ljava/lang/CharSequence;)Z
 
     move-result v0
 
     if-eqz v0, :cond_1
 
-    .line 592
+    .line 593
     iget-object v0, p0, Lcom/leidong/sdk/s/app/login/view/LoginByRegister;->login_regist_normalpassword_input:Landroid/widget/EditText;
 
     const/4 v1, 0x6
@@ -1459,7 +1383,6 @@
 
     invoke-virtual {v0, v1}, Landroid/widget/EditText;->setText(Ljava/lang/CharSequence;)V
 
-    .line 594
     :cond_1
     return-void
 .end method
@@ -1467,19 +1390,19 @@
 .method private loadPhoneRegView()V
     .locals 5
 
-    .line 526
+    .line 527
     iget-object v0, p0, Lcom/leidong/sdk/s/app/login/view/LoginByRegister;->requestManager:Lcom/leidong/sdk/s/core/http/RequsetManager;
 
     const-string v1, "reg_show_phone"
 
     invoke-virtual {v0, v1}, Lcom/leidong/sdk/s/core/http/RequsetManager;->submitSdkAction(Ljava/lang/String;)V
 
-    .line 528
+    .line 529
     iget-object v0, p0, Lcom/leidong/sdk/s/app/login/view/LoginByRegister;->countDown:Lcom/leidong/sdk/framework/view/common/CountDownView;
 
     if-nez v0, :cond_0
 
-    .line 529
+    .line 530
     new-instance v0, Lcom/leidong/sdk/framework/view/common/CountDownView;
 
     iget-object v1, p0, Lcom/leidong/sdk/s/app/login/view/LoginByRegister;->login_regist_idcode_tv:Landroid/widget/TextView;
@@ -1494,7 +1417,7 @@
 
     iput-object v0, p0, Lcom/leidong/sdk/s/app/login/view/LoginByRegister;->countDown:Lcom/leidong/sdk/framework/view/common/CountDownView;
 
-    .line 532
+    .line 533
     :cond_0
     iget-object v0, p0, Lcom/leidong/sdk/s/app/login/view/LoginByRegister;->login_regist_tvphone:Landroid/widget/TextView;
 
@@ -1510,7 +1433,7 @@
 
     const-string v3, "color"
 
-    .line 533
+    .line 534
     invoke-virtual {p0}, Lcom/leidong/sdk/s/app/login/view/LoginByRegister;->getActivity()Landroid/app/Activity;
 
     move-result-object v4
@@ -1523,10 +1446,10 @@
 
     move-result v1
 
-    .line 532
+    .line 533
     invoke-virtual {v0, v1}, Landroid/widget/TextView;->setTextColor(I)V
 
-    .line 534
+    .line 535
     iget-object v0, p0, Lcom/leidong/sdk/s/app/login/view/LoginByRegister;->login_regist_tvnormal:Landroid/widget/TextView;
 
     invoke-virtual {p0}, Lcom/leidong/sdk/s/app/login/view/LoginByRegister;->getActivity()Landroid/app/Activity;
@@ -1541,7 +1464,7 @@
 
     const-string v3, "color"
 
-    .line 536
+    .line 537
     invoke-virtual {p0}, Lcom/leidong/sdk/s/app/login/view/LoginByRegister;->getActivity()Landroid/app/Activity;
 
     move-result-object v4
@@ -1550,58 +1473,55 @@
 
     move-result v2
 
-    .line 535
+    .line 536
     invoke-virtual {v1, v2}, Landroid/content/res/Resources;->getColor(I)I
 
     move-result v1
 
-    .line 534
+    .line 535
     invoke-virtual {v0, v1}, Landroid/widget/TextView;->setTextColor(I)V
 
-    .line 539
+    .line 540
     iget-object v0, p0, Lcom/leidong/sdk/s/app/login/view/LoginByRegister;->login_regist_normal_btn_rl:Landroid/widget/LinearLayout;
 
     const/16 v1, 0x8
 
     invoke-virtual {v0, v1}, Landroid/widget/LinearLayout;->setVisibility(I)V
 
-    .line 540
+    .line 541
     iget-object v0, p0, Lcom/leidong/sdk/s/app/login/view/LoginByRegister;->login_regist_tvnormal_line:Landroid/widget/TextView;
 
     invoke-virtual {v0, v1}, Landroid/widget/TextView;->setVisibility(I)V
 
-    .line 542
+    .line 543
     iget-object v0, p0, Lcom/leidong/sdk/s/app/login/view/LoginByRegister;->login_regist_phone_btn_rl:Landroid/widget/LinearLayout;
 
     const/4 v1, 0x0
 
     invoke-virtual {v0, v1}, Landroid/widget/LinearLayout;->setVisibility(I)V
 
-    .line 543
+    .line 544
     iget-object v0, p0, Lcom/leidong/sdk/s/app/login/view/LoginByRegister;->login_regist_tvphone_line:Landroid/widget/TextView;
 
     invoke-virtual {v0, v1}, Landroid/widget/TextView;->setVisibility(I)V
 
-    .line 545
+    .line 546
     iget-object v0, p0, Lcom/leidong/sdk/s/app/login/view/LoginByRegister;->login_regist_rl_rl:Landroid/widget/RelativeLayout;
 
     invoke-virtual {v0, v1}, Landroid/widget/RelativeLayout;->setVisibility(I)V
 
-    .line 546
+    .line 547
     iget-object v0, p0, Lcom/leidong/sdk/s/app/login/view/LoginByRegister;->login_regist_rl_rl2:Landroid/widget/RelativeLayout;
 
     invoke-virtual {v0, v1}, Landroid/widget/RelativeLayout;->setVisibility(I)V
 
-    .line 547
     return-void
 .end method
 
 .method private registerByName(Ljava/lang/String;Ljava/lang/String;)V
     .locals 4
-    .param p1, "account"    # Ljava/lang/String;
-    .param p2, "password"    # Ljava/lang/String;
 
-    .line 353
+    .line 354
     invoke-static {p1}, Landroid/text/TextUtils;->isEmpty(Ljava/lang/CharSequence;)Z
 
     move-result v0
@@ -1616,7 +1536,7 @@
 
     goto/16 :goto_2
 
-    .line 358
+    .line 359
     :cond_0
     invoke-virtual {p1}, Ljava/lang/String;->length()I
 
@@ -1636,7 +1556,7 @@
 
     goto :goto_1
 
-    .line 363
+    .line 364
     :cond_1
     invoke-virtual {p2}, Ljava/lang/String;->length()I
 
@@ -1654,29 +1574,28 @@
 
     goto :goto_0
 
-    .line 368
+    .line 369
     :cond_2
     iget-boolean v0, p0, Lcom/leidong/sdk/s/app/login/view/LoginByRegister;->isNormalAgreementchecked:Z
 
     if-nez v0, :cond_3
 
-    .line 369
-    const-string v0, "leidong_agreement_tips"
-
-    invoke-virtual {p0}, Lcom/leidong/sdk/s/app/login/view/LoginByRegister;->getActivity()Landroid/app/Activity;
-
-    move-result-object v1
-
-    invoke-static {v0, v1}, Lcom/leidong/sdk/framework/utils/CommonUtil;->getStringByName(Ljava/lang/String;Landroid/content/Context;)Ljava/lang/String;
-
-    move-result-object v0
-
-    invoke-virtual {p0, v0}, Lcom/leidong/sdk/s/app/login/view/LoginByRegister;->showToast(Ljava/lang/String;)V
+    const-string p1, "leidong_agreement_tips"
 
     .line 370
+    invoke-virtual {p0}, Lcom/leidong/sdk/s/app/login/view/LoginByRegister;->getActivity()Landroid/app/Activity;
+
+    move-result-object p2
+
+    invoke-static {p1, p2}, Lcom/leidong/sdk/framework/utils/CommonUtil;->getStringByName(Ljava/lang/String;Landroid/content/Context;)Ljava/lang/String;
+
+    move-result-object p1
+
+    invoke-virtual {p0, p1}, Lcom/leidong/sdk/s/app/login/view/LoginByRegister;->showToast(Ljava/lang/String;)V
+
     return-void
 
-    .line 374
+    .line 375
     :cond_3
     invoke-virtual {p0}, Lcom/leidong/sdk/s/app/login/view/LoginByRegister;->getActivity()Landroid/app/Activity;
 
@@ -1702,7 +1621,7 @@
 
     invoke-static {v0, v1, v2}, Lcom/leidong/sdk/framework/utils/ViewUtil;->saveView(Landroid/content/Context;Landroid/view/View;Ljava/lang/String;)V
 
-    .line 376
+    .line 377
     iget-object v0, p0, Lcom/leidong/sdk/s/app/login/view/LoginByRegister;->requestManager:Lcom/leidong/sdk/s/core/http/RequsetManager;
 
     new-instance v1, Lcom/leidong/sdk/s/app/login/view/LoginByRegister$8;
@@ -1713,71 +1632,64 @@
 
     invoke-virtual {v0, p1, p2, v1, v2}, Lcom/leidong/sdk/s/core/http/RequsetManager;->requestRegisterByName(Ljava/lang/String;Ljava/lang/String;Lcom/leidong/sdk/framework/http/HttpCallBack;Z)V
 
-    .line 402
     return-void
 
-    .line 364
     :cond_4
     :goto_0
-    const-string v0, "leidong_tips_pwd_limit"
-
-    invoke-virtual {p0}, Lcom/leidong/sdk/s/app/login/view/LoginByRegister;->getActivity()Landroid/app/Activity;
-
-    move-result-object v1
-
-    invoke-static {v0, v1}, Lcom/leidong/sdk/framework/utils/CommonUtil;->getStringByName(Ljava/lang/String;Landroid/content/Context;)Ljava/lang/String;
-
-    move-result-object v0
-
-    invoke-virtual {p0, v0}, Lcom/leidong/sdk/s/app/login/view/LoginByRegister;->showToast(Ljava/lang/String;)V
+    const-string p1, "leidong_tips_pwd_limit"
 
     .line 365
+    invoke-virtual {p0}, Lcom/leidong/sdk/s/app/login/view/LoginByRegister;->getActivity()Landroid/app/Activity;
+
+    move-result-object p2
+
+    invoke-static {p1, p2}, Lcom/leidong/sdk/framework/utils/CommonUtil;->getStringByName(Ljava/lang/String;Landroid/content/Context;)Ljava/lang/String;
+
+    move-result-object p1
+
+    invoke-virtual {p0, p1}, Lcom/leidong/sdk/s/app/login/view/LoginByRegister;->showToast(Ljava/lang/String;)V
+
     return-void
 
-    .line 359
     :cond_5
     :goto_1
-    const-string v0, "leidong_tips_name_limit"
-
-    invoke-virtual {p0}, Lcom/leidong/sdk/s/app/login/view/LoginByRegister;->getActivity()Landroid/app/Activity;
-
-    move-result-object v1
-
-    invoke-static {v0, v1}, Lcom/leidong/sdk/framework/utils/CommonUtil;->getStringByName(Ljava/lang/String;Landroid/content/Context;)Ljava/lang/String;
-
-    move-result-object v0
-
-    invoke-virtual {p0, v0}, Lcom/leidong/sdk/s/app/login/view/LoginByRegister;->showToast(Ljava/lang/String;)V
+    const-string p1, "leidong_tips_name_limit"
 
     .line 360
-    return-void
-
-    .line 354
-    :cond_6
-    :goto_2
-    const-string v0, "leidong_tips_login_no_name_or_pwd"
-
     invoke-virtual {p0}, Lcom/leidong/sdk/s/app/login/view/LoginByRegister;->getActivity()Landroid/app/Activity;
 
-    move-result-object v1
+    move-result-object p2
 
-    invoke-static {v0, v1}, Lcom/leidong/sdk/framework/utils/CommonUtil;->getStringByName(Ljava/lang/String;Landroid/content/Context;)Ljava/lang/String;
+    invoke-static {p1, p2}, Lcom/leidong/sdk/framework/utils/CommonUtil;->getStringByName(Ljava/lang/String;Landroid/content/Context;)Ljava/lang/String;
 
-    move-result-object v0
+    move-result-object p1
 
-    invoke-virtual {p0, v0}, Lcom/leidong/sdk/s/app/login/view/LoginByRegister;->showToast(Ljava/lang/String;)V
+    invoke-virtual {p0, p1}, Lcom/leidong/sdk/s/app/login/view/LoginByRegister;->showToast(Ljava/lang/String;)V
+
+    return-void
+
+    :cond_6
+    :goto_2
+    const-string p1, "leidong_tips_login_no_name_or_pwd"
 
     .line 355
+    invoke-virtual {p0}, Lcom/leidong/sdk/s/app/login/view/LoginByRegister;->getActivity()Landroid/app/Activity;
+
+    move-result-object p2
+
+    invoke-static {p1, p2}, Lcom/leidong/sdk/framework/utils/CommonUtil;->getStringByName(Ljava/lang/String;Landroid/content/Context;)Ljava/lang/String;
+
+    move-result-object p1
+
+    invoke-virtual {p0, p1}, Lcom/leidong/sdk/s/app/login/view/LoginByRegister;->showToast(Ljava/lang/String;)V
+
     return-void
 .end method
 
 .method private registerByPhone(Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;)V
     .locals 9
-    .param p1, "account"    # Ljava/lang/String;
-    .param p2, "password"    # Ljava/lang/String;
-    .param p3, "code"    # Ljava/lang/String;
 
-    .line 406
+    .line 407
     invoke-static {p1}, Landroid/text/TextUtils;->isEmpty(Ljava/lang/CharSequence;)Z
 
     move-result v0
@@ -1792,7 +1704,7 @@
 
     goto/16 :goto_2
 
-    .line 411
+    .line 412
     :cond_0
     invoke-static {p3}, Landroid/text/TextUtils;->isEmpty(Ljava/lang/CharSequence;)Z
 
@@ -1800,23 +1712,22 @@
 
     if-eqz v0, :cond_1
 
-    .line 412
-    const-string v0, "leidong_common_toast_vcode_is_null"
-
-    invoke-virtual {p0}, Lcom/leidong/sdk/s/app/login/view/LoginByRegister;->getActivity()Landroid/app/Activity;
-
-    move-result-object v1
-
-    invoke-static {v0, v1}, Lcom/leidong/sdk/framework/utils/CommonUtil;->getStringByName(Ljava/lang/String;Landroid/content/Context;)Ljava/lang/String;
-
-    move-result-object v0
-
-    invoke-virtual {p0, v0}, Lcom/leidong/sdk/s/app/login/view/LoginByRegister;->showToast(Ljava/lang/String;)V
+    const-string p1, "leidong_common_toast_vcode_is_null"
 
     .line 413
+    invoke-virtual {p0}, Lcom/leidong/sdk/s/app/login/view/LoginByRegister;->getActivity()Landroid/app/Activity;
+
+    move-result-object p2
+
+    invoke-static {p1, p2}, Lcom/leidong/sdk/framework/utils/CommonUtil;->getStringByName(Ljava/lang/String;Landroid/content/Context;)Ljava/lang/String;
+
+    move-result-object p1
+
+    invoke-virtual {p0, p1}, Lcom/leidong/sdk/s/app/login/view/LoginByRegister;->showToast(Ljava/lang/String;)V
+
     return-void
 
-    .line 416
+    .line 417
     :cond_1
     invoke-virtual {p1}, Ljava/lang/String;->length()I
 
@@ -1836,7 +1747,7 @@
 
     goto :goto_1
 
-    .line 421
+    .line 422
     :cond_2
     invoke-virtual {p2}, Ljava/lang/String;->length()I
 
@@ -1854,29 +1765,28 @@
 
     goto :goto_0
 
-    .line 426
+    .line 427
     :cond_3
     iget-boolean v0, p0, Lcom/leidong/sdk/s/app/login/view/LoginByRegister;->isPhoneAgreementchecked:Z
 
     if-nez v0, :cond_4
 
-    .line 427
-    const-string v0, "leidong_agreement_tips"
-
-    invoke-virtual {p0}, Lcom/leidong/sdk/s/app/login/view/LoginByRegister;->getActivity()Landroid/app/Activity;
-
-    move-result-object v1
-
-    invoke-static {v0, v1}, Lcom/leidong/sdk/framework/utils/CommonUtil;->getStringByName(Ljava/lang/String;Landroid/content/Context;)Ljava/lang/String;
-
-    move-result-object v0
-
-    invoke-virtual {p0, v0}, Lcom/leidong/sdk/s/app/login/view/LoginByRegister;->showToast(Ljava/lang/String;)V
+    const-string p1, "leidong_agreement_tips"
 
     .line 428
+    invoke-virtual {p0}, Lcom/leidong/sdk/s/app/login/view/LoginByRegister;->getActivity()Landroid/app/Activity;
+
+    move-result-object p2
+
+    invoke-static {p1, p2}, Lcom/leidong/sdk/framework/utils/CommonUtil;->getStringByName(Ljava/lang/String;Landroid/content/Context;)Ljava/lang/String;
+
+    move-result-object p1
+
+    invoke-virtual {p0, p1}, Lcom/leidong/sdk/s/app/login/view/LoginByRegister;->showToast(Ljava/lang/String;)V
+
     return-void
 
-    .line 432
+    .line 433
     :cond_4
     invoke-virtual {p0}, Lcom/leidong/sdk/s/app/login/view/LoginByRegister;->getActivity()Landroid/app/Activity;
 
@@ -1902,7 +1812,7 @@
 
     invoke-static {v0, v1, v2}, Lcom/leidong/sdk/framework/utils/ViewUtil;->saveView(Landroid/content/Context;Landroid/view/View;Ljava/lang/String;)V
 
-    .line 434
+    .line 435
     iget-object v3, p0, Lcom/leidong/sdk/s/app/login/view/LoginByRegister;->requestManager:Lcom/leidong/sdk/s/core/http/RequsetManager;
 
     new-instance v7, Lcom/leidong/sdk/s/app/login/view/LoginByRegister$9;
@@ -1919,61 +1829,57 @@
 
     invoke-virtual/range {v3 .. v8}, Lcom/leidong/sdk/s/core/http/RequsetManager;->requestRegisterByPhone(Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Lcom/leidong/sdk/framework/http/HttpCallBack;Z)V
 
-    .line 459
     return-void
 
-    .line 422
     :cond_5
     :goto_0
-    const-string v0, "leidong_tips_pwd_limit"
-
-    invoke-virtual {p0}, Lcom/leidong/sdk/s/app/login/view/LoginByRegister;->getActivity()Landroid/app/Activity;
-
-    move-result-object v1
-
-    invoke-static {v0, v1}, Lcom/leidong/sdk/framework/utils/CommonUtil;->getStringByName(Ljava/lang/String;Landroid/content/Context;)Ljava/lang/String;
-
-    move-result-object v0
-
-    invoke-virtual {p0, v0}, Lcom/leidong/sdk/s/app/login/view/LoginByRegister;->showToast(Ljava/lang/String;)V
+    const-string p1, "leidong_tips_pwd_limit"
 
     .line 423
+    invoke-virtual {p0}, Lcom/leidong/sdk/s/app/login/view/LoginByRegister;->getActivity()Landroid/app/Activity;
+
+    move-result-object p2
+
+    invoke-static {p1, p2}, Lcom/leidong/sdk/framework/utils/CommonUtil;->getStringByName(Ljava/lang/String;Landroid/content/Context;)Ljava/lang/String;
+
+    move-result-object p1
+
+    invoke-virtual {p0, p1}, Lcom/leidong/sdk/s/app/login/view/LoginByRegister;->showToast(Ljava/lang/String;)V
+
     return-void
 
-    .line 417
     :cond_6
     :goto_1
-    const-string v0, "leidong_tips_name_limit"
-
-    invoke-virtual {p0}, Lcom/leidong/sdk/s/app/login/view/LoginByRegister;->getActivity()Landroid/app/Activity;
-
-    move-result-object v1
-
-    invoke-static {v0, v1}, Lcom/leidong/sdk/framework/utils/CommonUtil;->getStringByName(Ljava/lang/String;Landroid/content/Context;)Ljava/lang/String;
-
-    move-result-object v0
-
-    invoke-virtual {p0, v0}, Lcom/leidong/sdk/s/app/login/view/LoginByRegister;->showToast(Ljava/lang/String;)V
+    const-string p1, "leidong_tips_name_limit"
 
     .line 418
-    return-void
-
-    .line 407
-    :cond_7
-    :goto_2
-    const-string v0, "leidong_tips_login_no_name_or_pwd"
-
     invoke-virtual {p0}, Lcom/leidong/sdk/s/app/login/view/LoginByRegister;->getActivity()Landroid/app/Activity;
 
-    move-result-object v1
+    move-result-object p2
 
-    invoke-static {v0, v1}, Lcom/leidong/sdk/framework/utils/CommonUtil;->getStringByName(Ljava/lang/String;Landroid/content/Context;)Ljava/lang/String;
+    invoke-static {p1, p2}, Lcom/leidong/sdk/framework/utils/CommonUtil;->getStringByName(Ljava/lang/String;Landroid/content/Context;)Ljava/lang/String;
 
-    move-result-object v0
+    move-result-object p1
 
-    invoke-virtual {p0, v0}, Lcom/leidong/sdk/s/app/login/view/LoginByRegister;->showToast(Ljava/lang/String;)V
+    invoke-virtual {p0, p1}, Lcom/leidong/sdk/s/app/login/view/LoginByRegister;->showToast(Ljava/lang/String;)V
+
+    return-void
+
+    :cond_7
+    :goto_2
+    const-string p1, "leidong_tips_login_no_name_or_pwd"
 
     .line 408
+    invoke-virtual {p0}, Lcom/leidong/sdk/s/app/login/view/LoginByRegister;->getActivity()Landroid/app/Activity;
+
+    move-result-object p2
+
+    invoke-static {p1, p2}, Lcom/leidong/sdk/framework/utils/CommonUtil;->getStringByName(Ljava/lang/String;Landroid/content/Context;)Ljava/lang/String;
+
+    move-result-object p1
+
+    invoke-virtual {p0, p1}, Lcom/leidong/sdk/s/app/login/view/LoginByRegister;->showToast(Ljava/lang/String;)V
+
     return-void
 .end method
 
@@ -1982,11 +1888,11 @@
 .method protected getParent()Landroid/view/View;
     .locals 3
 
-    .line 88
     const-string v0, "leidong_login_by_register"
 
     const-string v1, "layout"
 
+    .line 89
     invoke-virtual {p0}, Lcom/leidong/sdk/s/app/login/view/LoginByRegister;->getActivity()Landroid/app/Activity;
 
     move-result-object v2
@@ -2005,7 +1911,7 @@
 .method public isShowPhoneFirst()Z
     .locals 1
 
-    .line 72
+    .line 73
     iget-boolean v0, p0, Lcom/leidong/sdk/s/app/login/view/LoginByRegister;->showPhoneFirst:Z
 
     return v0
@@ -2014,13 +1920,13 @@
 .method protected onCreate()V
     .locals 2
 
-    .line 92
+    .line 93
     invoke-super {p0}, Lcom/leidong/sdk/s/core/view/BaseTagView;->onCreate()V
 
-    .line 93
+    .line 94
     invoke-direct {p0}, Lcom/leidong/sdk/s/app/login/view/LoginByRegister;->initViews()V
 
-    .line 94
+    .line 95
     new-instance v0, Lcom/leidong/sdk/s/core/http/RequsetManager;
 
     invoke-virtual {p0}, Lcom/leidong/sdk/s/app/login/view/LoginByRegister;->getActivity()Landroid/app/Activity;
@@ -2031,30 +1937,26 @@
 
     iput-object v0, p0, Lcom/leidong/sdk/s/app/login/view/LoginByRegister;->requestManager:Lcom/leidong/sdk/s/core/http/RequsetManager;
 
-    .line 95
     return-void
 .end method
 
 .method public onResume()V
     .locals 0
 
-    .line 98
+    .line 99
     invoke-super {p0}, Lcom/leidong/sdk/s/core/view/BaseTagView;->onResume()V
 
-    .line 108
+    .line 109
     invoke-direct {p0}, Lcom/leidong/sdk/s/app/login/view/LoginByRegister;->loadDefaultregview()V
 
-    .line 109
     return-void
 .end method
 
 .method public setShowPhoneFirst(Z)V
     .locals 0
-    .param p1, "showPhoneFirst"    # Z
-
-    .line 76
-    iput-boolean p1, p0, Lcom/leidong/sdk/s/app/login/view/LoginByRegister;->showPhoneFirst:Z
 
     .line 77
+    iput-boolean p1, p0, Lcom/leidong/sdk/s/app/login/view/LoginByRegister;->showPhoneFirst:Z
+
     return-void
 .end method

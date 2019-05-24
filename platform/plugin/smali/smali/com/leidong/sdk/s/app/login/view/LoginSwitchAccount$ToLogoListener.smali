@@ -24,9 +24,8 @@
 # direct methods
 .method constructor <init>(Lcom/leidong/sdk/s/app/login/view/LoginSwitchAccount;)V
     .locals 0
-    .param p1, "this$0"    # Lcom/leidong/sdk/s/app/login/view/LoginSwitchAccount;
 
-    .line 304
+    .line 305
     iput-object p1, p0, Lcom/leidong/sdk/s/app/login/view/LoginSwitchAccount$ToLogoListener;->this$0:Lcom/leidong/sdk/s/app/login/view/LoginSwitchAccount;
 
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -38,8 +37,6 @@
 # virtual methods
 .method public onClick(Landroid/view/View;)V
     .locals 0
-    .param p1, "arg0"    # Landroid/view/View;
 
-    .line 308
     return-void
 .end method

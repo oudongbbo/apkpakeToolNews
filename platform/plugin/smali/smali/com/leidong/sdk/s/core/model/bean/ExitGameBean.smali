@@ -25,10 +25,6 @@
 
 .method public constructor <init>(Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;)V
     .locals 0
-    .param p1, "appName"    # Ljava/lang/String;
-    .param p2, "categoryName"    # Ljava/lang/String;
-    .param p3, "iconUrl"    # Ljava/lang/String;
-    .param p4, "downloadUrl"    # Ljava/lang/String;
 
     .line 10
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -45,7 +41,6 @@
     .line 14
     iput-object p4, p0, Lcom/leidong/sdk/s/core/model/bean/ExitGameBean;->downloadUrl:Ljava/lang/String;
 
-    .line 15
     return-void
 .end method
 
@@ -89,45 +84,37 @@
 
 .method public setAppName(Ljava/lang/String;)V
     .locals 0
-    .param p1, "appName"    # Ljava/lang/String;
 
     .line 24
     iput-object p1, p0, Lcom/leidong/sdk/s/core/model/bean/ExitGameBean;->appName:Ljava/lang/String;
 
-    .line 25
     return-void
 .end method
 
 .method public setCategoryName(Ljava/lang/String;)V
     .locals 0
-    .param p1, "categoryName"    # Ljava/lang/String;
 
     .line 32
     iput-object p1, p0, Lcom/leidong/sdk/s/core/model/bean/ExitGameBean;->categoryName:Ljava/lang/String;
 
-    .line 33
     return-void
 .end method
 
 .method public setDownloadUrl(Ljava/lang/String;)V
     .locals 0
-    .param p1, "downloadUrl"    # Ljava/lang/String;
 
     .line 48
     iput-object p1, p0, Lcom/leidong/sdk/s/core/model/bean/ExitGameBean;->downloadUrl:Ljava/lang/String;
 
-    .line 49
     return-void
 .end method
 
 .method public setIconUrl(Ljava/lang/String;)V
     .locals 0
-    .param p1, "iconUrl"    # Ljava/lang/String;
 
     .line 40
     iput-object p1, p0, Lcom/leidong/sdk/s/core/model/bean/ExitGameBean;->iconUrl:Ljava/lang/String;
 
-    .line 41
     return-void
 .end method
 

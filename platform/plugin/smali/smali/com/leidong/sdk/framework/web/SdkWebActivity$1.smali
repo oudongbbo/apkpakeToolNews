@@ -24,7 +24,6 @@
 # direct methods
 .method constructor <init>(Lcom/leidong/sdk/framework/web/SdkWebActivity;)V
     .locals 0
-    .param p1, "this$0"    # Lcom/leidong/sdk/framework/web/SdkWebActivity;
 
     .line 41
     iput-object p1, p0, Lcom/leidong/sdk/framework/web/SdkWebActivity$1;->this$0:Lcom/leidong/sdk/framework/web/SdkWebActivity;
@@ -37,14 +36,12 @@
 
 # virtual methods
 .method public onDismiss(Landroid/content/DialogInterface;)V
-    .locals 1
-    .param p1, "paramDialogInterface"    # Landroid/content/DialogInterface;
+    .locals 0
 
     .line 46
-    iget-object v0, p0, Lcom/leidong/sdk/framework/web/SdkWebActivity$1;->this$0:Lcom/leidong/sdk/framework/web/SdkWebActivity;
+    iget-object p1, p0, Lcom/leidong/sdk/framework/web/SdkWebActivity$1;->this$0:Lcom/leidong/sdk/framework/web/SdkWebActivity;
 
-    invoke-virtual {v0}, Lcom/leidong/sdk/framework/web/SdkWebActivity;->finish()V
+    invoke-virtual {p1}, Lcom/leidong/sdk/framework/web/SdkWebActivity;->finish()V
 
-    .line 47
     return-void
 .end method

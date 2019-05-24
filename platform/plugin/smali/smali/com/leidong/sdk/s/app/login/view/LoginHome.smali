@@ -33,9 +33,6 @@
 # direct methods
 .method public constructor <init>(Landroid/app/Activity;Ljava/lang/String;Lcom/leidong/sdk/s/app/login/view/LoginContent;)V
     .locals 0
-    .param p1, "activity"    # Landroid/app/Activity;
-    .param p2, "title"    # Ljava/lang/String;
-    .param p3, "fatherView"    # Lcom/leidong/sdk/s/app/login/view/LoginContent;
 
     .line 30
     invoke-direct {p0, p1, p2}, Lcom/leidong/sdk/s/core/view/BaseTagView;-><init>(Landroid/app/Activity;Ljava/lang/String;)V
@@ -43,28 +40,26 @@
     .line 31
     iput-object p3, p0, Lcom/leidong/sdk/s/app/login/view/LoginHome;->father:Lcom/leidong/sdk/s/app/login/view/LoginContent;
 
-    .line 32
     return-void
 .end method
 
 .method static synthetic access$000(Lcom/leidong/sdk/s/app/login/view/LoginHome;)Lcom/leidong/sdk/s/app/login/view/LoginContent;
-    .locals 1
-    .param p0, "x0"    # Lcom/leidong/sdk/s/app/login/view/LoginHome;
+    .locals 0
 
     .line 15
-    iget-object v0, p0, Lcom/leidong/sdk/s/app/login/view/LoginHome;->father:Lcom/leidong/sdk/s/app/login/view/LoginContent;
+    iget-object p0, p0, Lcom/leidong/sdk/s/app/login/view/LoginHome;->father:Lcom/leidong/sdk/s/app/login/view/LoginContent;
 
-    return-object v0
+    return-object p0
 .end method
 
 .method private initViews()V
     .locals 2
 
-    .line 54
     const-string v0, "leidong_login_new_home_tv"
 
     const-string v1, "id"
 
+    .line 54
     invoke-virtual {p0, v0, v1}, Lcom/leidong/sdk/s/app/login/view/LoginHome;->getResourcesID(Ljava/lang/String;Ljava/lang/String;)I
 
     move-result v0
@@ -77,11 +72,11 @@
 
     iput-object v0, p0, Lcom/leidong/sdk/s/app/login/view/LoginHome;->leidong_login_new_home_tv:Landroid/widget/TextView;
 
-    .line 55
     const-string v0, "login_home_logo"
 
     const-string v1, "id"
 
+    .line 55
     invoke-virtual {p0, v0, v1}, Lcom/leidong/sdk/s/app/login/view/LoginHome;->getResourcesID(Ljava/lang/String;Ljava/lang/String;)I
 
     move-result v0
@@ -94,11 +89,11 @@
 
     iput-object v0, p0, Lcom/leidong/sdk/s/app/login/view/LoginHome;->login_home_logo:Landroid/widget/ImageView;
 
-    .line 56
     const-string v0, "login_home_vlogin"
 
     const-string v1, "id"
 
+    .line 56
     invoke-virtual {p0, v0, v1}, Lcom/leidong/sdk/s/app/login/view/LoginHome;->getResourcesID(Ljava/lang/String;Ljava/lang/String;)I
 
     move-result v0
@@ -111,11 +106,11 @@
 
     iput-object v0, p0, Lcom/leidong/sdk/s/app/login/view/LoginHome;->login_home_phonelogin:Landroid/widget/Button;
 
-    .line 57
     const-string v0, "login_home_quickregist"
 
     const-string v1, "id"
 
+    .line 57
     invoke-virtual {p0, v0, v1}, Lcom/leidong/sdk/s/app/login/view/LoginHome;->getResourcesID(Ljava/lang/String;Ljava/lang/String;)I
 
     move-result v0
@@ -128,11 +123,11 @@
 
     iput-object v0, p0, Lcom/leidong/sdk/s/app/login/view/LoginHome;->login_home_quickregist:Landroid/widget/Button;
 
-    .line 58
     const-string v0, "login_home_accountlogin"
 
     const-string v1, "id"
 
+    .line 58
     invoke-virtual {p0, v0, v1}, Lcom/leidong/sdk/s/app/login/view/LoginHome;->getResourcesID(Ljava/lang/String;Ljava/lang/String;)I
 
     move-result v0
@@ -166,13 +161,10 @@
     move-result-object v0
 
     .line 64
-    .local v0, "downloadUrl":Ljava/lang/String;
     iget-object v1, p0, Lcom/leidong/sdk/s/app/login/view/LoginHome;->login_home_logo:Landroid/widget/ImageView;
 
     invoke-virtual {p0, v1, v0}, Lcom/leidong/sdk/s/app/login/view/LoginHome;->requestLoginLogoBitmap(Landroid/widget/ImageView;Ljava/lang/String;)V
 
-    .line 66
-    .end local v0    # "downloadUrl":Ljava/lang/String;
     goto :goto_0
 
     .line 67
@@ -225,7 +217,6 @@
 
     invoke-virtual {v0, v1}, Landroid/widget/Button;->setOnClickListener(Landroid/view/View$OnClickListener;)V
 
-    .line 80
     return-void
 .end method
 
@@ -234,11 +225,11 @@
 .method protected getParent()Landroid/view/View;
     .locals 2
 
-    .line 36
     const-string v0, "leidong_login_home"
 
     const-string v1, "layout"
 
+    .line 36
     invoke-virtual {p0, v0, v1}, Lcom/leidong/sdk/s/app/login/view/LoginHome;->getResourcesID(Ljava/lang/String;Ljava/lang/String;)I
 
     move-result v0
@@ -270,7 +261,6 @@
 
     iput-object v0, p0, Lcom/leidong/sdk/s/app/login/view/LoginHome;->requestManager:Lcom/leidong/sdk/s/core/http/RequsetManager;
 
-    .line 44
     return-void
 .end method
 
@@ -287,6 +277,5 @@
 
     invoke-virtual {v0, v1}, Lcom/leidong/sdk/s/core/http/RequsetManager;->submitSdkAction(Ljava/lang/String;)V
 
-    .line 50
     return-void
 .end method

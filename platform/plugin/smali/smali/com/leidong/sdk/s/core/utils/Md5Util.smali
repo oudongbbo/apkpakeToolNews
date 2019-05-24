@@ -13,24 +13,19 @@
 .method static constructor <clinit>()V
     .locals 1
 
-    .line 17
     const/16 v0, 0x10
 
+    .line 17
     new-array v0, v0, [C
 
     fill-array-data v0, :array_0
 
     sput-object v0, Lcom/leidong/sdk/s/core/utils/Md5Util;->hexDigits:[C
 
-    .line 19
-    const/4 v0, 0x0
-
-    sput-object v0, Lcom/leidong/sdk/s/core/utils/Md5Util;->messagedigest:Ljava/security/MessageDigest;
-
-    .line 23
     :try_start_0
     const-string v0, "MD5"
 
+    .line 23
     invoke-static {v0}, Ljava/security/MessageDigest;->getInstance(Ljava/lang/String;)Ljava/security/MessageDigest;
 
     move-result-object v0
@@ -39,18 +34,8 @@
     :try_end_0
     .catch Ljava/security/NoSuchAlgorithmException; {:try_start_0 .. :try_end_0} :catch_0
 
-    .line 26
-    goto :goto_0
-
-    .line 24
     :catch_0
-    move-exception v0
-
-    .line 27
-    :goto_0
     return-void
-
-    nop
 
     :array_0
     .array-data 2
@@ -83,9 +68,7 @@
 .end method
 
 .method private static appendHexPair(BLjava/lang/StringBuffer;)V
-    .locals 3
-    .param p0, "bt"    # B
-    .param p1, "stringbuffer"    # Ljava/lang/StringBuffer;
+    .locals 2
 
     .line 96
     sget-object v0, Lcom/leidong/sdk/s/core/utils/Md5Util;->hexDigits:[C
@@ -97,27 +80,23 @@
     aget-char v0, v0, v1
 
     .line 97
-    .local v0, "c0":C
     sget-object v1, Lcom/leidong/sdk/s/core/utils/Md5Util;->hexDigits:[C
 
-    and-int/lit8 v2, p0, 0xf
+    and-int/lit8 p0, p0, 0xf
 
-    aget-char v1, v1, v2
+    aget-char p0, v1, p0
 
     .line 98
-    .local v1, "c1":C
     invoke-virtual {p1, v0}, Ljava/lang/StringBuffer;->append(C)Ljava/lang/StringBuffer;
 
     .line 99
-    invoke-virtual {p1, v1}, Ljava/lang/StringBuffer;->append(C)Ljava/lang/StringBuffer;
+    invoke-virtual {p1, p0}, Ljava/lang/StringBuffer;->append(C)Ljava/lang/StringBuffer;
 
-    .line 100
     return-void
 .end method
 
 .method private static bufferToHex([B)Ljava/lang/String;
     .locals 2
-    .param p0, "bytes"    # [B
 
     .line 83
     array-length v0, p0
@@ -126,16 +105,13 @@
 
     invoke-static {p0, v1, v0}, Lcom/leidong/sdk/s/core/utils/Md5Util;->bufferToHex([BII)Ljava/lang/String;
 
-    move-result-object v0
+    move-result-object p0
 
-    return-object v0
+    return-object p0
 .end method
 
 .method private static bufferToHex([BII)Ljava/lang/String;
-    .locals 4
-    .param p0, "bytes"    # [B
-    .param p1, "m"    # I
-    .param p2, "n"    # I
+    .locals 2
 
     .line 87
     new-instance v0, Ljava/lang/StringBuffer;
@@ -144,65 +120,51 @@
 
     invoke-direct {v0, v1}, Ljava/lang/StringBuffer;-><init>(I)V
 
-    .line 88
-    .local v0, "stringbuffer":Ljava/lang/StringBuffer;
-    add-int v1, p1, p2
+    add-int/2addr p2, p1
 
-    .line 89
-    .local v1, "k":I
-    move v2, p1
-
-    .line 89
-    .local v2, "l":I
     :goto_0
-    if-ge v2, v1, :cond_0
+    if-ge p1, p2, :cond_0
 
     .line 90
-    aget-byte v3, p0, v2
+    aget-byte v1, p0, p1
 
-    invoke-static {v3, v0}, Lcom/leidong/sdk/s/core/utils/Md5Util;->appendHexPair(BLjava/lang/StringBuffer;)V
+    invoke-static {v1, v0}, Lcom/leidong/sdk/s/core/utils/Md5Util;->appendHexPair(BLjava/lang/StringBuffer;)V
 
-    .line 89
-    add-int/lit8 v2, v2, 0x1
+    add-int/lit8 p1, p1, 0x1
 
     goto :goto_0
 
     .line 92
-    .end local v2    # "l":I
     :cond_0
     invoke-virtual {v0}, Ljava/lang/StringBuffer;->toString()Ljava/lang/String;
 
-    move-result-object v2
+    move-result-object p0
 
-    return-object v2
+    return-object p0
 .end method
 
 .method public static getFileMD5String(Ljava/io/File;)Ljava/lang/String;
     .locals 4
-    .param p0, "file"    # Ljava/io/File;
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Ljava/io/IOException;
         }
     .end annotation
 
-    .line 37
     const-wide/16 v0, 0x0
 
     const-wide/16 v2, -0x1
 
+    .line 37
     invoke-static {p0, v0, v1, v2, v3}, Lcom/leidong/sdk/s/core/utils/Md5Util;->getFileMD5String(Ljava/io/File;JJ)Ljava/lang/String;
 
-    move-result-object v0
+    move-result-object p0
 
-    return-object v0
+    return-object p0
 .end method
 
 .method public static getFileMD5String(Ljava/io/File;JJ)Ljava/lang/String;
-    .locals 10
-    .param p0, "file"    # Ljava/io/File;
-    .param p1, "start"    # J
-    .param p3, "length"    # J
+    .locals 7
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Ljava/io/IOException;
@@ -215,88 +177,84 @@
     invoke-direct {v0, p0}, Ljava/io/FileInputStream;-><init>(Ljava/io/File;)V
 
     .line 52
-    .local v0, "fis":Ljava/io/FileInputStream;
     invoke-virtual {v0}, Ljava/io/FileInputStream;->getChannel()Ljava/nio/channels/FileChannel;
-
-    move-result-object v7
-
-    .line 54
-    .local v7, "ch":Ljava/nio/channels/FileChannel;
-    invoke-virtual {p0}, Ljava/io/File;->length()J
-
-    move-result-wide v1
-
-    sub-long v8, v1, p1
-
-    .line 56
-    .local v8, "remain":J
-    const-wide/16 v1, 0x0
-
-    cmp-long v3, p3, v1
-
-    if-ltz v3, :cond_0
-
-    cmp-long v1, p3, v8
-
-    if-lez v1, :cond_1
-
-    .line 57
-    :cond_0
-    move-wide p3, v8
-
-    .line 60
-    :cond_1
-    sget-object v2, Ljava/nio/channels/FileChannel$MapMode;->READ_ONLY:Ljava/nio/channels/FileChannel$MapMode;
-
-    move-object v1, v7
-
-    move-wide v3, p1
-
-    move-wide v5, p3
-
-    invoke-virtual/range {v1 .. v6}, Ljava/nio/channels/FileChannel;->map(Ljava/nio/channels/FileChannel$MapMode;JJ)Ljava/nio/MappedByteBuffer;
 
     move-result-object v1
 
-    .line 63
-    .local v1, "byteBuffer":Ljava/nio/MappedByteBuffer;
-    sget-object v2, Lcom/leidong/sdk/s/core/utils/Md5Util;->messagedigest:Ljava/security/MessageDigest;
+    .line 54
+    invoke-virtual {p0}, Ljava/io/File;->length()J
 
-    invoke-virtual {v2, v1}, Ljava/security/MessageDigest;->update(Ljava/nio/ByteBuffer;)V
+    move-result-wide v2
+
+    sub-long v4, v2, p1
+
+    const-wide/16 v2, 0x0
+
+    cmp-long p0, p3, v2
+
+    if-ltz p0, :cond_1
+
+    cmp-long p0, p3, v4
+
+    if-lez p0, :cond_0
+
+    goto :goto_0
+
+    :cond_0
+    move-wide v5, p3
+
+    goto :goto_1
+
+    :cond_1
+    :goto_0
+    move-wide v5, v4
+
+    .line 60
+    :goto_1
+    sget-object v2, Ljava/nio/channels/FileChannel$MapMode;->READ_ONLY:Ljava/nio/channels/FileChannel$MapMode;
+
+    move-wide v3, p1
+
+    invoke-virtual/range {v1 .. v6}, Ljava/nio/channels/FileChannel;->map(Ljava/nio/channels/FileChannel$MapMode;JJ)Ljava/nio/MappedByteBuffer;
+
+    move-result-object p0
+
+    .line 63
+    sget-object p1, Lcom/leidong/sdk/s/core/utils/Md5Util;->messagedigest:Ljava/security/MessageDigest;
+
+    invoke-virtual {p1, p0}, Ljava/security/MessageDigest;->update(Ljava/nio/ByteBuffer;)V
 
     .line 64
-    sget-object v2, Lcom/leidong/sdk/s/core/utils/Md5Util;->messagedigest:Ljava/security/MessageDigest;
+    sget-object p0, Lcom/leidong/sdk/s/core/utils/Md5Util;->messagedigest:Ljava/security/MessageDigest;
 
-    invoke-virtual {v2}, Ljava/security/MessageDigest;->digest()[B
+    invoke-virtual {p0}, Ljava/security/MessageDigest;->digest()[B
 
-    move-result-object v2
+    move-result-object p0
 
-    invoke-static {v2}, Lcom/leidong/sdk/s/core/utils/Md5Util;->bufferToHex([B)Ljava/lang/String;
+    invoke-static {p0}, Lcom/leidong/sdk/s/core/utils/Md5Util;->bufferToHex([B)Ljava/lang/String;
 
-    move-result-object v2
+    move-result-object p0
 
-    return-object v2
+    return-object p0
 .end method
 
 .method public static getMD5String(Ljava/lang/String;)Ljava/lang/String;
-    .locals 1
-    .param p0, "s"    # Ljava/lang/String;
+    .locals 0
 
     .line 74
     invoke-virtual {p0}, Ljava/lang/String;->getBytes()[B
 
-    move-result-object v0
+    move-result-object p0
 
-    invoke-static {v0}, Lcom/leidong/sdk/s/core/utils/Md5Util;->getMD5String([B)Ljava/lang/String;
+    invoke-static {p0}, Lcom/leidong/sdk/s/core/utils/Md5Util;->getMD5String([B)Ljava/lang/String;
 
-    move-result-object v0
+    move-result-object p0
 
-    return-object v0
+    return-object p0
 .end method
 
 .method public static getMD5String([B)Ljava/lang/String;
     .locals 1
-    .param p0, "bytes"    # [B
 
     .line 78
     sget-object v0, Lcom/leidong/sdk/s/core/utils/Md5Util;->messagedigest:Ljava/security/MessageDigest;
@@ -304,15 +262,15 @@
     invoke-virtual {v0, p0}, Ljava/security/MessageDigest;->update([B)V
 
     .line 79
-    sget-object v0, Lcom/leidong/sdk/s/core/utils/Md5Util;->messagedigest:Ljava/security/MessageDigest;
+    sget-object p0, Lcom/leidong/sdk/s/core/utils/Md5Util;->messagedigest:Ljava/security/MessageDigest;
 
-    invoke-virtual {v0}, Ljava/security/MessageDigest;->digest()[B
+    invoke-virtual {p0}, Ljava/security/MessageDigest;->digest()[B
 
-    move-result-object v0
+    move-result-object p0
 
-    invoke-static {v0}, Lcom/leidong/sdk/s/core/utils/Md5Util;->bufferToHex([B)Ljava/lang/String;
+    invoke-static {p0}, Lcom/leidong/sdk/s/core/utils/Md5Util;->bufferToHex([B)Ljava/lang/String;
 
-    move-result-object v0
+    move-result-object p0
 
-    return-object v0
+    return-object p0
 .end method

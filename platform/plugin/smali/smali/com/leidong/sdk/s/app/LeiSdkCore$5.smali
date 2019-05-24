@@ -28,7 +28,6 @@
 # direct methods
 .method constructor <init>(Lcom/leidong/sdk/s/app/LeiSdkCore;Lcom/leidong/sdk/framework/interfaces/SdkResultCallback;Landroid/content/Context;)V
     .locals 0
-    .param p1, "this$0"    # Lcom/leidong/sdk/s/app/LeiSdkCore;
 
     .line 263
     iput-object p1, p0, Lcom/leidong/sdk/s/app/LeiSdkCore$5;->this$0:Lcom/leidong/sdk/s/app/LeiSdkCore;
@@ -46,7 +45,6 @@
 # virtual methods
 .method public onCancel(Ljava/lang/String;)V
     .locals 2
-    .param p1, "message"    # Ljava/lang/String;
 
     .line 281
     iget-object v0, p0, Lcom/leidong/sdk/s/app/LeiSdkCore$5;->this$0:Lcom/leidong/sdk/s/app/LeiSdkCore;
@@ -60,13 +58,11 @@
 
     invoke-interface {v0, p1}, Lcom/leidong/sdk/framework/interfaces/SdkResultCallback;->onCancel(Ljava/lang/String;)V
 
-    .line 283
     return-void
 .end method
 
 .method public onFail(Ljava/lang/String;)V
     .locals 2
-    .param p1, "message"    # Ljava/lang/String;
 
     .line 275
     iget-object v0, p0, Lcom/leidong/sdk/s/app/LeiSdkCore$5;->this$0:Lcom/leidong/sdk/s/app/LeiSdkCore;
@@ -80,17 +76,15 @@
 
     invoke-interface {v0, p1}, Lcom/leidong/sdk/framework/interfaces/SdkResultCallback;->onFail(Ljava/lang/String;)V
 
-    .line 277
     return-void
 .end method
 
 .method public onSuccess(Landroid/os/Bundle;)V
     .locals 1
-    .param p1, "bundle"    # Landroid/os/Bundle;
 
-    .line 266
     const/4 v0, 0x0
 
+    .line 266
     sput-boolean v0, Lcom/leidong/sdk/s/app/LeiSdkCore;->isLoginSuccess:Z
 
     .line 270
@@ -98,6 +92,5 @@
 
     invoke-interface {v0, p1}, Lcom/leidong/sdk/framework/interfaces/SdkResultCallback;->onSuccess(Landroid/os/Bundle;)V
 
-    .line 271
     return-void
 .end method

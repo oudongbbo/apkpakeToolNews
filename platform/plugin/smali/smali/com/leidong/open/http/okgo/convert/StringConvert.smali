@@ -37,7 +37,6 @@
     .locals 1
 
     .line 18
-    # getter for: Lcom/leidong/open/http/okgo/convert/StringConvert$ConvertHolder;->convert:Lcom/leidong/open/http/okgo/convert/StringConvert;
     invoke-static {}, Lcom/leidong/open/http/okgo/convert/StringConvert$ConvertHolder;->access$000()Lcom/leidong/open/http/okgo/convert/StringConvert;
 
     move-result-object v0
@@ -64,8 +63,7 @@
 .end method
 
 .method public convertSuccess(Lcom/leidong/open/http/okhttp3/Response;)Ljava/lang/String;
-    .locals 1
-    .param p1, "value"    # Lcom/leidong/open/http/okhttp3/Response;
+    .locals 0
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Ljava/lang/Exception;
@@ -75,11 +73,11 @@
     .line 27
     invoke-virtual {p1}, Lcom/leidong/open/http/okhttp3/Response;->body()Lcom/leidong/open/http/okhttp3/ResponseBody;
 
-    move-result-object v0
+    move-result-object p1
 
-    invoke-virtual {v0}, Lcom/leidong/open/http/okhttp3/ResponseBody;->string()Ljava/lang/String;
+    invoke-virtual {p1}, Lcom/leidong/open/http/okhttp3/ResponseBody;->string()Ljava/lang/String;
 
-    move-result-object v0
+    move-result-object p1
 
-    return-object v0
+    return-object p1
 .end method

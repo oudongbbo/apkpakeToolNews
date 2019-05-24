@@ -24,7 +24,6 @@
 # direct methods
 .method constructor <init>(Lcom/leidong/sdk/s/app/LeiDemoActivity;)V
     .locals 0
-    .param p1, "this$0"    # Lcom/leidong/sdk/s/app/LeiDemoActivity;
 
     .line 128
     iput-object p1, p0, Lcom/leidong/sdk/s/app/LeiDemoActivity$4;->this$0:Lcom/leidong/sdk/s/app/LeiDemoActivity;
@@ -37,24 +36,22 @@
 
 # virtual methods
 .method public onClick(Landroid/view/View;)V
-    .locals 2
-    .param p1, "v"    # Landroid/view/View;
+    .locals 1
 
     .line 132
-    new-instance v0, Landroid/os/Handler;
+    new-instance p1, Landroid/os/Handler;
 
     invoke-static {}, Landroid/os/Looper;->getMainLooper()Landroid/os/Looper;
 
-    move-result-object v1
+    move-result-object v0
 
-    invoke-direct {v0, v1}, Landroid/os/Handler;-><init>(Landroid/os/Looper;)V
+    invoke-direct {p1, v0}, Landroid/os/Handler;-><init>(Landroid/os/Looper;)V
 
-    new-instance v1, Lcom/leidong/sdk/s/app/LeiDemoActivity$4$1;
+    new-instance v0, Lcom/leidong/sdk/s/app/LeiDemoActivity$4$1;
 
-    invoke-direct {v1, p0}, Lcom/leidong/sdk/s/app/LeiDemoActivity$4$1;-><init>(Lcom/leidong/sdk/s/app/LeiDemoActivity$4;)V
+    invoke-direct {v0, p0}, Lcom/leidong/sdk/s/app/LeiDemoActivity$4$1;-><init>(Lcom/leidong/sdk/s/app/LeiDemoActivity$4;)V
 
-    invoke-virtual {v0, v1}, Landroid/os/Handler;->post(Ljava/lang/Runnable;)Z
+    invoke-virtual {p1, v0}, Landroid/os/Handler;->post(Ljava/lang/Runnable;)Z
 
-    .line 162
     return-void
 .end method

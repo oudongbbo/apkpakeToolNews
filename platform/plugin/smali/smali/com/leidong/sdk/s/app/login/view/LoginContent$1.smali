@@ -24,9 +24,8 @@
 # direct methods
 .method constructor <init>(Lcom/leidong/sdk/s/app/login/view/LoginContent;)V
     .locals 0
-    .param p1, "this$0"    # Lcom/leidong/sdk/s/app/login/view/LoginContent;
 
-    .line 174
+    .line 173
     iput-object p1, p0, Lcom/leidong/sdk/s/app/login/view/LoginContent$1;->this$0:Lcom/leidong/sdk/s/app/login/view/LoginContent;
 
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -38,17 +37,14 @@
 # virtual methods
 .method public onCancel(Ljava/lang/String;)V
     .locals 0
-    .param p1, "message"    # Ljava/lang/String;
 
-    .line 192
     return-void
 .end method
 
 .method public onFail(Ljava/lang/String;)V
     .locals 1
-    .param p1, "message"    # Ljava/lang/String;
 
-    .line 185
+    .line 184
     iget-object v0, p0, Lcom/leidong/sdk/s/app/login/view/LoginContent$1;->this$0:Lcom/leidong/sdk/s/app/login/view/LoginContent;
 
     invoke-virtual {v0}, Lcom/leidong/sdk/s/app/login/view/LoginContent;->getCallBack()Lcom/leidong/sdk/framework/interfaces/SdkResultCallback;
@@ -57,15 +53,13 @@
 
     invoke-interface {v0, p1}, Lcom/leidong/sdk/framework/interfaces/SdkResultCallback;->onFail(Ljava/lang/String;)V
 
-    .line 186
     return-void
 .end method
 
 .method public onSuccess(Landroid/os/Bundle;)V
     .locals 1
-    .param p1, "bundle"    # Landroid/os/Bundle;
 
-    .line 179
+    .line 178
     iget-object v0, p0, Lcom/leidong/sdk/s/app/login/view/LoginContent$1;->this$0:Lcom/leidong/sdk/s/app/login/view/LoginContent;
 
     invoke-virtual {v0}, Lcom/leidong/sdk/s/app/login/view/LoginContent;->getCallBack()Lcom/leidong/sdk/framework/interfaces/SdkResultCallback;
@@ -74,11 +68,10 @@
 
     invoke-interface {v0, p1}, Lcom/leidong/sdk/framework/interfaces/SdkResultCallback;->onSuccess(Landroid/os/Bundle;)V
 
-    .line 180
-    iget-object v0, p0, Lcom/leidong/sdk/s/app/login/view/LoginContent$1;->this$0:Lcom/leidong/sdk/s/app/login/view/LoginContent;
+    .line 179
+    iget-object p1, p0, Lcom/leidong/sdk/s/app/login/view/LoginContent$1;->this$0:Lcom/leidong/sdk/s/app/login/view/LoginContent;
 
-    invoke-virtual {v0}, Lcom/leidong/sdk/s/app/login/view/LoginContent;->closeLoginDialog()V
+    invoke-virtual {p1}, Lcom/leidong/sdk/s/app/login/view/LoginContent;->closeLoginDialog()V
 
-    .line 181
     return-void
 .end method

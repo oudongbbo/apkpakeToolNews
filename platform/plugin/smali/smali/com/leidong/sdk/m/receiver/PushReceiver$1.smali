@@ -26,7 +26,6 @@
 # direct methods
 .method constructor <init>(Lcom/leidong/sdk/m/receiver/PushReceiver;Lcom/leidong/sdk/m/http/MReqManager;)V
     .locals 0
-    .param p1, "this$0"    # Lcom/leidong/sdk/m/receiver/PushReceiver;
 
     .line 128
     iput-object p1, p0, Lcom/leidong/sdk/m/receiver/PushReceiver$1;->this$0:Lcom/leidong/sdk/m/receiver/PushReceiver;
@@ -41,12 +40,31 @@
 
 # virtual methods
 .method public onFail(ILjava/lang/String;)V
-    .locals 4
-    .param p1, "code"    # I
-    .param p2, "msg"    # Ljava/lang/String;
+    .locals 3
 
     .line 164
-    iget-object v0, p0, Lcom/leidong/sdk/m/receiver/PushReceiver$1;->this$0:Lcom/leidong/sdk/m/receiver/PushReceiver;
+    iget-object p1, p0, Lcom/leidong/sdk/m/receiver/PushReceiver$1;->this$0:Lcom/leidong/sdk/m/receiver/PushReceiver;
+
+    new-instance v0, Ljava/lang/StringBuilder;
+
+    invoke-direct {v0}, Ljava/lang/StringBuilder;-><init>()V
+
+    const-string v1, "\u63a8\u9001\u8bf7\u6c42\u5931\u8d25:"
+
+    invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    invoke-virtual {v0, p2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    invoke-virtual {v0}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+
+    move-result-object v0
+
+    invoke-static {p1, v0}, Lcom/leidong/sdk/m/receiver/PushReceiver;->access$000(Lcom/leidong/sdk/m/receiver/PushReceiver;Ljava/lang/String;)V
+
+    .line 165
+    iget-object p1, p0, Lcom/leidong/sdk/m/receiver/PushReceiver$1;->val$requestManager:Lcom/leidong/sdk/m/http/MReqManager;
+
+    const-string v0, "error_push"
 
     new-instance v1, Ljava/lang/StringBuilder;
 
@@ -60,39 +78,15 @@
 
     invoke-virtual {v1}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
 
-    move-result-object v1
+    move-result-object p2
 
-    # invokes: Lcom/leidong/sdk/m/receiver/PushReceiver;->printLog(Ljava/lang/String;)V
-    invoke-static {v0, v1}, Lcom/leidong/sdk/m/receiver/PushReceiver;->access$000(Lcom/leidong/sdk/m/receiver/PushReceiver;Ljava/lang/String;)V
+    invoke-virtual {p1, v0, p2}, Lcom/leidong/sdk/m/http/MReqManager;->postSdkErrorAction(Ljava/lang/String;Ljava/lang/String;)V
 
-    .line 165
-    iget-object v0, p0, Lcom/leidong/sdk/m/receiver/PushReceiver$1;->val$requestManager:Lcom/leidong/sdk/m/http/MReqManager;
-
-    const-string v1, "error_push"
-
-    new-instance v2, Ljava/lang/StringBuilder;
-
-    invoke-direct {v2}, Ljava/lang/StringBuilder;-><init>()V
-
-    const-string v3, "\u63a8\u9001\u8bf7\u6c42\u5931\u8d25:"
-
-    invoke-virtual {v2, v3}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    invoke-virtual {v2, p2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    invoke-virtual {v2}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
-
-    move-result-object v2
-
-    invoke-virtual {v0, v1, v2}, Lcom/leidong/sdk/m/http/MReqManager;->postSdkErrorAction(Ljava/lang/String;Ljava/lang/String;)V
-
-    .line 166
     return-void
 .end method
 
 .method public onSuccess(Ljava/lang/String;)V
     .locals 2
-    .param p1, "content"    # Ljava/lang/String;
 
     .line 133
     iget-object v0, p0, Lcom/leidong/sdk/m/receiver/PushReceiver$1;->this$0:Lcom/leidong/sdk/m/receiver/PushReceiver;
@@ -103,6 +97,5 @@
 
     invoke-virtual {v0, p1, v1}, Lcom/leidong/sdk/m/receiver/PushReceiver;->handleRepContent(Ljava/lang/String;Lcom/leidong/sdk/framework/http/HttpCallBack;)V
 
-    .line 160
     return-void
 .end method

@@ -30,7 +30,6 @@
 # direct methods
 .method constructor <init>(Lcom/leidong/open/http/okhttp3/internal/http1/Http1Codec;J)V
     .locals 1
-    .param p2, "bytesRemaining"    # J
 
     .line 272
     iput-object p1, p0, Lcom/leidong/open/http/okhttp3/internal/http1/Http1Codec$FixedLengthSink;->this$0:Lcom/leidong/open/http/okhttp3/internal/http1/Http1Codec;
@@ -55,7 +54,6 @@
     .line 273
     iput-wide p2, p0, Lcom/leidong/open/http/okhttp3/internal/http1/Http1Codec$FixedLengthSink;->bytesRemaining:J
 
-    .line 274
     return-void
 .end method
 
@@ -76,10 +74,10 @@
 
     return-void
 
-    .line 298
     :cond_0
     const/4 v0, 0x1
 
+    .line 298
     iput-boolean v0, p0, Lcom/leidong/open/http/okhttp3/internal/http1/Http1Codec$FixedLengthSink;->closed:Z
 
     .line 299
@@ -114,7 +112,6 @@
 
     iput v1, v0, Lcom/leidong/open/http/okhttp3/internal/http1/Http1Codec;->state:I
 
-    .line 302
     return-void
 .end method
 
@@ -141,7 +138,6 @@
 
     invoke-interface {v0}, Lcom/leidong/open/http/okio/BufferedSink;->flush()V
 
-    .line 294
     return-void
 .end method
 
@@ -155,9 +151,7 @@
 .end method
 
 .method public write(Lcom/leidong/open/http/okio/Buffer;J)V
-    .locals 8
-    .param p1, "source"    # Lcom/leidong/open/http/okio/Buffer;
-    .param p2, "byteCount"    # J
+    .locals 6
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Ljava/io/IOException;
@@ -169,25 +163,25 @@
 
     if-eqz v0, :cond_0
 
-    new-instance v0, Ljava/lang/IllegalStateException;
+    new-instance p1, Ljava/lang/IllegalStateException;
 
-    const-string v1, "closed"
+    const-string p2, "closed"
 
-    invoke-direct {v0, v1}, Ljava/lang/IllegalStateException;-><init>(Ljava/lang/String;)V
+    invoke-direct {p1, p2}, Ljava/lang/IllegalStateException;-><init>(Ljava/lang/String;)V
 
-    throw v0
+    throw p1
 
     .line 282
     :cond_0
     invoke-virtual {p1}, Lcom/leidong/open/http/okio/Buffer;->size()J
 
-    move-result-wide v2
+    move-result-wide v0
 
-    const-wide/16 v4, 0x0
+    const-wide/16 v2, 0x0
 
-    move-wide v6, p2
+    move-wide v4, p2
 
-    invoke-static/range {v2 .. v7}, Lcom/leidong/open/http/okhttp3/internal/Util;->checkOffsetAndCount(JJJ)V
+    invoke-static/range {v0 .. v5}, Lcom/leidong/open/http/okhttp3/internal/Util;->checkOffsetAndCount(JJJ)V
 
     .line 283
     iget-wide v0, p0, Lcom/leidong/open/http/okhttp3/internal/http1/Http1Codec$FixedLengthSink;->bytesRemaining:J
@@ -197,33 +191,33 @@
     if-lez v2, :cond_1
 
     .line 284
-    new-instance v0, Ljava/net/ProtocolException;
+    new-instance p1, Ljava/net/ProtocolException;
 
-    new-instance v1, Ljava/lang/StringBuilder;
+    new-instance v0, Ljava/lang/StringBuilder;
 
-    invoke-direct {v1}, Ljava/lang/StringBuilder;-><init>()V
+    invoke-direct {v0}, Ljava/lang/StringBuilder;-><init>()V
 
-    const-string v2, "expected "
+    const-string v1, "expected "
 
-    invoke-virtual {v1, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    iget-wide v2, p0, Lcom/leidong/open/http/okhttp3/internal/http1/Http1Codec$FixedLengthSink;->bytesRemaining:J
+    iget-wide v1, p0, Lcom/leidong/open/http/okhttp3/internal/http1/Http1Codec$FixedLengthSink;->bytesRemaining:J
 
-    invoke-virtual {v1, v2, v3}, Ljava/lang/StringBuilder;->append(J)Ljava/lang/StringBuilder;
+    invoke-virtual {v0, v1, v2}, Ljava/lang/StringBuilder;->append(J)Ljava/lang/StringBuilder;
 
-    const-string v2, " bytes but received "
+    const-string v1, " bytes but received "
 
-    invoke-virtual {v1, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    invoke-virtual {v1, p2, p3}, Ljava/lang/StringBuilder;->append(J)Ljava/lang/StringBuilder;
+    invoke-virtual {v0, p2, p3}, Ljava/lang/StringBuilder;->append(J)Ljava/lang/StringBuilder;
 
-    invoke-virtual {v1}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+    invoke-virtual {v0}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
 
-    move-result-object v1
+    move-result-object p2
 
-    invoke-direct {v0, v1}, Ljava/net/ProtocolException;-><init>(Ljava/lang/String;)V
+    invoke-direct {p1, p2}, Ljava/net/ProtocolException;-><init>(Ljava/lang/String;)V
 
-    throw v0
+    throw p1
 
     .line 287
     :cond_1
@@ -240,6 +234,5 @@
 
     iput-wide v2, p0, Lcom/leidong/open/http/okhttp3/internal/http1/Http1Codec$FixedLengthSink;->bytesRemaining:J
 
-    .line 289
     return-void
 .end method

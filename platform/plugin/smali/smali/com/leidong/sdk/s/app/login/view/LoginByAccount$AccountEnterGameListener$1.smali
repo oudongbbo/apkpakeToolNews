@@ -26,9 +26,8 @@
 # direct methods
 .method constructor <init>(Lcom/leidong/sdk/s/app/login/view/LoginByAccount$AccountEnterGameListener;Ljava/lang/String;)V
     .locals 0
-    .param p1, "this$1"    # Lcom/leidong/sdk/s/app/login/view/LoginByAccount$AccountEnterGameListener;
 
-    .line 266
+    .line 285
     iput-object p1, p0, Lcom/leidong/sdk/s/app/login/view/LoginByAccount$AccountEnterGameListener$1;->this$1:Lcom/leidong/sdk/s/app/login/view/LoginByAccount$AccountEnterGameListener;
 
     iput-object p2, p0, Lcom/leidong/sdk/s/app/login/view/LoginByAccount$AccountEnterGameListener$1;->val$pwd:Ljava/lang/String;
@@ -41,57 +40,50 @@
 
 # virtual methods
 .method public onFail(ILjava/lang/String;)V
-    .locals 2
-    .param p1, "errorCode"    # I
-    .param p2, "errorMsg"    # Ljava/lang/String;
+    .locals 1
 
-    .line 288
-    iget-object v0, p0, Lcom/leidong/sdk/s/app/login/view/LoginByAccount$AccountEnterGameListener$1;->this$1:Lcom/leidong/sdk/s/app/login/view/LoginByAccount$AccountEnterGameListener;
+    .line 311
+    iget-object p1, p0, Lcom/leidong/sdk/s/app/login/view/LoginByAccount$AccountEnterGameListener$1;->this$1:Lcom/leidong/sdk/s/app/login/view/LoginByAccount$AccountEnterGameListener;
 
-    iget-object v0, v0, Lcom/leidong/sdk/s/app/login/view/LoginByAccount$AccountEnterGameListener;->this$0:Lcom/leidong/sdk/s/app/login/view/LoginByAccount;
+    iget-object p1, p1, Lcom/leidong/sdk/s/app/login/view/LoginByAccount$AccountEnterGameListener;->this$0:Lcom/leidong/sdk/s/app/login/view/LoginByAccount;
 
-    # getter for: Lcom/leidong/sdk/s/app/login/view/LoginByAccount;->login_account_entergame:Landroid/widget/Button;
-    invoke-static {v0}, Lcom/leidong/sdk/s/app/login/view/LoginByAccount;->access$1000(Lcom/leidong/sdk/s/app/login/view/LoginByAccount;)Landroid/widget/Button;
+    invoke-static {p1}, Lcom/leidong/sdk/s/app/login/view/LoginByAccount;->access$1000(Lcom/leidong/sdk/s/app/login/view/LoginByAccount;)Landroid/widget/Button;
 
-    move-result-object v0
+    move-result-object p1
 
-    const/4 v1, 0x1
+    const/4 v0, 0x1
 
-    invoke-virtual {v0, v1}, Landroid/widget/Button;->setEnabled(Z)V
+    invoke-virtual {p1, v0}, Landroid/widget/Button;->setEnabled(Z)V
 
-    .line 289
-    iget-object v0, p0, Lcom/leidong/sdk/s/app/login/view/LoginByAccount$AccountEnterGameListener$1;->this$1:Lcom/leidong/sdk/s/app/login/view/LoginByAccount$AccountEnterGameListener;
+    .line 312
+    iget-object p1, p0, Lcom/leidong/sdk/s/app/login/view/LoginByAccount$AccountEnterGameListener$1;->this$1:Lcom/leidong/sdk/s/app/login/view/LoginByAccount$AccountEnterGameListener;
 
-    iget-object v0, v0, Lcom/leidong/sdk/s/app/login/view/LoginByAccount$AccountEnterGameListener;->this$0:Lcom/leidong/sdk/s/app/login/view/LoginByAccount;
+    iget-object p1, p1, Lcom/leidong/sdk/s/app/login/view/LoginByAccount$AccountEnterGameListener;->this$0:Lcom/leidong/sdk/s/app/login/view/LoginByAccount;
 
-    invoke-virtual {v0, p2}, Lcom/leidong/sdk/s/app/login/view/LoginByAccount;->showToast(Ljava/lang/String;)V
+    invoke-virtual {p1, p2}, Lcom/leidong/sdk/s/app/login/view/LoginByAccount;->showToast(Ljava/lang/String;)V
 
-    .line 290
     return-void
 .end method
 
 .method public onSuccess(Ljava/lang/String;)V
     .locals 2
-    .param p1, "content"    # Ljava/lang/String;
 
-    .line 270
+    .line 290
     iget-object v0, p0, Lcom/leidong/sdk/s/app/login/view/LoginByAccount$AccountEnterGameListener$1;->this$1:Lcom/leidong/sdk/s/app/login/view/LoginByAccount$AccountEnterGameListener;
 
     iget-object v0, v0, Lcom/leidong/sdk/s/app/login/view/LoginByAccount$AccountEnterGameListener;->this$0:Lcom/leidong/sdk/s/app/login/view/LoginByAccount;
 
-    # getter for: Lcom/leidong/sdk/s/app/login/view/LoginByAccount;->login_account_entergame:Landroid/widget/Button;
     invoke-static {v0}, Lcom/leidong/sdk/s/app/login/view/LoginByAccount;->access$1000(Lcom/leidong/sdk/s/app/login/view/LoginByAccount;)Landroid/widget/Button;
 
     move-result-object v0
 
     if-eqz v0, :cond_0
 
-    .line 271
+    .line 291
     iget-object v0, p0, Lcom/leidong/sdk/s/app/login/view/LoginByAccount$AccountEnterGameListener$1;->this$1:Lcom/leidong/sdk/s/app/login/view/LoginByAccount$AccountEnterGameListener;
 
     iget-object v0, v0, Lcom/leidong/sdk/s/app/login/view/LoginByAccount$AccountEnterGameListener;->this$0:Lcom/leidong/sdk/s/app/login/view/LoginByAccount;
 
-    # getter for: Lcom/leidong/sdk/s/app/login/view/LoginByAccount;->login_account_entergame:Landroid/widget/Button;
     invoke-static {v0}, Lcom/leidong/sdk/s/app/login/view/LoginByAccount;->access$1000(Lcom/leidong/sdk/s/app/login/view/LoginByAccount;)Landroid/widget/Button;
 
     move-result-object v0
@@ -100,13 +92,12 @@
 
     invoke-virtual {v0, v1}, Landroid/widget/Button;->setEnabled(Z)V
 
-    .line 274
+    .line 294
     :cond_0
     iget-object v0, p0, Lcom/leidong/sdk/s/app/login/view/LoginByAccount$AccountEnterGameListener$1;->this$1:Lcom/leidong/sdk/s/app/login/view/LoginByAccount$AccountEnterGameListener;
 
     iget-object v0, v0, Lcom/leidong/sdk/s/app/login/view/LoginByAccount$AccountEnterGameListener;->this$0:Lcom/leidong/sdk/s/app/login/view/LoginByAccount;
 
-    # getter for: Lcom/leidong/sdk/s/app/login/view/LoginByAccount;->loginMain:Lcom/leidong/sdk/s/app/login/view/LoginContent;
     invoke-static {v0}, Lcom/leidong/sdk/s/app/login/view/LoginByAccount;->access$500(Lcom/leidong/sdk/s/app/login/view/LoginByAccount;)Lcom/leidong/sdk/s/app/login/view/LoginContent;
 
     move-result-object v0
@@ -121,6 +112,5 @@
 
     invoke-virtual {v0, p1, v1}, Lcom/leidong/sdk/s/core/http/ResponseManager;->handleRepContent(Ljava/lang/String;Lcom/leidong/sdk/framework/http/HttpCallBack;)V
 
-    .line 285
     return-void
 .end method

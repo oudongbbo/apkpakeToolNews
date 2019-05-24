@@ -24,9 +24,8 @@
 # direct methods
 .method constructor <init>(Lcom/leidong/sdk/s/app/login/view/LoginByAccount;)V
     .locals 0
-    .param p1, "this$0"    # Lcom/leidong/sdk/s/app/login/view/LoginByAccount;
 
-    .line 311
+    .line 336
     iput-object p1, p0, Lcom/leidong/sdk/s/app/login/view/LoginByAccount$PasswordStateListener;->this$0:Lcom/leidong/sdk/s/app/login/view/LoginByAccount;
 
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -37,125 +36,112 @@
 
 # virtual methods
 .method public onClick(Landroid/view/View;)V
-    .locals 5
-    .param p1, "v"    # Landroid/view/View;
+    .locals 3
 
-    .line 314
-    iget-object v0, p0, Lcom/leidong/sdk/s/app/login/view/LoginByAccount$PasswordStateListener;->this$0:Lcom/leidong/sdk/s/app/login/view/LoginByAccount;
+    .line 340
+    iget-object p1, p0, Lcom/leidong/sdk/s/app/login/view/LoginByAccount$PasswordStateListener;->this$0:Lcom/leidong/sdk/s/app/login/view/LoginByAccount;
 
-    # getter for: Lcom/leidong/sdk/s/app/login/view/LoginByAccount;->login_account_password:Landroid/widget/EditText;
-    invoke-static {v0}, Lcom/leidong/sdk/s/app/login/view/LoginByAccount;->access$400(Lcom/leidong/sdk/s/app/login/view/LoginByAccount;)Landroid/widget/EditText;
+    invoke-static {p1}, Lcom/leidong/sdk/s/app/login/view/LoginByAccount;->access$400(Lcom/leidong/sdk/s/app/login/view/LoginByAccount;)Landroid/widget/EditText;
 
-    move-result-object v0
+    move-result-object p1
 
-    invoke-virtual {v0}, Landroid/widget/EditText;->getText()Landroid/text/Editable;
+    invoke-virtual {p1}, Landroid/widget/EditText;->getText()Landroid/text/Editable;
 
-    move-result-object v0
+    move-result-object p1
 
-    invoke-virtual {v0}, Ljava/lang/Object;->toString()Ljava/lang/String;
+    invoke-virtual {p1}, Ljava/lang/Object;->toString()Ljava/lang/String;
 
-    move-result-object v0
+    .line 342
+    iget-object p1, p0, Lcom/leidong/sdk/s/app/login/view/LoginByAccount$PasswordStateListener;->this$0:Lcom/leidong/sdk/s/app/login/view/LoginByAccount;
 
-    .line 316
-    .local v0, "pwd":Ljava/lang/String;
-    iget-object v1, p0, Lcom/leidong/sdk/s/app/login/view/LoginByAccount$PasswordStateListener;->this$0:Lcom/leidong/sdk/s/app/login/view/LoginByAccount;
+    invoke-static {p1}, Lcom/leidong/sdk/s/app/login/view/LoginByAccount;->access$1200(Lcom/leidong/sdk/s/app/login/view/LoginByAccount;)Z
 
-    # getter for: Lcom/leidong/sdk/s/app/login/view/LoginByAccount;->isShowPwd:Z
-    invoke-static {v1}, Lcom/leidong/sdk/s/app/login/view/LoginByAccount;->access$1200(Lcom/leidong/sdk/s/app/login/view/LoginByAccount;)Z
+    move-result p1
 
-    move-result v1
+    if-eqz p1, :cond_0
 
-    if-eqz v1, :cond_0
+    .line 343
+    iget-object p1, p0, Lcom/leidong/sdk/s/app/login/view/LoginByAccount$PasswordStateListener;->this$0:Lcom/leidong/sdk/s/app/login/view/LoginByAccount;
 
-    .line 317
-    iget-object v1, p0, Lcom/leidong/sdk/s/app/login/view/LoginByAccount$PasswordStateListener;->this$0:Lcom/leidong/sdk/s/app/login/view/LoginByAccount;
+    invoke-static {p1}, Lcom/leidong/sdk/s/app/login/view/LoginByAccount;->access$400(Lcom/leidong/sdk/s/app/login/view/LoginByAccount;)Landroid/widget/EditText;
 
-    # getter for: Lcom/leidong/sdk/s/app/login/view/LoginByAccount;->login_account_password:Landroid/widget/EditText;
-    invoke-static {v1}, Lcom/leidong/sdk/s/app/login/view/LoginByAccount;->access$400(Lcom/leidong/sdk/s/app/login/view/LoginByAccount;)Landroid/widget/EditText;
-
-    move-result-object v1
+    move-result-object p1
 
     invoke-static {}, Landroid/text/method/PasswordTransformationMethod;->getInstance()Landroid/text/method/PasswordTransformationMethod;
 
-    move-result-object v2
+    move-result-object v0
 
-    invoke-virtual {v1, v2}, Landroid/widget/EditText;->setTransformationMethod(Landroid/text/method/TransformationMethod;)V
+    invoke-virtual {p1, v0}, Landroid/widget/EditText;->setTransformationMethod(Landroid/text/method/TransformationMethod;)V
 
-    .line 318
-    iget-object v1, p0, Lcom/leidong/sdk/s/app/login/view/LoginByAccount$PasswordStateListener;->this$0:Lcom/leidong/sdk/s/app/login/view/LoginByAccount;
+    .line 344
+    iget-object p1, p0, Lcom/leidong/sdk/s/app/login/view/LoginByAccount$PasswordStateListener;->this$0:Lcom/leidong/sdk/s/app/login/view/LoginByAccount;
 
-    # getter for: Lcom/leidong/sdk/s/app/login/view/LoginByAccount;->imageView1:Landroid/widget/ImageView;
-    invoke-static {v1}, Lcom/leidong/sdk/s/app/login/view/LoginByAccount;->access$1300(Lcom/leidong/sdk/s/app/login/view/LoginByAccount;)Landroid/widget/ImageView;
+    invoke-static {p1}, Lcom/leidong/sdk/s/app/login/view/LoginByAccount;->access$1300(Lcom/leidong/sdk/s/app/login/view/LoginByAccount;)Landroid/widget/ImageView;
 
-    move-result-object v1
+    move-result-object p1
 
-    iget-object v2, p0, Lcom/leidong/sdk/s/app/login/view/LoginByAccount$PasswordStateListener;->this$0:Lcom/leidong/sdk/s/app/login/view/LoginByAccount;
+    iget-object v0, p0, Lcom/leidong/sdk/s/app/login/view/LoginByAccount$PasswordStateListener;->this$0:Lcom/leidong/sdk/s/app/login/view/LoginByAccount;
 
-    const-string v3, "leidong_login_icon_eye_close"
+    const-string v1, "leidong_login_icon_eye_close"
 
-    const-string v4, "drawable"
+    const-string v2, "drawable"
 
-    invoke-virtual {v2, v3, v4}, Lcom/leidong/sdk/s/app/login/view/LoginByAccount;->getResourcesID(Ljava/lang/String;Ljava/lang/String;)I
+    invoke-virtual {v0, v1, v2}, Lcom/leidong/sdk/s/app/login/view/LoginByAccount;->getResourcesID(Ljava/lang/String;Ljava/lang/String;)I
 
-    move-result v2
+    move-result v0
 
-    invoke-virtual {v1, v2}, Landroid/widget/ImageView;->setImageResource(I)V
+    invoke-virtual {p1, v0}, Landroid/widget/ImageView;->setImageResource(I)V
 
     goto :goto_0
 
-    .line 320
+    .line 346
     :cond_0
-    iget-object v1, p0, Lcom/leidong/sdk/s/app/login/view/LoginByAccount$PasswordStateListener;->this$0:Lcom/leidong/sdk/s/app/login/view/LoginByAccount;
+    iget-object p1, p0, Lcom/leidong/sdk/s/app/login/view/LoginByAccount$PasswordStateListener;->this$0:Lcom/leidong/sdk/s/app/login/view/LoginByAccount;
 
-    # getter for: Lcom/leidong/sdk/s/app/login/view/LoginByAccount;->login_account_password:Landroid/widget/EditText;
-    invoke-static {v1}, Lcom/leidong/sdk/s/app/login/view/LoginByAccount;->access$400(Lcom/leidong/sdk/s/app/login/view/LoginByAccount;)Landroid/widget/EditText;
+    invoke-static {p1}, Lcom/leidong/sdk/s/app/login/view/LoginByAccount;->access$400(Lcom/leidong/sdk/s/app/login/view/LoginByAccount;)Landroid/widget/EditText;
 
-    move-result-object v1
+    move-result-object p1
 
-    .line 321
+    .line 347
     invoke-static {}, Landroid/text/method/HideReturnsTransformationMethod;->getInstance()Landroid/text/method/HideReturnsTransformationMethod;
 
-    move-result-object v2
+    move-result-object v0
 
-    .line 320
-    invoke-virtual {v1, v2}, Landroid/widget/EditText;->setTransformationMethod(Landroid/text/method/TransformationMethod;)V
+    .line 346
+    invoke-virtual {p1, v0}, Landroid/widget/EditText;->setTransformationMethod(Landroid/text/method/TransformationMethod;)V
 
-    .line 322
-    iget-object v1, p0, Lcom/leidong/sdk/s/app/login/view/LoginByAccount$PasswordStateListener;->this$0:Lcom/leidong/sdk/s/app/login/view/LoginByAccount;
+    .line 348
+    iget-object p1, p0, Lcom/leidong/sdk/s/app/login/view/LoginByAccount$PasswordStateListener;->this$0:Lcom/leidong/sdk/s/app/login/view/LoginByAccount;
 
-    # getter for: Lcom/leidong/sdk/s/app/login/view/LoginByAccount;->imageView1:Landroid/widget/ImageView;
-    invoke-static {v1}, Lcom/leidong/sdk/s/app/login/view/LoginByAccount;->access$1300(Lcom/leidong/sdk/s/app/login/view/LoginByAccount;)Landroid/widget/ImageView;
+    invoke-static {p1}, Lcom/leidong/sdk/s/app/login/view/LoginByAccount;->access$1300(Lcom/leidong/sdk/s/app/login/view/LoginByAccount;)Landroid/widget/ImageView;
 
-    move-result-object v1
+    move-result-object p1
 
-    iget-object v2, p0, Lcom/leidong/sdk/s/app/login/view/LoginByAccount$PasswordStateListener;->this$0:Lcom/leidong/sdk/s/app/login/view/LoginByAccount;
+    iget-object v0, p0, Lcom/leidong/sdk/s/app/login/view/LoginByAccount$PasswordStateListener;->this$0:Lcom/leidong/sdk/s/app/login/view/LoginByAccount;
 
-    const-string v3, "leidong_login_icon_eye_open"
+    const-string v1, "leidong_login_icon_eye_open"
 
-    const-string v4, "drawable"
+    const-string v2, "drawable"
 
-    invoke-virtual {v2, v3, v4}, Lcom/leidong/sdk/s/app/login/view/LoginByAccount;->getResourcesID(Ljava/lang/String;Ljava/lang/String;)I
+    invoke-virtual {v0, v1, v2}, Lcom/leidong/sdk/s/app/login/view/LoginByAccount;->getResourcesID(Ljava/lang/String;Ljava/lang/String;)I
 
-    move-result v2
+    move-result v0
 
-    invoke-virtual {v1, v2}, Landroid/widget/ImageView;->setImageResource(I)V
+    invoke-virtual {p1, v0}, Landroid/widget/ImageView;->setImageResource(I)V
 
-    .line 324
+    .line 350
     :goto_0
-    iget-object v1, p0, Lcom/leidong/sdk/s/app/login/view/LoginByAccount$PasswordStateListener;->this$0:Lcom/leidong/sdk/s/app/login/view/LoginByAccount;
+    iget-object p1, p0, Lcom/leidong/sdk/s/app/login/view/LoginByAccount$PasswordStateListener;->this$0:Lcom/leidong/sdk/s/app/login/view/LoginByAccount;
 
-    iget-object v2, p0, Lcom/leidong/sdk/s/app/login/view/LoginByAccount$PasswordStateListener;->this$0:Lcom/leidong/sdk/s/app/login/view/LoginByAccount;
+    iget-object v0, p0, Lcom/leidong/sdk/s/app/login/view/LoginByAccount$PasswordStateListener;->this$0:Lcom/leidong/sdk/s/app/login/view/LoginByAccount;
 
-    # getter for: Lcom/leidong/sdk/s/app/login/view/LoginByAccount;->isShowPwd:Z
-    invoke-static {v2}, Lcom/leidong/sdk/s/app/login/view/LoginByAccount;->access$1200(Lcom/leidong/sdk/s/app/login/view/LoginByAccount;)Z
+    invoke-static {v0}, Lcom/leidong/sdk/s/app/login/view/LoginByAccount;->access$1200(Lcom/leidong/sdk/s/app/login/view/LoginByAccount;)Z
 
-    move-result v2
+    move-result v0
 
-    xor-int/lit8 v2, v2, 0x1
+    xor-int/lit8 v0, v0, 0x1
 
-    # setter for: Lcom/leidong/sdk/s/app/login/view/LoginByAccount;->isShowPwd:Z
-    invoke-static {v1, v2}, Lcom/leidong/sdk/s/app/login/view/LoginByAccount;->access$1202(Lcom/leidong/sdk/s/app/login/view/LoginByAccount;Z)Z
+    invoke-static {p1, v0}, Lcom/leidong/sdk/s/app/login/view/LoginByAccount;->access$1202(Lcom/leidong/sdk/s/app/login/view/LoginByAccount;Z)Z
 
-    .line 325
     return-void
 .end method

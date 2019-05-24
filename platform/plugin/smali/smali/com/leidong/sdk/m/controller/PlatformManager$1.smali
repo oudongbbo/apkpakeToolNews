@@ -24,9 +24,8 @@
 # direct methods
 .method constructor <init>(Lcom/leidong/sdk/m/controller/PlatformManager;)V
     .locals 0
-    .param p1, "this$0"    # Lcom/leidong/sdk/m/controller/PlatformManager;
 
-    .line 216
+    .line 219
     iput-object p1, p0, Lcom/leidong/sdk/m/controller/PlatformManager$1;->this$0:Lcom/leidong/sdk/m/controller/PlatformManager;
 
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -37,30 +36,27 @@
 
 # virtual methods
 .method public onFail(Ljava/lang/String;)V
-    .locals 1
-    .param p1, "errorMsg"    # Ljava/lang/String;
+    .locals 0
 
-    .line 222
-    iget-object v0, p0, Lcom/leidong/sdk/m/controller/PlatformManager$1;->this$0:Lcom/leidong/sdk/m/controller/PlatformManager;
+    .line 225
+    iget-object p1, p0, Lcom/leidong/sdk/m/controller/PlatformManager$1;->this$0:Lcom/leidong/sdk/m/controller/PlatformManager;
 
-    iget-object v0, v0, Lcom/leidong/sdk/m/controller/PlatformManager;->mCallBack:Lcom/leidong/sdk/m/LeiMsdkCallback;
+    iget-object p1, p1, Lcom/leidong/sdk/m/controller/PlatformManager;->mCallBack:Lcom/leidong/sdk/m/LeiMsdkCallback;
 
-    invoke-interface {v0}, Lcom/leidong/sdk/m/LeiMsdkCallback;->onExitGameFail()V
+    invoke-interface {p1}, Lcom/leidong/sdk/m/LeiMsdkCallback;->onExitGameFail()V
 
-    .line 223
     return-void
 .end method
 
 .method public onSuccess()V
     .locals 1
 
-    .line 218
+    .line 221
     iget-object v0, p0, Lcom/leidong/sdk/m/controller/PlatformManager$1;->this$0:Lcom/leidong/sdk/m/controller/PlatformManager;
 
     iget-object v0, v0, Lcom/leidong/sdk/m/controller/PlatformManager;->mCallBack:Lcom/leidong/sdk/m/LeiMsdkCallback;
 
     invoke-interface {v0}, Lcom/leidong/sdk/m/LeiMsdkCallback;->onExitGameSuccess()V
 
-    .line 219
     return-void
 .end method

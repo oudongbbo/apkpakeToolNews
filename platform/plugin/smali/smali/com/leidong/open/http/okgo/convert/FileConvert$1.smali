@@ -30,7 +30,6 @@
 # direct methods
 .method constructor <init>(Lcom/leidong/open/http/okgo/convert/FileConvert;JJJ)V
     .locals 0
-    .param p1, "this$0"    # Lcom/leidong/open/http/okgo/convert/FileConvert;
 
     .line 90
     iput-object p1, p0, Lcom/leidong/open/http/okgo/convert/FileConvert$1;->this$0:Lcom/leidong/open/http/okgo/convert/FileConvert;
@@ -54,7 +53,6 @@
     .line 93
     iget-object v0, p0, Lcom/leidong/open/http/okgo/convert/FileConvert$1;->this$0:Lcom/leidong/open/http/okgo/convert/FileConvert;
 
-    # getter for: Lcom/leidong/open/http/okgo/convert/FileConvert;->callback:Lcom/leidong/open/http/okgo/callback/AbsCallback;
     invoke-static {v0}, Lcom/leidong/open/http/okgo/convert/FileConvert;->access$000(Lcom/leidong/open/http/okgo/convert/FileConvert;)Lcom/leidong/open/http/okgo/callback/AbsCallback;
 
     move-result-object v1
@@ -81,6 +79,5 @@
 
     invoke-virtual/range {v1 .. v8}, Lcom/leidong/open/http/okgo/callback/AbsCallback;->downloadProgress(JJFJ)V
 
-    .line 94
     return-void
 .end method

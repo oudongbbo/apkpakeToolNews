@@ -24,7 +24,6 @@
 # direct methods
 .method constructor <init>(Lcom/leidong/sdk/s/app/LeiDemoActivity$8;)V
     .locals 0
-    .param p1, "this$1"    # Lcom/leidong/sdk/s/app/LeiDemoActivity$8;
 
     .line 252
     iput-object p1, p0, Lcom/leidong/sdk/s/app/LeiDemoActivity$8$1;->this$1:Lcom/leidong/sdk/s/app/LeiDemoActivity$8;
@@ -44,7 +43,6 @@
 
     iget-object v0, v0, Lcom/leidong/sdk/s/app/LeiDemoActivity$8;->this$0:Lcom/leidong/sdk/s/app/LeiDemoActivity;
 
-    # getter for: Lcom/leidong/sdk/s/app/LeiDemoActivity;->mayaCore:Lcom/leidong/sdk/s/app/LeiSdkCore;
     invoke-static {v0}, Lcom/leidong/sdk/s/app/LeiDemoActivity;->access$000(Lcom/leidong/sdk/s/app/LeiDemoActivity;)Lcom/leidong/sdk/s/app/LeiSdkCore;
 
     move-result-object v0
@@ -59,6 +57,5 @@
 
     invoke-virtual {v0, v1, v2}, Lcom/leidong/sdk/s/app/LeiSdkCore;->userExit(Landroid/content/Context;Lcom/leidong/sdk/framework/interfaces/SdkResultCallback;)V
 
-    .line 275
     return-void
 .end method

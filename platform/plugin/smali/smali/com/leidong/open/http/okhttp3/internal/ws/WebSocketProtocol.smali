@@ -71,8 +71,7 @@
 .end method
 
 .method public static acceptHeader(Ljava/lang/String;)Ljava/lang/String;
-    .locals 2
-    .param p0, "key"    # Ljava/lang/String;
+    .locals 1
 
     .line 125
     new-instance v0, Ljava/lang/StringBuilder;
@@ -81,34 +80,32 @@
 
     invoke-virtual {v0, p0}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    const-string v1, "258EAFA5-E914-47DA-95CA-C5AB0DC85B11"
+    const-string p0, "258EAFA5-E914-47DA-95CA-C5AB0DC85B11"
 
-    invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-virtual {v0, p0}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
     invoke-virtual {v0}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
 
-    move-result-object v0
+    move-result-object p0
 
-    invoke-static {v0}, Lcom/leidong/open/http/okio/ByteString;->encodeUtf8(Ljava/lang/String;)Lcom/leidong/open/http/okio/ByteString;
+    invoke-static {p0}, Lcom/leidong/open/http/okio/ByteString;->encodeUtf8(Ljava/lang/String;)Lcom/leidong/open/http/okio/ByteString;
 
-    move-result-object v0
+    move-result-object p0
 
-    invoke-virtual {v0}, Lcom/leidong/open/http/okio/ByteString;->sha1()Lcom/leidong/open/http/okio/ByteString;
+    invoke-virtual {p0}, Lcom/leidong/open/http/okio/ByteString;->sha1()Lcom/leidong/open/http/okio/ByteString;
 
-    move-result-object v0
+    move-result-object p0
 
-    invoke-virtual {v0}, Lcom/leidong/open/http/okio/ByteString;->base64()Ljava/lang/String;
+    invoke-virtual {p0}, Lcom/leidong/open/http/okio/ByteString;->base64()Ljava/lang/String;
 
-    move-result-object v0
+    move-result-object p0
 
-    return-object v0
+    return-object p0
 .end method
 
 .method static closeCodeExceptionMessage(I)Ljava/lang/String;
     .locals 2
-    .param p0, "code"    # I
 
-    .line 110
     const/16 v0, 0x3e8
 
     if-lt p0, v0, :cond_4
@@ -119,7 +116,6 @@
 
     goto :goto_0
 
-    .line 112
     :cond_0
     const/16 v0, 0x3ec
 
@@ -150,21 +146,20 @@
 
     invoke-virtual {v0, p0}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
 
-    const-string v1, " is reserved and may not be used."
+    const-string p0, " is reserved and may not be used."
 
-    invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-virtual {v0, p0}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
     invoke-virtual {v0}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
 
-    move-result-object v0
+    move-result-object p0
 
-    return-object v0
+    return-object p0
 
-    .line 115
     :cond_3
-    const/4 v0, 0x0
+    const/4 p0, 0x0
 
-    return-object v0
+    return-object p0
 
     .line 111
     :cond_4
@@ -181,27 +176,19 @@
 
     invoke-virtual {v0}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
 
-    move-result-object v0
+    move-result-object p0
 
-    return-object v0
+    return-object p0
 .end method
 
 .method static toggleMask([BJ[BJ)V
     .locals 6
-    .param p0, "buffer"    # [B
-    .param p1, "byteCount"    # J
-    .param p3, "key"    # [B
-    .param p4, "frameBytesRead"    # J
 
     .line 102
     array-length v0, p3
 
-    .line 103
-    .local v0, "keyLength":I
     const/4 v1, 0x0
 
-    .line 103
-    .local v1, "i":I
     :goto_0
     int-to-long v2, v1
 
@@ -209,68 +196,55 @@
 
     if-gez v4, :cond_0
 
-    .line 104
     int-to-long v2, v0
 
+    .line 104
     rem-long v2, p4, v2
 
     long-to-int v2, v2
 
     .line 105
-    .local v2, "keyIndex":I
     aget-byte v3, p0, v1
 
-    aget-byte v4, p3, v2
+    aget-byte v2, p3, v2
 
-    xor-int/2addr v3, v4
+    xor-int/2addr v2, v3
 
-    int-to-byte v3, v3
+    int-to-byte v2, v2
 
-    aput-byte v3, p0, v1
+    aput-byte v2, p0, v1
 
-    .line 103
-    .end local v2    # "keyIndex":I
     add-int/lit8 v1, v1, 0x1
 
     const-wide/16 v2, 0x1
 
     add-long v4, p4, v2
 
-    .line 103
-    .end local p4    # "frameBytesRead":J
-    .local v4, "frameBytesRead":J
     move-wide p4, v4
 
     goto :goto_0
 
-    .line 107
-    .end local v1    # "i":I
-    .end local v4    # "frameBytesRead":J
-    .restart local p4    # "frameBytesRead":J
     :cond_0
     return-void
 .end method
 
 .method static validateCloseCode(I)V
-    .locals 2
-    .param p0, "code"    # I
+    .locals 1
 
     .line 120
     invoke-static {p0}, Lcom/leidong/open/http/okhttp3/internal/ws/WebSocketProtocol;->closeCodeExceptionMessage(I)Ljava/lang/String;
 
-    move-result-object v0
+    move-result-object p0
+
+    if-eqz p0, :cond_0
 
     .line 121
-    .local v0, "message":Ljava/lang/String;
-    if-eqz v0, :cond_0
+    new-instance v0, Ljava/lang/IllegalArgumentException;
 
-    new-instance v1, Ljava/lang/IllegalArgumentException;
+    invoke-direct {v0, p0}, Ljava/lang/IllegalArgumentException;-><init>(Ljava/lang/String;)V
 
-    invoke-direct {v1, v0}, Ljava/lang/IllegalArgumentException;-><init>(Ljava/lang/String;)V
+    throw v0
 
-    throw v1
-
-    .line 122
     :cond_0
     return-void
 .end method

@@ -24,9 +24,8 @@
 # direct methods
 .method constructor <init>(Lcom/leidong/sdk/m/controller/PlatformManager$14;)V
     .locals 0
-    .param p1, "this$1"    # Lcom/leidong/sdk/m/controller/PlatformManager$14;
 
-    .line 1237
+    .line 1241
     iput-object p1, p0, Lcom/leidong/sdk/m/controller/PlatformManager$14$1;->this$1:Lcom/leidong/sdk/m/controller/PlatformManager$14;
 
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -38,9 +37,8 @@
 # virtual methods
 .method public onFail(Ljava/lang/String;)V
     .locals 1
-    .param p1, "msg"    # Ljava/lang/String;
 
-    .line 1246
+    .line 1250
     iget-object v0, p0, Lcom/leidong/sdk/m/controller/PlatformManager$14$1;->this$1:Lcom/leidong/sdk/m/controller/PlatformManager$14;
 
     iget-object v0, v0, Lcom/leidong/sdk/m/controller/PlatformManager$14;->this$0:Lcom/leidong/sdk/m/controller/PlatformManager;
@@ -49,15 +47,13 @@
 
     invoke-interface {v0, p1}, Lcom/leidong/sdk/m/LeiMsdkCallback;->onUserSwitchFail(Ljava/lang/String;)V
 
-    .line 1247
     return-void
 .end method
 
 .method public onSuccess(Landroid/os/Bundle;)V
     .locals 1
-    .param p1, "bundle"    # Landroid/os/Bundle;
 
-    .line 1241
+    .line 1245
     iget-object v0, p0, Lcom/leidong/sdk/m/controller/PlatformManager$14$1;->this$1:Lcom/leidong/sdk/m/controller/PlatformManager$14;
 
     iget-object v0, v0, Lcom/leidong/sdk/m/controller/PlatformManager$14;->this$0:Lcom/leidong/sdk/m/controller/PlatformManager;
@@ -66,6 +62,5 @@
 
     invoke-interface {v0, p1}, Lcom/leidong/sdk/m/LeiMsdkCallback;->onUserSwitchSuccess(Landroid/os/Bundle;)V
 
-    .line 1242
     return-void
 .end method

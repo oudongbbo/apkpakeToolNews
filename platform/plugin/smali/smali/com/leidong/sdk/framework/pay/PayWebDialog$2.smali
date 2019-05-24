@@ -26,9 +26,8 @@
 # direct methods
 .method constructor <init>(Lcom/leidong/sdk/framework/pay/PayWebDialog;Lcom/leidong/sdk/framework/view/dialog/MaterialDialog;)V
     .locals 0
-    .param p1, "this$0"    # Lcom/leidong/sdk/framework/pay/PayWebDialog;
 
-    .line 168
+    .line 175
     iput-object p1, p0, Lcom/leidong/sdk/framework/pay/PayWebDialog$2;->this$0:Lcom/leidong/sdk/framework/pay/PayWebDialog;
 
     iput-object p2, p0, Lcom/leidong/sdk/framework/pay/PayWebDialog$2;->val$mMaterialDialog:Lcom/leidong/sdk/framework/view/dialog/MaterialDialog;
@@ -41,14 +40,12 @@
 
 # virtual methods
 .method public onClick(Landroid/view/View;)V
-    .locals 1
-    .param p1, "v"    # Landroid/view/View;
+    .locals 0
 
-    .line 170
-    iget-object v0, p0, Lcom/leidong/sdk/framework/pay/PayWebDialog$2;->val$mMaterialDialog:Lcom/leidong/sdk/framework/view/dialog/MaterialDialog;
+    .line 177
+    iget-object p1, p0, Lcom/leidong/sdk/framework/pay/PayWebDialog$2;->val$mMaterialDialog:Lcom/leidong/sdk/framework/view/dialog/MaterialDialog;
 
-    invoke-virtual {v0}, Lcom/leidong/sdk/framework/view/dialog/MaterialDialog;->dismiss()V
+    invoke-virtual {p1}, Lcom/leidong/sdk/framework/view/dialog/MaterialDialog;->dismiss()V
 
-    .line 171
     return-void
 .end method

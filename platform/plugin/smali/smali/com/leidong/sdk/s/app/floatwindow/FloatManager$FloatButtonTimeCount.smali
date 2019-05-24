@@ -21,9 +21,6 @@
 # direct methods
 .method public constructor <init>(Lcom/leidong/sdk/s/app/floatwindow/FloatManager;JJ)V
     .locals 0
-    .param p1, "this$0"    # Lcom/leidong/sdk/s/app/floatwindow/FloatManager;
-    .param p2, "millisInFuture"    # J
-    .param p4, "countDownInterval"    # J
 
     .line 663
     iput-object p1, p0, Lcom/leidong/sdk/s/app/floatwindow/FloatManager$FloatButtonTimeCount;->this$0:Lcom/leidong/sdk/s/app/floatwindow/FloatManager;
@@ -31,7 +28,6 @@
     .line 664
     invoke-direct {p0, p2, p3, p4, p5}, Landroid/os/CountDownTimer;-><init>(JJ)V
 
-    .line 665
     return-void
 .end method
 
@@ -43,7 +39,6 @@
     .line 670
     iget-object v0, p0, Lcom/leidong/sdk/s/app/floatwindow/FloatManager$FloatButtonTimeCount;->this$0:Lcom/leidong/sdk/s/app/floatwindow/FloatManager;
 
-    # getter for: Lcom/leidong/sdk/s/app/floatwindow/FloatManager;->popupHandler:Landroid/os/Handler;
     invoke-static {v0}, Lcom/leidong/sdk/s/app/floatwindow/FloatManager;->access$1900(Lcom/leidong/sdk/s/app/floatwindow/FloatManager;)Landroid/os/Handler;
 
     move-result-object v0
@@ -54,14 +49,11 @@
 
     invoke-virtual {v0, v1, v2, v3}, Landroid/os/Handler;->sendEmptyMessageDelayed(IJ)Z
 
-    .line 671
     return-void
 .end method
 
 .method public onTick(J)V
     .locals 0
-    .param p1, "millisUntilFinished"    # J
 
-    .line 675
     return-void
 .end method

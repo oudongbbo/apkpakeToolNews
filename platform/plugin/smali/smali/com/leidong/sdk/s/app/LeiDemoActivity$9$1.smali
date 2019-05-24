@@ -24,7 +24,6 @@
 # direct methods
 .method constructor <init>(Lcom/leidong/sdk/s/app/LeiDemoActivity$9;)V
     .locals 0
-    .param p1, "this$1"    # Lcom/leidong/sdk/s/app/LeiDemoActivity$9;
 
     .line 289
     iput-object p1, p0, Lcom/leidong/sdk/s/app/LeiDemoActivity$9$1;->this$1:Lcom/leidong/sdk/s/app/LeiDemoActivity$9;
@@ -44,10 +43,9 @@
 
     invoke-direct {v0}, Lcom/leidong/sdk/framework/pay/PayInfoBean;-><init>()V
 
-    .line 294
-    .local v0, "info":Lcom/leidong/sdk/framework/pay/PayInfoBean;
     const-string v1, "0.01"
 
+    .line 294
     invoke-virtual {v0, v1}, Lcom/leidong/sdk/framework/pay/PayInfoBean;->setMoney(Ljava/lang/String;)V
 
     .line 295
@@ -71,39 +69,39 @@
 
     invoke-virtual {v0, v1}, Lcom/leidong/sdk/framework/pay/PayInfoBean;->setOrder_no(Ljava/lang/String;)V
 
-    .line 296
     const-string v1, "\u4e00\u6bdb\u94b1\u90fd\u4e0d\u7ed9\u6211"
 
+    .line 296
     invoke-virtual {v0, v1}, Lcom/leidong/sdk/framework/pay/PayInfoBean;->setOrder_name(Ljava/lang/String;)V
 
-    .line 297
     const-string v1, "!*()"
 
+    .line 297
     invoke-virtual {v0, v1}, Lcom/leidong/sdk/framework/pay/PayInfoBean;->setOrder_ext(Ljava/lang/String;)V
 
-    .line 298
     const-string v1, "110"
 
+    .line 298
     invoke-virtual {v0, v1}, Lcom/leidong/sdk/framework/pay/PayInfoBean;->setRole_id(Ljava/lang/String;)V
 
-    .line 299
     const-string v1, "\u5f20\u4e09\u674e\u56db"
 
+    .line 299
     invoke-virtual {v0, v1}, Lcom/leidong/sdk/framework/pay/PayInfoBean;->setRole_name(Ljava/lang/String;)V
 
-    .line 300
     const-string v1, "12"
 
+    .line 300
     invoke-virtual {v0, v1}, Lcom/leidong/sdk/framework/pay/PayInfoBean;->setRole_level(Ljava/lang/String;)V
 
-    .line 301
     const-string v1, "131415"
 
+    .line 301
     invoke-virtual {v0, v1}, Lcom/leidong/sdk/framework/pay/PayInfoBean;->setServer_id(Ljava/lang/String;)V
 
-    .line 302
     const-string v1, "\u68a6\u56de\u5927\u5510"
 
+    .line 302
     invoke-virtual {v0, v1}, Lcom/leidong/sdk/framework/pay/PayInfoBean;->setServer_name(Ljava/lang/String;)V
 
     .line 304
@@ -111,7 +109,6 @@
 
     iget-object v1, v1, Lcom/leidong/sdk/s/app/LeiDemoActivity$9;->this$0:Lcom/leidong/sdk/s/app/LeiDemoActivity;
 
-    # getter for: Lcom/leidong/sdk/s/app/LeiDemoActivity;->mayaCore:Lcom/leidong/sdk/s/app/LeiSdkCore;
     invoke-static {v1}, Lcom/leidong/sdk/s/app/LeiDemoActivity;->access$000(Lcom/leidong/sdk/s/app/LeiDemoActivity;)Lcom/leidong/sdk/s/app/LeiSdkCore;
 
     move-result-object v1
@@ -126,6 +123,5 @@
 
     invoke-virtual {v1, v2, v0, v3}, Lcom/leidong/sdk/s/app/LeiSdkCore;->userPay(Landroid/content/Context;Lcom/leidong/sdk/framework/pay/PayInfoBean;Lcom/leidong/sdk/framework/interfaces/SdkResultCallback;)V
 
-    .line 320
     return-void
 .end method

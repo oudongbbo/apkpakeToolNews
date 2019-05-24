@@ -28,7 +28,6 @@
 # direct methods
 .method constructor <init>(Lcom/leidong/sdk/framework/web/SdkWebDialog$myWebViewClient;Landroid/webkit/WebView;Ljava/lang/String;)V
     .locals 0
-    .param p1, "this$1"    # Lcom/leidong/sdk/framework/web/SdkWebDialog$myWebViewClient;
 
     .line 295
     iput-object p1, p0, Lcom/leidong/sdk/framework/web/SdkWebDialog$myWebViewClient$1;->this$1:Lcom/leidong/sdk/framework/web/SdkWebDialog$myWebViewClient;
@@ -47,9 +46,9 @@
 .method public run()V
     .locals 5
 
-    .line 298
     const-string v0, "myWeb timeout.."
 
+    .line 298
     invoke-static {v0}, Lcom/leidong/sdk/framework/utils/LogUtil;->w(Ljava/lang/String;)V
 
     .line 299
@@ -65,6 +64,5 @@
 
     invoke-virtual {v0, v1, v4, v2, v3}, Lcom/leidong/sdk/framework/web/SdkWebDialog$myWebViewClient;->onReceivedError(Landroid/webkit/WebView;ILjava/lang/String;Ljava/lang/String;)V
 
-    .line 300
     return-void
 .end method

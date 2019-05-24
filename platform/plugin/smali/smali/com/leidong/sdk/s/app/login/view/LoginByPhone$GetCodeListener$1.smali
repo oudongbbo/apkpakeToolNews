@@ -24,9 +24,8 @@
 # direct methods
 .method constructor <init>(Lcom/leidong/sdk/s/app/login/view/LoginByPhone$GetCodeListener;)V
     .locals 0
-    .param p1, "this$1"    # Lcom/leidong/sdk/s/app/login/view/LoginByPhone$GetCodeListener;
 
-    .line 289
+    .line 290
     iput-object p1, p0, Lcom/leidong/sdk/s/app/login/view/LoginByPhone$GetCodeListener$1;->this$1:Lcom/leidong/sdk/s/app/login/view/LoginByPhone$GetCodeListener;
 
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -37,38 +36,33 @@
 
 # virtual methods
 .method public onFail(ILjava/lang/String;)V
-    .locals 1
-    .param p1, "errorCode"    # I
-    .param p2, "errorMsg"    # Ljava/lang/String;
-
-    .line 315
-    iget-object v0, p0, Lcom/leidong/sdk/s/app/login/view/LoginByPhone$GetCodeListener$1;->this$1:Lcom/leidong/sdk/s/app/login/view/LoginByPhone$GetCodeListener;
-
-    iget-object v0, v0, Lcom/leidong/sdk/s/app/login/view/LoginByPhone$GetCodeListener;->this$0:Lcom/leidong/sdk/s/app/login/view/LoginByPhone;
-
-    invoke-virtual {v0, p2}, Lcom/leidong/sdk/s/app/login/view/LoginByPhone;->showToast(Ljava/lang/String;)V
+    .locals 0
 
     .line 316
-    iget-object v0, p0, Lcom/leidong/sdk/s/app/login/view/LoginByPhone$GetCodeListener$1;->this$1:Lcom/leidong/sdk/s/app/login/view/LoginByPhone$GetCodeListener;
+    iget-object p1, p0, Lcom/leidong/sdk/s/app/login/view/LoginByPhone$GetCodeListener$1;->this$1:Lcom/leidong/sdk/s/app/login/view/LoginByPhone$GetCodeListener;
 
-    iget-object v0, v0, Lcom/leidong/sdk/s/app/login/view/LoginByPhone$GetCodeListener;->this$0:Lcom/leidong/sdk/s/app/login/view/LoginByPhone;
+    iget-object p1, p1, Lcom/leidong/sdk/s/app/login/view/LoginByPhone$GetCodeListener;->this$0:Lcom/leidong/sdk/s/app/login/view/LoginByPhone;
 
-    # getter for: Lcom/leidong/sdk/s/app/login/view/LoginByPhone;->countDown:Lcom/leidong/sdk/framework/view/common/CountDownView;
-    invoke-static {v0}, Lcom/leidong/sdk/s/app/login/view/LoginByPhone;->access$900(Lcom/leidong/sdk/s/app/login/view/LoginByPhone;)Lcom/leidong/sdk/framework/view/common/CountDownView;
-
-    move-result-object v0
-
-    invoke-virtual {v0}, Lcom/leidong/sdk/framework/view/common/CountDownView;->stopCountDown()V
+    invoke-virtual {p1, p2}, Lcom/leidong/sdk/s/app/login/view/LoginByPhone;->showToast(Ljava/lang/String;)V
 
     .line 317
+    iget-object p1, p0, Lcom/leidong/sdk/s/app/login/view/LoginByPhone$GetCodeListener$1;->this$1:Lcom/leidong/sdk/s/app/login/view/LoginByPhone$GetCodeListener;
+
+    iget-object p1, p1, Lcom/leidong/sdk/s/app/login/view/LoginByPhone$GetCodeListener;->this$0:Lcom/leidong/sdk/s/app/login/view/LoginByPhone;
+
+    invoke-static {p1}, Lcom/leidong/sdk/s/app/login/view/LoginByPhone;->access$900(Lcom/leidong/sdk/s/app/login/view/LoginByPhone;)Lcom/leidong/sdk/framework/view/common/CountDownView;
+
+    move-result-object p1
+
+    invoke-virtual {p1}, Lcom/leidong/sdk/framework/view/common/CountDownView;->stopCountDown()V
+
     return-void
 .end method
 
 .method public onSuccess(Ljava/lang/String;)V
     .locals 2
-    .param p1, "content"    # Ljava/lang/String;
 
-    .line 294
+    .line 295
     new-instance v0, Ljava/lang/StringBuilder;
 
     invoke-direct {v0}, Ljava/lang/StringBuilder;-><init>()V
@@ -85,12 +79,11 @@
 
     invoke-static {v0}, Lcom/leidong/sdk/s/core/utils/SLogUtil;->i(Ljava/lang/String;)V
 
-    .line 296
+    .line 297
     iget-object v0, p0, Lcom/leidong/sdk/s/app/login/view/LoginByPhone$GetCodeListener$1;->this$1:Lcom/leidong/sdk/s/app/login/view/LoginByPhone$GetCodeListener;
 
     iget-object v0, v0, Lcom/leidong/sdk/s/app/login/view/LoginByPhone$GetCodeListener;->this$0:Lcom/leidong/sdk/s/app/login/view/LoginByPhone;
 
-    # getter for: Lcom/leidong/sdk/s/app/login/view/LoginByPhone;->loginMain:Lcom/leidong/sdk/s/app/login/view/LoginContent;
     invoke-static {v0}, Lcom/leidong/sdk/s/app/login/view/LoginByPhone;->access$600(Lcom/leidong/sdk/s/app/login/view/LoginByPhone;)Lcom/leidong/sdk/s/app/login/view/LoginContent;
 
     move-result-object v0
@@ -105,6 +98,5 @@
 
     invoke-virtual {v0, p1, v1}, Lcom/leidong/sdk/s/core/http/ResponseManager;->handleRepContent(Ljava/lang/String;Lcom/leidong/sdk/framework/http/HttpCallBack;)V
 
-    .line 310
     return-void
 .end method

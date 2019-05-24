@@ -24,7 +24,6 @@
 # direct methods
 .method constructor <init>(Lcom/leidong/sdk/s/app/floatwindow/FloatMenuView;)V
     .locals 0
-    .param p1, "this$0"    # Lcom/leidong/sdk/s/app/floatwindow/FloatMenuView;
 
     .line 170
     iput-object p1, p0, Lcom/leidong/sdk/s/app/floatwindow/FloatMenuView$1;->this$0:Lcom/leidong/sdk/s/app/floatwindow/FloatMenuView;
@@ -37,13 +36,11 @@
 
 # virtual methods
 .method public onClick(Landroid/view/View;)V
-    .locals 4
-    .param p1, "v"    # Landroid/view/View;
+    .locals 3
 
     .line 173
     iget-object v0, p0, Lcom/leidong/sdk/s/app/floatwindow/FloatMenuView$1;->this$0:Lcom/leidong/sdk/s/app/floatwindow/FloatMenuView;
 
-    # getter for: Lcom/leidong/sdk/s/app/floatwindow/FloatMenuView;->leidong_float_user:Landroid/widget/RelativeLayout;
     invoke-static {v0}, Lcom/leidong/sdk/s/app/floatwindow/FloatMenuView;->access$000(Lcom/leidong/sdk/s/app/floatwindow/FloatMenuView;)Landroid/widget/RelativeLayout;
 
     move-result-object v0
@@ -66,7 +63,6 @@
 
     iget-object v2, p0, Lcom/leidong/sdk/s/app/floatwindow/FloatMenuView$1;->this$0:Lcom/leidong/sdk/s/app/floatwindow/FloatMenuView;
 
-    # getter for: Lcom/leidong/sdk/s/app/floatwindow/FloatMenuView;->mContext:Landroid/content/Context;
     invoke-static {v2}, Lcom/leidong/sdk/s/app/floatwindow/FloatMenuView;->access$100(Lcom/leidong/sdk/s/app/floatwindow/FloatMenuView;)Landroid/content/Context;
 
     move-result-object v2
@@ -75,7 +71,6 @@
 
     move-result-object v1
 
-    # invokes: Lcom/leidong/sdk/s/app/floatwindow/FloatMenuView;->showToast(Ljava/lang/String;)V
     invoke-static {v0, v1}, Lcom/leidong/sdk/s/app/floatwindow/FloatMenuView;->access$200(Lcom/leidong/sdk/s/app/floatwindow/FloatMenuView;Ljava/lang/String;)V
 
     goto :goto_0
@@ -84,7 +79,6 @@
     :cond_0
     iget-object v0, p0, Lcom/leidong/sdk/s/app/floatwindow/FloatMenuView$1;->this$0:Lcom/leidong/sdk/s/app/floatwindow/FloatMenuView;
 
-    # getter for: Lcom/leidong/sdk/s/app/floatwindow/FloatMenuView;->mContext:Landroid/content/Context;
     invoke-static {v0}, Lcom/leidong/sdk/s/app/floatwindow/FloatMenuView;->access$100(Lcom/leidong/sdk/s/app/floatwindow/FloatMenuView;)Landroid/content/Context;
 
     move-result-object v0
@@ -98,7 +92,6 @@
     :goto_0
     iget-object v0, p0, Lcom/leidong/sdk/s/app/floatwindow/FloatMenuView$1;->this$0:Lcom/leidong/sdk/s/app/floatwindow/FloatMenuView;
 
-    # getter for: Lcom/leidong/sdk/s/app/floatwindow/FloatMenuView;->leidong_float_msg:Landroid/widget/RelativeLayout;
     invoke-static {v0}, Lcom/leidong/sdk/s/app/floatwindow/FloatMenuView;->access$300(Lcom/leidong/sdk/s/app/floatwindow/FloatMenuView;)Landroid/widget/RelativeLayout;
 
     move-result-object v0
@@ -121,7 +114,6 @@
 
     iget-object v2, p0, Lcom/leidong/sdk/s/app/floatwindow/FloatMenuView$1;->this$0:Lcom/leidong/sdk/s/app/floatwindow/FloatMenuView;
 
-    # getter for: Lcom/leidong/sdk/s/app/floatwindow/FloatMenuView;->mContext:Landroid/content/Context;
     invoke-static {v2}, Lcom/leidong/sdk/s/app/floatwindow/FloatMenuView;->access$100(Lcom/leidong/sdk/s/app/floatwindow/FloatMenuView;)Landroid/content/Context;
 
     move-result-object v2
@@ -130,7 +122,6 @@
 
     move-result-object v1
 
-    # invokes: Lcom/leidong/sdk/s/app/floatwindow/FloatMenuView;->showToast(Ljava/lang/String;)V
     invoke-static {v0, v1}, Lcom/leidong/sdk/s/app/floatwindow/FloatMenuView;->access$200(Lcom/leidong/sdk/s/app/floatwindow/FloatMenuView;Ljava/lang/String;)V
 
     goto :goto_1
@@ -139,7 +130,6 @@
     :cond_2
     iget-object v0, p0, Lcom/leidong/sdk/s/app/floatwindow/FloatMenuView$1;->this$0:Lcom/leidong/sdk/s/app/floatwindow/FloatMenuView;
 
-    # getter for: Lcom/leidong/sdk/s/app/floatwindow/FloatMenuView;->mContext:Landroid/content/Context;
     invoke-static {v0}, Lcom/leidong/sdk/s/app/floatwindow/FloatMenuView;->access$100(Lcom/leidong/sdk/s/app/floatwindow/FloatMenuView;)Landroid/content/Context;
 
     move-result-object v0
@@ -153,7 +143,6 @@
     :goto_1
     iget-object v0, p0, Lcom/leidong/sdk/s/app/floatwindow/FloatMenuView$1;->this$0:Lcom/leidong/sdk/s/app/floatwindow/FloatMenuView;
 
-    # getter for: Lcom/leidong/sdk/s/app/floatwindow/FloatMenuView;->leidong_float_gift:Landroid/widget/RelativeLayout;
     invoke-static {v0}, Lcom/leidong/sdk/s/app/floatwindow/FloatMenuView;->access$400(Lcom/leidong/sdk/s/app/floatwindow/FloatMenuView;)Landroid/widget/RelativeLayout;
 
     move-result-object v0
@@ -176,7 +165,6 @@
 
     iget-object v2, p0, Lcom/leidong/sdk/s/app/floatwindow/FloatMenuView$1;->this$0:Lcom/leidong/sdk/s/app/floatwindow/FloatMenuView;
 
-    # getter for: Lcom/leidong/sdk/s/app/floatwindow/FloatMenuView;->mContext:Landroid/content/Context;
     invoke-static {v2}, Lcom/leidong/sdk/s/app/floatwindow/FloatMenuView;->access$100(Lcom/leidong/sdk/s/app/floatwindow/FloatMenuView;)Landroid/content/Context;
 
     move-result-object v2
@@ -185,7 +173,6 @@
 
     move-result-object v1
 
-    # invokes: Lcom/leidong/sdk/s/app/floatwindow/FloatMenuView;->showToast(Ljava/lang/String;)V
     invoke-static {v0, v1}, Lcom/leidong/sdk/s/app/floatwindow/FloatMenuView;->access$200(Lcom/leidong/sdk/s/app/floatwindow/FloatMenuView;Ljava/lang/String;)V
 
     goto :goto_2
@@ -194,7 +181,6 @@
     :cond_4
     iget-object v0, p0, Lcom/leidong/sdk/s/app/floatwindow/FloatMenuView$1;->this$0:Lcom/leidong/sdk/s/app/floatwindow/FloatMenuView;
 
-    # getter for: Lcom/leidong/sdk/s/app/floatwindow/FloatMenuView;->mContext:Landroid/content/Context;
     invoke-static {v0}, Lcom/leidong/sdk/s/app/floatwindow/FloatMenuView;->access$100(Lcom/leidong/sdk/s/app/floatwindow/FloatMenuView;)Landroid/content/Context;
 
     move-result-object v0
@@ -208,7 +194,6 @@
     :goto_2
     iget-object v0, p0, Lcom/leidong/sdk/s/app/floatwindow/FloatMenuView$1;->this$0:Lcom/leidong/sdk/s/app/floatwindow/FloatMenuView;
 
-    # getter for: Lcom/leidong/sdk/s/app/floatwindow/FloatMenuView;->leidong_float_cs:Landroid/widget/RelativeLayout;
     invoke-static {v0}, Lcom/leidong/sdk/s/app/floatwindow/FloatMenuView;->access$500(Lcom/leidong/sdk/s/app/floatwindow/FloatMenuView;)Landroid/widget/RelativeLayout;
 
     move-result-object v0
@@ -231,7 +216,6 @@
 
     iget-object v2, p0, Lcom/leidong/sdk/s/app/floatwindow/FloatMenuView$1;->this$0:Lcom/leidong/sdk/s/app/floatwindow/FloatMenuView;
 
-    # getter for: Lcom/leidong/sdk/s/app/floatwindow/FloatMenuView;->mContext:Landroid/content/Context;
     invoke-static {v2}, Lcom/leidong/sdk/s/app/floatwindow/FloatMenuView;->access$100(Lcom/leidong/sdk/s/app/floatwindow/FloatMenuView;)Landroid/content/Context;
 
     move-result-object v2
@@ -240,7 +224,6 @@
 
     move-result-object v1
 
-    # invokes: Lcom/leidong/sdk/s/app/floatwindow/FloatMenuView;->showToast(Ljava/lang/String;)V
     invoke-static {v0, v1}, Lcom/leidong/sdk/s/app/floatwindow/FloatMenuView;->access$200(Lcom/leidong/sdk/s/app/floatwindow/FloatMenuView;Ljava/lang/String;)V
 
     goto :goto_3
@@ -249,7 +232,6 @@
     :cond_6
     iget-object v0, p0, Lcom/leidong/sdk/s/app/floatwindow/FloatMenuView$1;->this$0:Lcom/leidong/sdk/s/app/floatwindow/FloatMenuView;
 
-    # getter for: Lcom/leidong/sdk/s/app/floatwindow/FloatMenuView;->mContext:Landroid/content/Context;
     invoke-static {v0}, Lcom/leidong/sdk/s/app/floatwindow/FloatMenuView;->access$100(Lcom/leidong/sdk/s/app/floatwindow/FloatMenuView;)Landroid/content/Context;
 
     move-result-object v0
@@ -263,7 +245,6 @@
     :goto_3
     iget-object v0, p0, Lcom/leidong/sdk/s/app/floatwindow/FloatMenuView$1;->this$0:Lcom/leidong/sdk/s/app/floatwindow/FloatMenuView;
 
-    # getter for: Lcom/leidong/sdk/s/app/floatwindow/FloatMenuView;->leidong_float_bbs:Landroid/widget/RelativeLayout;
     invoke-static {v0}, Lcom/leidong/sdk/s/app/floatwindow/FloatMenuView;->access$600(Lcom/leidong/sdk/s/app/floatwindow/FloatMenuView;)Landroid/widget/RelativeLayout;
 
     move-result-object v0
@@ -286,7 +267,6 @@
 
     iget-object v2, p0, Lcom/leidong/sdk/s/app/floatwindow/FloatMenuView$1;->this$0:Lcom/leidong/sdk/s/app/floatwindow/FloatMenuView;
 
-    # getter for: Lcom/leidong/sdk/s/app/floatwindow/FloatMenuView;->mContext:Landroid/content/Context;
     invoke-static {v2}, Lcom/leidong/sdk/s/app/floatwindow/FloatMenuView;->access$100(Lcom/leidong/sdk/s/app/floatwindow/FloatMenuView;)Landroid/content/Context;
 
     move-result-object v2
@@ -295,7 +275,6 @@
 
     move-result-object v1
 
-    # invokes: Lcom/leidong/sdk/s/app/floatwindow/FloatMenuView;->showToast(Ljava/lang/String;)V
     invoke-static {v0, v1}, Lcom/leidong/sdk/s/app/floatwindow/FloatMenuView;->access$200(Lcom/leidong/sdk/s/app/floatwindow/FloatMenuView;Ljava/lang/String;)V
 
     goto :goto_4
@@ -304,7 +283,6 @@
     :cond_8
     iget-object v0, p0, Lcom/leidong/sdk/s/app/floatwindow/FloatMenuView$1;->this$0:Lcom/leidong/sdk/s/app/floatwindow/FloatMenuView;
 
-    # getter for: Lcom/leidong/sdk/s/app/floatwindow/FloatMenuView;->mContext:Landroid/content/Context;
     invoke-static {v0}, Lcom/leidong/sdk/s/app/floatwindow/FloatMenuView;->access$100(Lcom/leidong/sdk/s/app/floatwindow/FloatMenuView;)Landroid/content/Context;
 
     move-result-object v0
@@ -318,7 +296,6 @@
     :goto_4
     iget-object v0, p0, Lcom/leidong/sdk/s/app/floatwindow/FloatMenuView$1;->this$0:Lcom/leidong/sdk/s/app/floatwindow/FloatMenuView;
 
-    # getter for: Lcom/leidong/sdk/s/app/floatwindow/FloatMenuView;->leidong_float_game:Landroid/widget/RelativeLayout;
     invoke-static {v0}, Lcom/leidong/sdk/s/app/floatwindow/FloatMenuView;->access$700(Lcom/leidong/sdk/s/app/floatwindow/FloatMenuView;)Landroid/widget/RelativeLayout;
 
     move-result-object v0
@@ -341,7 +318,6 @@
 
     iget-object v2, p0, Lcom/leidong/sdk/s/app/floatwindow/FloatMenuView$1;->this$0:Lcom/leidong/sdk/s/app/floatwindow/FloatMenuView;
 
-    # getter for: Lcom/leidong/sdk/s/app/floatwindow/FloatMenuView;->mContext:Landroid/content/Context;
     invoke-static {v2}, Lcom/leidong/sdk/s/app/floatwindow/FloatMenuView;->access$100(Lcom/leidong/sdk/s/app/floatwindow/FloatMenuView;)Landroid/content/Context;
 
     move-result-object v2
@@ -350,7 +326,6 @@
 
     move-result-object v1
 
-    # invokes: Lcom/leidong/sdk/s/app/floatwindow/FloatMenuView;->showToast(Ljava/lang/String;)V
     invoke-static {v0, v1}, Lcom/leidong/sdk/s/app/floatwindow/FloatMenuView;->access$200(Lcom/leidong/sdk/s/app/floatwindow/FloatMenuView;Ljava/lang/String;)V
 
     goto :goto_5
@@ -359,7 +334,6 @@
     :cond_a
     iget-object v0, p0, Lcom/leidong/sdk/s/app/floatwindow/FloatMenuView$1;->this$0:Lcom/leidong/sdk/s/app/floatwindow/FloatMenuView;
 
-    # getter for: Lcom/leidong/sdk/s/app/floatwindow/FloatMenuView;->mContext:Landroid/content/Context;
     invoke-static {v0}, Lcom/leidong/sdk/s/app/floatwindow/FloatMenuView;->access$100(Lcom/leidong/sdk/s/app/floatwindow/FloatMenuView;)Landroid/content/Context;
 
     move-result-object v0
@@ -373,7 +347,6 @@
     :goto_5
     iget-object v0, p0, Lcom/leidong/sdk/s/app/floatwindow/FloatMenuView$1;->this$0:Lcom/leidong/sdk/s/app/floatwindow/FloatMenuView;
 
-    # getter for: Lcom/leidong/sdk/s/app/floatwindow/FloatMenuView;->leidong_float_changeuser:Landroid/widget/RelativeLayout;
     invoke-static {v0}, Lcom/leidong/sdk/s/app/floatwindow/FloatMenuView;->access$800(Lcom/leidong/sdk/s/app/floatwindow/FloatMenuView;)Landroid/widget/RelativeLayout;
 
     move-result-object v0
@@ -381,102 +354,94 @@
     if-ne p1, v0, :cond_e
 
     .line 234
-    sget-object v0, Lcom/leidong/sdk/s/core/SdkManager;->sdkUserSwitchCallback:Lcom/leidong/sdk/framework/interfaces/SdkResultCallback;
+    sget-object p1, Lcom/leidong/sdk/s/core/SdkManager;->sdkUserSwitchCallback:Lcom/leidong/sdk/framework/interfaces/SdkResultCallback;
 
-    const/4 v1, 0x0
+    const/4 v0, 0x0
 
-    if-nez v0, :cond_c
+    if-nez p1, :cond_c
 
     .line 236
-    iget-object v0, p0, Lcom/leidong/sdk/s/app/floatwindow/FloatMenuView$1;->this$0:Lcom/leidong/sdk/s/app/floatwindow/FloatMenuView;
+    iget-object p1, p0, Lcom/leidong/sdk/s/app/floatwindow/FloatMenuView$1;->this$0:Lcom/leidong/sdk/s/app/floatwindow/FloatMenuView;
 
-    # getter for: Lcom/leidong/sdk/s/app/floatwindow/FloatMenuView;->mContext:Landroid/content/Context;
-    invoke-static {v0}, Lcom/leidong/sdk/s/app/floatwindow/FloatMenuView;->access$100(Lcom/leidong/sdk/s/app/floatwindow/FloatMenuView;)Landroid/content/Context;
+    invoke-static {p1}, Lcom/leidong/sdk/s/app/floatwindow/FloatMenuView;->access$100(Lcom/leidong/sdk/s/app/floatwindow/FloatMenuView;)Landroid/content/Context;
 
-    move-result-object v0
+    move-result-object p1
 
-    const-string v2, "leidong_tips_switch_no_callback"
+    const-string v1, "leidong_tips_switch_no_callback"
 
-    iget-object v3, p0, Lcom/leidong/sdk/s/app/floatwindow/FloatMenuView$1;->this$0:Lcom/leidong/sdk/s/app/floatwindow/FloatMenuView;
+    iget-object v2, p0, Lcom/leidong/sdk/s/app/floatwindow/FloatMenuView$1;->this$0:Lcom/leidong/sdk/s/app/floatwindow/FloatMenuView;
 
     .line 237
-    # getter for: Lcom/leidong/sdk/s/app/floatwindow/FloatMenuView;->mContext:Landroid/content/Context;
-    invoke-static {v3}, Lcom/leidong/sdk/s/app/floatwindow/FloatMenuView;->access$100(Lcom/leidong/sdk/s/app/floatwindow/FloatMenuView;)Landroid/content/Context;
-
-    move-result-object v3
-
-    invoke-static {v2, v3}, Lcom/leidong/sdk/framework/utils/CommonUtil;->getStringByName(Ljava/lang/String;Landroid/content/Context;)Ljava/lang/String;
+    invoke-static {v2}, Lcom/leidong/sdk/s/app/floatwindow/FloatMenuView;->access$100(Lcom/leidong/sdk/s/app/floatwindow/FloatMenuView;)Landroid/content/Context;
 
     move-result-object v2
 
-    .line 236
-    invoke-static {v0, v2, v1}, Landroid/widget/Toast;->makeText(Landroid/content/Context;Ljava/lang/CharSequence;I)Landroid/widget/Toast;
+    invoke-static {v1, v2}, Lcom/leidong/sdk/framework/utils/CommonUtil;->getStringByName(Ljava/lang/String;Landroid/content/Context;)Ljava/lang/String;
 
-    move-result-object v0
+    move-result-object v1
+
+    .line 236
+    invoke-static {p1, v1, v0}, Landroid/widget/Toast;->makeText(Landroid/content/Context;Ljava/lang/CharSequence;I)Landroid/widget/Toast;
+
+    move-result-object p1
 
     .line 238
-    invoke-virtual {v0}, Landroid/widget/Toast;->show()V
+    invoke-virtual {p1}, Landroid/widget/Toast;->show()V
 
-    .line 239
     return-void
 
     .line 242
     :cond_c
-    sget-object v0, Lcom/leidong/sdk/s/core/SdkManager;->sdkContext:Landroid/content/Context;
+    sget-object p1, Lcom/leidong/sdk/s/core/SdkManager;->sdkContext:Landroid/content/Context;
 
-    if-nez v0, :cond_d
+    if-nez p1, :cond_d
 
     .line 243
-    iget-object v0, p0, Lcom/leidong/sdk/s/app/floatwindow/FloatMenuView$1;->this$0:Lcom/leidong/sdk/s/app/floatwindow/FloatMenuView;
+    iget-object p1, p0, Lcom/leidong/sdk/s/app/floatwindow/FloatMenuView$1;->this$0:Lcom/leidong/sdk/s/app/floatwindow/FloatMenuView;
 
-    # getter for: Lcom/leidong/sdk/s/app/floatwindow/FloatMenuView;->mContext:Landroid/content/Context;
-    invoke-static {v0}, Lcom/leidong/sdk/s/app/floatwindow/FloatMenuView;->access$100(Lcom/leidong/sdk/s/app/floatwindow/FloatMenuView;)Landroid/content/Context;
+    invoke-static {p1}, Lcom/leidong/sdk/s/app/floatwindow/FloatMenuView;->access$100(Lcom/leidong/sdk/s/app/floatwindow/FloatMenuView;)Landroid/content/Context;
 
-    move-result-object v0
+    move-result-object p1
 
-    const-string v2, "leidong_tips_need_context"
+    const-string v1, "leidong_tips_need_context"
 
-    iget-object v3, p0, Lcom/leidong/sdk/s/app/floatwindow/FloatMenuView$1;->this$0:Lcom/leidong/sdk/s/app/floatwindow/FloatMenuView;
+    iget-object v2, p0, Lcom/leidong/sdk/s/app/floatwindow/FloatMenuView$1;->this$0:Lcom/leidong/sdk/s/app/floatwindow/FloatMenuView;
 
     .line 244
-    # getter for: Lcom/leidong/sdk/s/app/floatwindow/FloatMenuView;->mContext:Landroid/content/Context;
-    invoke-static {v3}, Lcom/leidong/sdk/s/app/floatwindow/FloatMenuView;->access$100(Lcom/leidong/sdk/s/app/floatwindow/FloatMenuView;)Landroid/content/Context;
-
-    move-result-object v3
-
-    invoke-static {v2, v3}, Lcom/leidong/sdk/framework/utils/CommonUtil;->getStringByName(Ljava/lang/String;Landroid/content/Context;)Ljava/lang/String;
+    invoke-static {v2}, Lcom/leidong/sdk/s/app/floatwindow/FloatMenuView;->access$100(Lcom/leidong/sdk/s/app/floatwindow/FloatMenuView;)Landroid/content/Context;
 
     move-result-object v2
 
-    .line 243
-    invoke-static {v0, v2, v1}, Landroid/widget/Toast;->makeText(Landroid/content/Context;Ljava/lang/CharSequence;I)Landroid/widget/Toast;
+    invoke-static {v1, v2}, Lcom/leidong/sdk/framework/utils/CommonUtil;->getStringByName(Ljava/lang/String;Landroid/content/Context;)Ljava/lang/String;
 
-    move-result-object v0
+    move-result-object v1
+
+    .line 243
+    invoke-static {p1, v1, v0}, Landroid/widget/Toast;->makeText(Landroid/content/Context;Ljava/lang/CharSequence;I)Landroid/widget/Toast;
+
+    move-result-object p1
 
     .line 245
-    invoke-virtual {v0}, Landroid/widget/Toast;->show()V
+    invoke-virtual {p1}, Landroid/widget/Toast;->show()V
 
-    .line 246
     return-void
 
     .line 250
     :cond_d
     invoke-static {}, Lcom/leidong/sdk/s/app/LeiSdkCore;->getInstance()Lcom/leidong/sdk/s/app/LeiSdkCore;
 
+    move-result-object p1
+
+    iget-object v0, p0, Lcom/leidong/sdk/s/app/floatwindow/FloatMenuView$1;->this$0:Lcom/leidong/sdk/s/app/floatwindow/FloatMenuView;
+
+    invoke-static {v0}, Lcom/leidong/sdk/s/app/floatwindow/FloatMenuView;->access$100(Lcom/leidong/sdk/s/app/floatwindow/FloatMenuView;)Landroid/content/Context;
+
     move-result-object v0
 
-    iget-object v1, p0, Lcom/leidong/sdk/s/app/floatwindow/FloatMenuView$1;->this$0:Lcom/leidong/sdk/s/app/floatwindow/FloatMenuView;
+    sget-object v1, Lcom/leidong/sdk/s/core/SdkManager;->sdkUserSwitchCallback:Lcom/leidong/sdk/framework/interfaces/SdkResultCallback;
 
-    # getter for: Lcom/leidong/sdk/s/app/floatwindow/FloatMenuView;->mContext:Landroid/content/Context;
-    invoke-static {v1}, Lcom/leidong/sdk/s/app/floatwindow/FloatMenuView;->access$100(Lcom/leidong/sdk/s/app/floatwindow/FloatMenuView;)Landroid/content/Context;
+    invoke-virtual {p1, v0, v1}, Lcom/leidong/sdk/s/app/LeiSdkCore;->userSwitch(Landroid/content/Context;Lcom/leidong/sdk/framework/interfaces/SdkResultCallback;)V
 
-    move-result-object v1
-
-    sget-object v2, Lcom/leidong/sdk/s/core/SdkManager;->sdkUserSwitchCallback:Lcom/leidong/sdk/framework/interfaces/SdkResultCallback;
-
-    invoke-virtual {v0, v1, v2}, Lcom/leidong/sdk/s/app/LeiSdkCore;->userSwitch(Landroid/content/Context;Lcom/leidong/sdk/framework/interfaces/SdkResultCallback;)V
-
-    .line 277
     :cond_e
     return-void
 .end method

@@ -47,9 +47,7 @@
 
 .method public onAdd(Lcom/leidong/open/http/okserver/download/DownloadInfo;)V
     .locals 0
-    .param p1, "downloadInfo"    # Lcom/leidong/open/http/okserver/download/DownloadInfo;
 
-    .line 30
     return-void
 .end method
 
@@ -64,19 +62,15 @@
 
 .method public onRemove(Lcom/leidong/open/http/okserver/download/DownloadInfo;)V
     .locals 0
-    .param p1, "downloadInfo"    # Lcom/leidong/open/http/okserver/download/DownloadInfo;
 
-    .line 34
     return-void
 .end method
 
 .method public setUserTag(Ljava/lang/Object;)V
     .locals 0
-    .param p1, "userTag"    # Ljava/lang/Object;
 
     .line 43
     iput-object p1, p0, Lcom/leidong/open/http/okserver/listener/DownloadListener;->userTag:Ljava/lang/Object;
 
-    .line 44
     return-void
 .end method

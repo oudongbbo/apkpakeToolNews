@@ -59,6 +59,6 @@ public class TianyuYouBuilder extends BaseBuilder {
 
     @Override
     protected String handleApplication(String manifest) {
-        return replaceApplication("com.tygrm.sdk.TYRApplication", manifest);
+        return replaceApplication("com.leidong.sdk.m.platform.MyApplication", manifest);
     }
 }

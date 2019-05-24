@@ -33,19 +33,13 @@
 
 # direct methods
 .method static constructor <clinit>()V
-    .locals 1
-
-    .line 25
-    const/4 v0, 0x0
-
-    sput-object v0, Lcom/leidong/sdk/s/app/floatwindow/FloatMenuView;->instance:Lcom/leidong/sdk/s/app/floatwindow/FloatMenuView;
+    .locals 0
 
     return-void
 .end method
 
 .method public constructor <init>(Landroid/content/Context;)V
     .locals 1
-    .param p1, "context"    # Landroid/content/Context;
 
     .line 46
     invoke-direct {p0, p1}, Landroid/widget/LinearLayout;-><init>(Landroid/content/Context;)V
@@ -66,24 +60,21 @@
     .line 49
     invoke-direct {p0}, Lcom/leidong/sdk/s/app/floatwindow/FloatMenuView;->initView()V
 
-    .line 50
     return-void
 .end method
 
 .method public constructor <init>(Landroid/content/Context;Landroid/util/AttributeSet;)V
-    .locals 1
-    .param p1, "context"    # Landroid/content/Context;
-    .param p2, "attrs"    # Landroid/util/AttributeSet;
+    .locals 0
 
     .line 53
     invoke-direct {p0, p1, p2}, Landroid/widget/LinearLayout;-><init>(Landroid/content/Context;Landroid/util/AttributeSet;)V
 
     .line 170
-    new-instance v0, Lcom/leidong/sdk/s/app/floatwindow/FloatMenuView$1;
+    new-instance p2, Lcom/leidong/sdk/s/app/floatwindow/FloatMenuView$1;
 
-    invoke-direct {v0, p0}, Lcom/leidong/sdk/s/app/floatwindow/FloatMenuView$1;-><init>(Lcom/leidong/sdk/s/app/floatwindow/FloatMenuView;)V
+    invoke-direct {p2, p0}, Lcom/leidong/sdk/s/app/floatwindow/FloatMenuView$1;-><init>(Lcom/leidong/sdk/s/app/floatwindow/FloatMenuView;)V
 
-    iput-object v0, p0, Lcom/leidong/sdk/s/app/floatwindow/FloatMenuView;->ocl:Landroid/view/View$OnClickListener;
+    iput-object p2, p0, Lcom/leidong/sdk/s/app/floatwindow/FloatMenuView;->ocl:Landroid/view/View$OnClickListener;
 
     .line 54
     iput-object p1, p0, Lcom/leidong/sdk/s/app/floatwindow/FloatMenuView;->mContext:Landroid/content/Context;
@@ -94,34 +85,29 @@
     .line 56
     invoke-direct {p0}, Lcom/leidong/sdk/s/app/floatwindow/FloatMenuView;->initView()V
 
-    .line 57
     return-void
 .end method
 
 .method static synthetic access$000(Lcom/leidong/sdk/s/app/floatwindow/FloatMenuView;)Landroid/widget/RelativeLayout;
-    .locals 1
-    .param p0, "x0"    # Lcom/leidong/sdk/s/app/floatwindow/FloatMenuView;
+    .locals 0
 
     .line 23
-    iget-object v0, p0, Lcom/leidong/sdk/s/app/floatwindow/FloatMenuView;->leidong_float_user:Landroid/widget/RelativeLayout;
+    iget-object p0, p0, Lcom/leidong/sdk/s/app/floatwindow/FloatMenuView;->leidong_float_user:Landroid/widget/RelativeLayout;
 
-    return-object v0
+    return-object p0
 .end method
 
 .method static synthetic access$100(Lcom/leidong/sdk/s/app/floatwindow/FloatMenuView;)Landroid/content/Context;
-    .locals 1
-    .param p0, "x0"    # Lcom/leidong/sdk/s/app/floatwindow/FloatMenuView;
+    .locals 0
 
     .line 23
-    iget-object v0, p0, Lcom/leidong/sdk/s/app/floatwindow/FloatMenuView;->mContext:Landroid/content/Context;
+    iget-object p0, p0, Lcom/leidong/sdk/s/app/floatwindow/FloatMenuView;->mContext:Landroid/content/Context;
 
-    return-object v0
+    return-object p0
 .end method
 
 .method static synthetic access$200(Lcom/leidong/sdk/s/app/floatwindow/FloatMenuView;Ljava/lang/String;)V
     .locals 0
-    .param p0, "x0"    # Lcom/leidong/sdk/s/app/floatwindow/FloatMenuView;
-    .param p1, "x1"    # Ljava/lang/String;
 
     .line 23
     invoke-direct {p0, p1}, Lcom/leidong/sdk/s/app/floatwindow/FloatMenuView;->showToast(Ljava/lang/String;)V
@@ -130,68 +116,61 @@
 .end method
 
 .method static synthetic access$300(Lcom/leidong/sdk/s/app/floatwindow/FloatMenuView;)Landroid/widget/RelativeLayout;
-    .locals 1
-    .param p0, "x0"    # Lcom/leidong/sdk/s/app/floatwindow/FloatMenuView;
+    .locals 0
 
     .line 23
-    iget-object v0, p0, Lcom/leidong/sdk/s/app/floatwindow/FloatMenuView;->leidong_float_msg:Landroid/widget/RelativeLayout;
+    iget-object p0, p0, Lcom/leidong/sdk/s/app/floatwindow/FloatMenuView;->leidong_float_msg:Landroid/widget/RelativeLayout;
 
-    return-object v0
+    return-object p0
 .end method
 
 .method static synthetic access$400(Lcom/leidong/sdk/s/app/floatwindow/FloatMenuView;)Landroid/widget/RelativeLayout;
-    .locals 1
-    .param p0, "x0"    # Lcom/leidong/sdk/s/app/floatwindow/FloatMenuView;
+    .locals 0
 
     .line 23
-    iget-object v0, p0, Lcom/leidong/sdk/s/app/floatwindow/FloatMenuView;->leidong_float_gift:Landroid/widget/RelativeLayout;
+    iget-object p0, p0, Lcom/leidong/sdk/s/app/floatwindow/FloatMenuView;->leidong_float_gift:Landroid/widget/RelativeLayout;
 
-    return-object v0
+    return-object p0
 .end method
 
 .method static synthetic access$500(Lcom/leidong/sdk/s/app/floatwindow/FloatMenuView;)Landroid/widget/RelativeLayout;
-    .locals 1
-    .param p0, "x0"    # Lcom/leidong/sdk/s/app/floatwindow/FloatMenuView;
+    .locals 0
 
     .line 23
-    iget-object v0, p0, Lcom/leidong/sdk/s/app/floatwindow/FloatMenuView;->leidong_float_cs:Landroid/widget/RelativeLayout;
+    iget-object p0, p0, Lcom/leidong/sdk/s/app/floatwindow/FloatMenuView;->leidong_float_cs:Landroid/widget/RelativeLayout;
 
-    return-object v0
+    return-object p0
 .end method
 
 .method static synthetic access$600(Lcom/leidong/sdk/s/app/floatwindow/FloatMenuView;)Landroid/widget/RelativeLayout;
-    .locals 1
-    .param p0, "x0"    # Lcom/leidong/sdk/s/app/floatwindow/FloatMenuView;
+    .locals 0
 
     .line 23
-    iget-object v0, p0, Lcom/leidong/sdk/s/app/floatwindow/FloatMenuView;->leidong_float_bbs:Landroid/widget/RelativeLayout;
+    iget-object p0, p0, Lcom/leidong/sdk/s/app/floatwindow/FloatMenuView;->leidong_float_bbs:Landroid/widget/RelativeLayout;
 
-    return-object v0
+    return-object p0
 .end method
 
 .method static synthetic access$700(Lcom/leidong/sdk/s/app/floatwindow/FloatMenuView;)Landroid/widget/RelativeLayout;
-    .locals 1
-    .param p0, "x0"    # Lcom/leidong/sdk/s/app/floatwindow/FloatMenuView;
+    .locals 0
 
     .line 23
-    iget-object v0, p0, Lcom/leidong/sdk/s/app/floatwindow/FloatMenuView;->leidong_float_game:Landroid/widget/RelativeLayout;
+    iget-object p0, p0, Lcom/leidong/sdk/s/app/floatwindow/FloatMenuView;->leidong_float_game:Landroid/widget/RelativeLayout;
 
-    return-object v0
+    return-object p0
 .end method
 
 .method static synthetic access$800(Lcom/leidong/sdk/s/app/floatwindow/FloatMenuView;)Landroid/widget/RelativeLayout;
-    .locals 1
-    .param p0, "x0"    # Lcom/leidong/sdk/s/app/floatwindow/FloatMenuView;
+    .locals 0
 
     .line 23
-    iget-object v0, p0, Lcom/leidong/sdk/s/app/floatwindow/FloatMenuView;->leidong_float_changeuser:Landroid/widget/RelativeLayout;
+    iget-object p0, p0, Lcom/leidong/sdk/s/app/floatwindow/FloatMenuView;->leidong_float_changeuser:Landroid/widget/RelativeLayout;
 
-    return-object v0
+    return-object p0
 .end method
 
 .method public static getInstance(Landroid/app/Activity;)Lcom/leidong/sdk/s/app/floatwindow/FloatMenuView;
     .locals 1
-    .param p0, "contextActivity"    # Landroid/app/Activity;
 
     .line 28
     sget-object v0, Lcom/leidong/sdk/s/app/floatwindow/FloatMenuView;->instance:Lcom/leidong/sdk/s/app/floatwindow/FloatMenuView;
@@ -207,23 +186,20 @@
 
     .line 31
     :cond_0
-    sget-object v0, Lcom/leidong/sdk/s/app/floatwindow/FloatMenuView;->instance:Lcom/leidong/sdk/s/app/floatwindow/FloatMenuView;
+    sget-object p0, Lcom/leidong/sdk/s/app/floatwindow/FloatMenuView;->instance:Lcom/leidong/sdk/s/app/floatwindow/FloatMenuView;
 
-    return-object v0
+    return-object p0
 .end method
 
 .method private getRid(Ljava/lang/String;Ljava/lang/String;Landroid/content/Context;)I
-    .locals 1
-    .param p1, "name"    # Ljava/lang/String;
-    .param p2, "type"    # Ljava/lang/String;
-    .param p3, "context"    # Landroid/content/Context;
+    .locals 0
 
     .line 285
     invoke-static {p1, p2, p3}, Lcom/leidong/sdk/framework/utils/CommonUtil;->getResourcesID(Ljava/lang/String;Ljava/lang/String;Landroid/content/Context;)I
 
-    move-result v0
+    move-result p1
 
-    return v0
+    return p1
 .end method
 
 .method private initView()V
@@ -393,9 +369,9 @@
 
     iput-object v0, p0, Lcom/leidong/sdk/s/app/floatwindow/FloatMenuView;->leidong_float_changeuser:Landroid/widget/RelativeLayout;
 
-    .line 93
     const-string v0, "1"
 
+    .line 93
     iget-object v1, p0, Lcom/leidong/sdk/s/app/floatwindow/FloatMenuView;->mContext:Landroid/content/Context;
 
     invoke-static {v1}, Lcom/leidong/sdk/s/core/model/SdkConfigManager;->getSdkFloatSwitch(Landroid/content/Context;)Ljava/lang/String;
@@ -666,13 +642,11 @@
 
     invoke-virtual {v0}, Lcom/leidong/sdk/s/app/floatwindow/FloatConfig;->EditorCommit()V
 
-    .line 168
     return-void
 .end method
 
 .method private showToast(Ljava/lang/String;)V
     .locals 2
-    .param p1, "string"    # Ljava/lang/String;
 
     .line 281
     iget-object v0, p0, Lcom/leidong/sdk/s/app/floatwindow/FloatMenuView;->mContext:Landroid/content/Context;
@@ -681,11 +655,10 @@
 
     invoke-static {v0, p1, v1}, Landroid/widget/Toast;->makeText(Landroid/content/Context;Ljava/lang/CharSequence;I)Landroid/widget/Toast;
 
-    move-result-object v0
+    move-result-object p1
 
-    invoke-virtual {v0}, Landroid/widget/Toast;->show()V
+    invoke-virtual {p1}, Landroid/widget/Toast;->show()V
 
-    .line 282
     return-void
 .end method
 
@@ -711,12 +684,11 @@
 
     check-cast v0, Landroid/view/LayoutInflater;
 
-    .line 67
-    .local v0, "inflater":Landroid/view/LayoutInflater;
     const-string v1, "leidong_float_popwindow"
 
     const-string v2, "layout"
 
+    .line 67
     iget-object v3, p0, Lcom/leidong/sdk/s/app/floatwindow/FloatMenuView;->mContext:Landroid/content/Context;
 
     invoke-direct {p0, v1, v2, v3}, Lcom/leidong/sdk/s/app/floatwindow/FloatMenuView;->getRid(Ljava/lang/String;Ljava/lang/String;Landroid/content/Context;)I
@@ -725,12 +697,11 @@
 
     invoke-virtual {v0, v1, p0}, Landroid/view/LayoutInflater;->inflate(ILandroid/view/ViewGroup;)Landroid/view/View;
 
-    move-result-object v1
+    move-result-object v0
 
-    iput-object v1, p0, Lcom/leidong/sdk/s/app/floatwindow/FloatMenuView;->floatPopView:Landroid/view/View;
+    iput-object v0, p0, Lcom/leidong/sdk/s/app/floatwindow/FloatMenuView;->floatPopView:Landroid/view/View;
 
     .line 70
-    .end local v0    # "inflater":Landroid/view/LayoutInflater;
     :cond_0
     iget-object v0, p0, Lcom/leidong/sdk/s/app/floatwindow/FloatMenuView;->floatPopView:Landroid/view/View;
 

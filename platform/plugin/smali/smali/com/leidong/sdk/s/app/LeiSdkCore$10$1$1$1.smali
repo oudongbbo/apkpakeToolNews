@@ -24,7 +24,6 @@
 # direct methods
 .method constructor <init>(Lcom/leidong/sdk/s/app/LeiSdkCore$10$1$1;)V
     .locals 0
-    .param p1, "this$3"    # Lcom/leidong/sdk/s/app/LeiSdkCore$10$1$1;
 
     .line 523
     iput-object p1, p0, Lcom/leidong/sdk/s/app/LeiSdkCore$10$1$1$1;->this$3:Lcom/leidong/sdk/s/app/LeiSdkCore$10$1$1;
@@ -37,20 +36,18 @@
 
 # virtual methods
 .method public onClick(Landroid/view/View;)V
-    .locals 1
-    .param p1, "arg0"    # Landroid/view/View;
+    .locals 0
 
     .line 527
-    iget-object v0, p0, Lcom/leidong/sdk/s/app/LeiSdkCore$10$1$1$1;->this$3:Lcom/leidong/sdk/s/app/LeiSdkCore$10$1$1;
+    iget-object p1, p0, Lcom/leidong/sdk/s/app/LeiSdkCore$10$1$1$1;->this$3:Lcom/leidong/sdk/s/app/LeiSdkCore$10$1$1;
 
-    iget-object v0, v0, Lcom/leidong/sdk/s/app/LeiSdkCore$10$1$1;->this$2:Lcom/leidong/sdk/s/app/LeiSdkCore$10$1;
+    iget-object p1, p1, Lcom/leidong/sdk/s/app/LeiSdkCore$10$1$1;->this$2:Lcom/leidong/sdk/s/app/LeiSdkCore$10$1;
 
-    iget-object v0, v0, Lcom/leidong/sdk/s/app/LeiSdkCore$10$1;->this$1:Lcom/leidong/sdk/s/app/LeiSdkCore$10;
+    iget-object p1, p1, Lcom/leidong/sdk/s/app/LeiSdkCore$10$1;->this$1:Lcom/leidong/sdk/s/app/LeiSdkCore$10;
 
-    iget-object v0, v0, Lcom/leidong/sdk/s/app/LeiSdkCore$10;->val$callback:Lcom/leidong/sdk/framework/interfaces/ResultCallback;
+    iget-object p1, p1, Lcom/leidong/sdk/s/app/LeiSdkCore$10;->val$callback:Lcom/leidong/sdk/framework/interfaces/ResultCallback;
 
-    invoke-interface {v0}, Lcom/leidong/sdk/framework/interfaces/ResultCallback;->onSuccess()V
+    invoke-interface {p1}, Lcom/leidong/sdk/framework/interfaces/ResultCallback;->onSuccess()V
 
-    .line 528
     return-void
 .end method

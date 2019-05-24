@@ -21,8 +21,6 @@
 # direct methods
 .method public constructor <init>(Lcom/leidong/sdk/m/activity/SdkCustomerServiceActivity;Landroid/content/Context;)V
     .locals 0
-    .param p1, "this$0"    # Lcom/leidong/sdk/m/activity/SdkCustomerServiceActivity;
-    .param p2, "context"    # Landroid/content/Context;
 
     .line 264
     iput-object p1, p0, Lcom/leidong/sdk/m/activity/SdkCustomerServiceActivity$myWebViewClient;->this$0:Lcom/leidong/sdk/m/activity/SdkCustomerServiceActivity;
@@ -30,352 +28,301 @@
     .line 265
     invoke-direct {p0, p2}, Lcom/leidong/sdk/framework/web/plugs/SdkWebveiwClient;-><init>(Landroid/content/Context;)V
 
-    .line 267
     return-void
 .end method
 
 
 # virtual methods
 .method public onPageFinished(Landroid/webkit/WebView;Ljava/lang/String;)V
-    .locals 3
-    .param p1, "view"    # Landroid/webkit/WebView;
-    .param p2, "url"    # Ljava/lang/String;
+    .locals 2
 
     .line 293
     iget-object v0, p0, Lcom/leidong/sdk/m/activity/SdkCustomerServiceActivity$myWebViewClient;->this$0:Lcom/leidong/sdk/m/activity/SdkCustomerServiceActivity;
 
     const-string v1, "myWeb onPageFinished"
 
-    # invokes: Lcom/leidong/sdk/m/activity/SdkCustomerServiceActivity;->sendLog(Ljava/lang/String;)V
     invoke-static {v0, v1}, Lcom/leidong/sdk/m/activity/SdkCustomerServiceActivity;->access$500(Lcom/leidong/sdk/m/activity/SdkCustomerServiceActivity;Ljava/lang/String;)V
 
     .line 294
     invoke-super {p0, p1, p2}, Lcom/leidong/sdk/framework/web/plugs/SdkWebveiwClient;->onPageFinished(Landroid/webkit/WebView;Ljava/lang/String;)V
 
     .line 296
-    iget-object v0, p0, Lcom/leidong/sdk/m/activity/SdkCustomerServiceActivity$myWebViewClient;->this$0:Lcom/leidong/sdk/m/activity/SdkCustomerServiceActivity;
+    iget-object p1, p0, Lcom/leidong/sdk/m/activity/SdkCustomerServiceActivity$myWebViewClient;->this$0:Lcom/leidong/sdk/m/activity/SdkCustomerServiceActivity;
 
-    # invokes: Lcom/leidong/sdk/m/activity/SdkCustomerServiceActivity;->removeTimeoutCheckingRunnable()V
-    invoke-static {v0}, Lcom/leidong/sdk/m/activity/SdkCustomerServiceActivity;->access$600(Lcom/leidong/sdk/m/activity/SdkCustomerServiceActivity;)V
+    invoke-static {p1}, Lcom/leidong/sdk/m/activity/SdkCustomerServiceActivity;->access$600(Lcom/leidong/sdk/m/activity/SdkCustomerServiceActivity;)V
 
     .line 298
+    iget-object p1, p0, Lcom/leidong/sdk/m/activity/SdkCustomerServiceActivity$myWebViewClient;->this$0:Lcom/leidong/sdk/m/activity/SdkCustomerServiceActivity;
+
+    invoke-static {p1}, Lcom/leidong/sdk/m/activity/SdkCustomerServiceActivity;->access$200(Lcom/leidong/sdk/m/activity/SdkCustomerServiceActivity;)Landroid/content/Context;
+
+    move-result-object p1
+
     iget-object v0, p0, Lcom/leidong/sdk/m/activity/SdkCustomerServiceActivity$myWebViewClient;->this$0:Lcom/leidong/sdk/m/activity/SdkCustomerServiceActivity;
 
-    # getter for: Lcom/leidong/sdk/m/activity/SdkCustomerServiceActivity;->mContext:Landroid/content/Context;
-    invoke-static {v0}, Lcom/leidong/sdk/m/activity/SdkCustomerServiceActivity;->access$200(Lcom/leidong/sdk/m/activity/SdkCustomerServiceActivity;)Landroid/content/Context;
+    invoke-static {v0}, Lcom/leidong/sdk/m/activity/SdkCustomerServiceActivity;->access$800(Lcom/leidong/sdk/m/activity/SdkCustomerServiceActivity;)J
 
-    move-result-object v0
+    move-result-wide v0
 
-    iget-object v1, p0, Lcom/leidong/sdk/m/activity/SdkCustomerServiceActivity$myWebViewClient;->this$0:Lcom/leidong/sdk/m/activity/SdkCustomerServiceActivity;
+    invoke-static {p1, p2, v0, v1}, Lcom/leidong/sdk/framework/web/webview/WebviewUtils;->isLoadOneTime(Landroid/content/Context;Ljava/lang/String;J)Z
 
-    # getter for: Lcom/leidong/sdk/m/activity/SdkCustomerServiceActivity;->LOAD_TIMEOUT:J
-    invoke-static {v1}, Lcom/leidong/sdk/m/activity/SdkCustomerServiceActivity;->access$800(Lcom/leidong/sdk/m/activity/SdkCustomerServiceActivity;)J
+    move-result p1
 
-    move-result-wide v1
-
-    invoke-static {v0, p2, v1, v2}, Lcom/leidong/sdk/framework/web/webview/WebviewUtils;->isLoadOneTime(Landroid/content/Context;Ljava/lang/String;J)Z
-
-    move-result v0
-
-    if-eqz v0, :cond_0
+    if-eqz p1, :cond_0
 
     .line 299
-    iget-object v0, p0, Lcom/leidong/sdk/m/activity/SdkCustomerServiceActivity$myWebViewClient;->this$0:Lcom/leidong/sdk/m/activity/SdkCustomerServiceActivity;
+    iget-object p1, p0, Lcom/leidong/sdk/m/activity/SdkCustomerServiceActivity$myWebViewClient;->this$0:Lcom/leidong/sdk/m/activity/SdkCustomerServiceActivity;
 
-    const-string v1, "\u5f53\u524d\u9875\u9762:\u8d85\u65f6\u524d\u52a0\u8f7d\u5b8c\u6210"
+    const-string v0, "\u5f53\u524d\u9875\u9762:\u8d85\u65f6\u524d\u52a0\u8f7d\u5b8c\u6210"
 
-    # invokes: Lcom/leidong/sdk/m/activity/SdkCustomerServiceActivity;->sendLog(Ljava/lang/String;)V
-    invoke-static {v0, v1}, Lcom/leidong/sdk/m/activity/SdkCustomerServiceActivity;->access$500(Lcom/leidong/sdk/m/activity/SdkCustomerServiceActivity;Ljava/lang/String;)V
+    invoke-static {p1, v0}, Lcom/leidong/sdk/m/activity/SdkCustomerServiceActivity;->access$500(Lcom/leidong/sdk/m/activity/SdkCustomerServiceActivity;Ljava/lang/String;)V
 
     .line 300
-    iget-object v0, p0, Lcom/leidong/sdk/m/activity/SdkCustomerServiceActivity$myWebViewClient;->this$0:Lcom/leidong/sdk/m/activity/SdkCustomerServiceActivity;
+    iget-object p1, p0, Lcom/leidong/sdk/m/activity/SdkCustomerServiceActivity$myWebViewClient;->this$0:Lcom/leidong/sdk/m/activity/SdkCustomerServiceActivity;
 
-    # getter for: Lcom/leidong/sdk/m/activity/SdkCustomerServiceActivity;->mContext:Landroid/content/Context;
-    invoke-static {v0}, Lcom/leidong/sdk/m/activity/SdkCustomerServiceActivity;->access$200(Lcom/leidong/sdk/m/activity/SdkCustomerServiceActivity;)Landroid/content/Context;
+    invoke-static {p1}, Lcom/leidong/sdk/m/activity/SdkCustomerServiceActivity;->access$200(Lcom/leidong/sdk/m/activity/SdkCustomerServiceActivity;)Landroid/content/Context;
 
-    move-result-object v0
+    move-result-object p1
 
-    const/4 v1, 0x1
+    const/4 v0, 0x1
 
-    invoke-static {v0, p2, v1}, Lcom/leidong/sdk/framework/web/webview/WebviewUtils;->setUrlLoadCount(Landroid/content/Context;Ljava/lang/String;I)V
+    invoke-static {p1, p2, v0}, Lcom/leidong/sdk/framework/web/webview/WebviewUtils;->setUrlLoadCount(Landroid/content/Context;Ljava/lang/String;I)V
 
     goto :goto_0
 
     .line 302
     :cond_0
-    iget-object v0, p0, Lcom/leidong/sdk/m/activity/SdkCustomerServiceActivity$myWebViewClient;->this$0:Lcom/leidong/sdk/m/activity/SdkCustomerServiceActivity;
+    iget-object p1, p0, Lcom/leidong/sdk/m/activity/SdkCustomerServiceActivity$myWebViewClient;->this$0:Lcom/leidong/sdk/m/activity/SdkCustomerServiceActivity;
 
-    const-string v1, "\u5f53\u524d\u9875\u9762:\u8d85\u65f6\u540e\u52a0\u8f7d\u5b8c\u6210"
+    const-string p2, "\u5f53\u524d\u9875\u9762:\u8d85\u65f6\u540e\u52a0\u8f7d\u5b8c\u6210"
 
-    # invokes: Lcom/leidong/sdk/m/activity/SdkCustomerServiceActivity;->sendLog(Ljava/lang/String;)V
-    invoke-static {v0, v1}, Lcom/leidong/sdk/m/activity/SdkCustomerServiceActivity;->access$500(Lcom/leidong/sdk/m/activity/SdkCustomerServiceActivity;Ljava/lang/String;)V
+    invoke-static {p1, p2}, Lcom/leidong/sdk/m/activity/SdkCustomerServiceActivity;->access$500(Lcom/leidong/sdk/m/activity/SdkCustomerServiceActivity;Ljava/lang/String;)V
 
     .line 305
     :goto_0
-    iget-object v0, p0, Lcom/leidong/sdk/m/activity/SdkCustomerServiceActivity$myWebViewClient;->this$0:Lcom/leidong/sdk/m/activity/SdkCustomerServiceActivity;
+    iget-object p1, p0, Lcom/leidong/sdk/m/activity/SdkCustomerServiceActivity$myWebViewClient;->this$0:Lcom/leidong/sdk/m/activity/SdkCustomerServiceActivity;
 
-    # invokes: Lcom/leidong/sdk/m/activity/SdkCustomerServiceActivity;->hideWaitDialog()V
-    invoke-static {v0}, Lcom/leidong/sdk/m/activity/SdkCustomerServiceActivity;->access$1000(Lcom/leidong/sdk/m/activity/SdkCustomerServiceActivity;)V
+    invoke-static {p1}, Lcom/leidong/sdk/m/activity/SdkCustomerServiceActivity;->access$1000(Lcom/leidong/sdk/m/activity/SdkCustomerServiceActivity;)V
 
     .line 306
-    iget-object v0, p0, Lcom/leidong/sdk/m/activity/SdkCustomerServiceActivity$myWebViewClient;->this$0:Lcom/leidong/sdk/m/activity/SdkCustomerServiceActivity;
+    iget-object p1, p0, Lcom/leidong/sdk/m/activity/SdkCustomerServiceActivity$myWebViewClient;->this$0:Lcom/leidong/sdk/m/activity/SdkCustomerServiceActivity;
 
-    # getter for: Lcom/leidong/sdk/m/activity/SdkCustomerServiceActivity;->webView:Lcom/leidong/sdk/framework/web/webview/WebViewBase;
-    invoke-static {v0}, Lcom/leidong/sdk/m/activity/SdkCustomerServiceActivity;->access$300(Lcom/leidong/sdk/m/activity/SdkCustomerServiceActivity;)Lcom/leidong/sdk/framework/web/webview/WebViewBase;
+    invoke-static {p1}, Lcom/leidong/sdk/m/activity/SdkCustomerServiceActivity;->access$300(Lcom/leidong/sdk/m/activity/SdkCustomerServiceActivity;)Lcom/leidong/sdk/framework/web/webview/WebViewBase;
 
-    move-result-object v0
+    move-result-object p1
 
-    const/4 v1, 0x0
+    const/4 p2, 0x0
 
-    invoke-virtual {v0, v1}, Lcom/leidong/sdk/framework/web/webview/WebViewBase;->setVisibility(I)V
+    invoke-virtual {p1, p2}, Lcom/leidong/sdk/framework/web/webview/WebViewBase;->setVisibility(I)V
 
-    .line 307
     return-void
 .end method
 
 .method public onPageStarted(Landroid/webkit/WebView;Ljava/lang/String;Landroid/graphics/Bitmap;)V
-    .locals 3
-    .param p1, "view"    # Landroid/webkit/WebView;
-    .param p2, "url"    # Ljava/lang/String;
-    .param p3, "favicon"    # Landroid/graphics/Bitmap;
+    .locals 2
 
     .line 271
     iget-object v0, p0, Lcom/leidong/sdk/m/activity/SdkCustomerServiceActivity$myWebViewClient;->this$0:Lcom/leidong/sdk/m/activity/SdkCustomerServiceActivity;
 
     const-string v1, "myWeb onPageStarted"
 
-    # invokes: Lcom/leidong/sdk/m/activity/SdkCustomerServiceActivity;->sendLog(Ljava/lang/String;)V
     invoke-static {v0, v1}, Lcom/leidong/sdk/m/activity/SdkCustomerServiceActivity;->access$500(Lcom/leidong/sdk/m/activity/SdkCustomerServiceActivity;Ljava/lang/String;)V
 
     .line 272
     invoke-super {p0, p1, p2, p3}, Lcom/leidong/sdk/framework/web/plugs/SdkWebveiwClient;->onPageStarted(Landroid/webkit/WebView;Ljava/lang/String;Landroid/graphics/Bitmap;)V
 
     .line 274
-    iget-object v0, p0, Lcom/leidong/sdk/m/activity/SdkCustomerServiceActivity$myWebViewClient;->this$0:Lcom/leidong/sdk/m/activity/SdkCustomerServiceActivity;
+    iget-object p3, p0, Lcom/leidong/sdk/m/activity/SdkCustomerServiceActivity$myWebViewClient;->this$0:Lcom/leidong/sdk/m/activity/SdkCustomerServiceActivity;
 
-    # setter for: Lcom/leidong/sdk/m/activity/SdkCustomerServiceActivity;->currentUrl:Ljava/lang/String;
-    invoke-static {v0, p2}, Lcom/leidong/sdk/m/activity/SdkCustomerServiceActivity;->access$102(Lcom/leidong/sdk/m/activity/SdkCustomerServiceActivity;Ljava/lang/String;)Ljava/lang/String;
+    invoke-static {p3, p2}, Lcom/leidong/sdk/m/activity/SdkCustomerServiceActivity;->access$102(Lcom/leidong/sdk/m/activity/SdkCustomerServiceActivity;Ljava/lang/String;)Ljava/lang/String;
 
     .line 276
-    iget-object v0, p0, Lcom/leidong/sdk/m/activity/SdkCustomerServiceActivity$myWebViewClient;->this$0:Lcom/leidong/sdk/m/activity/SdkCustomerServiceActivity;
+    iget-object p3, p0, Lcom/leidong/sdk/m/activity/SdkCustomerServiceActivity$myWebViewClient;->this$0:Lcom/leidong/sdk/m/activity/SdkCustomerServiceActivity;
 
-    # invokes: Lcom/leidong/sdk/m/activity/SdkCustomerServiceActivity;->removeTimeoutCheckingRunnable()V
-    invoke-static {v0}, Lcom/leidong/sdk/m/activity/SdkCustomerServiceActivity;->access$600(Lcom/leidong/sdk/m/activity/SdkCustomerServiceActivity;)V
+    invoke-static {p3}, Lcom/leidong/sdk/m/activity/SdkCustomerServiceActivity;->access$600(Lcom/leidong/sdk/m/activity/SdkCustomerServiceActivity;)V
 
     .line 277
-    iget-object v0, p0, Lcom/leidong/sdk/m/activity/SdkCustomerServiceActivity$myWebViewClient;->this$0:Lcom/leidong/sdk/m/activity/SdkCustomerServiceActivity;
+    iget-object p3, p0, Lcom/leidong/sdk/m/activity/SdkCustomerServiceActivity$myWebViewClient;->this$0:Lcom/leidong/sdk/m/activity/SdkCustomerServiceActivity;
 
-    new-instance v1, Lcom/leidong/sdk/m/activity/SdkCustomerServiceActivity$myWebViewClient$1;
+    new-instance v0, Lcom/leidong/sdk/m/activity/SdkCustomerServiceActivity$myWebViewClient$1;
 
-    invoke-direct {v1, p0, p1, p2}, Lcom/leidong/sdk/m/activity/SdkCustomerServiceActivity$myWebViewClient$1;-><init>(Lcom/leidong/sdk/m/activity/SdkCustomerServiceActivity$myWebViewClient;Landroid/webkit/WebView;Ljava/lang/String;)V
+    invoke-direct {v0, p0, p1, p2}, Lcom/leidong/sdk/m/activity/SdkCustomerServiceActivity$myWebViewClient$1;-><init>(Lcom/leidong/sdk/m/activity/SdkCustomerServiceActivity$myWebViewClient;Landroid/webkit/WebView;Ljava/lang/String;)V
 
-    # setter for: Lcom/leidong/sdk/m/activity/SdkCustomerServiceActivity;->runnable:Ljava/lang/Runnable;
-    invoke-static {v0, v1}, Lcom/leidong/sdk/m/activity/SdkCustomerServiceActivity;->access$702(Lcom/leidong/sdk/m/activity/SdkCustomerServiceActivity;Ljava/lang/Runnable;)Ljava/lang/Runnable;
+    invoke-static {p3, v0}, Lcom/leidong/sdk/m/activity/SdkCustomerServiceActivity;->access$702(Lcom/leidong/sdk/m/activity/SdkCustomerServiceActivity;Ljava/lang/Runnable;)Ljava/lang/Runnable;
 
     .line 284
-    iget-object v0, p0, Lcom/leidong/sdk/m/activity/SdkCustomerServiceActivity$myWebViewClient;->this$0:Lcom/leidong/sdk/m/activity/SdkCustomerServiceActivity;
+    iget-object p1, p0, Lcom/leidong/sdk/m/activity/SdkCustomerServiceActivity$myWebViewClient;->this$0:Lcom/leidong/sdk/m/activity/SdkCustomerServiceActivity;
 
-    # getter for: Lcom/leidong/sdk/m/activity/SdkCustomerServiceActivity;->runnable:Ljava/lang/Runnable;
-    invoke-static {v0}, Lcom/leidong/sdk/m/activity/SdkCustomerServiceActivity;->access$700(Lcom/leidong/sdk/m/activity/SdkCustomerServiceActivity;)Ljava/lang/Runnable;
+    invoke-static {p1}, Lcom/leidong/sdk/m/activity/SdkCustomerServiceActivity;->access$700(Lcom/leidong/sdk/m/activity/SdkCustomerServiceActivity;)Ljava/lang/Runnable;
 
-    move-result-object v0
+    move-result-object p1
 
-    iget-object v1, p0, Lcom/leidong/sdk/m/activity/SdkCustomerServiceActivity$myWebViewClient;->this$0:Lcom/leidong/sdk/m/activity/SdkCustomerServiceActivity;
+    iget-object p3, p0, Lcom/leidong/sdk/m/activity/SdkCustomerServiceActivity$myWebViewClient;->this$0:Lcom/leidong/sdk/m/activity/SdkCustomerServiceActivity;
 
-    # getter for: Lcom/leidong/sdk/m/activity/SdkCustomerServiceActivity;->LOAD_TIMEOUT:J
-    invoke-static {v1}, Lcom/leidong/sdk/m/activity/SdkCustomerServiceActivity;->access$800(Lcom/leidong/sdk/m/activity/SdkCustomerServiceActivity;)J
+    invoke-static {p3}, Lcom/leidong/sdk/m/activity/SdkCustomerServiceActivity;->access$800(Lcom/leidong/sdk/m/activity/SdkCustomerServiceActivity;)J
 
-    move-result-wide v1
+    move-result-wide v0
 
-    invoke-static {v0, v1, v2}, Lcom/leidong/sdk/framework/web/webview/WebviewHandler;->postDelayed(Ljava/lang/Runnable;J)V
+    invoke-static {p1, v0, v1}, Lcom/leidong/sdk/framework/web/webview/WebviewHandler;->postDelayed(Ljava/lang/Runnable;J)V
 
     .line 286
-    iget-object v0, p0, Lcom/leidong/sdk/m/activity/SdkCustomerServiceActivity$myWebViewClient;->this$0:Lcom/leidong/sdk/m/activity/SdkCustomerServiceActivity;
+    iget-object p1, p0, Lcom/leidong/sdk/m/activity/SdkCustomerServiceActivity$myWebViewClient;->this$0:Lcom/leidong/sdk/m/activity/SdkCustomerServiceActivity;
 
-    # getter for: Lcom/leidong/sdk/m/activity/SdkCustomerServiceActivity;->mContext:Landroid/content/Context;
-    invoke-static {v0}, Lcom/leidong/sdk/m/activity/SdkCustomerServiceActivity;->access$200(Lcom/leidong/sdk/m/activity/SdkCustomerServiceActivity;)Landroid/content/Context;
+    invoke-static {p1}, Lcom/leidong/sdk/m/activity/SdkCustomerServiceActivity;->access$200(Lcom/leidong/sdk/m/activity/SdkCustomerServiceActivity;)Landroid/content/Context;
 
-    move-result-object v0
+    move-result-object p1
 
     invoke-static {}, Ljava/lang/System;->currentTimeMillis()J
 
-    move-result-wide v1
+    move-result-wide v0
 
-    invoke-static {v0, p2, v1, v2}, Lcom/leidong/sdk/framework/web/webview/WebviewUtils;->setUrlLoadTime(Landroid/content/Context;Ljava/lang/String;J)V
+    invoke-static {p1, p2, v0, v1}, Lcom/leidong/sdk/framework/web/webview/WebviewUtils;->setUrlLoadTime(Landroid/content/Context;Ljava/lang/String;J)V
 
     .line 288
-    iget-object v0, p0, Lcom/leidong/sdk/m/activity/SdkCustomerServiceActivity$myWebViewClient;->this$0:Lcom/leidong/sdk/m/activity/SdkCustomerServiceActivity;
+    iget-object p1, p0, Lcom/leidong/sdk/m/activity/SdkCustomerServiceActivity$myWebViewClient;->this$0:Lcom/leidong/sdk/m/activity/SdkCustomerServiceActivity;
 
-    iget-object v1, p0, Lcom/leidong/sdk/m/activity/SdkCustomerServiceActivity$myWebViewClient;->this$0:Lcom/leidong/sdk/m/activity/SdkCustomerServiceActivity;
+    iget-object p2, p0, Lcom/leidong/sdk/m/activity/SdkCustomerServiceActivity$myWebViewClient;->this$0:Lcom/leidong/sdk/m/activity/SdkCustomerServiceActivity;
 
-    # getter for: Lcom/leidong/sdk/m/activity/SdkCustomerServiceActivity;->mContext:Landroid/content/Context;
-    invoke-static {v1}, Lcom/leidong/sdk/m/activity/SdkCustomerServiceActivity;->access$200(Lcom/leidong/sdk/m/activity/SdkCustomerServiceActivity;)Landroid/content/Context;
+    invoke-static {p2}, Lcom/leidong/sdk/m/activity/SdkCustomerServiceActivity;->access$200(Lcom/leidong/sdk/m/activity/SdkCustomerServiceActivity;)Landroid/content/Context;
 
-    move-result-object v1
+    move-result-object p2
 
-    # invokes: Lcom/leidong/sdk/m/activity/SdkCustomerServiceActivity;->showWaitDialog(Landroid/content/Context;)V
-    invoke-static {v0, v1}, Lcom/leidong/sdk/m/activity/SdkCustomerServiceActivity;->access$900(Lcom/leidong/sdk/m/activity/SdkCustomerServiceActivity;Landroid/content/Context;)V
+    invoke-static {p1, p2}, Lcom/leidong/sdk/m/activity/SdkCustomerServiceActivity;->access$900(Lcom/leidong/sdk/m/activity/SdkCustomerServiceActivity;Landroid/content/Context;)V
 
-    .line 289
     return-void
 .end method
 
 .method public onReceivedError(Landroid/webkit/WebView;ILjava/lang/String;Ljava/lang/String;)V
-    .locals 6
-    .param p1, "view"    # Landroid/webkit/WebView;
-    .param p2, "errorCode"    # I
-    .param p3, "description"    # Ljava/lang/String;
-    .param p4, "failedUrl"    # Ljava/lang/String;
+    .locals 2
 
     .line 311
-    iget-object v0, p0, Lcom/leidong/sdk/m/activity/SdkCustomerServiceActivity$myWebViewClient;->this$0:Lcom/leidong/sdk/m/activity/SdkCustomerServiceActivity;
+    iget-object p1, p0, Lcom/leidong/sdk/m/activity/SdkCustomerServiceActivity$myWebViewClient;->this$0:Lcom/leidong/sdk/m/activity/SdkCustomerServiceActivity;
 
-    const-string v1, "myWeb onReceivedError"
+    const-string p3, "myWeb onReceivedError"
 
-    # invokes: Lcom/leidong/sdk/m/activity/SdkCustomerServiceActivity;->sendLog(Ljava/lang/String;)V
-    invoke-static {v0, v1}, Lcom/leidong/sdk/m/activity/SdkCustomerServiceActivity;->access$500(Lcom/leidong/sdk/m/activity/SdkCustomerServiceActivity;Ljava/lang/String;)V
+    invoke-static {p1, p3}, Lcom/leidong/sdk/m/activity/SdkCustomerServiceActivity;->access$500(Lcom/leidong/sdk/m/activity/SdkCustomerServiceActivity;Ljava/lang/String;)V
 
     .line 313
-    iget-object v0, p0, Lcom/leidong/sdk/m/activity/SdkCustomerServiceActivity$myWebViewClient;->this$0:Lcom/leidong/sdk/m/activity/SdkCustomerServiceActivity;
+    iget-object p1, p0, Lcom/leidong/sdk/m/activity/SdkCustomerServiceActivity$myWebViewClient;->this$0:Lcom/leidong/sdk/m/activity/SdkCustomerServiceActivity;
 
-    # invokes: Lcom/leidong/sdk/m/activity/SdkCustomerServiceActivity;->removeTimeoutCheckingRunnable()V
-    invoke-static {v0}, Lcom/leidong/sdk/m/activity/SdkCustomerServiceActivity;->access$600(Lcom/leidong/sdk/m/activity/SdkCustomerServiceActivity;)V
+    invoke-static {p1}, Lcom/leidong/sdk/m/activity/SdkCustomerServiceActivity;->access$600(Lcom/leidong/sdk/m/activity/SdkCustomerServiceActivity;)V
 
-    .line 314
     const-wide/16 v0, 0xc8
 
-    const/4 v2, 0x1
+    const/4 p1, 0x1
 
-    const/4 v3, -0x8
+    const/4 p3, -0x8
 
-    if-ne v3, p2, :cond_1
+    if-ne p3, p2, :cond_1
 
     .line 316
-    iget-object v3, p0, Lcom/leidong/sdk/m/activity/SdkCustomerServiceActivity$myWebViewClient;->this$0:Lcom/leidong/sdk/m/activity/SdkCustomerServiceActivity;
+    iget-object p2, p0, Lcom/leidong/sdk/m/activity/SdkCustomerServiceActivity$myWebViewClient;->this$0:Lcom/leidong/sdk/m/activity/SdkCustomerServiceActivity;
 
-    # getter for: Lcom/leidong/sdk/m/activity/SdkCustomerServiceActivity;->mContext:Landroid/content/Context;
-    invoke-static {v3}, Lcom/leidong/sdk/m/activity/SdkCustomerServiceActivity;->access$200(Lcom/leidong/sdk/m/activity/SdkCustomerServiceActivity;)Landroid/content/Context;
+    invoke-static {p2}, Lcom/leidong/sdk/m/activity/SdkCustomerServiceActivity;->access$200(Lcom/leidong/sdk/m/activity/SdkCustomerServiceActivity;)Landroid/content/Context;
 
-    move-result-object v3
+    move-result-object p2
 
-    invoke-static {v3, p4}, Lcom/leidong/sdk/framework/web/webview/WebviewUtils;->getUrlLoadCount(Landroid/content/Context;Ljava/lang/String;)I
+    invoke-static {p2, p4}, Lcom/leidong/sdk/framework/web/webview/WebviewUtils;->getUrlLoadCount(Landroid/content/Context;Ljava/lang/String;)I
 
-    move-result v3
+    move-result p2
 
-    .line 317
-    .local v3, "count":I
-    const/4 v4, 0x3
+    const/4 p3, 0x3
 
-    if-ge v3, v4, :cond_0
+    if-ge p2, p3, :cond_0
 
     .line 318
-    iget-object v0, p0, Lcom/leidong/sdk/m/activity/SdkCustomerServiceActivity$myWebViewClient;->this$0:Lcom/leidong/sdk/m/activity/SdkCustomerServiceActivity;
+    iget-object p3, p0, Lcom/leidong/sdk/m/activity/SdkCustomerServiceActivity$myWebViewClient;->this$0:Lcom/leidong/sdk/m/activity/SdkCustomerServiceActivity;
 
-    new-instance v1, Ljava/lang/StringBuilder;
+    new-instance v0, Ljava/lang/StringBuilder;
 
-    invoke-direct {v1}, Ljava/lang/StringBuilder;-><init>()V
+    invoke-direct {v0}, Ljava/lang/StringBuilder;-><init>()V
 
-    const-string v4, "\u8d85\u65f6\u5904\u7406\uff0c\u51c6\u5907\u52a0\u8f7d\u7b2c"
+    const-string v1, "\u8d85\u65f6\u5904\u7406\uff0c\u51c6\u5907\u52a0\u8f7d\u7b2c"
 
-    invoke-virtual {v1, v4}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    add-int/lit8 v4, v3, 0x1
+    add-int/2addr p2, p1
 
-    invoke-virtual {v1, v4}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
+    invoke-virtual {v0, p2}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
 
-    const-string v4, "\u6b21"
+    const-string v1, "\u6b21"
 
-    invoke-virtual {v1, v4}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    invoke-virtual {v1}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
-
-    move-result-object v1
-
-    # invokes: Lcom/leidong/sdk/m/activity/SdkCustomerServiceActivity;->sendLog(Ljava/lang/String;)V
-    invoke-static {v0, v1}, Lcom/leidong/sdk/m/activity/SdkCustomerServiceActivity;->access$500(Lcom/leidong/sdk/m/activity/SdkCustomerServiceActivity;Ljava/lang/String;)V
-
-    .line 319
-    iget-object v0, p0, Lcom/leidong/sdk/m/activity/SdkCustomerServiceActivity$myWebViewClient;->this$0:Lcom/leidong/sdk/m/activity/SdkCustomerServiceActivity;
-
-    # getter for: Lcom/leidong/sdk/m/activity/SdkCustomerServiceActivity;->mContext:Landroid/content/Context;
-    invoke-static {v0}, Lcom/leidong/sdk/m/activity/SdkCustomerServiceActivity;->access$200(Lcom/leidong/sdk/m/activity/SdkCustomerServiceActivity;)Landroid/content/Context;
+    invoke-virtual {v0}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
 
     move-result-object v0
 
-    add-int/lit8 v1, v3, 0x1
+    invoke-static {p3, v0}, Lcom/leidong/sdk/m/activity/SdkCustomerServiceActivity;->access$500(Lcom/leidong/sdk/m/activity/SdkCustomerServiceActivity;Ljava/lang/String;)V
 
-    invoke-static {v0, p4, v1}, Lcom/leidong/sdk/framework/web/webview/WebviewUtils;->setUrlLoadCount(Landroid/content/Context;Ljava/lang/String;I)V
+    .line 319
+    iget-object p3, p0, Lcom/leidong/sdk/m/activity/SdkCustomerServiceActivity$myWebViewClient;->this$0:Lcom/leidong/sdk/m/activity/SdkCustomerServiceActivity;
+
+    invoke-static {p3}, Lcom/leidong/sdk/m/activity/SdkCustomerServiceActivity;->access$200(Lcom/leidong/sdk/m/activity/SdkCustomerServiceActivity;)Landroid/content/Context;
+
+    move-result-object p3
+
+    invoke-static {p3, p4, p2}, Lcom/leidong/sdk/framework/web/webview/WebviewUtils;->setUrlLoadCount(Landroid/content/Context;Ljava/lang/String;I)V
 
     .line 320
-    iget-object v0, p0, Lcom/leidong/sdk/m/activity/SdkCustomerServiceActivity$myWebViewClient;->this$0:Lcom/leidong/sdk/m/activity/SdkCustomerServiceActivity;
+    iget-object p2, p0, Lcom/leidong/sdk/m/activity/SdkCustomerServiceActivity$myWebViewClient;->this$0:Lcom/leidong/sdk/m/activity/SdkCustomerServiceActivity;
 
-    iget-object v0, v0, Lcom/leidong/sdk/m/activity/SdkCustomerServiceActivity;->showWebHandler:Landroid/os/Handler;
+    iget-object p2, p2, Lcom/leidong/sdk/m/activity/SdkCustomerServiceActivity;->showWebHandler:Landroid/os/Handler;
 
-    const-wide/16 v4, 0x1f4
+    const-wide/16 p3, 0x1f4
 
-    invoke-virtual {v0, v2, v4, v5}, Landroid/os/Handler;->sendEmptyMessageAtTime(IJ)Z
+    invoke-virtual {p2, p1, p3, p4}, Landroid/os/Handler;->sendEmptyMessageAtTime(IJ)Z
 
     goto :goto_0
 
     .line 322
     :cond_0
-    iget-object v4, p0, Lcom/leidong/sdk/m/activity/SdkCustomerServiceActivity$myWebViewClient;->this$0:Lcom/leidong/sdk/m/activity/SdkCustomerServiceActivity;
+    iget-object p2, p0, Lcom/leidong/sdk/m/activity/SdkCustomerServiceActivity$myWebViewClient;->this$0:Lcom/leidong/sdk/m/activity/SdkCustomerServiceActivity;
 
-    iget-object v4, v4, Lcom/leidong/sdk/m/activity/SdkCustomerServiceActivity;->showErrorWebHandler:Landroid/os/Handler;
+    iget-object p2, p2, Lcom/leidong/sdk/m/activity/SdkCustomerServiceActivity;->showErrorWebHandler:Landroid/os/Handler;
 
-    invoke-virtual {v4, v2, v0, v1}, Landroid/os/Handler;->sendEmptyMessageDelayed(IJ)Z
+    invoke-virtual {p2, p1, v0, v1}, Landroid/os/Handler;->sendEmptyMessageDelayed(IJ)Z
 
-    .line 324
-    .end local v3    # "count":I
-    :goto_0
-    goto :goto_1
+    goto :goto_0
 
     .line 326
     :cond_1
-    iget-object v3, p0, Lcom/leidong/sdk/m/activity/SdkCustomerServiceActivity$myWebViewClient;->this$0:Lcom/leidong/sdk/m/activity/SdkCustomerServiceActivity;
+    iget-object p2, p0, Lcom/leidong/sdk/m/activity/SdkCustomerServiceActivity$myWebViewClient;->this$0:Lcom/leidong/sdk/m/activity/SdkCustomerServiceActivity;
 
-    iget-object v3, v3, Lcom/leidong/sdk/m/activity/SdkCustomerServiceActivity;->showErrorWebHandler:Landroid/os/Handler;
+    iget-object p2, p2, Lcom/leidong/sdk/m/activity/SdkCustomerServiceActivity;->showErrorWebHandler:Landroid/os/Handler;
 
-    invoke-virtual {v3, v2, v0, v1}, Landroid/os/Handler;->sendEmptyMessageDelayed(IJ)Z
+    invoke-virtual {p2, p1, v0, v1}, Landroid/os/Handler;->sendEmptyMessageDelayed(IJ)Z
 
-    .line 329
-    :goto_1
+    :goto_0
     return-void
 .end method
 
 .method public onReceivedSslError(Landroid/webkit/WebView;Landroid/webkit/SslErrorHandler;Landroid/net/http/SslError;)V
-    .locals 2
-    .param p1, "paramWebView"    # Landroid/webkit/WebView;
-    .param p2, "paramSslErrorHandler"    # Landroid/webkit/SslErrorHandler;
-    .param p3, "paramSslError"    # Landroid/net/http/SslError;
+    .locals 0
     .annotation build Landroid/annotation/TargetApi;
         value = 0x8
     .end annotation
 
     .line 335
-    iget-object v0, p0, Lcom/leidong/sdk/m/activity/SdkCustomerServiceActivity$myWebViewClient;->this$0:Lcom/leidong/sdk/m/activity/SdkCustomerServiceActivity;
+    iget-object p1, p0, Lcom/leidong/sdk/m/activity/SdkCustomerServiceActivity$myWebViewClient;->this$0:Lcom/leidong/sdk/m/activity/SdkCustomerServiceActivity;
 
-    const-string v1, "myWeb onReceivedSslError"
+    const-string p3, "myWeb onReceivedSslError"
 
-    # invokes: Lcom/leidong/sdk/m/activity/SdkCustomerServiceActivity;->sendLog(Ljava/lang/String;)V
-    invoke-static {v0, v1}, Lcom/leidong/sdk/m/activity/SdkCustomerServiceActivity;->access$500(Lcom/leidong/sdk/m/activity/SdkCustomerServiceActivity;Ljava/lang/String;)V
+    invoke-static {p1, p3}, Lcom/leidong/sdk/m/activity/SdkCustomerServiceActivity;->access$500(Lcom/leidong/sdk/m/activity/SdkCustomerServiceActivity;Ljava/lang/String;)V
 
     .line 336
     invoke-virtual {p2}, Landroid/webkit/SslErrorHandler;->proceed()V
 
-    .line 337
     return-void
 .end method
 
 .method public shouldOverrideUrlLoading(Landroid/webkit/WebView;Ljava/lang/String;)Z
-    .locals 1
-    .param p1, "view"    # Landroid/webkit/WebView;
-    .param p2, "url"    # Ljava/lang/String;
+    .locals 0
 
     .line 341
     invoke-super {p0, p1, p2}, Lcom/leidong/sdk/framework/web/plugs/SdkWebveiwClient;->shouldOverrideUrlLoading(Landroid/webkit/WebView;Ljava/lang/String;)Z
 
-    move-result v0
+    move-result p1
 
-    return v0
+    return p1
 .end method

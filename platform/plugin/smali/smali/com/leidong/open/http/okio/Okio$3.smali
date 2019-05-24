@@ -37,7 +37,6 @@
         }
     .end annotation
 
-    .line 211
     return-void
 .end method
 
@@ -49,7 +48,6 @@
         }
     .end annotation
 
-    .line 204
     return-void
 .end method
 
@@ -64,8 +62,6 @@
 
 .method public write(Lcom/leidong/open/http/okio/Buffer;J)V
     .locals 0
-    .param p1, "source"    # Lcom/leidong/open/http/okio/Buffer;
-    .param p2, "byteCount"    # J
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Ljava/io/IOException;
@@ -75,6 +71,5 @@
     .line 200
     invoke-virtual {p1, p2, p3}, Lcom/leidong/open/http/okio/Buffer;->skip(J)V
 
-    .line 201
     return-void
 .end method

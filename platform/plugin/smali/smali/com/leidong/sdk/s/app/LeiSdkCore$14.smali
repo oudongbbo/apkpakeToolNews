@@ -24,7 +24,6 @@
 # direct methods
 .method constructor <init>(Lcom/leidong/sdk/s/app/LeiSdkCore;)V
     .locals 0
-    .param p1, "this$0"    # Lcom/leidong/sdk/s/app/LeiSdkCore;
 
     .line 653
     iput-object p1, p0, Lcom/leidong/sdk/s/app/LeiSdkCore$14;->this$0:Lcom/leidong/sdk/s/app/LeiSdkCore;
@@ -38,15 +37,12 @@
 # virtual methods
 .method public onFail(Ljava/lang/String;)V
     .locals 0
-    .param p1, "errorMsg"    # Ljava/lang/String;
 
-    .line 661
     return-void
 .end method
 
 .method public onSuccess()V
     .locals 0
 
-    .line 657
     return-void
 .end method

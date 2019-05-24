@@ -22,19 +22,19 @@ public class QiDianBuilder extends BaseBuilder {
         String clientkey=prop.getProperty("HS_CLIENTKEY");
 
         String _57Content = FileUtil.read(sdkplugin);
-        Pattern p = Pattern.compile("meta-data android:name=\"HS_APPID\" android:value=\"(.*?)\"");
+        Pattern p = Pattern.compile("<meta-data android:name=\"HS_APPID\" android:value=\"(.*?)\"/>");
         Matcher m = p.matcher(_57Content);
         m.find();
         String HS_APPID = m.group(1);
         _57Content = _57Content.replaceAll(HS_APPID, appkey);
 
-        p = Pattern.compile("meta-data android:name=\"HS_CLIENTID\" android:value=\"(.*?)\"");
+        p = Pattern.compile("<meta-data android:name=\"HS_CLIENTID\" android:value=\"(.*?)\"/>");
         m = p.matcher(_57Content);
         m.find();
         String HS_CLIENTID = m.group(1);
         _57Content = _57Content.replaceAll(HS_CLIENTID, clientid);
 
-        p = Pattern.compile("meta-data android:name=\"HS_CLIENTKEY\" android:value=\"(.*?)\"");
+        p = Pattern.compile("<meta-data android:name=\"HS_CLIENTKEY\" android:value=\"(.*?)\"/>");
         m = p.matcher(_57Content);
         m.find();
         String HS_CLIENTKEY = m.group(1);

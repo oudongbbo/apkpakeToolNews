@@ -25,8 +25,7 @@
 
 # direct methods
 .method constructor <init>(Lcom/leidong/open/http/okio/Pipe;)V
-    .locals 1
-    .param p1, "this$0"    # Lcom/leidong/open/http/okio/Pipe;
+    .locals 0
 
     .line 59
     iput-object p1, p0, Lcom/leidong/open/http/okio/Pipe$PipeSink;->this$0:Lcom/leidong/open/http/okio/Pipe;
@@ -34,11 +33,11 @@
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
     .line 60
-    new-instance v0, Lcom/leidong/open/http/okio/Timeout;
+    new-instance p1, Lcom/leidong/open/http/okio/Timeout;
 
-    invoke-direct {v0}, Lcom/leidong/open/http/okio/Timeout;-><init>()V
+    invoke-direct {p1}, Lcom/leidong/open/http/okio/Timeout;-><init>()V
 
-    iput-object v0, p0, Lcom/leidong/open/http/okio/Pipe$PipeSink;->timeout:Lcom/leidong/open/http/okio/Timeout;
+    iput-object p1, p0, Lcom/leidong/open/http/okio/Pipe$PipeSink;->timeout:Lcom/leidong/open/http/okio/Timeout;
 
     return-void
 .end method
@@ -74,10 +73,10 @@
 
     return-void
 
-    .line 98
     :cond_0
     const/4 v1, 0x1
 
+    .line 98
     :try_start_1
     invoke-virtual {p0}, Lcom/leidong/open/http/okio/Pipe$PipeSink;->flush()V
     :try_end_1
@@ -96,19 +95,15 @@
 
     invoke-virtual {v1}, Ljava/lang/Object;->notifyAll()V
 
-    .line 102
-    nop
-
     .line 103
     monitor-exit v0
 
-    .line 104
     return-void
 
-    .line 100
     :catchall_0
     move-exception v2
 
+    .line 100
     iget-object v3, p0, Lcom/leidong/open/http/okio/Pipe$PipeSink;->this$0:Lcom/leidong/open/http/okio/Pipe;
 
     iput-boolean v1, v3, Lcom/leidong/open/http/okio/Pipe;->sinkClosed:Z
@@ -122,10 +117,10 @@
 
     throw v2
 
-    .line 103
     :catchall_1
     move-exception v1
 
+    .line 103
     monitor-exit v0
     :try_end_2
     .catchall {:try_start_2 .. :try_end_2} :catchall_1
@@ -212,10 +207,8 @@
     :cond_2
     monitor-exit v0
 
-    .line 92
     return-void
 
-    .line 91
     :catchall_0
     move-exception v1
 
@@ -237,8 +230,6 @@
 
 .method public write(Lcom/leidong/open/http/okio/Buffer;J)V
     .locals 9
-    .param p1, "source"    # Lcom/leidong/open/http/okio/Buffer;
-    .param p2, "byteCount"    # J
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Ljava/io/IOException;
@@ -260,15 +251,14 @@
 
     if-eqz v1, :cond_0
 
-    new-instance v1, Ljava/lang/IllegalStateException;
+    new-instance p1, Ljava/lang/IllegalStateException;
 
-    const-string v2, "closed"
+    const-string p2, "closed"
 
-    invoke-direct {v1, v2}, Ljava/lang/IllegalStateException;-><init>(Ljava/lang/String;)V
+    invoke-direct {p1, p2}, Ljava/lang/IllegalStateException;-><init>(Ljava/lang/String;)V
 
-    throw v1
+    throw p1
 
-    .line 66
     :cond_0
     :goto_0
     const-wide/16 v1, 0x0
@@ -284,13 +274,13 @@
 
     if-eqz v3, :cond_1
 
-    new-instance v1, Ljava/io/IOException;
+    new-instance p1, Ljava/io/IOException;
 
-    const-string v2, "source is closed"
+    const-string p2, "source is closed"
 
-    invoke-direct {v1, v2}, Ljava/io/IOException;-><init>(Ljava/lang/String;)V
+    invoke-direct {p1, p2}, Ljava/io/IOException;-><init>(Ljava/lang/String;)V
 
-    throw v1
+    throw p1
 
     .line 69
     :cond_1
@@ -310,8 +300,6 @@
 
     sub-long v7, v3, v5
 
-    .line 70
-    .local v7, "bufferSpaceAvailable":J
     cmp-long v3, v7, v1
 
     if-nez v3, :cond_2
@@ -325,7 +313,6 @@
 
     invoke-virtual {v1, v2}, Lcom/leidong/open/http/okio/Timeout;->waitUntilNotified(Ljava/lang/Object;)V
 
-    .line 72
     goto :goto_0
 
     .line 75
@@ -335,68 +322,39 @@
     move-result-wide v1
 
     .line 76
-    .local v1, "bytesToWrite":J
     iget-object v3, p0, Lcom/leidong/open/http/okio/Pipe$PipeSink;->this$0:Lcom/leidong/open/http/okio/Pipe;
 
     iget-object v3, v3, Lcom/leidong/open/http/okio/Pipe;->buffer:Lcom/leidong/open/http/okio/Buffer;
 
     invoke-virtual {v3, p1, v1, v2}, Lcom/leidong/open/http/okio/Buffer;->write(Lcom/leidong/open/http/okio/Buffer;J)V
-    :try_end_0
-    .catchall {:try_start_0 .. :try_end_0} :catchall_1
 
-    .line 77
     const/4 v3, 0x0
 
     sub-long v3, p2, v1
 
     .line 78
-    .end local p2    # "byteCount":J
-    .local v3, "byteCount":J
-    :try_start_1
     iget-object p2, p0, Lcom/leidong/open/http/okio/Pipe$PipeSink;->this$0:Lcom/leidong/open/http/okio/Pipe;
 
     iget-object p2, p2, Lcom/leidong/open/http/okio/Pipe;->buffer:Lcom/leidong/open/http/okio/Buffer;
 
     invoke-virtual {p2}, Ljava/lang/Object;->notifyAll()V
-    :try_end_1
-    .catchall {:try_start_1 .. :try_end_1} :catchall_0
 
-    .line 79
-    .end local v1    # "bytesToWrite":J
-    .end local v7    # "bufferSpaceAvailable":J
-    nop
-
-    .line 66
     move-wide p2, v3
 
     goto :goto_0
 
     .line 80
-    :catchall_0
-    move-exception v1
-
-    move-wide p2, v3
-
-    goto :goto_1
-
-    .line 80
-    .end local v3    # "byteCount":J
-    .restart local p2    # "byteCount":J
     :cond_3
-    :try_start_2
     monitor-exit v0
 
-    .line 81
     return-void
 
-    .line 80
-    :catchall_1
-    move-exception v1
+    :catchall_0
+    move-exception p1
 
-    :goto_1
     monitor-exit v0
-    :try_end_2
-    .catchall {:try_start_2 .. :try_end_2} :catchall_1
+    :try_end_0
+    .catchall {:try_start_0 .. :try_end_0} :catchall_0
 
-    throw v1
+    throw p1
 .end method

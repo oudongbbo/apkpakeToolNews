@@ -28,7 +28,6 @@
 # direct methods
 .method constructor <init>(Lcom/leidong/sdk/m/views/UpdateDialog;Ljava/lang/String;Ljava/lang/String;)V
     .locals 0
-    .param p1, "this$0"    # Lcom/leidong/sdk/m/views/UpdateDialog;
 
     .line 350
     iput-object p1, p0, Lcom/leidong/sdk/m/views/UpdateDialog$6;->this$0:Lcom/leidong/sdk/m/views/UpdateDialog;
@@ -46,7 +45,6 @@
 # virtual methods
 .method public onFail(Ljava/lang/String;)V
     .locals 3
-    .param p1, "message"    # Ljava/lang/String;
 
     .line 379
     iget-object v0, p0, Lcom/leidong/sdk/m/views/UpdateDialog$6;->this$0:Lcom/leidong/sdk/m/views/UpdateDialog;
@@ -65,7 +63,6 @@
 
     move-result-object v1
 
-    # invokes: Lcom/leidong/sdk/m/views/UpdateDialog;->sendLog(Ljava/lang/String;)V
     invoke-static {v0, v1}, Lcom/leidong/sdk/m/views/UpdateDialog;->access$1500(Lcom/leidong/sdk/m/views/UpdateDialog;Ljava/lang/String;)V
 
     .line 380
@@ -77,47 +74,39 @@
 
     invoke-virtual {v0, v1, p1}, Landroid/os/Handler;->obtainMessage(ILjava/lang/Object;)Landroid/os/Message;
 
-    move-result-object v0
+    move-result-object p1
 
-    invoke-virtual {v0}, Landroid/os/Message;->sendToTarget()V
+    invoke-virtual {p1}, Landroid/os/Message;->sendToTarget()V
 
     .line 382
-    iget-object v0, p0, Lcom/leidong/sdk/m/views/UpdateDialog$6;->this$0:Lcom/leidong/sdk/m/views/UpdateDialog;
+    iget-object p1, p0, Lcom/leidong/sdk/m/views/UpdateDialog$6;->this$0:Lcom/leidong/sdk/m/views/UpdateDialog;
 
-    const/4 v1, 0x0
+    const/4 v0, 0x0
 
-    # setter for: Lcom/leidong/sdk/m/views/UpdateDialog;->switch_on:Z
-    invoke-static {v0, v1}, Lcom/leidong/sdk/m/views/UpdateDialog;->access$002(Lcom/leidong/sdk/m/views/UpdateDialog;Z)Z
+    invoke-static {p1, v0}, Lcom/leidong/sdk/m/views/UpdateDialog;->access$002(Lcom/leidong/sdk/m/views/UpdateDialog;Z)Z
 
     .line 383
+    iget-object p1, p0, Lcom/leidong/sdk/m/views/UpdateDialog$6;->this$0:Lcom/leidong/sdk/m/views/UpdateDialog;
+
+    invoke-static {p1}, Lcom/leidong/sdk/m/views/UpdateDialog;->access$200(Lcom/leidong/sdk/m/views/UpdateDialog;)Landroid/widget/Button;
+
+    move-result-object p1
+
     iget-object v0, p0, Lcom/leidong/sdk/m/views/UpdateDialog$6;->this$0:Lcom/leidong/sdk/m/views/UpdateDialog;
 
-    # getter for: Lcom/leidong/sdk/m/views/UpdateDialog;->update_start:Landroid/widget/Button;
-    invoke-static {v0}, Lcom/leidong/sdk/m/views/UpdateDialog;->access$200(Lcom/leidong/sdk/m/views/UpdateDialog;)Landroid/widget/Button;
+    const-string v1, "leidong_update_start"
+
+    invoke-static {v0, v1}, Lcom/leidong/sdk/m/views/UpdateDialog;->access$100(Lcom/leidong/sdk/m/views/UpdateDialog;Ljava/lang/String;)Ljava/lang/String;
 
     move-result-object v0
 
-    iget-object v1, p0, Lcom/leidong/sdk/m/views/UpdateDialog$6;->this$0:Lcom/leidong/sdk/m/views/UpdateDialog;
+    invoke-virtual {p1, v0}, Landroid/widget/Button;->setText(Ljava/lang/CharSequence;)V
 
-    const-string v2, "leidong_update_start"
-
-    # invokes: Lcom/leidong/sdk/m/views/UpdateDialog;->getString(Ljava/lang/String;)Ljava/lang/String;
-    invoke-static {v1, v2}, Lcom/leidong/sdk/m/views/UpdateDialog;->access$100(Lcom/leidong/sdk/m/views/UpdateDialog;Ljava/lang/String;)Ljava/lang/String;
-
-    move-result-object v1
-
-    invoke-virtual {v0, v1}, Landroid/widget/Button;->setText(Ljava/lang/CharSequence;)V
-
-    .line 384
     return-void
 .end method
 
 .method public onLoading(JJJF)V
     .locals 3
-    .param p1, "current"    # J
-    .param p3, "total"    # J
-    .param p5, "speed"    # J
-    .param p7, "percent"    # F
 
     .line 369
     iget-object v0, p0, Lcom/leidong/sdk/m/views/UpdateDialog$6;->this$0:Lcom/leidong/sdk/m/views/UpdateDialog;
@@ -154,10 +143,8 @@
 
     move-result-object v1
 
-    # invokes: Lcom/leidong/sdk/m/views/UpdateDialog;->sendLog(Ljava/lang/String;)V
     invoke-static {v0, v1}, Lcom/leidong/sdk/m/views/UpdateDialog;->access$1500(Lcom/leidong/sdk/m/views/UpdateDialog;Ljava/lang/String;)V
 
-    .line 371
     cmp-long v0, p1, p3
 
     if-gtz v0, :cond_0
@@ -169,44 +156,41 @@
 
     invoke-virtual {v0, p1, p2}, Ljava/lang/StringBuilder;->append(J)Ljava/lang/StringBuilder;
 
-    const-string v1, "_"
+    const-string p1, "_"
 
-    invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-virtual {v0, p1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
     invoke-virtual {v0, p3, p4}, Ljava/lang/StringBuilder;->append(J)Ljava/lang/StringBuilder;
 
-    const-string v1, "_"
+    const-string p1, "_"
 
-    invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-virtual {v0, p1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
     invoke-virtual {v0, p5, p6}, Ljava/lang/StringBuilder;->append(J)Ljava/lang/StringBuilder;
 
-    const-string v1, "_"
+    const-string p1, "_"
 
-    invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-virtual {v0, p1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
     invoke-virtual {v0, p7}, Ljava/lang/StringBuilder;->append(F)Ljava/lang/StringBuilder;
 
     invoke-virtual {v0}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
 
-    move-result-object v0
+    move-result-object p1
 
     .line 373
-    .local v0, "data":Ljava/lang/String;
-    iget-object v1, p0, Lcom/leidong/sdk/m/views/UpdateDialog$6;->this$0:Lcom/leidong/sdk/m/views/UpdateDialog;
+    iget-object p2, p0, Lcom/leidong/sdk/m/views/UpdateDialog$6;->this$0:Lcom/leidong/sdk/m/views/UpdateDialog;
 
-    iget-object v1, v1, Lcom/leidong/sdk/m/views/UpdateDialog;->UIhandler:Landroid/os/Handler;
+    iget-object p2, p2, Lcom/leidong/sdk/m/views/UpdateDialog;->UIhandler:Landroid/os/Handler;
 
-    const/4 v2, 0x1
+    const/4 p3, 0x1
 
-    invoke-virtual {v1, v2, v0}, Landroid/os/Handler;->obtainMessage(ILjava/lang/Object;)Landroid/os/Message;
+    invoke-virtual {p2, p3, p1}, Landroid/os/Handler;->obtainMessage(ILjava/lang/Object;)Landroid/os/Message;
 
-    move-result-object v1
+    move-result-object p1
 
-    invoke-virtual {v1}, Landroid/os/Message;->sendToTarget()V
+    invoke-virtual {p1}, Landroid/os/Message;->sendToTarget()V
 
-    .line 375
-    .end local v0    # "data":Ljava/lang/String;
     :cond_0
     return-void
 .end method
@@ -233,7 +217,6 @@
 
     move-result-object v1
 
-    # invokes: Lcom/leidong/sdk/m/views/UpdateDialog;->sendLog(Ljava/lang/String;)V
     invoke-static {v0, v1}, Lcom/leidong/sdk/m/views/UpdateDialog;->access$1500(Lcom/leidong/sdk/m/views/UpdateDialog;Ljava/lang/String;)V
 
     .line 355
@@ -249,13 +232,11 @@
 
     invoke-virtual {v0}, Landroid/os/Message;->sendToTarget()V
 
-    .line 356
     return-void
 .end method
 
 .method public onSuccess(Ljava/io/File;)V
     .locals 4
-    .param p1, "file"    # Ljava/io/File;
 
     .line 360
     iget-object v0, p0, Lcom/leidong/sdk/m/views/UpdateDialog$6;->this$0:Lcom/leidong/sdk/m/views/UpdateDialog;
@@ -282,13 +263,11 @@
 
     move-result-object v1
 
-    # invokes: Lcom/leidong/sdk/m/views/UpdateDialog;->sendLog(Ljava/lang/String;)V
     invoke-static {v0, v1}, Lcom/leidong/sdk/m/views/UpdateDialog;->access$1500(Lcom/leidong/sdk/m/views/UpdateDialog;Ljava/lang/String;)V
 
     .line 361
     iget-object v0, p0, Lcom/leidong/sdk/m/views/UpdateDialog$6;->this$0:Lcom/leidong/sdk/m/views/UpdateDialog;
 
-    # getter for: Lcom/leidong/sdk/m/views/UpdateDialog;->mContext:Landroid/content/Context;
     invoke-static {v0}, Lcom/leidong/sdk/m/views/UpdateDialog;->access$600(Lcom/leidong/sdk/m/views/UpdateDialog;)Landroid/content/Context;
 
     move-result-object v0
@@ -310,10 +289,9 @@
 
     invoke-virtual {v0, v1, p1}, Landroid/os/Handler;->obtainMessage(ILjava/lang/Object;)Landroid/os/Message;
 
-    move-result-object v0
+    move-result-object p1
 
-    invoke-virtual {v0}, Landroid/os/Message;->sendToTarget()V
+    invoke-virtual {p1}, Landroid/os/Message;->sendToTarget()V
 
-    .line 364
     return-void
 .end method

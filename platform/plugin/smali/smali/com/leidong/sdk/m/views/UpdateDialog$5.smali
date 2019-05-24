@@ -28,7 +28,6 @@
 # direct methods
 .method constructor <init>(Lcom/leidong/sdk/m/views/UpdateDialog;Lcom/leidong/sdk/framework/view/dialog/MaterialDialog;Ljava/lang/String;)V
     .locals 0
-    .param p1, "this$0"    # Lcom/leidong/sdk/m/views/UpdateDialog;
 
     .line 314
     iput-object p1, p0, Lcom/leidong/sdk/m/views/UpdateDialog$5;->this$0:Lcom/leidong/sdk/m/views/UpdateDialog;
@@ -45,21 +44,19 @@
 
 # virtual methods
 .method public onClick(Landroid/view/View;)V
-    .locals 2
-    .param p1, "v"    # Landroid/view/View;
+    .locals 1
 
     .line 317
-    iget-object v0, p0, Lcom/leidong/sdk/m/views/UpdateDialog$5;->val$mMaterialDialog:Lcom/leidong/sdk/framework/view/dialog/MaterialDialog;
+    iget-object p1, p0, Lcom/leidong/sdk/m/views/UpdateDialog$5;->val$mMaterialDialog:Lcom/leidong/sdk/framework/view/dialog/MaterialDialog;
 
-    invoke-virtual {v0}, Lcom/leidong/sdk/framework/view/dialog/MaterialDialog;->dismiss()V
+    invoke-virtual {p1}, Lcom/leidong/sdk/framework/view/dialog/MaterialDialog;->dismiss()V
 
     .line 318
-    iget-object v0, p0, Lcom/leidong/sdk/m/views/UpdateDialog$5;->this$0:Lcom/leidong/sdk/m/views/UpdateDialog;
+    iget-object p1, p0, Lcom/leidong/sdk/m/views/UpdateDialog$5;->this$0:Lcom/leidong/sdk/m/views/UpdateDialog;
 
-    iget-object v1, p0, Lcom/leidong/sdk/m/views/UpdateDialog$5;->val$down_url:Ljava/lang/String;
+    iget-object v0, p0, Lcom/leidong/sdk/m/views/UpdateDialog$5;->val$down_url:Ljava/lang/String;
 
-    invoke-virtual {v0, v1}, Lcom/leidong/sdk/m/views/UpdateDialog;->startDownloadApk(Ljava/lang/String;)V
+    invoke-virtual {p1, v0}, Lcom/leidong/sdk/m/views/UpdateDialog;->startDownloadApk(Ljava/lang/String;)V
 
-    .line 319
     return-void
 .end method

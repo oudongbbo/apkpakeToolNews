@@ -24,7 +24,6 @@
 # direct methods
 .method constructor <init>(Lcom/leidong/sdk/s/app/login/view/LoginByForgetPwd;)V
     .locals 0
-    .param p1, "this$0"    # Lcom/leidong/sdk/s/app/login/view/LoginByForgetPwd;
 
     .line 114
     iput-object p1, p0, Lcom/leidong/sdk/s/app/login/view/LoginByForgetPwd$1;->this$0:Lcom/leidong/sdk/s/app/login/view/LoginByForgetPwd;
@@ -37,41 +36,35 @@
 
 # virtual methods
 .method public onFocusChange(Landroid/view/View;Z)V
-    .locals 2
-    .param p1, "v"    # Landroid/view/View;
-    .param p2, "hasFocus"    # Z
+    .locals 0
 
-    .line 118
     if-eqz p2, :cond_0
 
     .line 119
-    iget-object v0, p0, Lcom/leidong/sdk/s/app/login/view/LoginByForgetPwd$1;->this$0:Lcom/leidong/sdk/s/app/login/view/LoginByForgetPwd;
+    iget-object p1, p0, Lcom/leidong/sdk/s/app/login/view/LoginByForgetPwd$1;->this$0:Lcom/leidong/sdk/s/app/login/view/LoginByForgetPwd;
 
-    # getter for: Lcom/leidong/sdk/s/app/login/view/LoginByForgetPwd;->login_forgetpwd_step1_phone_clear:Landroid/widget/ImageView;
-    invoke-static {v0}, Lcom/leidong/sdk/s/app/login/view/LoginByForgetPwd;->access$000(Lcom/leidong/sdk/s/app/login/view/LoginByForgetPwd;)Landroid/widget/ImageView;
+    invoke-static {p1}, Lcom/leidong/sdk/s/app/login/view/LoginByForgetPwd;->access$000(Lcom/leidong/sdk/s/app/login/view/LoginByForgetPwd;)Landroid/widget/ImageView;
 
-    move-result-object v0
+    move-result-object p1
 
-    const/4 v1, 0x0
+    const/4 p2, 0x0
 
-    invoke-virtual {v0, v1}, Landroid/widget/ImageView;->setVisibility(I)V
+    invoke-virtual {p1, p2}, Landroid/widget/ImageView;->setVisibility(I)V
 
     goto :goto_0
 
     .line 121
     :cond_0
-    iget-object v0, p0, Lcom/leidong/sdk/s/app/login/view/LoginByForgetPwd$1;->this$0:Lcom/leidong/sdk/s/app/login/view/LoginByForgetPwd;
+    iget-object p1, p0, Lcom/leidong/sdk/s/app/login/view/LoginByForgetPwd$1;->this$0:Lcom/leidong/sdk/s/app/login/view/LoginByForgetPwd;
 
-    # getter for: Lcom/leidong/sdk/s/app/login/view/LoginByForgetPwd;->login_forgetpwd_step1_phone_clear:Landroid/widget/ImageView;
-    invoke-static {v0}, Lcom/leidong/sdk/s/app/login/view/LoginByForgetPwd;->access$000(Lcom/leidong/sdk/s/app/login/view/LoginByForgetPwd;)Landroid/widget/ImageView;
+    invoke-static {p1}, Lcom/leidong/sdk/s/app/login/view/LoginByForgetPwd;->access$000(Lcom/leidong/sdk/s/app/login/view/LoginByForgetPwd;)Landroid/widget/ImageView;
 
-    move-result-object v0
+    move-result-object p1
 
-    const/16 v1, 0x8
+    const/16 p2, 0x8
 
-    invoke-virtual {v0, v1}, Landroid/widget/ImageView;->setVisibility(I)V
+    invoke-virtual {p1, p2}, Landroid/widget/ImageView;->setVisibility(I)V
 
-    .line 124
     :goto_0
     return-void
 .end method

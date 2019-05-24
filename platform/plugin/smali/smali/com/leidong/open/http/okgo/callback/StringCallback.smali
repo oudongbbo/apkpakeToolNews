@@ -43,7 +43,6 @@
 
 .method public convertSuccess(Lcom/leidong/open/http/okhttp3/Response;)Ljava/lang/String;
     .locals 1
-    .param p1, "response"    # Lcom/leidong/open/http/okhttp3/Response;
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Ljava/lang/Exception;
@@ -60,9 +59,7 @@
     move-result-object v0
 
     .line 22
-    .local v0, "s":Ljava/lang/String;
     invoke-virtual {p1}, Lcom/leidong/open/http/okhttp3/Response;->close()V
 
-    .line 23
     return-object v0
 .end method

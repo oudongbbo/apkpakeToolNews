@@ -24,9 +24,8 @@
 # direct methods
 .method constructor <init>(Lcom/leidong/sdk/s/app/login/view/LoginByPhone;)V
     .locals 0
-    .param p1, "this$0"    # Lcom/leidong/sdk/s/app/login/view/LoginByPhone;
 
-    .line 252
+    .line 253
     iput-object p1, p0, Lcom/leidong/sdk/s/app/login/view/LoginByPhone$EnterGameLisener;->this$0:Lcom/leidong/sdk/s/app/login/view/LoginByPhone;
 
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -37,14 +36,31 @@
 
 # virtual methods
 .method public onClick(Landroid/view/View;)V
-    .locals 3
-    .param p1, "v"    # Landroid/view/View;
+    .locals 2
 
-    .line 257
+    .line 258
+    iget-object p1, p0, Lcom/leidong/sdk/s/app/login/view/LoginByPhone$EnterGameLisener;->this$0:Lcom/leidong/sdk/s/app/login/view/LoginByPhone;
+
+    invoke-static {p1}, Lcom/leidong/sdk/s/app/login/view/LoginByPhone;->access$500(Lcom/leidong/sdk/s/app/login/view/LoginByPhone;)Landroid/widget/EditText;
+
+    move-result-object p1
+
+    invoke-virtual {p1}, Landroid/widget/EditText;->getText()Landroid/text/Editable;
+
+    move-result-object p1
+
+    invoke-virtual {p1}, Ljava/lang/Object;->toString()Ljava/lang/String;
+
+    move-result-object p1
+
+    invoke-virtual {p1}, Ljava/lang/String;->trim()Ljava/lang/String;
+
+    move-result-object p1
+
+    .line 259
     iget-object v0, p0, Lcom/leidong/sdk/s/app/login/view/LoginByPhone$EnterGameLisener;->this$0:Lcom/leidong/sdk/s/app/login/view/LoginByPhone;
 
-    # getter for: Lcom/leidong/sdk/s/app/login/view/LoginByPhone;->login_phone_phonenumber_input:Landroid/widget/EditText;
-    invoke-static {v0}, Lcom/leidong/sdk/s/app/login/view/LoginByPhone;->access$500(Lcom/leidong/sdk/s/app/login/view/LoginByPhone;)Landroid/widget/EditText;
+    invoke-static {v0}, Lcom/leidong/sdk/s/app/login/view/LoginByPhone;->access$700(Lcom/leidong/sdk/s/app/login/view/LoginByPhone;)Landroid/widget/EditText;
 
     move-result-object v0
 
@@ -60,33 +76,10 @@
 
     move-result-object v0
 
-    .line 258
-    .local v0, "phone":Ljava/lang/String;
+    .line 261
     iget-object v1, p0, Lcom/leidong/sdk/s/app/login/view/LoginByPhone$EnterGameLisener;->this$0:Lcom/leidong/sdk/s/app/login/view/LoginByPhone;
 
-    # getter for: Lcom/leidong/sdk/s/app/login/view/LoginByPhone;->login_phone_idcode_input:Landroid/widget/EditText;
-    invoke-static {v1}, Lcom/leidong/sdk/s/app/login/view/LoginByPhone;->access$700(Lcom/leidong/sdk/s/app/login/view/LoginByPhone;)Landroid/widget/EditText;
+    invoke-virtual {v1, p1, v0}, Lcom/leidong/sdk/s/app/login/view/LoginByPhone;->LoginByPhone(Ljava/lang/String;Ljava/lang/String;)V
 
-    move-result-object v1
-
-    invoke-virtual {v1}, Landroid/widget/EditText;->getText()Landroid/text/Editable;
-
-    move-result-object v1
-
-    invoke-virtual {v1}, Ljava/lang/Object;->toString()Ljava/lang/String;
-
-    move-result-object v1
-
-    invoke-virtual {v1}, Ljava/lang/String;->trim()Ljava/lang/String;
-
-    move-result-object v1
-
-    .line 260
-    .local v1, "vCode":Ljava/lang/String;
-    iget-object v2, p0, Lcom/leidong/sdk/s/app/login/view/LoginByPhone$EnterGameLisener;->this$0:Lcom/leidong/sdk/s/app/login/view/LoginByPhone;
-
-    invoke-virtual {v2, v0, v1}, Lcom/leidong/sdk/s/app/login/view/LoginByPhone;->LoginByPhone(Ljava/lang/String;Ljava/lang/String;)V
-
-    .line 263
     return-void
 .end method

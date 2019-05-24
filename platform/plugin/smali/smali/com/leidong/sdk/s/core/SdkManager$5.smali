@@ -24,7 +24,6 @@
 # direct methods
 .method constructor <init>(Lcom/leidong/sdk/s/core/SdkManager;)V
     .locals 0
-    .param p1, "this$0"    # Lcom/leidong/sdk/s/core/SdkManager;
 
     .line 340
     iput-object p1, p0, Lcom/leidong/sdk/s/core/SdkManager$5;->this$0:Lcom/leidong/sdk/s/core/SdkManager;
@@ -37,14 +36,12 @@
 
 # virtual methods
 .method public onDismiss(Landroid/content/DialogInterface;)V
-    .locals 1
-    .param p1, "dialog"    # Landroid/content/DialogInterface;
+    .locals 0
+
+    const/4 p1, 0x0
 
     .line 343
-    const/4 v0, 0x0
+    sput-boolean p1, Lcom/leidong/sdk/s/core/SdkManager;->isLoginShowing:Z
 
-    sput-boolean v0, Lcom/leidong/sdk/s/core/SdkManager;->isLoginShowing:Z
-
-    .line 344
     return-void
 .end method

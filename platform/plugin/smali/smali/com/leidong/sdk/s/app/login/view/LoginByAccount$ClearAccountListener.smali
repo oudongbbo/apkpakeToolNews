@@ -24,9 +24,8 @@
 # direct methods
 .method constructor <init>(Lcom/leidong/sdk/s/app/login/view/LoginByAccount;)V
     .locals 0
-    .param p1, "this$0"    # Lcom/leidong/sdk/s/app/login/view/LoginByAccount;
 
-    .line 328
+    .line 354
     iput-object p1, p0, Lcom/leidong/sdk/s/app/login/view/LoginByAccount$ClearAccountListener;->this$0:Lcom/leidong/sdk/s/app/login/view/LoginByAccount;
 
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -37,21 +36,18 @@
 
 # virtual methods
 .method public onClick(Landroid/view/View;)V
-    .locals 2
-    .param p1, "v"    # Landroid/view/View;
+    .locals 1
 
-    .line 331
-    iget-object v0, p0, Lcom/leidong/sdk/s/app/login/view/LoginByAccount$ClearAccountListener;->this$0:Lcom/leidong/sdk/s/app/login/view/LoginByAccount;
+    .line 358
+    iget-object p1, p0, Lcom/leidong/sdk/s/app/login/view/LoginByAccount$ClearAccountListener;->this$0:Lcom/leidong/sdk/s/app/login/view/LoginByAccount;
 
-    # getter for: Lcom/leidong/sdk/s/app/login/view/LoginByAccount;->login_account_loginphnumber:Landroid/widget/EditText;
-    invoke-static {v0}, Lcom/leidong/sdk/s/app/login/view/LoginByAccount;->access$300(Lcom/leidong/sdk/s/app/login/view/LoginByAccount;)Landroid/widget/EditText;
+    invoke-static {p1}, Lcom/leidong/sdk/s/app/login/view/LoginByAccount;->access$300(Lcom/leidong/sdk/s/app/login/view/LoginByAccount;)Landroid/widget/EditText;
 
-    move-result-object v0
+    move-result-object p1
 
-    const-string v1, ""
+    const-string v0, ""
 
-    invoke-virtual {v0, v1}, Landroid/widget/EditText;->setText(Ljava/lang/CharSequence;)V
+    invoke-virtual {p1, v0}, Landroid/widget/EditText;->setText(Ljava/lang/CharSequence;)V
 
-    .line 332
     return-void
 .end method

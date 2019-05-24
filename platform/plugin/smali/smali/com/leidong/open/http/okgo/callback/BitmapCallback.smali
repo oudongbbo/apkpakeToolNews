@@ -27,7 +27,6 @@
 # virtual methods
 .method public convertSuccess(Lcom/leidong/open/http/okhttp3/Response;)Landroid/graphics/Bitmap;
     .locals 1
-    .param p1, "response"    # Lcom/leidong/open/http/okhttp3/Response;
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Ljava/lang/Exception;
@@ -44,10 +43,8 @@
     move-result-object v0
 
     .line 24
-    .local v0, "bitmap":Landroid/graphics/Bitmap;
     invoke-virtual {p1}, Lcom/leidong/open/http/okhttp3/Response;->close()V
 
-    .line 25
     return-object v0
 .end method
 

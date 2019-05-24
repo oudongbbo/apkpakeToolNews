@@ -24,7 +24,6 @@
 # direct methods
 .method constructor <init>(Lcom/leidong/open/http/okhttp3/ConnectionPool;)V
     .locals 0
-    .param p1, "this$0"    # Lcom/leidong/open/http/okhttp3/ConnectionPool;
 
     .line 60
     iput-object p1, p0, Lcom/leidong/open/http/okhttp3/ConnectionPool$1;->this$0:Lcom/leidong/open/http/okhttp3/ConnectionPool;
@@ -40,6 +39,7 @@
     .locals 8
 
     .line 63
+    :cond_0
     :goto_0
     iget-object v0, p0, Lcom/leidong/open/http/okhttp3/ConnectionPool$1;->this$0:Lcom/leidong/open/http/okhttp3/ConnectionPool;
 
@@ -51,38 +51,31 @@
 
     move-result-wide v0
 
-    .line 64
-    .local v0, "waitNanos":J
     const-wide/16 v2, -0x1
 
     cmp-long v4, v0, v2
 
-    if-nez v4, :cond_0
+    if-nez v4, :cond_1
 
     return-void
 
-    .line 65
-    :cond_0
+    :cond_1
     const-wide/16 v2, 0x0
 
     cmp-long v4, v0, v2
 
-    if-lez v4, :cond_1
+    if-lez v4, :cond_0
 
-    .line 66
     const-wide/32 v2, 0xf4240
 
+    .line 66
     div-long v4, v0, v2
 
-    .line 67
-    .local v4, "waitMillis":J
     mul-long v2, v2, v4
 
     sub-long v6, v0, v2
 
     .line 68
-    .end local v0    # "waitNanos":J
-    .local v6, "waitNanos":J
     iget-object v0, p0, Lcom/leidong/open/http/okhttp3/ConnectionPool$1;->this$0:Lcom/leidong/open/http/okhttp3/ConnectionPool;
 
     monitor-enter v0
@@ -98,25 +91,20 @@
     .catch Ljava/lang/InterruptedException; {:try_start_0 .. :try_end_0} :catch_0
     .catchall {:try_start_0 .. :try_end_0} :catchall_0
 
-    .line 72
     goto :goto_1
 
-    .line 73
     :catchall_0
     move-exception v1
 
     goto :goto_2
 
-    .line 71
-    :catch_0
-    move-exception v1
-
     .line 73
+    :catch_0
     :goto_1
     :try_start_1
     monitor-exit v0
 
-    goto :goto_3
+    goto :goto_0
 
     :goto_2
     monitor-exit v0
@@ -124,11 +112,4 @@
     .catchall {:try_start_1 .. :try_end_1} :catchall_0
 
     throw v1
-
-    .line 75
-    .end local v4    # "waitMillis":J
-    .end local v6    # "waitNanos":J
-    :cond_1
-    :goto_3
-    goto :goto_0
 .end method

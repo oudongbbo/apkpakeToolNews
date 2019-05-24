@@ -24,9 +24,8 @@
 # direct methods
 .method constructor <init>(Lcom/leidong/sdk/s/app/login/view/LoginByRegister;)V
     .locals 0
-    .param p1, "this$0"    # Lcom/leidong/sdk/s/app/login/view/LoginByRegister;
 
-    .line 241
+    .line 242
     iput-object p1, p0, Lcom/leidong/sdk/s/app/login/view/LoginByRegister$3;->this$0:Lcom/leidong/sdk/s/app/login/view/LoginByRegister;
 
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -37,50 +36,48 @@
 
 # virtual methods
 .method public onClick(Landroid/view/View;)V
-    .locals 3
-    .param p1, "v"    # Landroid/view/View;
-
-    .line 244
-    sget-object v0, Lcom/leidong/sdk/s/core/http/RequestUrls;->WEB_AGREMENT:Ljava/lang/String;
-
-    invoke-static {v0}, Landroid/text/TextUtils;->isEmpty(Ljava/lang/CharSequence;)Z
-
-    move-result v0
-
-    if-eqz v0, :cond_0
+    .locals 2
 
     .line 245
-    iget-object v0, p0, Lcom/leidong/sdk/s/app/login/view/LoginByRegister$3;->this$0:Lcom/leidong/sdk/s/app/login/view/LoginByRegister;
+    sget-object p1, Lcom/leidong/sdk/s/core/http/RequestUrls;->WEB_AGREMENT:Ljava/lang/String;
 
-    const-string v1, "leidong_tips_url_not_exit"
+    invoke-static {p1}, Landroid/text/TextUtils;->isEmpty(Ljava/lang/CharSequence;)Z
 
-    iget-object v2, p0, Lcom/leidong/sdk/s/app/login/view/LoginByRegister$3;->this$0:Lcom/leidong/sdk/s/app/login/view/LoginByRegister;
+    move-result p1
 
-    invoke-virtual {v2}, Lcom/leidong/sdk/s/app/login/view/LoginByRegister;->getActivity()Landroid/app/Activity;
+    if-eqz p1, :cond_0
 
-    move-result-object v2
+    .line 246
+    iget-object p1, p0, Lcom/leidong/sdk/s/app/login/view/LoginByRegister$3;->this$0:Lcom/leidong/sdk/s/app/login/view/LoginByRegister;
 
-    invoke-static {v1, v2}, Lcom/leidong/sdk/framework/utils/CommonUtil;->getStringByName(Ljava/lang/String;Landroid/content/Context;)Ljava/lang/String;
+    const-string v0, "leidong_tips_url_not_exit"
+
+    iget-object v1, p0, Lcom/leidong/sdk/s/app/login/view/LoginByRegister$3;->this$0:Lcom/leidong/sdk/s/app/login/view/LoginByRegister;
+
+    invoke-virtual {v1}, Lcom/leidong/sdk/s/app/login/view/LoginByRegister;->getActivity()Landroid/app/Activity;
 
     move-result-object v1
 
-    invoke-virtual {v0, v1}, Lcom/leidong/sdk/s/app/login/view/LoginByRegister;->showToast(Ljava/lang/String;)V
-
-    goto :goto_0
-
-    .line 247
-    :cond_0
-    iget-object v0, p0, Lcom/leidong/sdk/s/app/login/view/LoginByRegister$3;->this$0:Lcom/leidong/sdk/s/app/login/view/LoginByRegister;
-
-    invoke-virtual {v0}, Lcom/leidong/sdk/s/app/login/view/LoginByRegister;->getActivity()Landroid/app/Activity;
+    invoke-static {v0, v1}, Lcom/leidong/sdk/framework/utils/CommonUtil;->getStringByName(Ljava/lang/String;Landroid/content/Context;)Ljava/lang/String;
 
     move-result-object v0
 
-    sget-object v1, Lcom/leidong/sdk/s/core/http/RequestUrls;->WEB_AGREMENT:Ljava/lang/String;
+    invoke-virtual {p1, v0}, Lcom/leidong/sdk/s/app/login/view/LoginByRegister;->showToast(Ljava/lang/String;)V
 
-    invoke-static {v0, v1}, Lcom/leidong/sdk/s/core/utils/SdkUtil;->openWebActivity(Landroid/content/Context;Ljava/lang/String;)V
+    goto :goto_0
 
-    .line 249
+    .line 248
+    :cond_0
+    iget-object p1, p0, Lcom/leidong/sdk/s/app/login/view/LoginByRegister$3;->this$0:Lcom/leidong/sdk/s/app/login/view/LoginByRegister;
+
+    invoke-virtual {p1}, Lcom/leidong/sdk/s/app/login/view/LoginByRegister;->getActivity()Landroid/app/Activity;
+
+    move-result-object p1
+
+    sget-object v0, Lcom/leidong/sdk/s/core/http/RequestUrls;->WEB_AGREMENT:Ljava/lang/String;
+
+    invoke-static {p1, v0}, Lcom/leidong/sdk/s/core/utils/SdkUtil;->openWebActivity(Landroid/content/Context;Ljava/lang/String;)V
+
     :goto_0
     return-void
 .end method

@@ -26,7 +26,6 @@
 # direct methods
 .method constructor <init>(Lcom/leidong/sdk/s/core/SdkManager;Lcom/leidong/sdk/framework/interfaces/ResultCallback;)V
     .locals 0
-    .param p1, "this$0"    # Lcom/leidong/sdk/s/core/SdkManager;
 
     .line 110
     iput-object p1, p0, Lcom/leidong/sdk/s/core/SdkManager$1;->this$0:Lcom/leidong/sdk/s/core/SdkManager;
@@ -41,28 +40,23 @@
 
 # virtual methods
 .method public onFail(ILjava/lang/String;)V
-    .locals 1
-    .param p1, "code"    # I
-    .param p2, "errorMsg"    # Ljava/lang/String;
+    .locals 0
 
     .line 117
-    iget-object v0, p0, Lcom/leidong/sdk/s/core/SdkManager$1;->val$resultCallback:Lcom/leidong/sdk/framework/interfaces/ResultCallback;
+    iget-object p1, p0, Lcom/leidong/sdk/s/core/SdkManager$1;->val$resultCallback:Lcom/leidong/sdk/framework/interfaces/ResultCallback;
 
-    invoke-interface {v0, p2}, Lcom/leidong/sdk/framework/interfaces/ResultCallback;->onFail(Ljava/lang/String;)V
+    invoke-interface {p1, p2}, Lcom/leidong/sdk/framework/interfaces/ResultCallback;->onFail(Ljava/lang/String;)V
 
-    .line 118
     return-void
 .end method
 
 .method public onSuccess(Ljava/lang/String;)V
-    .locals 1
-    .param p1, "content"    # Ljava/lang/String;
+    .locals 0
 
     .line 113
-    iget-object v0, p0, Lcom/leidong/sdk/s/core/SdkManager$1;->val$resultCallback:Lcom/leidong/sdk/framework/interfaces/ResultCallback;
+    iget-object p1, p0, Lcom/leidong/sdk/s/core/SdkManager$1;->val$resultCallback:Lcom/leidong/sdk/framework/interfaces/ResultCallback;
 
-    invoke-interface {v0}, Lcom/leidong/sdk/framework/interfaces/ResultCallback;->onSuccess()V
+    invoke-interface {p1}, Lcom/leidong/sdk/framework/interfaces/ResultCallback;->onSuccess()V
 
-    .line 114
     return-void
 .end method

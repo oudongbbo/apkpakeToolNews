@@ -21,9 +21,8 @@
 # direct methods
 .method constructor <init>(Lcom/leidong/sdk/framework/pay/PayWebDialog;)V
     .locals 0
-    .param p1, "this$0"    # Lcom/leidong/sdk/framework/pay/PayWebDialog;
 
-    .line 186
+    .line 193
     iput-object p1, p0, Lcom/leidong/sdk/framework/pay/PayWebDialog$3;->this$0:Lcom/leidong/sdk/framework/pay/PayWebDialog;
 
     invoke-direct {p0}, Landroid/os/Handler;-><init>()V
@@ -34,27 +33,24 @@
 
 # virtual methods
 .method public handleMessage(Landroid/os/Message;)V
-    .locals 4
-    .param p1, "messaage"    # Landroid/os/Message;
+    .locals 2
 
-    .line 188
+    .line 195
     invoke-super {p0, p1}, Landroid/os/Handler;->handleMessage(Landroid/os/Message;)V
 
-    .line 191
+    .line 198
     :try_start_0
     iget-object v0, p0, Lcom/leidong/sdk/framework/pay/PayWebDialog$3;->this$0:Lcom/leidong/sdk/framework/pay/PayWebDialog;
 
-    # getter for: Lcom/leidong/sdk/framework/pay/PayWebDialog;->mWebView:Lcom/leidong/sdk/framework/web/webview/WebViewBase;
     invoke-static {v0}, Lcom/leidong/sdk/framework/pay/PayWebDialog;->access$000(Lcom/leidong/sdk/framework/pay/PayWebDialog;)Lcom/leidong/sdk/framework/web/webview/WebViewBase;
 
     move-result-object v0
 
     if-eqz v0, :cond_0
 
-    .line 192
+    .line 199
     iget-object v0, p0, Lcom/leidong/sdk/framework/pay/PayWebDialog$3;->this$0:Lcom/leidong/sdk/framework/pay/PayWebDialog;
 
-    # getter for: Lcom/leidong/sdk/framework/pay/PayWebDialog;->mWebView:Lcom/leidong/sdk/framework/web/webview/WebViewBase;
     invoke-static {v0}, Lcom/leidong/sdk/framework/pay/PayWebDialog;->access$000(Lcom/leidong/sdk/framework/pay/PayWebDialog;)Lcom/leidong/sdk/framework/web/webview/WebViewBase;
 
     move-result-object v0
@@ -63,20 +59,16 @@
     :try_end_0
     .catch Ljava/lang/Exception; {:try_start_0 .. :try_end_0} :catch_0
 
-    .line 196
-    :cond_0
     goto :goto_0
 
-    .line 194
     :catch_0
     move-exception v0
 
-    .line 195
-    .local v0, "e":Ljava/lang/Exception;
+    .line 202
     invoke-virtual {v0}, Ljava/lang/Exception;->printStackTrace()V
 
-    .line 198
-    .end local v0    # "e":Ljava/lang/Exception;
+    .line 205
+    :cond_0
     :goto_0
     iget-object v0, p0, Lcom/leidong/sdk/framework/pay/PayWebDialog$3;->this$0:Lcom/leidong/sdk/framework/pay/PayWebDialog;
 
@@ -86,94 +78,77 @@
 
     if-eqz v0, :cond_1
 
-    .line 199
+    .line 206
     iget-object v0, p0, Lcom/leidong/sdk/framework/pay/PayWebDialog$3;->this$0:Lcom/leidong/sdk/framework/pay/PayWebDialog;
 
     invoke-virtual {v0}, Lcom/leidong/sdk/framework/pay/PayWebDialog;->dismiss()V
 
-    .line 202
+    .line 209
     :cond_1
-    iget v0, p1, Landroid/os/Message;->what:I
+    iget p1, p1, Landroid/os/Message;->what:I
 
-    .line 204
-    .local v0, "type":I
-    packed-switch v0, :pswitch_data_0
+    packed-switch p1, :pswitch_data_0
 
     goto :goto_1
 
-    .line 215
+    .line 222
     :pswitch_0
-    iget-object v1, p0, Lcom/leidong/sdk/framework/pay/PayWebDialog$3;->this$0:Lcom/leidong/sdk/framework/pay/PayWebDialog;
+    iget-object p1, p0, Lcom/leidong/sdk/framework/pay/PayWebDialog$3;->this$0:Lcom/leidong/sdk/framework/pay/PayWebDialog;
 
-    const-string v2, "\u652f\u4ed8\u8df3\u8f6c"
+    const-string v0, "\u652f\u4ed8\u8df3\u8f6c"
 
-    # invokes: Lcom/leidong/sdk/framework/pay/PayWebDialog;->printLog(Ljava/lang/String;)V
-    invoke-static {v1, v2}, Lcom/leidong/sdk/framework/pay/PayWebDialog;->access$600(Lcom/leidong/sdk/framework/pay/PayWebDialog;Ljava/lang/String;)V
+    invoke-static {p1, v0}, Lcom/leidong/sdk/framework/pay/PayWebDialog;->access$600(Lcom/leidong/sdk/framework/pay/PayWebDialog;Ljava/lang/String;)V
 
-    .line 216
     goto :goto_1
 
-    .line 212
+    .line 219
     :pswitch_1
+    iget-object p1, p0, Lcom/leidong/sdk/framework/pay/PayWebDialog$3;->this$0:Lcom/leidong/sdk/framework/pay/PayWebDialog;
+
+    const-string v0, "leidong_pay_state_cancel"
+
     iget-object v1, p0, Lcom/leidong/sdk/framework/pay/PayWebDialog$3;->this$0:Lcom/leidong/sdk/framework/pay/PayWebDialog;
 
-    const-string v2, "leidong_pay_state_cancel"
+    invoke-static {v1}, Lcom/leidong/sdk/framework/pay/PayWebDialog;->access$300(Lcom/leidong/sdk/framework/pay/PayWebDialog;)Landroid/content/Context;
 
-    iget-object v3, p0, Lcom/leidong/sdk/framework/pay/PayWebDialog$3;->this$0:Lcom/leidong/sdk/framework/pay/PayWebDialog;
+    move-result-object v1
 
-    # getter for: Lcom/leidong/sdk/framework/pay/PayWebDialog;->mContext:Landroid/content/Context;
-    invoke-static {v3}, Lcom/leidong/sdk/framework/pay/PayWebDialog;->access$300(Lcom/leidong/sdk/framework/pay/PayWebDialog;)Landroid/content/Context;
+    invoke-static {v0, v1}, Lcom/leidong/sdk/framework/utils/CommonUtil;->getStringByName(Ljava/lang/String;Landroid/content/Context;)Ljava/lang/String;
 
-    move-result-object v3
+    move-result-object v0
 
-    invoke-static {v2, v3}, Lcom/leidong/sdk/framework/utils/CommonUtil;->getStringByName(Ljava/lang/String;Landroid/content/Context;)Ljava/lang/String;
+    invoke-static {p1, v0}, Lcom/leidong/sdk/framework/pay/PayWebDialog;->access$500(Lcom/leidong/sdk/framework/pay/PayWebDialog;Ljava/lang/String;)V
 
-    move-result-object v2
-
-    # invokes: Lcom/leidong/sdk/framework/pay/PayWebDialog;->callbackCancel(Ljava/lang/String;)V
-    invoke-static {v1, v2}, Lcom/leidong/sdk/framework/pay/PayWebDialog;->access$500(Lcom/leidong/sdk/framework/pay/PayWebDialog;Ljava/lang/String;)V
+    goto :goto_1
 
     .line 213
-    goto :goto_1
-
-    .line 206
     :pswitch_2
-    iget-object v1, p0, Lcom/leidong/sdk/framework/pay/PayWebDialog$3;->this$0:Lcom/leidong/sdk/framework/pay/PayWebDialog;
+    iget-object p1, p0, Lcom/leidong/sdk/framework/pay/PayWebDialog$3;->this$0:Lcom/leidong/sdk/framework/pay/PayWebDialog;
 
-    # invokes: Lcom/leidong/sdk/framework/pay/PayWebDialog;->callbackSuccess()V
-    invoke-static {v1}, Lcom/leidong/sdk/framework/pay/PayWebDialog;->access$200(Lcom/leidong/sdk/framework/pay/PayWebDialog;)V
+    invoke-static {p1}, Lcom/leidong/sdk/framework/pay/PayWebDialog;->access$200(Lcom/leidong/sdk/framework/pay/PayWebDialog;)V
 
-    .line 207
     goto :goto_1
 
-    .line 209
+    .line 216
     :pswitch_3
+    iget-object p1, p0, Lcom/leidong/sdk/framework/pay/PayWebDialog$3;->this$0:Lcom/leidong/sdk/framework/pay/PayWebDialog;
+
+    const-string v0, "leidong_pay_state_fail"
+
     iget-object v1, p0, Lcom/leidong/sdk/framework/pay/PayWebDialog$3;->this$0:Lcom/leidong/sdk/framework/pay/PayWebDialog;
 
-    const-string v2, "leidong_pay_state_fail"
+    invoke-static {v1}, Lcom/leidong/sdk/framework/pay/PayWebDialog;->access$300(Lcom/leidong/sdk/framework/pay/PayWebDialog;)Landroid/content/Context;
 
-    iget-object v3, p0, Lcom/leidong/sdk/framework/pay/PayWebDialog$3;->this$0:Lcom/leidong/sdk/framework/pay/PayWebDialog;
+    move-result-object v1
 
-    # getter for: Lcom/leidong/sdk/framework/pay/PayWebDialog;->mContext:Landroid/content/Context;
-    invoke-static {v3}, Lcom/leidong/sdk/framework/pay/PayWebDialog;->access$300(Lcom/leidong/sdk/framework/pay/PayWebDialog;)Landroid/content/Context;
+    invoke-static {v0, v1}, Lcom/leidong/sdk/framework/utils/CommonUtil;->getStringByName(Ljava/lang/String;Landroid/content/Context;)Ljava/lang/String;
 
-    move-result-object v3
+    move-result-object v0
 
-    invoke-static {v2, v3}, Lcom/leidong/sdk/framework/utils/CommonUtil;->getStringByName(Ljava/lang/String;Landroid/content/Context;)Ljava/lang/String;
+    invoke-static {p1, v0}, Lcom/leidong/sdk/framework/pay/PayWebDialog;->access$400(Lcom/leidong/sdk/framework/pay/PayWebDialog;Ljava/lang/String;)V
 
-    move-result-object v2
-
-    # invokes: Lcom/leidong/sdk/framework/pay/PayWebDialog;->callbackFail(Ljava/lang/String;)V
-    invoke-static {v1, v2}, Lcom/leidong/sdk/framework/pay/PayWebDialog;->access$400(Lcom/leidong/sdk/framework/pay/PayWebDialog;Ljava/lang/String;)V
-
-    .line 210
-    nop
-
-    .line 221
     :goto_1
     return-void
-
-    nop
 
     :pswitch_data_0
     .packed-switch 0x0

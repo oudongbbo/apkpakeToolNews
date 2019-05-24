@@ -28,9 +28,8 @@
 # direct methods
 .method constructor <init>(Lcom/leidong/sdk/m/controller/MsdkManager;Landroid/content/Context;Ljava/util/HashMap;)V
     .locals 0
-    .param p1, "this$0"    # Lcom/leidong/sdk/m/controller/MsdkManager;
 
-    .line 384
+    .line 385
     iput-object p1, p0, Lcom/leidong/sdk/m/controller/MsdkManager$6;->this$0:Lcom/leidong/sdk/m/controller/MsdkManager;
 
     iput-object p2, p0, Lcom/leidong/sdk/m/controller/MsdkManager$6;->val$context:Landroid/content/Context;
@@ -45,39 +44,33 @@
 
 # virtual methods
 .method public onFail(Ljava/lang/String;)V
-    .locals 2
-    .param p1, "msg"    # Ljava/lang/String;
-
-    .line 392
-    iget-object v0, p0, Lcom/leidong/sdk/m/controller/MsdkManager$6;->this$0:Lcom/leidong/sdk/m/controller/MsdkManager;
-
-    # getter for: Lcom/leidong/sdk/m/controller/MsdkManager;->sdkCallBack:Lcom/leidong/sdk/m/LeiMsdkCallback;
-    invoke-static {v0}, Lcom/leidong/sdk/m/controller/MsdkManager;->access$800(Lcom/leidong/sdk/m/controller/MsdkManager;)Lcom/leidong/sdk/m/LeiMsdkCallback;
-
-    move-result-object v0
-
-    const-string v1, "pay_cancel"
-
-    invoke-interface {v0, v1}, Lcom/leidong/sdk/m/LeiMsdkCallback;->onPayFail(Ljava/lang/String;)V
+    .locals 1
 
     .line 393
+    iget-object p1, p0, Lcom/leidong/sdk/m/controller/MsdkManager$6;->this$0:Lcom/leidong/sdk/m/controller/MsdkManager;
+
+    invoke-static {p1}, Lcom/leidong/sdk/m/controller/MsdkManager;->access$800(Lcom/leidong/sdk/m/controller/MsdkManager;)Lcom/leidong/sdk/m/LeiMsdkCallback;
+
+    move-result-object p1
+
+    const-string v0, "pay_cancel"
+
+    invoke-interface {p1, v0}, Lcom/leidong/sdk/m/LeiMsdkCallback;->onPayFail(Ljava/lang/String;)V
+
     return-void
 .end method
 
 .method public onSuccess(Landroid/os/Bundle;)V
-    .locals 3
-    .param p1, "bundle"    # Landroid/os/Bundle;
-
-    .line 388
-    iget-object v0, p0, Lcom/leidong/sdk/m/controller/MsdkManager$6;->this$0:Lcom/leidong/sdk/m/controller/MsdkManager;
-
-    iget-object v1, p0, Lcom/leidong/sdk/m/controller/MsdkManager$6;->val$context:Landroid/content/Context;
-
-    iget-object v2, p0, Lcom/leidong/sdk/m/controller/MsdkManager$6;->val$payinfos:Ljava/util/HashMap;
-
-    # invokes: Lcom/leidong/sdk/m/controller/MsdkManager;->startPay(Landroid/content/Context;Ljava/util/HashMap;)V
-    invoke-static {v0, v1, v2}, Lcom/leidong/sdk/m/controller/MsdkManager;->access$900(Lcom/leidong/sdk/m/controller/MsdkManager;Landroid/content/Context;Ljava/util/HashMap;)V
+    .locals 2
 
     .line 389
+    iget-object p1, p0, Lcom/leidong/sdk/m/controller/MsdkManager$6;->this$0:Lcom/leidong/sdk/m/controller/MsdkManager;
+
+    iget-object v0, p0, Lcom/leidong/sdk/m/controller/MsdkManager$6;->val$context:Landroid/content/Context;
+
+    iget-object v1, p0, Lcom/leidong/sdk/m/controller/MsdkManager$6;->val$payinfos:Ljava/util/HashMap;
+
+    invoke-static {p1, v0, v1}, Lcom/leidong/sdk/m/controller/MsdkManager;->access$900(Lcom/leidong/sdk/m/controller/MsdkManager;Landroid/content/Context;Ljava/util/HashMap;)V
+
     return-void
 .end method

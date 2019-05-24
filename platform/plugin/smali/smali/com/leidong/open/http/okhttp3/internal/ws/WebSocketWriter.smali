@@ -39,15 +39,11 @@
 .method static constructor <clinit>()V
     .locals 0
 
-    .line 48
     return-void
 .end method
 
 .method constructor <init>(ZLcom/leidong/open/http/okio/BufferedSink;Ljava/util/Random;)V
-    .locals 2
-    .param p1, "isClient"    # Z
-    .param p2, "sink"    # Lcom/leidong/open/http/okio/BufferedSink;
-    .param p3, "random"    # Ljava/util/Random;
+    .locals 1
 
     .line 65
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -66,28 +62,28 @@
 
     iput-object v0, p0, Lcom/leidong/open/http/okhttp3/internal/ws/WebSocketWriter;->frameSink:Lcom/leidong/open/http/okhttp3/internal/ws/WebSocketWriter$FrameSink;
 
-    .line 66
     if-nez p2, :cond_0
 
-    new-instance v0, Ljava/lang/NullPointerException;
+    .line 66
+    new-instance p1, Ljava/lang/NullPointerException;
 
-    const-string v1, "sink == null"
+    const-string p2, "sink == null"
 
-    invoke-direct {v0, v1}, Ljava/lang/NullPointerException;-><init>(Ljava/lang/String;)V
+    invoke-direct {p1, p2}, Ljava/lang/NullPointerException;-><init>(Ljava/lang/String;)V
 
-    throw v0
+    throw p1
 
-    .line 67
     :cond_0
     if-nez p3, :cond_1
 
-    new-instance v0, Ljava/lang/NullPointerException;
+    .line 67
+    new-instance p1, Ljava/lang/NullPointerException;
 
-    const-string v1, "random == null"
+    const-string p2, "random == null"
 
-    invoke-direct {v0, v1}, Ljava/lang/NullPointerException;-><init>(Ljava/lang/String;)V
+    invoke-direct {p1, p2}, Ljava/lang/NullPointerException;-><init>(Ljava/lang/String;)V
 
-    throw v0
+    throw p1
 
     .line 68
     :cond_1
@@ -99,64 +95,56 @@
     .line 70
     iput-object p3, p0, Lcom/leidong/open/http/okhttp3/internal/ws/WebSocketWriter;->random:Ljava/util/Random;
 
-    .line 73
-    const/4 v0, 0x0
+    const/4 p2, 0x0
 
     if-eqz p1, :cond_2
 
-    const/4 v1, 0x4
+    const/4 p3, 0x4
 
-    new-array v1, v1, [B
+    .line 73
+    new-array p3, p3, [B
 
     goto :goto_0
 
     :cond_2
-    move-object v1, v0
+    move-object p3, p2
 
     :goto_0
-    iput-object v1, p0, Lcom/leidong/open/http/okhttp3/internal/ws/WebSocketWriter;->maskKey:[B
+    iput-object p3, p0, Lcom/leidong/open/http/okhttp3/internal/ws/WebSocketWriter;->maskKey:[B
 
-    .line 74
     if-eqz p1, :cond_3
 
-    const/16 v0, 0x2000
+    const/16 p1, 0x2000
 
-    new-array v0, v0, [B
-
-    nop
+    .line 74
+    new-array p2, p1, [B
 
     :cond_3
-    iput-object v0, p0, Lcom/leidong/open/http/okhttp3/internal/ws/WebSocketWriter;->maskBuffer:[B
+    iput-object p2, p0, Lcom/leidong/open/http/okhttp3/internal/ws/WebSocketWriter;->maskBuffer:[B
 
-    .line 75
     return-void
 .end method
 
 .method private writeControlFrameSynchronized(ILcom/leidong/open/http/okio/ByteString;)V
-    .locals 11
-    .param p1, "opcode"    # I
-    .param p2, "payload"    # Lcom/leidong/open/http/okio/ByteString;
+    .locals 7
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Ljava/io/IOException;
         }
     .end annotation
 
-    .line 122
-    nop
-
     .line 124
     iget-boolean v0, p0, Lcom/leidong/open/http/okhttp3/internal/ws/WebSocketWriter;->writerClosed:Z
 
     if-eqz v0, :cond_0
 
-    new-instance v0, Ljava/io/IOException;
+    new-instance p1, Ljava/io/IOException;
 
-    const-string v1, "closed"
+    const-string p2, "closed"
 
-    invoke-direct {v0, v1}, Ljava/io/IOException;-><init>(Ljava/lang/String;)V
+    invoke-direct {p1, p2}, Ljava/io/IOException;-><init>(Ljava/lang/String;)V
 
-    throw v0
+    throw p1
 
     .line 126
     :cond_0
@@ -164,8 +152,6 @@
 
     move-result v0
 
-    .line 127
-    .local v0, "length":I
     int-to-long v1, v0
 
     const-wide/16 v3, 0x7d
@@ -175,101 +161,90 @@
     if-lez v5, :cond_1
 
     .line 128
-    new-instance v1, Ljava/lang/IllegalArgumentException;
+    new-instance p1, Ljava/lang/IllegalArgumentException;
 
-    const-string v2, "Payload size must be less than or equal to 125"
+    const-string p2, "Payload size must be less than or equal to 125"
 
-    invoke-direct {v1, v2}, Ljava/lang/IllegalArgumentException;-><init>(Ljava/lang/String;)V
+    invoke-direct {p1, p2}, Ljava/lang/IllegalArgumentException;-><init>(Ljava/lang/String;)V
 
-    throw v1
+    throw p1
 
-    .line 132
     :cond_1
-    or-int/lit16 v1, p1, 0x80
+    or-int/lit16 p1, p1, 0x80
 
     .line 133
-    .local v1, "b0":I
-    iget-object v2, p0, Lcom/leidong/open/http/okhttp3/internal/ws/WebSocketWriter;->sink:Lcom/leidong/open/http/okio/BufferedSink;
+    iget-object v1, p0, Lcom/leidong/open/http/okhttp3/internal/ws/WebSocketWriter;->sink:Lcom/leidong/open/http/okio/BufferedSink;
 
-    invoke-interface {v2, v1}, Lcom/leidong/open/http/okio/BufferedSink;->writeByte(I)Lcom/leidong/open/http/okio/BufferedSink;
-
-    .line 135
-    move v2, v0
+    invoke-interface {v1, p1}, Lcom/leidong/open/http/okio/BufferedSink;->writeByte(I)Lcom/leidong/open/http/okio/BufferedSink;
 
     .line 136
-    .local v2, "b1":I
-    iget-boolean v3, p0, Lcom/leidong/open/http/okhttp3/internal/ws/WebSocketWriter;->isClient:Z
+    iget-boolean p1, p0, Lcom/leidong/open/http/okhttp3/internal/ws/WebSocketWriter;->isClient:Z
 
-    if-eqz v3, :cond_2
+    if-eqz p1, :cond_2
 
-    .line 137
-    or-int/lit16 v2, v2, 0x80
+    or-int/lit16 p1, v0, 0x80
 
     .line 138
-    iget-object v3, p0, Lcom/leidong/open/http/okhttp3/internal/ws/WebSocketWriter;->sink:Lcom/leidong/open/http/okio/BufferedSink;
+    iget-object v0, p0, Lcom/leidong/open/http/okhttp3/internal/ws/WebSocketWriter;->sink:Lcom/leidong/open/http/okio/BufferedSink;
 
-    invoke-interface {v3, v2}, Lcom/leidong/open/http/okio/BufferedSink;->writeByte(I)Lcom/leidong/open/http/okio/BufferedSink;
+    invoke-interface {v0, p1}, Lcom/leidong/open/http/okio/BufferedSink;->writeByte(I)Lcom/leidong/open/http/okio/BufferedSink;
 
     .line 140
-    iget-object v3, p0, Lcom/leidong/open/http/okhttp3/internal/ws/WebSocketWriter;->random:Ljava/util/Random;
+    iget-object p1, p0, Lcom/leidong/open/http/okhttp3/internal/ws/WebSocketWriter;->random:Ljava/util/Random;
 
-    iget-object v4, p0, Lcom/leidong/open/http/okhttp3/internal/ws/WebSocketWriter;->maskKey:[B
+    iget-object v0, p0, Lcom/leidong/open/http/okhttp3/internal/ws/WebSocketWriter;->maskKey:[B
 
-    invoke-virtual {v3, v4}, Ljava/util/Random;->nextBytes([B)V
+    invoke-virtual {p1, v0}, Ljava/util/Random;->nextBytes([B)V
 
     .line 141
-    iget-object v3, p0, Lcom/leidong/open/http/okhttp3/internal/ws/WebSocketWriter;->sink:Lcom/leidong/open/http/okio/BufferedSink;
+    iget-object p1, p0, Lcom/leidong/open/http/okhttp3/internal/ws/WebSocketWriter;->sink:Lcom/leidong/open/http/okio/BufferedSink;
 
-    iget-object v4, p0, Lcom/leidong/open/http/okhttp3/internal/ws/WebSocketWriter;->maskKey:[B
+    iget-object v0, p0, Lcom/leidong/open/http/okhttp3/internal/ws/WebSocketWriter;->maskKey:[B
 
-    invoke-interface {v3, v4}, Lcom/leidong/open/http/okio/BufferedSink;->write([B)Lcom/leidong/open/http/okio/BufferedSink;
+    invoke-interface {p1, v0}, Lcom/leidong/open/http/okio/BufferedSink;->write([B)Lcom/leidong/open/http/okio/BufferedSink;
 
     .line 143
     invoke-virtual {p2}, Lcom/leidong/open/http/okio/ByteString;->toByteArray()[B
 
-    move-result-object v3
+    move-result-object p1
 
     .line 144
-    .local v3, "bytes":[B
-    array-length v4, v3
+    array-length p2, p1
 
-    int-to-long v6, v4
+    int-to-long v2, p2
 
-    iget-object v8, p0, Lcom/leidong/open/http/okhttp3/internal/ws/WebSocketWriter;->maskKey:[B
+    iget-object v4, p0, Lcom/leidong/open/http/okhttp3/internal/ws/WebSocketWriter;->maskKey:[B
 
-    const-wide/16 v9, 0x0
+    const-wide/16 v5, 0x0
 
-    move-object v5, v3
+    move-object v1, p1
 
-    invoke-static/range {v5 .. v10}, Lcom/leidong/open/http/okhttp3/internal/ws/WebSocketProtocol;->toggleMask([BJ[BJ)V
+    invoke-static/range {v1 .. v6}, Lcom/leidong/open/http/okhttp3/internal/ws/WebSocketProtocol;->toggleMask([BJ[BJ)V
 
     .line 145
-    iget-object v4, p0, Lcom/leidong/open/http/okhttp3/internal/ws/WebSocketWriter;->sink:Lcom/leidong/open/http/okio/BufferedSink;
+    iget-object p2, p0, Lcom/leidong/open/http/okhttp3/internal/ws/WebSocketWriter;->sink:Lcom/leidong/open/http/okio/BufferedSink;
 
-    invoke-interface {v4, v3}, Lcom/leidong/open/http/okio/BufferedSink;->write([B)Lcom/leidong/open/http/okio/BufferedSink;
+    invoke-interface {p2, p1}, Lcom/leidong/open/http/okio/BufferedSink;->write([B)Lcom/leidong/open/http/okio/BufferedSink;
 
-    .line 146
-    .end local v3    # "bytes":[B
     goto :goto_0
 
     .line 147
     :cond_2
-    iget-object v3, p0, Lcom/leidong/open/http/okhttp3/internal/ws/WebSocketWriter;->sink:Lcom/leidong/open/http/okio/BufferedSink;
+    iget-object p1, p0, Lcom/leidong/open/http/okhttp3/internal/ws/WebSocketWriter;->sink:Lcom/leidong/open/http/okio/BufferedSink;
 
-    invoke-interface {v3, v2}, Lcom/leidong/open/http/okio/BufferedSink;->writeByte(I)Lcom/leidong/open/http/okio/BufferedSink;
+    invoke-interface {p1, v0}, Lcom/leidong/open/http/okio/BufferedSink;->writeByte(I)Lcom/leidong/open/http/okio/BufferedSink;
 
     .line 148
-    iget-object v3, p0, Lcom/leidong/open/http/okhttp3/internal/ws/WebSocketWriter;->sink:Lcom/leidong/open/http/okio/BufferedSink;
+    iget-object p1, p0, Lcom/leidong/open/http/okhttp3/internal/ws/WebSocketWriter;->sink:Lcom/leidong/open/http/okio/BufferedSink;
 
-    invoke-interface {v3, p2}, Lcom/leidong/open/http/okio/BufferedSink;->write(Lcom/leidong/open/http/okio/ByteString;)Lcom/leidong/open/http/okio/BufferedSink;
+    invoke-interface {p1, p2}, Lcom/leidong/open/http/okio/BufferedSink;->write(Lcom/leidong/open/http/okio/ByteString;)Lcom/leidong/open/http/okio/BufferedSink;
 
     .line 151
     :goto_0
-    iget-object v3, p0, Lcom/leidong/open/http/okhttp3/internal/ws/WebSocketWriter;->sink:Lcom/leidong/open/http/okio/BufferedSink;
+    iget-object p1, p0, Lcom/leidong/open/http/okhttp3/internal/ws/WebSocketWriter;->sink:Lcom/leidong/open/http/okio/BufferedSink;
 
-    invoke-interface {v3}, Lcom/leidong/open/http/okio/BufferedSink;->flush()V
+    invoke-interface {p1}, Lcom/leidong/open/http/okio/BufferedSink;->flush()V
 
-    .line 152
     return-void
 .end method
 
@@ -277,8 +252,6 @@
 # virtual methods
 .method newMessageSink(IJ)Lcom/leidong/open/http/okio/Sink;
     .locals 2
-    .param p1, "formatOpcode"    # I
-    .param p2, "contentLength"    # J
 
     .line 159
     iget-boolean v0, p0, Lcom/leidong/open/http/okhttp3/internal/ws/WebSocketWriter;->activeWriter:Z
@@ -286,18 +259,18 @@
     if-eqz v0, :cond_0
 
     .line 160
-    new-instance v0, Ljava/lang/IllegalStateException;
+    new-instance p1, Ljava/lang/IllegalStateException;
 
-    const-string v1, "Another message writer is active. Did you call close()?"
+    const-string p2, "Another message writer is active. Did you call close()?"
 
-    invoke-direct {v0, v1}, Ljava/lang/IllegalStateException;-><init>(Ljava/lang/String;)V
+    invoke-direct {p1, p2}, Ljava/lang/IllegalStateException;-><init>(Ljava/lang/String;)V
 
-    throw v0
+    throw p1
 
-    .line 162
     :cond_0
     const/4 v0, 0x1
 
+    .line 162
     iput-boolean v0, p0, Lcom/leidong/open/http/okhttp3/internal/ws/WebSocketWriter;->activeWriter:Z
 
     .line 165
@@ -306,32 +279,30 @@
     iput p1, v1, Lcom/leidong/open/http/okhttp3/internal/ws/WebSocketWriter$FrameSink;->formatOpcode:I
 
     .line 166
-    iget-object v1, p0, Lcom/leidong/open/http/okhttp3/internal/ws/WebSocketWriter;->frameSink:Lcom/leidong/open/http/okhttp3/internal/ws/WebSocketWriter$FrameSink;
+    iget-object p1, p0, Lcom/leidong/open/http/okhttp3/internal/ws/WebSocketWriter;->frameSink:Lcom/leidong/open/http/okhttp3/internal/ws/WebSocketWriter$FrameSink;
 
-    iput-wide p2, v1, Lcom/leidong/open/http/okhttp3/internal/ws/WebSocketWriter$FrameSink;->contentLength:J
+    iput-wide p2, p1, Lcom/leidong/open/http/okhttp3/internal/ws/WebSocketWriter$FrameSink;->contentLength:J
 
     .line 167
-    iget-object v1, p0, Lcom/leidong/open/http/okhttp3/internal/ws/WebSocketWriter;->frameSink:Lcom/leidong/open/http/okhttp3/internal/ws/WebSocketWriter$FrameSink;
+    iget-object p1, p0, Lcom/leidong/open/http/okhttp3/internal/ws/WebSocketWriter;->frameSink:Lcom/leidong/open/http/okhttp3/internal/ws/WebSocketWriter$FrameSink;
 
-    iput-boolean v0, v1, Lcom/leidong/open/http/okhttp3/internal/ws/WebSocketWriter$FrameSink;->isFirstFrame:Z
+    iput-boolean v0, p1, Lcom/leidong/open/http/okhttp3/internal/ws/WebSocketWriter$FrameSink;->isFirstFrame:Z
 
     .line 168
-    iget-object v0, p0, Lcom/leidong/open/http/okhttp3/internal/ws/WebSocketWriter;->frameSink:Lcom/leidong/open/http/okhttp3/internal/ws/WebSocketWriter$FrameSink;
+    iget-object p1, p0, Lcom/leidong/open/http/okhttp3/internal/ws/WebSocketWriter;->frameSink:Lcom/leidong/open/http/okhttp3/internal/ws/WebSocketWriter$FrameSink;
 
-    const/4 v1, 0x0
+    const/4 p2, 0x0
 
-    iput-boolean v1, v0, Lcom/leidong/open/http/okhttp3/internal/ws/WebSocketWriter$FrameSink;->closed:Z
+    iput-boolean p2, p1, Lcom/leidong/open/http/okhttp3/internal/ws/WebSocketWriter$FrameSink;->closed:Z
 
     .line 170
-    iget-object v0, p0, Lcom/leidong/open/http/okhttp3/internal/ws/WebSocketWriter;->frameSink:Lcom/leidong/open/http/okhttp3/internal/ws/WebSocketWriter$FrameSink;
+    iget-object p1, p0, Lcom/leidong/open/http/okhttp3/internal/ws/WebSocketWriter;->frameSink:Lcom/leidong/open/http/okhttp3/internal/ws/WebSocketWriter$FrameSink;
 
-    return-object v0
+    return-object p1
 .end method
 
 .method writeClose(ILcom/leidong/open/http/okio/ByteString;)V
-    .locals 3
-    .param p1, "code"    # I
-    .param p2, "reason"    # Lcom/leidong/open/http/okio/ByteString;
+    .locals 1
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Ljava/io/IOException;
@@ -341,13 +312,10 @@
     .line 99
     sget-object v0, Lcom/leidong/open/http/okio/ByteString;->EMPTY:Lcom/leidong/open/http/okio/ByteString;
 
-    .line 100
-    .local v0, "payload":Lcom/leidong/open/http/okio/ByteString;
     if-nez p1, :cond_0
 
     if-eqz p2, :cond_3
 
-    .line 101
     :cond_0
     if-eqz p1, :cond_1
 
@@ -356,67 +324,59 @@
 
     .line 104
     :cond_1
-    new-instance v1, Lcom/leidong/open/http/okio/Buffer;
+    new-instance v0, Lcom/leidong/open/http/okio/Buffer;
 
-    invoke-direct {v1}, Lcom/leidong/open/http/okio/Buffer;-><init>()V
+    invoke-direct {v0}, Lcom/leidong/open/http/okio/Buffer;-><init>()V
 
     .line 105
-    .local v1, "buffer":Lcom/leidong/open/http/okio/Buffer;
-    invoke-virtual {v1, p1}, Lcom/leidong/open/http/okio/Buffer;->writeShort(I)Lcom/leidong/open/http/okio/Buffer;
+    invoke-virtual {v0, p1}, Lcom/leidong/open/http/okio/Buffer;->writeShort(I)Lcom/leidong/open/http/okio/Buffer;
 
-    .line 106
     if-eqz p2, :cond_2
 
     .line 107
-    invoke-virtual {v1, p2}, Lcom/leidong/open/http/okio/Buffer;->write(Lcom/leidong/open/http/okio/ByteString;)Lcom/leidong/open/http/okio/Buffer;
+    invoke-virtual {v0, p2}, Lcom/leidong/open/http/okio/Buffer;->write(Lcom/leidong/open/http/okio/ByteString;)Lcom/leidong/open/http/okio/Buffer;
 
     .line 109
     :cond_2
-    invoke-virtual {v1}, Lcom/leidong/open/http/okio/Buffer;->readByteString()Lcom/leidong/open/http/okio/ByteString;
+    invoke-virtual {v0}, Lcom/leidong/open/http/okio/Buffer;->readByteString()Lcom/leidong/open/http/okio/ByteString;
 
     move-result-object v0
 
     .line 112
-    .end local v1    # "buffer":Lcom/leidong/open/http/okio/Buffer;
     :cond_3
     monitor-enter p0
 
+    const/16 p1, 0x8
+
+    const/4 p2, 0x1
+
     .line 114
-    const/16 v1, 0x8
-
-    const/4 v2, 0x1
-
     :try_start_0
-    invoke-direct {p0, v1, v0}, Lcom/leidong/open/http/okhttp3/internal/ws/WebSocketWriter;->writeControlFrameSynchronized(ILcom/leidong/open/http/okio/ByteString;)V
+    invoke-direct {p0, p1, v0}, Lcom/leidong/open/http/okhttp3/internal/ws/WebSocketWriter;->writeControlFrameSynchronized(ILcom/leidong/open/http/okio/ByteString;)V
     :try_end_0
     .catchall {:try_start_0 .. :try_end_0} :catchall_1
 
     .line 116
     :try_start_1
-    iput-boolean v2, p0, Lcom/leidong/open/http/okhttp3/internal/ws/WebSocketWriter;->writerClosed:Z
-
-    .line 117
-    nop
+    iput-boolean p2, p0, Lcom/leidong/open/http/okhttp3/internal/ws/WebSocketWriter;->writerClosed:Z
 
     .line 118
     monitor-exit p0
 
-    .line 119
     return-void
 
-    .line 118
     :catchall_0
-    move-exception v1
+    move-exception p1
 
     goto :goto_0
 
-    .line 116
     :catchall_1
-    move-exception v1
+    move-exception p1
 
-    iput-boolean v2, p0, Lcom/leidong/open/http/okhttp3/internal/ws/WebSocketWriter;->writerClosed:Z
+    .line 116
+    iput-boolean p2, p0, Lcom/leidong/open/http/okhttp3/internal/ws/WebSocketWriter;->writerClosed:Z
 
-    throw v1
+    throw p1
 
     .line 118
     :goto_0
@@ -424,275 +384,223 @@
     :try_end_1
     .catchall {:try_start_1 .. :try_end_1} :catchall_0
 
-    throw v1
+    throw p1
 .end method
 
 .method writeMessageFrameSynchronized(IJZZ)V
-    .locals 17
-    .param p1, "formatOpcode"    # I
-    .param p2, "byteCount"    # J
-    .param p4, "isFirstFrame"    # Z
-    .param p5, "isFinal"    # Z
+    .locals 9
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Ljava/io/IOException;
         }
     .end annotation
 
-    move-object/from16 v0, p0
-
-    move-wide/from16 v1, p2
-
-    .line 175
-    nop
-
     .line 177
-    iget-boolean v3, v0, Lcom/leidong/open/http/okhttp3/internal/ws/WebSocketWriter;->writerClosed:Z
+    iget-boolean v0, p0, Lcom/leidong/open/http/okhttp3/internal/ws/WebSocketWriter;->writerClosed:Z
 
-    if-eqz v3, :cond_0
+    if-eqz v0, :cond_0
 
-    new-instance v3, Ljava/io/IOException;
+    new-instance p1, Ljava/io/IOException;
 
-    const-string v4, "closed"
+    const-string p2, "closed"
 
-    invoke-direct {v3, v4}, Ljava/io/IOException;-><init>(Ljava/lang/String;)V
+    invoke-direct {p1, p2}, Ljava/io/IOException;-><init>(Ljava/lang/String;)V
 
-    throw v3
+    throw p1
 
-    .line 179
     :cond_0
-    const/4 v3, 0x0
+    const/4 v0, 0x0
 
     if-eqz p4, :cond_1
-
-    move/from16 v5, p1
 
     goto :goto_0
 
     :cond_1
-    const/4 v5, 0x0
+    const/4 p1, 0x0
 
-    .line 180
-    .local v5, "b0":I
     :goto_0
     if-eqz p5, :cond_2
 
-    .line 181
-    or-int/lit16 v5, v5, 0x80
+    or-int/lit16 p1, p1, 0x80
 
     .line 183
     :cond_2
-    iget-object v6, v0, Lcom/leidong/open/http/okhttp3/internal/ws/WebSocketWriter;->sink:Lcom/leidong/open/http/okio/BufferedSink;
+    iget-object p4, p0, Lcom/leidong/open/http/okhttp3/internal/ws/WebSocketWriter;->sink:Lcom/leidong/open/http/okio/BufferedSink;
 
-    invoke-interface {v6, v5}, Lcom/leidong/open/http/okio/BufferedSink;->writeByte(I)Lcom/leidong/open/http/okio/BufferedSink;
-
-    .line 185
-    const/4 v6, 0x0
+    invoke-interface {p4, p1}, Lcom/leidong/open/http/okio/BufferedSink;->writeByte(I)Lcom/leidong/open/http/okio/BufferedSink;
 
     .line 186
-    .local v6, "b1":I
-    iget-boolean v7, v0, Lcom/leidong/open/http/okhttp3/internal/ws/WebSocketWriter;->isClient:Z
+    iget-boolean p1, p0, Lcom/leidong/open/http/okhttp3/internal/ws/WebSocketWriter;->isClient:Z
 
-    if-eqz v7, :cond_3
+    if-eqz p1, :cond_3
 
-    .line 187
-    or-int/lit16 v6, v6, 0x80
+    const/16 p1, 0x80
 
-    .line 189
+    goto :goto_1
+
     :cond_3
-    const-wide/16 v7, 0x7d
+    const/4 p1, 0x0
 
-    cmp-long v9, v1, v7
+    :goto_1
+    const-wide/16 p4, 0x7d
 
-    if-gtz v9, :cond_4
+    cmp-long v1, p2, p4
 
-    .line 190
-    long-to-int v7, v1
+    if-gtz v1, :cond_4
 
-    or-int/2addr v6, v7
+    long-to-int p4, p2
+
+    or-int/2addr p1, p4
 
     .line 191
-    iget-object v7, v0, Lcom/leidong/open/http/okhttp3/internal/ws/WebSocketWriter;->sink:Lcom/leidong/open/http/okio/BufferedSink;
+    iget-object p4, p0, Lcom/leidong/open/http/okhttp3/internal/ws/WebSocketWriter;->sink:Lcom/leidong/open/http/okio/BufferedSink;
 
-    invoke-interface {v7, v6}, Lcom/leidong/open/http/okio/BufferedSink;->writeByte(I)Lcom/leidong/open/http/okio/BufferedSink;
-
-    goto :goto_1
-
-    .line 192
-    :cond_4
-    const-wide/32 v7, 0xffff
-
-    cmp-long v9, v1, v7
-
-    if-gtz v9, :cond_5
-
-    .line 193
-    or-int/lit8 v6, v6, 0x7e
-
-    .line 194
-    iget-object v7, v0, Lcom/leidong/open/http/okhttp3/internal/ws/WebSocketWriter;->sink:Lcom/leidong/open/http/okio/BufferedSink;
-
-    invoke-interface {v7, v6}, Lcom/leidong/open/http/okio/BufferedSink;->writeByte(I)Lcom/leidong/open/http/okio/BufferedSink;
-
-    .line 195
-    iget-object v7, v0, Lcom/leidong/open/http/okhttp3/internal/ws/WebSocketWriter;->sink:Lcom/leidong/open/http/okio/BufferedSink;
-
-    long-to-int v8, v1
-
-    invoke-interface {v7, v8}, Lcom/leidong/open/http/okio/BufferedSink;->writeShort(I)Lcom/leidong/open/http/okio/BufferedSink;
-
-    goto :goto_1
-
-    .line 197
-    :cond_5
-    or-int/lit8 v6, v6, 0x7f
-
-    .line 198
-    iget-object v7, v0, Lcom/leidong/open/http/okhttp3/internal/ws/WebSocketWriter;->sink:Lcom/leidong/open/http/okio/BufferedSink;
-
-    invoke-interface {v7, v6}, Lcom/leidong/open/http/okio/BufferedSink;->writeByte(I)Lcom/leidong/open/http/okio/BufferedSink;
-
-    .line 199
-    iget-object v7, v0, Lcom/leidong/open/http/okhttp3/internal/ws/WebSocketWriter;->sink:Lcom/leidong/open/http/okio/BufferedSink;
-
-    invoke-interface {v7, v1, v2}, Lcom/leidong/open/http/okio/BufferedSink;->writeLong(J)Lcom/leidong/open/http/okio/BufferedSink;
-
-    .line 202
-    :goto_1
-    iget-boolean v7, v0, Lcom/leidong/open/http/okhttp3/internal/ws/WebSocketWriter;->isClient:Z
-
-    if-eqz v7, :cond_7
-
-    .line 203
-    iget-object v7, v0, Lcom/leidong/open/http/okhttp3/internal/ws/WebSocketWriter;->random:Ljava/util/Random;
-
-    iget-object v8, v0, Lcom/leidong/open/http/okhttp3/internal/ws/WebSocketWriter;->maskKey:[B
-
-    invoke-virtual {v7, v8}, Ljava/util/Random;->nextBytes([B)V
-
-    .line 204
-    iget-object v7, v0, Lcom/leidong/open/http/okhttp3/internal/ws/WebSocketWriter;->sink:Lcom/leidong/open/http/okio/BufferedSink;
-
-    iget-object v8, v0, Lcom/leidong/open/http/okhttp3/internal/ws/WebSocketWriter;->maskKey:[B
-
-    invoke-interface {v7, v8}, Lcom/leidong/open/http/okio/BufferedSink;->write([B)Lcom/leidong/open/http/okio/BufferedSink;
-
-    .line 206
-    const-wide/16 v7, 0x0
-
-    .line 206
-    .local v7, "written":J
-    :goto_2
-    cmp-long v9, v7, v1
-
-    if-gez v9, :cond_8
-
-    .line 207
-    iget-object v9, v0, Lcom/leidong/open/http/okhttp3/internal/ws/WebSocketWriter;->maskBuffer:[B
-
-    array-length v9, v9
-
-    int-to-long v9, v9
-
-    invoke-static {v1, v2, v9, v10}, Ljava/lang/Math;->min(JJ)J
-
-    move-result-wide v9
-
-    long-to-int v13, v9
-
-    .line 208
-    .local v13, "toRead":I
-    iget-object v9, v0, Lcom/leidong/open/http/okhttp3/internal/ws/WebSocketWriter;->buffer:Lcom/leidong/open/http/okio/Buffer;
-
-    iget-object v10, v0, Lcom/leidong/open/http/okhttp3/internal/ws/WebSocketWriter;->maskBuffer:[B
-
-    invoke-virtual {v9, v10, v3, v13}, Lcom/leidong/open/http/okio/Buffer;->read([BII)I
-
-    move-result v14
-
-    .line 209
-    .local v14, "read":I
-    const/4 v9, -0x1
-
-    if-ne v14, v9, :cond_6
-
-    new-instance v3, Ljava/lang/AssertionError;
-
-    invoke-direct {v3}, Ljava/lang/AssertionError;-><init>()V
-
-    throw v3
-
-    .line 210
-    :cond_6
-    iget-object v9, v0, Lcom/leidong/open/http/okhttp3/internal/ws/WebSocketWriter;->maskBuffer:[B
-
-    int-to-long v10, v14
-
-    iget-object v12, v0, Lcom/leidong/open/http/okhttp3/internal/ws/WebSocketWriter;->maskKey:[B
-
-    move v15, v13
-
-    move v3, v14
-
-    move-wide v13, v7
-
-    .line 210
-    .end local v13    # "toRead":I
-    .end local v14    # "read":I
-    .local v3, "read":I
-    .local v15, "toRead":I
-    invoke-static/range {v9 .. v14}, Lcom/leidong/open/http/okhttp3/internal/ws/WebSocketProtocol;->toggleMask([BJ[BJ)V
-
-    .line 211
-    iget-object v9, v0, Lcom/leidong/open/http/okhttp3/internal/ws/WebSocketWriter;->sink:Lcom/leidong/open/http/okio/BufferedSink;
-
-    iget-object v10, v0, Lcom/leidong/open/http/okhttp3/internal/ws/WebSocketWriter;->maskBuffer:[B
-
-    const/4 v11, 0x0
-
-    invoke-interface {v9, v10, v11, v3}, Lcom/leidong/open/http/okio/BufferedSink;->write([BII)Lcom/leidong/open/http/okio/BufferedSink;
-
-    .line 212
-    int-to-long v9, v3
-
-    add-long v12, v7, v9
-
-    .line 213
-    .end local v3    # "read":I
-    .end local v7    # "written":J
-    .end local v15    # "toRead":I
-    .local v12, "written":J
-    nop
-
-    .line 206
-    move-wide v7, v12
-
-    const/4 v3, 0x0
+    invoke-interface {p4, p1}, Lcom/leidong/open/http/okio/BufferedSink;->writeByte(I)Lcom/leidong/open/http/okio/BufferedSink;
 
     goto :goto_2
 
+    :cond_4
+    const-wide/32 p4, 0xffff
+
+    cmp-long v1, p2, p4
+
+    if-gtz v1, :cond_5
+
+    or-int/lit8 p1, p1, 0x7e
+
+    .line 194
+    iget-object p4, p0, Lcom/leidong/open/http/okhttp3/internal/ws/WebSocketWriter;->sink:Lcom/leidong/open/http/okio/BufferedSink;
+
+    invoke-interface {p4, p1}, Lcom/leidong/open/http/okio/BufferedSink;->writeByte(I)Lcom/leidong/open/http/okio/BufferedSink;
+
+    .line 195
+    iget-object p1, p0, Lcom/leidong/open/http/okhttp3/internal/ws/WebSocketWriter;->sink:Lcom/leidong/open/http/okio/BufferedSink;
+
+    long-to-int p4, p2
+
+    invoke-interface {p1, p4}, Lcom/leidong/open/http/okio/BufferedSink;->writeShort(I)Lcom/leidong/open/http/okio/BufferedSink;
+
+    goto :goto_2
+
+    :cond_5
+    or-int/lit8 p1, p1, 0x7f
+
+    .line 198
+    iget-object p4, p0, Lcom/leidong/open/http/okhttp3/internal/ws/WebSocketWriter;->sink:Lcom/leidong/open/http/okio/BufferedSink;
+
+    invoke-interface {p4, p1}, Lcom/leidong/open/http/okio/BufferedSink;->writeByte(I)Lcom/leidong/open/http/okio/BufferedSink;
+
+    .line 199
+    iget-object p1, p0, Lcom/leidong/open/http/okhttp3/internal/ws/WebSocketWriter;->sink:Lcom/leidong/open/http/okio/BufferedSink;
+
+    invoke-interface {p1, p2, p3}, Lcom/leidong/open/http/okio/BufferedSink;->writeLong(J)Lcom/leidong/open/http/okio/BufferedSink;
+
+    .line 202
+    :goto_2
+    iget-boolean p1, p0, Lcom/leidong/open/http/okhttp3/internal/ws/WebSocketWriter;->isClient:Z
+
+    if-eqz p1, :cond_7
+
+    .line 203
+    iget-object p1, p0, Lcom/leidong/open/http/okhttp3/internal/ws/WebSocketWriter;->random:Ljava/util/Random;
+
+    iget-object p4, p0, Lcom/leidong/open/http/okhttp3/internal/ws/WebSocketWriter;->maskKey:[B
+
+    invoke-virtual {p1, p4}, Ljava/util/Random;->nextBytes([B)V
+
+    .line 204
+    iget-object p1, p0, Lcom/leidong/open/http/okhttp3/internal/ws/WebSocketWriter;->sink:Lcom/leidong/open/http/okio/BufferedSink;
+
+    iget-object p4, p0, Lcom/leidong/open/http/okhttp3/internal/ws/WebSocketWriter;->maskKey:[B
+
+    invoke-interface {p1, p4}, Lcom/leidong/open/http/okio/BufferedSink;->write([B)Lcom/leidong/open/http/okio/BufferedSink;
+
+    const-wide/16 p4, 0x0
+
+    :goto_3
+    cmp-long p1, p4, p2
+
+    if-gez p1, :cond_8
+
+    .line 207
+    iget-object p1, p0, Lcom/leidong/open/http/okhttp3/internal/ws/WebSocketWriter;->maskBuffer:[B
+
+    array-length p1, p1
+
+    int-to-long v1, p1
+
+    invoke-static {p2, p3, v1, v2}, Ljava/lang/Math;->min(JJ)J
+
+    move-result-wide v1
+
+    long-to-int p1, v1
+
+    .line 208
+    iget-object v1, p0, Lcom/leidong/open/http/okhttp3/internal/ws/WebSocketWriter;->buffer:Lcom/leidong/open/http/okio/Buffer;
+
+    iget-object v2, p0, Lcom/leidong/open/http/okhttp3/internal/ws/WebSocketWriter;->maskBuffer:[B
+
+    invoke-virtual {v1, v2, v0, p1}, Lcom/leidong/open/http/okio/Buffer;->read([BII)I
+
+    move-result p1
+
+    const/4 v1, -0x1
+
+    if-ne p1, v1, :cond_6
+
+    .line 209
+    new-instance p1, Ljava/lang/AssertionError;
+
+    invoke-direct {p1}, Ljava/lang/AssertionError;-><init>()V
+
+    throw p1
+
+    .line 210
+    :cond_6
+    iget-object v1, p0, Lcom/leidong/open/http/okhttp3/internal/ws/WebSocketWriter;->maskBuffer:[B
+
+    int-to-long v7, p1
+
+    iget-object v4, p0, Lcom/leidong/open/http/okhttp3/internal/ws/WebSocketWriter;->maskKey:[B
+
+    move-wide v2, v7
+
+    move-wide v5, p4
+
+    invoke-static/range {v1 .. v6}, Lcom/leidong/open/http/okhttp3/internal/ws/WebSocketProtocol;->toggleMask([BJ[BJ)V
+
+    .line 211
+    iget-object v1, p0, Lcom/leidong/open/http/okhttp3/internal/ws/WebSocketWriter;->sink:Lcom/leidong/open/http/okio/BufferedSink;
+
+    iget-object v2, p0, Lcom/leidong/open/http/okhttp3/internal/ws/WebSocketWriter;->maskBuffer:[B
+
+    invoke-interface {v1, v2, v0, p1}, Lcom/leidong/open/http/okio/BufferedSink;->write([BII)Lcom/leidong/open/http/okio/BufferedSink;
+
+    add-long v1, p4, v7
+
+    move-wide p4, v1
+
+    goto :goto_3
+
     .line 215
-    .end local v12    # "written":J
     :cond_7
-    iget-object v3, v0, Lcom/leidong/open/http/okhttp3/internal/ws/WebSocketWriter;->sink:Lcom/leidong/open/http/okio/BufferedSink;
+    iget-object p1, p0, Lcom/leidong/open/http/okhttp3/internal/ws/WebSocketWriter;->sink:Lcom/leidong/open/http/okio/BufferedSink;
 
-    iget-object v7, v0, Lcom/leidong/open/http/okhttp3/internal/ws/WebSocketWriter;->buffer:Lcom/leidong/open/http/okio/Buffer;
+    iget-object p4, p0, Lcom/leidong/open/http/okhttp3/internal/ws/WebSocketWriter;->buffer:Lcom/leidong/open/http/okio/Buffer;
 
-    invoke-interface {v3, v7, v1, v2}, Lcom/leidong/open/http/okio/BufferedSink;->write(Lcom/leidong/open/http/okio/Buffer;J)V
+    invoke-interface {p1, p4, p2, p3}, Lcom/leidong/open/http/okio/BufferedSink;->write(Lcom/leidong/open/http/okio/Buffer;J)V
 
     .line 218
     :cond_8
-    iget-object v3, v0, Lcom/leidong/open/http/okhttp3/internal/ws/WebSocketWriter;->sink:Lcom/leidong/open/http/okio/BufferedSink;
+    iget-object p1, p0, Lcom/leidong/open/http/okhttp3/internal/ws/WebSocketWriter;->sink:Lcom/leidong/open/http/okio/BufferedSink;
 
-    invoke-interface {v3}, Lcom/leidong/open/http/okio/BufferedSink;->emit()Lcom/leidong/open/http/okio/BufferedSink;
+    invoke-interface {p1}, Lcom/leidong/open/http/okio/BufferedSink;->emit()Lcom/leidong/open/http/okio/BufferedSink;
 
-    .line 219
     return-void
 .end method
 
 .method writePing(Lcom/leidong/open/http/okio/ByteString;)V
     .locals 1
-    .param p1, "payload"    # Lcom/leidong/open/http/okio/ByteString;
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Ljava/io/IOException;
@@ -702,32 +610,29 @@
     .line 79
     monitor-enter p0
 
-    .line 80
     const/16 v0, 0x9
 
+    .line 80
     :try_start_0
     invoke-direct {p0, v0, p1}, Lcom/leidong/open/http/okhttp3/internal/ws/WebSocketWriter;->writeControlFrameSynchronized(ILcom/leidong/open/http/okio/ByteString;)V
 
     .line 81
     monitor-exit p0
 
-    .line 82
     return-void
 
-    .line 81
     :catchall_0
-    move-exception v0
+    move-exception p1
 
     monitor-exit p0
     :try_end_0
     .catchall {:try_start_0 .. :try_end_0} :catchall_0
 
-    throw v0
+    throw p1
 .end method
 
 .method writePong(Lcom/leidong/open/http/okio/ByteString;)V
     .locals 1
-    .param p1, "payload"    # Lcom/leidong/open/http/okio/ByteString;
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Ljava/io/IOException;
@@ -737,25 +642,23 @@
     .line 86
     monitor-enter p0
 
-    .line 87
     const/16 v0, 0xa
 
+    .line 87
     :try_start_0
     invoke-direct {p0, v0, p1}, Lcom/leidong/open/http/okhttp3/internal/ws/WebSocketWriter;->writeControlFrameSynchronized(ILcom/leidong/open/http/okio/ByteString;)V
 
     .line 88
     monitor-exit p0
 
-    .line 89
     return-void
 
-    .line 88
     :catchall_0
-    move-exception v0
+    move-exception p1
 
     monitor-exit p0
     :try_end_0
     .catchall {:try_start_0 .. :try_end_0} :catchall_0
 
-    throw v0
+    throw p1
 .end method

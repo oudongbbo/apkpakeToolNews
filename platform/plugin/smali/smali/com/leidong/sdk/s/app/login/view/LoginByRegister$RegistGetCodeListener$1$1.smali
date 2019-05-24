@@ -24,9 +24,8 @@
 # direct methods
 .method constructor <init>(Lcom/leidong/sdk/s/app/login/view/LoginByRegister$RegistGetCodeListener$1;)V
     .locals 0
-    .param p1, "this$2"    # Lcom/leidong/sdk/s/app/login/view/LoginByRegister$RegistGetCodeListener$1;
 
-    .line 488
+    .line 489
     iput-object p1, p0, Lcom/leidong/sdk/s/app/login/view/LoginByRegister$RegistGetCodeListener$1$1;->this$2:Lcom/leidong/sdk/s/app/login/view/LoginByRegister$RegistGetCodeListener$1;
 
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -37,68 +36,62 @@
 
 # virtual methods
 .method public onFail(ILjava/lang/String;)V
-    .locals 1
-    .param p1, "errorCode"    # I
-    .param p2, "message"    # Ljava/lang/String;
-
-    .line 496
-    iget-object v0, p0, Lcom/leidong/sdk/s/app/login/view/LoginByRegister$RegistGetCodeListener$1$1;->this$2:Lcom/leidong/sdk/s/app/login/view/LoginByRegister$RegistGetCodeListener$1;
-
-    iget-object v0, v0, Lcom/leidong/sdk/s/app/login/view/LoginByRegister$RegistGetCodeListener$1;->this$1:Lcom/leidong/sdk/s/app/login/view/LoginByRegister$RegistGetCodeListener;
-
-    iget-object v0, v0, Lcom/leidong/sdk/s/app/login/view/LoginByRegister$RegistGetCodeListener;->this$0:Lcom/leidong/sdk/s/app/login/view/LoginByRegister;
-
-    invoke-virtual {v0, p2}, Lcom/leidong/sdk/s/app/login/view/LoginByRegister;->showToast(Ljava/lang/String;)V
+    .locals 0
 
     .line 497
-    iget-object v0, p0, Lcom/leidong/sdk/s/app/login/view/LoginByRegister$RegistGetCodeListener$1$1;->this$2:Lcom/leidong/sdk/s/app/login/view/LoginByRegister$RegistGetCodeListener$1;
+    iget-object p1, p0, Lcom/leidong/sdk/s/app/login/view/LoginByRegister$RegistGetCodeListener$1$1;->this$2:Lcom/leidong/sdk/s/app/login/view/LoginByRegister$RegistGetCodeListener$1;
 
-    iget-object v0, v0, Lcom/leidong/sdk/s/app/login/view/LoginByRegister$RegistGetCodeListener$1;->this$1:Lcom/leidong/sdk/s/app/login/view/LoginByRegister$RegistGetCodeListener;
+    iget-object p1, p1, Lcom/leidong/sdk/s/app/login/view/LoginByRegister$RegistGetCodeListener$1;->this$1:Lcom/leidong/sdk/s/app/login/view/LoginByRegister$RegistGetCodeListener;
 
-    iget-object v0, v0, Lcom/leidong/sdk/s/app/login/view/LoginByRegister$RegistGetCodeListener;->this$0:Lcom/leidong/sdk/s/app/login/view/LoginByRegister;
+    iget-object p1, p1, Lcom/leidong/sdk/s/app/login/view/LoginByRegister$RegistGetCodeListener;->this$0:Lcom/leidong/sdk/s/app/login/view/LoginByRegister;
 
-    # getter for: Lcom/leidong/sdk/s/app/login/view/LoginByRegister;->countDown:Lcom/leidong/sdk/framework/view/common/CountDownView;
-    invoke-static {v0}, Lcom/leidong/sdk/s/app/login/view/LoginByRegister;->access$700(Lcom/leidong/sdk/s/app/login/view/LoginByRegister;)Lcom/leidong/sdk/framework/view/common/CountDownView;
-
-    move-result-object v0
-
-    invoke-virtual {v0}, Lcom/leidong/sdk/framework/view/common/CountDownView;->stopCountDown()V
+    invoke-virtual {p1, p2}, Lcom/leidong/sdk/s/app/login/view/LoginByRegister;->showToast(Ljava/lang/String;)V
 
     .line 498
+    iget-object p1, p0, Lcom/leidong/sdk/s/app/login/view/LoginByRegister$RegistGetCodeListener$1$1;->this$2:Lcom/leidong/sdk/s/app/login/view/LoginByRegister$RegistGetCodeListener$1;
+
+    iget-object p1, p1, Lcom/leidong/sdk/s/app/login/view/LoginByRegister$RegistGetCodeListener$1;->this$1:Lcom/leidong/sdk/s/app/login/view/LoginByRegister$RegistGetCodeListener;
+
+    iget-object p1, p1, Lcom/leidong/sdk/s/app/login/view/LoginByRegister$RegistGetCodeListener;->this$0:Lcom/leidong/sdk/s/app/login/view/LoginByRegister;
+
+    invoke-static {p1}, Lcom/leidong/sdk/s/app/login/view/LoginByRegister;->access$700(Lcom/leidong/sdk/s/app/login/view/LoginByRegister;)Lcom/leidong/sdk/framework/view/common/CountDownView;
+
+    move-result-object p1
+
+    invoke-virtual {p1}, Lcom/leidong/sdk/framework/view/common/CountDownView;->stopCountDown()V
+
     return-void
 .end method
 
 .method public onSuccess(Ljava/lang/String;)V
-    .locals 3
-    .param p1, "content"    # Ljava/lang/String;
-
-    .line 491
-    iget-object v0, p0, Lcom/leidong/sdk/s/app/login/view/LoginByRegister$RegistGetCodeListener$1$1;->this$2:Lcom/leidong/sdk/s/app/login/view/LoginByRegister$RegistGetCodeListener$1;
-
-    iget-object v0, v0, Lcom/leidong/sdk/s/app/login/view/LoginByRegister$RegistGetCodeListener$1;->this$1:Lcom/leidong/sdk/s/app/login/view/LoginByRegister$RegistGetCodeListener;
-
-    iget-object v0, v0, Lcom/leidong/sdk/s/app/login/view/LoginByRegister$RegistGetCodeListener;->this$0:Lcom/leidong/sdk/s/app/login/view/LoginByRegister;
-
-    const-string v1, "leidong_common_toast_vcode_sent"
-
-    iget-object v2, p0, Lcom/leidong/sdk/s/app/login/view/LoginByRegister$RegistGetCodeListener$1$1;->this$2:Lcom/leidong/sdk/s/app/login/view/LoginByRegister$RegistGetCodeListener$1;
-
-    iget-object v2, v2, Lcom/leidong/sdk/s/app/login/view/LoginByRegister$RegistGetCodeListener$1;->this$1:Lcom/leidong/sdk/s/app/login/view/LoginByRegister$RegistGetCodeListener;
-
-    iget-object v2, v2, Lcom/leidong/sdk/s/app/login/view/LoginByRegister$RegistGetCodeListener;->this$0:Lcom/leidong/sdk/s/app/login/view/LoginByRegister;
+    .locals 2
 
     .line 492
-    invoke-virtual {v2}, Lcom/leidong/sdk/s/app/login/view/LoginByRegister;->getActivity()Landroid/app/Activity;
+    iget-object p1, p0, Lcom/leidong/sdk/s/app/login/view/LoginByRegister$RegistGetCodeListener$1$1;->this$2:Lcom/leidong/sdk/s/app/login/view/LoginByRegister$RegistGetCodeListener$1;
 
-    move-result-object v2
+    iget-object p1, p1, Lcom/leidong/sdk/s/app/login/view/LoginByRegister$RegistGetCodeListener$1;->this$1:Lcom/leidong/sdk/s/app/login/view/LoginByRegister$RegistGetCodeListener;
 
-    invoke-static {v1, v2}, Lcom/leidong/sdk/framework/utils/CommonUtil;->getStringByName(Ljava/lang/String;Landroid/content/Context;)Ljava/lang/String;
+    iget-object p1, p1, Lcom/leidong/sdk/s/app/login/view/LoginByRegister$RegistGetCodeListener;->this$0:Lcom/leidong/sdk/s/app/login/view/LoginByRegister;
+
+    const-string v0, "leidong_common_toast_vcode_sent"
+
+    iget-object v1, p0, Lcom/leidong/sdk/s/app/login/view/LoginByRegister$RegistGetCodeListener$1$1;->this$2:Lcom/leidong/sdk/s/app/login/view/LoginByRegister$RegistGetCodeListener$1;
+
+    iget-object v1, v1, Lcom/leidong/sdk/s/app/login/view/LoginByRegister$RegistGetCodeListener$1;->this$1:Lcom/leidong/sdk/s/app/login/view/LoginByRegister$RegistGetCodeListener;
+
+    iget-object v1, v1, Lcom/leidong/sdk/s/app/login/view/LoginByRegister$RegistGetCodeListener;->this$0:Lcom/leidong/sdk/s/app/login/view/LoginByRegister;
+
+    .line 493
+    invoke-virtual {v1}, Lcom/leidong/sdk/s/app/login/view/LoginByRegister;->getActivity()Landroid/app/Activity;
 
     move-result-object v1
 
-    .line 491
-    invoke-virtual {v0, v1}, Lcom/leidong/sdk/s/app/login/view/LoginByRegister;->showToast(Ljava/lang/String;)V
+    invoke-static {v0, v1}, Lcom/leidong/sdk/framework/utils/CommonUtil;->getStringByName(Ljava/lang/String;Landroid/content/Context;)Ljava/lang/String;
 
-    .line 493
+    move-result-object v0
+
+    .line 492
+    invoke-virtual {p1, v0}, Lcom/leidong/sdk/s/app/login/view/LoginByRegister;->showToast(Ljava/lang/String;)V
+
     return-void
 .end method

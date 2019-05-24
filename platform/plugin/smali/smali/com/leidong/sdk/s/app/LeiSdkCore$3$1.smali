@@ -26,7 +26,6 @@
 # direct methods
 .method constructor <init>(Lcom/leidong/sdk/s/app/LeiSdkCore$3;Landroid/os/Bundle;)V
     .locals 0
-    .param p1, "this$1"    # Lcom/leidong/sdk/s/app/LeiSdkCore$3;
 
     .line 156
     iput-object p1, p0, Lcom/leidong/sdk/s/app/LeiSdkCore$3$1;->this$1:Lcom/leidong/sdk/s/app/LeiSdkCore$3;
@@ -42,7 +41,6 @@
 # virtual methods
 .method public onFail(Ljava/lang/String;)V
     .locals 1
-    .param p1, "errorMsg"    # Ljava/lang/String;
 
     .line 163
     iget-object v0, p0, Lcom/leidong/sdk/s/app/LeiSdkCore$3$1;->this$1:Lcom/leidong/sdk/s/app/LeiSdkCore$3;
@@ -51,7 +49,6 @@
 
     invoke-interface {v0, p1}, Lcom/leidong/sdk/framework/interfaces/SdkResultCallback;->onFail(Ljava/lang/String;)V
 
-    .line 164
     return-void
 .end method
 
@@ -78,6 +75,5 @@
 
     invoke-interface {v0, v1}, Lcom/leidong/sdk/framework/interfaces/SdkResultCallback;->onSuccess(Landroid/os/Bundle;)V
 
-    .line 160
     return-void
 .end method

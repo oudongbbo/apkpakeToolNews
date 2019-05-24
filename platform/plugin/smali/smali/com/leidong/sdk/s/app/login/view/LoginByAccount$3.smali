@@ -21,9 +21,8 @@
 # direct methods
 .method constructor <init>(Lcom/leidong/sdk/s/app/login/view/LoginByAccount;)V
     .locals 0
-    .param p1, "this$0"    # Lcom/leidong/sdk/s/app/login/view/LoginByAccount;
 
-    .line 335
+    .line 362
     iput-object p1, p0, Lcom/leidong/sdk/s/app/login/view/LoginByAccount$3;->this$0:Lcom/leidong/sdk/s/app/login/view/LoginByAccount;
 
     invoke-direct {p0}, Landroid/os/Handler;-><init>()V
@@ -34,66 +33,57 @@
 
 # virtual methods
 .method public handleMessage(Landroid/os/Message;)V
-    .locals 8
-    .param p1, "msg"    # Landroid/os/Message;
+    .locals 7
 
-    .line 338
+    .line 366
     invoke-super {p0, p1}, Landroid/os/Handler;->handleMessage(Landroid/os/Message;)V
 
-    .line 339
-    iget-object v0, p1, Landroid/os/Message;->obj:Ljava/lang/Object;
+    .line 367
+    iget-object p1, p1, Landroid/os/Message;->obj:Ljava/lang/Object;
 
-    check-cast v0, Landroid/os/Bundle;
+    check-cast p1, Landroid/os/Bundle;
 
-    .line 340
-    .local v0, "regBundle":Landroid/os/Bundle;
-    iget-object v1, p0, Lcom/leidong/sdk/s/app/login/view/LoginByAccount$3;->this$0:Lcom/leidong/sdk/s/app/login/view/LoginByAccount;
+    .line 368
+    iget-object v0, p0, Lcom/leidong/sdk/s/app/login/view/LoginByAccount$3;->this$0:Lcom/leidong/sdk/s/app/login/view/LoginByAccount;
 
-    # getter for: Lcom/leidong/sdk/s/app/login/view/LoginByAccount;->loginMain:Lcom/leidong/sdk/s/app/login/view/LoginContent;
-    invoke-static {v1}, Lcom/leidong/sdk/s/app/login/view/LoginByAccount;->access$500(Lcom/leidong/sdk/s/app/login/view/LoginByAccount;)Lcom/leidong/sdk/s/app/login/view/LoginContent;
+    invoke-static {v0}, Lcom/leidong/sdk/s/app/login/view/LoginByAccount;->access$500(Lcom/leidong/sdk/s/app/login/view/LoginByAccount;)Lcom/leidong/sdk/s/app/login/view/LoginContent;
+
+    move-result-object v0
+
+    invoke-virtual {v0}, Lcom/leidong/sdk/s/app/login/view/LoginContent;->getResponse()Lcom/leidong/sdk/s/core/http/ResponseManager;
 
     move-result-object v1
 
-    invoke-virtual {v1}, Lcom/leidong/sdk/s/app/login/view/LoginContent;->getResponse()Lcom/leidong/sdk/s/core/http/ResponseManager;
+    const-string v0, "content"
+
+    .line 369
+    invoke-virtual {p1, v0}, Landroid/os/Bundle;->getString(Ljava/lang/String;)Ljava/lang/String;
 
     move-result-object v2
 
-    const-string v1, "content"
+    const-string v0, "pwd"
 
-    .line 341
-    invoke-virtual {v0, v1}, Landroid/os/Bundle;->getString(Ljava/lang/String;)Ljava/lang/String;
+    invoke-virtual {p1, v0}, Landroid/os/Bundle;->getString(Ljava/lang/String;)Ljava/lang/String;
 
     move-result-object v3
 
-    const-string v1, "pwd"
+    iget-object p1, p0, Lcom/leidong/sdk/s/app/login/view/LoginByAccount$3;->this$0:Lcom/leidong/sdk/s/app/login/view/LoginByAccount;
 
-    invoke-virtual {v0, v1}, Landroid/os/Bundle;->getString(Ljava/lang/String;)Ljava/lang/String;
+    .line 370
+    invoke-static {p1}, Lcom/leidong/sdk/s/app/login/view/LoginByAccount;->access$500(Lcom/leidong/sdk/s/app/login/view/LoginByAccount;)Lcom/leidong/sdk/s/app/login/view/LoginContent;
 
-    move-result-object v4
+    move-result-object p1
 
-    const/4 v1, 0x0
+    invoke-virtual {p1}, Lcom/leidong/sdk/s/app/login/view/LoginContent;->getChildCallBack()Lcom/leidong/sdk/framework/interfaces/SdkResultCallback;
 
-    invoke-static {v1}, Ljava/lang/Boolean;->valueOf(Z)Ljava/lang/Boolean;
+    move-result-object v6
 
-    move-result-object v5
+    const/4 v4, 0x3
 
-    iget-object v1, p0, Lcom/leidong/sdk/s/app/login/view/LoginByAccount$3;->this$0:Lcom/leidong/sdk/s/app/login/view/LoginByAccount;
+    const/4 v5, 0x0
 
-    .line 342
-    # getter for: Lcom/leidong/sdk/s/app/login/view/LoginByAccount;->loginMain:Lcom/leidong/sdk/s/app/login/view/LoginContent;
-    invoke-static {v1}, Lcom/leidong/sdk/s/app/login/view/LoginByAccount;->access$500(Lcom/leidong/sdk/s/app/login/view/LoginByAccount;)Lcom/leidong/sdk/s/app/login/view/LoginContent;
+    .line 369
+    invoke-virtual/range {v1 .. v6}, Lcom/leidong/sdk/s/core/http/ResponseManager;->handleLoginSuccess(Ljava/lang/String;Ljava/lang/String;IZLcom/leidong/sdk/framework/interfaces/SdkResultCallback;)V
 
-    move-result-object v1
-
-    invoke-virtual {v1}, Lcom/leidong/sdk/s/app/login/view/LoginContent;->getChildCallBack()Lcom/leidong/sdk/framework/interfaces/SdkResultCallback;
-
-    move-result-object v7
-
-    .line 341
-    const/4 v6, 0x0
-
-    invoke-virtual/range {v2 .. v7}, Lcom/leidong/sdk/s/core/http/ResponseManager;->handleLoginSuccess(Ljava/lang/String;Ljava/lang/String;Ljava/lang/Boolean;ZLcom/leidong/sdk/framework/interfaces/SdkResultCallback;)V
-
-    .line 343
     return-void
 .end method

@@ -46,8 +46,7 @@
 
 # direct methods
 .method constructor <init>(Lcom/leidong/open/http/okhttp3/Cache;)V
-    .locals 1
-    .param p1, "this$0"    # Lcom/leidong/open/http/okhttp3/Cache;
+    .locals 0
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Ljava/io/IOException;
@@ -60,15 +59,15 @@
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
     .line 329
-    iget-object v0, p0, Lcom/leidong/open/http/okhttp3/Cache$2;->this$0:Lcom/leidong/open/http/okhttp3/Cache;
+    iget-object p1, p0, Lcom/leidong/open/http/okhttp3/Cache$2;->this$0:Lcom/leidong/open/http/okhttp3/Cache;
 
-    iget-object v0, v0, Lcom/leidong/open/http/okhttp3/Cache;->cache:Lcom/leidong/open/http/okhttp3/internal/cache/DiskLruCache;
+    iget-object p1, p1, Lcom/leidong/open/http/okhttp3/Cache;->cache:Lcom/leidong/open/http/okhttp3/internal/cache/DiskLruCache;
 
-    invoke-virtual {v0}, Lcom/leidong/open/http/okhttp3/internal/cache/DiskLruCache;->snapshots()Ljava/util/Iterator;
+    invoke-virtual {p1}, Lcom/leidong/open/http/okhttp3/internal/cache/DiskLruCache;->snapshots()Ljava/util/Iterator;
 
-    move-result-object v0
+    move-result-object p1
 
-    iput-object v0, p0, Lcom/leidong/open/http/okhttp3/Cache$2;->delegate:Ljava/util/Iterator;
+    iput-object p1, p0, Lcom/leidong/open/http/okhttp3/Cache$2;->delegate:Ljava/util/Iterator;
 
     return-void
 .end method
@@ -76,7 +75,7 @@
 
 # virtual methods
 .method public hasNext()Z
-    .locals 5
+    .locals 4
 
     .line 335
     iget-object v0, p0, Lcom/leidong/open/http/okhttp3/Cache$2;->nextUrl:Ljava/lang/String;
@@ -87,10 +86,10 @@
 
     return v1
 
-    .line 337
     :cond_0
     const/4 v0, 0x0
 
+    .line 337
     iput-boolean v0, p0, Lcom/leidong/open/http/okhttp3/Cache$2;->canRemove:Z
 
     .line 338
@@ -113,7 +112,6 @@
     check-cast v2, Lcom/leidong/open/http/okhttp3/internal/cache/DiskLruCache$Snapshot;
 
     .line 341
-    .local v2, "snapshot":Lcom/leidong/open/http/okhttp3/internal/cache/DiskLruCache$Snapshot;
     :try_start_0
     invoke-virtual {v2, v0}, Lcom/leidong/open/http/okhttp3/internal/cache/DiskLruCache$Snapshot;->getSource(I)Lcom/leidong/open/http/okio/Source;
 
@@ -124,27 +122,20 @@
     move-result-object v3
 
     .line 342
-    .local v3, "metadata":Lcom/leidong/open/http/okio/BufferedSource;
     invoke-interface {v3}, Lcom/leidong/open/http/okio/BufferedSource;->readUtf8LineStrict()Ljava/lang/String;
 
-    move-result-object v4
+    move-result-object v3
 
-    iput-object v4, p0, Lcom/leidong/open/http/okhttp3/Cache$2;->nextUrl:Ljava/lang/String;
+    iput-object v3, p0, Lcom/leidong/open/http/okhttp3/Cache$2;->nextUrl:Ljava/lang/String;
     :try_end_0
     .catch Ljava/io/IOException; {:try_start_0 .. :try_end_0} :catch_0
     .catchall {:try_start_0 .. :try_end_0} :catchall_0
 
-    .line 343
-    nop
-
     .line 348
     invoke-virtual {v2}, Lcom/leidong/open/http/okhttp3/internal/cache/DiskLruCache$Snapshot;->close()V
 
-    .line 343
     return v1
 
-    .line 348
-    .end local v3    # "metadata":Lcom/leidong/open/http/okio/BufferedSource;
     :catchall_0
     move-exception v0
 
@@ -152,21 +143,11 @@
 
     throw v0
 
-    .line 344
     :catch_0
-    move-exception v3
-
-    .line 348
     invoke-virtual {v2}, Lcom/leidong/open/http/okhttp3/internal/cache/DiskLruCache$Snapshot;->close()V
 
-    .line 349
-    nop
-
-    .line 350
-    .end local v2    # "snapshot":Lcom/leidong/open/http/okhttp3/internal/cache/DiskLruCache$Snapshot;
     goto :goto_0
 
-    .line 352
     :cond_1
     return v0
 .end method
@@ -202,18 +183,16 @@
     :cond_0
     iget-object v0, p0, Lcom/leidong/open/http/okhttp3/Cache$2;->nextUrl:Ljava/lang/String;
 
-    .line 358
-    .local v0, "result":Ljava/lang/String;
     const/4 v1, 0x0
 
+    .line 358
     iput-object v1, p0, Lcom/leidong/open/http/okhttp3/Cache$2;->nextUrl:Ljava/lang/String;
 
-    .line 359
     const/4 v1, 0x1
 
+    .line 359
     iput-boolean v1, p0, Lcom/leidong/open/http/okhttp3/Cache$2;->canRemove:Z
 
-    .line 360
     return-object v0
 .end method
 
@@ -239,6 +218,5 @@
 
     invoke-interface {v0}, Ljava/util/Iterator;->remove()V
 
-    .line 366
     return-void
 .end method

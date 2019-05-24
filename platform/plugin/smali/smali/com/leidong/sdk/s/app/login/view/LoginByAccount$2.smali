@@ -24,9 +24,8 @@
 # direct methods
 .method constructor <init>(Lcom/leidong/sdk/s/app/login/view/LoginByAccount;)V
     .locals 0
-    .param p1, "this$0"    # Lcom/leidong/sdk/s/app/login/view/LoginByAccount;
 
-    .line 186
+    .line 201
     iput-object p1, p0, Lcom/leidong/sdk/s/app/login/view/LoginByAccount$2;->this$0:Lcom/leidong/sdk/s/app/login/view/LoginByAccount;
 
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -37,10 +36,7 @@
 
 # virtual methods
 .method public onItemClick(Landroid/widget/AdapterView;Landroid/view/View;IJ)V
-    .locals 2
-    .param p2, "view"    # Landroid/view/View;
-    .param p3, "position"    # I
-    .param p4, "id"    # J
+    .locals 0
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -51,82 +47,74 @@
         }
     .end annotation
 
-    .line 190
-    .local p1, "parent":Landroid/widget/AdapterView;, "Landroid/widget/AdapterView<*>;"
-    iget-object v0, p0, Lcom/leidong/sdk/s/app/login/view/LoginByAccount$2;->this$0:Lcom/leidong/sdk/s/app/login/view/LoginByAccount;
+    .line 206
+    iget-object p1, p0, Lcom/leidong/sdk/s/app/login/view/LoginByAccount$2;->this$0:Lcom/leidong/sdk/s/app/login/view/LoginByAccount;
 
-    # getter for: Lcom/leidong/sdk/s/app/login/view/LoginByAccount;->accountSelectPop:Landroid/widget/PopupWindow;
-    invoke-static {v0}, Lcom/leidong/sdk/s/app/login/view/LoginByAccount;->access$100(Lcom/leidong/sdk/s/app/login/view/LoginByAccount;)Landroid/widget/PopupWindow;
+    invoke-static {p1}, Lcom/leidong/sdk/s/app/login/view/LoginByAccount;->access$100(Lcom/leidong/sdk/s/app/login/view/LoginByAccount;)Landroid/widget/PopupWindow;
 
-    move-result-object v0
+    move-result-object p1
 
-    if-eqz v0, :cond_0
+    if-eqz p1, :cond_0
 
-    .line 191
-    iget-object v0, p0, Lcom/leidong/sdk/s/app/login/view/LoginByAccount$2;->this$0:Lcom/leidong/sdk/s/app/login/view/LoginByAccount;
+    .line 207
+    iget-object p1, p0, Lcom/leidong/sdk/s/app/login/view/LoginByAccount$2;->this$0:Lcom/leidong/sdk/s/app/login/view/LoginByAccount;
 
-    # getter for: Lcom/leidong/sdk/s/app/login/view/LoginByAccount;->accountSelectPop:Landroid/widget/PopupWindow;
-    invoke-static {v0}, Lcom/leidong/sdk/s/app/login/view/LoginByAccount;->access$100(Lcom/leidong/sdk/s/app/login/view/LoginByAccount;)Landroid/widget/PopupWindow;
+    invoke-static {p1}, Lcom/leidong/sdk/s/app/login/view/LoginByAccount;->access$100(Lcom/leidong/sdk/s/app/login/view/LoginByAccount;)Landroid/widget/PopupWindow;
 
-    move-result-object v0
+    move-result-object p1
 
-    invoke-virtual {v0}, Landroid/widget/PopupWindow;->dismiss()V
+    invoke-virtual {p1}, Landroid/widget/PopupWindow;->dismiss()V
 
-    .line 193
+    .line 209
     :cond_0
-    iget-object v0, p0, Lcom/leidong/sdk/s/app/login/view/LoginByAccount$2;->this$0:Lcom/leidong/sdk/s/app/login/view/LoginByAccount;
+    iget-object p1, p0, Lcom/leidong/sdk/s/app/login/view/LoginByAccount$2;->this$0:Lcom/leidong/sdk/s/app/login/view/LoginByAccount;
 
-    # getter for: Lcom/leidong/sdk/s/app/login/view/LoginByAccount;->login_account_loginphnumber:Landroid/widget/EditText;
-    invoke-static {v0}, Lcom/leidong/sdk/s/app/login/view/LoginByAccount;->access$300(Lcom/leidong/sdk/s/app/login/view/LoginByAccount;)Landroid/widget/EditText;
+    invoke-static {p1}, Lcom/leidong/sdk/s/app/login/view/LoginByAccount;->access$300(Lcom/leidong/sdk/s/app/login/view/LoginByAccount;)Landroid/widget/EditText;
 
-    move-result-object v0
+    move-result-object p1
 
-    iget-object v1, p0, Lcom/leidong/sdk/s/app/login/view/LoginByAccount$2;->this$0:Lcom/leidong/sdk/s/app/login/view/LoginByAccount;
+    iget-object p2, p0, Lcom/leidong/sdk/s/app/login/view/LoginByAccount$2;->this$0:Lcom/leidong/sdk/s/app/login/view/LoginByAccount;
 
-    # getter for: Lcom/leidong/sdk/s/app/login/view/LoginByAccount;->accounts:Ljava/util/List;
-    invoke-static {v1}, Lcom/leidong/sdk/s/app/login/view/LoginByAccount;->access$200(Lcom/leidong/sdk/s/app/login/view/LoginByAccount;)Ljava/util/List;
+    invoke-static {p2}, Lcom/leidong/sdk/s/app/login/view/LoginByAccount;->access$200(Lcom/leidong/sdk/s/app/login/view/LoginByAccount;)Ljava/util/List;
 
-    move-result-object v1
+    move-result-object p2
 
-    invoke-interface {v1, p3}, Ljava/util/List;->get(I)Ljava/lang/Object;
+    invoke-interface {p2, p3}, Ljava/util/List;->get(I)Ljava/lang/Object;
 
-    move-result-object v1
+    move-result-object p2
 
-    check-cast v1, Lcom/leidong/sdk/framework/user/UserInfoBean;
+    check-cast p2, Lcom/leidong/sdk/framework/user/UserInfoBean;
 
-    invoke-virtual {v1}, Lcom/leidong/sdk/framework/user/UserInfoBean;->getVname()Ljava/lang/String;
+    invoke-virtual {p2}, Lcom/leidong/sdk/framework/user/UserInfoBean;->getVname()Ljava/lang/String;
 
-    move-result-object v1
+    move-result-object p2
 
-    invoke-virtual {v0, v1}, Landroid/widget/EditText;->setText(Ljava/lang/CharSequence;)V
+    invoke-virtual {p1, p2}, Landroid/widget/EditText;->setText(Ljava/lang/CharSequence;)V
 
-    .line 194
-    iget-object v0, p0, Lcom/leidong/sdk/s/app/login/view/LoginByAccount$2;->this$0:Lcom/leidong/sdk/s/app/login/view/LoginByAccount;
+    .line 210
+    iget-object p1, p0, Lcom/leidong/sdk/s/app/login/view/LoginByAccount$2;->this$0:Lcom/leidong/sdk/s/app/login/view/LoginByAccount;
 
-    # getter for: Lcom/leidong/sdk/s/app/login/view/LoginByAccount;->login_account_password:Landroid/widget/EditText;
-    invoke-static {v0}, Lcom/leidong/sdk/s/app/login/view/LoginByAccount;->access$400(Lcom/leidong/sdk/s/app/login/view/LoginByAccount;)Landroid/widget/EditText;
+    invoke-static {p1}, Lcom/leidong/sdk/s/app/login/view/LoginByAccount;->access$400(Lcom/leidong/sdk/s/app/login/view/LoginByAccount;)Landroid/widget/EditText;
 
-    move-result-object v0
+    move-result-object p1
 
-    iget-object v1, p0, Lcom/leidong/sdk/s/app/login/view/LoginByAccount$2;->this$0:Lcom/leidong/sdk/s/app/login/view/LoginByAccount;
+    iget-object p2, p0, Lcom/leidong/sdk/s/app/login/view/LoginByAccount$2;->this$0:Lcom/leidong/sdk/s/app/login/view/LoginByAccount;
 
-    # getter for: Lcom/leidong/sdk/s/app/login/view/LoginByAccount;->accounts:Ljava/util/List;
-    invoke-static {v1}, Lcom/leidong/sdk/s/app/login/view/LoginByAccount;->access$200(Lcom/leidong/sdk/s/app/login/view/LoginByAccount;)Ljava/util/List;
+    invoke-static {p2}, Lcom/leidong/sdk/s/app/login/view/LoginByAccount;->access$200(Lcom/leidong/sdk/s/app/login/view/LoginByAccount;)Ljava/util/List;
 
-    move-result-object v1
+    move-result-object p2
 
-    invoke-interface {v1, p3}, Ljava/util/List;->get(I)Ljava/lang/Object;
+    invoke-interface {p2, p3}, Ljava/util/List;->get(I)Ljava/lang/Object;
 
-    move-result-object v1
+    move-result-object p2
 
-    check-cast v1, Lcom/leidong/sdk/framework/user/UserInfoBean;
+    check-cast p2, Lcom/leidong/sdk/framework/user/UserInfoBean;
 
-    invoke-virtual {v1}, Lcom/leidong/sdk/framework/user/UserInfoBean;->getPwd()Ljava/lang/String;
+    invoke-virtual {p2}, Lcom/leidong/sdk/framework/user/UserInfoBean;->getPwd()Ljava/lang/String;
 
-    move-result-object v1
+    move-result-object p2
 
-    invoke-virtual {v0, v1}, Landroid/widget/EditText;->setText(Ljava/lang/CharSequence;)V
+    invoke-virtual {p1, p2}, Landroid/widget/EditText;->setText(Ljava/lang/CharSequence;)V
 
-    .line 195
     return-void
 .end method

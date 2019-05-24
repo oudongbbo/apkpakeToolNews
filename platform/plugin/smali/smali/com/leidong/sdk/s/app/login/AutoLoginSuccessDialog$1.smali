@@ -24,7 +24,6 @@
 # direct methods
 .method constructor <init>(Lcom/leidong/sdk/s/app/login/AutoLoginSuccessDialog;)V
     .locals 0
-    .param p1, "this$0"    # Lcom/leidong/sdk/s/app/login/AutoLoginSuccessDialog;
 
     .line 79
     iput-object p1, p0, Lcom/leidong/sdk/s/app/login/AutoLoginSuccessDialog$1;->this$0:Lcom/leidong/sdk/s/app/login/AutoLoginSuccessDialog;
@@ -37,29 +36,24 @@
 
 # virtual methods
 .method public onShow(Landroid/content/DialogInterface;)V
-    .locals 3
-    .param p1, "dialog"    # Landroid/content/DialogInterface;
+    .locals 2
 
     .line 84
+    iget-object p1, p0, Lcom/leidong/sdk/s/app/login/AutoLoginSuccessDialog$1;->this$0:Lcom/leidong/sdk/s/app/login/AutoLoginSuccessDialog;
+
     iget-object v0, p0, Lcom/leidong/sdk/s/app/login/AutoLoginSuccessDialog$1;->this$0:Lcom/leidong/sdk/s/app/login/AutoLoginSuccessDialog;
+
+    invoke-static {v0}, Lcom/leidong/sdk/s/app/login/AutoLoginSuccessDialog;->access$000(Lcom/leidong/sdk/s/app/login/AutoLoginSuccessDialog;)Landroid/widget/LinearLayout;
+
+    move-result-object v0
 
     iget-object v1, p0, Lcom/leidong/sdk/s/app/login/AutoLoginSuccessDialog$1;->this$0:Lcom/leidong/sdk/s/app/login/AutoLoginSuccessDialog;
 
-    # getter for: Lcom/leidong/sdk/s/app/login/AutoLoginSuccessDialog;->mContent:Landroid/widget/LinearLayout;
-    invoke-static {v1}, Lcom/leidong/sdk/s/app/login/AutoLoginSuccessDialog;->access$000(Lcom/leidong/sdk/s/app/login/AutoLoginSuccessDialog;)Landroid/widget/LinearLayout;
+    invoke-static {v1}, Lcom/leidong/sdk/s/app/login/AutoLoginSuccessDialog;->access$100(Lcom/leidong/sdk/s/app/login/AutoLoginSuccessDialog;)Landroid/content/Context;
 
     move-result-object v1
 
-    iget-object v2, p0, Lcom/leidong/sdk/s/app/login/AutoLoginSuccessDialog$1;->this$0:Lcom/leidong/sdk/s/app/login/AutoLoginSuccessDialog;
+    invoke-static {p1, v0, v1}, Lcom/leidong/sdk/s/app/login/AutoLoginSuccessDialog;->access$200(Lcom/leidong/sdk/s/app/login/AutoLoginSuccessDialog;Landroid/view/View;Landroid/content/Context;)V
 
-    # getter for: Lcom/leidong/sdk/s/app/login/AutoLoginSuccessDialog;->mContext:Landroid/content/Context;
-    invoke-static {v2}, Lcom/leidong/sdk/s/app/login/AutoLoginSuccessDialog;->access$100(Lcom/leidong/sdk/s/app/login/AutoLoginSuccessDialog;)Landroid/content/Context;
-
-    move-result-object v2
-
-    # invokes: Lcom/leidong/sdk/s/app/login/AutoLoginSuccessDialog;->startAnimate(Landroid/view/View;Landroid/content/Context;)V
-    invoke-static {v0, v1, v2}, Lcom/leidong/sdk/s/app/login/AutoLoginSuccessDialog;->access$200(Lcom/leidong/sdk/s/app/login/AutoLoginSuccessDialog;Landroid/view/View;Landroid/content/Context;)V
-
-    .line 85
     return-void
 .end method

@@ -45,9 +45,7 @@
 # virtual methods
 .method public onSettings(Lcom/leidong/open/http/okhttp3/internal/http2/Http2Connection;)V
     .locals 0
-    .param p1, "connection"    # Lcom/leidong/open/http/okhttp3/internal/http2/Http2Connection;
 
-    .line 883
     return-void
 .end method
 

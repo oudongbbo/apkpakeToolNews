@@ -19,7 +19,6 @@
 # direct methods
 .method public constructor <init>(Lcom/leidong/open/http/okhttp3/Cookie;)V
     .locals 0
-    .param p1, "cookie"    # Lcom/leidong/open/http/okhttp3/Cookie;
 
     .line 17
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -27,13 +26,11 @@
     .line 18
     iput-object p1, p0, Lcom/leidong/open/http/okgo/cookie/store/SerializableHttpCookie;->cookie:Lcom/leidong/open/http/okhttp3/Cookie;
 
-    .line 19
     return-void
 .end method
 
 .method private readObject(Ljava/io/ObjectInputStream;)V
-    .locals 12
-    .param p1, "in"    # Ljava/io/ObjectInputStream;
+    .locals 9
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Ljava/io/IOException;,
@@ -49,7 +46,6 @@
     check-cast v0, Ljava/lang/String;
 
     .line 43
-    .local v0, "name":Ljava/lang/String;
     invoke-virtual {p1}, Ljava/io/ObjectInputStream;->readObject()Ljava/lang/Object;
 
     move-result-object v1
@@ -57,13 +53,11 @@
     check-cast v1, Ljava/lang/String;
 
     .line 44
-    .local v1, "value":Ljava/lang/String;
     invoke-virtual {p1}, Ljava/io/ObjectInputStream;->readLong()J
 
     move-result-wide v2
 
     .line 45
-    .local v2, "expiresAt":J
     invoke-virtual {p1}, Ljava/io/ObjectInputStream;->readObject()Ljava/lang/Object;
 
     move-result-object v4
@@ -71,7 +65,6 @@
     check-cast v4, Ljava/lang/String;
 
     .line 46
-    .local v4, "domain":Ljava/lang/String;
     invoke-virtual {p1}, Ljava/io/ObjectInputStream;->readObject()Ljava/lang/Object;
 
     move-result-object v5
@@ -79,117 +72,91 @@
     check-cast v5, Ljava/lang/String;
 
     .line 47
-    .local v5, "path":Ljava/lang/String;
     invoke-virtual {p1}, Ljava/io/ObjectInputStream;->readBoolean()Z
 
     move-result v6
 
     .line 48
-    .local v6, "secure":Z
     invoke-virtual {p1}, Ljava/io/ObjectInputStream;->readBoolean()Z
 
     move-result v7
 
     .line 49
-    .local v7, "httpOnly":Z
     invoke-virtual {p1}, Ljava/io/ObjectInputStream;->readBoolean()Z
 
     move-result v8
 
     .line 50
-    .local v8, "hostOnly":Z
     invoke-virtual {p1}, Ljava/io/ObjectInputStream;->readBoolean()Z
 
-    move-result v9
-
     .line 51
-    .local v9, "persistent":Z
-    new-instance v10, Lcom/leidong/open/http/okhttp3/Cookie$Builder;
+    new-instance p1, Lcom/leidong/open/http/okhttp3/Cookie$Builder;
 
-    invoke-direct {v10}, Lcom/leidong/open/http/okhttp3/Cookie$Builder;-><init>()V
+    invoke-direct {p1}, Lcom/leidong/open/http/okhttp3/Cookie$Builder;-><init>()V
 
     .line 52
-    .local v10, "builder":Lcom/leidong/open/http/okhttp3/Cookie$Builder;
-    invoke-virtual {v10, v0}, Lcom/leidong/open/http/okhttp3/Cookie$Builder;->name(Ljava/lang/String;)Lcom/leidong/open/http/okhttp3/Cookie$Builder;
+    invoke-virtual {p1, v0}, Lcom/leidong/open/http/okhttp3/Cookie$Builder;->name(Ljava/lang/String;)Lcom/leidong/open/http/okhttp3/Cookie$Builder;
 
-    move-result-object v10
+    move-result-object p1
 
     .line 53
-    invoke-virtual {v10, v1}, Lcom/leidong/open/http/okhttp3/Cookie$Builder;->value(Ljava/lang/String;)Lcom/leidong/open/http/okhttp3/Cookie$Builder;
+    invoke-virtual {p1, v1}, Lcom/leidong/open/http/okhttp3/Cookie$Builder;->value(Ljava/lang/String;)Lcom/leidong/open/http/okhttp3/Cookie$Builder;
 
-    move-result-object v10
+    move-result-object p1
 
     .line 54
-    invoke-virtual {v10, v2, v3}, Lcom/leidong/open/http/okhttp3/Cookie$Builder;->expiresAt(J)Lcom/leidong/open/http/okhttp3/Cookie$Builder;
+    invoke-virtual {p1, v2, v3}, Lcom/leidong/open/http/okhttp3/Cookie$Builder;->expiresAt(J)Lcom/leidong/open/http/okhttp3/Cookie$Builder;
 
-    move-result-object v10
+    move-result-object p1
 
-    .line 55
     if-eqz v8, :cond_0
 
-    invoke-virtual {v10, v4}, Lcom/leidong/open/http/okhttp3/Cookie$Builder;->hostOnlyDomain(Ljava/lang/String;)Lcom/leidong/open/http/okhttp3/Cookie$Builder;
+    .line 55
+    invoke-virtual {p1, v4}, Lcom/leidong/open/http/okhttp3/Cookie$Builder;->hostOnlyDomain(Ljava/lang/String;)Lcom/leidong/open/http/okhttp3/Cookie$Builder;
 
-    move-result-object v11
+    move-result-object p1
 
     goto :goto_0
 
     :cond_0
-    invoke-virtual {v10, v4}, Lcom/leidong/open/http/okhttp3/Cookie$Builder;->domain(Ljava/lang/String;)Lcom/leidong/open/http/okhttp3/Cookie$Builder;
+    invoke-virtual {p1, v4}, Lcom/leidong/open/http/okhttp3/Cookie$Builder;->domain(Ljava/lang/String;)Lcom/leidong/open/http/okhttp3/Cookie$Builder;
 
-    move-result-object v11
-
-    :goto_0
-    move-object v10, v11
+    move-result-object p1
 
     .line 56
-    invoke-virtual {v10, v5}, Lcom/leidong/open/http/okhttp3/Cookie$Builder;->path(Ljava/lang/String;)Lcom/leidong/open/http/okhttp3/Cookie$Builder;
+    :goto_0
+    invoke-virtual {p1, v5}, Lcom/leidong/open/http/okhttp3/Cookie$Builder;->path(Ljava/lang/String;)Lcom/leidong/open/http/okhttp3/Cookie$Builder;
 
-    move-result-object v10
+    move-result-object p1
 
-    .line 57
     if-eqz v6, :cond_1
 
-    invoke-virtual {v10}, Lcom/leidong/open/http/okhttp3/Cookie$Builder;->secure()Lcom/leidong/open/http/okhttp3/Cookie$Builder;
+    .line 57
+    invoke-virtual {p1}, Lcom/leidong/open/http/okhttp3/Cookie$Builder;->secure()Lcom/leidong/open/http/okhttp3/Cookie$Builder;
 
-    move-result-object v11
-
-    goto :goto_1
+    move-result-object p1
 
     :cond_1
-    move-object v11, v10
-
-    :goto_1
-    move-object v10, v11
-
-    .line 58
     if-eqz v7, :cond_2
 
-    invoke-virtual {v10}, Lcom/leidong/open/http/okhttp3/Cookie$Builder;->httpOnly()Lcom/leidong/open/http/okhttp3/Cookie$Builder;
+    .line 58
+    invoke-virtual {p1}, Lcom/leidong/open/http/okhttp3/Cookie$Builder;->httpOnly()Lcom/leidong/open/http/okhttp3/Cookie$Builder;
 
-    move-result-object v11
-
-    goto :goto_2
-
-    :cond_2
-    move-object v11, v10
-
-    :goto_2
-    move-object v10, v11
+    move-result-object p1
 
     .line 59
-    invoke-virtual {v10}, Lcom/leidong/open/http/okhttp3/Cookie$Builder;->build()Lcom/leidong/open/http/okhttp3/Cookie;
+    :cond_2
+    invoke-virtual {p1}, Lcom/leidong/open/http/okhttp3/Cookie$Builder;->build()Lcom/leidong/open/http/okhttp3/Cookie;
 
-    move-result-object v11
+    move-result-object p1
 
-    iput-object v11, p0, Lcom/leidong/open/http/okgo/cookie/store/SerializableHttpCookie;->clientCookie:Lcom/leidong/open/http/okhttp3/Cookie;
+    iput-object p1, p0, Lcom/leidong/open/http/okgo/cookie/store/SerializableHttpCookie;->clientCookie:Lcom/leidong/open/http/okhttp3/Cookie;
 
-    .line 60
     return-void
 .end method
 
 .method private writeObject(Ljava/io/ObjectOutputStream;)V
     .locals 2
-    .param p1, "out"    # Ljava/io/ObjectOutputStream;
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Ljava/io/IOException;
@@ -277,7 +244,6 @@
 
     invoke-virtual {p1, v0}, Ljava/io/ObjectOutputStream;->writeBoolean(Z)V
 
-    .line 39
     return-void
 .end method
 
@@ -290,7 +256,6 @@
     iget-object v0, p0, Lcom/leidong/open/http/okgo/cookie/store/SerializableHttpCookie;->cookie:Lcom/leidong/open/http/okhttp3/Cookie;
 
     .line 23
-    .local v0, "bestCookie":Lcom/leidong/open/http/okhttp3/Cookie;
     iget-object v1, p0, Lcom/leidong/open/http/okgo/cookie/store/SerializableHttpCookie;->clientCookie:Lcom/leidong/open/http/okhttp3/Cookie;
 
     if-eqz v1, :cond_0
@@ -298,7 +263,6 @@
     .line 24
     iget-object v0, p0, Lcom/leidong/open/http/okgo/cookie/store/SerializableHttpCookie;->clientCookie:Lcom/leidong/open/http/okhttp3/Cookie;
 
-    .line 26
     :cond_0
     return-object v0
 .end method

@@ -26,7 +26,6 @@
 # direct methods
 .method constructor <init>(Lcom/leidong/sdk/s/app/floatwindow/FloatManager;Landroid/widget/ImageView;)V
     .locals 0
-    .param p1, "this$0"    # Lcom/leidong/sdk/s/app/floatwindow/FloatManager;
 
     .line 722
     iput-object p1, p0, Lcom/leidong/sdk/s/app/floatwindow/FloatManager$3;->this$0:Lcom/leidong/sdk/s/app/floatwindow/FloatManager;
@@ -42,26 +41,20 @@
 # virtual methods
 .method public onFail(Ljava/lang/String;)V
     .locals 0
-    .param p1, "arg0"    # Ljava/lang/String;
 
-    .line 732
     return-void
 .end method
 
 .method public onSuccess(Landroid/graphics/Bitmap;Ljava/lang/String;)V
-    .locals 1
-    .param p1, "bitmap"    # Landroid/graphics/Bitmap;
-    .param p2, "arg1"    # Ljava/lang/String;
+    .locals 0
 
-    .line 725
     if-eqz p1, :cond_0
 
     .line 726
-    iget-object v0, p0, Lcom/leidong/sdk/s/app/floatwindow/FloatManager$3;->val$view:Landroid/widget/ImageView;
+    iget-object p2, p0, Lcom/leidong/sdk/s/app/floatwindow/FloatManager$3;->val$view:Landroid/widget/ImageView;
 
-    invoke-virtual {v0, p1}, Landroid/widget/ImageView;->setImageBitmap(Landroid/graphics/Bitmap;)V
+    invoke-virtual {p2, p1}, Landroid/widget/ImageView;->setImageBitmap(Landroid/graphics/Bitmap;)V
 
-    .line 728
     :cond_0
     return-void
 .end method

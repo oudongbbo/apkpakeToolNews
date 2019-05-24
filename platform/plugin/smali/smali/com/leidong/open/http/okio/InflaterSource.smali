@@ -18,35 +18,33 @@
 
 # direct methods
 .method constructor <init>(Lcom/leidong/open/http/okio/BufferedSource;Ljava/util/zip/Inflater;)V
-    .locals 2
-    .param p1, "source"    # Lcom/leidong/open/http/okio/BufferedSource;
-    .param p2, "inflater"    # Ljava/util/zip/Inflater;
+    .locals 0
 
     .line 56
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
-    .line 57
     if-nez p1, :cond_0
 
-    new-instance v0, Ljava/lang/IllegalArgumentException;
+    .line 57
+    new-instance p1, Ljava/lang/IllegalArgumentException;
 
-    const-string v1, "source == null"
+    const-string p2, "source == null"
 
-    invoke-direct {v0, v1}, Ljava/lang/IllegalArgumentException;-><init>(Ljava/lang/String;)V
+    invoke-direct {p1, p2}, Ljava/lang/IllegalArgumentException;-><init>(Ljava/lang/String;)V
 
-    throw v0
+    throw p1
 
-    .line 58
     :cond_0
     if-nez p2, :cond_1
 
-    new-instance v0, Ljava/lang/IllegalArgumentException;
+    .line 58
+    new-instance p1, Ljava/lang/IllegalArgumentException;
 
-    const-string v1, "inflater == null"
+    const-string p2, "inflater == null"
 
-    invoke-direct {v0, v1}, Ljava/lang/IllegalArgumentException;-><init>(Ljava/lang/String;)V
+    invoke-direct {p1, p2}, Ljava/lang/IllegalArgumentException;-><init>(Ljava/lang/String;)V
 
-    throw v0
+    throw p1
 
     .line 59
     :cond_1
@@ -55,23 +53,19 @@
     .line 60
     iput-object p2, p0, Lcom/leidong/open/http/okio/InflaterSource;->inflater:Ljava/util/zip/Inflater;
 
-    .line 61
     return-void
 .end method
 
 .method public constructor <init>(Lcom/leidong/open/http/okio/Source;Ljava/util/zip/Inflater;)V
-    .locals 1
-    .param p1, "source"    # Lcom/leidong/open/http/okio/Source;
-    .param p2, "inflater"    # Ljava/util/zip/Inflater;
+    .locals 0
 
     .line 48
     invoke-static {p1}, Lcom/leidong/open/http/okio/Okio;->buffer(Lcom/leidong/open/http/okio/Source;)Lcom/leidong/open/http/okio/BufferedSource;
 
-    move-result-object v0
+    move-result-object p1
 
-    invoke-direct {p0, v0, p2}, Lcom/leidong/open/http/okio/InflaterSource;-><init>(Lcom/leidong/open/http/okio/BufferedSource;Ljava/util/zip/Inflater;)V
+    invoke-direct {p0, p1, p2}, Lcom/leidong/open/http/okio/InflaterSource;-><init>(Lcom/leidong/open/http/okio/BufferedSource;Ljava/util/zip/Inflater;)V
 
-    .line 49
     return-void
 .end method
 
@@ -103,7 +97,6 @@
     sub-int/2addr v0, v1
 
     .line 122
-    .local v0, "toRelease":I
     iget v1, p0, Lcom/leidong/open/http/okio/InflaterSource;->bufferBytesHeldByInflater:I
 
     sub-int/2addr v1, v0
@@ -117,7 +110,6 @@
 
     invoke-interface {v1, v2, v3}, Lcom/leidong/open/http/okio/BufferedSource;->skip(J)V
 
-    .line 124
     return-void
 .end method
 
@@ -144,9 +136,9 @@
 
     invoke-virtual {v0}, Ljava/util/zip/Inflater;->end()V
 
-    .line 133
     const/4 v0, 0x1
 
+    .line 133
     iput-boolean v0, p0, Lcom/leidong/open/http/okio/InflaterSource;->closed:Z
 
     .line 134
@@ -154,46 +146,43 @@
 
     invoke-interface {v0}, Lcom/leidong/open/http/okio/BufferedSource;->close()V
 
-    .line 135
     return-void
 .end method
 
 .method public read(Lcom/leidong/open/http/okio/Buffer;J)J
-    .locals 9
-    .param p1, "sink"    # Lcom/leidong/open/http/okio/Buffer;
-    .param p2, "byteCount"    # J
+    .locals 4
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Ljava/io/IOException;
         }
     .end annotation
 
-    .line 65
     const-wide/16 v0, 0x0
 
     cmp-long v2, p2, v0
 
     if-gez v2, :cond_0
 
-    new-instance v0, Ljava/lang/IllegalArgumentException;
+    .line 65
+    new-instance p1, Ljava/lang/IllegalArgumentException;
 
-    new-instance v1, Ljava/lang/StringBuilder;
+    new-instance v0, Ljava/lang/StringBuilder;
 
-    invoke-direct {v1}, Ljava/lang/StringBuilder;-><init>()V
+    invoke-direct {v0}, Ljava/lang/StringBuilder;-><init>()V
 
-    const-string v2, "byteCount < 0: "
+    const-string v1, "byteCount < 0: "
 
-    invoke-virtual {v1, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    invoke-virtual {v1, p2, p3}, Ljava/lang/StringBuilder;->append(J)Ljava/lang/StringBuilder;
+    invoke-virtual {v0, p2, p3}, Ljava/lang/StringBuilder;->append(J)Ljava/lang/StringBuilder;
 
-    invoke-virtual {v1}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+    invoke-virtual {v0}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
 
-    move-result-object v1
+    move-result-object p2
 
-    invoke-direct {v0, v1}, Ljava/lang/IllegalArgumentException;-><init>(Ljava/lang/String;)V
+    invoke-direct {p1, p2}, Ljava/lang/IllegalArgumentException;-><init>(Ljava/lang/String;)V
 
-    throw v0
+    throw p1
 
     .line 66
     :cond_0
@@ -201,15 +190,14 @@
 
     if-eqz v2, :cond_1
 
-    new-instance v0, Ljava/lang/IllegalStateException;
+    new-instance p1, Ljava/lang/IllegalStateException;
 
-    const-string v1, "closed"
+    const-string p2, "closed"
 
-    invoke-direct {v0, v1}, Ljava/lang/IllegalStateException;-><init>(Ljava/lang/String;)V
+    invoke-direct {p1, p2}, Ljava/lang/IllegalStateException;-><init>(Ljava/lang/String;)V
 
-    throw v0
+    throw p1
 
-    .line 67
     :cond_1
     cmp-long v2, p2, v0
 
@@ -219,153 +207,127 @@
 
     .line 70
     :cond_2
-    :goto_0
     invoke-virtual {p0}, Lcom/leidong/open/http/okio/InflaterSource;->refill()Z
+
+    move-result p2
+
+    const/4 p3, 0x1
+
+    .line 74
+    :try_start_0
+    invoke-virtual {p1, p3}, Lcom/leidong/open/http/okio/Buffer;->writableSegment(I)Lcom/leidong/open/http/okio/Segment;
+
+    move-result-object p3
+
+    .line 75
+    iget-object v0, p0, Lcom/leidong/open/http/okio/InflaterSource;->inflater:Ljava/util/zip/Inflater;
+
+    iget-object v1, p3, Lcom/leidong/open/http/okio/Segment;->data:[B
+
+    iget v2, p3, Lcom/leidong/open/http/okio/Segment;->limit:I
+
+    iget v3, p3, Lcom/leidong/open/http/okio/Segment;->limit:I
+
+    rsub-int v3, v3, 0x2000
+
+    invoke-virtual {v0, v1, v2, v3}, Ljava/util/zip/Inflater;->inflate([BII)I
 
     move-result v0
 
-    .line 74
-    .local v0, "sourceExhausted":Z
-    const/4 v1, 0x1
-
-    :try_start_0
-    invoke-virtual {p1, v1}, Lcom/leidong/open/http/okio/Buffer;->writableSegment(I)Lcom/leidong/open/http/okio/Segment;
-
-    move-result-object v1
-
-    .line 75
-    .local v1, "tail":Lcom/leidong/open/http/okio/Segment;
-    iget-object v2, p0, Lcom/leidong/open/http/okio/InflaterSource;->inflater:Ljava/util/zip/Inflater;
-
-    iget-object v3, v1, Lcom/leidong/open/http/okio/Segment;->data:[B
-
-    iget v4, v1, Lcom/leidong/open/http/okio/Segment;->limit:I
-
-    iget v5, v1, Lcom/leidong/open/http/okio/Segment;->limit:I
-
-    rsub-int v5, v5, 0x2000
-
-    invoke-virtual {v2, v3, v4, v5}, Ljava/util/zip/Inflater;->inflate([BII)I
-
-    move-result v2
-
-    .line 76
-    .local v2, "bytesInflated":I
-    if-lez v2, :cond_3
+    if-lez v0, :cond_3
 
     .line 77
-    iget v3, v1, Lcom/leidong/open/http/okio/Segment;->limit:I
+    iget p2, p3, Lcom/leidong/open/http/okio/Segment;->limit:I
 
-    add-int/2addr v3, v2
+    add-int/2addr p2, v0
 
-    iput v3, v1, Lcom/leidong/open/http/okio/Segment;->limit:I
+    iput p2, p3, Lcom/leidong/open/http/okio/Segment;->limit:I
 
     .line 78
-    iget-wide v3, p1, Lcom/leidong/open/http/okio/Buffer;->size:J
+    iget-wide p2, p1, Lcom/leidong/open/http/okio/Buffer;->size:J
 
-    int-to-long v5, v2
+    int-to-long v0, v0
 
-    add-long v7, v3, v5
+    add-long v2, p2, v0
 
-    iput-wide v7, p1, Lcom/leidong/open/http/okio/Buffer;->size:J
+    iput-wide v2, p1, Lcom/leidong/open/http/okio/Buffer;->size:J
 
-    .line 79
-    int-to-long v3, v2
-
-    return-wide v3
+    return-wide v0
 
     .line 81
     :cond_3
-    iget-object v3, p0, Lcom/leidong/open/http/okio/InflaterSource;->inflater:Ljava/util/zip/Inflater;
+    iget-object v0, p0, Lcom/leidong/open/http/okio/InflaterSource;->inflater:Ljava/util/zip/Inflater;
 
-    invoke-virtual {v3}, Ljava/util/zip/Inflater;->finished()Z
+    invoke-virtual {v0}, Ljava/util/zip/Inflater;->finished()Z
 
-    move-result v3
+    move-result v0
 
-    if-nez v3, :cond_6
+    if-nez v0, :cond_5
 
-    iget-object v3, p0, Lcom/leidong/open/http/okio/InflaterSource;->inflater:Ljava/util/zip/Inflater;
+    iget-object v0, p0, Lcom/leidong/open/http/okio/InflaterSource;->inflater:Ljava/util/zip/Inflater;
 
-    invoke-virtual {v3}, Ljava/util/zip/Inflater;->needsDictionary()Z
+    invoke-virtual {v0}, Ljava/util/zip/Inflater;->needsDictionary()Z
 
-    move-result v3
+    move-result v0
 
-    if-eqz v3, :cond_4
+    if-eqz v0, :cond_4
 
-    goto :goto_1
-
-    .line 90
-    :cond_4
-    if-eqz v0, :cond_5
-
-    new-instance v3, Ljava/io/EOFException;
-
-    const-string v4, "source exhausted prematurely"
-
-    invoke-direct {v3, v4}, Ljava/io/EOFException;-><init>(Ljava/lang/String;)V
-
-    throw v3
-
-    .line 93
-    .end local v1    # "tail":Lcom/leidong/open/http/okio/Segment;
-    .end local v2    # "bytesInflated":I
-    :cond_5
-    nop
-
-    .line 94
-    .end local v0    # "sourceExhausted":Z
     goto :goto_0
 
+    :cond_4
+    if-eqz p2, :cond_2
+
+    .line 90
+    new-instance p1, Ljava/io/EOFException;
+
+    const-string p2, "source exhausted prematurely"
+
+    invoke-direct {p1, p2}, Ljava/io/EOFException;-><init>(Ljava/lang/String;)V
+
+    throw p1
+
     .line 82
-    .restart local v0    # "sourceExhausted":Z
-    .restart local v1    # "tail":Lcom/leidong/open/http/okio/Segment;
-    .restart local v2    # "bytesInflated":I
-    :cond_6
-    :goto_1
+    :cond_5
+    :goto_0
     invoke-direct {p0}, Lcom/leidong/open/http/okio/InflaterSource;->releaseInflatedBytes()V
 
     .line 83
-    iget v3, v1, Lcom/leidong/open/http/okio/Segment;->pos:I
+    iget p2, p3, Lcom/leidong/open/http/okio/Segment;->pos:I
 
-    iget v4, v1, Lcom/leidong/open/http/okio/Segment;->limit:I
+    iget v0, p3, Lcom/leidong/open/http/okio/Segment;->limit:I
 
-    if-ne v3, v4, :cond_7
+    if-ne p2, v0, :cond_6
 
     .line 85
-    invoke-virtual {v1}, Lcom/leidong/open/http/okio/Segment;->pop()Lcom/leidong/open/http/okio/Segment;
+    invoke-virtual {p3}, Lcom/leidong/open/http/okio/Segment;->pop()Lcom/leidong/open/http/okio/Segment;
 
-    move-result-object v3
+    move-result-object p2
 
-    iput-object v3, p1, Lcom/leidong/open/http/okio/Buffer;->head:Lcom/leidong/open/http/okio/Segment;
+    iput-object p2, p1, Lcom/leidong/open/http/okio/Buffer;->head:Lcom/leidong/open/http/okio/Segment;
 
     .line 86
-    invoke-static {v1}, Lcom/leidong/open/http/okio/SegmentPool;->recycle(Lcom/leidong/open/http/okio/Segment;)V
+    invoke-static {p3}, Lcom/leidong/open/http/okio/SegmentPool;->recycle(Lcom/leidong/open/http/okio/Segment;)V
     :try_end_0
     .catch Ljava/util/zip/DataFormatException; {:try_start_0 .. :try_end_0} :catch_0
 
-    .line 88
-    :cond_7
-    const-wide/16 v3, -0x1
+    :cond_6
+    const-wide/16 p1, -0x1
 
-    return-wide v3
+    return-wide p1
 
-    .line 91
-    .end local v1    # "tail":Lcom/leidong/open/http/okio/Segment;
-    .end local v2    # "bytesInflated":I
     :catch_0
-    move-exception v1
+    move-exception p1
 
     .line 92
-    .local v1, "e":Ljava/util/zip/DataFormatException;
-    new-instance v2, Ljava/io/IOException;
+    new-instance p2, Ljava/io/IOException;
 
-    invoke-direct {v2, v1}, Ljava/io/IOException;-><init>(Ljava/lang/Throwable;)V
+    invoke-direct {p2, p1}, Ljava/io/IOException;-><init>(Ljava/lang/Throwable;)V
 
-    throw v2
+    throw p2
 .end method
 
 .method public refill()Z
-    .locals 6
+    .locals 5
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Ljava/io/IOException;
@@ -431,7 +393,6 @@
     iget-object v0, v0, Lcom/leidong/open/http/okio/Buffer;->head:Lcom/leidong/open/http/okio/Segment;
 
     .line 113
-    .local v0, "head":Lcom/leidong/open/http/okio/Segment;
     iget v2, v0, Lcom/leidong/open/http/okio/Segment;->limit:I
 
     iget v3, v0, Lcom/leidong/open/http/okio/Segment;->pos:I
@@ -445,13 +406,12 @@
 
     iget-object v3, v0, Lcom/leidong/open/http/okio/Segment;->data:[B
 
-    iget v4, v0, Lcom/leidong/open/http/okio/Segment;->pos:I
+    iget v0, v0, Lcom/leidong/open/http/okio/Segment;->pos:I
 
-    iget v5, p0, Lcom/leidong/open/http/okio/InflaterSource;->bufferBytesHeldByInflater:I
+    iget v4, p0, Lcom/leidong/open/http/okio/InflaterSource;->bufferBytesHeldByInflater:I
 
-    invoke-virtual {v2, v3, v4, v5}, Ljava/util/zip/Inflater;->setInput([BII)V
+    invoke-virtual {v2, v3, v0, v4}, Ljava/util/zip/Inflater;->setInput([BII)V
 
-    .line 115
     return v1
 .end method
 

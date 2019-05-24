@@ -26,9 +26,8 @@
 # direct methods
 .method constructor <init>(Lcom/leidong/sdk/m/controller/MsdkManager;Lcom/leidong/sdk/m/LeiMsdkCallback;)V
     .locals 0
-    .param p1, "this$0"    # Lcom/leidong/sdk/m/controller/MsdkManager;
 
-    .line 101
+    .line 102
     iput-object p1, p0, Lcom/leidong/sdk/m/controller/MsdkManager$1;->this$0:Lcom/leidong/sdk/m/controller/MsdkManager;
 
     iput-object p2, p0, Lcom/leidong/sdk/m/controller/MsdkManager$1;->val$callback:Lcom/leidong/sdk/m/LeiMsdkCallback;
@@ -43,35 +42,31 @@
 .method public onExitGameFail()V
     .locals 1
 
-    .line 226
+    .line 227
     iget-object v0, p0, Lcom/leidong/sdk/m/controller/MsdkManager$1;->val$callback:Lcom/leidong/sdk/m/LeiMsdkCallback;
 
     invoke-interface {v0}, Lcom/leidong/sdk/m/LeiMsdkCallback;->onExitGameFail()V
 
-    .line 227
     return-void
 .end method
 
 .method public onExitGameSuccess()V
     .locals 4
 
-    .line 187
+    .line 188
     :try_start_0
     sget v0, Lcom/leidong/sdk/m/views/UpdateDialog;->notificationId:I
 
-    .line 188
-    .local v0, "downloadId":I
+    .line 189
     iget-object v1, p0, Lcom/leidong/sdk/m/controller/MsdkManager$1;->this$0:Lcom/leidong/sdk/m/controller/MsdkManager;
 
     const-string v2, "\u6e05\u9664\u4e0b\u8f7d\u6846"
 
-    # invokes: Lcom/leidong/sdk/m/controller/MsdkManager;->sendPrivateLog(Ljava/lang/String;)V
     invoke-static {v1, v2}, Lcom/leidong/sdk/m/controller/MsdkManager;->access$500(Lcom/leidong/sdk/m/controller/MsdkManager;Ljava/lang/String;)V
 
-    .line 190
+    .line 191
     iget-object v1, p0, Lcom/leidong/sdk/m/controller/MsdkManager$1;->this$0:Lcom/leidong/sdk/m/controller/MsdkManager;
 
-    # getter for: Lcom/leidong/sdk/m/controller/MsdkManager;->mContext:Landroid/content/Context;
     invoke-static {v1}, Lcom/leidong/sdk/m/controller/MsdkManager;->access$200(Lcom/leidong/sdk/m/controller/MsdkManager;)Landroid/content/Context;
 
     move-result-object v1
@@ -94,75 +89,63 @@
 
     move-result v1
 
-    .line 194
-    .local v1, "isStartDownload":Z
     if-eqz v1, :cond_0
 
-    .line 195
-    iget-object v2, p0, Lcom/leidong/sdk/m/controller/MsdkManager$1;->this$0:Lcom/leidong/sdk/m/controller/MsdkManager;
-
-    const-string v3, "\u5f00\u59cb\u4e0b\u8f7d\uff0c\u540c\u65f6\u6ca1\u6709\u4e0b\u8f7d\u5b8c\u6210\uff0c\u9700\u8981\u53d6\u6d88\u901a\u77e5\u680f"
-
-    # invokes: Lcom/leidong/sdk/m/controller/MsdkManager;->sendPrivateLog(Ljava/lang/String;)V
-    invoke-static {v2, v3}, Lcom/leidong/sdk/m/controller/MsdkManager;->access$500(Lcom/leidong/sdk/m/controller/MsdkManager;Ljava/lang/String;)V
-
     .line 196
-    iget-object v2, p0, Lcom/leidong/sdk/m/controller/MsdkManager$1;->this$0:Lcom/leidong/sdk/m/controller/MsdkManager;
+    iget-object v1, p0, Lcom/leidong/sdk/m/controller/MsdkManager$1;->this$0:Lcom/leidong/sdk/m/controller/MsdkManager;
 
-    # getter for: Lcom/leidong/sdk/m/controller/MsdkManager;->mContext:Landroid/content/Context;
-    invoke-static {v2}, Lcom/leidong/sdk/m/controller/MsdkManager;->access$200(Lcom/leidong/sdk/m/controller/MsdkManager;)Landroid/content/Context;
+    const-string v2, "\u5f00\u59cb\u4e0b\u8f7d\uff0c\u540c\u65f6\u6ca1\u6709\u4e0b\u8f7d\u5b8c\u6210\uff0c\u9700\u8981\u53d6\u6d88\u901a\u77e5\u680f"
 
-    move-result-object v2
+    invoke-static {v1, v2}, Lcom/leidong/sdk/m/controller/MsdkManager;->access$500(Lcom/leidong/sdk/m/controller/MsdkManager;Ljava/lang/String;)V
 
-    const-string v3, "notification"
+    .line 197
+    iget-object v1, p0, Lcom/leidong/sdk/m/controller/MsdkManager$1;->this$0:Lcom/leidong/sdk/m/controller/MsdkManager;
 
-    invoke-virtual {v2, v3}, Landroid/content/Context;->getSystemService(Ljava/lang/String;)Ljava/lang/Object;
+    invoke-static {v1}, Lcom/leidong/sdk/m/controller/MsdkManager;->access$200(Lcom/leidong/sdk/m/controller/MsdkManager;)Landroid/content/Context;
 
-    move-result-object v2
+    move-result-object v1
 
-    check-cast v2, Landroid/app/NotificationManager;
+    const-string v2, "notification"
 
-    invoke-virtual {v2, v0}, Landroid/app/NotificationManager;->cancel(I)V
+    invoke-virtual {v1, v2}, Landroid/content/Context;->getSystemService(Ljava/lang/String;)Ljava/lang/Object;
+
+    move-result-object v1
+
+    check-cast v1, Landroid/app/NotificationManager;
+
+    invoke-virtual {v1, v0}, Landroid/app/NotificationManager;->cancel(I)V
     :try_end_0
     .catch Ljava/lang/Exception; {:try_start_0 .. :try_end_0} :catch_0
 
-    .line 204
-    .end local v0    # "downloadId":I
-    .end local v1    # "isStartDownload":Z
-    :cond_0
     goto :goto_0
 
-    .line 202
     :catch_0
     move-exception v0
 
-    .line 203
-    .local v0, "e":Ljava/lang/Exception;
+    .line 204
     invoke-virtual {v0}, Ljava/lang/Exception;->printStackTrace()V
 
-    .line 206
-    .end local v0    # "e":Ljava/lang/Exception;
+    .line 207
+    :cond_0
     :goto_0
     iget-object v0, p0, Lcom/leidong/sdk/m/controller/MsdkManager$1;->this$0:Lcom/leidong/sdk/m/controller/MsdkManager;
 
-    # getter for: Lcom/leidong/sdk/m/controller/MsdkManager;->isLoginSuccess:Z
     invoke-static {v0}, Lcom/leidong/sdk/m/controller/MsdkManager;->access$300(Lcom/leidong/sdk/m/controller/MsdkManager;)Z
 
     move-result v0
 
     if-nez v0, :cond_1
 
-    .line 209
+    .line 210
     sget-object v0, Ljava/lang/System;->out:Ljava/io/PrintStream;
 
     const-string v1, "\u63d0\u4ea4\u9000\u51fa\u4fe1\u606f"
 
     invoke-virtual {v0, v1}, Ljava/io/PrintStream;->println(Ljava/lang/String;)V
 
-    .line 210
+    .line 211
     iget-object v0, p0, Lcom/leidong/sdk/m/controller/MsdkManager$1;->this$0:Lcom/leidong/sdk/m/controller/MsdkManager;
 
-    # getter for: Lcom/leidong/sdk/m/controller/MsdkManager;->requestManager:Lcom/leidong/sdk/m/http/MReqManager;
     invoke-static {v0}, Lcom/leidong/sdk/m/controller/MsdkManager;->access$600(Lcom/leidong/sdk/m/controller/MsdkManager;)Lcom/leidong/sdk/m/http/MReqManager;
 
     move-result-object v0
@@ -177,96 +160,86 @@
 
     goto :goto_1
 
-    .line 221
+    .line 222
     :cond_1
     iget-object v0, p0, Lcom/leidong/sdk/m/controller/MsdkManager$1;->val$callback:Lcom/leidong/sdk/m/LeiMsdkCallback;
 
     invoke-interface {v0}, Lcom/leidong/sdk/m/LeiMsdkCallback;->onExitGameSuccess()V
 
-    .line 223
     :goto_1
     return-void
 .end method
 
 .method public onInitFail(Ljava/lang/String;)V
     .locals 2
-    .param p1, "message"    # Ljava/lang/String;
-
-    .line 115
-    iget-object v0, p0, Lcom/leidong/sdk/m/controller/MsdkManager$1;->this$0:Lcom/leidong/sdk/m/controller/MsdkManager;
-
-    # invokes: Lcom/leidong/sdk/m/controller/MsdkManager;->hideInitSplash()V
-    invoke-static {v0}, Lcom/leidong/sdk/m/controller/MsdkManager;->access$000(Lcom/leidong/sdk/m/controller/MsdkManager;)V
 
     .line 116
+    iget-object v0, p0, Lcom/leidong/sdk/m/controller/MsdkManager$1;->this$0:Lcom/leidong/sdk/m/controller/MsdkManager;
+
+    invoke-static {v0}, Lcom/leidong/sdk/m/controller/MsdkManager;->access$000(Lcom/leidong/sdk/m/controller/MsdkManager;)V
+
+    .line 117
     iget-object v0, p0, Lcom/leidong/sdk/m/controller/MsdkManager$1;->this$0:Lcom/leidong/sdk/m/controller/MsdkManager;
 
     const-string v1, "error_init"
 
     invoke-virtual {v0, v1, p1}, Lcom/leidong/sdk/m/controller/MsdkManager;->postEventSdkErrorAction(Ljava/lang/String;Ljava/lang/String;)V
 
-    .line 117
+    .line 118
     iget-object v0, p0, Lcom/leidong/sdk/m/controller/MsdkManager$1;->val$callback:Lcom/leidong/sdk/m/LeiMsdkCallback;
 
     invoke-interface {v0, p1}, Lcom/leidong/sdk/m/LeiMsdkCallback;->onInitFail(Ljava/lang/String;)V
 
-    .line 118
     return-void
 .end method
 
 .method public onInitSuccess()V
     .locals 2
 
-    .line 105
+    .line 106
     iget-object v0, p0, Lcom/leidong/sdk/m/controller/MsdkManager$1;->this$0:Lcom/leidong/sdk/m/controller/MsdkManager;
 
-    # invokes: Lcom/leidong/sdk/m/controller/MsdkManager;->hideInitSplash()V
     invoke-static {v0}, Lcom/leidong/sdk/m/controller/MsdkManager;->access$000(Lcom/leidong/sdk/m/controller/MsdkManager;)V
 
-    .line 106
+    .line 107
     iget-object v0, p0, Lcom/leidong/sdk/m/controller/MsdkManager$1;->val$callback:Lcom/leidong/sdk/m/LeiMsdkCallback;
 
     invoke-interface {v0}, Lcom/leidong/sdk/m/LeiMsdkCallback;->onInitSuccess()V
 
-    .line 108
+    .line 109
     iget-object v0, p0, Lcom/leidong/sdk/m/controller/MsdkManager$1;->this$0:Lcom/leidong/sdk/m/controller/MsdkManager;
 
-    # getter for: Lcom/leidong/sdk/m/controller/MsdkManager;->platformLogCore:Lcom/leidong/sdk/m/controller/PlatformLogCore;
     invoke-static {v0}, Lcom/leidong/sdk/m/controller/MsdkManager;->access$100(Lcom/leidong/sdk/m/controller/MsdkManager;)Lcom/leidong/sdk/m/controller/PlatformLogCore;
 
     move-result-object v0
 
     if-eqz v0, :cond_0
 
-    .line 109
+    .line 110
     iget-object v0, p0, Lcom/leidong/sdk/m/controller/MsdkManager$1;->this$0:Lcom/leidong/sdk/m/controller/MsdkManager;
 
-    # getter for: Lcom/leidong/sdk/m/controller/MsdkManager;->platformLogCore:Lcom/leidong/sdk/m/controller/PlatformLogCore;
     invoke-static {v0}, Lcom/leidong/sdk/m/controller/MsdkManager;->access$100(Lcom/leidong/sdk/m/controller/MsdkManager;)Lcom/leidong/sdk/m/controller/PlatformLogCore;
 
     move-result-object v0
 
     iget-object v1, p0, Lcom/leidong/sdk/m/controller/MsdkManager$1;->this$0:Lcom/leidong/sdk/m/controller/MsdkManager;
 
-    # getter for: Lcom/leidong/sdk/m/controller/MsdkManager;->mContext:Landroid/content/Context;
     invoke-static {v1}, Lcom/leidong/sdk/m/controller/MsdkManager;->access$200(Lcom/leidong/sdk/m/controller/MsdkManager;)Landroid/content/Context;
 
     move-result-object v1
 
     invoke-virtual {v0, v1}, Lcom/leidong/sdk/m/controller/PlatformLogCore;->onInit(Landroid/content/Context;)V
 
-    .line 111
     :cond_0
     return-void
 .end method
 
 .method public onLoginFail(Ljava/lang/String;)V
     .locals 2
-    .param p1, "message"    # Ljava/lang/String;
 
-    .line 129
     const-string v0, "login_cancel"
 
+    .line 130
     invoke-virtual {v0, p1}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
 
     move-result v0
@@ -275,7 +248,7 @@
 
     goto :goto_0
 
-    .line 133
+    .line 134
     :cond_0
     iget-object v0, p0, Lcom/leidong/sdk/m/controller/MsdkManager$1;->this$0:Lcom/leidong/sdk/m/controller/MsdkManager;
 
@@ -283,75 +256,66 @@
 
     invoke-virtual {v0, v1, p1}, Lcom/leidong/sdk/m/controller/MsdkManager;->postEventSdkErrorAction(Ljava/lang/String;Ljava/lang/String;)V
 
-    .line 135
+    .line 136
     :goto_0
     iget-object v0, p0, Lcom/leidong/sdk/m/controller/MsdkManager$1;->val$callback:Lcom/leidong/sdk/m/LeiMsdkCallback;
 
     invoke-interface {v0, p1}, Lcom/leidong/sdk/m/LeiMsdkCallback;->onLoginFail(Ljava/lang/String;)V
 
-    .line 136
     return-void
 .end method
 
 .method public onLoginSuccess(Landroid/os/Bundle;)V
     .locals 2
-    .param p1, "bundle"    # Landroid/os/Bundle;
 
-    .line 121
+    .line 122
     iget-object v0, p0, Lcom/leidong/sdk/m/controller/MsdkManager$1;->this$0:Lcom/leidong/sdk/m/controller/MsdkManager;
 
     const/4 v1, 0x1
 
-    # setter for: Lcom/leidong/sdk/m/controller/MsdkManager;->isLoginSuccess:Z
     invoke-static {v0, v1}, Lcom/leidong/sdk/m/controller/MsdkManager;->access$302(Lcom/leidong/sdk/m/controller/MsdkManager;Z)Z
 
-    .line 122
+    .line 123
     iget-object v0, p0, Lcom/leidong/sdk/m/controller/MsdkManager$1;->val$callback:Lcom/leidong/sdk/m/LeiMsdkCallback;
 
     invoke-interface {v0, p1}, Lcom/leidong/sdk/m/LeiMsdkCallback;->onLoginSuccess(Landroid/os/Bundle;)V
 
-    .line 125
+    .line 126
     iget-object v0, p0, Lcom/leidong/sdk/m/controller/MsdkManager$1;->this$0:Lcom/leidong/sdk/m/controller/MsdkManager;
 
-    # invokes: Lcom/leidong/sdk/m/controller/MsdkManager;->reportPlatformLoginLog(Landroid/os/Bundle;)V
     invoke-static {v0, p1}, Lcom/leidong/sdk/m/controller/MsdkManager;->access$400(Lcom/leidong/sdk/m/controller/MsdkManager;Landroid/os/Bundle;)V
 
-    .line 126
     return-void
 .end method
 
 .method public onLogoutFail(Ljava/lang/String;)V
     .locals 1
-    .param p1, "message"    # Ljava/lang/String;
 
-    .line 178
+    .line 179
     iget-object v0, p0, Lcom/leidong/sdk/m/controller/MsdkManager$1;->val$callback:Lcom/leidong/sdk/m/LeiMsdkCallback;
 
     invoke-interface {v0, p1}, Lcom/leidong/sdk/m/LeiMsdkCallback;->onLogoutFail(Ljava/lang/String;)V
 
-    .line 179
     return-void
 .end method
 
 .method public onLogoutSuccess()V
     .locals 1
 
-    .line 174
+    .line 175
     iget-object v0, p0, Lcom/leidong/sdk/m/controller/MsdkManager$1;->val$callback:Lcom/leidong/sdk/m/LeiMsdkCallback;
 
     invoke-interface {v0}, Lcom/leidong/sdk/m/LeiMsdkCallback;->onLogoutSuccess()V
 
-    .line 175
     return-void
 .end method
 
 .method public onPayFail(Ljava/lang/String;)V
     .locals 2
-    .param p1, "message"    # Ljava/lang/String;
 
-    .line 164
     const-string v0, "pay_cancel"
 
+    .line 165
     invoke-virtual {v0, p1}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
 
     move-result v0
@@ -360,7 +324,7 @@
 
     goto :goto_0
 
-    .line 168
+    .line 169
     :cond_0
     iget-object v0, p0, Lcom/leidong/sdk/m/controller/MsdkManager$1;->this$0:Lcom/leidong/sdk/m/controller/MsdkManager;
 
@@ -368,46 +332,41 @@
 
     invoke-virtual {v0, v1, p1}, Lcom/leidong/sdk/m/controller/MsdkManager;->postEventSdkErrorAction(Ljava/lang/String;Ljava/lang/String;)V
 
-    .line 170
+    .line 171
     :goto_0
     iget-object v0, p0, Lcom/leidong/sdk/m/controller/MsdkManager$1;->val$callback:Lcom/leidong/sdk/m/LeiMsdkCallback;
 
     invoke-interface {v0, p1}, Lcom/leidong/sdk/m/LeiMsdkCallback;->onPayFail(Ljava/lang/String;)V
 
-    .line 171
     return-void
 .end method
 
 .method public onPaySuccess(Landroid/os/Bundle;)V
     .locals 1
-    .param p1, "bundle"    # Landroid/os/Bundle;
 
-    .line 157
+    .line 158
     iget-object v0, p0, Lcom/leidong/sdk/m/controller/MsdkManager$1;->val$callback:Lcom/leidong/sdk/m/LeiMsdkCallback;
 
     invoke-interface {v0, p1}, Lcom/leidong/sdk/m/LeiMsdkCallback;->onPaySuccess(Landroid/os/Bundle;)V
 
-    .line 160
+    .line 161
     iget-object v0, p0, Lcom/leidong/sdk/m/controller/MsdkManager$1;->this$0:Lcom/leidong/sdk/m/controller/MsdkManager;
 
-    # getter for: Lcom/leidong/sdk/m/controller/MsdkManager;->platformLogCore:Lcom/leidong/sdk/m/controller/PlatformLogCore;
     invoke-static {v0}, Lcom/leidong/sdk/m/controller/MsdkManager;->access$100(Lcom/leidong/sdk/m/controller/MsdkManager;)Lcom/leidong/sdk/m/controller/PlatformLogCore;
 
     move-result-object v0
 
     invoke-virtual {v0, p1}, Lcom/leidong/sdk/m/controller/PlatformLogCore;->onPayFinish(Landroid/os/Bundle;)V
 
-    .line 161
     return-void
 .end method
 
 .method public onUserSwitchFail(Ljava/lang/String;)V
     .locals 2
-    .param p1, "message"    # Ljava/lang/String;
 
-    .line 146
     const-string v0, "switch_cancel"
 
+    .line 147
     invoke-virtual {v0, p1}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
 
     move-result v0
@@ -416,7 +375,7 @@
 
     goto :goto_0
 
-    .line 150
+    .line 151
     :cond_0
     iget-object v0, p0, Lcom/leidong/sdk/m/controller/MsdkManager$1;->this$0:Lcom/leidong/sdk/m/controller/MsdkManager;
 
@@ -424,39 +383,34 @@
 
     invoke-virtual {v0, v1, p1}, Lcom/leidong/sdk/m/controller/MsdkManager;->postEventSdkErrorAction(Ljava/lang/String;Ljava/lang/String;)V
 
-    .line 152
+    .line 153
     :goto_0
     iget-object v0, p0, Lcom/leidong/sdk/m/controller/MsdkManager$1;->val$callback:Lcom/leidong/sdk/m/LeiMsdkCallback;
 
     invoke-interface {v0, p1}, Lcom/leidong/sdk/m/LeiMsdkCallback;->onUserSwitchFail(Ljava/lang/String;)V
 
-    .line 153
     return-void
 .end method
 
 .method public onUserSwitchSuccess(Landroid/os/Bundle;)V
     .locals 2
-    .param p1, "bundle"    # Landroid/os/Bundle;
 
-    .line 139
+    .line 140
     iget-object v0, p0, Lcom/leidong/sdk/m/controller/MsdkManager$1;->this$0:Lcom/leidong/sdk/m/controller/MsdkManager;
 
     const/4 v1, 0x1
 
-    # setter for: Lcom/leidong/sdk/m/controller/MsdkManager;->isLoginSuccess:Z
     invoke-static {v0, v1}, Lcom/leidong/sdk/m/controller/MsdkManager;->access$302(Lcom/leidong/sdk/m/controller/MsdkManager;Z)Z
 
-    .line 140
+    .line 141
     iget-object v0, p0, Lcom/leidong/sdk/m/controller/MsdkManager$1;->val$callback:Lcom/leidong/sdk/m/LeiMsdkCallback;
 
     invoke-interface {v0, p1}, Lcom/leidong/sdk/m/LeiMsdkCallback;->onUserSwitchSuccess(Landroid/os/Bundle;)V
 
-    .line 142
+    .line 143
     iget-object v0, p0, Lcom/leidong/sdk/m/controller/MsdkManager$1;->this$0:Lcom/leidong/sdk/m/controller/MsdkManager;
 
-    # invokes: Lcom/leidong/sdk/m/controller/MsdkManager;->reportPlatformLoginLog(Landroid/os/Bundle;)V
     invoke-static {v0, p1}, Lcom/leidong/sdk/m/controller/MsdkManager;->access$400(Lcom/leidong/sdk/m/controller/MsdkManager;Landroid/os/Bundle;)V
 
-    .line 143
     return-void
 .end method

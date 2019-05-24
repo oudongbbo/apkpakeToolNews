@@ -24,9 +24,8 @@
 # direct methods
 .method constructor <init>(Lcom/leidong/sdk/s/app/login/view/LoginByRegister;)V
     .locals 0
-    .param p1, "this$0"    # Lcom/leidong/sdk/s/app/login/view/LoginByRegister;
 
-    .line 688
+    .line 689
     iput-object p1, p0, Lcom/leidong/sdk/s/app/login/view/LoginByRegister$RegistNormalCheckListener;->this$0:Lcom/leidong/sdk/s/app/login/view/LoginByRegister;
 
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -37,119 +36,147 @@
 
 # virtual methods
 .method public onClick(Landroid/view/View;)V
-    .locals 5
-    .param p1, "v"    # Landroid/view/View;
-
-    .line 691
-    iget-object v0, p0, Lcom/leidong/sdk/s/app/login/view/LoginByRegister$RegistNormalCheckListener;->this$0:Lcom/leidong/sdk/s/app/login/view/LoginByRegister;
-
-    iget-object v1, p0, Lcom/leidong/sdk/s/app/login/view/LoginByRegister$RegistNormalCheckListener;->this$0:Lcom/leidong/sdk/s/app/login/view/LoginByRegister;
-
-    # getter for: Lcom/leidong/sdk/s/app/login/view/LoginByRegister;->isNormalAgreementchecked:Z
-    invoke-static {v1}, Lcom/leidong/sdk/s/app/login/view/LoginByRegister;->access$2400(Lcom/leidong/sdk/s/app/login/view/LoginByRegister;)Z
-
-    move-result v1
-
-    xor-int/lit8 v1, v1, 0x1
-
-    # setter for: Lcom/leidong/sdk/s/app/login/view/LoginByRegister;->isNormalAgreementchecked:Z
-    invoke-static {v0, v1}, Lcom/leidong/sdk/s/app/login/view/LoginByRegister;->access$2402(Lcom/leidong/sdk/s/app/login/view/LoginByRegister;Z)Z
+    .locals 4
 
     .line 692
+    iget-object p1, p0, Lcom/leidong/sdk/s/app/login/view/LoginByRegister$RegistNormalCheckListener;->this$0:Lcom/leidong/sdk/s/app/login/view/LoginByRegister;
+
     iget-object v0, p0, Lcom/leidong/sdk/s/app/login/view/LoginByRegister$RegistNormalCheckListener;->this$0:Lcom/leidong/sdk/s/app/login/view/LoginByRegister;
 
-    # getter for: Lcom/leidong/sdk/s/app/login/view/LoginByRegister;->isNormalAgreementchecked:Z
     invoke-static {v0}, Lcom/leidong/sdk/s/app/login/view/LoginByRegister;->access$2400(Lcom/leidong/sdk/s/app/login/view/LoginByRegister;)Z
 
     move-result v0
 
-    if-eqz v0, :cond_0
+    xor-int/lit8 v0, v0, 0x1
+
+    invoke-static {p1, v0}, Lcom/leidong/sdk/s/app/login/view/LoginByRegister;->access$2402(Lcom/leidong/sdk/s/app/login/view/LoginByRegister;Z)Z
 
     .line 693
+    iget-object p1, p0, Lcom/leidong/sdk/s/app/login/view/LoginByRegister$RegistNormalCheckListener;->this$0:Lcom/leidong/sdk/s/app/login/view/LoginByRegister;
+
+    invoke-static {p1}, Lcom/leidong/sdk/s/app/login/view/LoginByRegister;->access$2400(Lcom/leidong/sdk/s/app/login/view/LoginByRegister;)Z
+
+    move-result p1
+
+    if-eqz p1, :cond_0
+
+    .line 694
+    iget-object p1, p0, Lcom/leidong/sdk/s/app/login/view/LoginByRegister$RegistNormalCheckListener;->this$0:Lcom/leidong/sdk/s/app/login/view/LoginByRegister;
+
+    invoke-static {p1}, Lcom/leidong/sdk/s/app/login/view/LoginByRegister;->access$2500(Lcom/leidong/sdk/s/app/login/view/LoginByRegister;)Landroid/widget/ImageView;
+
+    move-result-object p1
+
+    const-string v0, "leidong_agreement_checked"
+
+    const-string v1, "drawable"
+
+    iget-object v2, p0, Lcom/leidong/sdk/s/app/login/view/LoginByRegister$RegistNormalCheckListener;->this$0:Lcom/leidong/sdk/s/app/login/view/LoginByRegister;
+
+    .line 695
+    invoke-virtual {v2}, Lcom/leidong/sdk/s/app/login/view/LoginByRegister;->getActivity()Landroid/app/Activity;
+
+    move-result-object v2
+
+    invoke-static {v0, v1, v2}, Lcom/leidong/sdk/framework/utils/CommonUtil;->getResourcesID(Ljava/lang/String;Ljava/lang/String;Landroid/content/Context;)I
+
+    move-result v0
+
+    .line 694
+    invoke-virtual {p1, v0}, Landroid/widget/ImageView;->setImageResource(I)V
+
+    .line 696
+    iget-object p1, p0, Lcom/leidong/sdk/s/app/login/view/LoginByRegister$RegistNormalCheckListener;->this$0:Lcom/leidong/sdk/s/app/login/view/LoginByRegister;
+
+    invoke-static {p1}, Lcom/leidong/sdk/s/app/login/view/LoginByRegister;->access$2600(Lcom/leidong/sdk/s/app/login/view/LoginByRegister;)Landroid/widget/TextView;
+
+    move-result-object p1
+
     iget-object v0, p0, Lcom/leidong/sdk/s/app/login/view/LoginByRegister$RegistNormalCheckListener;->this$0:Lcom/leidong/sdk/s/app/login/view/LoginByRegister;
 
-    # getter for: Lcom/leidong/sdk/s/app/login/view/LoginByRegister;->login_regist_normal_checkBox:Landroid/widget/ImageView;
-    invoke-static {v0}, Lcom/leidong/sdk/s/app/login/view/LoginByRegister;->access$2500(Lcom/leidong/sdk/s/app/login/view/LoginByRegister;)Landroid/widget/ImageView;
+    invoke-virtual {v0}, Lcom/leidong/sdk/s/app/login/view/LoginByRegister;->getActivity()Landroid/app/Activity;
 
     move-result-object v0
 
-    const-string v1, "leidong_agreement_checked"
+    invoke-virtual {v0}, Landroid/app/Activity;->getResources()Landroid/content/res/Resources;
 
-    const-string v2, "drawable"
+    move-result-object v0
+
+    const-string v1, "leidong_regist_agreement_text"
+
+    const-string v2, "color"
 
     iget-object v3, p0, Lcom/leidong/sdk/s/app/login/view/LoginByRegister$RegistNormalCheckListener;->this$0:Lcom/leidong/sdk/s/app/login/view/LoginByRegister;
 
-    .line 694
+    .line 698
     invoke-virtual {v3}, Lcom/leidong/sdk/s/app/login/view/LoginByRegister;->getActivity()Landroid/app/Activity;
 
     move-result-object v3
 
+    .line 697
     invoke-static {v1, v2, v3}, Lcom/leidong/sdk/framework/utils/CommonUtil;->getResourcesID(Ljava/lang/String;Ljava/lang/String;Landroid/content/Context;)I
 
     move-result v1
 
-    .line 693
-    invoke-virtual {v0, v1}, Landroid/widget/ImageView;->setImageResource(I)V
+    invoke-virtual {v0, v1}, Landroid/content/res/Resources;->getColor(I)I
 
-    .line 695
-    iget-object v0, p0, Lcom/leidong/sdk/s/app/login/view/LoginByRegister$RegistNormalCheckListener;->this$0:Lcom/leidong/sdk/s/app/login/view/LoginByRegister;
-
-    # getter for: Lcom/leidong/sdk/s/app/login/view/LoginByRegister;->login_regist_agreement_tips2:Landroid/widget/TextView;
-    invoke-static {v0}, Lcom/leidong/sdk/s/app/login/view/LoginByRegister;->access$2600(Lcom/leidong/sdk/s/app/login/view/LoginByRegister;)Landroid/widget/TextView;
-
-    move-result-object v0
-
-    iget-object v1, p0, Lcom/leidong/sdk/s/app/login/view/LoginByRegister$RegistNormalCheckListener;->this$0:Lcom/leidong/sdk/s/app/login/view/LoginByRegister;
-
-    invoke-virtual {v1}, Lcom/leidong/sdk/s/app/login/view/LoginByRegister;->getActivity()Landroid/app/Activity;
-
-    move-result-object v1
-
-    invoke-virtual {v1}, Landroid/app/Activity;->getResources()Landroid/content/res/Resources;
-
-    move-result-object v1
-
-    const-string v2, "leidong_regist_agreement_text"
-
-    const-string v3, "color"
-
-    iget-object v4, p0, Lcom/leidong/sdk/s/app/login/view/LoginByRegister$RegistNormalCheckListener;->this$0:Lcom/leidong/sdk/s/app/login/view/LoginByRegister;
-
-    .line 697
-    invoke-virtual {v4}, Lcom/leidong/sdk/s/app/login/view/LoginByRegister;->getActivity()Landroid/app/Activity;
-
-    move-result-object v4
+    move-result v0
 
     .line 696
-    invoke-static {v2, v3, v4}, Lcom/leidong/sdk/framework/utils/CommonUtil;->getResourcesID(Ljava/lang/String;Ljava/lang/String;Landroid/content/Context;)I
-
-    move-result v2
-
-    invoke-virtual {v1, v2}, Landroid/content/res/Resources;->getColor(I)I
-
-    move-result v1
-
-    .line 695
-    invoke-virtual {v0, v1}, Landroid/widget/TextView;->setTextColor(I)V
+    invoke-virtual {p1, v0}, Landroid/widget/TextView;->setTextColor(I)V
 
     goto :goto_0
 
-    .line 699
+    .line 700
     :cond_0
+    iget-object p1, p0, Lcom/leidong/sdk/s/app/login/view/LoginByRegister$RegistNormalCheckListener;->this$0:Lcom/leidong/sdk/s/app/login/view/LoginByRegister;
+
+    invoke-static {p1}, Lcom/leidong/sdk/s/app/login/view/LoginByRegister;->access$2500(Lcom/leidong/sdk/s/app/login/view/LoginByRegister;)Landroid/widget/ImageView;
+
+    move-result-object p1
+
+    const-string v0, "leidong_agreement_unchecked"
+
+    const-string v1, "drawable"
+
+    iget-object v2, p0, Lcom/leidong/sdk/s/app/login/view/LoginByRegister$RegistNormalCheckListener;->this$0:Lcom/leidong/sdk/s/app/login/view/LoginByRegister;
+
+    .line 701
+    invoke-virtual {v2}, Lcom/leidong/sdk/s/app/login/view/LoginByRegister;->getActivity()Landroid/app/Activity;
+
+    move-result-object v2
+
+    invoke-static {v0, v1, v2}, Lcom/leidong/sdk/framework/utils/CommonUtil;->getResourcesID(Ljava/lang/String;Ljava/lang/String;Landroid/content/Context;)I
+
+    move-result v0
+
+    .line 700
+    invoke-virtual {p1, v0}, Landroid/widget/ImageView;->setImageResource(I)V
+
+    .line 702
+    iget-object p1, p0, Lcom/leidong/sdk/s/app/login/view/LoginByRegister$RegistNormalCheckListener;->this$0:Lcom/leidong/sdk/s/app/login/view/LoginByRegister;
+
+    invoke-static {p1}, Lcom/leidong/sdk/s/app/login/view/LoginByRegister;->access$2600(Lcom/leidong/sdk/s/app/login/view/LoginByRegister;)Landroid/widget/TextView;
+
+    move-result-object p1
+
     iget-object v0, p0, Lcom/leidong/sdk/s/app/login/view/LoginByRegister$RegistNormalCheckListener;->this$0:Lcom/leidong/sdk/s/app/login/view/LoginByRegister;
 
-    # getter for: Lcom/leidong/sdk/s/app/login/view/LoginByRegister;->login_regist_normal_checkBox:Landroid/widget/ImageView;
-    invoke-static {v0}, Lcom/leidong/sdk/s/app/login/view/LoginByRegister;->access$2500(Lcom/leidong/sdk/s/app/login/view/LoginByRegister;)Landroid/widget/ImageView;
+    invoke-virtual {v0}, Lcom/leidong/sdk/s/app/login/view/LoginByRegister;->getActivity()Landroid/app/Activity;
 
     move-result-object v0
 
-    const-string v1, "leidong_agreement_unchecked"
+    invoke-virtual {v0}, Landroid/app/Activity;->getResources()Landroid/content/res/Resources;
 
-    const-string v2, "drawable"
+    move-result-object v0
+
+    const-string v1, "leidong_login_text_black"
+
+    const-string v2, "color"
 
     iget-object v3, p0, Lcom/leidong/sdk/s/app/login/view/LoginByRegister$RegistNormalCheckListener;->this$0:Lcom/leidong/sdk/s/app/login/view/LoginByRegister;
 
-    .line 700
+    .line 704
     invoke-virtual {v3}, Lcom/leidong/sdk/s/app/login/view/LoginByRegister;->getActivity()Landroid/app/Activity;
 
     move-result-object v3
@@ -158,51 +185,14 @@
 
     move-result v1
 
-    .line 699
-    invoke-virtual {v0, v1}, Landroid/widget/ImageView;->setImageResource(I)V
-
-    .line 701
-    iget-object v0, p0, Lcom/leidong/sdk/s/app/login/view/LoginByRegister$RegistNormalCheckListener;->this$0:Lcom/leidong/sdk/s/app/login/view/LoginByRegister;
-
-    # getter for: Lcom/leidong/sdk/s/app/login/view/LoginByRegister;->login_regist_agreement_tips2:Landroid/widget/TextView;
-    invoke-static {v0}, Lcom/leidong/sdk/s/app/login/view/LoginByRegister;->access$2600(Lcom/leidong/sdk/s/app/login/view/LoginByRegister;)Landroid/widget/TextView;
-
-    move-result-object v0
-
-    iget-object v1, p0, Lcom/leidong/sdk/s/app/login/view/LoginByRegister$RegistNormalCheckListener;->this$0:Lcom/leidong/sdk/s/app/login/view/LoginByRegister;
-
-    invoke-virtual {v1}, Lcom/leidong/sdk/s/app/login/view/LoginByRegister;->getActivity()Landroid/app/Activity;
-
-    move-result-object v1
-
-    invoke-virtual {v1}, Landroid/app/Activity;->getResources()Landroid/content/res/Resources;
-
-    move-result-object v1
-
-    const-string v2, "leidong_login_text_black"
-
-    const-string v3, "color"
-
-    iget-object v4, p0, Lcom/leidong/sdk/s/app/login/view/LoginByRegister$RegistNormalCheckListener;->this$0:Lcom/leidong/sdk/s/app/login/view/LoginByRegister;
-
     .line 703
-    invoke-virtual {v4}, Lcom/leidong/sdk/s/app/login/view/LoginByRegister;->getActivity()Landroid/app/Activity;
+    invoke-virtual {v0, v1}, Landroid/content/res/Resources;->getColor(I)I
 
-    move-result-object v4
-
-    invoke-static {v2, v3, v4}, Lcom/leidong/sdk/framework/utils/CommonUtil;->getResourcesID(Ljava/lang/String;Ljava/lang/String;Landroid/content/Context;)I
-
-    move-result v2
+    move-result v0
 
     .line 702
-    invoke-virtual {v1, v2}, Landroid/content/res/Resources;->getColor(I)I
+    invoke-virtual {p1, v0}, Landroid/widget/TextView;->setTextColor(I)V
 
-    move-result v1
-
-    .line 701
-    invoke-virtual {v0, v1}, Landroid/widget/TextView;->setTextColor(I)V
-
-    .line 705
     :goto_0
     return-void
 .end method

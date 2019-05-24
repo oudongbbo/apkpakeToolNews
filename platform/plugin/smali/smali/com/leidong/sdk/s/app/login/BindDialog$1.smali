@@ -21,7 +21,6 @@
 # direct methods
 .method constructor <init>(Lcom/leidong/sdk/s/app/login/BindDialog;)V
     .locals 0
-    .param p1, "this$0"    # Lcom/leidong/sdk/s/app/login/BindDialog;
 
     .line 82
     iput-object p1, p0, Lcom/leidong/sdk/s/app/login/BindDialog$1;->this$0:Lcom/leidong/sdk/s/app/login/BindDialog;
@@ -34,17 +33,15 @@
 
 # virtual methods
 .method public dispatchMessage(Landroid/os/Message;)V
-    .locals 1
-    .param p1, "msg"    # Landroid/os/Message;
+    .locals 0
 
     .line 86
     invoke-super {p0, p1}, Landroid/os/Handler;->dispatchMessage(Landroid/os/Message;)V
 
     .line 87
-    iget-object v0, p0, Lcom/leidong/sdk/s/app/login/BindDialog$1;->this$0:Lcom/leidong/sdk/s/app/login/BindDialog;
+    iget-object p1, p0, Lcom/leidong/sdk/s/app/login/BindDialog$1;->this$0:Lcom/leidong/sdk/s/app/login/BindDialog;
 
-    invoke-virtual {v0}, Lcom/leidong/sdk/s/app/login/BindDialog;->dismiss()V
+    invoke-virtual {p1}, Lcom/leidong/sdk/s/app/login/BindDialog;->dismiss()V
 
-    .line 88
     return-void
 .end method

@@ -24,7 +24,6 @@
 # direct methods
 .method constructor <init>(Lcom/leidong/sdk/m/receiver/PushReceiver$1$1;)V
     .locals 0
-    .param p1, "this$2"    # Lcom/leidong/sdk/m/receiver/PushReceiver$1$1;
 
     .line 138
     iput-object p1, p0, Lcom/leidong/sdk/m/receiver/PushReceiver$1$1$1;->this$2:Lcom/leidong/sdk/m/receiver/PushReceiver$1$1;
@@ -38,7 +37,6 @@
 # virtual methods
 .method public onFail(Ljava/lang/String;)V
     .locals 4
-    .param p1, "msg"    # Ljava/lang/String;
 
     .line 147
     iget-object v0, p0, Lcom/leidong/sdk/m/receiver/PushReceiver$1$1$1;->this$2:Lcom/leidong/sdk/m/receiver/PushReceiver$1$1;
@@ -61,7 +59,6 @@
 
     move-result-object v1
 
-    # invokes: Lcom/leidong/sdk/m/receiver/PushReceiver;->printLog(Ljava/lang/String;)V
     invoke-static {v0, v1}, Lcom/leidong/sdk/m/receiver/PushReceiver;->access$000(Lcom/leidong/sdk/m/receiver/PushReceiver;Ljava/lang/String;)V
 
     .line 148
@@ -85,18 +82,15 @@
 
     invoke-virtual {v2}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
 
-    move-result-object v2
+    move-result-object p1
 
-    invoke-virtual {v0, v1, v2}, Lcom/leidong/sdk/m/http/MReqManager;->postSdkErrorAction(Ljava/lang/String;Ljava/lang/String;)V
+    invoke-virtual {v0, v1, p1}, Lcom/leidong/sdk/m/http/MReqManager;->postSdkErrorAction(Ljava/lang/String;Ljava/lang/String;)V
 
-    .line 149
     return-void
 .end method
 
 .method public onSuccess(Landroid/os/Bundle;)V
     .locals 0
-    .param p1, "bundle"    # Landroid/os/Bundle;
 
-    .line 143
     return-void
 .end method

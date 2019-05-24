@@ -25,7 +25,6 @@
 # direct methods
 .method public constructor <init>(Lcom/leidong/sdk/s/app/login/model/AccountPopAdapter;)V
     .locals 0
-    .param p1, "this$0"    # Lcom/leidong/sdk/s/app/login/model/AccountPopAdapter;
 
     .line 99
     iput-object p1, p0, Lcom/leidong/sdk/s/app/login/model/AccountPopAdapter$ViewHolder;->this$0:Lcom/leidong/sdk/s/app/login/model/AccountPopAdapter;
@@ -36,19 +35,16 @@
 .end method
 
 .method static synthetic access$000(Lcom/leidong/sdk/s/app/login/model/AccountPopAdapter$ViewHolder;)Landroid/widget/TextView;
-    .locals 1
-    .param p0, "x0"    # Lcom/leidong/sdk/s/app/login/model/AccountPopAdapter$ViewHolder;
+    .locals 0
 
     .line 99
-    iget-object v0, p0, Lcom/leidong/sdk/s/app/login/model/AccountPopAdapter$ViewHolder;->name:Landroid/widget/TextView;
+    iget-object p0, p0, Lcom/leidong/sdk/s/app/login/model/AccountPopAdapter$ViewHolder;->name:Landroid/widget/TextView;
 
-    return-object v0
+    return-object p0
 .end method
 
 .method static synthetic access$002(Lcom/leidong/sdk/s/app/login/model/AccountPopAdapter$ViewHolder;Landroid/widget/TextView;)Landroid/widget/TextView;
     .locals 0
-    .param p0, "x0"    # Lcom/leidong/sdk/s/app/login/model/AccountPopAdapter$ViewHolder;
-    .param p1, "x1"    # Landroid/widget/TextView;
 
     .line 99
     iput-object p1, p0, Lcom/leidong/sdk/s/app/login/model/AccountPopAdapter$ViewHolder;->name:Landroid/widget/TextView;
@@ -57,19 +53,16 @@
 .end method
 
 .method static synthetic access$100(Lcom/leidong/sdk/s/app/login/model/AccountPopAdapter$ViewHolder;)Landroid/widget/ImageView;
-    .locals 1
-    .param p0, "x0"    # Lcom/leidong/sdk/s/app/login/model/AccountPopAdapter$ViewHolder;
+    .locals 0
 
     .line 99
-    iget-object v0, p0, Lcom/leidong/sdk/s/app/login/model/AccountPopAdapter$ViewHolder;->delete:Landroid/widget/ImageView;
+    iget-object p0, p0, Lcom/leidong/sdk/s/app/login/model/AccountPopAdapter$ViewHolder;->delete:Landroid/widget/ImageView;
 
-    return-object v0
+    return-object p0
 .end method
 
 .method static synthetic access$102(Lcom/leidong/sdk/s/app/login/model/AccountPopAdapter$ViewHolder;Landroid/widget/ImageView;)Landroid/widget/ImageView;
     .locals 0
-    .param p0, "x0"    # Lcom/leidong/sdk/s/app/login/model/AccountPopAdapter$ViewHolder;
-    .param p1, "x1"    # Landroid/widget/ImageView;
 
     .line 99
     iput-object p1, p0, Lcom/leidong/sdk/s/app/login/model/AccountPopAdapter$ViewHolder;->delete:Landroid/widget/ImageView;

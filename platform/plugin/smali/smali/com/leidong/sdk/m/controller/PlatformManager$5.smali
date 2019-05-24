@@ -26,9 +26,8 @@
 # direct methods
 .method constructor <init>(Lcom/leidong/sdk/m/controller/PlatformManager;Lcom/leidong/sdk/m/interfaces/MLoginCallback;)V
     .locals 0
-    .param p1, "this$0"    # Lcom/leidong/sdk/m/controller/PlatformManager;
 
-    .line 876
+    .line 879
     iput-object p1, p0, Lcom/leidong/sdk/m/controller/PlatformManager$5;->this$0:Lcom/leidong/sdk/m/controller/PlatformManager;
 
     iput-object p2, p0, Lcom/leidong/sdk/m/controller/PlatformManager$5;->val$callback:Lcom/leidong/sdk/m/interfaces/MLoginCallback;
@@ -41,27 +40,22 @@
 
 # virtual methods
 .method public onFail(ILjava/lang/String;)V
-    .locals 1
-    .param p1, "code"    # I
-    .param p2, "msg"    # Ljava/lang/String;
+    .locals 0
 
-    .line 941
-    iget-object v0, p0, Lcom/leidong/sdk/m/controller/PlatformManager$5;->val$callback:Lcom/leidong/sdk/m/interfaces/MLoginCallback;
+    .line 944
+    iget-object p1, p0, Lcom/leidong/sdk/m/controller/PlatformManager$5;->val$callback:Lcom/leidong/sdk/m/interfaces/MLoginCallback;
 
-    invoke-interface {v0, p2}, Lcom/leidong/sdk/m/interfaces/MLoginCallback;->onFail(Ljava/lang/String;)V
+    invoke-interface {p1, p2}, Lcom/leidong/sdk/m/interfaces/MLoginCallback;->onFail(Ljava/lang/String;)V
 
-    .line 942
     return-void
 .end method
 
 .method public onSuccess(Ljava/lang/String;)V
     .locals 2
-    .param p1, "content"    # Ljava/lang/String;
 
-    .line 880
+    .line 883
     iget-object v0, p0, Lcom/leidong/sdk/m/controller/PlatformManager$5;->this$0:Lcom/leidong/sdk/m/controller/PlatformManager;
 
-    # getter for: Lcom/leidong/sdk/m/controller/PlatformManager;->responseManager:Lcom/leidong/sdk/m/http/MRepManager;
     invoke-static {v0}, Lcom/leidong/sdk/m/controller/PlatformManager;->access$000(Lcom/leidong/sdk/m/controller/PlatformManager;)Lcom/leidong/sdk/m/http/MRepManager;
 
     move-result-object v0
@@ -72,6 +66,5 @@
 
     invoke-virtual {v0, p1, v1}, Lcom/leidong/sdk/m/http/MRepManager;->handleLoginSuccess(Ljava/lang/String;Lcom/leidong/sdk/m/interfaces/MsdkCallback;)V
 
-    .line 938
     return-void
 .end method

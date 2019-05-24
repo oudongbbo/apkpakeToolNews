@@ -56,60 +56,51 @@
 
 # direct methods
 .method public constructor <init>(Landroid/app/Activity;Ljava/lang/String;Lcom/leidong/sdk/s/app/login/view/LoginContent;)V
-    .locals 1
-    .param p1, "activity"    # Landroid/app/Activity;
-    .param p2, "title"    # Ljava/lang/String;
-    .param p3, "ucView"    # Lcom/leidong/sdk/s/app/login/view/LoginContent;
+    .locals 0
 
     .line 66
     invoke-direct {p0, p1, p2}, Lcom/leidong/sdk/s/core/view/BaseTagView;-><init>(Landroid/app/Activity;Ljava/lang/String;)V
 
-    .line 35
-    const/4 v0, 0x1
+    const/4 p1, 0x1
 
-    iput-boolean v0, p0, Lcom/leidong/sdk/s/app/login/view/LoginByForgetPwd;->isShowPhonePwd:Z
+    .line 35
+    iput-boolean p1, p0, Lcom/leidong/sdk/s/app/login/view/LoginByForgetPwd;->isShowPhonePwd:Z
 
     .line 67
     iput-object p3, p0, Lcom/leidong/sdk/s/app/login/view/LoginByForgetPwd;->loginMain:Lcom/leidong/sdk/s/app/login/view/LoginContent;
 
-    .line 68
     return-void
 .end method
 
 .method static synthetic access$000(Lcom/leidong/sdk/s/app/login/view/LoginByForgetPwd;)Landroid/widget/ImageView;
-    .locals 1
-    .param p0, "x0"    # Lcom/leidong/sdk/s/app/login/view/LoginByForgetPwd;
+    .locals 0
 
     .line 29
-    iget-object v0, p0, Lcom/leidong/sdk/s/app/login/view/LoginByForgetPwd;->login_forgetpwd_step1_phone_clear:Landroid/widget/ImageView;
+    iget-object p0, p0, Lcom/leidong/sdk/s/app/login/view/LoginByForgetPwd;->login_forgetpwd_step1_phone_clear:Landroid/widget/ImageView;
 
-    return-object v0
+    return-object p0
 .end method
 
 .method static synthetic access$100(Lcom/leidong/sdk/s/app/login/view/LoginByForgetPwd;)Ljava/lang/String;
-    .locals 1
-    .param p0, "x0"    # Lcom/leidong/sdk/s/app/login/view/LoginByForgetPwd;
+    .locals 0
 
     .line 29
-    iget-object v0, p0, Lcom/leidong/sdk/s/app/login/view/LoginByForgetPwd;->mobile:Ljava/lang/String;
+    iget-object p0, p0, Lcom/leidong/sdk/s/app/login/view/LoginByForgetPwd;->mobile:Ljava/lang/String;
 
-    return-object v0
+    return-object p0
 .end method
 
 .method static synthetic access$1000(Lcom/leidong/sdk/s/app/login/view/LoginByForgetPwd;)Landroid/widget/EditText;
-    .locals 1
-    .param p0, "x0"    # Lcom/leidong/sdk/s/app/login/view/LoginByForgetPwd;
+    .locals 0
 
     .line 29
-    iget-object v0, p0, Lcom/leidong/sdk/s/app/login/view/LoginByForgetPwd;->login_forgetpwd_step2_idcode_input:Landroid/widget/EditText;
+    iget-object p0, p0, Lcom/leidong/sdk/s/app/login/view/LoginByForgetPwd;->login_forgetpwd_step2_idcode_input:Landroid/widget/EditText;
 
-    return-object v0
+    return-object p0
 .end method
 
 .method static synthetic access$102(Lcom/leidong/sdk/s/app/login/view/LoginByForgetPwd;Ljava/lang/String;)Ljava/lang/String;
     .locals 0
-    .param p0, "x0"    # Lcom/leidong/sdk/s/app/login/view/LoginByForgetPwd;
-    .param p1, "x1"    # Ljava/lang/String;
 
     .line 29
     iput-object p1, p0, Lcom/leidong/sdk/s/app/login/view/LoginByForgetPwd;->mobile:Ljava/lang/String;
@@ -118,55 +109,47 @@
 .end method
 
 .method static synthetic access$1100(Lcom/leidong/sdk/s/app/login/view/LoginByForgetPwd;)Z
-    .locals 1
-    .param p0, "x0"    # Lcom/leidong/sdk/s/app/login/view/LoginByForgetPwd;
+    .locals 0
 
     .line 29
     invoke-virtual {p0}, Lcom/leidong/sdk/s/app/login/view/LoginByForgetPwd;->isQuickClick()Z
 
-    move-result v0
+    move-result p0
 
-    return v0
+    return p0
 .end method
 
 .method static synthetic access$1200(Lcom/leidong/sdk/s/app/login/view/LoginByForgetPwd;)Lcom/leidong/sdk/framework/view/common/CountDownView;
-    .locals 1
-    .param p0, "x0"    # Lcom/leidong/sdk/s/app/login/view/LoginByForgetPwd;
+    .locals 0
 
     .line 29
-    iget-object v0, p0, Lcom/leidong/sdk/s/app/login/view/LoginByForgetPwd;->countDown:Lcom/leidong/sdk/framework/view/common/CountDownView;
+    iget-object p0, p0, Lcom/leidong/sdk/s/app/login/view/LoginByForgetPwd;->countDown:Lcom/leidong/sdk/framework/view/common/CountDownView;
 
-    return-object v0
+    return-object p0
 .end method
 
 .method static synthetic access$1300(Lcom/leidong/sdk/s/app/login/view/LoginByForgetPwd;)Lcom/leidong/sdk/s/core/http/RequsetManager;
-    .locals 1
-    .param p0, "x0"    # Lcom/leidong/sdk/s/app/login/view/LoginByForgetPwd;
+    .locals 0
 
     .line 29
-    iget-object v0, p0, Lcom/leidong/sdk/s/app/login/view/LoginByForgetPwd;->requestManager:Lcom/leidong/sdk/s/core/http/RequsetManager;
+    iget-object p0, p0, Lcom/leidong/sdk/s/app/login/view/LoginByForgetPwd;->requestManager:Lcom/leidong/sdk/s/core/http/RequsetManager;
 
-    return-object v0
+    return-object p0
 .end method
 
 .method static synthetic access$1400(Lcom/leidong/sdk/s/app/login/view/LoginByForgetPwd;)Z
-    .locals 1
-    .param p0, "x0"    # Lcom/leidong/sdk/s/app/login/view/LoginByForgetPwd;
+    .locals 0
 
     .line 29
     invoke-virtual {p0}, Lcom/leidong/sdk/s/app/login/view/LoginByForgetPwd;->isQuickClick()Z
 
-    move-result v0
+    move-result p0
 
-    return v0
+    return p0
 .end method
 
 .method static synthetic access$1500(Lcom/leidong/sdk/s/app/login/view/LoginByForgetPwd;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;)V
     .locals 0
-    .param p0, "x0"    # Lcom/leidong/sdk/s/app/login/view/LoginByForgetPwd;
-    .param p1, "x1"    # Ljava/lang/String;
-    .param p2, "x2"    # Ljava/lang/String;
-    .param p3, "x3"    # Ljava/lang/String;
 
     .line 29
     invoke-direct {p0, p1, p2, p3}, Lcom/leidong/sdk/s/app/login/view/LoginByForgetPwd;->submmitChangePwd(Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;)V
@@ -175,19 +158,16 @@
 .end method
 
 .method static synthetic access$1600(Lcom/leidong/sdk/s/app/login/view/LoginByForgetPwd;)Z
-    .locals 1
-    .param p0, "x0"    # Lcom/leidong/sdk/s/app/login/view/LoginByForgetPwd;
+    .locals 0
 
     .line 29
-    iget-boolean v0, p0, Lcom/leidong/sdk/s/app/login/view/LoginByForgetPwd;->isShowPhonePwd:Z
+    iget-boolean p0, p0, Lcom/leidong/sdk/s/app/login/view/LoginByForgetPwd;->isShowPhonePwd:Z
 
-    return v0
+    return p0
 .end method
 
 .method static synthetic access$1602(Lcom/leidong/sdk/s/app/login/view/LoginByForgetPwd;Z)Z
     .locals 0
-    .param p0, "x0"    # Lcom/leidong/sdk/s/app/login/view/LoginByForgetPwd;
-    .param p1, "x1"    # Z
 
     .line 29
     iput-boolean p1, p0, Lcom/leidong/sdk/s/app/login/view/LoginByForgetPwd;->isShowPhonePwd:Z
@@ -196,81 +176,72 @@
 .end method
 
 .method static synthetic access$1700(Lcom/leidong/sdk/s/app/login/view/LoginByForgetPwd;)Landroid/widget/ImageView;
-    .locals 1
-    .param p0, "x0"    # Lcom/leidong/sdk/s/app/login/view/LoginByForgetPwd;
+    .locals 0
 
     .line 29
-    iget-object v0, p0, Lcom/leidong/sdk/s/app/login/view/LoginByForgetPwd;->login_forgetpwd_step2_eye:Landroid/widget/ImageView;
+    iget-object p0, p0, Lcom/leidong/sdk/s/app/login/view/LoginByForgetPwd;->login_forgetpwd_step2_eye:Landroid/widget/ImageView;
 
-    return-object v0
+    return-object p0
 .end method
 
 .method static synthetic access$200(Lcom/leidong/sdk/s/app/login/view/LoginByForgetPwd;)Landroid/view/View;
-    .locals 1
-    .param p0, "x0"    # Lcom/leidong/sdk/s/app/login/view/LoginByForgetPwd;
+    .locals 0
 
     .line 29
-    iget-object v0, p0, Lcom/leidong/sdk/s/app/login/view/LoginByForgetPwd;->login_forgetpwd_step1:Landroid/view/View;
+    iget-object p0, p0, Lcom/leidong/sdk/s/app/login/view/LoginByForgetPwd;->login_forgetpwd_step1:Landroid/view/View;
 
-    return-object v0
+    return-object p0
 .end method
 
 .method static synthetic access$300(Lcom/leidong/sdk/s/app/login/view/LoginByForgetPwd;)Landroid/view/View;
-    .locals 1
-    .param p0, "x0"    # Lcom/leidong/sdk/s/app/login/view/LoginByForgetPwd;
+    .locals 0
 
     .line 29
-    iget-object v0, p0, Lcom/leidong/sdk/s/app/login/view/LoginByForgetPwd;->login_forgetpwd_step2:Landroid/view/View;
+    iget-object p0, p0, Lcom/leidong/sdk/s/app/login/view/LoginByForgetPwd;->login_forgetpwd_step2:Landroid/view/View;
 
-    return-object v0
+    return-object p0
 .end method
 
 .method static synthetic access$400(Lcom/leidong/sdk/s/app/login/view/LoginByForgetPwd;)Landroid/widget/TextView;
-    .locals 1
-    .param p0, "x0"    # Lcom/leidong/sdk/s/app/login/view/LoginByForgetPwd;
+    .locals 0
 
     .line 29
-    iget-object v0, p0, Lcom/leidong/sdk/s/app/login/view/LoginByForgetPwd;->login_forgetpwd_step2_phone_text:Landroid/widget/TextView;
+    iget-object p0, p0, Lcom/leidong/sdk/s/app/login/view/LoginByForgetPwd;->login_forgetpwd_step2_phone_text:Landroid/widget/TextView;
 
-    return-object v0
+    return-object p0
 .end method
 
 .method static synthetic access$500(Lcom/leidong/sdk/s/app/login/view/LoginByForgetPwd;)Lcom/leidong/sdk/s/app/login/view/LoginContent;
-    .locals 1
-    .param p0, "x0"    # Lcom/leidong/sdk/s/app/login/view/LoginByForgetPwd;
+    .locals 0
 
     .line 29
-    iget-object v0, p0, Lcom/leidong/sdk/s/app/login/view/LoginByForgetPwd;->loginMain:Lcom/leidong/sdk/s/app/login/view/LoginContent;
+    iget-object p0, p0, Lcom/leidong/sdk/s/app/login/view/LoginByForgetPwd;->loginMain:Lcom/leidong/sdk/s/app/login/view/LoginContent;
 
-    return-object v0
+    return-object p0
 .end method
 
 .method static synthetic access$600(Lcom/leidong/sdk/s/app/login/view/LoginByForgetPwd;)Z
-    .locals 1
-    .param p0, "x0"    # Lcom/leidong/sdk/s/app/login/view/LoginByForgetPwd;
+    .locals 0
 
     .line 29
     invoke-virtual {p0}, Lcom/leidong/sdk/s/app/login/view/LoginByForgetPwd;->isQuickClick()Z
 
-    move-result v0
+    move-result p0
 
-    return v0
+    return p0
 .end method
 
 .method static synthetic access$700(Lcom/leidong/sdk/s/app/login/view/LoginByForgetPwd;)Landroid/widget/EditText;
-    .locals 1
-    .param p0, "x0"    # Lcom/leidong/sdk/s/app/login/view/LoginByForgetPwd;
+    .locals 0
 
     .line 29
-    iget-object v0, p0, Lcom/leidong/sdk/s/app/login/view/LoginByForgetPwd;->login_forgetpwd_step1_phone:Landroid/widget/EditText;
+    iget-object p0, p0, Lcom/leidong/sdk/s/app/login/view/LoginByForgetPwd;->login_forgetpwd_step1_phone:Landroid/widget/EditText;
 
-    return-object v0
+    return-object p0
 .end method
 
 .method static synthetic access$800(Lcom/leidong/sdk/s/app/login/view/LoginByForgetPwd;Ljava/lang/String;)V
     .locals 0
-    .param p0, "x0"    # Lcom/leidong/sdk/s/app/login/view/LoginByForgetPwd;
-    .param p1, "x1"    # Ljava/lang/String;
 
     .line 29
     invoke-direct {p0, p1}, Lcom/leidong/sdk/s/app/login/view/LoginByForgetPwd;->requestBindInfo(Ljava/lang/String;)V
@@ -279,39 +250,37 @@
 .end method
 
 .method static synthetic access$900(Lcom/leidong/sdk/s/app/login/view/LoginByForgetPwd;)Landroid/widget/EditText;
-    .locals 1
-    .param p0, "x0"    # Lcom/leidong/sdk/s/app/login/view/LoginByForgetPwd;
+    .locals 0
 
     .line 29
-    iget-object v0, p0, Lcom/leidong/sdk/s/app/login/view/LoginByForgetPwd;->login_forgetpwd_step2_pwd_input:Landroid/widget/EditText;
+    iget-object p0, p0, Lcom/leidong/sdk/s/app/login/view/LoginByForgetPwd;->login_forgetpwd_step2_pwd_input:Landroid/widget/EditText;
 
-    return-object v0
+    return-object p0
 .end method
 
 .method private getIdByName(Ljava/lang/String;)I
     .locals 2
-    .param p1, "name"    # Ljava/lang/String;
 
-    .line 92
     const-string v0, "id"
 
+    .line 92
     invoke-virtual {p0}, Lcom/leidong/sdk/s/app/login/view/LoginByForgetPwd;->getActivity()Landroid/app/Activity;
 
     move-result-object v1
 
     invoke-static {p1, v0, v1}, Lcom/leidong/sdk/framework/utils/CommonUtil;->getResourcesID(Ljava/lang/String;Ljava/lang/String;Landroid/content/Context;)I
 
-    move-result v0
+    move-result p1
 
-    return v0
+    return p1
 .end method
 
 .method private initViews()V
     .locals 4
 
-    .line 98
     const-string v0, "login_forgetpwd_back"
 
+    .line 98
     invoke-direct {p0, v0}, Lcom/leidong/sdk/s/app/login/view/LoginByForgetPwd;->getIdByName(Ljava/lang/String;)I
 
     move-result v0
@@ -324,9 +293,9 @@
 
     iput-object v0, p0, Lcom/leidong/sdk/s/app/login/view/LoginByForgetPwd;->login_forgetpwd_back:Landroid/widget/RelativeLayout;
 
-    .line 100
     const-string v0, "login_forgetpwd_step1"
 
+    .line 100
     invoke-direct {p0, v0}, Lcom/leidong/sdk/s/app/login/view/LoginByForgetPwd;->getIdByName(Ljava/lang/String;)I
 
     move-result v0
@@ -337,9 +306,9 @@
 
     iput-object v0, p0, Lcom/leidong/sdk/s/app/login/view/LoginByForgetPwd;->login_forgetpwd_step1:Landroid/view/View;
 
-    .line 101
     const-string v0, "login_forgetpwd_step1_phone_input"
 
+    .line 101
     invoke-direct {p0, v0}, Lcom/leidong/sdk/s/app/login/view/LoginByForgetPwd;->getIdByName(Ljava/lang/String;)I
 
     move-result v0
@@ -352,9 +321,9 @@
 
     iput-object v0, p0, Lcom/leidong/sdk/s/app/login/view/LoginByForgetPwd;->login_forgetpwd_step1_phone:Landroid/widget/EditText;
 
-    .line 102
     const-string v0, "login_forgetpwd_step1_phone_clear"
 
+    .line 102
     invoke-direct {p0, v0}, Lcom/leidong/sdk/s/app/login/view/LoginByForgetPwd;->getIdByName(Ljava/lang/String;)I
 
     move-result v0
@@ -367,9 +336,9 @@
 
     iput-object v0, p0, Lcom/leidong/sdk/s/app/login/view/LoginByForgetPwd;->login_forgetpwd_step1_phone_clear:Landroid/widget/ImageView;
 
-    .line 103
     const-string v0, "login_forgetpwd_step1_next"
 
+    .line 103
     invoke-direct {p0, v0}, Lcom/leidong/sdk/s/app/login/view/LoginByForgetPwd;->getIdByName(Ljava/lang/String;)I
 
     move-result v0
@@ -382,9 +351,9 @@
 
     iput-object v0, p0, Lcom/leidong/sdk/s/app/login/view/LoginByForgetPwd;->login_forgetpwd_step1_next:Landroid/widget/Button;
 
-    .line 105
     const-string v0, "login_forgetpwd_step2"
 
+    .line 105
     invoke-direct {p0, v0}, Lcom/leidong/sdk/s/app/login/view/LoginByForgetPwd;->getIdByName(Ljava/lang/String;)I
 
     move-result v0
@@ -395,9 +364,9 @@
 
     iput-object v0, p0, Lcom/leidong/sdk/s/app/login/view/LoginByForgetPwd;->login_forgetpwd_step2:Landroid/view/View;
 
-    .line 106
     const-string v0, "login_forgetpwd_step2_phone_text"
 
+    .line 106
     invoke-direct {p0, v0}, Lcom/leidong/sdk/s/app/login/view/LoginByForgetPwd;->getIdByName(Ljava/lang/String;)I
 
     move-result v0
@@ -410,9 +379,9 @@
 
     iput-object v0, p0, Lcom/leidong/sdk/s/app/login/view/LoginByForgetPwd;->login_forgetpwd_step2_phone_text:Landroid/widget/TextView;
 
-    .line 107
     const-string v0, "login_forgetpwd_step2_idcode_tv"
 
+    .line 107
     invoke-direct {p0, v0}, Lcom/leidong/sdk/s/app/login/view/LoginByForgetPwd;->getIdByName(Ljava/lang/String;)I
 
     move-result v0
@@ -425,9 +394,9 @@
 
     iput-object v0, p0, Lcom/leidong/sdk/s/app/login/view/LoginByForgetPwd;->login_forgetpwd_step2_idcode_tv:Landroid/widget/TextView;
 
-    .line 108
     const-string v0, "login_forgetpwd_step2_idcode_input"
 
+    .line 108
     invoke-direct {p0, v0}, Lcom/leidong/sdk/s/app/login/view/LoginByForgetPwd;->getIdByName(Ljava/lang/String;)I
 
     move-result v0
@@ -440,9 +409,9 @@
 
     iput-object v0, p0, Lcom/leidong/sdk/s/app/login/view/LoginByForgetPwd;->login_forgetpwd_step2_idcode_input:Landroid/widget/EditText;
 
-    .line 109
     const-string v0, "login_forgetpwd_step2_eye"
 
+    .line 109
     invoke-direct {p0, v0}, Lcom/leidong/sdk/s/app/login/view/LoginByForgetPwd;->getIdByName(Ljava/lang/String;)I
 
     move-result v0
@@ -455,9 +424,9 @@
 
     iput-object v0, p0, Lcom/leidong/sdk/s/app/login/view/LoginByForgetPwd;->login_forgetpwd_step2_eye:Landroid/widget/ImageView;
 
-    .line 110
     const-string v0, "login_forgetpwd_step2_pwd_input"
 
+    .line 110
     invoke-direct {p0, v0}, Lcom/leidong/sdk/s/app/login/view/LoginByForgetPwd;->getIdByName(Ljava/lang/String;)I
 
     move-result v0
@@ -470,9 +439,9 @@
 
     iput-object v0, p0, Lcom/leidong/sdk/s/app/login/view/LoginByForgetPwd;->login_forgetpwd_step2_pwd_input:Landroid/widget/EditText;
 
-    .line 111
     const-string v0, "login_forgetpwd_step2_submmit"
 
+    .line 111
     invoke-direct {p0, v0}, Lcom/leidong/sdk/s/app/login/view/LoginByForgetPwd;->getIdByName(Ljava/lang/String;)I
 
     move-result v0
@@ -583,13 +552,11 @@
 
     invoke-virtual {v0, v1}, Landroid/widget/Button;->setOnClickListener(Landroid/view/View$OnClickListener;)V
 
-    .line 144
     return-void
 .end method
 
 .method private requestBindInfo(Ljava/lang/String;)V
     .locals 2
-    .param p1, "uname"    # Ljava/lang/String;
 
     .line 149
     invoke-static {p1}, Landroid/text/TextUtils;->isEmpty(Ljava/lang/CharSequence;)Z
@@ -598,12 +565,11 @@
 
     if-eqz v0, :cond_0
 
+    const-string p1, "\u7528\u6237\u540d\u4e0d\u80fd\u4e3a\u7a7a"
+
     .line 150
-    const-string v0, "\u7528\u6237\u540d\u4e0d\u80fd\u4e3a\u7a7a"
+    invoke-virtual {p0, p1}, Lcom/leidong/sdk/s/app/login/view/LoginByForgetPwd;->showToast(Ljava/lang/String;)V
 
-    invoke-virtual {p0, v0}, Lcom/leidong/sdk/s/app/login/view/LoginByForgetPwd;->showToast(Ljava/lang/String;)V
-
-    .line 151
     return-void
 
     .line 154
@@ -619,15 +585,11 @@
 
     invoke-virtual {v0, p1, v1}, Lcom/leidong/sdk/s/core/http/RequsetManager;->requestBindInfo(Ljava/lang/String;Lcom/leidong/sdk/framework/http/HttpCallBack;)V
 
-    .line 220
     return-void
 .end method
 
 .method private submmitChangePwd(Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;)V
     .locals 8
-    .param p1, "account"    # Ljava/lang/String;
-    .param p2, "password"    # Ljava/lang/String;
-    .param p3, "code"    # Ljava/lang/String;
 
     .line 224
     invoke-static {p1}, Landroid/text/TextUtils;->isEmpty(Ljava/lang/CharSequence;)Z
@@ -652,20 +614,19 @@
 
     if-eqz v0, :cond_1
 
-    .line 230
-    const-string v0, "leidong_bind_phone_tips"
+    const-string p1, "leidong_bind_phone_tips"
 
+    .line 230
     invoke-virtual {p0}, Lcom/leidong/sdk/s/app/login/view/LoginByForgetPwd;->getActivity()Landroid/app/Activity;
 
-    move-result-object v1
+    move-result-object p2
 
-    invoke-static {v0, v1}, Lcom/leidong/sdk/framework/utils/CommonUtil;->getStringByName(Ljava/lang/String;Landroid/content/Context;)Ljava/lang/String;
+    invoke-static {p1, p2}, Lcom/leidong/sdk/framework/utils/CommonUtil;->getStringByName(Ljava/lang/String;Landroid/content/Context;)Ljava/lang/String;
 
-    move-result-object v0
+    move-result-object p1
 
-    invoke-virtual {p0, v0}, Lcom/leidong/sdk/s/app/login/view/LoginByForgetPwd;->showToast(Ljava/lang/String;)V
+    invoke-virtual {p0, p1}, Lcom/leidong/sdk/s/app/login/view/LoginByForgetPwd;->showToast(Ljava/lang/String;)V
 
-    .line 231
     return-void
 
     .line 234
@@ -724,61 +685,57 @@
 
     invoke-virtual/range {v2 .. v7}, Lcom/leidong/sdk/s/core/http/RequsetManager;->requestFindPwd(Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Lcom/leidong/sdk/framework/http/HttpCallBack;Z)V
 
-    .line 270
     return-void
 
-    .line 240
     :cond_4
     :goto_0
-    const-string v0, "leidong_tips_pwd_limit"
+    const-string p1, "leidong_tips_pwd_limit"
 
+    .line 240
     invoke-virtual {p0}, Lcom/leidong/sdk/s/app/login/view/LoginByForgetPwd;->getActivity()Landroid/app/Activity;
 
-    move-result-object v1
+    move-result-object p2
 
-    invoke-static {v0, v1}, Lcom/leidong/sdk/framework/utils/CommonUtil;->getStringByName(Ljava/lang/String;Landroid/content/Context;)Ljava/lang/String;
+    invoke-static {p1, p2}, Lcom/leidong/sdk/framework/utils/CommonUtil;->getStringByName(Ljava/lang/String;Landroid/content/Context;)Ljava/lang/String;
 
-    move-result-object v0
+    move-result-object p1
 
-    invoke-virtual {p0, v0}, Lcom/leidong/sdk/s/app/login/view/LoginByForgetPwd;->showToast(Ljava/lang/String;)V
+    invoke-virtual {p0, p1}, Lcom/leidong/sdk/s/app/login/view/LoginByForgetPwd;->showToast(Ljava/lang/String;)V
 
-    .line 241
     return-void
 
-    .line 235
     :cond_5
     :goto_1
-    const-string v0, "leidong_tips_name_limit"
+    const-string p1, "leidong_tips_name_limit"
 
+    .line 235
     invoke-virtual {p0}, Lcom/leidong/sdk/s/app/login/view/LoginByForgetPwd;->getActivity()Landroid/app/Activity;
 
-    move-result-object v1
+    move-result-object p2
 
-    invoke-static {v0, v1}, Lcom/leidong/sdk/framework/utils/CommonUtil;->getStringByName(Ljava/lang/String;Landroid/content/Context;)Ljava/lang/String;
+    invoke-static {p1, p2}, Lcom/leidong/sdk/framework/utils/CommonUtil;->getStringByName(Ljava/lang/String;Landroid/content/Context;)Ljava/lang/String;
 
-    move-result-object v0
+    move-result-object p1
 
-    invoke-virtual {p0, v0}, Lcom/leidong/sdk/s/app/login/view/LoginByForgetPwd;->showToast(Ljava/lang/String;)V
+    invoke-virtual {p0, p1}, Lcom/leidong/sdk/s/app/login/view/LoginByForgetPwd;->showToast(Ljava/lang/String;)V
 
-    .line 236
     return-void
 
-    .line 225
     :cond_6
     :goto_2
-    const-string v0, "leidong_tips_login_no_name_or_pwd"
+    const-string p1, "leidong_tips_login_no_name_or_pwd"
 
+    .line 225
     invoke-virtual {p0}, Lcom/leidong/sdk/s/app/login/view/LoginByForgetPwd;->getActivity()Landroid/app/Activity;
 
-    move-result-object v1
+    move-result-object p2
 
-    invoke-static {v0, v1}, Lcom/leidong/sdk/framework/utils/CommonUtil;->getStringByName(Ljava/lang/String;Landroid/content/Context;)Ljava/lang/String;
+    invoke-static {p1, p2}, Lcom/leidong/sdk/framework/utils/CommonUtil;->getStringByName(Ljava/lang/String;Landroid/content/Context;)Ljava/lang/String;
 
-    move-result-object v0
+    move-result-object p1
 
-    invoke-virtual {p0, v0}, Lcom/leidong/sdk/s/app/login/view/LoginByForgetPwd;->showToast(Ljava/lang/String;)V
+    invoke-virtual {p0, p1}, Lcom/leidong/sdk/s/app/login/view/LoginByForgetPwd;->showToast(Ljava/lang/String;)V
 
-    .line 226
     return-void
 .end method
 
@@ -787,11 +744,11 @@
 .method protected getParent()Landroid/view/View;
     .locals 3
 
-    .line 72
     const-string v0, "leidong_login_forgetpwd"
 
     const-string v1, "layout"
 
+    .line 72
     invoke-virtual {p0}, Lcom/leidong/sdk/s/app/login/view/LoginByForgetPwd;->getActivity()Landroid/app/Activity;
 
     move-result-object v2
@@ -827,7 +784,6 @@
 
     iput-object v0, p0, Lcom/leidong/sdk/s/app/login/view/LoginByForgetPwd;->requestManager:Lcom/leidong/sdk/s/core/http/RequsetManager;
 
-    .line 81
     return-void
 .end method
 
@@ -844,6 +800,5 @@
 
     invoke-virtual {v0, v1}, Lcom/leidong/sdk/s/core/http/RequsetManager;->submitSdkAction(Ljava/lang/String;)V
 
-    .line 88
     return-void
 .end method

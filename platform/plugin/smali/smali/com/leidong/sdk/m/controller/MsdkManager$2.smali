@@ -26,9 +26,8 @@
 # direct methods
 .method constructor <init>(Lcom/leidong/sdk/m/controller/MsdkManager;Landroid/content/Context;)V
     .locals 0
-    .param p1, "this$0"    # Lcom/leidong/sdk/m/controller/MsdkManager;
 
-    .line 282
+    .line 283
     iput-object p1, p0, Lcom/leidong/sdk/m/controller/MsdkManager$2;->this$0:Lcom/leidong/sdk/m/controller/MsdkManager;
 
     iput-object p2, p0, Lcom/leidong/sdk/m/controller/MsdkManager$2;->val$context:Landroid/content/Context;
@@ -43,10 +42,9 @@
 .method public run()V
     .locals 2
 
-    .line 285
+    .line 286
     iget-object v0, p0, Lcom/leidong/sdk/m/controller/MsdkManager$2;->this$0:Lcom/leidong/sdk/m/controller/MsdkManager;
 
-    # getter for: Lcom/leidong/sdk/m/controller/MsdkManager;->platformCore:Lcom/leidong/sdk/m/controller/PlatformCore;
     invoke-static {v0}, Lcom/leidong/sdk/m/controller/MsdkManager;->access$700(Lcom/leidong/sdk/m/controller/MsdkManager;)Lcom/leidong/sdk/m/controller/PlatformCore;
 
     move-result-object v0
@@ -55,6 +53,5 @@
 
     invoke-virtual {v0, v1}, Lcom/leidong/sdk/m/controller/PlatformCore;->userLogin(Landroid/content/Context;)V
 
-    .line 286
     return-void
 .end method

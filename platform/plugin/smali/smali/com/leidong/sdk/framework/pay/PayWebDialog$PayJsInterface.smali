@@ -20,26 +20,20 @@
 
 # direct methods
 .method public constructor <init>(Lcom/leidong/sdk/framework/pay/PayWebDialog;Landroid/content/Context;)V
-    .locals 2
-    .param p1, "this$0"    # Lcom/leidong/sdk/framework/pay/PayWebDialog;
-    .param p2, "context"    # Landroid/content/Context;
+    .locals 0
 
-    .line 124
+    .line 131
     iput-object p1, p0, Lcom/leidong/sdk/framework/pay/PayWebDialog$PayJsInterface;->this$0:Lcom/leidong/sdk/framework/pay/PayWebDialog;
 
-    .line 125
-    move-object v0, p2
+    .line 132
+    check-cast p2, Landroid/app/Activity;
 
-    check-cast v0, Landroid/app/Activity;
-
-    # getter for: Lcom/leidong/sdk/framework/pay/PayWebDialog;->mWebView:Lcom/leidong/sdk/framework/web/webview/WebViewBase;
     invoke-static {p1}, Lcom/leidong/sdk/framework/pay/PayWebDialog;->access$000(Lcom/leidong/sdk/framework/pay/PayWebDialog;)Lcom/leidong/sdk/framework/web/webview/WebViewBase;
 
-    move-result-object v1
+    move-result-object p1
 
-    invoke-direct {p0, v0, v1}, Lcom/leidong/sdk/framework/web/plugs/SdkWebJsInterface;-><init>(Landroid/app/Activity;Landroid/webkit/WebView;)V
+    invoke-direct {p0, p2, p1}, Lcom/leidong/sdk/framework/web/plugs/SdkWebJsInterface;-><init>(Landroid/app/Activity;Landroid/webkit/WebView;)V
 
-    .line 126
     return-void
 .end method
 
@@ -50,33 +44,30 @@
     .annotation runtime Landroid/webkit/JavascriptInterface;
     .end annotation
 
-    .line 129
+    .line 136
     invoke-super {p0}, Lcom/leidong/sdk/framework/web/plugs/SdkWebJsInterface;->payClose()V
 
-    .line 130
+    .line 137
     iget-object v0, p0, Lcom/leidong/sdk/framework/pay/PayWebDialog$PayJsInterface;->this$0:Lcom/leidong/sdk/framework/pay/PayWebDialog;
 
     const/4 v1, 0x2
 
     invoke-virtual {v0, v1}, Lcom/leidong/sdk/framework/pay/PayWebDialog;->payWebDismiss(I)V
 
-    .line 131
     return-void
 .end method
 
 .method public payDismiss(I)V
     .locals 1
-    .param p1, "type"    # I
 
-    .line 156
+    .line 163
     invoke-super {p0, p1}, Lcom/leidong/sdk/framework/web/plugs/SdkWebJsInterface;->payDismiss(I)V
 
-    .line 157
+    .line 164
     iget-object v0, p0, Lcom/leidong/sdk/framework/pay/PayWebDialog$PayJsInterface;->this$0:Lcom/leidong/sdk/framework/pay/PayWebDialog;
 
     invoke-virtual {v0, p1}, Lcom/leidong/sdk/framework/pay/PayWebDialog;->payWebDismiss(I)V
 
-    .line 158
     return-void
 .end method
 
@@ -85,27 +76,25 @@
     .annotation runtime Landroid/webkit/JavascriptInterface;
     .end annotation
 
-    .line 145
+    .line 152
     invoke-super {p0}, Lcom/leidong/sdk/framework/web/plugs/SdkWebJsInterface;->payFail()V
 
-    .line 146
+    .line 153
     iget-object v0, p0, Lcom/leidong/sdk/framework/pay/PayWebDialog$PayJsInterface;->this$0:Lcom/leidong/sdk/framework/pay/PayWebDialog;
 
     const/4 v1, 0x0
 
     invoke-virtual {v0, v1}, Lcom/leidong/sdk/framework/pay/PayWebDialog;->payWebDismiss(I)V
 
-    .line 147
     return-void
 .end method
 
 .method public payFail(I)V
     .locals 3
-    .param p1, "type"    # I
     .annotation runtime Landroid/webkit/JavascriptInterface;
     .end annotation
 
-    .line 150
+    .line 157
     sget-object v0, Ljava/lang/System;->out:Ljava/io/PrintStream;
 
     new-instance v1, Ljava/lang/StringBuilder;
@@ -124,20 +113,18 @@
 
     invoke-virtual {v0, v1}, Ljava/io/PrintStream;->println(Ljava/lang/String;)V
 
-    .line 151
+    .line 158
     iget-object v0, p0, Lcom/leidong/sdk/framework/pay/PayWebDialog$PayJsInterface;->this$0:Lcom/leidong/sdk/framework/pay/PayWebDialog;
 
-    # setter for: Lcom/leidong/sdk/framework/pay/PayWebDialog;->payType:I
     invoke-static {v0, p1}, Lcom/leidong/sdk/framework/pay/PayWebDialog;->access$102(Lcom/leidong/sdk/framework/pay/PayWebDialog;I)I
 
-    .line 152
-    iget-object v0, p0, Lcom/leidong/sdk/framework/pay/PayWebDialog$PayJsInterface;->this$0:Lcom/leidong/sdk/framework/pay/PayWebDialog;
+    .line 159
+    iget-object p1, p0, Lcom/leidong/sdk/framework/pay/PayWebDialog$PayJsInterface;->this$0:Lcom/leidong/sdk/framework/pay/PayWebDialog;
 
-    const/4 v1, 0x0
+    const/4 v0, 0x0
 
-    invoke-virtual {v0, v1}, Lcom/leidong/sdk/framework/pay/PayWebDialog;->payWebDismiss(I)V
+    invoke-virtual {p1, v0}, Lcom/leidong/sdk/framework/pay/PayWebDialog;->payWebDismiss(I)V
 
-    .line 153
     return-void
 .end method
 
@@ -146,27 +133,25 @@
     .annotation runtime Landroid/webkit/JavascriptInterface;
     .end annotation
 
-    .line 134
+    .line 141
     invoke-super {p0}, Lcom/leidong/sdk/framework/web/plugs/SdkWebJsInterface;->paySuccess()V
 
-    .line 135
+    .line 142
     iget-object v0, p0, Lcom/leidong/sdk/framework/pay/PayWebDialog$PayJsInterface;->this$0:Lcom/leidong/sdk/framework/pay/PayWebDialog;
 
     const/4 v1, 0x1
 
     invoke-virtual {v0, v1}, Lcom/leidong/sdk/framework/pay/PayWebDialog;->payWebDismiss(I)V
 
-    .line 136
     return-void
 .end method
 
 .method public paySuccess(I)V
     .locals 3
-    .param p1, "type"    # I
     .annotation runtime Landroid/webkit/JavascriptInterface;
     .end annotation
 
-    .line 139
+    .line 146
     sget-object v0, Ljava/lang/System;->out:Ljava/io/PrintStream;
 
     new-instance v1, Ljava/lang/StringBuilder;
@@ -185,19 +170,17 @@
 
     invoke-virtual {v0, v1}, Ljava/io/PrintStream;->println(Ljava/lang/String;)V
 
-    .line 140
+    .line 147
     iget-object v0, p0, Lcom/leidong/sdk/framework/pay/PayWebDialog$PayJsInterface;->this$0:Lcom/leidong/sdk/framework/pay/PayWebDialog;
 
-    # setter for: Lcom/leidong/sdk/framework/pay/PayWebDialog;->payType:I
     invoke-static {v0, p1}, Lcom/leidong/sdk/framework/pay/PayWebDialog;->access$102(Lcom/leidong/sdk/framework/pay/PayWebDialog;I)I
 
-    .line 141
-    iget-object v0, p0, Lcom/leidong/sdk/framework/pay/PayWebDialog$PayJsInterface;->this$0:Lcom/leidong/sdk/framework/pay/PayWebDialog;
+    .line 148
+    iget-object p1, p0, Lcom/leidong/sdk/framework/pay/PayWebDialog$PayJsInterface;->this$0:Lcom/leidong/sdk/framework/pay/PayWebDialog;
 
-    const/4 v1, 0x1
+    const/4 v0, 0x1
 
-    invoke-virtual {v0, v1}, Lcom/leidong/sdk/framework/pay/PayWebDialog;->payWebDismiss(I)V
+    invoke-virtual {p1, v0}, Lcom/leidong/sdk/framework/pay/PayWebDialog;->payWebDismiss(I)V
 
-    .line 142
     return-void
 .end method

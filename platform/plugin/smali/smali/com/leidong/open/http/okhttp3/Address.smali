@@ -46,16 +46,6 @@
 # direct methods
 .method public constructor <init>(Ljava/lang/String;ILcom/leidong/open/http/okhttp3/Dns;Ljavax/net/SocketFactory;Ljavax/net/ssl/SSLSocketFactory;Ljavax/net/ssl/HostnameVerifier;Lcom/leidong/open/http/okhttp3/CertificatePinner;Lcom/leidong/open/http/okhttp3/Authenticator;Ljava/net/Proxy;Ljava/util/List;Ljava/util/List;Ljava/net/ProxySelector;)V
     .locals 2
-    .param p1, "uriHost"    # Ljava/lang/String;
-    .param p2, "uriPort"    # I
-    .param p3, "dns"    # Lcom/leidong/open/http/okhttp3/Dns;
-    .param p4, "socketFactory"    # Ljavax/net/SocketFactory;
-    .param p5, "sslSocketFactory"    # Ljavax/net/ssl/SSLSocketFactory;
-    .param p6, "hostnameVerifier"    # Ljavax/net/ssl/HostnameVerifier;
-    .param p7, "certificatePinner"    # Lcom/leidong/open/http/okhttp3/CertificatePinner;
-    .param p8, "proxyAuthenticator"    # Lcom/leidong/open/http/okhttp3/Authenticator;
-    .param p9, "proxy"    # Ljava/net/Proxy;
-    .param p12, "proxySelector"    # Ljava/net/ProxySelector;
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -80,8 +70,6 @@
     .end annotation
 
     .line 62
-    .local p10, "protocols":Ljava/util/List;, "Ljava/util/List<Lcom/leidong/open/http/okhttp3/Protocol;>;"
-    .local p11, "connectionSpecs":Ljava/util/List;, "Ljava/util/List<Lcom/leidong/open/http/okhttp3/ConnectionSpec;>;"
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
     .line 63
@@ -107,114 +95,113 @@
     .line 65
     invoke-virtual {v0, p1}, Lcom/leidong/open/http/okhttp3/HttpUrl$Builder;->host(Ljava/lang/String;)Lcom/leidong/open/http/okhttp3/HttpUrl$Builder;
 
-    move-result-object v0
+    move-result-object p1
 
     .line 66
-    invoke-virtual {v0, p2}, Lcom/leidong/open/http/okhttp3/HttpUrl$Builder;->port(I)Lcom/leidong/open/http/okhttp3/HttpUrl$Builder;
+    invoke-virtual {p1, p2}, Lcom/leidong/open/http/okhttp3/HttpUrl$Builder;->port(I)Lcom/leidong/open/http/okhttp3/HttpUrl$Builder;
 
-    move-result-object v0
+    move-result-object p1
 
     .line 67
-    invoke-virtual {v0}, Lcom/leidong/open/http/okhttp3/HttpUrl$Builder;->build()Lcom/leidong/open/http/okhttp3/HttpUrl;
+    invoke-virtual {p1}, Lcom/leidong/open/http/okhttp3/HttpUrl$Builder;->build()Lcom/leidong/open/http/okhttp3/HttpUrl;
 
-    move-result-object v0
+    move-result-object p1
 
-    iput-object v0, p0, Lcom/leidong/open/http/okhttp3/Address;->url:Lcom/leidong/open/http/okhttp3/HttpUrl;
+    iput-object p1, p0, Lcom/leidong/open/http/okhttp3/Address;->url:Lcom/leidong/open/http/okhttp3/HttpUrl;
 
-    .line 69
     if-nez p3, :cond_1
 
-    new-instance v0, Ljava/lang/NullPointerException;
+    .line 69
+    new-instance p1, Ljava/lang/NullPointerException;
 
-    const-string v1, "dns == null"
+    const-string p2, "dns == null"
 
-    invoke-direct {v0, v1}, Ljava/lang/NullPointerException;-><init>(Ljava/lang/String;)V
+    invoke-direct {p1, p2}, Ljava/lang/NullPointerException;-><init>(Ljava/lang/String;)V
 
-    throw v0
+    throw p1
 
     .line 70
     :cond_1
     iput-object p3, p0, Lcom/leidong/open/http/okhttp3/Address;->dns:Lcom/leidong/open/http/okhttp3/Dns;
 
-    .line 72
     if-nez p4, :cond_2
 
-    new-instance v0, Ljava/lang/NullPointerException;
+    .line 72
+    new-instance p1, Ljava/lang/NullPointerException;
 
-    const-string v1, "socketFactory == null"
+    const-string p2, "socketFactory == null"
 
-    invoke-direct {v0, v1}, Ljava/lang/NullPointerException;-><init>(Ljava/lang/String;)V
+    invoke-direct {p1, p2}, Ljava/lang/NullPointerException;-><init>(Ljava/lang/String;)V
 
-    throw v0
+    throw p1
 
     .line 73
     :cond_2
     iput-object p4, p0, Lcom/leidong/open/http/okhttp3/Address;->socketFactory:Ljavax/net/SocketFactory;
 
-    .line 75
     if-nez p8, :cond_3
 
     .line 76
-    new-instance v0, Ljava/lang/NullPointerException;
+    new-instance p1, Ljava/lang/NullPointerException;
 
-    const-string v1, "proxyAuthenticator == null"
+    const-string p2, "proxyAuthenticator == null"
 
-    invoke-direct {v0, v1}, Ljava/lang/NullPointerException;-><init>(Ljava/lang/String;)V
+    invoke-direct {p1, p2}, Ljava/lang/NullPointerException;-><init>(Ljava/lang/String;)V
 
-    throw v0
+    throw p1
 
     .line 78
     :cond_3
     iput-object p8, p0, Lcom/leidong/open/http/okhttp3/Address;->proxyAuthenticator:Lcom/leidong/open/http/okhttp3/Authenticator;
 
-    .line 80
     if-nez p10, :cond_4
 
-    new-instance v0, Ljava/lang/NullPointerException;
+    .line 80
+    new-instance p1, Ljava/lang/NullPointerException;
 
-    const-string v1, "protocols == null"
+    const-string p2, "protocols == null"
 
-    invoke-direct {v0, v1}, Ljava/lang/NullPointerException;-><init>(Ljava/lang/String;)V
+    invoke-direct {p1, p2}, Ljava/lang/NullPointerException;-><init>(Ljava/lang/String;)V
 
-    throw v0
+    throw p1
 
     .line 81
     :cond_4
     invoke-static {p10}, Lcom/leidong/open/http/okhttp3/internal/Util;->immutableList(Ljava/util/List;)Ljava/util/List;
 
-    move-result-object v0
+    move-result-object p1
 
-    iput-object v0, p0, Lcom/leidong/open/http/okhttp3/Address;->protocols:Ljava/util/List;
+    iput-object p1, p0, Lcom/leidong/open/http/okhttp3/Address;->protocols:Ljava/util/List;
 
-    .line 83
     if-nez p11, :cond_5
 
-    new-instance v0, Ljava/lang/NullPointerException;
+    .line 83
+    new-instance p1, Ljava/lang/NullPointerException;
 
-    const-string v1, "connectionSpecs == null"
+    const-string p2, "connectionSpecs == null"
 
-    invoke-direct {v0, v1}, Ljava/lang/NullPointerException;-><init>(Ljava/lang/String;)V
+    invoke-direct {p1, p2}, Ljava/lang/NullPointerException;-><init>(Ljava/lang/String;)V
 
-    throw v0
+    throw p1
 
     .line 84
     :cond_5
     invoke-static {p11}, Lcom/leidong/open/http/okhttp3/internal/Util;->immutableList(Ljava/util/List;)Ljava/util/List;
 
-    move-result-object v0
+    move-result-object p1
 
-    iput-object v0, p0, Lcom/leidong/open/http/okhttp3/Address;->connectionSpecs:Ljava/util/List;
+    iput-object p1, p0, Lcom/leidong/open/http/okhttp3/Address;->connectionSpecs:Ljava/util/List;
 
-    .line 86
     if-nez p12, :cond_6
 
-    new-instance v0, Ljava/lang/NullPointerException;
+    .line 86
+    new-instance p1, Ljava/lang/NullPointerException;
 
-    const-string v1, "proxySelector == null"
+    const-string p2, "proxySelector == null"
 
-    invoke-direct {v0, v1}, Ljava/lang/NullPointerException;-><init>(Ljava/lang/String;)V
+    invoke-direct {p1, p2}, Ljava/lang/NullPointerException;-><init>(Ljava/lang/String;)V
 
-    throw v0
+    throw p1
 
     .line 87
     :cond_6
@@ -232,7 +219,6 @@
     .line 92
     iput-object p7, p0, Lcom/leidong/open/http/okhttp3/Address;->certificatePinner:Lcom/leidong/open/http/okhttp3/CertificatePinner;
 
-    .line 93
     return-void
 .end method
 
@@ -274,8 +260,7 @@
 .end method
 
 .method public equals(Ljava/lang/Object;)Z
-    .locals 4
-    .param p1, "other"    # Ljava/lang/Object;
+    .locals 3
 
     .line 162
     instance-of v0, p1, Lcom/leidong/open/http/okhttp3/Address;
@@ -285,313 +270,278 @@
     if-eqz v0, :cond_1
 
     .line 163
-    move-object v0, p1
-
-    check-cast v0, Lcom/leidong/open/http/okhttp3/Address;
+    check-cast p1, Lcom/leidong/open/http/okhttp3/Address;
 
     .line 164
-    .local v0, "that":Lcom/leidong/open/http/okhttp3/Address;
-    iget-object v2, p0, Lcom/leidong/open/http/okhttp3/Address;->url:Lcom/leidong/open/http/okhttp3/HttpUrl;
+    iget-object v0, p0, Lcom/leidong/open/http/okhttp3/Address;->url:Lcom/leidong/open/http/okhttp3/HttpUrl;
 
-    iget-object v3, v0, Lcom/leidong/open/http/okhttp3/Address;->url:Lcom/leidong/open/http/okhttp3/HttpUrl;
+    iget-object v2, p1, Lcom/leidong/open/http/okhttp3/Address;->url:Lcom/leidong/open/http/okhttp3/HttpUrl;
 
-    invoke-virtual {v2, v3}, Lcom/leidong/open/http/okhttp3/HttpUrl;->equals(Ljava/lang/Object;)Z
+    invoke-virtual {v0, v2}, Lcom/leidong/open/http/okhttp3/HttpUrl;->equals(Ljava/lang/Object;)Z
 
-    move-result v2
+    move-result v0
 
-    if-eqz v2, :cond_0
+    if-eqz v0, :cond_0
 
-    iget-object v2, p0, Lcom/leidong/open/http/okhttp3/Address;->dns:Lcom/leidong/open/http/okhttp3/Dns;
+    iget-object v0, p0, Lcom/leidong/open/http/okhttp3/Address;->dns:Lcom/leidong/open/http/okhttp3/Dns;
 
-    iget-object v3, v0, Lcom/leidong/open/http/okhttp3/Address;->dns:Lcom/leidong/open/http/okhttp3/Dns;
+    iget-object v2, p1, Lcom/leidong/open/http/okhttp3/Address;->dns:Lcom/leidong/open/http/okhttp3/Dns;
 
     .line 165
-    invoke-virtual {v2, v3}, Ljava/lang/Object;->equals(Ljava/lang/Object;)Z
+    invoke-virtual {v0, v2}, Ljava/lang/Object;->equals(Ljava/lang/Object;)Z
 
-    move-result v2
+    move-result v0
 
-    if-eqz v2, :cond_0
+    if-eqz v0, :cond_0
 
-    iget-object v2, p0, Lcom/leidong/open/http/okhttp3/Address;->proxyAuthenticator:Lcom/leidong/open/http/okhttp3/Authenticator;
+    iget-object v0, p0, Lcom/leidong/open/http/okhttp3/Address;->proxyAuthenticator:Lcom/leidong/open/http/okhttp3/Authenticator;
 
-    iget-object v3, v0, Lcom/leidong/open/http/okhttp3/Address;->proxyAuthenticator:Lcom/leidong/open/http/okhttp3/Authenticator;
+    iget-object v2, p1, Lcom/leidong/open/http/okhttp3/Address;->proxyAuthenticator:Lcom/leidong/open/http/okhttp3/Authenticator;
 
     .line 166
-    invoke-virtual {v2, v3}, Ljava/lang/Object;->equals(Ljava/lang/Object;)Z
+    invoke-virtual {v0, v2}, Ljava/lang/Object;->equals(Ljava/lang/Object;)Z
 
-    move-result v2
+    move-result v0
 
-    if-eqz v2, :cond_0
+    if-eqz v0, :cond_0
 
-    iget-object v2, p0, Lcom/leidong/open/http/okhttp3/Address;->protocols:Ljava/util/List;
+    iget-object v0, p0, Lcom/leidong/open/http/okhttp3/Address;->protocols:Ljava/util/List;
 
-    iget-object v3, v0, Lcom/leidong/open/http/okhttp3/Address;->protocols:Ljava/util/List;
+    iget-object v2, p1, Lcom/leidong/open/http/okhttp3/Address;->protocols:Ljava/util/List;
 
     .line 167
-    invoke-interface {v2, v3}, Ljava/util/List;->equals(Ljava/lang/Object;)Z
+    invoke-interface {v0, v2}, Ljava/util/List;->equals(Ljava/lang/Object;)Z
 
-    move-result v2
+    move-result v0
 
-    if-eqz v2, :cond_0
+    if-eqz v0, :cond_0
 
-    iget-object v2, p0, Lcom/leidong/open/http/okhttp3/Address;->connectionSpecs:Ljava/util/List;
+    iget-object v0, p0, Lcom/leidong/open/http/okhttp3/Address;->connectionSpecs:Ljava/util/List;
 
-    iget-object v3, v0, Lcom/leidong/open/http/okhttp3/Address;->connectionSpecs:Ljava/util/List;
+    iget-object v2, p1, Lcom/leidong/open/http/okhttp3/Address;->connectionSpecs:Ljava/util/List;
 
     .line 168
-    invoke-interface {v2, v3}, Ljava/util/List;->equals(Ljava/lang/Object;)Z
+    invoke-interface {v0, v2}, Ljava/util/List;->equals(Ljava/lang/Object;)Z
 
-    move-result v2
+    move-result v0
 
-    if-eqz v2, :cond_0
+    if-eqz v0, :cond_0
 
-    iget-object v2, p0, Lcom/leidong/open/http/okhttp3/Address;->proxySelector:Ljava/net/ProxySelector;
+    iget-object v0, p0, Lcom/leidong/open/http/okhttp3/Address;->proxySelector:Ljava/net/ProxySelector;
 
-    iget-object v3, v0, Lcom/leidong/open/http/okhttp3/Address;->proxySelector:Ljava/net/ProxySelector;
+    iget-object v2, p1, Lcom/leidong/open/http/okhttp3/Address;->proxySelector:Ljava/net/ProxySelector;
 
     .line 169
-    invoke-virtual {v2, v3}, Ljava/lang/Object;->equals(Ljava/lang/Object;)Z
+    invoke-virtual {v0, v2}, Ljava/lang/Object;->equals(Ljava/lang/Object;)Z
 
-    move-result v2
+    move-result v0
 
-    if-eqz v2, :cond_0
+    if-eqz v0, :cond_0
 
-    iget-object v2, p0, Lcom/leidong/open/http/okhttp3/Address;->proxy:Ljava/net/Proxy;
+    iget-object v0, p0, Lcom/leidong/open/http/okhttp3/Address;->proxy:Ljava/net/Proxy;
 
-    iget-object v3, v0, Lcom/leidong/open/http/okhttp3/Address;->proxy:Ljava/net/Proxy;
+    iget-object v2, p1, Lcom/leidong/open/http/okhttp3/Address;->proxy:Ljava/net/Proxy;
 
     .line 170
-    invoke-static {v2, v3}, Lcom/leidong/open/http/okhttp3/internal/Util;->equal(Ljava/lang/Object;Ljava/lang/Object;)Z
+    invoke-static {v0, v2}, Lcom/leidong/open/http/okhttp3/internal/Util;->equal(Ljava/lang/Object;Ljava/lang/Object;)Z
 
-    move-result v2
+    move-result v0
 
-    if-eqz v2, :cond_0
+    if-eqz v0, :cond_0
 
-    iget-object v2, p0, Lcom/leidong/open/http/okhttp3/Address;->sslSocketFactory:Ljavax/net/ssl/SSLSocketFactory;
+    iget-object v0, p0, Lcom/leidong/open/http/okhttp3/Address;->sslSocketFactory:Ljavax/net/ssl/SSLSocketFactory;
 
-    iget-object v3, v0, Lcom/leidong/open/http/okhttp3/Address;->sslSocketFactory:Ljavax/net/ssl/SSLSocketFactory;
+    iget-object v2, p1, Lcom/leidong/open/http/okhttp3/Address;->sslSocketFactory:Ljavax/net/ssl/SSLSocketFactory;
 
     .line 171
-    invoke-static {v2, v3}, Lcom/leidong/open/http/okhttp3/internal/Util;->equal(Ljava/lang/Object;Ljava/lang/Object;)Z
+    invoke-static {v0, v2}, Lcom/leidong/open/http/okhttp3/internal/Util;->equal(Ljava/lang/Object;Ljava/lang/Object;)Z
 
-    move-result v2
+    move-result v0
 
-    if-eqz v2, :cond_0
+    if-eqz v0, :cond_0
 
-    iget-object v2, p0, Lcom/leidong/open/http/okhttp3/Address;->hostnameVerifier:Ljavax/net/ssl/HostnameVerifier;
+    iget-object v0, p0, Lcom/leidong/open/http/okhttp3/Address;->hostnameVerifier:Ljavax/net/ssl/HostnameVerifier;
 
-    iget-object v3, v0, Lcom/leidong/open/http/okhttp3/Address;->hostnameVerifier:Ljavax/net/ssl/HostnameVerifier;
+    iget-object v2, p1, Lcom/leidong/open/http/okhttp3/Address;->hostnameVerifier:Ljavax/net/ssl/HostnameVerifier;
 
     .line 172
-    invoke-static {v2, v3}, Lcom/leidong/open/http/okhttp3/internal/Util;->equal(Ljava/lang/Object;Ljava/lang/Object;)Z
+    invoke-static {v0, v2}, Lcom/leidong/open/http/okhttp3/internal/Util;->equal(Ljava/lang/Object;Ljava/lang/Object;)Z
 
-    move-result v2
+    move-result v0
 
-    if-eqz v2, :cond_0
+    if-eqz v0, :cond_0
 
-    iget-object v2, p0, Lcom/leidong/open/http/okhttp3/Address;->certificatePinner:Lcom/leidong/open/http/okhttp3/CertificatePinner;
+    iget-object v0, p0, Lcom/leidong/open/http/okhttp3/Address;->certificatePinner:Lcom/leidong/open/http/okhttp3/CertificatePinner;
 
-    iget-object v3, v0, Lcom/leidong/open/http/okhttp3/Address;->certificatePinner:Lcom/leidong/open/http/okhttp3/CertificatePinner;
+    iget-object p1, p1, Lcom/leidong/open/http/okhttp3/Address;->certificatePinner:Lcom/leidong/open/http/okhttp3/CertificatePinner;
 
     .line 173
-    invoke-static {v2, v3}, Lcom/leidong/open/http/okhttp3/internal/Util;->equal(Ljava/lang/Object;Ljava/lang/Object;)Z
+    invoke-static {v0, p1}, Lcom/leidong/open/http/okhttp3/internal/Util;->equal(Ljava/lang/Object;Ljava/lang/Object;)Z
 
-    move-result v2
+    move-result p1
 
-    if-eqz v2, :cond_0
+    if-eqz p1, :cond_0
 
     const/4 v1, 0x1
 
-    nop
-
-    .line 164
     :cond_0
     return v1
 
-    .line 175
-    .end local v0    # "that":Lcom/leidong/open/http/okhttp3/Address;
     :cond_1
     return v1
 .end method
 
 .method public hashCode()I
-    .locals 4
-
-    .line 179
-    const/16 v0, 0x11
+    .locals 3
 
     .line 180
-    .local v0, "result":I
-    mul-int/lit8 v1, v0, 0x1f
+    iget-object v0, p0, Lcom/leidong/open/http/okhttp3/Address;->url:Lcom/leidong/open/http/okhttp3/HttpUrl;
 
-    iget-object v2, p0, Lcom/leidong/open/http/okhttp3/Address;->url:Lcom/leidong/open/http/okhttp3/HttpUrl;
+    invoke-virtual {v0}, Lcom/leidong/open/http/okhttp3/HttpUrl;->hashCode()I
 
-    invoke-virtual {v2}, Lcom/leidong/open/http/okhttp3/HttpUrl;->hashCode()I
+    move-result v0
 
-    move-result v2
+    const/16 v1, 0x20f
 
-    add-int/2addr v1, v2
+    add-int/2addr v1, v0
+
+    mul-int/lit8 v1, v1, 0x1f
 
     .line 181
-    .end local v0    # "result":I
-    .local v1, "result":I
-    mul-int/lit8 v0, v1, 0x1f
+    iget-object v0, p0, Lcom/leidong/open/http/okhttp3/Address;->dns:Lcom/leidong/open/http/okhttp3/Dns;
 
-    iget-object v2, p0, Lcom/leidong/open/http/okhttp3/Address;->dns:Lcom/leidong/open/http/okhttp3/Dns;
+    invoke-virtual {v0}, Ljava/lang/Object;->hashCode()I
 
-    invoke-virtual {v2}, Ljava/lang/Object;->hashCode()I
+    move-result v0
 
-    move-result v2
+    add-int/2addr v1, v0
 
-    add-int/2addr v0, v2
+    mul-int/lit8 v1, v1, 0x1f
 
     .line 182
-    .end local v1    # "result":I
-    .restart local v0    # "result":I
-    mul-int/lit8 v1, v0, 0x1f
+    iget-object v0, p0, Lcom/leidong/open/http/okhttp3/Address;->proxyAuthenticator:Lcom/leidong/open/http/okhttp3/Authenticator;
 
-    iget-object v2, p0, Lcom/leidong/open/http/okhttp3/Address;->proxyAuthenticator:Lcom/leidong/open/http/okhttp3/Authenticator;
+    invoke-virtual {v0}, Ljava/lang/Object;->hashCode()I
 
-    invoke-virtual {v2}, Ljava/lang/Object;->hashCode()I
+    move-result v0
 
-    move-result v2
+    add-int/2addr v1, v0
 
-    add-int/2addr v1, v2
+    mul-int/lit8 v1, v1, 0x1f
 
     .line 183
-    .end local v0    # "result":I
-    .restart local v1    # "result":I
-    mul-int/lit8 v0, v1, 0x1f
+    iget-object v0, p0, Lcom/leidong/open/http/okhttp3/Address;->protocols:Ljava/util/List;
 
-    iget-object v2, p0, Lcom/leidong/open/http/okhttp3/Address;->protocols:Ljava/util/List;
+    invoke-interface {v0}, Ljava/util/List;->hashCode()I
 
-    invoke-interface {v2}, Ljava/util/List;->hashCode()I
+    move-result v0
 
-    move-result v2
+    add-int/2addr v1, v0
 
-    add-int/2addr v0, v2
+    mul-int/lit8 v1, v1, 0x1f
 
     .line 184
-    .end local v1    # "result":I
-    .restart local v0    # "result":I
-    mul-int/lit8 v1, v0, 0x1f
+    iget-object v0, p0, Lcom/leidong/open/http/okhttp3/Address;->connectionSpecs:Ljava/util/List;
 
-    iget-object v2, p0, Lcom/leidong/open/http/okhttp3/Address;->connectionSpecs:Ljava/util/List;
+    invoke-interface {v0}, Ljava/util/List;->hashCode()I
 
-    invoke-interface {v2}, Ljava/util/List;->hashCode()I
+    move-result v0
 
-    move-result v2
+    add-int/2addr v1, v0
 
-    add-int/2addr v1, v2
+    mul-int/lit8 v1, v1, 0x1f
 
     .line 185
-    .end local v0    # "result":I
-    .restart local v1    # "result":I
-    mul-int/lit8 v0, v1, 0x1f
+    iget-object v0, p0, Lcom/leidong/open/http/okhttp3/Address;->proxySelector:Ljava/net/ProxySelector;
 
-    iget-object v2, p0, Lcom/leidong/open/http/okhttp3/Address;->proxySelector:Ljava/net/ProxySelector;
+    invoke-virtual {v0}, Ljava/lang/Object;->hashCode()I
 
-    invoke-virtual {v2}, Ljava/lang/Object;->hashCode()I
+    move-result v0
 
-    move-result v2
+    add-int/2addr v1, v0
 
-    add-int/2addr v0, v2
+    mul-int/lit8 v1, v1, 0x1f
 
     .line 186
-    .end local v1    # "result":I
-    .restart local v0    # "result":I
-    mul-int/lit8 v1, v0, 0x1f
+    iget-object v0, p0, Lcom/leidong/open/http/okhttp3/Address;->proxy:Ljava/net/Proxy;
 
-    iget-object v2, p0, Lcom/leidong/open/http/okhttp3/Address;->proxy:Ljava/net/Proxy;
+    const/4 v2, 0x0
 
-    const/4 v3, 0x0
+    if-eqz v0, :cond_0
 
-    if-eqz v2, :cond_0
+    iget-object v0, p0, Lcom/leidong/open/http/okhttp3/Address;->proxy:Ljava/net/Proxy;
 
-    iget-object v2, p0, Lcom/leidong/open/http/okhttp3/Address;->proxy:Ljava/net/Proxy;
+    invoke-virtual {v0}, Ljava/net/Proxy;->hashCode()I
 
-    invoke-virtual {v2}, Ljava/net/Proxy;->hashCode()I
-
-    move-result v2
+    move-result v0
 
     goto :goto_0
 
     :cond_0
-    const/4 v2, 0x0
+    const/4 v0, 0x0
 
     :goto_0
-    add-int/2addr v1, v2
+    add-int/2addr v1, v0
+
+    mul-int/lit8 v1, v1, 0x1f
 
     .line 187
-    .end local v0    # "result":I
-    .restart local v1    # "result":I
-    mul-int/lit8 v0, v1, 0x1f
+    iget-object v0, p0, Lcom/leidong/open/http/okhttp3/Address;->sslSocketFactory:Ljavax/net/ssl/SSLSocketFactory;
 
-    iget-object v2, p0, Lcom/leidong/open/http/okhttp3/Address;->sslSocketFactory:Ljavax/net/ssl/SSLSocketFactory;
+    if-eqz v0, :cond_1
 
-    if-eqz v2, :cond_1
+    iget-object v0, p0, Lcom/leidong/open/http/okhttp3/Address;->sslSocketFactory:Ljavax/net/ssl/SSLSocketFactory;
 
-    iget-object v2, p0, Lcom/leidong/open/http/okhttp3/Address;->sslSocketFactory:Ljavax/net/ssl/SSLSocketFactory;
+    invoke-virtual {v0}, Ljava/lang/Object;->hashCode()I
 
-    invoke-virtual {v2}, Ljava/lang/Object;->hashCode()I
-
-    move-result v2
+    move-result v0
 
     goto :goto_1
 
     :cond_1
-    const/4 v2, 0x0
+    const/4 v0, 0x0
 
     :goto_1
-    add-int/2addr v0, v2
+    add-int/2addr v1, v0
+
+    mul-int/lit8 v1, v1, 0x1f
 
     .line 188
-    .end local v1    # "result":I
-    .restart local v0    # "result":I
-    mul-int/lit8 v1, v0, 0x1f
+    iget-object v0, p0, Lcom/leidong/open/http/okhttp3/Address;->hostnameVerifier:Ljavax/net/ssl/HostnameVerifier;
 
-    iget-object v2, p0, Lcom/leidong/open/http/okhttp3/Address;->hostnameVerifier:Ljavax/net/ssl/HostnameVerifier;
+    if-eqz v0, :cond_2
 
-    if-eqz v2, :cond_2
+    iget-object v0, p0, Lcom/leidong/open/http/okhttp3/Address;->hostnameVerifier:Ljavax/net/ssl/HostnameVerifier;
 
-    iget-object v2, p0, Lcom/leidong/open/http/okhttp3/Address;->hostnameVerifier:Ljavax/net/ssl/HostnameVerifier;
+    invoke-virtual {v0}, Ljava/lang/Object;->hashCode()I
 
-    invoke-virtual {v2}, Ljava/lang/Object;->hashCode()I
-
-    move-result v2
+    move-result v0
 
     goto :goto_2
 
     :cond_2
-    const/4 v2, 0x0
+    const/4 v0, 0x0
 
     :goto_2
-    add-int/2addr v1, v2
+    add-int/2addr v1, v0
+
+    mul-int/lit8 v1, v1, 0x1f
 
     .line 189
-    .end local v0    # "result":I
-    .restart local v1    # "result":I
-    mul-int/lit8 v0, v1, 0x1f
+    iget-object v0, p0, Lcom/leidong/open/http/okhttp3/Address;->certificatePinner:Lcom/leidong/open/http/okhttp3/CertificatePinner;
 
-    iget-object v2, p0, Lcom/leidong/open/http/okhttp3/Address;->certificatePinner:Lcom/leidong/open/http/okhttp3/CertificatePinner;
+    if-eqz v0, :cond_3
 
-    if-eqz v2, :cond_3
+    iget-object v0, p0, Lcom/leidong/open/http/okhttp3/Address;->certificatePinner:Lcom/leidong/open/http/okhttp3/CertificatePinner;
 
-    iget-object v2, p0, Lcom/leidong/open/http/okhttp3/Address;->certificatePinner:Lcom/leidong/open/http/okhttp3/CertificatePinner;
+    invoke-virtual {v0}, Lcom/leidong/open/http/okhttp3/CertificatePinner;->hashCode()I
 
-    invoke-virtual {v2}, Lcom/leidong/open/http/okhttp3/CertificatePinner;->hashCode()I
-
-    move-result v3
-
-    nop
+    move-result v2
 
     :cond_3
-    add-int/2addr v0, v3
+    add-int/2addr v1, v2
 
-    .line 190
-    .end local v1    # "result":I
-    .restart local v0    # "result":I
-    return v0
+    return v1
 .end method
 
 .method public hostnameVerifier()Ljavax/net/ssl/HostnameVerifier;
@@ -699,17 +649,14 @@
 
     invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
 
-    move-result-object v0
-
     .line 198
-    .local v0, "result":Ljava/lang/StringBuilder;
     iget-object v1, p0, Lcom/leidong/open/http/okhttp3/Address;->proxy:Ljava/net/Proxy;
 
     if-eqz v1, :cond_0
 
-    .line 199
     const-string v1, ", proxy="
 
+    .line 199
     invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
     iget-object v1, p0, Lcom/leidong/open/http/okhttp3/Address;->proxy:Ljava/net/Proxy;
@@ -718,28 +665,28 @@
 
     goto :goto_0
 
-    .line 201
     :cond_0
     const-string v1, ", proxySelector="
 
+    .line 201
     invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
     iget-object v1, p0, Lcom/leidong/open/http/okhttp3/Address;->proxySelector:Ljava/net/ProxySelector;
 
     invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/Object;)Ljava/lang/StringBuilder;
 
-    .line 204
     :goto_0
     const-string v1, "}"
 
+    .line 204
     invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
     .line 205
     invoke-virtual {v0}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
 
-    move-result-object v1
+    move-result-object v0
 
-    return-object v1
+    return-object v0
 .end method
 
 .method public url()Lcom/leidong/open/http/okhttp3/HttpUrl;

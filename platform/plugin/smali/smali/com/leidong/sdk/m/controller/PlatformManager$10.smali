@@ -24,9 +24,8 @@
 # direct methods
 .method constructor <init>(Lcom/leidong/sdk/m/controller/PlatformManager;)V
     .locals 0
-    .param p1, "this$0"    # Lcom/leidong/sdk/m/controller/PlatformManager;
 
-    .line 1144
+    .line 1147
     iput-object p1, p0, Lcom/leidong/sdk/m/controller/PlatformManager$10;->this$0:Lcom/leidong/sdk/m/controller/PlatformManager;
 
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -38,29 +37,26 @@
 # virtual methods
 .method public onFail(Ljava/lang/String;)V
     .locals 1
-    .param p1, "arg0"    # Ljava/lang/String;
 
-    .line 1147
+    .line 1150
     iget-object v0, p0, Lcom/leidong/sdk/m/controller/PlatformManager$10;->this$0:Lcom/leidong/sdk/m/controller/PlatformManager;
 
     iget-object v0, v0, Lcom/leidong/sdk/m/controller/PlatformManager;->mCallBack:Lcom/leidong/sdk/m/LeiMsdkCallback;
 
     invoke-interface {v0, p1}, Lcom/leidong/sdk/m/LeiMsdkCallback;->onInitFail(Ljava/lang/String;)V
 
-    .line 1148
     return-void
 .end method
 
 .method public onSuccess()V
     .locals 1
 
-    .line 1151
+    .line 1154
     iget-object v0, p0, Lcom/leidong/sdk/m/controller/PlatformManager$10;->this$0:Lcom/leidong/sdk/m/controller/PlatformManager;
 
     iget-object v0, v0, Lcom/leidong/sdk/m/controller/PlatformManager;->mCallBack:Lcom/leidong/sdk/m/LeiMsdkCallback;
 
     invoke-interface {v0}, Lcom/leidong/sdk/m/LeiMsdkCallback;->onInitSuccess()V
 
-    .line 1152
     return-void
 .end method

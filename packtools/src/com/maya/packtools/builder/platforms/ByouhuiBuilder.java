@@ -1,6 +1,7 @@
 package com.maya.packtools.builder.platforms;
 
 import com.maya.base.utils.FileUtil;
+import com.maya.base.utils.LogUtil;
 import com.maya.packtools.builder.base.BaseBuilder;
 import com.maya.packtools.model.ApkParser;
 
@@ -52,4 +53,22 @@ public class ByouhuiBuilder extends BaseBuilder {
 
 
     }
+
+
+    @Override
+    protected String handleApplication(String manifest) {
+        return replaceApplication("com.bt.sdk.base.SDKApp", manifest);
+    }
+
+
+    @Override
+    protected void handleTempRFiles() {
+
+        String finalPnamePath = "com.byouhui.demo";
+        LogUtil.showLog("从此包名下复制文件-->" + finalPnamePath);
+
+        copyFileAndReplacePackageName(SDK, finalPnamePath, pname);
+    }
+
+
 }

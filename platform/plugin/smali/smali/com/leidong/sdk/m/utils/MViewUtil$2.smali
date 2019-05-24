@@ -40,25 +40,23 @@
 
 # virtual methods
 .method public onClick(Landroid/view/View;)V
-    .locals 1
-    .param p1, "v"    # Landroid/view/View;
+    .locals 0
 
     .line 20
-    iget-object v0, p0, Lcom/leidong/sdk/m/utils/MViewUtil$2;->val$mMaterialDialog:Lcom/leidong/sdk/framework/view/dialog/MaterialDialog;
+    iget-object p1, p0, Lcom/leidong/sdk/m/utils/MViewUtil$2;->val$mMaterialDialog:Lcom/leidong/sdk/framework/view/dialog/MaterialDialog;
 
-    invoke-virtual {v0}, Lcom/leidong/sdk/framework/view/dialog/MaterialDialog;->dismiss()V
+    invoke-virtual {p1}, Lcom/leidong/sdk/framework/view/dialog/MaterialDialog;->dismiss()V
 
     .line 21
-    iget-object v0, p0, Lcom/leidong/sdk/m/utils/MViewUtil$2;->val$callback:Lcom/leidong/sdk/framework/interfaces/ResultCallback;
+    iget-object p1, p0, Lcom/leidong/sdk/m/utils/MViewUtil$2;->val$callback:Lcom/leidong/sdk/framework/interfaces/ResultCallback;
 
-    if-eqz v0, :cond_0
+    if-eqz p1, :cond_0
 
     .line 22
-    iget-object v0, p0, Lcom/leidong/sdk/m/utils/MViewUtil$2;->val$callback:Lcom/leidong/sdk/framework/interfaces/ResultCallback;
+    iget-object p1, p0, Lcom/leidong/sdk/m/utils/MViewUtil$2;->val$callback:Lcom/leidong/sdk/framework/interfaces/ResultCallback;
 
-    invoke-interface {v0}, Lcom/leidong/sdk/framework/interfaces/ResultCallback;->onSuccess()V
+    invoke-interface {p1}, Lcom/leidong/sdk/framework/interfaces/ResultCallback;->onSuccess()V
 
-    .line 24
     :cond_0
     return-void
 .end method

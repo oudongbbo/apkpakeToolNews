@@ -45,7 +45,6 @@
     .locals 0
 
     .line 352
-    .local p0, "this":Lcom/leidong/open/http/okserver/task/PriorityAsyncTask$WorkerRunnable;, "Lcom/leidong/open/http/okserver/task/PriorityAsyncTask$WorkerRunnable<TParams;TResult;>;"
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
     return-void
@@ -53,10 +52,8 @@
 
 .method synthetic constructor <init>(Lcom/leidong/open/http/okserver/task/PriorityAsyncTask$1;)V
     .locals 0
-    .param p1, "x0"    # Lcom/leidong/open/http/okserver/task/PriorityAsyncTask$1;
 
     .line 352
-    .local p0, "this":Lcom/leidong/open/http/okserver/task/PriorityAsyncTask$WorkerRunnable;, "Lcom/leidong/open/http/okserver/task/PriorityAsyncTask$WorkerRunnable<TParams;TResult;>;"
     invoke-direct {p0}, Lcom/leidong/open/http/okserver/task/PriorityAsyncTask$WorkerRunnable;-><init>()V
 
     return-void

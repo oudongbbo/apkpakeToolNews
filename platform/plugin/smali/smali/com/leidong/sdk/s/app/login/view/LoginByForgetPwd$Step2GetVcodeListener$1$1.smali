@@ -24,7 +24,6 @@
 # direct methods
 .method constructor <init>(Lcom/leidong/sdk/s/app/login/view/LoginByForgetPwd$Step2GetVcodeListener$1;)V
     .locals 0
-    .param p1, "this$2"    # Lcom/leidong/sdk/s/app/login/view/LoginByForgetPwd$Step2GetVcodeListener$1;
 
     .line 340
     iput-object p1, p0, Lcom/leidong/sdk/s/app/login/view/LoginByForgetPwd$Step2GetVcodeListener$1$1;->this$2:Lcom/leidong/sdk/s/app/login/view/LoginByForgetPwd$Step2GetVcodeListener$1;
@@ -37,66 +36,60 @@
 
 # virtual methods
 .method public onFail(ILjava/lang/String;)V
-    .locals 1
-    .param p1, "errorCode"    # I
-    .param p2, "message"    # Ljava/lang/String;
+    .locals 0
 
     .line 349
-    iget-object v0, p0, Lcom/leidong/sdk/s/app/login/view/LoginByForgetPwd$Step2GetVcodeListener$1$1;->this$2:Lcom/leidong/sdk/s/app/login/view/LoginByForgetPwd$Step2GetVcodeListener$1;
+    iget-object p1, p0, Lcom/leidong/sdk/s/app/login/view/LoginByForgetPwd$Step2GetVcodeListener$1$1;->this$2:Lcom/leidong/sdk/s/app/login/view/LoginByForgetPwd$Step2GetVcodeListener$1;
 
-    iget-object v0, v0, Lcom/leidong/sdk/s/app/login/view/LoginByForgetPwd$Step2GetVcodeListener$1;->this$1:Lcom/leidong/sdk/s/app/login/view/LoginByForgetPwd$Step2GetVcodeListener;
+    iget-object p1, p1, Lcom/leidong/sdk/s/app/login/view/LoginByForgetPwd$Step2GetVcodeListener$1;->this$1:Lcom/leidong/sdk/s/app/login/view/LoginByForgetPwd$Step2GetVcodeListener;
 
-    iget-object v0, v0, Lcom/leidong/sdk/s/app/login/view/LoginByForgetPwd$Step2GetVcodeListener;->this$0:Lcom/leidong/sdk/s/app/login/view/LoginByForgetPwd;
+    iget-object p1, p1, Lcom/leidong/sdk/s/app/login/view/LoginByForgetPwd$Step2GetVcodeListener;->this$0:Lcom/leidong/sdk/s/app/login/view/LoginByForgetPwd;
 
-    invoke-virtual {v0, p2}, Lcom/leidong/sdk/s/app/login/view/LoginByForgetPwd;->showToast(Ljava/lang/String;)V
+    invoke-virtual {p1, p2}, Lcom/leidong/sdk/s/app/login/view/LoginByForgetPwd;->showToast(Ljava/lang/String;)V
 
     .line 350
-    iget-object v0, p0, Lcom/leidong/sdk/s/app/login/view/LoginByForgetPwd$Step2GetVcodeListener$1$1;->this$2:Lcom/leidong/sdk/s/app/login/view/LoginByForgetPwd$Step2GetVcodeListener$1;
+    iget-object p1, p0, Lcom/leidong/sdk/s/app/login/view/LoginByForgetPwd$Step2GetVcodeListener$1$1;->this$2:Lcom/leidong/sdk/s/app/login/view/LoginByForgetPwd$Step2GetVcodeListener$1;
 
-    iget-object v0, v0, Lcom/leidong/sdk/s/app/login/view/LoginByForgetPwd$Step2GetVcodeListener$1;->this$1:Lcom/leidong/sdk/s/app/login/view/LoginByForgetPwd$Step2GetVcodeListener;
+    iget-object p1, p1, Lcom/leidong/sdk/s/app/login/view/LoginByForgetPwd$Step2GetVcodeListener$1;->this$1:Lcom/leidong/sdk/s/app/login/view/LoginByForgetPwd$Step2GetVcodeListener;
 
-    iget-object v0, v0, Lcom/leidong/sdk/s/app/login/view/LoginByForgetPwd$Step2GetVcodeListener;->this$0:Lcom/leidong/sdk/s/app/login/view/LoginByForgetPwd;
+    iget-object p1, p1, Lcom/leidong/sdk/s/app/login/view/LoginByForgetPwd$Step2GetVcodeListener;->this$0:Lcom/leidong/sdk/s/app/login/view/LoginByForgetPwd;
 
-    # getter for: Lcom/leidong/sdk/s/app/login/view/LoginByForgetPwd;->countDown:Lcom/leidong/sdk/framework/view/common/CountDownView;
-    invoke-static {v0}, Lcom/leidong/sdk/s/app/login/view/LoginByForgetPwd;->access$1200(Lcom/leidong/sdk/s/app/login/view/LoginByForgetPwd;)Lcom/leidong/sdk/framework/view/common/CountDownView;
+    invoke-static {p1}, Lcom/leidong/sdk/s/app/login/view/LoginByForgetPwd;->access$1200(Lcom/leidong/sdk/s/app/login/view/LoginByForgetPwd;)Lcom/leidong/sdk/framework/view/common/CountDownView;
 
-    move-result-object v0
+    move-result-object p1
 
-    invoke-virtual {v0}, Lcom/leidong/sdk/framework/view/common/CountDownView;->stopCountDown()V
+    invoke-virtual {p1}, Lcom/leidong/sdk/framework/view/common/CountDownView;->stopCountDown()V
 
-    .line 351
     return-void
 .end method
 
 .method public onSuccess(Ljava/lang/String;)V
-    .locals 3
-    .param p1, "content"    # Ljava/lang/String;
+    .locals 2
 
     .line 344
-    iget-object v0, p0, Lcom/leidong/sdk/s/app/login/view/LoginByForgetPwd$Step2GetVcodeListener$1$1;->this$2:Lcom/leidong/sdk/s/app/login/view/LoginByForgetPwd$Step2GetVcodeListener$1;
+    iget-object p1, p0, Lcom/leidong/sdk/s/app/login/view/LoginByForgetPwd$Step2GetVcodeListener$1$1;->this$2:Lcom/leidong/sdk/s/app/login/view/LoginByForgetPwd$Step2GetVcodeListener$1;
 
-    iget-object v0, v0, Lcom/leidong/sdk/s/app/login/view/LoginByForgetPwd$Step2GetVcodeListener$1;->this$1:Lcom/leidong/sdk/s/app/login/view/LoginByForgetPwd$Step2GetVcodeListener;
+    iget-object p1, p1, Lcom/leidong/sdk/s/app/login/view/LoginByForgetPwd$Step2GetVcodeListener$1;->this$1:Lcom/leidong/sdk/s/app/login/view/LoginByForgetPwd$Step2GetVcodeListener;
 
-    iget-object v0, v0, Lcom/leidong/sdk/s/app/login/view/LoginByForgetPwd$Step2GetVcodeListener;->this$0:Lcom/leidong/sdk/s/app/login/view/LoginByForgetPwd;
+    iget-object p1, p1, Lcom/leidong/sdk/s/app/login/view/LoginByForgetPwd$Step2GetVcodeListener;->this$0:Lcom/leidong/sdk/s/app/login/view/LoginByForgetPwd;
 
-    const-string v1, "leidong_common_toast_vcode_sent"
+    const-string v0, "leidong_common_toast_vcode_sent"
 
-    iget-object v2, p0, Lcom/leidong/sdk/s/app/login/view/LoginByForgetPwd$Step2GetVcodeListener$1$1;->this$2:Lcom/leidong/sdk/s/app/login/view/LoginByForgetPwd$Step2GetVcodeListener$1;
+    iget-object v1, p0, Lcom/leidong/sdk/s/app/login/view/LoginByForgetPwd$Step2GetVcodeListener$1$1;->this$2:Lcom/leidong/sdk/s/app/login/view/LoginByForgetPwd$Step2GetVcodeListener$1;
 
-    iget-object v2, v2, Lcom/leidong/sdk/s/app/login/view/LoginByForgetPwd$Step2GetVcodeListener$1;->this$1:Lcom/leidong/sdk/s/app/login/view/LoginByForgetPwd$Step2GetVcodeListener;
+    iget-object v1, v1, Lcom/leidong/sdk/s/app/login/view/LoginByForgetPwd$Step2GetVcodeListener$1;->this$1:Lcom/leidong/sdk/s/app/login/view/LoginByForgetPwd$Step2GetVcodeListener;
 
-    iget-object v2, v2, Lcom/leidong/sdk/s/app/login/view/LoginByForgetPwd$Step2GetVcodeListener;->this$0:Lcom/leidong/sdk/s/app/login/view/LoginByForgetPwd;
+    iget-object v1, v1, Lcom/leidong/sdk/s/app/login/view/LoginByForgetPwd$Step2GetVcodeListener;->this$0:Lcom/leidong/sdk/s/app/login/view/LoginByForgetPwd;
 
-    invoke-virtual {v2}, Lcom/leidong/sdk/s/app/login/view/LoginByForgetPwd;->getActivity()Landroid/app/Activity;
-
-    move-result-object v2
-
-    invoke-static {v1, v2}, Lcom/leidong/sdk/framework/utils/CommonUtil;->getStringByName(Ljava/lang/String;Landroid/content/Context;)Ljava/lang/String;
+    invoke-virtual {v1}, Lcom/leidong/sdk/s/app/login/view/LoginByForgetPwd;->getActivity()Landroid/app/Activity;
 
     move-result-object v1
 
-    invoke-virtual {v0, v1}, Lcom/leidong/sdk/s/app/login/view/LoginByForgetPwd;->showToast(Ljava/lang/String;)V
+    invoke-static {v0, v1}, Lcom/leidong/sdk/framework/utils/CommonUtil;->getStringByName(Ljava/lang/String;Landroid/content/Context;)Ljava/lang/String;
 
-    .line 345
+    move-result-object v0
+
+    invoke-virtual {p1, v0}, Lcom/leidong/sdk/s/app/login/view/LoginByForgetPwd;->showToast(Ljava/lang/String;)V
+
     return-void
 .end method

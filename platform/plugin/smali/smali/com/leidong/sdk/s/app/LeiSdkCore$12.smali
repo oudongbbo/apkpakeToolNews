@@ -28,7 +28,6 @@
 # direct methods
 .method constructor <init>(Lcom/leidong/sdk/s/app/LeiSdkCore;Landroid/content/Context;Lcom/leidong/sdk/framework/interfaces/ResultCallback;)V
     .locals 0
-    .param p1, "this$0"    # Lcom/leidong/sdk/s/app/LeiSdkCore;
 
     .line 588
     iput-object p1, p0, Lcom/leidong/sdk/s/app/LeiSdkCore$12;->this$0:Lcom/leidong/sdk/s/app/LeiSdkCore;
@@ -46,19 +45,17 @@
 # virtual methods
 .method public onFail(Ljava/lang/String;)V
     .locals 1
-    .param p1, "errorMsg"    # Ljava/lang/String;
 
     .line 611
     iget-object v0, p0, Lcom/leidong/sdk/s/app/LeiSdkCore$12;->val$callback:Lcom/leidong/sdk/framework/interfaces/ResultCallback;
 
     invoke-interface {v0, p1}, Lcom/leidong/sdk/framework/interfaces/ResultCallback;->onFail(Ljava/lang/String;)V
 
-    .line 612
     return-void
 .end method
 
 .method public onSuccess()V
-    .locals 3
+    .locals 2
 
     .line 593
     iget-object v0, p0, Lcom/leidong/sdk/s/app/LeiSdkCore$12;->val$context:Landroid/content/Context;
@@ -91,27 +88,23 @@
 
     move-result v0
 
-    .line 600
-    .local v0, "hasGuard":Z
     if-eqz v0, :cond_1
 
     .line 601
-    iget-object v1, p0, Lcom/leidong/sdk/s/app/LeiSdkCore$12;->val$callback:Lcom/leidong/sdk/framework/interfaces/ResultCallback;
+    iget-object v0, p0, Lcom/leidong/sdk/s/app/LeiSdkCore$12;->val$callback:Lcom/leidong/sdk/framework/interfaces/ResultCallback;
 
-    invoke-interface {v1}, Lcom/leidong/sdk/framework/interfaces/ResultCallback;->onSuccess()V
+    invoke-interface {v0}, Lcom/leidong/sdk/framework/interfaces/ResultCallback;->onSuccess()V
 
     goto :goto_0
 
     .line 603
     :cond_1
-    iget-object v1, p0, Lcom/leidong/sdk/s/app/LeiSdkCore$12;->val$callback:Lcom/leidong/sdk/framework/interfaces/ResultCallback;
+    iget-object v0, p0, Lcom/leidong/sdk/s/app/LeiSdkCore$12;->val$callback:Lcom/leidong/sdk/framework/interfaces/ResultCallback;
 
-    const-string v2, "\u60a8\u8fd8\u672a\u6dfb\u52a0\u76d1\u62a4\u4eba\u4fe1\u606f"
+    const-string v1, "\u60a8\u8fd8\u672a\u6dfb\u52a0\u76d1\u62a4\u4eba\u4fe1\u606f"
 
-    invoke-interface {v1, v2}, Lcom/leidong/sdk/framework/interfaces/ResultCallback;->onFail(Ljava/lang/String;)V
+    invoke-interface {v0, v1}, Lcom/leidong/sdk/framework/interfaces/ResultCallback;->onFail(Ljava/lang/String;)V
 
-    .line 608
-    .end local v0    # "hasGuard":Z
     :goto_0
     return-void
 .end method

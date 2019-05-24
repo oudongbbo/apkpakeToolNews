@@ -26,7 +26,6 @@
 # direct methods
 .method constructor <init>(Lcom/leidong/open/http/okio/AsyncTimeout;Lcom/leidong/open/http/okio/Source;)V
     .locals 0
-    .param p1, "this$0"    # Lcom/leidong/open/http/okio/AsyncTimeout;
 
     .line 231
     iput-object p1, p0, Lcom/leidong/open/http/okio/AsyncTimeout$2;->this$0:Lcom/leidong/open/http/okio/AsyncTimeout;
@@ -48,20 +47,15 @@
         }
     .end annotation
 
-    .line 247
-    const/4 v0, 0x0
-
     .line 249
-    .local v0, "throwOnTimeout":Z
     :try_start_0
-    iget-object v1, p0, Lcom/leidong/open/http/okio/AsyncTimeout$2;->val$source:Lcom/leidong/open/http/okio/Source;
+    iget-object v0, p0, Lcom/leidong/open/http/okio/AsyncTimeout$2;->val$source:Lcom/leidong/open/http/okio/Source;
 
-    invoke-interface {v1}, Lcom/leidong/open/http/okio/Source;->close()V
+    invoke-interface {v0}, Lcom/leidong/open/http/okio/Source;->close()V
     :try_end_0
     .catch Ljava/io/IOException; {:try_start_0 .. :try_end_0} :catch_0
     .catchall {:try_start_0 .. :try_end_0} :catchall_0
 
-    .line 250
     const/4 v0, 0x1
 
     .line 254
@@ -69,122 +63,101 @@
 
     invoke-virtual {v1, v0}, Lcom/leidong/open/http/okio/AsyncTimeout;->exit(Z)V
 
-    .line 255
-    nop
-
-    .line 256
     return-void
 
-    .line 254
     :catchall_0
-    move-exception v1
+    move-exception v0
 
     goto :goto_0
 
-    .line 251
     :catch_0
-    move-exception v1
+    move-exception v0
 
     .line 252
-    .local v1, "e":Ljava/io/IOException;
     :try_start_1
-    iget-object v2, p0, Lcom/leidong/open/http/okio/AsyncTimeout$2;->this$0:Lcom/leidong/open/http/okio/AsyncTimeout;
+    iget-object v1, p0, Lcom/leidong/open/http/okio/AsyncTimeout$2;->this$0:Lcom/leidong/open/http/okio/AsyncTimeout;
 
-    invoke-virtual {v2, v1}, Lcom/leidong/open/http/okio/AsyncTimeout;->exit(Ljava/io/IOException;)Ljava/io/IOException;
+    invoke-virtual {v1, v0}, Lcom/leidong/open/http/okio/AsyncTimeout;->exit(Ljava/io/IOException;)Ljava/io/IOException;
 
-    move-result-object v2
+    move-result-object v0
 
-    throw v2
+    throw v0
     :try_end_1
     .catchall {:try_start_1 .. :try_end_1} :catchall_0
 
     .line 254
-    .end local v1    # "e":Ljava/io/IOException;
     :goto_0
-    iget-object v2, p0, Lcom/leidong/open/http/okio/AsyncTimeout$2;->this$0:Lcom/leidong/open/http/okio/AsyncTimeout;
+    iget-object v1, p0, Lcom/leidong/open/http/okio/AsyncTimeout$2;->this$0:Lcom/leidong/open/http/okio/AsyncTimeout;
 
-    invoke-virtual {v2, v0}, Lcom/leidong/open/http/okio/AsyncTimeout;->exit(Z)V
+    const/4 v2, 0x0
 
-    throw v1
+    invoke-virtual {v1, v2}, Lcom/leidong/open/http/okio/AsyncTimeout;->exit(Z)V
+
+    throw v0
 .end method
 
 .method public read(Lcom/leidong/open/http/okio/Buffer;J)J
-    .locals 4
-    .param p1, "sink"    # Lcom/leidong/open/http/okio/Buffer;
-    .param p2, "byteCount"    # J
+    .locals 1
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Ljava/io/IOException;
         }
     .end annotation
 
-    .line 233
-    const/4 v0, 0x0
-
     .line 234
-    .local v0, "throwOnTimeout":Z
-    iget-object v1, p0, Lcom/leidong/open/http/okio/AsyncTimeout$2;->this$0:Lcom/leidong/open/http/okio/AsyncTimeout;
+    iget-object v0, p0, Lcom/leidong/open/http/okio/AsyncTimeout$2;->this$0:Lcom/leidong/open/http/okio/AsyncTimeout;
 
-    invoke-virtual {v1}, Lcom/leidong/open/http/okio/AsyncTimeout;->enter()V
+    invoke-virtual {v0}, Lcom/leidong/open/http/okio/AsyncTimeout;->enter()V
 
     .line 236
     :try_start_0
-    iget-object v1, p0, Lcom/leidong/open/http/okio/AsyncTimeout$2;->val$source:Lcom/leidong/open/http/okio/Source;
+    iget-object v0, p0, Lcom/leidong/open/http/okio/AsyncTimeout$2;->val$source:Lcom/leidong/open/http/okio/Source;
 
-    invoke-interface {v1, p1, p2, p3}, Lcom/leidong/open/http/okio/Source;->read(Lcom/leidong/open/http/okio/Buffer;J)J
+    invoke-interface {v0, p1, p2, p3}, Lcom/leidong/open/http/okio/Source;->read(Lcom/leidong/open/http/okio/Buffer;J)J
 
-    move-result-wide v1
+    move-result-wide p1
     :try_end_0
     .catch Ljava/io/IOException; {:try_start_0 .. :try_end_0} :catch_0
     .catchall {:try_start_0 .. :try_end_0} :catchall_0
 
-    .line 237
-    .local v1, "result":J
-    const/4 v0, 0x1
-
-    .line 238
-    nop
+    const/4 p3, 0x1
 
     .line 242
-    iget-object v3, p0, Lcom/leidong/open/http/okio/AsyncTimeout$2;->this$0:Lcom/leidong/open/http/okio/AsyncTimeout;
+    iget-object v0, p0, Lcom/leidong/open/http/okio/AsyncTimeout$2;->this$0:Lcom/leidong/open/http/okio/AsyncTimeout;
 
-    invoke-virtual {v3, v0}, Lcom/leidong/open/http/okio/AsyncTimeout;->exit(Z)V
+    invoke-virtual {v0, p3}, Lcom/leidong/open/http/okio/AsyncTimeout;->exit(Z)V
 
-    .line 238
-    return-wide v1
+    return-wide p1
 
-    .line 242
-    .end local v1    # "result":J
     :catchall_0
-    move-exception v1
+    move-exception p1
 
     goto :goto_0
 
-    .line 239
     :catch_0
-    move-exception v1
+    move-exception p1
 
     .line 240
-    .local v1, "e":Ljava/io/IOException;
     :try_start_1
-    iget-object v2, p0, Lcom/leidong/open/http/okio/AsyncTimeout$2;->this$0:Lcom/leidong/open/http/okio/AsyncTimeout;
+    iget-object p2, p0, Lcom/leidong/open/http/okio/AsyncTimeout$2;->this$0:Lcom/leidong/open/http/okio/AsyncTimeout;
 
-    invoke-virtual {v2, v1}, Lcom/leidong/open/http/okio/AsyncTimeout;->exit(Ljava/io/IOException;)Ljava/io/IOException;
+    invoke-virtual {p2, p1}, Lcom/leidong/open/http/okio/AsyncTimeout;->exit(Ljava/io/IOException;)Ljava/io/IOException;
 
-    move-result-object v2
+    move-result-object p1
 
-    throw v2
+    throw p1
     :try_end_1
     .catchall {:try_start_1 .. :try_end_1} :catchall_0
 
     .line 242
-    .end local v1    # "e":Ljava/io/IOException;
     :goto_0
-    iget-object v2, p0, Lcom/leidong/open/http/okio/AsyncTimeout$2;->this$0:Lcom/leidong/open/http/okio/AsyncTimeout;
+    iget-object p2, p0, Lcom/leidong/open/http/okio/AsyncTimeout$2;->this$0:Lcom/leidong/open/http/okio/AsyncTimeout;
 
-    invoke-virtual {v2, v0}, Lcom/leidong/open/http/okio/AsyncTimeout;->exit(Z)V
+    const/4 p3, 0x0
 
-    throw v1
+    invoke-virtual {p2, p3}, Lcom/leidong/open/http/okio/AsyncTimeout;->exit(Z)V
+
+    throw p1
 .end method
 
 .method public timeout()Lcom/leidong/open/http/okio/Timeout;

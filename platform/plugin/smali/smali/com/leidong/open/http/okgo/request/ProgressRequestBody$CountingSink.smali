@@ -28,9 +28,7 @@
 
 # direct methods
 .method public constructor <init>(Lcom/leidong/open/http/okgo/request/ProgressRequestBody;Lcom/leidong/open/http/okio/Sink;)V
-    .locals 2
-    .param p1, "this$0"    # Lcom/leidong/open/http/okgo/request/ProgressRequestBody;
-    .param p2, "delegate"    # Lcom/leidong/open/http/okio/Sink;
+    .locals 0
 
     .line 72
     iput-object p1, p0, Lcom/leidong/open/http/okgo/request/ProgressRequestBody$CountingSink;->this$0:Lcom/leidong/open/http/okgo/request/ProgressRequestBody;
@@ -38,24 +36,21 @@
     .line 73
     invoke-direct {p0, p2}, Lcom/leidong/open/http/okio/ForwardingSink;-><init>(Lcom/leidong/open/http/okio/Sink;)V
 
-    .line 67
-    const-wide/16 v0, 0x0
+    const-wide/16 p1, 0x0
 
-    iput-wide v0, p0, Lcom/leidong/open/http/okgo/request/ProgressRequestBody$CountingSink;->bytesWritten:J
+    .line 67
+    iput-wide p1, p0, Lcom/leidong/open/http/okgo/request/ProgressRequestBody$CountingSink;->bytesWritten:J
 
     .line 68
-    iput-wide v0, p0, Lcom/leidong/open/http/okgo/request/ProgressRequestBody$CountingSink;->contentLength:J
+    iput-wide p1, p0, Lcom/leidong/open/http/okgo/request/ProgressRequestBody$CountingSink;->contentLength:J
 
-    .line 74
     return-void
 .end method
 
 
 # virtual methods
 .method public write(Lcom/leidong/open/http/okio/Buffer;J)V
-    .locals 19
-    .param p1, "source"    # Lcom/leidong/open/http/okio/Buffer;
-    .param p2, "byteCount"    # J
+    .locals 16
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Ljava/io/IOException;
@@ -88,9 +83,9 @@
     :cond_0
     iget-wide v1, v0, Lcom/leidong/open/http/okgo/request/ProgressRequestBody$CountingSink;->bytesWritten:J
 
-    add-long v6, v1, p2
+    add-long v7, v1, p2
 
-    iput-wide v6, v0, Lcom/leidong/open/http/okgo/request/ProgressRequestBody$CountingSink;->bytesWritten:J
+    iput-wide v7, v0, Lcom/leidong/open/http/okgo/request/ProgressRequestBody$CountingSink;->bytesWritten:J
 
     .line 82
     invoke-static {}, Ljava/lang/System;->currentTimeMillis()J
@@ -98,111 +93,90 @@
     move-result-wide v1
 
     .line 84
-    .local v1, "curTime":J
-    iget-wide v6, v0, Lcom/leidong/open/http/okgo/request/ProgressRequestBody$CountingSink;->lastRefreshUiTime:J
+    iget-wide v5, v0, Lcom/leidong/open/http/okgo/request/ProgressRequestBody$CountingSink;->lastRefreshUiTime:J
 
-    sub-long v8, v1, v6
+    sub-long v7, v1, v5
 
-    sget v6, Lcom/leidong/open/http/okgo/OkGo;->REFRESH_TIME:I
+    sget v5, Lcom/leidong/open/http/okgo/OkGo;->REFRESH_TIME:I
 
-    int-to-long v6, v6
+    int-to-long v5, v5
 
-    cmp-long v10, v8, v6
+    cmp-long v9, v7, v5
 
-    if-gez v10, :cond_1
+    if-gez v9, :cond_1
 
-    iget-wide v6, v0, Lcom/leidong/open/http/okgo/request/ProgressRequestBody$CountingSink;->bytesWritten:J
+    iget-wide v5, v0, Lcom/leidong/open/http/okgo/request/ProgressRequestBody$CountingSink;->bytesWritten:J
 
-    iget-wide v8, v0, Lcom/leidong/open/http/okgo/request/ProgressRequestBody$CountingSink;->contentLength:J
+    iget-wide v7, v0, Lcom/leidong/open/http/okgo/request/ProgressRequestBody$CountingSink;->contentLength:J
 
-    cmp-long v10, v6, v8
+    cmp-long v9, v5, v7
 
-    if-nez v10, :cond_4
+    if-nez v9, :cond_4
 
     .line 86
     :cond_1
-    iget-wide v6, v0, Lcom/leidong/open/http/okgo/request/ProgressRequestBody$CountingSink;->lastRefreshUiTime:J
+    iget-wide v5, v0, Lcom/leidong/open/http/okgo/request/ProgressRequestBody$CountingSink;->lastRefreshUiTime:J
 
-    sub-long v8, v1, v6
+    sub-long v7, v1, v5
 
-    const-wide/16 v6, 0x3e8
+    const-wide/16 v1, 0x3e8
 
-    div-long/2addr v8, v6
+    div-long/2addr v7, v1
 
-    .line 87
-    .local v8, "diffTime":J
-    cmp-long v6, v8, v3
+    cmp-long v1, v7, v3
 
-    if-nez v6, :cond_2
+    if-nez v1, :cond_2
 
-    const-wide/16 v3, 0x1
+    const-wide/16 v1, 0x1
 
-    add-long v6, v8, v3
+    add-long v3, v7, v1
 
-    .line 87
-    .end local v8    # "diffTime":J
-    .local v6, "diffTime":J
     goto :goto_0
 
-    .line 88
-    .end local v6    # "diffTime":J
-    .restart local v8    # "diffTime":J
     :cond_2
-    move-wide v6, v8
+    move-wide v3, v7
 
     .line 88
-    .end local v8    # "diffTime":J
-    .restart local v6    # "diffTime":J
     :goto_0
-    iget-wide v3, v0, Lcom/leidong/open/http/okgo/request/ProgressRequestBody$CountingSink;->bytesWritten:J
+    iget-wide v1, v0, Lcom/leidong/open/http/okgo/request/ProgressRequestBody$CountingSink;->bytesWritten:J
 
-    iget-wide v8, v0, Lcom/leidong/open/http/okgo/request/ProgressRequestBody$CountingSink;->lastWriteBytes:J
+    iget-wide v5, v0, Lcom/leidong/open/http/okgo/request/ProgressRequestBody$CountingSink;->lastWriteBytes:J
 
-    sub-long v10, v3, v8
+    sub-long v7, v1, v5
 
     .line 89
-    .local v10, "diffBytes":J
-    div-long v3, v10, v6
+    div-long v14, v7, v3
 
     .line 90
-    .local v3, "networkSpeed":J
-    iget-object v8, v0, Lcom/leidong/open/http/okgo/request/ProgressRequestBody$CountingSink;->this$0:Lcom/leidong/open/http/okgo/request/ProgressRequestBody;
+    iget-object v1, v0, Lcom/leidong/open/http/okgo/request/ProgressRequestBody$CountingSink;->this$0:Lcom/leidong/open/http/okgo/request/ProgressRequestBody;
 
-    iget-object v8, v8, Lcom/leidong/open/http/okgo/request/ProgressRequestBody;->listener:Lcom/leidong/open/http/okgo/request/ProgressRequestBody$Listener;
+    iget-object v1, v1, Lcom/leidong/open/http/okgo/request/ProgressRequestBody;->listener:Lcom/leidong/open/http/okgo/request/ProgressRequestBody$Listener;
 
-    if-eqz v8, :cond_3
+    if-eqz v1, :cond_3
 
-    iget-object v8, v0, Lcom/leidong/open/http/okgo/request/ProgressRequestBody$CountingSink;->this$0:Lcom/leidong/open/http/okgo/request/ProgressRequestBody;
+    iget-object v1, v0, Lcom/leidong/open/http/okgo/request/ProgressRequestBody$CountingSink;->this$0:Lcom/leidong/open/http/okgo/request/ProgressRequestBody;
 
-    iget-object v12, v8, Lcom/leidong/open/http/okgo/request/ProgressRequestBody;->listener:Lcom/leidong/open/http/okgo/request/ProgressRequestBody$Listener;
+    iget-object v9, v1, Lcom/leidong/open/http/okgo/request/ProgressRequestBody;->listener:Lcom/leidong/open/http/okgo/request/ProgressRequestBody$Listener;
 
-    iget-wide v13, v0, Lcom/leidong/open/http/okgo/request/ProgressRequestBody$CountingSink;->bytesWritten:J
+    iget-wide v10, v0, Lcom/leidong/open/http/okgo/request/ProgressRequestBody$CountingSink;->bytesWritten:J
 
-    iget-wide v8, v0, Lcom/leidong/open/http/okgo/request/ProgressRequestBody$CountingSink;->contentLength:J
+    iget-wide v12, v0, Lcom/leidong/open/http/okgo/request/ProgressRequestBody$CountingSink;->contentLength:J
 
-    move-wide v15, v8
-
-    move-wide/from16 v17, v3
-
-    invoke-interface/range {v12 .. v18}, Lcom/leidong/open/http/okgo/request/ProgressRequestBody$Listener;->onRequestProgress(JJJ)V
+    invoke-interface/range {v9 .. v15}, Lcom/leidong/open/http/okgo/request/ProgressRequestBody$Listener;->onRequestProgress(JJJ)V
 
     .line 92
     :cond_3
     invoke-static {}, Ljava/lang/System;->currentTimeMillis()J
 
-    move-result-wide v8
+    move-result-wide v1
 
-    iput-wide v8, v0, Lcom/leidong/open/http/okgo/request/ProgressRequestBody$CountingSink;->lastRefreshUiTime:J
+    iput-wide v1, v0, Lcom/leidong/open/http/okgo/request/ProgressRequestBody$CountingSink;->lastRefreshUiTime:J
 
     .line 93
-    iget-wide v8, v0, Lcom/leidong/open/http/okgo/request/ProgressRequestBody$CountingSink;->bytesWritten:J
+    iget-wide v1, v0, Lcom/leidong/open/http/okgo/request/ProgressRequestBody$CountingSink;->bytesWritten:J
 
-    iput-wide v8, v0, Lcom/leidong/open/http/okgo/request/ProgressRequestBody$CountingSink;->lastWriteBytes:J
+    iput-wide v1, v0, Lcom/leidong/open/http/okgo/request/ProgressRequestBody$CountingSink;->lastWriteBytes:J
 
-    .line 95
-    .end local v3    # "networkSpeed":J
-    .end local v6    # "diffTime":J
-    .end local v10    # "diffBytes":J
     :cond_4
     return-void
 .end method

@@ -17,11 +17,9 @@
 # virtual methods
 .method protected onCreate(Landroid/os/Bundle;)V
     .locals 0
-    .param p1, "savedInstanceState"    # Landroid/os/Bundle;
 
     .line 12
     invoke-super {p0, p1}, Landroid/app/Activity;->onCreate(Landroid/os/Bundle;)V
 
-    .line 15
     return-void
 .end method

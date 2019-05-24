@@ -21,7 +21,6 @@
 # direct methods
 .method constructor <init>(Lcom/leidong/sdk/s/core/activity/SdkPayActionActivity;)V
     .locals 0
-    .param p1, "this$0"    # Lcom/leidong/sdk/s/core/activity/SdkPayActionActivity;
 
     .line 55
     iput-object p1, p0, Lcom/leidong/sdk/s/core/activity/SdkPayActionActivity$1;->this$0:Lcom/leidong/sdk/s/core/activity/SdkPayActionActivity;
@@ -34,52 +33,40 @@
 
 # virtual methods
 .method public handleMessage(Landroid/os/Message;)V
-    .locals 2
-    .param p1, "msg"    # Landroid/os/Message;
+    .locals 1
 
     .line 59
     invoke-super {p0, p1}, Landroid/os/Handler;->handleMessage(Landroid/os/Message;)V
 
     .line 61
-    iget v0, p1, Landroid/os/Message;->what:I
+    iget p1, p1, Landroid/os/Message;->what:I
 
-    packed-switch v0, :pswitch_data_0
+    packed-switch p1, :pswitch_data_0
 
-    goto :goto_0
-
-    .line 80
-    :pswitch_0
-    goto :goto_0
-
-    .line 72
-    :pswitch_1
     goto :goto_0
 
     .line 63
-    :pswitch_2
+    :pswitch_0
+    iget-object p1, p0, Lcom/leidong/sdk/s/core/activity/SdkPayActionActivity$1;->this$0:Lcom/leidong/sdk/s/core/activity/SdkPayActionActivity;
+
     iget-object v0, p0, Lcom/leidong/sdk/s/core/activity/SdkPayActionActivity$1;->this$0:Lcom/leidong/sdk/s/core/activity/SdkPayActionActivity;
 
-    iget-object v1, p0, Lcom/leidong/sdk/s/core/activity/SdkPayActionActivity$1;->this$0:Lcom/leidong/sdk/s/core/activity/SdkPayActionActivity;
+    invoke-static {v0}, Lcom/leidong/sdk/s/core/activity/SdkPayActionActivity;->access$000(Lcom/leidong/sdk/s/core/activity/SdkPayActionActivity;)Ljava/lang/String;
 
-    # getter for: Lcom/leidong/sdk/s/core/activity/SdkPayActionActivity;->payDataString:Ljava/lang/String;
-    invoke-static {v1}, Lcom/leidong/sdk/s/core/activity/SdkPayActionActivity;->access$000(Lcom/leidong/sdk/s/core/activity/SdkPayActionActivity;)Ljava/lang/String;
+    move-result-object v0
 
-    move-result-object v1
+    invoke-static {p1, v0}, Lcom/leidong/sdk/s/core/activity/SdkPayActionActivity;->access$100(Lcom/leidong/sdk/s/core/activity/SdkPayActionActivity;Ljava/lang/String;)V
 
-    # invokes: Lcom/leidong/sdk/s/core/activity/SdkPayActionActivity;->payUmpop(Ljava/lang/String;)V
-    invoke-static {v0, v1}, Lcom/leidong/sdk/s/core/activity/SdkPayActionActivity;->access$100(Lcom/leidong/sdk/s/core/activity/SdkPayActionActivity;Ljava/lang/String;)V
-
-    .line 64
-    nop
-
-    .line 84
     :goto_0
+    :pswitch_1
     return-void
+
+    nop
 
     :pswitch_data_0
     .packed-switch 0x1
-        :pswitch_2
-        :pswitch_1
         :pswitch_0
+        :pswitch_1
+        :pswitch_1
     .end packed-switch
 .end method

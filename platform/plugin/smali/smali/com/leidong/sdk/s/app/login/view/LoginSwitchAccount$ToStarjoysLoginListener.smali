@@ -24,9 +24,8 @@
 # direct methods
 .method constructor <init>(Lcom/leidong/sdk/s/app/login/view/LoginSwitchAccount;)V
     .locals 0
-    .param p1, "this$0"    # Lcom/leidong/sdk/s/app/login/view/LoginSwitchAccount;
 
-    .line 311
+    .line 312
     iput-object p1, p0, Lcom/leidong/sdk/s/app/login/view/LoginSwitchAccount$ToStarjoysLoginListener;->this$0:Lcom/leidong/sdk/s/app/login/view/LoginSwitchAccount;
 
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -37,19 +36,16 @@
 
 # virtual methods
 .method public onClick(Landroid/view/View;)V
-    .locals 1
-    .param p1, "arg0"    # Landroid/view/View;
-
-    .line 314
-    iget-object v0, p0, Lcom/leidong/sdk/s/app/login/view/LoginSwitchAccount$ToStarjoysLoginListener;->this$0:Lcom/leidong/sdk/s/app/login/view/LoginSwitchAccount;
-
-    # getter for: Lcom/leidong/sdk/s/app/login/view/LoginSwitchAccount;->father:Lcom/leidong/sdk/s/app/login/view/LoginContent;
-    invoke-static {v0}, Lcom/leidong/sdk/s/app/login/view/LoginSwitchAccount;->access$1000(Lcom/leidong/sdk/s/app/login/view/LoginSwitchAccount;)Lcom/leidong/sdk/s/app/login/view/LoginContent;
-
-    move-result-object v0
-
-    invoke-virtual {v0}, Lcom/leidong/sdk/s/app/login/view/LoginContent;->swtichToAccount()V
+    .locals 0
 
     .line 315
+    iget-object p1, p0, Lcom/leidong/sdk/s/app/login/view/LoginSwitchAccount$ToStarjoysLoginListener;->this$0:Lcom/leidong/sdk/s/app/login/view/LoginSwitchAccount;
+
+    invoke-static {p1}, Lcom/leidong/sdk/s/app/login/view/LoginSwitchAccount;->access$1000(Lcom/leidong/sdk/s/app/login/view/LoginSwitchAccount;)Lcom/leidong/sdk/s/app/login/view/LoginContent;
+
+    move-result-object p1
+
+    invoke-virtual {p1}, Lcom/leidong/sdk/s/app/login/view/LoginContent;->swtichToAccount()V
+
     return-void
 .end method

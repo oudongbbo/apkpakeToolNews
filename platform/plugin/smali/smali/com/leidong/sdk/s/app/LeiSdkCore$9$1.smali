@@ -24,7 +24,6 @@
 # direct methods
 .method constructor <init>(Lcom/leidong/sdk/s/app/LeiSdkCore$9;)V
     .locals 0
-    .param p1, "this$1"    # Lcom/leidong/sdk/s/app/LeiSdkCore$9;
 
     .line 429
     iput-object p1, p0, Lcom/leidong/sdk/s/app/LeiSdkCore$9$1;->this$1:Lcom/leidong/sdk/s/app/LeiSdkCore$9;
@@ -37,31 +36,26 @@
 
 # virtual methods
 .method public onFail(ILjava/lang/String;)V
-    .locals 1
-    .param p1, "code"    # I
-    .param p2, "errorMsg"    # Ljava/lang/String;
+    .locals 0
 
     .line 475
-    iget-object v0, p0, Lcom/leidong/sdk/s/app/LeiSdkCore$9$1;->this$1:Lcom/leidong/sdk/s/app/LeiSdkCore$9;
+    iget-object p1, p0, Lcom/leidong/sdk/s/app/LeiSdkCore$9$1;->this$1:Lcom/leidong/sdk/s/app/LeiSdkCore$9;
 
-    iget-object v0, v0, Lcom/leidong/sdk/s/app/LeiSdkCore$9;->val$callback:Lcom/leidong/sdk/framework/interfaces/ResultCallback;
+    iget-object p1, p1, Lcom/leidong/sdk/s/app/LeiSdkCore$9;->val$callback:Lcom/leidong/sdk/framework/interfaces/ResultCallback;
 
-    invoke-interface {v0, p2}, Lcom/leidong/sdk/framework/interfaces/ResultCallback;->onFail(Ljava/lang/String;)V
+    invoke-interface {p1, p2}, Lcom/leidong/sdk/framework/interfaces/ResultCallback;->onFail(Ljava/lang/String;)V
 
-    .line 476
     return-void
 .end method
 
 .method public onSuccess(Ljava/lang/String;)V
     .locals 2
-    .param p1, "content"    # Ljava/lang/String;
 
     .line 433
     iget-object v0, p0, Lcom/leidong/sdk/s/app/LeiSdkCore$9$1;->this$1:Lcom/leidong/sdk/s/app/LeiSdkCore$9;
 
     iget-object v0, v0, Lcom/leidong/sdk/s/app/LeiSdkCore$9;->this$0:Lcom/leidong/sdk/s/app/LeiSdkCore;
 
-    # getter for: Lcom/leidong/sdk/s/app/LeiSdkCore;->responseManager:Lcom/leidong/sdk/s/core/http/ResponseManager;
     invoke-static {v0}, Lcom/leidong/sdk/s/app/LeiSdkCore;->access$400(Lcom/leidong/sdk/s/app/LeiSdkCore;)Lcom/leidong/sdk/s/core/http/ResponseManager;
 
     move-result-object v0
@@ -72,6 +66,5 @@
 
     invoke-virtual {v0, p1, v1}, Lcom/leidong/sdk/s/core/http/ResponseManager;->handleUserAuth(Ljava/lang/String;Lcom/leidong/sdk/framework/interfaces/ResultCallback2;)V
 
-    .line 472
     return-void
 .end method

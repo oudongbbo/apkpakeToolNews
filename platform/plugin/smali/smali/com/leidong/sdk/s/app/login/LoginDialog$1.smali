@@ -21,7 +21,6 @@
 # direct methods
 .method constructor <init>(Lcom/leidong/sdk/s/app/login/LoginDialog;)V
     .locals 0
-    .param p1, "this$0"    # Lcom/leidong/sdk/s/app/login/LoginDialog;
 
     .line 119
     iput-object p1, p0, Lcom/leidong/sdk/s/app/login/LoginDialog$1;->this$0:Lcom/leidong/sdk/s/app/login/LoginDialog;
@@ -34,40 +33,36 @@
 
 # virtual methods
 .method public dispatchMessage(Landroid/os/Message;)V
-    .locals 2
-    .param p1, "msg"    # Landroid/os/Message;
+    .locals 1
 
     .line 123
     invoke-super {p0, p1}, Landroid/os/Handler;->dispatchMessage(Landroid/os/Message;)V
 
     .line 124
-    iget-object v0, p0, Lcom/leidong/sdk/s/app/login/LoginDialog$1;->this$0:Lcom/leidong/sdk/s/app/login/LoginDialog;
+    iget-object p1, p0, Lcom/leidong/sdk/s/app/login/LoginDialog$1;->this$0:Lcom/leidong/sdk/s/app/login/LoginDialog;
 
-    invoke-virtual {v0}, Lcom/leidong/sdk/s/app/login/LoginDialog;->dismiss()V
+    invoke-virtual {p1}, Lcom/leidong/sdk/s/app/login/LoginDialog;->dismiss()V
 
     .line 125
-    iget-object v0, p0, Lcom/leidong/sdk/s/app/login/LoginDialog$1;->this$0:Lcom/leidong/sdk/s/app/login/LoginDialog;
+    iget-object p1, p0, Lcom/leidong/sdk/s/app/login/LoginDialog$1;->this$0:Lcom/leidong/sdk/s/app/login/LoginDialog;
 
-    # getter for: Lcom/leidong/sdk/s/app/login/LoginDialog;->loginListener:Lcom/leidong/sdk/framework/interfaces/SdkResultCallback;
-    invoke-static {v0}, Lcom/leidong/sdk/s/app/login/LoginDialog;->access$000(Lcom/leidong/sdk/s/app/login/LoginDialog;)Lcom/leidong/sdk/framework/interfaces/SdkResultCallback;
+    invoke-static {p1}, Lcom/leidong/sdk/s/app/login/LoginDialog;->access$000(Lcom/leidong/sdk/s/app/login/LoginDialog;)Lcom/leidong/sdk/framework/interfaces/SdkResultCallback;
 
-    move-result-object v0
+    move-result-object p1
 
-    if-eqz v0, :cond_0
+    if-eqz p1, :cond_0
 
     .line 126
-    iget-object v0, p0, Lcom/leidong/sdk/s/app/login/LoginDialog$1;->this$0:Lcom/leidong/sdk/s/app/login/LoginDialog;
+    iget-object p1, p0, Lcom/leidong/sdk/s/app/login/LoginDialog$1;->this$0:Lcom/leidong/sdk/s/app/login/LoginDialog;
 
-    # getter for: Lcom/leidong/sdk/s/app/login/LoginDialog;->loginListener:Lcom/leidong/sdk/framework/interfaces/SdkResultCallback;
-    invoke-static {v0}, Lcom/leidong/sdk/s/app/login/LoginDialog;->access$000(Lcom/leidong/sdk/s/app/login/LoginDialog;)Lcom/leidong/sdk/framework/interfaces/SdkResultCallback;
+    invoke-static {p1}, Lcom/leidong/sdk/s/app/login/LoginDialog;->access$000(Lcom/leidong/sdk/s/app/login/LoginDialog;)Lcom/leidong/sdk/framework/interfaces/SdkResultCallback;
 
-    move-result-object v0
+    move-result-object p1
 
-    const-string v1, ""
+    const-string v0, ""
 
-    invoke-interface {v0, v1}, Lcom/leidong/sdk/framework/interfaces/SdkResultCallback;->onCancel(Ljava/lang/String;)V
+    invoke-interface {p1, v0}, Lcom/leidong/sdk/framework/interfaces/SdkResultCallback;->onCancel(Ljava/lang/String;)V
 
-    .line 128
     :cond_0
     return-void
 .end method

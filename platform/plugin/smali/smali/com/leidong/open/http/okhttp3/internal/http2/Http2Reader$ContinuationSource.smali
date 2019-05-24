@@ -34,7 +34,6 @@
 # direct methods
 .method public constructor <init>(Lcom/leidong/open/http/okio/BufferedSource;)V
     .locals 0
-    .param p1, "source"    # Lcom/leidong/open/http/okio/BufferedSource;
 
     .line 360
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -42,7 +41,6 @@
     .line 361
     iput-object p1, p0, Lcom/leidong/open/http/okhttp3/internal/http2/Http2Reader$ContinuationSource;->source:Lcom/leidong/open/http/okio/BufferedSource;
 
-    .line 362
     return-void
 .end method
 
@@ -58,7 +56,6 @@
     iget v0, p0, Lcom/leidong/open/http/okhttp3/internal/http2/Http2Reader$ContinuationSource;->streamId:I
 
     .line 389
-    .local v0, "previousStreamId":I
     iget-object v1, p0, Lcom/leidong/open/http/okhttp3/internal/http2/Http2Reader$ContinuationSource;->source:Lcom/leidong/open/http/okio/BufferedSource;
 
     invoke-static {v1}, Lcom/leidong/open/http/okhttp3/internal/http2/Http2Reader;->readMedium(Lcom/leidong/open/http/okio/BufferedSource;)I
@@ -81,7 +78,6 @@
     int-to-byte v1, v1
 
     .line 391
-    .local v1, "type":B
     iget-object v2, p0, Lcom/leidong/open/http/okhttp3/internal/http2/Http2Reader$ContinuationSource;->source:Lcom/leidong/open/http/okio/BufferedSource;
 
     invoke-interface {v2}, Lcom/leidong/open/http/okio/BufferedSource;->readByte()B
@@ -135,46 +131,45 @@
 
     iput v2, p0, Lcom/leidong/open/http/okhttp3/internal/http2/Http2Reader$ContinuationSource;->streamId:I
 
-    .line 394
     const/16 v2, 0x9
 
     const/4 v4, 0x0
 
     if-eq v1, v2, :cond_1
 
-    const-string v2, "%s != TYPE_CONTINUATION"
+    const-string v0, "%s != TYPE_CONTINUATION"
 
-    new-array v3, v3, [Ljava/lang/Object;
+    .line 394
+    new-array v2, v3, [Ljava/lang/Object;
 
     invoke-static {v1}, Ljava/lang/Byte;->valueOf(B)Ljava/lang/Byte;
 
-    move-result-object v5
+    move-result-object v1
 
-    aput-object v5, v3, v4
+    aput-object v1, v2, v4
 
-    invoke-static {v2, v3}, Lcom/leidong/open/http/okhttp3/internal/http2/Http2;->ioException(Ljava/lang/String;[Ljava/lang/Object;)Ljava/io/IOException;
+    invoke-static {v0, v2}, Lcom/leidong/open/http/okhttp3/internal/http2/Http2;->ioException(Ljava/lang/String;[Ljava/lang/Object;)Ljava/io/IOException;
 
-    move-result-object v2
+    move-result-object v0
 
-    throw v2
+    throw v0
 
     .line 395
     :cond_1
-    iget v2, p0, Lcom/leidong/open/http/okhttp3/internal/http2/Http2Reader$ContinuationSource;->streamId:I
+    iget v1, p0, Lcom/leidong/open/http/okhttp3/internal/http2/Http2Reader$ContinuationSource;->streamId:I
 
-    if-eq v2, v0, :cond_2
+    if-eq v1, v0, :cond_2
 
-    const-string v2, "TYPE_CONTINUATION streamId changed"
+    const-string v0, "TYPE_CONTINUATION streamId changed"
 
-    new-array v3, v4, [Ljava/lang/Object;
+    new-array v1, v4, [Ljava/lang/Object;
 
-    invoke-static {v2, v3}, Lcom/leidong/open/http/okhttp3/internal/http2/Http2;->ioException(Ljava/lang/String;[Ljava/lang/Object;)Ljava/io/IOException;
+    invoke-static {v0, v1}, Lcom/leidong/open/http/okhttp3/internal/http2/Http2;->ioException(Ljava/lang/String;[Ljava/lang/Object;)Ljava/io/IOException;
 
-    move-result-object v2
+    move-result-object v0
 
-    throw v2
+    throw v0
 
-    .line 396
     :cond_2
     return-void
 .end method
@@ -189,14 +184,11 @@
         }
     .end annotation
 
-    .line 384
     return-void
 .end method
 
 .method public read(Lcom/leidong/open/http/okio/Buffer;J)J
-    .locals 7
-    .param p1, "sink"    # Lcom/leidong/open/http/okio/Buffer;
-    .param p2, "byteCount"    # J
+    .locals 5
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Ljava/io/IOException;
@@ -220,9 +212,9 @@
 
     invoke-interface {v0, v3, v4}, Lcom/leidong/open/http/okio/BufferedSource;->skip(J)V
 
-    .line 367
     const/4 v0, 0x0
 
+    .line 367
     iput-short v0, p0, Lcom/leidong/open/http/okhttp3/internal/http2/Http2Reader$ContinuationSource;->padding:S
 
     .line 368
@@ -250,34 +242,31 @@
 
     invoke-static {p2, p3, v3, v4}, Ljava/lang/Math;->min(JJ)J
 
-    move-result-wide v3
+    move-result-wide p2
 
-    invoke-interface {v0, p1, v3, v4}, Lcom/leidong/open/http/okio/BufferedSource;->read(Lcom/leidong/open/http/okio/Buffer;J)J
+    invoke-interface {v0, p1, p2, p3}, Lcom/leidong/open/http/okio/BufferedSource;->read(Lcom/leidong/open/http/okio/Buffer;J)J
 
-    move-result-wide v3
+    move-result-wide p1
 
-    .line 374
-    .local v3, "read":J
-    cmp-long v0, v3, v1
+    cmp-long p3, p1, v1
 
-    if-nez v0, :cond_2
+    if-nez p3, :cond_2
 
     return-wide v1
 
     .line 375
     :cond_2
-    iget v0, p0, Lcom/leidong/open/http/okhttp3/internal/http2/Http2Reader$ContinuationSource;->left:I
+    iget p3, p0, Lcom/leidong/open/http/okhttp3/internal/http2/Http2Reader$ContinuationSource;->left:I
 
-    int-to-long v0, v0
+    int-to-long v0, p3
 
-    sub-long v5, v0, v3
+    sub-long v2, v0, p1
 
-    long-to-int v0, v5
+    long-to-int p3, v2
 
-    iput v0, p0, Lcom/leidong/open/http/okhttp3/internal/http2/Http2Reader$ContinuationSource;->left:I
+    iput p3, p0, Lcom/leidong/open/http/okhttp3/internal/http2/Http2Reader$ContinuationSource;->left:I
 
-    .line 376
-    return-wide v3
+    return-wide p1
 .end method
 
 .method public timeout()Lcom/leidong/open/http/okio/Timeout;

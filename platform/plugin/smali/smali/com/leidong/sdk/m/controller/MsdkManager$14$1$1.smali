@@ -24,9 +24,8 @@
 # direct methods
 .method constructor <init>(Lcom/leidong/sdk/m/controller/MsdkManager$14$1;)V
     .locals 0
-    .param p1, "this$2"    # Lcom/leidong/sdk/m/controller/MsdkManager$14$1;
 
-    .line 650
+    .line 651
     iput-object p1, p0, Lcom/leidong/sdk/m/controller/MsdkManager$14$1$1;->this$2:Lcom/leidong/sdk/m/controller/MsdkManager$14$1;
 
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -37,29 +36,32 @@
 
 # virtual methods
 .method public onFail(ILjava/lang/String;)V
-    .locals 1
-    .param p1, "code"    # I
-    .param p2, "msg"    # Ljava/lang/String;
-
-    .line 658
-    iget-object v0, p0, Lcom/leidong/sdk/m/controller/MsdkManager$14$1$1;->this$2:Lcom/leidong/sdk/m/controller/MsdkManager$14$1;
-
-    iget-object v0, v0, Lcom/leidong/sdk/m/controller/MsdkManager$14$1;->this$1:Lcom/leidong/sdk/m/controller/MsdkManager$14;
-
-    iget-object v0, v0, Lcom/leidong/sdk/m/controller/MsdkManager$14;->this$0:Lcom/leidong/sdk/m/controller/MsdkManager;
-
-    # invokes: Lcom/leidong/sdk/m/controller/MsdkManager;->initCallBackFail(Ljava/lang/String;)V
-    invoke-static {v0, p2}, Lcom/leidong/sdk/m/controller/MsdkManager;->access$1000(Lcom/leidong/sdk/m/controller/MsdkManager;Ljava/lang/String;)V
+    .locals 0
 
     .line 659
+    iget-object p1, p0, Lcom/leidong/sdk/m/controller/MsdkManager$14$1$1;->this$2:Lcom/leidong/sdk/m/controller/MsdkManager$14$1;
+
+    iget-object p1, p1, Lcom/leidong/sdk/m/controller/MsdkManager$14$1;->this$1:Lcom/leidong/sdk/m/controller/MsdkManager$14;
+
+    iget-object p1, p1, Lcom/leidong/sdk/m/controller/MsdkManager$14;->this$0:Lcom/leidong/sdk/m/controller/MsdkManager;
+
+    invoke-static {p1, p2}, Lcom/leidong/sdk/m/controller/MsdkManager;->access$1000(Lcom/leidong/sdk/m/controller/MsdkManager;Ljava/lang/String;)V
+
     return-void
 .end method
 
 .method public onSuccess(Ljava/lang/String;)V
-    .locals 4
-    .param p1, "content"    # Ljava/lang/String;
+    .locals 3
 
-    .line 654
+    .line 655
+    iget-object p1, p0, Lcom/leidong/sdk/m/controller/MsdkManager$14$1$1;->this$2:Lcom/leidong/sdk/m/controller/MsdkManager$14$1;
+
+    iget-object p1, p1, Lcom/leidong/sdk/m/controller/MsdkManager$14$1;->this$1:Lcom/leidong/sdk/m/controller/MsdkManager$14;
+
+    iget-object p1, p1, Lcom/leidong/sdk/m/controller/MsdkManager$14;->this$0:Lcom/leidong/sdk/m/controller/MsdkManager;
+
+    iget-object p1, p1, Lcom/leidong/sdk/m/controller/MsdkManager;->initHandler:Landroid/os/Handler;
+
     iget-object v0, p0, Lcom/leidong/sdk/m/controller/MsdkManager$14$1$1;->this$2:Lcom/leidong/sdk/m/controller/MsdkManager$14$1;
 
     iget-object v0, v0, Lcom/leidong/sdk/m/controller/MsdkManager$14$1;->this$1:Lcom/leidong/sdk/m/controller/MsdkManager$14;
@@ -72,30 +74,21 @@
 
     iget-object v1, v1, Lcom/leidong/sdk/m/controller/MsdkManager$14$1;->this$1:Lcom/leidong/sdk/m/controller/MsdkManager$14;
 
-    iget-object v1, v1, Lcom/leidong/sdk/m/controller/MsdkManager$14;->this$0:Lcom/leidong/sdk/m/controller/MsdkManager;
+    iget-boolean v1, v1, Lcom/leidong/sdk/m/controller/MsdkManager$14;->val$ifShowSplash:Z
 
-    iget-object v1, v1, Lcom/leidong/sdk/m/controller/MsdkManager;->initHandler:Landroid/os/Handler;
-
-    iget-object v2, p0, Lcom/leidong/sdk/m/controller/MsdkManager$14$1$1;->this$2:Lcom/leidong/sdk/m/controller/MsdkManager$14$1;
-
-    iget-object v2, v2, Lcom/leidong/sdk/m/controller/MsdkManager$14$1;->this$1:Lcom/leidong/sdk/m/controller/MsdkManager$14;
-
-    iget-boolean v2, v2, Lcom/leidong/sdk/m/controller/MsdkManager$14;->val$ifShowSplash:Z
-
-    invoke-static {v2}, Ljava/lang/Boolean;->valueOf(Z)Ljava/lang/Boolean;
-
-    move-result-object v2
-
-    const/4 v3, 0x0
-
-    invoke-virtual {v1, v3, v2}, Landroid/os/Handler;->obtainMessage(ILjava/lang/Object;)Landroid/os/Message;
+    invoke-static {v1}, Ljava/lang/Boolean;->valueOf(Z)Ljava/lang/Boolean;
 
     move-result-object v1
 
-    const-wide/16 v2, 0xc8
+    const/4 v2, 0x0
 
-    invoke-virtual {v0, v1, v2, v3}, Landroid/os/Handler;->sendMessageDelayed(Landroid/os/Message;J)Z
+    invoke-virtual {v0, v2, v1}, Landroid/os/Handler;->obtainMessage(ILjava/lang/Object;)Landroid/os/Message;
 
-    .line 655
+    move-result-object v0
+
+    const-wide/16 v1, 0xc8
+
+    invoke-virtual {p1, v0, v1, v2}, Landroid/os/Handler;->sendMessageDelayed(Landroid/os/Message;J)Z
+
     return-void
 .end method

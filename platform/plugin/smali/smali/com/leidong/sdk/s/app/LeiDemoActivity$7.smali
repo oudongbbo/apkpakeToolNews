@@ -24,7 +24,6 @@
 # direct methods
 .method constructor <init>(Lcom/leidong/sdk/s/app/LeiDemoActivity;)V
     .locals 0
-    .param p1, "this$0"    # Lcom/leidong/sdk/s/app/LeiDemoActivity;
 
     .line 233
     iput-object p1, p0, Lcom/leidong/sdk/s/app/LeiDemoActivity$7;->this$0:Lcom/leidong/sdk/s/app/LeiDemoActivity;
@@ -37,33 +36,31 @@
 
 # virtual methods
 .method public onClick(Landroid/view/View;)V
-    .locals 3
-    .param p1, "v"    # Landroid/view/View;
+    .locals 2
 
     .line 237
-    new-instance v0, Lcom/leidong/sdk/framework/user/AccountManager;
+    new-instance p1, Lcom/leidong/sdk/framework/user/AccountManager;
 
-    iget-object v1, p0, Lcom/leidong/sdk/s/app/LeiDemoActivity$7;->this$0:Lcom/leidong/sdk/s/app/LeiDemoActivity;
-
-    invoke-direct {v0, v1}, Lcom/leidong/sdk/framework/user/AccountManager;-><init>(Landroid/content/Context;)V
-
-    iget-object v1, p0, Lcom/leidong/sdk/s/app/LeiDemoActivity$7;->this$0:Lcom/leidong/sdk/s/app/LeiDemoActivity;
-
-    invoke-virtual {v0, v1}, Lcom/leidong/sdk/framework/user/AccountManager;->cleanAccountInfoCache(Landroid/content/Context;)V
-
-    .line 239
     iget-object v0, p0, Lcom/leidong/sdk/s/app/LeiDemoActivity$7;->this$0:Lcom/leidong/sdk/s/app/LeiDemoActivity;
 
-    const-string v1, "\u6e05\u9664\u6570\u636e\u6210\u529f"
+    invoke-direct {p1, v0}, Lcom/leidong/sdk/framework/user/AccountManager;-><init>(Landroid/content/Context;)V
 
-    const/4 v2, 0x0
+    iget-object v0, p0, Lcom/leidong/sdk/s/app/LeiDemoActivity$7;->this$0:Lcom/leidong/sdk/s/app/LeiDemoActivity;
 
-    invoke-static {v0, v1, v2}, Landroid/widget/Toast;->makeText(Landroid/content/Context;Ljava/lang/CharSequence;I)Landroid/widget/Toast;
+    invoke-virtual {p1, v0}, Lcom/leidong/sdk/framework/user/AccountManager;->cleanAccountInfoCache(Landroid/content/Context;)V
 
-    move-result-object v0
+    .line 239
+    iget-object p1, p0, Lcom/leidong/sdk/s/app/LeiDemoActivity$7;->this$0:Lcom/leidong/sdk/s/app/LeiDemoActivity;
 
-    invoke-virtual {v0}, Landroid/widget/Toast;->show()V
+    const-string v0, "\u6e05\u9664\u6570\u636e\u6210\u529f"
 
-    .line 241
+    const/4 v1, 0x0
+
+    invoke-static {p1, v0, v1}, Landroid/widget/Toast;->makeText(Landroid/content/Context;Ljava/lang/CharSequence;I)Landroid/widget/Toast;
+
+    move-result-object p1
+
+    invoke-virtual {p1}, Landroid/widget/Toast;->show()V
+
     return-void
 .end method

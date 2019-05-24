@@ -28,9 +28,6 @@
 # direct methods
 .method public constructor <init>(ZLcom/leidong/open/http/okio/BufferedSource;Lcom/leidong/open/http/okio/BufferedSink;)V
     .locals 0
-    .param p1, "client"    # Z
-    .param p2, "source"    # Lcom/leidong/open/http/okio/BufferedSource;
-    .param p3, "sink"    # Lcom/leidong/open/http/okio/BufferedSink;
 
     .line 577
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -44,6 +41,5 @@
     .line 580
     iput-object p3, p0, Lcom/leidong/open/http/okhttp3/internal/ws/RealWebSocket$Streams;->sink:Lcom/leidong/open/http/okio/BufferedSink;
 
-    .line 581
     return-void
 .end method

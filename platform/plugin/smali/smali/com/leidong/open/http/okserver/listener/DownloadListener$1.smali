@@ -28,26 +28,18 @@
 # virtual methods
 .method public onError(Lcom/leidong/open/http/okserver/download/DownloadInfo;Ljava/lang/String;Ljava/lang/Exception;)V
     .locals 0
-    .param p1, "downloadInfo"    # Lcom/leidong/open/http/okserver/download/DownloadInfo;
-    .param p2, "errorMsg"    # Ljava/lang/String;
-    .param p3, "e"    # Ljava/lang/Exception;
 
-    .line 58
     return-void
 .end method
 
 .method public onFinish(Lcom/leidong/open/http/okserver/download/DownloadInfo;)V
     .locals 0
-    .param p1, "downloadInfo"    # Lcom/leidong/open/http/okserver/download/DownloadInfo;
 
-    .line 54
     return-void
 .end method
 
 .method public onProgress(Lcom/leidong/open/http/okserver/download/DownloadInfo;)V
     .locals 0
-    .param p1, "downloadInfo"    # Lcom/leidong/open/http/okserver/download/DownloadInfo;
 
-    .line 50
     return-void
 .end method

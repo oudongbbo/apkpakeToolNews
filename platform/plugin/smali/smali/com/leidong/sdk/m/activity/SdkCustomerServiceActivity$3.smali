@@ -21,7 +21,6 @@
 # direct methods
 .method constructor <init>(Lcom/leidong/sdk/m/activity/SdkCustomerServiceActivity;)V
     .locals 0
-    .param p1, "this$0"    # Lcom/leidong/sdk/m/activity/SdkCustomerServiceActivity;
 
     .line 169
     iput-object p1, p0, Lcom/leidong/sdk/m/activity/SdkCustomerServiceActivity$3;->this$0:Lcom/leidong/sdk/m/activity/SdkCustomerServiceActivity;
@@ -34,17 +33,15 @@
 
 # virtual methods
 .method public dispatchMessage(Landroid/os/Message;)V
-    .locals 1
-    .param p1, "msg"    # Landroid/os/Message;
+    .locals 0
 
     .line 173
     invoke-super {p0, p1}, Landroid/os/Handler;->dispatchMessage(Landroid/os/Message;)V
 
     .line 174
-    iget-object v0, p0, Lcom/leidong/sdk/m/activity/SdkCustomerServiceActivity$3;->this$0:Lcom/leidong/sdk/m/activity/SdkCustomerServiceActivity;
+    iget-object p1, p0, Lcom/leidong/sdk/m/activity/SdkCustomerServiceActivity$3;->this$0:Lcom/leidong/sdk/m/activity/SdkCustomerServiceActivity;
 
-    invoke-virtual {v0}, Lcom/leidong/sdk/m/activity/SdkCustomerServiceActivity;->finish()V
+    invoke-virtual {p1}, Lcom/leidong/sdk/m/activity/SdkCustomerServiceActivity;->finish()V
 
-    .line 175
     return-void
 .end method

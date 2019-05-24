@@ -44,30 +44,28 @@
 
 # virtual methods
 .method public onClick(Landroid/view/View;)V
-    .locals 2
-    .param p1, "v"    # Landroid/view/View;
+    .locals 1
 
     .line 123
-    iget-boolean v0, p0, Lcom/leidong/sdk/m/controller/UpdateManager$1;->val$isForce:Z
+    iget-boolean p1, p0, Lcom/leidong/sdk/m/controller/UpdateManager$1;->val$isForce:Z
 
-    if-eqz v0, :cond_0
+    if-eqz p1, :cond_0
 
     .line 124
-    iget-object v0, p0, Lcom/leidong/sdk/m/controller/UpdateManager$1;->val$context:Landroid/content/Context;
+    iget-object p1, p0, Lcom/leidong/sdk/m/controller/UpdateManager$1;->val$context:Landroid/content/Context;
 
-    const-string v1, "\u4e3a\u4e86\u66f4\u597d\u7684\u6e38\u620f\u4f53\u9a8c\uff0c\u5f53\u524d\u7248\u672c\u9700\u8981\u66f4\u65b0\u540e\u624d\u80fd\u7ee7\u7eed\u6e38\u620f."
+    const-string v0, "\u4e3a\u4e86\u66f4\u597d\u7684\u6e38\u620f\u4f53\u9a8c\uff0c\u5f53\u524d\u7248\u672c\u9700\u8981\u66f4\u65b0\u540e\u624d\u80fd\u7ee7\u7eed\u6e38\u620f."
 
-    invoke-static {v0, v1}, Lcom/leidong/sdk/m/controller/UpdateManager;->showTips(Landroid/content/Context;Ljava/lang/String;)V
+    invoke-static {p1, v0}, Lcom/leidong/sdk/m/controller/UpdateManager;->showTips(Landroid/content/Context;Ljava/lang/String;)V
 
     goto :goto_0
 
     .line 126
     :cond_0
-    iget-object v0, p0, Lcom/leidong/sdk/m/controller/UpdateManager$1;->val$mMaterialDialog:Lcom/leidong/sdk/framework/view/dialog/MaterialDialog;
+    iget-object p1, p0, Lcom/leidong/sdk/m/controller/UpdateManager$1;->val$mMaterialDialog:Lcom/leidong/sdk/framework/view/dialog/MaterialDialog;
 
-    invoke-virtual {v0}, Lcom/leidong/sdk/framework/view/dialog/MaterialDialog;->dismiss()V
+    invoke-virtual {p1}, Lcom/leidong/sdk/framework/view/dialog/MaterialDialog;->dismiss()V
 
-    .line 128
     :goto_0
     return-void
 .end method

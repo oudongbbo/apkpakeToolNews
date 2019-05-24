@@ -15,8 +15,6 @@
 
 .method public static addAccount(Landroid/content/Context;Lcom/leidong/sdk/framework/user/UserInfoBean;)V
     .locals 1
-    .param p0, "context"    # Landroid/content/Context;
-    .param p1, "user"    # Lcom/leidong/sdk/framework/user/UserInfoBean;
 
     .line 69
     new-instance v0, Lcom/leidong/sdk/framework/user/AccountManager;
@@ -25,97 +23,75 @@
 
     invoke-virtual {v0, p0, p1}, Lcom/leidong/sdk/framework/user/AccountManager;->addAccountToFile(Landroid/content/Context;Lcom/leidong/sdk/framework/user/UserInfoBean;)V
 
-    .line 70
     return-void
 .end method
 
 .method public static showSdkPayDialog(Landroid/content/Context;Ljava/lang/String;Lcom/leidong/sdk/framework/pay/PayInfoBean;Lcom/leidong/sdk/framework/interfaces/SdkResultCallback;)V
     .locals 0
-    .param p0, "context"    # Landroid/content/Context;
-    .param p1, "host"    # Ljava/lang/String;
-    .param p2, "payinfo"    # Lcom/leidong/sdk/framework/pay/PayInfoBean;
-    .param p3, "paycallback"    # Lcom/leidong/sdk/framework/interfaces/SdkResultCallback;
 
     .line 43
     invoke-static {p0, p1, p2, p3}, Lcom/leidong/sdk/framework/web/SdkWebManager;->showSdkPayDialog(Landroid/content/Context;Ljava/lang/String;Lcom/leidong/sdk/framework/pay/PayInfoBean;Lcom/leidong/sdk/framework/interfaces/SdkResultCallback;)V
 
-    .line 44
     return-void
 .end method
 
 .method public static showWebDialog(Landroid/content/Context;Ljava/lang/String;ZZLcom/leidong/sdk/framework/interfaces/ResultCallback;)V
     .locals 0
-    .param p0, "context"    # Landroid/content/Context;
-    .param p1, "url"    # Ljava/lang/String;
-    .param p2, "canBack"    # Z
-    .param p3, "isTransparent"    # Z
-    .param p4, "sdkcallback"    # Lcom/leidong/sdk/framework/interfaces/ResultCallback;
 
     .line 37
     invoke-static {p0, p1, p2, p3, p4}, Lcom/leidong/sdk/framework/web/SdkWebManager;->showSdkWebDialog(Landroid/content/Context;Ljava/lang/String;ZZLcom/leidong/sdk/framework/interfaces/ResultCallback;)V
 
-    .line 38
     return-void
 .end method
 
 .method public static unZipString(Landroid/content/Context;Ljava/lang/String;)Ljava/lang/String;
-    .locals 1
-    .param p0, "context"    # Landroid/content/Context;
-    .param p1, "content"    # Ljava/lang/String;
+    .locals 0
 
     .line 57
     invoke-static {p0, p1}, Lcom/leidong/sdk/framework/encrypt/CodeManager;->decodeSpecial(Landroid/content/Context;Ljava/lang/String;)Ljava/lang/String;
 
-    move-result-object v0
+    move-result-object p0
 
-    return-object v0
+    return-object p0
 .end method
 
 .method public static unZipString(Ljava/lang/String;Ljava/lang/String;)Ljava/lang/String;
-    .locals 1
-    .param p0, "content"    # Ljava/lang/String;
-    .param p1, "key"    # Ljava/lang/String;
+    .locals 0
 
     .line 49
     invoke-static {p0, p1}, Lcom/leidong/sdk/framework/encrypt/CodeManager;->decodeSpecial(Ljava/lang/String;Ljava/lang/String;)Ljava/lang/String;
 
-    move-result-object v0
+    move-result-object p0
 
-    return-object v0
+    return-object p0
 .end method
 
 .method public static zipString(Landroid/content/Context;Ljava/lang/String;)Ljava/lang/String;
-    .locals 1
-    .param p0, "context"    # Landroid/content/Context;
-    .param p1, "content"    # Ljava/lang/String;
+    .locals 0
 
     .line 61
     invoke-static {p0, p1}, Lcom/leidong/sdk/framework/encrypt/CodeManager;->encodeSpecial(Landroid/content/Context;Ljava/lang/String;)Ljava/lang/String;
 
-    move-result-object v0
+    move-result-object p0
 
-    return-object v0
+    return-object p0
 .end method
 
 .method public static zipString(Ljava/lang/String;Ljava/lang/String;)Ljava/lang/String;
-    .locals 1
-    .param p0, "content"    # Ljava/lang/String;
-    .param p1, "key"    # Ljava/lang/String;
+    .locals 0
 
     .line 53
     invoke-static {p0, p1}, Lcom/leidong/sdk/framework/encrypt/CodeManager;->encodeSpecial(Ljava/lang/String;Ljava/lang/String;)Ljava/lang/String;
 
-    move-result-object v0
+    move-result-object p0
 
-    return-object v0
+    return-object p0
 .end method
 
 
 # virtual methods
 .method public showSdkCustomerServiceActivity(Landroid/content/Context;Ljava/lang/String;)V
-    .locals 3
-    .param p1, "context"    # Landroid/content/Context;
-    .param p2, "url"    # Ljava/lang/String;
+    .locals 2
 
     .line 21
     new-instance v0, Lcom/leidong/sdk/m/http/MReqUtils;
@@ -124,41 +100,37 @@
 
     invoke-virtual {v0, p1, p2}, Lcom/leidong/sdk/m/http/MReqUtils;->buildCustomerServiceWebParams(Landroid/content/Context;Ljava/lang/String;)Ljava/lang/String;
 
-    move-result-object v0
+    move-result-object p2
 
     .line 23
-    .local v0, "webUrl":Ljava/lang/String;
-    invoke-static {v0}, Landroid/text/TextUtils;->isEmpty(Ljava/lang/CharSequence;)Z
+    invoke-static {p2}, Landroid/text/TextUtils;->isEmpty(Ljava/lang/CharSequence;)Z
 
-    move-result v1
+    move-result v0
 
-    if-eqz v1, :cond_0
+    if-eqz v0, :cond_0
 
-    .line 24
     return-void
 
     .line 26
     :cond_0
-    new-instance v1, Landroid/content/Intent;
+    new-instance v0, Landroid/content/Intent;
 
-    const-class v2, Lcom/leidong/sdk/m/activity/SdkCustomerServiceActivity;
+    const-class v1, Lcom/leidong/sdk/m/activity/SdkCustomerServiceActivity;
 
-    invoke-direct {v1, p1, v2}, Landroid/content/Intent;-><init>(Landroid/content/Context;Ljava/lang/Class;)V
+    invoke-direct {v0, p1, v1}, Landroid/content/Intent;-><init>(Landroid/content/Context;Ljava/lang/Class;)V
+
+    const/high16 v1, 0x10000000
 
     .line 27
-    .local v1, "intent":Landroid/content/Intent;
-    const/high16 v2, 0x10000000
+    invoke-virtual {v0, v1}, Landroid/content/Intent;->setFlags(I)Landroid/content/Intent;
 
-    invoke-virtual {v1, v2}, Landroid/content/Intent;->setFlags(I)Landroid/content/Intent;
+    const-string v1, "url"
 
     .line 28
-    const-string v2, "url"
-
-    invoke-virtual {v1, v2, v0}, Landroid/content/Intent;->putExtra(Ljava/lang/String;Ljava/lang/String;)Landroid/content/Intent;
+    invoke-virtual {v0, v1, p2}, Landroid/content/Intent;->putExtra(Ljava/lang/String;Ljava/lang/String;)Landroid/content/Intent;
 
     .line 29
-    invoke-virtual {p1, v1}, Landroid/content/Context;->startActivity(Landroid/content/Intent;)V
+    invoke-virtual {p1, v0}, Landroid/content/Context;->startActivity(Landroid/content/Intent;)V
 
-    .line 30
     return-void
 .end method

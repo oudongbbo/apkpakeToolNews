@@ -24,7 +24,6 @@
 # direct methods
 .method constructor <init>(Lcom/leidong/sdk/s/app/login/view/LoginByForgetPwd$2$1;)V
     .locals 0
-    .param p1, "this$2"    # Lcom/leidong/sdk/s/app/login/view/LoginByForgetPwd$2$1;
 
     .line 166
     iput-object p1, p0, Lcom/leidong/sdk/s/app/login/view/LoginByForgetPwd$2$1$1;->this$2:Lcom/leidong/sdk/s/app/login/view/LoginByForgetPwd$2$1;
@@ -38,7 +37,6 @@
 # virtual methods
 .method public onFail(Ljava/lang/String;)V
     .locals 1
-    .param p1, "message"    # Ljava/lang/String;
 
     .line 202
     iget-object v0, p0, Lcom/leidong/sdk/s/app/login/view/LoginByForgetPwd$2$1$1;->this$2:Lcom/leidong/sdk/s/app/login/view/LoginByForgetPwd$2$1;
@@ -49,13 +47,11 @@
 
     invoke-virtual {v0, p1}, Lcom/leidong/sdk/s/app/login/view/LoginByForgetPwd;->showToast(Ljava/lang/String;)V
 
-    .line 203
     return-void
 .end method
 
 .method public onSuccess(Landroid/os/Bundle;)V
     .locals 2
-    .param p1, "bundle"    # Landroid/os/Bundle;
 
     .line 172
     iget-object v0, p0, Lcom/leidong/sdk/s/app/login/view/LoginByForgetPwd$2$1$1;->this$2:Lcom/leidong/sdk/s/app/login/view/LoginByForgetPwd$2$1;
@@ -74,6 +70,5 @@
 
     invoke-virtual {v0, v1}, Landroid/app/Activity;->runOnUiThread(Ljava/lang/Runnable;)V
 
-    .line 198
     return-void
 .end method

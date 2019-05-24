@@ -25,9 +25,6 @@
 # direct methods
 .method public constructor <init>(ILjava/lang/String;Ljava/lang/String;)V
     .locals 0
-    .param p1, "result"    # I
-    .param p2, "successMsg"    # Ljava/lang/String;
-    .param p3, "errorMsg"    # Ljava/lang/String;
 
     .line 155
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -41,6 +38,5 @@
     .line 158
     iput-object p3, p0, Lcom/leidong/open/utils/ShellUtils$CommandResult;->errorMsg:Ljava/lang/String;
 
-    .line 159
     return-void
 .end method

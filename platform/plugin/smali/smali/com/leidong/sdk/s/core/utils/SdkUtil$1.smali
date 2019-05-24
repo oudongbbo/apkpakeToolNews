@@ -36,20 +36,18 @@
 
 # virtual methods
 .method public onDismiss(Landroid/content/DialogInterface;)V
-    .locals 1
-    .param p1, "paramDialogInterface"    # Landroid/content/DialogInterface;
+    .locals 0
 
     .line 63
-    iget-object v0, p0, Lcom/leidong/sdk/s/core/utils/SdkUtil$1;->val$sdkcallback:Lcom/leidong/sdk/framework/interfaces/ResultCallback;
+    iget-object p1, p0, Lcom/leidong/sdk/s/core/utils/SdkUtil$1;->val$sdkcallback:Lcom/leidong/sdk/framework/interfaces/ResultCallback;
 
-    if-eqz v0, :cond_0
+    if-eqz p1, :cond_0
 
     .line 64
-    iget-object v0, p0, Lcom/leidong/sdk/s/core/utils/SdkUtil$1;->val$sdkcallback:Lcom/leidong/sdk/framework/interfaces/ResultCallback;
+    iget-object p1, p0, Lcom/leidong/sdk/s/core/utils/SdkUtil$1;->val$sdkcallback:Lcom/leidong/sdk/framework/interfaces/ResultCallback;
 
-    invoke-interface {v0}, Lcom/leidong/sdk/framework/interfaces/ResultCallback;->onSuccess()V
+    invoke-interface {p1}, Lcom/leidong/sdk/framework/interfaces/ResultCallback;->onSuccess()V
 
-    .line 66
     :cond_0
     return-void
 .end method

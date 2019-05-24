@@ -35,8 +35,6 @@
 
 .method synthetic constructor <init>(Lcom/leidong/sdk/framework/web/SdkWebDialog;Lcom/leidong/sdk/framework/web/SdkWebDialog$1;)V
     .locals 0
-    .param p1, "x0"    # Lcom/leidong/sdk/framework/web/SdkWebDialog;
-    .param p2, "x1"    # Lcom/leidong/sdk/framework/web/SdkWebDialog$1;
 
     .line 268
     invoke-direct {p0, p1}, Lcom/leidong/sdk/framework/web/SdkWebDialog$MyWebViewDownLoadListener;-><init>(Lcom/leidong/sdk/framework/web/SdkWebDialog;)V
@@ -47,23 +45,16 @@
 
 # virtual methods
 .method public onDownloadStart(Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;J)V
-    .locals 1
-    .param p1, "url"    # Ljava/lang/String;
-    .param p2, "userAgent"    # Ljava/lang/String;
-    .param p3, "contentDisposition"    # Ljava/lang/String;
-    .param p4, "mimetype"    # Ljava/lang/String;
-    .param p5, "contentLength"    # J
+    .locals 0
 
     .line 274
-    iget-object v0, p0, Lcom/leidong/sdk/framework/web/SdkWebDialog$MyWebViewDownLoadListener;->this$0:Lcom/leidong/sdk/framework/web/SdkWebDialog;
+    iget-object p2, p0, Lcom/leidong/sdk/framework/web/SdkWebDialog$MyWebViewDownLoadListener;->this$0:Lcom/leidong/sdk/framework/web/SdkWebDialog;
 
-    # getter for: Lcom/leidong/sdk/framework/web/SdkWebDialog;->mContext:Landroid/content/Context;
-    invoke-static {v0}, Lcom/leidong/sdk/framework/web/SdkWebDialog;->access$200(Lcom/leidong/sdk/framework/web/SdkWebDialog;)Landroid/content/Context;
+    invoke-static {p2}, Lcom/leidong/sdk/framework/web/SdkWebDialog;->access$200(Lcom/leidong/sdk/framework/web/SdkWebDialog;)Landroid/content/Context;
 
-    move-result-object v0
+    move-result-object p2
 
-    invoke-static {v0, p1}, Lcom/leidong/sdk/framework/utils/CommonUtil;->toUri(Landroid/content/Context;Ljava/lang/String;)V
+    invoke-static {p2, p1}, Lcom/leidong/sdk/framework/utils/CommonUtil;->toUri(Landroid/content/Context;Ljava/lang/String;)V
 
-    .line 276
     return-void
 .end method

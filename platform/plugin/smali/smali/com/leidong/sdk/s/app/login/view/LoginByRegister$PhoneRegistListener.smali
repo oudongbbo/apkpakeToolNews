@@ -24,9 +24,8 @@
 # direct methods
 .method constructor <init>(Lcom/leidong/sdk/s/app/login/view/LoginByRegister;)V
     .locals 0
-    .param p1, "this$0"    # Lcom/leidong/sdk/s/app/login/view/LoginByRegister;
 
-    .line 512
+    .line 513
     iput-object p1, p0, Lcom/leidong/sdk/s/app/login/view/LoginByRegister$PhoneRegistListener;->this$0:Lcom/leidong/sdk/s/app/login/view/LoginByRegister;
 
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -37,29 +36,24 @@
 
 # virtual methods
 .method public onClick(Landroid/view/View;)V
-    .locals 1
-    .param p1, "v"    # Landroid/view/View;
-
-    .line 516
-    iget-object v0, p0, Lcom/leidong/sdk/s/app/login/view/LoginByRegister$PhoneRegistListener;->this$0:Lcom/leidong/sdk/s/app/login/view/LoginByRegister;
-
-    # invokes: Lcom/leidong/sdk/s/app/login/view/LoginByRegister;->isQuickClick()Z
-    invoke-static {v0}, Lcom/leidong/sdk/s/app/login/view/LoginByRegister;->access$900(Lcom/leidong/sdk/s/app/login/view/LoginByRegister;)Z
-
-    move-result v0
-
-    if-eqz v0, :cond_0
+    .locals 0
 
     .line 517
+    iget-object p1, p0, Lcom/leidong/sdk/s/app/login/view/LoginByRegister$PhoneRegistListener;->this$0:Lcom/leidong/sdk/s/app/login/view/LoginByRegister;
+
+    invoke-static {p1}, Lcom/leidong/sdk/s/app/login/view/LoginByRegister;->access$900(Lcom/leidong/sdk/s/app/login/view/LoginByRegister;)Z
+
+    move-result p1
+
+    if-eqz p1, :cond_0
+
     return-void
 
-    .line 520
-    :cond_0
-    iget-object v0, p0, Lcom/leidong/sdk/s/app/login/view/LoginByRegister$PhoneRegistListener;->this$0:Lcom/leidong/sdk/s/app/login/view/LoginByRegister;
-
-    # invokes: Lcom/leidong/sdk/s/app/login/view/LoginByRegister;->loadPhoneRegView()V
-    invoke-static {v0}, Lcom/leidong/sdk/s/app/login/view/LoginByRegister;->access$1000(Lcom/leidong/sdk/s/app/login/view/LoginByRegister;)V
-
     .line 521
+    :cond_0
+    iget-object p1, p0, Lcom/leidong/sdk/s/app/login/view/LoginByRegister$PhoneRegistListener;->this$0:Lcom/leidong/sdk/s/app/login/view/LoginByRegister;
+
+    invoke-static {p1}, Lcom/leidong/sdk/s/app/login/view/LoginByRegister;->access$1000(Lcom/leidong/sdk/s/app/login/view/LoginByRegister;)V
+
     return-void
 .end method

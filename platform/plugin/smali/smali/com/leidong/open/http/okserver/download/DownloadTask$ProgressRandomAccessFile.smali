@@ -26,10 +26,7 @@
 
 # direct methods
 .method public constructor <init>(Lcom/leidong/open/http/okserver/download/DownloadTask;Ljava/io/File;Ljava/lang/String;J)V
-    .locals 2
-    .param p2, "file"    # Ljava/io/File;
-    .param p3, "mode"    # Ljava/lang/String;
-    .param p4, "lastDownloadLength"    # J
+    .locals 0
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Ljava/io/FileNotFoundException;
@@ -42,13 +39,13 @@
     .line 249
     invoke-direct {p0, p2, p3}, Ljava/io/RandomAccessFile;-><init>(Ljava/io/File;Ljava/lang/String;)V
 
-    .line 244
-    const-wide/16 v0, 0x0
+    const-wide/16 p1, 0x0
 
-    iput-wide v0, p0, Lcom/leidong/open/http/okserver/download/DownloadTask$ProgressRandomAccessFile;->lastDownloadLength:J
+    .line 244
+    iput-wide p1, p0, Lcom/leidong/open/http/okserver/download/DownloadTask$ProgressRandomAccessFile;->lastDownloadLength:J
 
     .line 245
-    iput-wide v0, p0, Lcom/leidong/open/http/okserver/download/DownloadTask$ProgressRandomAccessFile;->curDownloadLength:J
+    iput-wide p1, p0, Lcom/leidong/open/http/okserver/download/DownloadTask$ProgressRandomAccessFile;->curDownloadLength:J
 
     .line 250
     iput-wide p4, p0, Lcom/leidong/open/http/okserver/download/DownloadTask$ProgressRandomAccessFile;->lastDownloadLength:J
@@ -56,198 +53,166 @@
     .line 251
     invoke-static {}, Ljava/lang/System;->currentTimeMillis()J
 
-    move-result-wide v0
+    move-result-wide p1
 
-    iput-wide v0, p0, Lcom/leidong/open/http/okserver/download/DownloadTask$ProgressRandomAccessFile;->lastRefreshUiTime:J
+    iput-wide p1, p0, Lcom/leidong/open/http/okserver/download/DownloadTask$ProgressRandomAccessFile;->lastRefreshUiTime:J
 
-    .line 252
     return-void
 .end method
 
 
 # virtual methods
 .method public write([BII)V
-    .locals 17
-    .param p1, "buffer"    # [B
-    .param p2, "offset"    # I
-    .param p3, "count"    # I
+    .locals 6
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Ljava/io/IOException;
         }
     .end annotation
 
-    move-object/from16 v0, p0
-
     .line 256
-    move/from16 v1, p3
-
-    invoke-super/range {p0 .. p3}, Ljava/io/RandomAccessFile;->write([BII)V
+    invoke-super {p0, p1, p2, p3}, Ljava/io/RandomAccessFile;->write([BII)V
 
     .line 259
-    iget-wide v2, v0, Lcom/leidong/open/http/okserver/download/DownloadTask$ProgressRandomAccessFile;->lastDownloadLength:J
+    iget-wide p1, p0, Lcom/leidong/open/http/okserver/download/DownloadTask$ProgressRandomAccessFile;->lastDownloadLength:J
 
-    int-to-long v4, v1
+    int-to-long v0, p3
 
-    add-long v6, v2, v4
+    add-long v2, p1, v0
 
     .line 260
-    .local v6, "downloadLength":J
-    iget-wide v2, v0, Lcom/leidong/open/http/okserver/download/DownloadTask$ProgressRandomAccessFile;->curDownloadLength:J
+    iget-wide p1, p0, Lcom/leidong/open/http/okserver/download/DownloadTask$ProgressRandomAccessFile;->curDownloadLength:J
 
-    int-to-long v4, v1
+    add-long v4, p1, v0
 
-    add-long v8, v2, v4
-
-    iput-wide v8, v0, Lcom/leidong/open/http/okserver/download/DownloadTask$ProgressRandomAccessFile;->curDownloadLength:J
+    iput-wide v4, p0, Lcom/leidong/open/http/okserver/download/DownloadTask$ProgressRandomAccessFile;->curDownloadLength:J
 
     .line 261
-    iput-wide v6, v0, Lcom/leidong/open/http/okserver/download/DownloadTask$ProgressRandomAccessFile;->lastDownloadLength:J
+    iput-wide v2, p0, Lcom/leidong/open/http/okserver/download/DownloadTask$ProgressRandomAccessFile;->lastDownloadLength:J
 
     .line 262
-    iget-object v2, v0, Lcom/leidong/open/http/okserver/download/DownloadTask$ProgressRandomAccessFile;->this$0:Lcom/leidong/open/http/okserver/download/DownloadTask;
+    iget-object p1, p0, Lcom/leidong/open/http/okserver/download/DownloadTask$ProgressRandomAccessFile;->this$0:Lcom/leidong/open/http/okserver/download/DownloadTask;
 
-    # getter for: Lcom/leidong/open/http/okserver/download/DownloadTask;->mDownloadInfo:Lcom/leidong/open/http/okserver/download/DownloadInfo;
-    invoke-static {v2}, Lcom/leidong/open/http/okserver/download/DownloadTask;->access$000(Lcom/leidong/open/http/okserver/download/DownloadTask;)Lcom/leidong/open/http/okserver/download/DownloadInfo;
+    invoke-static {p1}, Lcom/leidong/open/http/okserver/download/DownloadTask;->access$000(Lcom/leidong/open/http/okserver/download/DownloadTask;)Lcom/leidong/open/http/okserver/download/DownloadInfo;
 
-    move-result-object v2
+    move-result-object p1
 
-    invoke-virtual {v2, v6, v7}, Lcom/leidong/open/http/okserver/download/DownloadInfo;->setDownloadLength(J)V
+    invoke-virtual {p1, v2, v3}, Lcom/leidong/open/http/okserver/download/DownloadInfo;->setDownloadLength(J)V
 
     .line 265
     invoke-static {}, Ljava/lang/System;->currentTimeMillis()J
 
-    move-result-wide v2
+    move-result-wide p1
 
-    iget-object v4, v0, Lcom/leidong/open/http/okserver/download/DownloadTask$ProgressRandomAccessFile;->this$0:Lcom/leidong/open/http/okserver/download/DownloadTask;
+    iget-object p3, p0, Lcom/leidong/open/http/okserver/download/DownloadTask$ProgressRandomAccessFile;->this$0:Lcom/leidong/open/http/okserver/download/DownloadTask;
 
-    # getter for: Lcom/leidong/open/http/okserver/download/DownloadTask;->mPreviousTime:J
-    invoke-static {v4}, Lcom/leidong/open/http/okserver/download/DownloadTask;->access$100(Lcom/leidong/open/http/okserver/download/DownloadTask;)J
+    invoke-static {p3}, Lcom/leidong/open/http/okserver/download/DownloadTask;->access$100(Lcom/leidong/open/http/okserver/download/DownloadTask;)J
 
-    move-result-wide v4
+    move-result-wide v0
 
-    sub-long v8, v2, v4
+    sub-long v4, p1, v0
 
-    const-wide/16 v2, 0x3e8
+    const-wide/16 p1, 0x3e8
 
-    div-long/2addr v8, v2
+    div-long/2addr v4, p1
 
-    .line 266
-    .local v8, "totalTime":J
-    const-wide/16 v2, 0x0
+    const-wide/16 p1, 0x0
 
-    cmp-long v4, v8, v2
+    cmp-long p3, v4, p1
 
-    if-nez v4, :cond_0
+    if-nez p3, :cond_0
 
-    .line 267
-    const-wide/16 v2, 0x1
+    const-wide/16 p1, 0x1
 
-    add-long v4, v8, v2
+    add-long v0, v4, p1
 
-    .line 267
-    .end local v8    # "totalTime":J
-    .local v4, "totalTime":J
     goto :goto_0
 
-    .line 269
-    .end local v4    # "totalTime":J
-    .restart local v8    # "totalTime":J
     :cond_0
-    move-wide v4, v8
+    move-wide v0, v4
 
     .line 269
-    .end local v8    # "totalTime":J
-    .restart local v4    # "totalTime":J
     :goto_0
-    iget-wide v2, v0, Lcom/leidong/open/http/okserver/download/DownloadTask$ProgressRandomAccessFile;->curDownloadLength:J
+    iget-wide p1, p0, Lcom/leidong/open/http/okserver/download/DownloadTask$ProgressRandomAccessFile;->curDownloadLength:J
 
-    div-long/2addr v2, v4
+    div-long/2addr p1, v0
 
     .line 270
-    .local v2, "networkSpeed":J
-    iget-object v8, v0, Lcom/leidong/open/http/okserver/download/DownloadTask$ProgressRandomAccessFile;->this$0:Lcom/leidong/open/http/okserver/download/DownloadTask;
+    iget-object p3, p0, Lcom/leidong/open/http/okserver/download/DownloadTask$ProgressRandomAccessFile;->this$0:Lcom/leidong/open/http/okserver/download/DownloadTask;
 
-    # getter for: Lcom/leidong/open/http/okserver/download/DownloadTask;->mDownloadInfo:Lcom/leidong/open/http/okserver/download/DownloadInfo;
-    invoke-static {v8}, Lcom/leidong/open/http/okserver/download/DownloadTask;->access$000(Lcom/leidong/open/http/okserver/download/DownloadTask;)Lcom/leidong/open/http/okserver/download/DownloadInfo;
+    invoke-static {p3}, Lcom/leidong/open/http/okserver/download/DownloadTask;->access$000(Lcom/leidong/open/http/okserver/download/DownloadTask;)Lcom/leidong/open/http/okserver/download/DownloadInfo;
 
-    move-result-object v8
+    move-result-object p3
 
-    invoke-virtual {v8, v2, v3}, Lcom/leidong/open/http/okserver/download/DownloadInfo;->setNetworkSpeed(J)V
+    invoke-virtual {p3, p1, p2}, Lcom/leidong/open/http/okserver/download/DownloadInfo;->setNetworkSpeed(J)V
+
+    long-to-float p1, v2
+
+    const/high16 p2, 0x3f800000    # 1.0f
+
+    mul-float p1, p1, p2
 
     .line 273
-    long-to-float v8, v6
+    iget-object p3, p0, Lcom/leidong/open/http/okserver/download/DownloadTask$ProgressRandomAccessFile;->this$0:Lcom/leidong/open/http/okserver/download/DownloadTask;
 
-    const/high16 v9, 0x3f800000    # 1.0f
+    invoke-static {p3}, Lcom/leidong/open/http/okserver/download/DownloadTask;->access$000(Lcom/leidong/open/http/okserver/download/DownloadTask;)Lcom/leidong/open/http/okserver/download/DownloadInfo;
 
-    mul-float v8, v8, v9
+    move-result-object p3
 
-    iget-object v10, v0, Lcom/leidong/open/http/okserver/download/DownloadTask$ProgressRandomAccessFile;->this$0:Lcom/leidong/open/http/okserver/download/DownloadTask;
+    invoke-virtual {p3}, Lcom/leidong/open/http/okserver/download/DownloadInfo;->getTotalLength()J
 
-    # getter for: Lcom/leidong/open/http/okserver/download/DownloadTask;->mDownloadInfo:Lcom/leidong/open/http/okserver/download/DownloadInfo;
-    invoke-static {v10}, Lcom/leidong/open/http/okserver/download/DownloadTask;->access$000(Lcom/leidong/open/http/okserver/download/DownloadTask;)Lcom/leidong/open/http/okserver/download/DownloadInfo;
+    move-result-wide v0
 
-    move-result-object v10
+    long-to-float p3, v0
 
-    invoke-virtual {v10}, Lcom/leidong/open/http/okserver/download/DownloadInfo;->getTotalLength()J
-
-    move-result-wide v10
-
-    long-to-float v10, v10
-
-    div-float/2addr v8, v10
+    div-float/2addr p1, p3
 
     .line 274
-    .local v8, "progress":F
-    iget-object v10, v0, Lcom/leidong/open/http/okserver/download/DownloadTask$ProgressRandomAccessFile;->this$0:Lcom/leidong/open/http/okserver/download/DownloadTask;
+    iget-object p3, p0, Lcom/leidong/open/http/okserver/download/DownloadTask$ProgressRandomAccessFile;->this$0:Lcom/leidong/open/http/okserver/download/DownloadTask;
 
-    # getter for: Lcom/leidong/open/http/okserver/download/DownloadTask;->mDownloadInfo:Lcom/leidong/open/http/okserver/download/DownloadInfo;
-    invoke-static {v10}, Lcom/leidong/open/http/okserver/download/DownloadTask;->access$000(Lcom/leidong/open/http/okserver/download/DownloadTask;)Lcom/leidong/open/http/okserver/download/DownloadInfo;
+    invoke-static {p3}, Lcom/leidong/open/http/okserver/download/DownloadTask;->access$000(Lcom/leidong/open/http/okserver/download/DownloadTask;)Lcom/leidong/open/http/okserver/download/DownloadInfo;
 
-    move-result-object v10
+    move-result-object p3
 
-    invoke-virtual {v10, v8}, Lcom/leidong/open/http/okserver/download/DownloadInfo;->setProgress(F)V
+    invoke-virtual {p3, p1}, Lcom/leidong/open/http/okserver/download/DownloadInfo;->setProgress(F)V
 
     .line 275
     invoke-static {}, Ljava/lang/System;->currentTimeMillis()J
 
-    move-result-wide v10
+    move-result-wide v0
 
     .line 278
-    .local v10, "curTime":J
-    iget-wide v12, v0, Lcom/leidong/open/http/okserver/download/DownloadTask$ProgressRandomAccessFile;->lastRefreshUiTime:J
+    iget-wide v2, p0, Lcom/leidong/open/http/okserver/download/DownloadTask$ProgressRandomAccessFile;->lastRefreshUiTime:J
 
-    sub-long v14, v10, v12
+    sub-long v4, v0, v2
 
-    sget v12, Lcom/leidong/open/http/okgo/OkGo;->REFRESH_TIME:I
+    sget p3, Lcom/leidong/open/http/okgo/OkGo;->REFRESH_TIME:I
 
-    int-to-long v12, v12
+    int-to-long v0, p3
 
-    cmp-long v16, v14, v12
+    cmp-long p3, v4, v0
 
-    if-gez v16, :cond_1
+    if-gez p3, :cond_1
 
-    cmpl-float v9, v8, v9
+    cmpl-float p1, p1, p2
 
-    if-nez v9, :cond_2
+    if-nez p1, :cond_2
 
     .line 279
     :cond_1
-    iget-object v9, v0, Lcom/leidong/open/http/okserver/download/DownloadTask$ProgressRandomAccessFile;->this$0:Lcom/leidong/open/http/okserver/download/DownloadTask;
+    iget-object p1, p0, Lcom/leidong/open/http/okserver/download/DownloadTask$ProgressRandomAccessFile;->this$0:Lcom/leidong/open/http/okserver/download/DownloadTask;
 
-    const/4 v12, 0x0
+    const/4 p2, 0x0
 
-    # invokes: Lcom/leidong/open/http/okserver/download/DownloadTask;->postMessage(Ljava/lang/String;Ljava/lang/Exception;)V
-    invoke-static {v9, v12, v12}, Lcom/leidong/open/http/okserver/download/DownloadTask;->access$200(Lcom/leidong/open/http/okserver/download/DownloadTask;Ljava/lang/String;Ljava/lang/Exception;)V
+    invoke-static {p1, p2, p2}, Lcom/leidong/open/http/okserver/download/DownloadTask;->access$200(Lcom/leidong/open/http/okserver/download/DownloadTask;Ljava/lang/String;Ljava/lang/Exception;)V
 
     .line 280
     invoke-static {}, Ljava/lang/System;->currentTimeMillis()J
 
-    move-result-wide v12
+    move-result-wide p1
 
-    iput-wide v12, v0, Lcom/leidong/open/http/okserver/download/DownloadTask$ProgressRandomAccessFile;->lastRefreshUiTime:J
+    iput-wide p1, p0, Lcom/leidong/open/http/okserver/download/DownloadTask$ProgressRandomAccessFile;->lastRefreshUiTime:J
 
-    .line 282
     :cond_2
     return-void
 .end method

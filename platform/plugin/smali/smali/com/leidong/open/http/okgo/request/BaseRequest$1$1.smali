@@ -30,10 +30,8 @@
 # direct methods
 .method constructor <init>(Lcom/leidong/open/http/okgo/request/BaseRequest$1;JJJ)V
     .locals 0
-    .param p1, "this$1"    # Lcom/leidong/open/http/okgo/request/BaseRequest$1;
 
     .line 326
-    .local p0, "this":Lcom/leidong/open/http/okgo/request/BaseRequest$1$1;, "Lcom/leidong/open/http/okgo/request/BaseRequest$1$1;"
     iput-object p1, p0, Lcom/leidong/open/http/okgo/request/BaseRequest$1$1;->this$1:Lcom/leidong/open/http/okgo/request/BaseRequest$1;
 
     iput-wide p2, p0, Lcom/leidong/open/http/okgo/request/BaseRequest$1$1;->val$bytesWritten:J
@@ -53,12 +51,10 @@
     .locals 9
 
     .line 329
-    .local p0, "this":Lcom/leidong/open/http/okgo/request/BaseRequest$1$1;, "Lcom/leidong/open/http/okgo/request/BaseRequest$1$1;"
     iget-object v0, p0, Lcom/leidong/open/http/okgo/request/BaseRequest$1$1;->this$1:Lcom/leidong/open/http/okgo/request/BaseRequest$1;
 
     iget-object v0, v0, Lcom/leidong/open/http/okgo/request/BaseRequest$1;->this$0:Lcom/leidong/open/http/okgo/request/BaseRequest;
 
-    # getter for: Lcom/leidong/open/http/okgo/request/BaseRequest;->mCallback:Lcom/leidong/open/http/okgo/callback/AbsCallback;
     invoke-static {v0}, Lcom/leidong/open/http/okgo/request/BaseRequest;->access$000(Lcom/leidong/open/http/okgo/request/BaseRequest;)Lcom/leidong/open/http/okgo/callback/AbsCallback;
 
     move-result-object v0
@@ -69,7 +65,6 @@
 
     iget-object v0, v0, Lcom/leidong/open/http/okgo/request/BaseRequest$1;->this$0:Lcom/leidong/open/http/okgo/request/BaseRequest;
 
-    # getter for: Lcom/leidong/open/http/okgo/request/BaseRequest;->mCallback:Lcom/leidong/open/http/okgo/callback/AbsCallback;
     invoke-static {v0}, Lcom/leidong/open/http/okgo/request/BaseRequest;->access$000(Lcom/leidong/open/http/okgo/request/BaseRequest;)Lcom/leidong/open/http/okgo/callback/AbsCallback;
 
     move-result-object v1
@@ -96,7 +91,6 @@
 
     invoke-virtual/range {v1 .. v8}, Lcom/leidong/open/http/okgo/callback/AbsCallback;->upProgress(JJFJ)V
 
-    .line 330
     :cond_0
     return-void
 .end method

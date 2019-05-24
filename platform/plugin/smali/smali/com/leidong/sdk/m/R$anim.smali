@@ -23,11 +23,11 @@
 
 .field public static final leidong_left_popup_exit:I = 0x7f010003
 
-.field public static final leidong_popupwindow_open:I = 0x7f010005
+.field public static final leidong_popupwindow_open:I = 0x7f010004
 
-.field public static final leidong_right_popup_enter:I = 0x7f010006
+.field public static final leidong_right_popup_enter:I = 0x7f010005
 
-.field public static final leidong_right_popup_exit:I = 0x7f010007
+.field public static final leidong_right_popup_exit:I = 0x7f010006
 
 
 # direct methods

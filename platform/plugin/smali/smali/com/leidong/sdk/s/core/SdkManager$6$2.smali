@@ -26,7 +26,6 @@
 # direct methods
 .method constructor <init>(Lcom/leidong/sdk/s/core/SdkManager$6;Ljava/lang/String;)V
     .locals 0
-    .param p1, "this$1"    # Lcom/leidong/sdk/s/core/SdkManager$6;
 
     .line 458
     iput-object p1, p0, Lcom/leidong/sdk/s/core/SdkManager$6$2;->this$1:Lcom/leidong/sdk/s/core/SdkManager$6;
@@ -52,7 +51,6 @@
 
     invoke-interface {v0, v1}, Lcom/leidong/sdk/framework/interfaces/SdkResultCallback;->onCancel(Ljava/lang/String;)V
 
-    .line 466
     return-void
 .end method
 
@@ -70,6 +68,5 @@
 
     invoke-interface {v0, v1}, Lcom/leidong/sdk/framework/interfaces/SdkResultCallback;->onSuccess(Landroid/os/Bundle;)V
 
-    .line 462
     return-void
 .end method

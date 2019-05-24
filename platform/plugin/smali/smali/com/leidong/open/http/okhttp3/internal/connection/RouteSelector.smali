@@ -49,9 +49,7 @@
 
 # direct methods
 .method public constructor <init>(Lcom/leidong/open/http/okhttp3/Address;Lcom/leidong/open/http/okhttp3/internal/connection/RouteDatabase;)V
-    .locals 2
-    .param p1, "address"    # Lcom/leidong/open/http/okhttp3/Address;
-    .param p2, "routeDatabase"    # Lcom/leidong/open/http/okhttp3/internal/connection/RouteDatabase;
+    .locals 1
 
     .line 58
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -86,45 +84,41 @@
     .line 62
     invoke-virtual {p1}, Lcom/leidong/open/http/okhttp3/Address;->url()Lcom/leidong/open/http/okhttp3/HttpUrl;
 
-    move-result-object v0
+    move-result-object p2
 
     invoke-virtual {p1}, Lcom/leidong/open/http/okhttp3/Address;->proxy()Ljava/net/Proxy;
 
-    move-result-object v1
+    move-result-object p1
 
-    invoke-direct {p0, v0, v1}, Lcom/leidong/open/http/okhttp3/internal/connection/RouteSelector;->resetNextProxy(Lcom/leidong/open/http/okhttp3/HttpUrl;Ljava/net/Proxy;)V
+    invoke-direct {p0, p2, p1}, Lcom/leidong/open/http/okhttp3/internal/connection/RouteSelector;->resetNextProxy(Lcom/leidong/open/http/okhttp3/HttpUrl;Ljava/net/Proxy;)V
 
-    .line 63
     return-void
 .end method
 
 .method static getHostString(Ljava/net/InetSocketAddress;)Ljava/lang/String;
-    .locals 2
-    .param p0, "socketAddress"    # Ljava/net/InetSocketAddress;
+    .locals 1
 
     .line 188
     invoke-virtual {p0}, Ljava/net/InetSocketAddress;->getAddress()Ljava/net/InetAddress;
 
     move-result-object v0
 
-    .line 189
-    .local v0, "address":Ljava/net/InetAddress;
     if-nez v0, :cond_0
 
     .line 193
     invoke-virtual {p0}, Ljava/net/InetSocketAddress;->getHostName()Ljava/lang/String;
 
-    move-result-object v1
+    move-result-object p0
 
-    return-object v1
+    return-object p0
 
     .line 197
     :cond_0
     invoke-virtual {v0}, Ljava/net/InetAddress;->getHostAddress()Ljava/lang/String;
 
-    move-result-object v1
+    move-result-object p0
 
-    return-object v1
+    return-object p0
 .end method
 
 .method private hasNextInetSocketAddress()Z
@@ -353,16 +347,13 @@
     check-cast v0, Ljava/net/Proxy;
 
     .line 138
-    .local v0, "result":Ljava/net/Proxy;
     invoke-direct {p0, v0}, Lcom/leidong/open/http/okhttp3/internal/connection/RouteSelector;->resetNextInetSocketAddress(Ljava/net/Proxy;)V
 
-    .line 139
     return-object v0
 .end method
 
 .method private resetNextInetSocketAddress(Ljava/net/Proxy;)V
-    .locals 8
-    .param p1, "proxy"    # Ljava/net/Proxy;
+    .locals 7
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Ljava/io/IOException;
@@ -402,62 +393,53 @@
     move-result-object v0
 
     .line 154
-    .local v0, "proxyAddress":Ljava/net/SocketAddress;
     instance-of v1, v0, Ljava/net/InetSocketAddress;
 
     if-nez v1, :cond_1
 
     .line 155
-    new-instance v1, Ljava/lang/IllegalArgumentException;
+    new-instance p1, Ljava/lang/IllegalArgumentException;
 
-    new-instance v2, Ljava/lang/StringBuilder;
+    new-instance v1, Ljava/lang/StringBuilder;
 
-    invoke-direct {v2}, Ljava/lang/StringBuilder;-><init>()V
+    invoke-direct {v1}, Ljava/lang/StringBuilder;-><init>()V
 
-    const-string v3, "Proxy.address() is not an InetSocketAddress: "
+    const-string v2, "Proxy.address() is not an InetSocketAddress: "
 
-    invoke-virtual {v2, v3}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-virtual {v1, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
     .line 156
     invoke-virtual {v0}, Ljava/lang/Object;->getClass()Ljava/lang/Class;
 
-    move-result-object v3
+    move-result-object v0
 
-    invoke-virtual {v2, v3}, Ljava/lang/StringBuilder;->append(Ljava/lang/Object;)Ljava/lang/StringBuilder;
+    invoke-virtual {v1, v0}, Ljava/lang/StringBuilder;->append(Ljava/lang/Object;)Ljava/lang/StringBuilder;
 
-    invoke-virtual {v2}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+    invoke-virtual {v1}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
 
-    move-result-object v2
+    move-result-object v0
 
-    invoke-direct {v1, v2}, Ljava/lang/IllegalArgumentException;-><init>(Ljava/lang/String;)V
+    invoke-direct {p1, v0}, Ljava/lang/IllegalArgumentException;-><init>(Ljava/lang/String;)V
 
-    throw v1
+    throw p1
 
     .line 158
     :cond_1
-    move-object v1, v0
-
-    check-cast v1, Ljava/net/InetSocketAddress;
+    check-cast v0, Ljava/net/InetSocketAddress;
 
     .line 159
-    .local v1, "proxySocketAddress":Ljava/net/InetSocketAddress;
-    invoke-static {v1}, Lcom/leidong/open/http/okhttp3/internal/connection/RouteSelector;->getHostString(Ljava/net/InetSocketAddress;)Ljava/lang/String;
+    invoke-static {v0}, Lcom/leidong/open/http/okhttp3/internal/connection/RouteSelector;->getHostString(Ljava/net/InetSocketAddress;)Ljava/lang/String;
 
-    move-result-object v2
+    move-result-object v1
 
     .line 160
-    .local v2, "socketHost":Ljava/lang/String;
-    invoke-virtual {v1}, Ljava/net/InetSocketAddress;->getPort()I
+    invoke-virtual {v0}, Ljava/net/InetSocketAddress;->getPort()I
 
     move-result v0
 
-    .line 160
-    .end local v0    # "proxyAddress":Ljava/net/SocketAddress;
-    .end local v1    # "proxySocketAddress":Ljava/net/InetSocketAddress;
     goto :goto_1
 
     .line 150
-    .end local v2    # "socketHost":Ljava/lang/String;
     :cond_2
     :goto_0
     iget-object v0, p0, Lcom/leidong/open/http/okhttp3/internal/connection/RouteSelector;->address:Lcom/leidong/open/http/okhttp3/Address;
@@ -468,10 +450,9 @@
 
     invoke-virtual {v0}, Lcom/leidong/open/http/okhttp3/HttpUrl;->host()Ljava/lang/String;
 
-    move-result-object v2
+    move-result-object v1
 
     .line 151
-    .restart local v2    # "socketHost":Ljava/lang/String;
     iget-object v0, p0, Lcom/leidong/open/http/okhttp3/internal/connection/RouteSelector;->address:Lcom/leidong/open/http/okhttp3/Address;
 
     invoke-virtual {v0}, Lcom/leidong/open/http/okhttp3/Address;->url()Lcom/leidong/open/http/okhttp3/HttpUrl;
@@ -482,19 +463,14 @@
 
     move-result v0
 
-    .line 160
-    .local v0, "socketPort":I
     :goto_1
-    nop
+    const/4 v2, 0x1
 
-    .line 163
-    const/4 v1, 0x1
+    if-lt v0, v2, :cond_6
 
-    if-lt v0, v1, :cond_6
+    const v2, 0xffff
 
-    const v1, 0xffff
-
-    if-le v0, v1, :cond_3
+    if-le v0, v2, :cond_3
 
     goto :goto_4
 
@@ -502,126 +478,111 @@
     :cond_3
     invoke-virtual {p1}, Ljava/net/Proxy;->type()Ljava/net/Proxy$Type;
 
-    move-result-object v1
+    move-result-object p1
 
-    sget-object v3, Ljava/net/Proxy$Type;->SOCKS:Ljava/net/Proxy$Type;
+    sget-object v2, Ljava/net/Proxy$Type;->SOCKS:Ljava/net/Proxy$Type;
 
-    if-ne v1, v3, :cond_4
+    const/4 v3, 0x0
+
+    if-ne p1, v2, :cond_4
 
     .line 169
-    iget-object v1, p0, Lcom/leidong/open/http/okhttp3/internal/connection/RouteSelector;->inetSocketAddresses:Ljava/util/List;
+    iget-object p1, p0, Lcom/leidong/open/http/okhttp3/internal/connection/RouteSelector;->inetSocketAddresses:Ljava/util/List;
 
-    invoke-static {v2, v0}, Ljava/net/InetSocketAddress;->createUnresolved(Ljava/lang/String;I)Ljava/net/InetSocketAddress;
+    invoke-static {v1, v0}, Ljava/net/InetSocketAddress;->createUnresolved(Ljava/lang/String;I)Ljava/net/InetSocketAddress;
 
-    move-result-object v3
+    move-result-object v0
 
-    invoke-interface {v1, v3}, Ljava/util/List;->add(Ljava/lang/Object;)Z
+    invoke-interface {p1, v0}, Ljava/util/List;->add(Ljava/lang/Object;)Z
 
     goto :goto_3
 
     .line 172
     :cond_4
-    iget-object v1, p0, Lcom/leidong/open/http/okhttp3/internal/connection/RouteSelector;->address:Lcom/leidong/open/http/okhttp3/Address;
+    iget-object p1, p0, Lcom/leidong/open/http/okhttp3/internal/connection/RouteSelector;->address:Lcom/leidong/open/http/okhttp3/Address;
 
-    invoke-virtual {v1}, Lcom/leidong/open/http/okhttp3/Address;->dns()Lcom/leidong/open/http/okhttp3/Dns;
+    invoke-virtual {p1}, Lcom/leidong/open/http/okhttp3/Address;->dns()Lcom/leidong/open/http/okhttp3/Dns;
 
-    move-result-object v1
+    move-result-object p1
 
-    invoke-interface {v1, v2}, Lcom/leidong/open/http/okhttp3/Dns;->lookup(Ljava/lang/String;)Ljava/util/List;
+    invoke-interface {p1, v1}, Lcom/leidong/open/http/okhttp3/Dns;->lookup(Ljava/lang/String;)Ljava/util/List;
 
-    move-result-object v1
-
-    .line 173
-    .local v1, "addresses":Ljava/util/List;, "Ljava/util/List<Ljava/net/InetAddress;>;"
-    const/4 v3, 0x0
+    move-result-object p1
 
     .line 173
-    .local v3, "i":I
-    invoke-interface {v1}, Ljava/util/List;->size()I
+    invoke-interface {p1}, Ljava/util/List;->size()I
 
-    move-result v4
+    move-result v1
 
-    .line 173
-    .local v4, "size":I
+    const/4 v2, 0x0
+
     :goto_2
-    if-ge v3, v4, :cond_5
+    if-ge v2, v1, :cond_5
 
     .line 174
-    invoke-interface {v1, v3}, Ljava/util/List;->get(I)Ljava/lang/Object;
+    invoke-interface {p1, v2}, Ljava/util/List;->get(I)Ljava/lang/Object;
 
-    move-result-object v5
+    move-result-object v4
 
-    check-cast v5, Ljava/net/InetAddress;
+    check-cast v4, Ljava/net/InetAddress;
 
     .line 175
-    .local v5, "inetAddress":Ljava/net/InetAddress;
-    iget-object v6, p0, Lcom/leidong/open/http/okhttp3/internal/connection/RouteSelector;->inetSocketAddresses:Ljava/util/List;
+    iget-object v5, p0, Lcom/leidong/open/http/okhttp3/internal/connection/RouteSelector;->inetSocketAddresses:Ljava/util/List;
 
-    new-instance v7, Ljava/net/InetSocketAddress;
+    new-instance v6, Ljava/net/InetSocketAddress;
 
-    invoke-direct {v7, v5, v0}, Ljava/net/InetSocketAddress;-><init>(Ljava/net/InetAddress;I)V
+    invoke-direct {v6, v4, v0}, Ljava/net/InetSocketAddress;-><init>(Ljava/net/InetAddress;I)V
 
-    invoke-interface {v6, v7}, Ljava/util/List;->add(Ljava/lang/Object;)Z
+    invoke-interface {v5, v6}, Ljava/util/List;->add(Ljava/lang/Object;)Z
 
-    .line 173
-    .end local v5    # "inetAddress":Ljava/net/InetAddress;
-    add-int/lit8 v3, v3, 0x1
+    add-int/lit8 v2, v2, 0x1
 
     goto :goto_2
 
     .line 179
-    .end local v1    # "addresses":Ljava/util/List;, "Ljava/util/List<Ljava/net/InetAddress;>;"
-    .end local v3    # "i":I
-    .end local v4    # "size":I
     :cond_5
     :goto_3
-    const/4 v1, 0x0
+    iput v3, p0, Lcom/leidong/open/http/okhttp3/internal/connection/RouteSelector;->nextInetSocketAddressIndex:I
 
-    iput v1, p0, Lcom/leidong/open/http/okhttp3/internal/connection/RouteSelector;->nextInetSocketAddressIndex:I
-
-    .line 180
     return-void
 
     .line 164
     :cond_6
     :goto_4
-    new-instance v1, Ljava/net/SocketException;
+    new-instance p1, Ljava/net/SocketException;
 
-    new-instance v3, Ljava/lang/StringBuilder;
+    new-instance v2, Ljava/lang/StringBuilder;
 
-    invoke-direct {v3}, Ljava/lang/StringBuilder;-><init>()V
+    invoke-direct {v2}, Ljava/lang/StringBuilder;-><init>()V
 
-    const-string v4, "No route to "
+    const-string v3, "No route to "
 
-    invoke-virtual {v3, v4}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-virtual {v2, v3}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    invoke-virtual {v3, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-virtual {v2, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    const-string v4, ":"
+    const-string v1, ":"
 
-    invoke-virtual {v3, v4}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-virtual {v2, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    invoke-virtual {v3, v0}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
+    invoke-virtual {v2, v0}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
 
-    const-string v4, "; port is out of range"
+    const-string v0, "; port is out of range"
 
-    invoke-virtual {v3, v4}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-virtual {v2, v0}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    invoke-virtual {v3}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+    invoke-virtual {v2}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
 
-    move-result-object v3
+    move-result-object v0
 
-    invoke-direct {v1, v3}, Ljava/net/SocketException;-><init>(Ljava/lang/String;)V
+    invoke-direct {p1, v0}, Ljava/net/SocketException;-><init>(Ljava/lang/String;)V
 
-    throw v1
+    throw p1
 .end method
 
 .method private resetNextProxy(Lcom/leidong/open/http/okhttp3/HttpUrl;Ljava/net/Proxy;)V
-    .locals 4
-    .param p1, "url"    # Lcom/leidong/open/http/okhttp3/HttpUrl;
-    .param p2, "proxy"    # Ljava/net/Proxy;
+    .locals 1
 
-    .line 113
     const/4 v0, 0x0
 
     if-eqz p2, :cond_0
@@ -629,68 +590,65 @@
     .line 115
     invoke-static {p2}, Ljava/util/Collections;->singletonList(Ljava/lang/Object;)Ljava/util/List;
 
-    move-result-object v1
+    move-result-object p1
 
-    iput-object v1, p0, Lcom/leidong/open/http/okhttp3/internal/connection/RouteSelector;->proxies:Ljava/util/List;
+    iput-object p1, p0, Lcom/leidong/open/http/okhttp3/internal/connection/RouteSelector;->proxies:Ljava/util/List;
 
     goto :goto_1
 
     .line 118
     :cond_0
-    iget-object v1, p0, Lcom/leidong/open/http/okhttp3/internal/connection/RouteSelector;->address:Lcom/leidong/open/http/okhttp3/Address;
+    iget-object p2, p0, Lcom/leidong/open/http/okhttp3/internal/connection/RouteSelector;->address:Lcom/leidong/open/http/okhttp3/Address;
 
-    invoke-virtual {v1}, Lcom/leidong/open/http/okhttp3/Address;->proxySelector()Ljava/net/ProxySelector;
+    invoke-virtual {p2}, Lcom/leidong/open/http/okhttp3/Address;->proxySelector()Ljava/net/ProxySelector;
 
-    move-result-object v1
+    move-result-object p2
 
     invoke-virtual {p1}, Lcom/leidong/open/http/okhttp3/HttpUrl;->uri()Ljava/net/URI;
 
-    move-result-object v2
+    move-result-object p1
 
-    invoke-virtual {v1, v2}, Ljava/net/ProxySelector;->select(Ljava/net/URI;)Ljava/util/List;
+    invoke-virtual {p2, p1}, Ljava/net/ProxySelector;->select(Ljava/net/URI;)Ljava/util/List;
 
-    move-result-object v1
+    move-result-object p1
+
+    if-eqz p1, :cond_1
 
     .line 119
-    .local v1, "proxiesOrNull":Ljava/util/List;, "Ljava/util/List<Ljava/net/Proxy;>;"
-    if-eqz v1, :cond_1
+    invoke-interface {p1}, Ljava/util/List;->isEmpty()Z
 
-    invoke-interface {v1}, Ljava/util/List;->isEmpty()Z
+    move-result p2
 
-    move-result v2
-
-    if-nez v2, :cond_1
+    if-nez p2, :cond_1
 
     .line 120
-    invoke-static {v1}, Lcom/leidong/open/http/okhttp3/internal/Util;->immutableList(Ljava/util/List;)Ljava/util/List;
+    invoke-static {p1}, Lcom/leidong/open/http/okhttp3/internal/Util;->immutableList(Ljava/util/List;)Ljava/util/List;
 
-    move-result-object v2
+    move-result-object p1
 
     goto :goto_0
 
     :cond_1
-    const/4 v2, 0x1
+    const/4 p1, 0x1
 
-    new-array v2, v2, [Ljava/net/Proxy;
+    new-array p1, p1, [Ljava/net/Proxy;
 
-    sget-object v3, Ljava/net/Proxy;->NO_PROXY:Ljava/net/Proxy;
+    sget-object p2, Ljava/net/Proxy;->NO_PROXY:Ljava/net/Proxy;
 
-    aput-object v3, v2, v0
+    aput-object p2, p1, v0
 
     .line 121
-    invoke-static {v2}, Lcom/leidong/open/http/okhttp3/internal/Util;->immutableList([Ljava/lang/Object;)Ljava/util/List;
+    invoke-static {p1}, Lcom/leidong/open/http/okhttp3/internal/Util;->immutableList([Ljava/lang/Object;)Ljava/util/List;
 
-    move-result-object v2
+    move-result-object p1
 
     :goto_0
-    iput-object v2, p0, Lcom/leidong/open/http/okhttp3/internal/connection/RouteSelector;->proxies:Ljava/util/List;
+    iput-object p1, p0, Lcom/leidong/open/http/okhttp3/internal/connection/RouteSelector;->proxies:Ljava/util/List;
 
     .line 123
-    .end local v1    # "proxiesOrNull":Ljava/util/List;, "Ljava/util/List<Ljava/net/Proxy;>;"
     :goto_1
     iput v0, p0, Lcom/leidong/open/http/okhttp3/internal/connection/RouteSelector;->nextProxyIndex:I
 
-    .line 124
     return-void
 .end method
 
@@ -698,8 +656,6 @@
 # virtual methods
 .method public connectFailed(Lcom/leidong/open/http/okhttp3/Route;Ljava/io/IOException;)V
     .locals 3
-    .param p1, "failedRoute"    # Lcom/leidong/open/http/okhttp3/Route;
-    .param p2, "failure"    # Ljava/io/IOException;
 
     .line 102
     invoke-virtual {p1}, Lcom/leidong/open/http/okhttp3/Route;->proxy()Ljava/net/Proxy;
@@ -753,11 +709,10 @@
 
     .line 108
     :cond_0
-    iget-object v0, p0, Lcom/leidong/open/http/okhttp3/internal/connection/RouteSelector;->routeDatabase:Lcom/leidong/open/http/okhttp3/internal/connection/RouteDatabase;
+    iget-object p2, p0, Lcom/leidong/open/http/okhttp3/internal/connection/RouteSelector;->routeDatabase:Lcom/leidong/open/http/okhttp3/internal/connection/RouteDatabase;
 
-    invoke-virtual {v0, p1}, Lcom/leidong/open/http/okhttp3/internal/connection/RouteDatabase;->failed(Lcom/leidong/open/http/okhttp3/Route;)V
+    invoke-virtual {p2, p1}, Lcom/leidong/open/http/okhttp3/internal/connection/RouteDatabase;->failed(Lcom/leidong/open/http/okhttp3/Route;)V
 
-    .line 109
     return-void
 .end method
 
@@ -796,7 +751,6 @@
     :goto_0
     const/4 v0, 0x1
 
-    .line 69
     :goto_1
     return v0
 .end method
@@ -873,7 +827,6 @@
     invoke-direct {v0, v1, v2, v3}, Lcom/leidong/open/http/okhttp3/Route;-><init>(Lcom/leidong/open/http/okhttp3/Address;Ljava/net/Proxy;Ljava/net/InetSocketAddress;)V
 
     .line 88
-    .local v0, "route":Lcom/leidong/open/http/okhttp3/Route;
     iget-object v1, p0, Lcom/leidong/open/http/okhttp3/internal/connection/RouteSelector;->routeDatabase:Lcom/leidong/open/http/okhttp3/internal/connection/RouteDatabase;
 
     invoke-virtual {v1, v0}, Lcom/leidong/open/http/okhttp3/internal/connection/RouteDatabase;->shouldPostpone(Lcom/leidong/open/http/okhttp3/Route;)Z
@@ -890,11 +843,10 @@
     .line 91
     invoke-virtual {p0}, Lcom/leidong/open/http/okhttp3/internal/connection/RouteSelector;->next()Lcom/leidong/open/http/okhttp3/Route;
 
-    move-result-object v1
+    move-result-object v0
 
-    return-object v1
+    return-object v0
 
-    .line 94
     :cond_3
     return-object v0
 .end method

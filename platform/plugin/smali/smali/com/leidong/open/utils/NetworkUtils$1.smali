@@ -61,7 +61,7 @@
 .end method
 
 .method public call()Ljava/lang/String;
-    .locals 2
+    .locals 1
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Ljava/lang/Exception;
@@ -77,26 +77,20 @@
     move-result-object v0
 
     .line 332
-    .local v0, "inetAddress":Ljava/net/InetAddress;
     invoke-virtual {v0}, Ljava/net/InetAddress;->getHostAddress()Ljava/lang/String;
 
-    move-result-object v1
+    move-result-object v0
     :try_end_0
     .catch Ljava/net/UnknownHostException; {:try_start_0 .. :try_end_0} :catch_0
 
-    return-object v1
+    return-object v0
 
-    .line 333
-    .end local v0    # "inetAddress":Ljava/net/InetAddress;
     :catch_0
     move-exception v0
 
     .line 334
-    .local v0, "e":Ljava/net/UnknownHostException;
     invoke-virtual {v0}, Ljava/net/UnknownHostException;->printStackTrace()V
 
-    .line 336
-    .end local v0    # "e":Ljava/net/UnknownHostException;
     const/4 v0, 0x0
 
     return-object v0

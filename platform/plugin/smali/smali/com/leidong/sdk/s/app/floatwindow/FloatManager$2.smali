@@ -24,7 +24,6 @@
 # direct methods
 .method constructor <init>(Lcom/leidong/sdk/s/app/floatwindow/FloatManager;)V
     .locals 0
-    .param p1, "this$0"    # Lcom/leidong/sdk/s/app/floatwindow/FloatManager;
 
     .line 620
     iput-object p1, p0, Lcom/leidong/sdk/s/app/floatwindow/FloatManager$2;->this$0:Lcom/leidong/sdk/s/app/floatwindow/FloatManager;
@@ -37,37 +36,30 @@
 
 # virtual methods
 .method public onAnimationEnd(Landroid/view/animation/Animation;)V
-    .locals 2
-    .param p1, "animation"    # Landroid/view/animation/Animation;
+    .locals 1
 
     .line 630
-    iget-object v0, p0, Lcom/leidong/sdk/s/app/floatwindow/FloatManager$2;->this$0:Lcom/leidong/sdk/s/app/floatwindow/FloatManager;
+    iget-object p1, p0, Lcom/leidong/sdk/s/app/floatwindow/FloatManager$2;->this$0:Lcom/leidong/sdk/s/app/floatwindow/FloatManager;
 
-    # getter for: Lcom/leidong/sdk/s/app/floatwindow/FloatManager;->floatbutton_out:Landroid/widget/ImageView;
-    invoke-static {v0}, Lcom/leidong/sdk/s/app/floatwindow/FloatManager;->access$1800(Lcom/leidong/sdk/s/app/floatwindow/FloatManager;)Landroid/widget/ImageView;
+    invoke-static {p1}, Lcom/leidong/sdk/s/app/floatwindow/FloatManager;->access$1800(Lcom/leidong/sdk/s/app/floatwindow/FloatManager;)Landroid/widget/ImageView;
 
-    move-result-object v0
+    move-result-object p1
 
-    const/4 v1, 0x4
+    const/4 v0, 0x4
 
-    invoke-virtual {v0, v1}, Landroid/widget/ImageView;->setVisibility(I)V
+    invoke-virtual {p1, v0}, Landroid/widget/ImageView;->setVisibility(I)V
 
-    .line 631
     return-void
 .end method
 
 .method public onAnimationRepeat(Landroid/view/animation/Animation;)V
     .locals 0
-    .param p1, "animation"    # Landroid/view/animation/Animation;
 
-    .line 627
     return-void
 .end method
 
 .method public onAnimationStart(Landroid/view/animation/Animation;)V
     .locals 0
-    .param p1, "animation"    # Landroid/view/animation/Animation;
 
-    .line 623
     return-void
 .end method

@@ -21,8 +21,6 @@
 # direct methods
 .method public constructor <init>(Lcom/leidong/open/http/okhttp3/internal/http2/Http2Codec;Lcom/leidong/open/http/okio/Source;)V
     .locals 0
-    .param p1, "this$0"    # Lcom/leidong/open/http/okhttp3/internal/http2/Http2Codec;
-    .param p2, "delegate"    # Lcom/leidong/open/http/okio/Source;
 
     .line 194
     iput-object p1, p0, Lcom/leidong/open/http/okhttp3/internal/http2/Http2Codec$StreamFinishingSource;->this$0:Lcom/leidong/open/http/okhttp3/internal/http2/Http2Codec;
@@ -30,7 +28,6 @@
     .line 195
     invoke-direct {p0, p2}, Lcom/leidong/open/http/okio/ForwardingSource;-><init>(Lcom/leidong/open/http/okio/Source;)V
 
-    .line 196
     return-void
 .end method
 
@@ -58,6 +55,5 @@
     .line 200
     invoke-super {p0}, Lcom/leidong/open/http/okio/ForwardingSource;->close()V
 
-    .line 201
     return-void
 .end method

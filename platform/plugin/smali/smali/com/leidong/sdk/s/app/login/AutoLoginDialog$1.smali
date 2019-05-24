@@ -24,7 +24,6 @@
 # direct methods
 .method constructor <init>(Lcom/leidong/sdk/s/app/login/AutoLoginDialog;)V
     .locals 0
-    .param p1, "this$0"    # Lcom/leidong/sdk/s/app/login/AutoLoginDialog;
 
     .line 82
     iput-object p1, p0, Lcom/leidong/sdk/s/app/login/AutoLoginDialog$1;->this$0:Lcom/leidong/sdk/s/app/login/AutoLoginDialog;
@@ -37,29 +36,24 @@
 
 # virtual methods
 .method public onShow(Landroid/content/DialogInterface;)V
-    .locals 3
-    .param p1, "dialog"    # Landroid/content/DialogInterface;
+    .locals 2
 
     .line 87
+    iget-object p1, p0, Lcom/leidong/sdk/s/app/login/AutoLoginDialog$1;->this$0:Lcom/leidong/sdk/s/app/login/AutoLoginDialog;
+
     iget-object v0, p0, Lcom/leidong/sdk/s/app/login/AutoLoginDialog$1;->this$0:Lcom/leidong/sdk/s/app/login/AutoLoginDialog;
+
+    invoke-static {v0}, Lcom/leidong/sdk/s/app/login/AutoLoginDialog;->access$000(Lcom/leidong/sdk/s/app/login/AutoLoginDialog;)Landroid/widget/LinearLayout;
+
+    move-result-object v0
 
     iget-object v1, p0, Lcom/leidong/sdk/s/app/login/AutoLoginDialog$1;->this$0:Lcom/leidong/sdk/s/app/login/AutoLoginDialog;
 
-    # getter for: Lcom/leidong/sdk/s/app/login/AutoLoginDialog;->mContent:Landroid/widget/LinearLayout;
-    invoke-static {v1}, Lcom/leidong/sdk/s/app/login/AutoLoginDialog;->access$000(Lcom/leidong/sdk/s/app/login/AutoLoginDialog;)Landroid/widget/LinearLayout;
+    invoke-static {v1}, Lcom/leidong/sdk/s/app/login/AutoLoginDialog;->access$100(Lcom/leidong/sdk/s/app/login/AutoLoginDialog;)Landroid/content/Context;
 
     move-result-object v1
 
-    iget-object v2, p0, Lcom/leidong/sdk/s/app/login/AutoLoginDialog$1;->this$0:Lcom/leidong/sdk/s/app/login/AutoLoginDialog;
+    invoke-static {p1, v0, v1}, Lcom/leidong/sdk/s/app/login/AutoLoginDialog;->access$200(Lcom/leidong/sdk/s/app/login/AutoLoginDialog;Landroid/view/View;Landroid/content/Context;)V
 
-    # getter for: Lcom/leidong/sdk/s/app/login/AutoLoginDialog;->mContext:Landroid/content/Context;
-    invoke-static {v2}, Lcom/leidong/sdk/s/app/login/AutoLoginDialog;->access$100(Lcom/leidong/sdk/s/app/login/AutoLoginDialog;)Landroid/content/Context;
-
-    move-result-object v2
-
-    # invokes: Lcom/leidong/sdk/s/app/login/AutoLoginDialog;->startAnimate(Landroid/view/View;Landroid/content/Context;)V
-    invoke-static {v0, v1, v2}, Lcom/leidong/sdk/s/app/login/AutoLoginDialog;->access$200(Lcom/leidong/sdk/s/app/login/AutoLoginDialog;Landroid/view/View;Landroid/content/Context;)V
-
-    .line 88
     return-void
 .end method

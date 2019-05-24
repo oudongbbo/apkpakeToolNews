@@ -28,7 +28,6 @@
 # direct methods
 .method constructor <init>(Lcom/leidong/open/http/okserver/task/ExecutorWithListener;Lcom/leidong/open/http/okserver/task/ExecutorWithListener$OnTaskEndListener;Ljava/lang/Runnable;)V
     .locals 0
-    .param p1, "this$0"    # Lcom/leidong/open/http/okserver/task/ExecutorWithListener;
 
     .line 49
     iput-object p1, p0, Lcom/leidong/open/http/okserver/task/ExecutorWithListener$1;->this$0:Lcom/leidong/open/http/okserver/task/ExecutorWithListener;
@@ -54,6 +53,5 @@
 
     invoke-interface {v0, v1}, Lcom/leidong/open/http/okserver/task/ExecutorWithListener$OnTaskEndListener;->onTaskEnd(Ljava/lang/Runnable;)V
 
-    .line 53
     return-void
 .end method

@@ -26,7 +26,6 @@
 # direct methods
 .method constructor <init>(Lcom/leidong/sdk/s/app/login/model/AccountPopAdapter;I)V
     .locals 0
-    .param p1, "this$0"    # Lcom/leidong/sdk/s/app/login/model/AccountPopAdapter;
 
     .line 77
     iput-object p1, p0, Lcom/leidong/sdk/s/app/login/model/AccountPopAdapter$1;->this$0:Lcom/leidong/sdk/s/app/login/model/AccountPopAdapter;
@@ -41,66 +40,60 @@
 
 # virtual methods
 .method public onClick(Landroid/view/View;)V
-    .locals 4
-    .param p1, "v"    # Landroid/view/View;
+    .locals 3
 
     .line 82
-    new-instance v0, Lcom/leidong/sdk/framework/user/AccountManager;
+    new-instance p1, Lcom/leidong/sdk/framework/user/AccountManager;
 
-    iget-object v1, p0, Lcom/leidong/sdk/s/app/login/model/AccountPopAdapter$1;->this$0:Lcom/leidong/sdk/s/app/login/model/AccountPopAdapter;
-
-    # getter for: Lcom/leidong/sdk/s/app/login/model/AccountPopAdapter;->mContext:Landroid/content/Context;
-    invoke-static {v1}, Lcom/leidong/sdk/s/app/login/model/AccountPopAdapter;->access$200(Lcom/leidong/sdk/s/app/login/model/AccountPopAdapter;)Landroid/content/Context;
-
-    move-result-object v1
-
-    invoke-direct {v0, v1}, Lcom/leidong/sdk/framework/user/AccountManager;-><init>(Landroid/content/Context;)V
-
-    iget-object v1, p0, Lcom/leidong/sdk/s/app/login/model/AccountPopAdapter$1;->this$0:Lcom/leidong/sdk/s/app/login/model/AccountPopAdapter;
-
-    # getter for: Lcom/leidong/sdk/s/app/login/model/AccountPopAdapter;->mContext:Landroid/content/Context;
-    invoke-static {v1}, Lcom/leidong/sdk/s/app/login/model/AccountPopAdapter;->access$200(Lcom/leidong/sdk/s/app/login/model/AccountPopAdapter;)Landroid/content/Context;
-
-    move-result-object v1
-
-    iget-object v2, p0, Lcom/leidong/sdk/s/app/login/model/AccountPopAdapter$1;->this$0:Lcom/leidong/sdk/s/app/login/model/AccountPopAdapter;
-
-    # getter for: Lcom/leidong/sdk/s/app/login/model/AccountPopAdapter;->mAccountList:Ljava/util/List;
-    invoke-static {v2}, Lcom/leidong/sdk/s/app/login/model/AccountPopAdapter;->access$300(Lcom/leidong/sdk/s/app/login/model/AccountPopAdapter;)Ljava/util/List;
-
-    move-result-object v2
-
-    iget v3, p0, Lcom/leidong/sdk/s/app/login/model/AccountPopAdapter$1;->val$position:I
-
-    invoke-interface {v2, v3}, Ljava/util/List;->get(I)Ljava/lang/Object;
-
-    move-result-object v2
-
-    check-cast v2, Lcom/leidong/sdk/framework/user/UserInfoBean;
-
-    invoke-virtual {v2}, Lcom/leidong/sdk/framework/user/UserInfoBean;->getUname()Ljava/lang/String;
-
-    move-result-object v2
-
-    invoke-virtual {v0, v1, v2}, Lcom/leidong/sdk/framework/user/AccountManager;->delAccountFromFile(Landroid/content/Context;Ljava/lang/String;)V
-
-    .line 84
     iget-object v0, p0, Lcom/leidong/sdk/s/app/login/model/AccountPopAdapter$1;->this$0:Lcom/leidong/sdk/s/app/login/model/AccountPopAdapter;
 
-    # getter for: Lcom/leidong/sdk/s/app/login/model/AccountPopAdapter;->mAccountList:Ljava/util/List;
-    invoke-static {v0}, Lcom/leidong/sdk/s/app/login/model/AccountPopAdapter;->access$300(Lcom/leidong/sdk/s/app/login/model/AccountPopAdapter;)Ljava/util/List;
+    invoke-static {v0}, Lcom/leidong/sdk/s/app/login/model/AccountPopAdapter;->access$200(Lcom/leidong/sdk/s/app/login/model/AccountPopAdapter;)Landroid/content/Context;
 
     move-result-object v0
 
-    iget v1, p0, Lcom/leidong/sdk/s/app/login/model/AccountPopAdapter$1;->val$position:I
+    invoke-direct {p1, v0}, Lcom/leidong/sdk/framework/user/AccountManager;-><init>(Landroid/content/Context;)V
 
-    invoke-interface {v0, v1}, Ljava/util/List;->remove(I)Ljava/lang/Object;
-
-    .line 85
     iget-object v0, p0, Lcom/leidong/sdk/s/app/login/model/AccountPopAdapter$1;->this$0:Lcom/leidong/sdk/s/app/login/model/AccountPopAdapter;
 
-    invoke-virtual {v0}, Lcom/leidong/sdk/s/app/login/model/AccountPopAdapter;->notifyDataSetChanged()V
+    invoke-static {v0}, Lcom/leidong/sdk/s/app/login/model/AccountPopAdapter;->access$200(Lcom/leidong/sdk/s/app/login/model/AccountPopAdapter;)Landroid/content/Context;
 
-    .line 86
+    move-result-object v0
+
+    iget-object v1, p0, Lcom/leidong/sdk/s/app/login/model/AccountPopAdapter$1;->this$0:Lcom/leidong/sdk/s/app/login/model/AccountPopAdapter;
+
+    invoke-static {v1}, Lcom/leidong/sdk/s/app/login/model/AccountPopAdapter;->access$300(Lcom/leidong/sdk/s/app/login/model/AccountPopAdapter;)Ljava/util/List;
+
+    move-result-object v1
+
+    iget v2, p0, Lcom/leidong/sdk/s/app/login/model/AccountPopAdapter$1;->val$position:I
+
+    invoke-interface {v1, v2}, Ljava/util/List;->get(I)Ljava/lang/Object;
+
+    move-result-object v1
+
+    check-cast v1, Lcom/leidong/sdk/framework/user/UserInfoBean;
+
+    invoke-virtual {v1}, Lcom/leidong/sdk/framework/user/UserInfoBean;->getUname()Ljava/lang/String;
+
+    move-result-object v1
+
+    invoke-virtual {p1, v0, v1}, Lcom/leidong/sdk/framework/user/AccountManager;->delAccountFromFile(Landroid/content/Context;Ljava/lang/String;)V
+
+    .line 84
+    iget-object p1, p0, Lcom/leidong/sdk/s/app/login/model/AccountPopAdapter$1;->this$0:Lcom/leidong/sdk/s/app/login/model/AccountPopAdapter;
+
+    invoke-static {p1}, Lcom/leidong/sdk/s/app/login/model/AccountPopAdapter;->access$300(Lcom/leidong/sdk/s/app/login/model/AccountPopAdapter;)Ljava/util/List;
+
+    move-result-object p1
+
+    iget v0, p0, Lcom/leidong/sdk/s/app/login/model/AccountPopAdapter$1;->val$position:I
+
+    invoke-interface {p1, v0}, Ljava/util/List;->remove(I)Ljava/lang/Object;
+
+    .line 85
+    iget-object p1, p0, Lcom/leidong/sdk/s/app/login/model/AccountPopAdapter$1;->this$0:Lcom/leidong/sdk/s/app/login/model/AccountPopAdapter;
+
+    invoke-virtual {p1}, Lcom/leidong/sdk/s/app/login/model/AccountPopAdapter;->notifyDataSetChanged()V
+
     return-void
 .end method

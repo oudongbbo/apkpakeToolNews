@@ -24,7 +24,6 @@
 # direct methods
 .method constructor <init>(Lcom/leidong/sdk/m/activity/SdkCustomerServiceActivity;)V
     .locals 0
-    .param p1, "this$0"    # Lcom/leidong/sdk/m/activity/SdkCustomerServiceActivity;
 
     .line 105
     iput-object p1, p0, Lcom/leidong/sdk/m/activity/SdkCustomerServiceActivity$1;->this$0:Lcom/leidong/sdk/m/activity/SdkCustomerServiceActivity;
@@ -37,14 +36,12 @@
 
 # virtual methods
 .method public onClick(Landroid/view/View;)V
-    .locals 1
-    .param p1, "v"    # Landroid/view/View;
+    .locals 0
 
     .line 109
-    iget-object v0, p0, Lcom/leidong/sdk/m/activity/SdkCustomerServiceActivity$1;->this$0:Lcom/leidong/sdk/m/activity/SdkCustomerServiceActivity;
+    iget-object p1, p0, Lcom/leidong/sdk/m/activity/SdkCustomerServiceActivity$1;->this$0:Lcom/leidong/sdk/m/activity/SdkCustomerServiceActivity;
 
-    invoke-virtual {v0}, Lcom/leidong/sdk/m/activity/SdkCustomerServiceActivity;->finish()V
+    invoke-virtual {p1}, Lcom/leidong/sdk/m/activity/SdkCustomerServiceActivity;->finish()V
 
-    .line 110
     return-void
 .end method

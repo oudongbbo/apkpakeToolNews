@@ -37,7 +37,6 @@
 # direct methods
 .method constructor <init>(Lcom/leidong/sdk/m/receiver/PushReceiver;IILjava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Landroid/graphics/Bitmap;)V
     .locals 0
-    .param p1, "this$0"    # Lcom/leidong/sdk/m/receiver/PushReceiver;
 
     .line 268
     iput-object p1, p0, Lcom/leidong/sdk/m/receiver/PushReceiver$2;->this$0:Lcom/leidong/sdk/m/receiver/PushReceiver;
@@ -66,14 +65,13 @@
 
 # virtual methods
 .method public handleMessage(Landroid/os/Message;)V
-    .locals 21
-    .param p1, "msg"    # Landroid/os/Message;
+    .locals 20
 
     move-object/from16 v0, p0
 
-    .line 272
     move-object/from16 v1, p1
 
+    .line 272
     invoke-super/range {p0 .. p1}, Landroid/os/Handler;->handleMessage(Landroid/os/Message;)V
 
     .line 274
@@ -91,72 +89,63 @@
 
     .line 276
     :cond_0
-    iget-object v2, v1, Landroid/os/Message;->obj:Ljava/lang/Object;
+    iget-object v1, v1, Landroid/os/Message;->obj:Ljava/lang/Object;
 
-    check-cast v2, Landroid/graphics/Bitmap;
+    move-object v5, v1
+
+    check-cast v5, Landroid/graphics/Bitmap;
 
     .line 277
-    .local v2, "iconBitmap":Landroid/graphics/Bitmap;
-    iget-object v3, v0, Lcom/leidong/sdk/m/receiver/PushReceiver$2;->this$0:Lcom/leidong/sdk/m/receiver/PushReceiver;
+    iget-object v2, v0, Lcom/leidong/sdk/m/receiver/PushReceiver$2;->this$0:Lcom/leidong/sdk/m/receiver/PushReceiver;
 
-    iget v4, v0, Lcom/leidong/sdk/m/receiver/PushReceiver$2;->val$push_id:I
+    iget v3, v0, Lcom/leidong/sdk/m/receiver/PushReceiver$2;->val$push_id:I
 
-    iget v5, v0, Lcom/leidong/sdk/m/receiver/PushReceiver$2;->val$push_type:I
+    iget v4, v0, Lcom/leidong/sdk/m/receiver/PushReceiver$2;->val$push_type:I
 
-    iget-object v7, v0, Lcom/leidong/sdk/m/receiver/PushReceiver$2;->val$push_title:Ljava/lang/String;
+    iget-object v6, v0, Lcom/leidong/sdk/m/receiver/PushReceiver$2;->val$push_title:Ljava/lang/String;
 
-    iget-object v8, v0, Lcom/leidong/sdk/m/receiver/PushReceiver$2;->val$push_desc:Ljava/lang/String;
+    iget-object v7, v0, Lcom/leidong/sdk/m/receiver/PushReceiver$2;->val$push_desc:Ljava/lang/String;
 
-    iget-object v9, v0, Lcom/leidong/sdk/m/receiver/PushReceiver$2;->val$dst_url:Ljava/lang/String;
+    iget-object v8, v0, Lcom/leidong/sdk/m/receiver/PushReceiver$2;->val$dst_url:Ljava/lang/String;
 
-    iget-object v10, v0, Lcom/leidong/sdk/m/receiver/PushReceiver$2;->val$pckName:Ljava/lang/String;
+    iget-object v9, v0, Lcom/leidong/sdk/m/receiver/PushReceiver$2;->val$pckName:Ljava/lang/String;
 
-    iget-object v11, v0, Lcom/leidong/sdk/m/receiver/PushReceiver$2;->val$img_url:Ljava/lang/String;
+    iget-object v10, v0, Lcom/leidong/sdk/m/receiver/PushReceiver$2;->val$img_url:Ljava/lang/String;
 
-    move-object v6, v2
+    invoke-virtual/range {v2 .. v10}, Lcom/leidong/sdk/m/receiver/PushReceiver;->showPushNotice(IILandroid/graphics/Bitmap;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;)V
 
-    invoke-virtual/range {v3 .. v11}, Lcom/leidong/sdk/m/receiver/PushReceiver;->showPushNotice(IILandroid/graphics/Bitmap;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;)V
-
-    .line 278
     goto :goto_0
 
     .line 281
-    .end local v2    # "iconBitmap":Landroid/graphics/Bitmap;
     :cond_1
-    iget-object v12, v0, Lcom/leidong/sdk/m/receiver/PushReceiver$2;->this$0:Lcom/leidong/sdk/m/receiver/PushReceiver;
+    iget-object v11, v0, Lcom/leidong/sdk/m/receiver/PushReceiver$2;->this$0:Lcom/leidong/sdk/m/receiver/PushReceiver;
 
-    iget v13, v0, Lcom/leidong/sdk/m/receiver/PushReceiver$2;->val$push_id:I
+    iget v12, v0, Lcom/leidong/sdk/m/receiver/PushReceiver$2;->val$push_id:I
 
-    iget v14, v0, Lcom/leidong/sdk/m/receiver/PushReceiver$2;->val$push_type:I
+    iget v13, v0, Lcom/leidong/sdk/m/receiver/PushReceiver$2;->val$push_type:I
 
-    iget-object v15, v0, Lcom/leidong/sdk/m/receiver/PushReceiver$2;->val$defaultIcon:Landroid/graphics/Bitmap;
+    iget-object v14, v0, Lcom/leidong/sdk/m/receiver/PushReceiver$2;->val$defaultIcon:Landroid/graphics/Bitmap;
 
-    iget-object v2, v0, Lcom/leidong/sdk/m/receiver/PushReceiver$2;->val$push_title:Ljava/lang/String;
+    iget-object v15, v0, Lcom/leidong/sdk/m/receiver/PushReceiver$2;->val$push_title:Ljava/lang/String;
 
-    iget-object v3, v0, Lcom/leidong/sdk/m/receiver/PushReceiver$2;->val$push_desc:Ljava/lang/String;
+    iget-object v1, v0, Lcom/leidong/sdk/m/receiver/PushReceiver$2;->val$push_desc:Ljava/lang/String;
 
-    iget-object v4, v0, Lcom/leidong/sdk/m/receiver/PushReceiver$2;->val$dst_url:Ljava/lang/String;
+    iget-object v2, v0, Lcom/leidong/sdk/m/receiver/PushReceiver$2;->val$dst_url:Ljava/lang/String;
 
-    iget-object v5, v0, Lcom/leidong/sdk/m/receiver/PushReceiver$2;->val$pckName:Ljava/lang/String;
+    iget-object v3, v0, Lcom/leidong/sdk/m/receiver/PushReceiver$2;->val$pckName:Ljava/lang/String;
 
-    iget-object v6, v0, Lcom/leidong/sdk/m/receiver/PushReceiver$2;->val$img_url:Ljava/lang/String;
+    iget-object v4, v0, Lcom/leidong/sdk/m/receiver/PushReceiver$2;->val$img_url:Ljava/lang/String;
 
-    move-object/from16 v16, v2
+    move-object/from16 v16, v1
 
-    move-object/from16 v17, v3
+    move-object/from16 v17, v2
 
-    move-object/from16 v18, v4
+    move-object/from16 v18, v3
 
-    move-object/from16 v19, v5
+    move-object/from16 v19, v4
 
-    move-object/from16 v20, v6
+    invoke-virtual/range {v11 .. v19}, Lcom/leidong/sdk/m/receiver/PushReceiver;->showPushNotice(IILandroid/graphics/Bitmap;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;)V
 
-    invoke-virtual/range {v12 .. v20}, Lcom/leidong/sdk/m/receiver/PushReceiver;->showPushNotice(IILandroid/graphics/Bitmap;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;)V
-
-    .line 282
-    nop
-
-    .line 287
     :goto_0
     return-void
 .end method

@@ -26,7 +26,6 @@
 # direct methods
 .method constructor <init>(Lcom/leidong/sdk/s/app/login/LoginDialog;Landroid/widget/ImageView;)V
     .locals 0
-    .param p1, "this$0"    # Lcom/leidong/sdk/s/app/login/LoginDialog;
 
     .line 163
     iput-object p1, p0, Lcom/leidong/sdk/s/app/login/LoginDialog$2;->this$0:Lcom/leidong/sdk/s/app/login/LoginDialog;
@@ -42,30 +41,24 @@
 # virtual methods
 .method public onFail(Ljava/lang/String;)V
     .locals 0
-    .param p1, "url"    # Ljava/lang/String;
 
-    .line 167
     return-void
 .end method
 
 .method public onSuccess(Landroid/graphics/Bitmap;Ljava/lang/String;)V
-    .locals 2
-    .param p1, "bitmap"    # Landroid/graphics/Bitmap;
-    .param p2, "url"    # Ljava/lang/String;
+    .locals 1
 
-    .line 172
     if-eqz p1, :cond_0
 
     .line 173
-    iget-object v0, p0, Lcom/leidong/sdk/s/app/login/LoginDialog$2;->val$view:Landroid/widget/ImageView;
+    iget-object p2, p0, Lcom/leidong/sdk/s/app/login/LoginDialog$2;->val$view:Landroid/widget/ImageView;
 
-    new-instance v1, Landroid/graphics/drawable/BitmapDrawable;
+    new-instance v0, Landroid/graphics/drawable/BitmapDrawable;
 
-    invoke-direct {v1, p1}, Landroid/graphics/drawable/BitmapDrawable;-><init>(Landroid/graphics/Bitmap;)V
+    invoke-direct {v0, p1}, Landroid/graphics/drawable/BitmapDrawable;-><init>(Landroid/graphics/Bitmap;)V
 
-    invoke-virtual {v0, v1}, Landroid/widget/ImageView;->setBackground(Landroid/graphics/drawable/Drawable;)V
+    invoke-virtual {p2, v0}, Landroid/widget/ImageView;->setBackground(Landroid/graphics/drawable/Drawable;)V
 
-    .line 175
     :cond_0
     return-void
 .end method

@@ -24,9 +24,8 @@
 # direct methods
 .method constructor <init>(Lcom/leidong/sdk/m/controller/PlatformManager;)V
     .locals 0
-    .param p1, "this$0"    # Lcom/leidong/sdk/m/controller/PlatformManager;
 
-    .line 1308
+    .line 1312
     iput-object p1, p0, Lcom/leidong/sdk/m/controller/PlatformManager$16;->this$0:Lcom/leidong/sdk/m/controller/PlatformManager;
 
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -37,46 +36,40 @@
 
 # virtual methods
 .method public onCancel(Ljava/lang/String;)V
-    .locals 1
-    .param p1, "arg0"    # Ljava/lang/String;
+    .locals 0
 
-    .line 1315
-    iget-object v0, p0, Lcom/leidong/sdk/m/controller/PlatformManager$16;->this$0:Lcom/leidong/sdk/m/controller/PlatformManager;
+    .line 1319
+    iget-object p1, p0, Lcom/leidong/sdk/m/controller/PlatformManager$16;->this$0:Lcom/leidong/sdk/m/controller/PlatformManager;
 
-    iget-object v0, v0, Lcom/leidong/sdk/m/controller/PlatformManager;->mCallBack:Lcom/leidong/sdk/m/LeiMsdkCallback;
+    iget-object p1, p1, Lcom/leidong/sdk/m/controller/PlatformManager;->mCallBack:Lcom/leidong/sdk/m/LeiMsdkCallback;
 
-    invoke-interface {v0}, Lcom/leidong/sdk/m/LeiMsdkCallback;->onExitGameFail()V
+    invoke-interface {p1}, Lcom/leidong/sdk/m/LeiMsdkCallback;->onExitGameFail()V
 
-    .line 1316
     return-void
 .end method
 
 .method public onFail(Ljava/lang/String;)V
-    .locals 1
-    .param p1, "message"    # Ljava/lang/String;
+    .locals 0
 
-    .line 1319
-    iget-object v0, p0, Lcom/leidong/sdk/m/controller/PlatformManager$16;->this$0:Lcom/leidong/sdk/m/controller/PlatformManager;
+    .line 1323
+    iget-object p1, p0, Lcom/leidong/sdk/m/controller/PlatformManager$16;->this$0:Lcom/leidong/sdk/m/controller/PlatformManager;
 
-    iget-object v0, v0, Lcom/leidong/sdk/m/controller/PlatformManager;->mCallBack:Lcom/leidong/sdk/m/LeiMsdkCallback;
+    iget-object p1, p1, Lcom/leidong/sdk/m/controller/PlatformManager;->mCallBack:Lcom/leidong/sdk/m/LeiMsdkCallback;
 
-    invoke-interface {v0}, Lcom/leidong/sdk/m/LeiMsdkCallback;->onExitGameFail()V
+    invoke-interface {p1}, Lcom/leidong/sdk/m/LeiMsdkCallback;->onExitGameFail()V
 
-    .line 1320
     return-void
 .end method
 
 .method public onSuccess(Landroid/os/Bundle;)V
-    .locals 1
-    .param p1, "bundle"    # Landroid/os/Bundle;
+    .locals 0
 
-    .line 1311
-    iget-object v0, p0, Lcom/leidong/sdk/m/controller/PlatformManager$16;->this$0:Lcom/leidong/sdk/m/controller/PlatformManager;
+    .line 1315
+    iget-object p1, p0, Lcom/leidong/sdk/m/controller/PlatformManager$16;->this$0:Lcom/leidong/sdk/m/controller/PlatformManager;
 
-    iget-object v0, v0, Lcom/leidong/sdk/m/controller/PlatformManager;->mCallBack:Lcom/leidong/sdk/m/LeiMsdkCallback;
+    iget-object p1, p1, Lcom/leidong/sdk/m/controller/PlatformManager;->mCallBack:Lcom/leidong/sdk/m/LeiMsdkCallback;
 
-    invoke-interface {v0}, Lcom/leidong/sdk/m/LeiMsdkCallback;->onExitGameSuccess()V
+    invoke-interface {p1}, Lcom/leidong/sdk/m/LeiMsdkCallback;->onExitGameSuccess()V
 
-    .line 1312
     return-void
 .end method

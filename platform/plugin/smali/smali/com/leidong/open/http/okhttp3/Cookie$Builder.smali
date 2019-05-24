@@ -41,34 +41,32 @@
     .line 454
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
-    .line 457
     const-wide v0, 0xe677d21fdbffL
 
+    .line 457
     iput-wide v0, p0, Lcom/leidong/open/http/okhttp3/Cookie$Builder;->expiresAt:J
 
-    .line 459
     const-string v0, "/"
 
+    .line 459
     iput-object v0, p0, Lcom/leidong/open/http/okhttp3/Cookie$Builder;->path:Ljava/lang/String;
 
     return-void
 .end method
 
 .method private domain(Ljava/lang/String;Z)Lcom/leidong/open/http/okhttp3/Cookie$Builder;
-    .locals 4
-    .param p1, "domain"    # Ljava/lang/String;
-    .param p2, "hostOnly"    # Z
+    .locals 2
 
-    .line 504
     if-nez p1, :cond_0
 
-    new-instance v0, Ljava/lang/NullPointerException;
+    .line 504
+    new-instance p1, Ljava/lang/NullPointerException;
 
-    const-string v1, "domain == null"
+    const-string p2, "domain == null"
 
-    invoke-direct {v0, v1}, Ljava/lang/NullPointerException;-><init>(Ljava/lang/String;)V
+    invoke-direct {p1, p2}, Ljava/lang/NullPointerException;-><init>(Ljava/lang/String;)V
 
-    throw v0
+    throw p1
 
     .line 505
     :cond_0
@@ -76,30 +74,28 @@
 
     move-result-object v0
 
-    .line 506
-    .local v0, "canonicalDomain":Ljava/lang/String;
     if-nez v0, :cond_1
 
     .line 507
-    new-instance v1, Ljava/lang/IllegalArgumentException;
+    new-instance p2, Ljava/lang/IllegalArgumentException;
 
-    new-instance v2, Ljava/lang/StringBuilder;
+    new-instance v0, Ljava/lang/StringBuilder;
 
-    invoke-direct {v2}, Ljava/lang/StringBuilder;-><init>()V
+    invoke-direct {v0}, Ljava/lang/StringBuilder;-><init>()V
 
-    const-string v3, "unexpected domain: "
+    const-string v1, "unexpected domain: "
 
-    invoke-virtual {v2, v3}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    invoke-virtual {v2, p1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-virtual {v0, p1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    invoke-virtual {v2}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+    invoke-virtual {v0}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
 
-    move-result-object v2
+    move-result-object p1
 
-    invoke-direct {v1, v2}, Ljava/lang/IllegalArgumentException;-><init>(Ljava/lang/String;)V
+    invoke-direct {p2, p1}, Ljava/lang/IllegalArgumentException;-><init>(Ljava/lang/String;)V
 
-    throw v1
+    throw p2
 
     .line 509
     :cond_1
@@ -108,7 +104,6 @@
     .line 510
     iput-boolean p2, p0, Lcom/leidong/open/http/okhttp3/Cookie$Builder;->hostOnly:Z
 
-    .line 511
     return-object p0
 .end method
 
@@ -127,23 +122,20 @@
 
 .method public domain(Ljava/lang/String;)Lcom/leidong/open/http/okhttp3/Cookie$Builder;
     .locals 1
-    .param p1, "domain"    # Ljava/lang/String;
 
-    .line 492
     const/4 v0, 0x0
 
+    .line 492
     invoke-direct {p0, p1, v0}, Lcom/leidong/open/http/okhttp3/Cookie$Builder;->domain(Ljava/lang/String;Z)Lcom/leidong/open/http/okhttp3/Cookie$Builder;
 
-    move-result-object v0
+    move-result-object p1
 
-    return-object v0
+    return-object p1
 .end method
 
 .method public expiresAt(J)Lcom/leidong/open/http/okhttp3/Cookie$Builder;
     .locals 3
-    .param p1, "expiresAt"    # J
 
-    .line 480
     const-wide/16 v0, 0x0
 
     cmp-long v2, p1, v0
@@ -152,7 +144,6 @@
 
     const-wide/high16 p1, -0x8000000000000000L
 
-    .line 481
     :cond_0
     const-wide v0, 0xe677d21fdbffL
 
@@ -160,61 +151,57 @@
 
     if-lez v2, :cond_1
 
-    const-wide p1, 0xe677d21fdbffL
+    move-wide p1, v0
 
     .line 482
     :cond_1
     iput-wide p1, p0, Lcom/leidong/open/http/okhttp3/Cookie$Builder;->expiresAt:J
 
+    const/4 p1, 0x1
+
     .line 483
-    const/4 v0, 0x1
+    iput-boolean p1, p0, Lcom/leidong/open/http/okhttp3/Cookie$Builder;->persistent:Z
 
-    iput-boolean v0, p0, Lcom/leidong/open/http/okhttp3/Cookie$Builder;->persistent:Z
-
-    .line 484
     return-object p0
 .end method
 
 .method public hostOnlyDomain(Ljava/lang/String;)Lcom/leidong/open/http/okhttp3/Cookie$Builder;
     .locals 1
-    .param p1, "domain"    # Ljava/lang/String;
 
-    .line 500
     const/4 v0, 0x1
 
+    .line 500
     invoke-direct {p0, p1, v0}, Lcom/leidong/open/http/okhttp3/Cookie$Builder;->domain(Ljava/lang/String;Z)Lcom/leidong/open/http/okhttp3/Cookie$Builder;
 
-    move-result-object v0
+    move-result-object p1
 
-    return-object v0
+    return-object p1
 .end method
 
 .method public httpOnly()Lcom/leidong/open/http/okhttp3/Cookie$Builder;
     .locals 1
 
-    .line 526
     const/4 v0, 0x1
 
+    .line 526
     iput-boolean v0, p0, Lcom/leidong/open/http/okhttp3/Cookie$Builder;->httpOnly:Z
 
-    .line 527
     return-object p0
 .end method
 
 .method public name(Ljava/lang/String;)Lcom/leidong/open/http/okhttp3/Cookie$Builder;
-    .locals 2
-    .param p1, "name"    # Ljava/lang/String;
+    .locals 1
 
-    .line 466
     if-nez p1, :cond_0
 
-    new-instance v0, Ljava/lang/NullPointerException;
+    .line 466
+    new-instance p1, Ljava/lang/NullPointerException;
 
-    const-string v1, "name == null"
+    const-string v0, "name == null"
 
-    invoke-direct {v0, v1}, Ljava/lang/NullPointerException;-><init>(Ljava/lang/String;)V
+    invoke-direct {p1, v0}, Ljava/lang/NullPointerException;-><init>(Ljava/lang/String;)V
 
-    throw v0
+    throw p1
 
     .line 467
     :cond_0
@@ -228,77 +215,72 @@
 
     if-nez v0, :cond_1
 
-    new-instance v0, Ljava/lang/IllegalArgumentException;
+    new-instance p1, Ljava/lang/IllegalArgumentException;
 
-    const-string v1, "name is not trimmed"
+    const-string v0, "name is not trimmed"
 
-    invoke-direct {v0, v1}, Ljava/lang/IllegalArgumentException;-><init>(Ljava/lang/String;)V
+    invoke-direct {p1, v0}, Ljava/lang/IllegalArgumentException;-><init>(Ljava/lang/String;)V
 
-    throw v0
+    throw p1
 
     .line 468
     :cond_1
     iput-object p1, p0, Lcom/leidong/open/http/okhttp3/Cookie$Builder;->name:Ljava/lang/String;
 
-    .line 469
     return-object p0
 .end method
 
 .method public path(Ljava/lang/String;)Lcom/leidong/open/http/okhttp3/Cookie$Builder;
-    .locals 2
-    .param p1, "path"    # Ljava/lang/String;
+    .locals 1
 
-    .line 515
     const-string v0, "/"
 
+    .line 515
     invoke-virtual {p1, v0}, Ljava/lang/String;->startsWith(Ljava/lang/String;)Z
 
     move-result v0
 
     if-nez v0, :cond_0
 
-    new-instance v0, Ljava/lang/IllegalArgumentException;
+    new-instance p1, Ljava/lang/IllegalArgumentException;
 
-    const-string v1, "path must start with \'/\'"
+    const-string v0, "path must start with \'/\'"
 
-    invoke-direct {v0, v1}, Ljava/lang/IllegalArgumentException;-><init>(Ljava/lang/String;)V
+    invoke-direct {p1, v0}, Ljava/lang/IllegalArgumentException;-><init>(Ljava/lang/String;)V
 
-    throw v0
+    throw p1
 
     .line 516
     :cond_0
     iput-object p1, p0, Lcom/leidong/open/http/okhttp3/Cookie$Builder;->path:Ljava/lang/String;
 
-    .line 517
     return-object p0
 .end method
 
 .method public secure()Lcom/leidong/open/http/okhttp3/Cookie$Builder;
     .locals 1
 
-    .line 521
     const/4 v0, 0x1
 
+    .line 521
     iput-boolean v0, p0, Lcom/leidong/open/http/okhttp3/Cookie$Builder;->secure:Z
 
-    .line 522
     return-object p0
 .end method
 
 .method public value(Ljava/lang/String;)Lcom/leidong/open/http/okhttp3/Cookie$Builder;
-    .locals 2
-    .param p1, "value"    # Ljava/lang/String;
+    .locals 1
 
-    .line 473
     if-nez p1, :cond_0
 
-    new-instance v0, Ljava/lang/NullPointerException;
+    .line 473
+    new-instance p1, Ljava/lang/NullPointerException;
 
-    const-string v1, "value == null"
+    const-string v0, "value == null"
 
-    invoke-direct {v0, v1}, Ljava/lang/NullPointerException;-><init>(Ljava/lang/String;)V
+    invoke-direct {p1, v0}, Ljava/lang/NullPointerException;-><init>(Ljava/lang/String;)V
 
-    throw v0
+    throw p1
 
     .line 474
     :cond_0
@@ -312,18 +294,17 @@
 
     if-nez v0, :cond_1
 
-    new-instance v0, Ljava/lang/IllegalArgumentException;
+    new-instance p1, Ljava/lang/IllegalArgumentException;
 
-    const-string v1, "value is not trimmed"
+    const-string v0, "value is not trimmed"
 
-    invoke-direct {v0, v1}, Ljava/lang/IllegalArgumentException;-><init>(Ljava/lang/String;)V
+    invoke-direct {p1, v0}, Ljava/lang/IllegalArgumentException;-><init>(Ljava/lang/String;)V
 
-    throw v0
+    throw p1
 
     .line 475
     :cond_1
     iput-object p1, p0, Lcom/leidong/open/http/okhttp3/Cookie$Builder;->value:Ljava/lang/String;
 
-    .line 476
     return-object p0
 .end method

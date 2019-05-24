@@ -25,7 +25,6 @@
     .line 13
     invoke-static {}, Lcom/leidong/sdk/framework/web/webview/WebviewHandler;->init()V
 
-    .line 14
     return-void
 .end method
 
@@ -51,15 +50,14 @@
 
     invoke-virtual {v0}, Landroid/os/HandlerThread;->quit()Z
 
-    .line 20
     const/4 v0, 0x0
 
+    .line 20
     sput-object v0, Lcom/leidong/sdk/framework/web/webview/WebviewHandler;->handlerThread:Landroid/os/HandlerThread;
 
     .line 21
     sput-object v0, Lcom/leidong/sdk/framework/web/webview/WebviewHandler;->handler:Landroid/os/Handler;
 
-    .line 23
     :cond_0
     return-void
 .end method
@@ -108,17 +106,12 @@
 
     return-void
 
-    .line 36
-    :catch_0
-    move-exception v1
-
     .line 38
+    :catch_0
     monitor-exit v0
 
-    .line 39
     return-void
 
-    .line 38
     :catchall_0
     move-exception v1
 
@@ -131,7 +124,6 @@
 
 .method public static post(Ljava/lang/Runnable;)V
     .locals 1
-    .param p0, "paramRunnable"    # Ljava/lang/Runnable;
 
     .line 42
     sget-object v0, Lcom/leidong/sdk/framework/web/webview/WebviewHandler;->handler:Landroid/os/Handler;
@@ -143,15 +135,12 @@
 
     invoke-virtual {v0, p0}, Landroid/os/Handler;->post(Ljava/lang/Runnable;)Z
 
-    .line 44
     :cond_0
     return-void
 .end method
 
 .method public static postDelayed(Ljava/lang/Runnable;J)V
     .locals 1
-    .param p0, "paramRunnable"    # Ljava/lang/Runnable;
-    .param p1, "paramLong"    # J
 
     .line 47
     sget-object v0, Lcom/leidong/sdk/framework/web/webview/WebviewHandler;->handler:Landroid/os/Handler;
@@ -163,14 +152,12 @@
 
     invoke-virtual {v0, p0, p1, p2}, Landroid/os/Handler;->postDelayed(Ljava/lang/Runnable;J)Z
 
-    .line 49
     :cond_0
     return-void
 .end method
 
 .method public static removeCallbacks(Ljava/lang/Runnable;)V
     .locals 1
-    .param p0, "paramRunnable"    # Ljava/lang/Runnable;
 
     .line 52
     sget-object v0, Lcom/leidong/sdk/framework/web/webview/WebviewHandler;->handler:Landroid/os/Handler;
@@ -182,7 +169,6 @@
 
     invoke-virtual {v0, p0}, Landroid/os/Handler;->removeCallbacks(Ljava/lang/Runnable;)V
 
-    .line 54
     :cond_0
     return-void
 .end method

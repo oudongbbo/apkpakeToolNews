@@ -24,9 +24,8 @@
 # direct methods
 .method constructor <init>(Lcom/leidong/sdk/m/controller/MsdkManager;)V
     .locals 0
-    .param p1, "this$0"    # Lcom/leidong/sdk/m/controller/MsdkManager;
 
-    .line 741
+    .line 742
     iput-object p1, p0, Lcom/leidong/sdk/m/controller/MsdkManager$16;->this$0:Lcom/leidong/sdk/m/controller/MsdkManager;
 
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -39,12 +38,10 @@
 .method public onEnd()V
     .locals 1
 
-    .line 744
+    .line 745
     iget-object v0, p0, Lcom/leidong/sdk/m/controller/MsdkManager$16;->this$0:Lcom/leidong/sdk/m/controller/MsdkManager;
 
-    # invokes: Lcom/leidong/sdk/m/controller/MsdkManager;->initPaltform()V
     invoke-static {v0}, Lcom/leidong/sdk/m/controller/MsdkManager;->access$1400(Lcom/leidong/sdk/m/controller/MsdkManager;)V
 
-    .line 745
     return-void
 .end method

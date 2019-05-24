@@ -24,7 +24,6 @@
 # direct methods
 .method constructor <init>(Lcom/leidong/sdk/s/app/login/view/LoginHome;)V
     .locals 0
-    .param p1, "this$0"    # Lcom/leidong/sdk/s/app/login/view/LoginHome;
 
     .line 105
     iput-object p1, p0, Lcom/leidong/sdk/s/app/login/view/LoginHome$ToLogoListener;->this$0:Lcom/leidong/sdk/s/app/login/view/LoginHome;
@@ -38,8 +37,6 @@
 # virtual methods
 .method public onClick(Landroid/view/View;)V
     .locals 0
-    .param p1, "arg0"    # Landroid/view/View;
 
-    .line 110
     return-void
 .end method

@@ -24,9 +24,8 @@
 # direct methods
 .method constructor <init>(Lcom/leidong/sdk/m/controller/PlatformManager$8$1$1;)V
     .locals 0
-    .param p1, "this$3"    # Lcom/leidong/sdk/m/controller/PlatformManager$8$1$1;
 
-    .line 1032
+    .line 1035
     iput-object p1, p0, Lcom/leidong/sdk/m/controller/PlatformManager$8$1$1$1;->this$3:Lcom/leidong/sdk/m/controller/PlatformManager$8$1$1;
 
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -37,20 +36,18 @@
 
 # virtual methods
 .method public onDismiss(Landroid/content/DialogInterface;)V
-    .locals 1
-    .param p1, "dialog"    # Landroid/content/DialogInterface;
+    .locals 0
 
-    .line 1036
-    iget-object v0, p0, Lcom/leidong/sdk/m/controller/PlatformManager$8$1$1$1;->this$3:Lcom/leidong/sdk/m/controller/PlatformManager$8$1$1;
+    .line 1039
+    iget-object p1, p0, Lcom/leidong/sdk/m/controller/PlatformManager$8$1$1$1;->this$3:Lcom/leidong/sdk/m/controller/PlatformManager$8$1$1;
 
-    iget-object v0, v0, Lcom/leidong/sdk/m/controller/PlatformManager$8$1$1;->this$2:Lcom/leidong/sdk/m/controller/PlatformManager$8$1;
+    iget-object p1, p1, Lcom/leidong/sdk/m/controller/PlatformManager$8$1$1;->this$2:Lcom/leidong/sdk/m/controller/PlatformManager$8$1;
 
-    iget-object v0, v0, Lcom/leidong/sdk/m/controller/PlatformManager$8$1;->this$1:Lcom/leidong/sdk/m/controller/PlatformManager$8;
+    iget-object p1, p1, Lcom/leidong/sdk/m/controller/PlatformManager$8$1;->this$1:Lcom/leidong/sdk/m/controller/PlatformManager$8;
 
-    iget-object v0, v0, Lcom/leidong/sdk/m/controller/PlatformManager$8;->val$callback:Lcom/leidong/sdk/m/interfaces/MResultCallback;
+    iget-object p1, p1, Lcom/leidong/sdk/m/controller/PlatformManager$8;->val$callback:Lcom/leidong/sdk/m/interfaces/MResultCallback;
 
-    invoke-interface {v0}, Lcom/leidong/sdk/m/interfaces/MResultCallback;->onSuccess()V
+    invoke-interface {p1}, Lcom/leidong/sdk/m/interfaces/MResultCallback;->onSuccess()V
 
-    .line 1037
     return-void
 .end method

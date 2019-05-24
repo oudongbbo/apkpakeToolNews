@@ -26,9 +26,8 @@
 # direct methods
 .method constructor <init>(Lcom/leidong/sdk/m/controller/MsdkManager;Lcom/leidong/sdk/m/interfaces/MsdkCallback;)V
     .locals 0
-    .param p1, "this$0"    # Lcom/leidong/sdk/m/controller/MsdkManager;
 
-    .line 823
+    .line 824
     iput-object p1, p0, Lcom/leidong/sdk/m/controller/MsdkManager$18;->this$0:Lcom/leidong/sdk/m/controller/MsdkManager;
 
     iput-object p2, p0, Lcom/leidong/sdk/m/controller/MsdkManager$18;->val$callback:Lcom/leidong/sdk/m/interfaces/MsdkCallback;
@@ -41,19 +40,16 @@
 
 # virtual methods
 .method public onClick(Landroid/content/DialogInterface;I)V
-    .locals 2
-    .param p1, "dialog"    # Landroid/content/DialogInterface;
-    .param p2, "which"    # I
-
-    .line 826
-    iget-object v0, p0, Lcom/leidong/sdk/m/controller/MsdkManager$18;->val$callback:Lcom/leidong/sdk/m/interfaces/MsdkCallback;
-
-    new-instance v1, Landroid/os/Bundle;
-
-    invoke-direct {v1}, Landroid/os/Bundle;-><init>()V
-
-    invoke-interface {v0, v1}, Lcom/leidong/sdk/m/interfaces/MsdkCallback;->onSuccess(Landroid/os/Bundle;)V
+    .locals 0
 
     .line 827
+    iget-object p1, p0, Lcom/leidong/sdk/m/controller/MsdkManager$18;->val$callback:Lcom/leidong/sdk/m/interfaces/MsdkCallback;
+
+    new-instance p2, Landroid/os/Bundle;
+
+    invoke-direct {p2}, Landroid/os/Bundle;-><init>()V
+
+    invoke-interface {p1, p2}, Lcom/leidong/sdk/m/interfaces/MsdkCallback;->onSuccess(Landroid/os/Bundle;)V
+
     return-void
 .end method

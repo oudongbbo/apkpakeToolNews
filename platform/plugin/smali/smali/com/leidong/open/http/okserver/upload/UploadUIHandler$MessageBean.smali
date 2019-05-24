@@ -44,7 +44,6 @@
     .locals 0
 
     .line 60
-    .local p0, "this":Lcom/leidong/open/http/okserver/upload/UploadUIHandler$MessageBean;, "Lcom/leidong/open/http/okserver/upload/UploadUIHandler$MessageBean<TT;>;"
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
     return-void

@@ -25,7 +25,6 @@
 
     invoke-direct {v0}, Lcom/leidong/open/http/okhttp3/OkHttpClient;-><init>()V
 
-    .line 48
     return-void
 .end method
 

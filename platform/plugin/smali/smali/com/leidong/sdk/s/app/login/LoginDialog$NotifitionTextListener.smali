@@ -24,7 +24,6 @@
 # direct methods
 .method constructor <init>(Lcom/leidong/sdk/s/app/login/LoginDialog;)V
     .locals 0
-    .param p1, "this$0"    # Lcom/leidong/sdk/s/app/login/LoginDialog;
 
     .line 180
     iput-object p1, p0, Lcom/leidong/sdk/s/app/login/LoginDialog$NotifitionTextListener;->this$0:Lcom/leidong/sdk/s/app/login/LoginDialog;
@@ -37,13 +36,34 @@
 
 # virtual methods
 .method public onClick(Landroid/view/View;)V
-    .locals 2
-    .param p1, "v"    # Landroid/view/View;
+    .locals 1
 
     .line 184
+    iget-object p1, p0, Lcom/leidong/sdk/s/app/login/LoginDialog$NotifitionTextListener;->this$0:Lcom/leidong/sdk/s/app/login/LoginDialog;
+
+    invoke-static {p1}, Lcom/leidong/sdk/s/app/login/LoginDialog;->access$100(Lcom/leidong/sdk/s/app/login/LoginDialog;)Landroid/content/Context;
+
+    move-result-object p1
+
+    invoke-static {p1}, Lcom/leidong/sdk/s/core/model/SdkConfigManager;->getScrollMessageUrl(Landroid/content/Context;)Ljava/lang/String;
+
+    move-result-object p1
+
+    invoke-static {p1}, Landroid/text/TextUtils;->isEmpty(Ljava/lang/CharSequence;)Z
+
+    move-result p1
+
+    if-nez p1, :cond_0
+
+    .line 185
+    iget-object p1, p0, Lcom/leidong/sdk/s/app/login/LoginDialog$NotifitionTextListener;->this$0:Lcom/leidong/sdk/s/app/login/LoginDialog;
+
+    invoke-static {p1}, Lcom/leidong/sdk/s/app/login/LoginDialog;->access$100(Lcom/leidong/sdk/s/app/login/LoginDialog;)Landroid/content/Context;
+
+    move-result-object p1
+
     iget-object v0, p0, Lcom/leidong/sdk/s/app/login/LoginDialog$NotifitionTextListener;->this$0:Lcom/leidong/sdk/s/app/login/LoginDialog;
 
-    # getter for: Lcom/leidong/sdk/s/app/login/LoginDialog;->mContext:Landroid/content/Context;
     invoke-static {v0}, Lcom/leidong/sdk/s/app/login/LoginDialog;->access$100(Lcom/leidong/sdk/s/app/login/LoginDialog;)Landroid/content/Context;
 
     move-result-object v0
@@ -52,34 +72,8 @@
 
     move-result-object v0
 
-    invoke-static {v0}, Landroid/text/TextUtils;->isEmpty(Ljava/lang/CharSequence;)Z
+    invoke-static {p1, v0}, Lcom/leidong/sdk/s/core/utils/SdkUtil;->openWebActivity(Landroid/content/Context;Ljava/lang/String;)V
 
-    move-result v0
-
-    if-nez v0, :cond_0
-
-    .line 185
-    iget-object v0, p0, Lcom/leidong/sdk/s/app/login/LoginDialog$NotifitionTextListener;->this$0:Lcom/leidong/sdk/s/app/login/LoginDialog;
-
-    # getter for: Lcom/leidong/sdk/s/app/login/LoginDialog;->mContext:Landroid/content/Context;
-    invoke-static {v0}, Lcom/leidong/sdk/s/app/login/LoginDialog;->access$100(Lcom/leidong/sdk/s/app/login/LoginDialog;)Landroid/content/Context;
-
-    move-result-object v0
-
-    iget-object v1, p0, Lcom/leidong/sdk/s/app/login/LoginDialog$NotifitionTextListener;->this$0:Lcom/leidong/sdk/s/app/login/LoginDialog;
-
-    # getter for: Lcom/leidong/sdk/s/app/login/LoginDialog;->mContext:Landroid/content/Context;
-    invoke-static {v1}, Lcom/leidong/sdk/s/app/login/LoginDialog;->access$100(Lcom/leidong/sdk/s/app/login/LoginDialog;)Landroid/content/Context;
-
-    move-result-object v1
-
-    invoke-static {v1}, Lcom/leidong/sdk/s/core/model/SdkConfigManager;->getScrollMessageUrl(Landroid/content/Context;)Ljava/lang/String;
-
-    move-result-object v1
-
-    invoke-static {v0, v1}, Lcom/leidong/sdk/s/core/utils/SdkUtil;->openWebActivity(Landroid/content/Context;Ljava/lang/String;)V
-
-    .line 187
     :cond_0
     return-void
 .end method

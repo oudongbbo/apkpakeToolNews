@@ -27,8 +27,6 @@
 # direct methods
 .method constructor <init>(Lcom/leidong/open/http/okio/BufferedSource;Ljava/nio/charset/Charset;)V
     .locals 0
-    .param p1, "source"    # Lcom/leidong/open/http/okio/BufferedSource;
-    .param p2, "charset"    # Ljava/nio/charset/Charset;
 
     .line 244
     invoke-direct {p0}, Ljava/io/Reader;-><init>()V
@@ -39,7 +37,6 @@
     .line 246
     iput-object p2, p0, Lcom/leidong/open/http/okhttp3/ResponseBody$BomAwareReader;->charset:Ljava/nio/charset/Charset;
 
-    .line 247
     return-void
 .end method
 
@@ -53,9 +50,9 @@
         }
     .end annotation
 
-    .line 261
     const/4 v0, 0x1
 
+    .line 261
     iput-boolean v0, p0, Lcom/leidong/open/http/okhttp3/ResponseBody$BomAwareReader;->closed:Z
 
     .line 262
@@ -76,16 +73,12 @@
 
     invoke-interface {v0}, Lcom/leidong/open/http/okio/BufferedSource;->close()V
 
-    .line 267
     :goto_0
     return-void
 .end method
 
 .method public read([CII)I
-    .locals 4
-    .param p1, "cbuf"    # [C
-    .param p2, "off"    # I
-    .param p3, "len"    # I
+    .locals 3
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Ljava/io/IOException;
@@ -97,53 +90,49 @@
 
     if-eqz v0, :cond_0
 
-    new-instance v0, Ljava/io/IOException;
+    new-instance p1, Ljava/io/IOException;
 
-    const-string v1, "Stream closed"
+    const-string p2, "Stream closed"
 
-    invoke-direct {v0, v1}, Ljava/io/IOException;-><init>(Ljava/lang/String;)V
+    invoke-direct {p1, p2}, Ljava/io/IOException;-><init>(Ljava/lang/String;)V
 
-    throw v0
+    throw p1
 
     .line 252
     :cond_0
     iget-object v0, p0, Lcom/leidong/open/http/okhttp3/ResponseBody$BomAwareReader;->delegate:Ljava/io/Reader;
 
-    .line 253
-    .local v0, "delegate":Ljava/io/Reader;
     if-nez v0, :cond_1
 
     .line 254
-    iget-object v1, p0, Lcom/leidong/open/http/okhttp3/ResponseBody$BomAwareReader;->source:Lcom/leidong/open/http/okio/BufferedSource;
+    iget-object v0, p0, Lcom/leidong/open/http/okhttp3/ResponseBody$BomAwareReader;->source:Lcom/leidong/open/http/okio/BufferedSource;
 
-    iget-object v2, p0, Lcom/leidong/open/http/okhttp3/ResponseBody$BomAwareReader;->charset:Ljava/nio/charset/Charset;
+    iget-object v1, p0, Lcom/leidong/open/http/okhttp3/ResponseBody$BomAwareReader;->charset:Ljava/nio/charset/Charset;
 
-    invoke-static {v1, v2}, Lcom/leidong/open/http/okhttp3/internal/Util;->bomAwareCharset(Lcom/leidong/open/http/okio/BufferedSource;Ljava/nio/charset/Charset;)Ljava/nio/charset/Charset;
+    invoke-static {v0, v1}, Lcom/leidong/open/http/okhttp3/internal/Util;->bomAwareCharset(Lcom/leidong/open/http/okio/BufferedSource;Ljava/nio/charset/Charset;)Ljava/nio/charset/Charset;
 
-    move-result-object v1
+    move-result-object v0
 
     .line 255
-    .local v1, "charset":Ljava/nio/charset/Charset;
-    new-instance v2, Ljava/io/InputStreamReader;
+    new-instance v1, Ljava/io/InputStreamReader;
 
-    iget-object v3, p0, Lcom/leidong/open/http/okhttp3/ResponseBody$BomAwareReader;->source:Lcom/leidong/open/http/okio/BufferedSource;
+    iget-object v2, p0, Lcom/leidong/open/http/okhttp3/ResponseBody$BomAwareReader;->source:Lcom/leidong/open/http/okio/BufferedSource;
 
-    invoke-interface {v3}, Lcom/leidong/open/http/okio/BufferedSource;->inputStream()Ljava/io/InputStream;
+    invoke-interface {v2}, Lcom/leidong/open/http/okio/BufferedSource;->inputStream()Ljava/io/InputStream;
 
-    move-result-object v3
+    move-result-object v2
 
-    invoke-direct {v2, v3, v1}, Ljava/io/InputStreamReader;-><init>(Ljava/io/InputStream;Ljava/nio/charset/Charset;)V
+    invoke-direct {v1, v2, v0}, Ljava/io/InputStreamReader;-><init>(Ljava/io/InputStream;Ljava/nio/charset/Charset;)V
 
-    iput-object v2, p0, Lcom/leidong/open/http/okhttp3/ResponseBody$BomAwareReader;->delegate:Ljava/io/Reader;
+    iput-object v1, p0, Lcom/leidong/open/http/okhttp3/ResponseBody$BomAwareReader;->delegate:Ljava/io/Reader;
 
-    move-object v0, v2
+    move-object v0, v1
 
     .line 257
-    .end local v1    # "charset":Ljava/nio/charset/Charset;
     :cond_1
     invoke-virtual {v0, p1, p2, p3}, Ljava/io/Reader;->read([CII)I
 
-    move-result v1
+    move-result p1
 
-    return v1
+    return p1
 .end method

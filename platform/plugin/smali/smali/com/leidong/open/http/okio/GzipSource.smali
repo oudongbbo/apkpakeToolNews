@@ -38,15 +38,14 @@
 
 # direct methods
 .method public constructor <init>(Lcom/leidong/open/http/okio/Source;)V
-    .locals 3
-    .param p1, "source"    # Lcom/leidong/open/http/okio/Source;
+    .locals 2
 
     .line 68
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
-    .line 47
     const/4 v0, 0x0
 
+    .line 47
     iput v0, p0, Lcom/leidong/open/http/okio/GzipSource;->section:I
 
     .line 66
@@ -56,16 +55,16 @@
 
     iput-object v0, p0, Lcom/leidong/open/http/okio/GzipSource;->crc:Ljava/util/zip/CRC32;
 
-    .line 69
     if-nez p1, :cond_0
 
-    new-instance v0, Ljava/lang/IllegalArgumentException;
+    .line 69
+    new-instance p1, Ljava/lang/IllegalArgumentException;
 
-    const-string v1, "source == null"
+    const-string v0, "source == null"
 
-    invoke-direct {v0, v1}, Ljava/lang/IllegalArgumentException;-><init>(Ljava/lang/String;)V
+    invoke-direct {p1, v0}, Ljava/lang/IllegalArgumentException;-><init>(Ljava/lang/String;)V
 
-    throw v0
+    throw p1
 
     .line 70
     :cond_0
@@ -80,37 +79,32 @@
     .line 71
     invoke-static {p1}, Lcom/leidong/open/http/okio/Okio;->buffer(Lcom/leidong/open/http/okio/Source;)Lcom/leidong/open/http/okio/BufferedSource;
 
-    move-result-object v0
+    move-result-object p1
 
-    iput-object v0, p0, Lcom/leidong/open/http/okio/GzipSource;->source:Lcom/leidong/open/http/okio/BufferedSource;
+    iput-object p1, p0, Lcom/leidong/open/http/okio/GzipSource;->source:Lcom/leidong/open/http/okio/BufferedSource;
 
     .line 72
-    new-instance v0, Lcom/leidong/open/http/okio/InflaterSource;
+    new-instance p1, Lcom/leidong/open/http/okio/InflaterSource;
 
-    iget-object v1, p0, Lcom/leidong/open/http/okio/GzipSource;->source:Lcom/leidong/open/http/okio/BufferedSource;
+    iget-object v0, p0, Lcom/leidong/open/http/okio/GzipSource;->source:Lcom/leidong/open/http/okio/BufferedSource;
 
-    iget-object v2, p0, Lcom/leidong/open/http/okio/GzipSource;->inflater:Ljava/util/zip/Inflater;
+    iget-object v1, p0, Lcom/leidong/open/http/okio/GzipSource;->inflater:Ljava/util/zip/Inflater;
 
-    invoke-direct {v0, v1, v2}, Lcom/leidong/open/http/okio/InflaterSource;-><init>(Lcom/leidong/open/http/okio/BufferedSource;Ljava/util/zip/Inflater;)V
+    invoke-direct {p1, v0, v1}, Lcom/leidong/open/http/okio/InflaterSource;-><init>(Lcom/leidong/open/http/okio/BufferedSource;Ljava/util/zip/Inflater;)V
 
-    iput-object v0, p0, Lcom/leidong/open/http/okio/GzipSource;->inflaterSource:Lcom/leidong/open/http/okio/InflaterSource;
+    iput-object p1, p0, Lcom/leidong/open/http/okio/GzipSource;->inflaterSource:Lcom/leidong/open/http/okio/InflaterSource;
 
-    .line 73
     return-void
 .end method
 
 .method private checkEqual(Ljava/lang/String;II)V
-    .locals 5
-    .param p1, "name"    # Ljava/lang/String;
-    .param p2, "expected"    # I
-    .param p3, "actual"    # I
+    .locals 4
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Ljava/io/IOException;
         }
     .end annotation
 
-    .line 212
     if-eq p3, p2, :cond_0
 
     .line 213
@@ -126,48 +120,47 @@
 
     aput-object p1, v2, v3
 
-    const/4 v3, 0x1
+    const/4 p1, 0x1
 
     .line 214
     invoke-static {p3}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
 
-    move-result-object v4
+    move-result-object p3
 
-    aput-object v4, v2, v3
+    aput-object p3, v2, p1
 
-    const/4 v3, 0x2
+    const/4 p1, 0x2
 
     invoke-static {p2}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
 
-    move-result-object v4
+    move-result-object p2
 
-    aput-object v4, v2, v3
+    aput-object p2, v2, p1
 
     .line 213
     invoke-static {v1, v2}, Ljava/lang/String;->format(Ljava/lang/String;[Ljava/lang/Object;)Ljava/lang/String;
 
-    move-result-object v1
+    move-result-object p1
 
-    invoke-direct {v0, v1}, Ljava/io/IOException;-><init>(Ljava/lang/String;)V
+    invoke-direct {v0, p1}, Ljava/io/IOException;-><init>(Ljava/lang/String;)V
 
     throw v0
 
-    .line 216
     :cond_0
     return-void
 .end method
 
 .method private consumeHeader()V
-    .locals 18
+    .locals 17
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Ljava/io/IOException;
         }
     .end annotation
 
-    .line 122
     move-object/from16 v6, p0
 
+    .line 122
     iget-object v0, v6, Lcom/leidong/open/http/okio/GzipSource;->source:Lcom/leidong/open/http/okio/BufferedSource;
 
     const-wide/16 v1, 0xa
@@ -187,8 +180,6 @@
 
     move-result v7
 
-    .line 124
-    .local v7, "flags":B
     shr-int/lit8 v0, v7, 0x1
 
     const/4 v8, 0x1
@@ -199,20 +190,17 @@
 
     if-ne v0, v8, :cond_0
 
-    const/4 v0, 0x1
+    const/4 v10, 0x1
 
     goto :goto_0
 
     :cond_0
-    const/4 v0, 0x0
+    const/4 v10, 0x0
 
     :goto_0
-    move v10, v0
-
-    .line 125
-    .local v10, "fhcrc":Z
     if-eqz v10, :cond_1
 
+    .line 125
     iget-object v0, v6, Lcom/leidong/open/http/okio/GzipSource;->source:Lcom/leidong/open/http/okio/BufferedSource;
 
     invoke-interface {v0}, Lcom/leidong/open/http/okio/BufferedSource;->buffer()Lcom/leidong/open/http/okio/Buffer;
@@ -233,15 +221,14 @@
 
     invoke-interface {v0}, Lcom/leidong/open/http/okio/BufferedSource;->readShort()S
 
-    move-result v11
+    move-result v0
+
+    const-string v1, "ID1ID2"
+
+    const/16 v2, 0x1f8b
 
     .line 128
-    .local v11, "id1id2":S
-    const-string v0, "ID1ID2"
-
-    const/16 v1, 0x1f8b
-
-    invoke-direct {v6, v0, v1, v11}, Lcom/leidong/open/http/okio/GzipSource;->checkEqual(Ljava/lang/String;II)V
+    invoke-direct {v6, v1, v2, v0}, Lcom/leidong/open/http/okio/GzipSource;->checkEqual(Ljava/lang/String;II)V
 
     .line 129
     iget-object v0, v6, Lcom/leidong/open/http/okio/GzipSource;->source:Lcom/leidong/open/http/okio/BufferedSource;
@@ -250,7 +237,6 @@
 
     invoke-interface {v0, v1, v2}, Lcom/leidong/open/http/okio/BufferedSource;->skip(J)V
 
-    .line 135
     shr-int/lit8 v0, v7, 0x2
 
     and-int/2addr v0, v8
@@ -264,9 +250,9 @@
 
     invoke-interface {v0, v1, v2}, Lcom/leidong/open/http/okio/BufferedSource;->require(J)V
 
-    .line 137
     if-eqz v10, :cond_2
 
+    .line 137
     iget-object v0, v6, Lcom/leidong/open/http/okio/GzipSource;->source:Lcom/leidong/open/http/okio/BufferedSource;
 
     invoke-interface {v0}, Lcom/leidong/open/http/okio/BufferedSource;->buffer()Lcom/leidong/open/http/okio/Buffer;
@@ -291,19 +277,18 @@
 
     invoke-virtual {v0}, Lcom/leidong/open/http/okio/Buffer;->readShortLe()S
 
-    move-result v12
+    move-result v0
 
     .line 139
-    .local v12, "xlen":I
-    iget-object v0, v6, Lcom/leidong/open/http/okio/GzipSource;->source:Lcom/leidong/open/http/okio/BufferedSource;
+    iget-object v1, v6, Lcom/leidong/open/http/okio/GzipSource;->source:Lcom/leidong/open/http/okio/BufferedSource;
 
-    int-to-long v1, v12
+    int-to-long v11, v0
 
-    invoke-interface {v0, v1, v2}, Lcom/leidong/open/http/okio/BufferedSource;->require(J)V
+    invoke-interface {v1, v11, v12}, Lcom/leidong/open/http/okio/BufferedSource;->require(J)V
 
-    .line 140
     if-eqz v10, :cond_3
 
+    .line 140
     iget-object v0, v6, Lcom/leidong/open/http/okio/GzipSource;->source:Lcom/leidong/open/http/okio/BufferedSource;
 
     invoke-interface {v0}, Lcom/leidong/open/http/okio/BufferedSource;->buffer()Lcom/leidong/open/http/okio/Buffer;
@@ -312,9 +297,9 @@
 
     const-wide/16 v2, 0x0
 
-    int-to-long v4, v12
-
     move-object v0, v6
+
+    move-wide v4, v11
 
     invoke-direct/range {v0 .. v5}, Lcom/leidong/open/http/okio/GzipSource;->updateCrc(Lcom/leidong/open/http/okio/Buffer;JJ)V
 
@@ -322,20 +307,16 @@
     :cond_3
     iget-object v0, v6, Lcom/leidong/open/http/okio/GzipSource;->source:Lcom/leidong/open/http/okio/BufferedSource;
 
-    int-to-long v1, v12
+    invoke-interface {v0, v11, v12}, Lcom/leidong/open/http/okio/BufferedSource;->skip(J)V
 
-    invoke-interface {v0, v1, v2}, Lcom/leidong/open/http/okio/BufferedSource;->skip(J)V
-
-    .line 148
-    .end local v12    # "xlen":I
     :cond_4
     shr-int/lit8 v0, v7, 0x3
 
     and-int/2addr v0, v8
 
-    const-wide/16 v12, -0x1
+    const-wide/16 v11, -0x1
 
-    const-wide/16 v14, 0x1
+    const-wide/16 v13, 0x1
 
     if-ne v0, v8, :cond_7
 
@@ -344,24 +325,23 @@
 
     invoke-interface {v0, v9}, Lcom/leidong/open/http/okio/BufferedSource;->indexOf(B)J
 
-    move-result-wide v16
+    move-result-wide v15
 
-    .line 150
-    .local v16, "index":J
-    cmp-long v0, v16, v12
+    cmp-long v0, v15, v11
 
     if-nez v0, :cond_5
 
+    .line 150
     new-instance v0, Ljava/io/EOFException;
 
     invoke-direct {v0}, Ljava/io/EOFException;-><init>()V
 
     throw v0
 
-    .line 151
     :cond_5
     if-eqz v10, :cond_6
 
+    .line 151
     iget-object v0, v6, Lcom/leidong/open/http/okio/GzipSource;->source:Lcom/leidong/open/http/okio/BufferedSource;
 
     invoke-interface {v0}, Lcom/leidong/open/http/okio/BufferedSource;->buffer()Lcom/leidong/open/http/okio/Buffer;
@@ -370,7 +350,7 @@
 
     const-wide/16 v2, 0x0
 
-    add-long v4, v16, v14
+    add-long v4, v15, v13
 
     move-object v0, v6
 
@@ -380,12 +360,10 @@
     :cond_6
     iget-object v0, v6, Lcom/leidong/open/http/okio/GzipSource;->source:Lcom/leidong/open/http/okio/BufferedSource;
 
-    add-long v1, v16, v14
+    add-long v1, v15, v13
 
     invoke-interface {v0, v1, v2}, Lcom/leidong/open/http/okio/BufferedSource;->skip(J)V
 
-    .line 159
-    .end local v16    # "index":J
     :cond_7
     shr-int/lit8 v0, v7, 0x4
 
@@ -398,24 +376,23 @@
 
     invoke-interface {v0, v9}, Lcom/leidong/open/http/okio/BufferedSource;->indexOf(B)J
 
-    move-result-wide v8
+    move-result-wide v7
 
-    .line 161
-    .local v8, "index":J
-    cmp-long v0, v8, v12
+    cmp-long v0, v7, v11
 
     if-nez v0, :cond_8
 
+    .line 161
     new-instance v0, Ljava/io/EOFException;
 
     invoke-direct {v0}, Ljava/io/EOFException;-><init>()V
 
     throw v0
 
-    .line 162
     :cond_8
     if-eqz v10, :cond_9
 
+    .line 162
     iget-object v0, v6, Lcom/leidong/open/http/okio/GzipSource;->source:Lcom/leidong/open/http/okio/BufferedSource;
 
     invoke-interface {v0}, Lcom/leidong/open/http/okio/BufferedSource;->buffer()Lcom/leidong/open/http/okio/Buffer;
@@ -424,7 +401,7 @@
 
     const-wide/16 v2, 0x0
 
-    add-long v4, v8, v14
+    add-long v4, v7, v13
 
     move-object v0, v6
 
@@ -434,18 +411,16 @@
     :cond_9
     iget-object v0, v6, Lcom/leidong/open/http/okio/GzipSource;->source:Lcom/leidong/open/http/okio/BufferedSource;
 
-    add-long v1, v8, v14
+    add-long v1, v7, v13
 
     invoke-interface {v0, v1, v2}, Lcom/leidong/open/http/okio/BufferedSource;->skip(J)V
 
-    .line 170
-    .end local v8    # "index":J
     :cond_a
     if-eqz v10, :cond_b
 
-    .line 171
     const-string v0, "FHCRC"
 
+    .line 171
     iget-object v1, v6, Lcom/leidong/open/http/okio/GzipSource;->source:Lcom/leidong/open/http/okio/BufferedSource;
 
     invoke-interface {v1}, Lcom/leidong/open/http/okio/BufferedSource;->readShortLe()S
@@ -469,7 +444,6 @@
 
     invoke-virtual {v0}, Ljava/util/zip/CRC32;->reset()V
 
-    .line 174
     :cond_b
     return-void
 .end method
@@ -482,9 +456,9 @@
         }
     .end annotation
 
-    .line 181
     const-string v0, "CRC"
 
+    .line 181
     iget-object v1, p0, Lcom/leidong/open/http/okio/GzipSource;->source:Lcom/leidong/open/http/okio/BufferedSource;
 
     invoke-interface {v1}, Lcom/leidong/open/http/okio/BufferedSource;->readIntLe()I
@@ -501,9 +475,9 @@
 
     invoke-direct {p0, v0, v1, v2}, Lcom/leidong/open/http/okio/GzipSource;->checkEqual(Ljava/lang/String;II)V
 
-    .line 182
     const-string v0, "ISIZE"
 
+    .line 182
     iget-object v1, p0, Lcom/leidong/open/http/okio/GzipSource;->source:Lcom/leidong/open/http/okio/BufferedSource;
 
     invoke-interface {v1}, Lcom/leidong/open/http/okio/BufferedSource;->readIntLe()I
@@ -520,119 +494,97 @@
 
     invoke-direct {p0, v0, v1, v2}, Lcom/leidong/open/http/okio/GzipSource;->checkEqual(Ljava/lang/String;II)V
 
-    .line 183
     return-void
 .end method
 
 .method private updateCrc(Lcom/leidong/open/http/okio/Buffer;JJ)V
-    .locals 7
-    .param p1, "buffer"    # Lcom/leidong/open/http/okio/Buffer;
-    .param p2, "offset"    # J
-    .param p4, "byteCount"    # J
+    .locals 6
 
     .line 196
-    iget-object v0, p1, Lcom/leidong/open/http/okio/Buffer;->head:Lcom/leidong/open/http/okio/Segment;
+    iget-object p1, p1, Lcom/leidong/open/http/okio/Buffer;->head:Lcom/leidong/open/http/okio/Segment;
 
     .line 197
-    .local v0, "s":Lcom/leidong/open/http/okio/Segment;
     :goto_0
-    iget v1, v0, Lcom/leidong/open/http/okio/Segment;->limit:I
+    iget v0, p1, Lcom/leidong/open/http/okio/Segment;->limit:I
 
-    iget v2, v0, Lcom/leidong/open/http/okio/Segment;->pos:I
+    iget v1, p1, Lcom/leidong/open/http/okio/Segment;->pos:I
 
-    sub-int/2addr v1, v2
+    sub-int/2addr v0, v1
 
-    int-to-long v1, v1
+    int-to-long v0, v0
 
-    cmp-long v3, p2, v1
+    cmp-long v2, p2, v0
 
-    if-ltz v3, :cond_0
+    if-ltz v2, :cond_0
 
     .line 198
-    iget v1, v0, Lcom/leidong/open/http/okio/Segment;->limit:I
+    iget v0, p1, Lcom/leidong/open/http/okio/Segment;->limit:I
 
-    iget v2, v0, Lcom/leidong/open/http/okio/Segment;->pos:I
+    iget v1, p1, Lcom/leidong/open/http/okio/Segment;->pos:I
 
-    sub-int/2addr v1, v2
+    sub-int/2addr v0, v1
 
-    int-to-long v1, v1
+    int-to-long v0, v0
 
-    sub-long v3, p2, v1
+    sub-long v2, p2, v0
 
     .line 197
-    .end local p2    # "offset":J
-    .local v3, "offset":J
-    iget-object v0, v0, Lcom/leidong/open/http/okio/Segment;->next:Lcom/leidong/open/http/okio/Segment;
+    iget-object p1, p1, Lcom/leidong/open/http/okio/Segment;->next:Lcom/leidong/open/http/okio/Segment;
 
-    .line 196
-    move-wide p2, v3
+    move-wide p2, v2
 
     goto :goto_0
 
-    .line 202
-    .end local v3    # "offset":J
-    .restart local p2    # "offset":J
     :cond_0
+    const-wide/16 v0, 0x0
+
     :goto_1
-    const-wide/16 v1, 0x0
+    cmp-long v2, p4, v0
 
-    cmp-long v3, p4, v1
-
-    if-lez v3, :cond_1
+    if-lez v2, :cond_1
 
     .line 203
-    iget v1, v0, Lcom/leidong/open/http/okio/Segment;->pos:I
-
-    int-to-long v1, v1
-
-    add-long v3, v1, p2
-
-    long-to-int v1, v3
-
-    .line 204
-    .local v1, "pos":I
-    iget v2, v0, Lcom/leidong/open/http/okio/Segment;->limit:I
-
-    sub-int/2addr v2, v1
+    iget v2, p1, Lcom/leidong/open/http/okio/Segment;->pos:I
 
     int-to-long v2, v2
+
+    add-long v4, v2, p2
+
+    long-to-int p2, v4
+
+    .line 204
+    iget p3, p1, Lcom/leidong/open/http/okio/Segment;->limit:I
+
+    sub-int/2addr p3, p2
+
+    int-to-long v2, p3
 
     invoke-static {v2, v3, p4, p5}, Ljava/lang/Math;->min(JJ)J
 
     move-result-wide v2
 
-    long-to-int v2, v2
+    long-to-int p3, v2
 
     .line 205
-    .local v2, "toUpdate":I
-    iget-object v3, p0, Lcom/leidong/open/http/okio/GzipSource;->crc:Ljava/util/zip/CRC32;
+    iget-object v2, p0, Lcom/leidong/open/http/okio/GzipSource;->crc:Ljava/util/zip/CRC32;
 
-    iget-object v4, v0, Lcom/leidong/open/http/okio/Segment;->data:[B
+    iget-object v3, p1, Lcom/leidong/open/http/okio/Segment;->data:[B
 
-    invoke-virtual {v3, v4, v1, v2}, Ljava/util/zip/CRC32;->update([BII)V
+    invoke-virtual {v2, v3, p2, p3}, Ljava/util/zip/CRC32;->update([BII)V
 
-    .line 206
-    int-to-long v3, v2
+    int-to-long p2, p3
 
-    sub-long v5, p4, v3
-
-    .line 207
-    .end local p4    # "byteCount":J
-    .local v5, "byteCount":J
-    const-wide/16 p2, 0x0
+    sub-long v2, p4, p2
 
     .line 202
-    .end local v1    # "pos":I
-    .end local v2    # "toUpdate":I
-    iget-object v0, v0, Lcom/leidong/open/http/okio/Segment;->next:Lcom/leidong/open/http/okio/Segment;
+    iget-object p1, p1, Lcom/leidong/open/http/okio/Segment;->next:Lcom/leidong/open/http/okio/Segment;
 
-    move-wide p4, v5
+    move-wide p2, v0
+
+    move-wide p4, v2
 
     goto :goto_1
 
-    .line 209
-    .end local v5    # "byteCount":J
-    .restart local p4    # "byteCount":J
     :cond_1
     return-void
 .end method
@@ -652,56 +604,46 @@
 
     invoke-virtual {v0}, Lcom/leidong/open/http/okio/InflaterSource;->close()V
 
-    .line 191
     return-void
 .end method
 
 .method public read(Lcom/leidong/open/http/okio/Buffer;J)J
-    .locals 14
-    .param p1, "sink"    # Lcom/leidong/open/http/okio/Buffer;
-    .param p2, "byteCount"    # J
+    .locals 11
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Ljava/io/IOException;
         }
     .end annotation
 
-    move-object v6, p0
-
-    move-object v7, p1
-
-    .line 76
-    move-wide/from16 v8, p2
-
     const-wide/16 v0, 0x0
 
-    cmp-long v2, v8, v0
+    cmp-long v2, p2, v0
 
     if-gez v2, :cond_0
 
-    new-instance v0, Ljava/lang/IllegalArgumentException;
+    .line 76
+    new-instance p1, Ljava/lang/IllegalArgumentException;
 
-    new-instance v1, Ljava/lang/StringBuilder;
+    new-instance v0, Ljava/lang/StringBuilder;
 
-    invoke-direct {v1}, Ljava/lang/StringBuilder;-><init>()V
+    invoke-direct {v0}, Ljava/lang/StringBuilder;-><init>()V
 
-    const-string v2, "byteCount < 0: "
+    const-string v1, "byteCount < 0: "
 
-    invoke-virtual {v1, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    invoke-virtual {v1, v8, v9}, Ljava/lang/StringBuilder;->append(J)Ljava/lang/StringBuilder;
+    invoke-virtual {v0, p2, p3}, Ljava/lang/StringBuilder;->append(J)Ljava/lang/StringBuilder;
 
-    invoke-virtual {v1}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+    invoke-virtual {v0}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
 
-    move-result-object v1
+    move-result-object p2
 
-    invoke-direct {v0, v1}, Ljava/lang/IllegalArgumentException;-><init>(Ljava/lang/String;)V
+    invoke-direct {p1, p2}, Ljava/lang/IllegalArgumentException;-><init>(Ljava/lang/String;)V
 
-    throw v0
+    throw p1
 
-    .line 77
     :cond_0
-    cmp-long v2, v8, v0
+    cmp-long v2, p2, v0
 
     if-nez v2, :cond_1
 
@@ -709,21 +651,21 @@
 
     .line 80
     :cond_1
-    iget v0, v6, Lcom/leidong/open/http/okio/GzipSource;->section:I
+    iget v0, p0, Lcom/leidong/open/http/okio/GzipSource;->section:I
 
     const/4 v1, 0x1
 
     if-nez v0, :cond_2
 
     .line 81
-    invoke-direct {v6}, Lcom/leidong/open/http/okio/GzipSource;->consumeHeader()V
+    invoke-direct {p0}, Lcom/leidong/open/http/okio/GzipSource;->consumeHeader()V
 
     .line 82
-    iput v1, v6, Lcom/leidong/open/http/okio/GzipSource;->section:I
+    iput v1, p0, Lcom/leidong/open/http/okio/GzipSource;->section:I
 
     .line 86
     :cond_2
-    iget v0, v6, Lcom/leidong/open/http/okio/GzipSource;->section:I
+    iget v0, p0, Lcom/leidong/open/http/okio/GzipSource;->section:I
 
     const/4 v2, 0x2
 
@@ -732,75 +674,66 @@
     if-ne v0, v1, :cond_4
 
     .line 87
-    iget-wide v10, v7, Lcom/leidong/open/http/okio/Buffer;->size:J
+    iget-wide v7, p1, Lcom/leidong/open/http/okio/Buffer;->size:J
 
     .line 88
-    .local v10, "offset":J
-    iget-object v0, v6, Lcom/leidong/open/http/okio/GzipSource;->inflaterSource:Lcom/leidong/open/http/okio/InflaterSource;
+    iget-object v0, p0, Lcom/leidong/open/http/okio/GzipSource;->inflaterSource:Lcom/leidong/open/http/okio/InflaterSource;
 
-    invoke-virtual {v0, v7, v8, v9}, Lcom/leidong/open/http/okio/InflaterSource;->read(Lcom/leidong/open/http/okio/Buffer;J)J
+    invoke-virtual {v0, p1, p2, p3}, Lcom/leidong/open/http/okio/InflaterSource;->read(Lcom/leidong/open/http/okio/Buffer;J)J
 
-    move-result-wide v12
+    move-result-wide p2
 
-    .line 89
-    .local v12, "result":J
-    cmp-long v0, v12, v3
+    cmp-long v0, p2, v3
 
     if-eqz v0, :cond_3
 
+    move-object v5, p0
+
+    move-object v6, p1
+
+    move-wide v9, p2
+
     .line 90
-    move-object v0, v6
+    invoke-direct/range {v5 .. v10}, Lcom/leidong/open/http/okio/GzipSource;->updateCrc(Lcom/leidong/open/http/okio/Buffer;JJ)V
 
-    move-object v1, v7
-
-    move-wide v2, v10
-
-    move-wide v4, v12
-
-    invoke-direct/range {v0 .. v5}, Lcom/leidong/open/http/okio/GzipSource;->updateCrc(Lcom/leidong/open/http/okio/Buffer;JJ)V
-
-    .line 91
-    return-wide v12
+    return-wide p2
 
     .line 93
     :cond_3
-    iput v2, v6, Lcom/leidong/open/http/okio/GzipSource;->section:I
+    iput v2, p0, Lcom/leidong/open/http/okio/GzipSource;->section:I
 
     .line 99
-    .end local v10    # "offset":J
-    .end local v12    # "result":J
     :cond_4
-    iget v0, v6, Lcom/leidong/open/http/okio/GzipSource;->section:I
+    iget p1, p0, Lcom/leidong/open/http/okio/GzipSource;->section:I
 
-    if-ne v0, v2, :cond_5
+    if-ne p1, v2, :cond_5
 
     .line 100
-    invoke-direct {v6}, Lcom/leidong/open/http/okio/GzipSource;->consumeTrailer()V
+    invoke-direct {p0}, Lcom/leidong/open/http/okio/GzipSource;->consumeTrailer()V
+
+    const/4 p1, 0x3
 
     .line 101
-    const/4 v0, 0x3
-
-    iput v0, v6, Lcom/leidong/open/http/okio/GzipSource;->section:I
+    iput p1, p0, Lcom/leidong/open/http/okio/GzipSource;->section:I
 
     .line 107
-    iget-object v0, v6, Lcom/leidong/open/http/okio/GzipSource;->source:Lcom/leidong/open/http/okio/BufferedSource;
+    iget-object p1, p0, Lcom/leidong/open/http/okio/GzipSource;->source:Lcom/leidong/open/http/okio/BufferedSource;
 
-    invoke-interface {v0}, Lcom/leidong/open/http/okio/BufferedSource;->exhausted()Z
+    invoke-interface {p1}, Lcom/leidong/open/http/okio/BufferedSource;->exhausted()Z
 
-    move-result v0
+    move-result p1
 
-    if-nez v0, :cond_5
+    if-nez p1, :cond_5
 
     .line 108
-    new-instance v0, Ljava/io/IOException;
+    new-instance p1, Ljava/io/IOException;
 
-    const-string v1, "gzip finished without exhausting source"
+    const-string p2, "gzip finished without exhausting source"
 
-    invoke-direct {v0, v1}, Ljava/io/IOException;-><init>(Ljava/lang/String;)V
+    invoke-direct {p1, p2}, Ljava/io/IOException;-><init>(Ljava/lang/String;)V
 
-    throw v0
+    throw p1
 
-    .line 112
     :cond_5
     return-wide v3
 .end method

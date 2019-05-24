@@ -28,10 +28,7 @@
 
 # direct methods
 .method constructor <init>(Lcom/leidong/open/http/okhttp3/OkHttpClient;Lcom/leidong/open/http/okhttp3/Request;Z)V
-    .locals 1
-    .param p1, "client"    # Lcom/leidong/open/http/okhttp3/OkHttpClient;
-    .param p2, "originalRequest"    # Lcom/leidong/open/http/okhttp3/Request;
-    .param p3, "forWebSocket"    # Z
+    .locals 0
 
     .line 45
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -46,13 +43,12 @@
     iput-boolean p3, p0, Lcom/leidong/open/http/okhttp3/RealCall;->forWebSocket:Z
 
     .line 49
-    new-instance v0, Lcom/leidong/open/http/okhttp3/internal/http/RetryAndFollowUpInterceptor;
+    new-instance p2, Lcom/leidong/open/http/okhttp3/internal/http/RetryAndFollowUpInterceptor;
 
-    invoke-direct {v0, p1, p3}, Lcom/leidong/open/http/okhttp3/internal/http/RetryAndFollowUpInterceptor;-><init>(Lcom/leidong/open/http/okhttp3/OkHttpClient;Z)V
+    invoke-direct {p2, p1, p3}, Lcom/leidong/open/http/okhttp3/internal/http/RetryAndFollowUpInterceptor;-><init>(Lcom/leidong/open/http/okhttp3/OkHttpClient;Z)V
 
-    iput-object v0, p0, Lcom/leidong/open/http/okhttp3/RealCall;->retryAndFollowUpInterceptor:Lcom/leidong/open/http/okhttp3/internal/http/RetryAndFollowUpInterceptor;
+    iput-object p2, p0, Lcom/leidong/open/http/okhttp3/RealCall;->retryAndFollowUpInterceptor:Lcom/leidong/open/http/okhttp3/internal/http/RetryAndFollowUpInterceptor;
 
-    .line 50
     return-void
 .end method
 
@@ -71,12 +67,10 @@
     move-result-object v0
 
     .line 74
-    .local v0, "callStackTrace":Ljava/lang/Object;
     iget-object v1, p0, Lcom/leidong/open/http/okhttp3/RealCall;->retryAndFollowUpInterceptor:Lcom/leidong/open/http/okhttp3/internal/http/RetryAndFollowUpInterceptor;
 
     invoke-virtual {v1, v0}, Lcom/leidong/open/http/okhttp3/internal/http/RetryAndFollowUpInterceptor;->setCallStackTrace(Ljava/lang/Object;)V
 
-    .line 75
     return-void
 .end method
 
@@ -90,7 +84,6 @@
 
     invoke-virtual {v0}, Lcom/leidong/open/http/okhttp3/internal/http/RetryAndFollowUpInterceptor;->cancel()V
 
-    .line 88
     return-void
 .end method
 
@@ -140,7 +133,6 @@
 
 .method public enqueue(Lcom/leidong/open/http/okhttp3/Callback;)V
     .locals 2
-    .param p1, "responseCallback"    # Lcom/leidong/open/http/okhttp3/Callback;
 
     .line 78
     monitor-enter p0
@@ -151,18 +143,18 @@
 
     if-eqz v0, :cond_0
 
-    new-instance v0, Ljava/lang/IllegalStateException;
+    new-instance p1, Ljava/lang/IllegalStateException;
 
-    const-string v1, "Already Executed"
+    const-string v0, "Already Executed"
 
-    invoke-direct {v0, v1}, Ljava/lang/IllegalStateException;-><init>(Ljava/lang/String;)V
+    invoke-direct {p1, v0}, Ljava/lang/IllegalStateException;-><init>(Ljava/lang/String;)V
 
-    throw v0
+    throw p1
 
-    .line 80
     :cond_0
     const/4 v0, 0x1
 
+    .line 80
     iput-boolean v0, p0, Lcom/leidong/open/http/okhttp3/RealCall;->executed:Z
 
     .line 81
@@ -186,23 +178,22 @@
 
     invoke-virtual {v0, v1}, Lcom/leidong/open/http/okhttp3/Dispatcher;->enqueue(Lcom/leidong/open/http/okhttp3/RealCall$AsyncCall;)V
 
-    .line 84
     return-void
 
-    .line 81
     :catchall_0
-    move-exception v0
+    move-exception p1
 
+    .line 81
     :try_start_1
     monitor-exit p0
     :try_end_1
     .catchall {:try_start_1 .. :try_end_1} :catchall_0
 
-    throw v0
+    throw p1
 .end method
 
 .method public execute()Lcom/leidong/open/http/okhttp3/Response;
-    .locals 3
+    .locals 2
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Ljava/io/IOException;
@@ -226,10 +217,10 @@
 
     throw v0
 
-    .line 59
     :cond_0
     const/4 v0, 0x1
 
+    .line 59
     iput-boolean v0, p0, Lcom/leidong/open/http/okhttp3/RealCall;->executed:Z
 
     .line 60
@@ -255,25 +246,21 @@
 
     move-result-object v0
 
-    .line 65
-    .local v0, "result":Lcom/leidong/open/http/okhttp3/Response;
     if-nez v0, :cond_1
 
-    new-instance v1, Ljava/io/IOException;
+    .line 65
+    new-instance v0, Ljava/io/IOException;
 
-    const-string v2, "Canceled"
+    const-string v1, "Canceled"
 
-    invoke-direct {v1, v2}, Ljava/io/IOException;-><init>(Ljava/lang/String;)V
+    invoke-direct {v0, v1}, Ljava/io/IOException;-><init>(Ljava/lang/String;)V
 
-    throw v1
+    throw v0
     :try_end_1
     .catchall {:try_start_1 .. :try_end_1} :catchall_0
 
-    .line 66
-    :cond_1
-    nop
-
     .line 68
+    :cond_1
     iget-object v1, p0, Lcom/leidong/open/http/okhttp3/RealCall;->client:Lcom/leidong/open/http/okhttp3/OkHttpClient;
 
     invoke-virtual {v1}, Lcom/leidong/open/http/okhttp3/OkHttpClient;->dispatcher()Lcom/leidong/open/http/okhttp3/Dispatcher;
@@ -282,11 +269,8 @@
 
     invoke-virtual {v1, p0}, Lcom/leidong/open/http/okhttp3/Dispatcher;->finished(Lcom/leidong/open/http/okhttp3/RealCall;)V
 
-    .line 66
     return-object v0
 
-    .line 68
-    .end local v0    # "result":Lcom/leidong/open/http/okhttp3/Response;
     :catchall_0
     move-exception v0
 
@@ -300,10 +284,10 @@
 
     throw v0
 
-    .line 60
     :catchall_1
     move-exception v0
 
+    .line 60
     :try_start_2
     monitor-exit p0
     :try_end_2
@@ -313,7 +297,7 @@
 .end method
 
 .method getResponseWithInterceptorChain()Lcom/leidong/open/http/okhttp3/Response;
-    .locals 9
+    .locals 8
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Ljava/io/IOException;
@@ -321,27 +305,26 @@
     .end annotation
 
     .line 167
-    new-instance v0, Ljava/util/ArrayList;
+    new-instance v1, Ljava/util/ArrayList;
 
-    invoke-direct {v0}, Ljava/util/ArrayList;-><init>()V
+    invoke-direct {v1}, Ljava/util/ArrayList;-><init>()V
 
     .line 168
-    .local v0, "interceptors":Ljava/util/List;, "Ljava/util/List<Lcom/leidong/open/http/okhttp3/Interceptor;>;"
-    iget-object v1, p0, Lcom/leidong/open/http/okhttp3/RealCall;->client:Lcom/leidong/open/http/okhttp3/OkHttpClient;
+    iget-object v0, p0, Lcom/leidong/open/http/okhttp3/RealCall;->client:Lcom/leidong/open/http/okhttp3/OkHttpClient;
 
-    invoke-virtual {v1}, Lcom/leidong/open/http/okhttp3/OkHttpClient;->interceptors()Ljava/util/List;
+    invoke-virtual {v0}, Lcom/leidong/open/http/okhttp3/OkHttpClient;->interceptors()Ljava/util/List;
 
-    move-result-object v1
+    move-result-object v0
 
-    invoke-interface {v0, v1}, Ljava/util/List;->addAll(Ljava/util/Collection;)Z
+    invoke-interface {v1, v0}, Ljava/util/List;->addAll(Ljava/util/Collection;)Z
 
     .line 169
-    iget-object v1, p0, Lcom/leidong/open/http/okhttp3/RealCall;->retryAndFollowUpInterceptor:Lcom/leidong/open/http/okhttp3/internal/http/RetryAndFollowUpInterceptor;
+    iget-object v0, p0, Lcom/leidong/open/http/okhttp3/RealCall;->retryAndFollowUpInterceptor:Lcom/leidong/open/http/okhttp3/internal/http/RetryAndFollowUpInterceptor;
 
-    invoke-interface {v0, v1}, Ljava/util/List;->add(Ljava/lang/Object;)Z
+    invoke-interface {v1, v0}, Ljava/util/List;->add(Ljava/lang/Object;)Z
 
     .line 170
-    new-instance v1, Lcom/leidong/open/http/okhttp3/internal/http/BridgeInterceptor;
+    new-instance v0, Lcom/leidong/open/http/okhttp3/internal/http/BridgeInterceptor;
 
     iget-object v2, p0, Lcom/leidong/open/http/okhttp3/RealCall;->client:Lcom/leidong/open/http/okhttp3/OkHttpClient;
 
@@ -349,12 +332,12 @@
 
     move-result-object v2
 
-    invoke-direct {v1, v2}, Lcom/leidong/open/http/okhttp3/internal/http/BridgeInterceptor;-><init>(Lcom/leidong/open/http/okhttp3/CookieJar;)V
+    invoke-direct {v0, v2}, Lcom/leidong/open/http/okhttp3/internal/http/BridgeInterceptor;-><init>(Lcom/leidong/open/http/okhttp3/CookieJar;)V
 
-    invoke-interface {v0, v1}, Ljava/util/List;->add(Ljava/lang/Object;)Z
+    invoke-interface {v1, v0}, Ljava/util/List;->add(Ljava/lang/Object;)Z
 
     .line 171
-    new-instance v1, Lcom/leidong/open/http/okhttp3/internal/cache/CacheInterceptor;
+    new-instance v0, Lcom/leidong/open/http/okhttp3/internal/cache/CacheInterceptor;
 
     iget-object v2, p0, Lcom/leidong/open/http/okhttp3/RealCall;->client:Lcom/leidong/open/http/okhttp3/OkHttpClient;
 
@@ -362,45 +345,47 @@
 
     move-result-object v2
 
-    invoke-direct {v1, v2}, Lcom/leidong/open/http/okhttp3/internal/cache/CacheInterceptor;-><init>(Lcom/leidong/open/http/okhttp3/internal/cache/InternalCache;)V
+    invoke-direct {v0, v2}, Lcom/leidong/open/http/okhttp3/internal/cache/CacheInterceptor;-><init>(Lcom/leidong/open/http/okhttp3/internal/cache/InternalCache;)V
 
-    invoke-interface {v0, v1}, Ljava/util/List;->add(Ljava/lang/Object;)Z
+    invoke-interface {v1, v0}, Ljava/util/List;->add(Ljava/lang/Object;)Z
 
     .line 172
-    new-instance v1, Lcom/leidong/open/http/okhttp3/internal/connection/ConnectInterceptor;
+    new-instance v0, Lcom/leidong/open/http/okhttp3/internal/connection/ConnectInterceptor;
 
     iget-object v2, p0, Lcom/leidong/open/http/okhttp3/RealCall;->client:Lcom/leidong/open/http/okhttp3/OkHttpClient;
 
-    invoke-direct {v1, v2}, Lcom/leidong/open/http/okhttp3/internal/connection/ConnectInterceptor;-><init>(Lcom/leidong/open/http/okhttp3/OkHttpClient;)V
+    invoke-direct {v0, v2}, Lcom/leidong/open/http/okhttp3/internal/connection/ConnectInterceptor;-><init>(Lcom/leidong/open/http/okhttp3/OkHttpClient;)V
 
-    invoke-interface {v0, v1}, Ljava/util/List;->add(Ljava/lang/Object;)Z
+    invoke-interface {v1, v0}, Ljava/util/List;->add(Ljava/lang/Object;)Z
 
     .line 173
-    iget-boolean v1, p0, Lcom/leidong/open/http/okhttp3/RealCall;->forWebSocket:Z
+    iget-boolean v0, p0, Lcom/leidong/open/http/okhttp3/RealCall;->forWebSocket:Z
 
-    if-nez v1, :cond_0
+    if-nez v0, :cond_0
 
     .line 174
-    iget-object v1, p0, Lcom/leidong/open/http/okhttp3/RealCall;->client:Lcom/leidong/open/http/okhttp3/OkHttpClient;
+    iget-object v0, p0, Lcom/leidong/open/http/okhttp3/RealCall;->client:Lcom/leidong/open/http/okhttp3/OkHttpClient;
 
-    invoke-virtual {v1}, Lcom/leidong/open/http/okhttp3/OkHttpClient;->networkInterceptors()Ljava/util/List;
+    invoke-virtual {v0}, Lcom/leidong/open/http/okhttp3/OkHttpClient;->networkInterceptors()Ljava/util/List;
 
-    move-result-object v1
+    move-result-object v0
 
-    invoke-interface {v0, v1}, Ljava/util/List;->addAll(Ljava/util/Collection;)Z
+    invoke-interface {v1, v0}, Ljava/util/List;->addAll(Ljava/util/Collection;)Z
 
     .line 176
     :cond_0
-    new-instance v1, Lcom/leidong/open/http/okhttp3/internal/http/CallServerInterceptor;
+    new-instance v0, Lcom/leidong/open/http/okhttp3/internal/http/CallServerInterceptor;
 
     iget-boolean v2, p0, Lcom/leidong/open/http/okhttp3/RealCall;->forWebSocket:Z
 
-    invoke-direct {v1, v2}, Lcom/leidong/open/http/okhttp3/internal/http/CallServerInterceptor;-><init>(Z)V
+    invoke-direct {v0, v2}, Lcom/leidong/open/http/okhttp3/internal/http/CallServerInterceptor;-><init>(Z)V
 
-    invoke-interface {v0, v1}, Ljava/util/List;->add(Ljava/lang/Object;)Z
+    invoke-interface {v1, v0}, Ljava/util/List;->add(Ljava/lang/Object;)Z
 
     .line 178
-    new-instance v8, Lcom/leidong/open/http/okhttp3/internal/http/RealInterceptorChain;
+    new-instance v7, Lcom/leidong/open/http/okhttp3/internal/http/RealInterceptorChain;
+
+    const/4 v2, 0x0
 
     const/4 v3, 0x0
 
@@ -408,25 +393,20 @@
 
     const/4 v5, 0x0
 
-    const/4 v6, 0x0
+    iget-object v6, p0, Lcom/leidong/open/http/okhttp3/RealCall;->originalRequest:Lcom/leidong/open/http/okhttp3/Request;
 
-    iget-object v7, p0, Lcom/leidong/open/http/okhttp3/RealCall;->originalRequest:Lcom/leidong/open/http/okhttp3/Request;
+    move-object v0, v7
 
-    move-object v1, v8
-
-    move-object v2, v0
-
-    invoke-direct/range {v1 .. v7}, Lcom/leidong/open/http/okhttp3/internal/http/RealInterceptorChain;-><init>(Ljava/util/List;Lcom/leidong/open/http/okhttp3/internal/connection/StreamAllocation;Lcom/leidong/open/http/okhttp3/internal/http/HttpCodec;Lcom/leidong/open/http/okhttp3/Connection;ILcom/leidong/open/http/okhttp3/Request;)V
+    invoke-direct/range {v0 .. v6}, Lcom/leidong/open/http/okhttp3/internal/http/RealInterceptorChain;-><init>(Ljava/util/List;Lcom/leidong/open/http/okhttp3/internal/connection/StreamAllocation;Lcom/leidong/open/http/okhttp3/internal/http/HttpCodec;Lcom/leidong/open/http/okhttp3/Connection;ILcom/leidong/open/http/okhttp3/Request;)V
 
     .line 180
-    .local v1, "chain":Lcom/leidong/open/http/okhttp3/Interceptor$Chain;
-    iget-object v2, p0, Lcom/leidong/open/http/okhttp3/RealCall;->originalRequest:Lcom/leidong/open/http/okhttp3/Request;
+    iget-object v0, p0, Lcom/leidong/open/http/okhttp3/RealCall;->originalRequest:Lcom/leidong/open/http/okhttp3/Request;
 
-    invoke-interface {v1, v2}, Lcom/leidong/open/http/okhttp3/Interceptor$Chain;->proceed(Lcom/leidong/open/http/okhttp3/Request;)Lcom/leidong/open/http/okhttp3/Response;
+    invoke-interface {v7, v0}, Lcom/leidong/open/http/okhttp3/Interceptor$Chain;->proceed(Lcom/leidong/open/http/okhttp3/Request;)Lcom/leidong/open/http/okhttp3/Response;
 
-    move-result-object v2
+    move-result-object v0
 
-    return-object v2
+    return-object v0
 .end method
 
 .method public isCanceled()Z
@@ -557,6 +537,5 @@
 
     move-result-object v0
 
-    .line 156
     return-object v0
 .end method

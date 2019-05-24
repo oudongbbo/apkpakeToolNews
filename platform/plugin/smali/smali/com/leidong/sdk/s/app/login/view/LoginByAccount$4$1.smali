@@ -24,9 +24,8 @@
 # direct methods
 .method constructor <init>(Lcom/leidong/sdk/s/app/login/view/LoginByAccount$4;)V
     .locals 0
-    .param p1, "this$1"    # Lcom/leidong/sdk/s/app/login/view/LoginByAccount$4;
 
-    .line 417
+    .line 451
     iput-object p1, p0, Lcom/leidong/sdk/s/app/login/view/LoginByAccount$4$1;->this$1:Lcom/leidong/sdk/s/app/login/view/LoginByAccount$4;
 
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -37,103 +36,86 @@
 
 # virtual methods
 .method public onFail(ILjava/lang/String;)V
-    .locals 1
-    .param p1, "errorCode"    # I
-    .param p2, "message"    # Ljava/lang/String;
+    .locals 0
 
-    .line 434
-    iget-object v0, p0, Lcom/leidong/sdk/s/app/login/view/LoginByAccount$4$1;->this$1:Lcom/leidong/sdk/s/app/login/view/LoginByAccount$4;
+    .line 470
+    iget-object p1, p0, Lcom/leidong/sdk/s/app/login/view/LoginByAccount$4$1;->this$1:Lcom/leidong/sdk/s/app/login/view/LoginByAccount$4;
 
-    iget-object v0, v0, Lcom/leidong/sdk/s/app/login/view/LoginByAccount$4;->this$0:Lcom/leidong/sdk/s/app/login/view/LoginByAccount;
+    iget-object p1, p1, Lcom/leidong/sdk/s/app/login/view/LoginByAccount$4;->this$0:Lcom/leidong/sdk/s/app/login/view/LoginByAccount;
 
-    invoke-virtual {v0, p2}, Lcom/leidong/sdk/s/app/login/view/LoginByAccount;->showToast(Ljava/lang/String;)V
+    invoke-virtual {p1, p2}, Lcom/leidong/sdk/s/app/login/view/LoginByAccount;->showToast(Ljava/lang/String;)V
 
-    .line 435
     return-void
 .end method
 
 .method public onSuccess(Ljava/lang/String;)V
-    .locals 8
-    .param p1, "content"    # Ljava/lang/String;
+    .locals 7
 
-    .line 423
+    .line 458
     :try_start_0
     new-instance v0, Lorg/json/JSONObject;
 
     invoke-direct {v0, p1}, Lorg/json/JSONObject;-><init>(Ljava/lang/String;)V
 
-    .line 424
-    .local v0, "jsonObject":Lorg/json/JSONObject;
-    const-string v1, "is_reg"
+    const-string p1, "is_reg"
 
-    const/4 v2, 0x1
+    const/4 v1, 0x1
 
-    invoke-virtual {v0, v1, v2}, Lorg/json/JSONObject;->put(Ljava/lang/String;Z)Lorg/json/JSONObject;
+    .line 459
+    invoke-virtual {v0, p1, v1}, Lorg/json/JSONObject;->put(Ljava/lang/String;Z)Lorg/json/JSONObject;
 
-    .line 425
-    iget-object v1, p0, Lcom/leidong/sdk/s/app/login/view/LoginByAccount$4$1;->this$1:Lcom/leidong/sdk/s/app/login/view/LoginByAccount$4;
+    .line 460
+    iget-object p1, p0, Lcom/leidong/sdk/s/app/login/view/LoginByAccount$4$1;->this$1:Lcom/leidong/sdk/s/app/login/view/LoginByAccount$4;
 
-    iget-object v1, v1, Lcom/leidong/sdk/s/app/login/view/LoginByAccount$4;->this$0:Lcom/leidong/sdk/s/app/login/view/LoginByAccount;
+    iget-object p1, p1, Lcom/leidong/sdk/s/app/login/view/LoginByAccount$4;->this$0:Lcom/leidong/sdk/s/app/login/view/LoginByAccount;
 
-    # getter for: Lcom/leidong/sdk/s/app/login/view/LoginByAccount;->loginMain:Lcom/leidong/sdk/s/app/login/view/LoginContent;
-    invoke-static {v1}, Lcom/leidong/sdk/s/app/login/view/LoginByAccount;->access$500(Lcom/leidong/sdk/s/app/login/view/LoginByAccount;)Lcom/leidong/sdk/s/app/login/view/LoginContent;
+    invoke-static {p1}, Lcom/leidong/sdk/s/app/login/view/LoginByAccount;->access$500(Lcom/leidong/sdk/s/app/login/view/LoginByAccount;)Lcom/leidong/sdk/s/app/login/view/LoginContent;
+
+    move-result-object p1
+
+    invoke-virtual {p1}, Lcom/leidong/sdk/s/app/login/view/LoginContent;->getResponse()Lcom/leidong/sdk/s/core/http/ResponseManager;
 
     move-result-object v1
 
-    invoke-virtual {v1}, Lcom/leidong/sdk/s/app/login/view/LoginContent;->getResponse()Lcom/leidong/sdk/s/core/http/ResponseManager;
+    .line 461
+    invoke-virtual {v0}, Lorg/json/JSONObject;->toString()Ljava/lang/String;
 
     move-result-object v2
 
-    .line 426
-    invoke-virtual {v0}, Lorg/json/JSONObject;->toString()Ljava/lang/String;
+    iget-object p1, p0, Lcom/leidong/sdk/s/app/login/view/LoginByAccount$4$1;->this$1:Lcom/leidong/sdk/s/app/login/view/LoginByAccount$4;
 
-    move-result-object v3
+    iget-object v3, p1, Lcom/leidong/sdk/s/app/login/view/LoginByAccount$4;->val$pwd:Ljava/lang/String;
 
-    iget-object v1, p0, Lcom/leidong/sdk/s/app/login/view/LoginByAccount$4$1;->this$1:Lcom/leidong/sdk/s/app/login/view/LoginByAccount$4;
+    const/4 v4, 0x3
 
-    iget-object v4, v1, Lcom/leidong/sdk/s/app/login/view/LoginByAccount$4;->val$pwd:Ljava/lang/String;
+    const/4 v5, 0x0
 
-    const/4 v1, 0x0
+    iget-object p1, p0, Lcom/leidong/sdk/s/app/login/view/LoginByAccount$4$1;->this$1:Lcom/leidong/sdk/s/app/login/view/LoginByAccount$4;
 
-    invoke-static {v1}, Ljava/lang/Boolean;->valueOf(Z)Ljava/lang/Boolean;
+    iget-object p1, p1, Lcom/leidong/sdk/s/app/login/view/LoginByAccount$4;->this$0:Lcom/leidong/sdk/s/app/login/view/LoginByAccount;
 
-    move-result-object v5
+    .line 462
+    invoke-static {p1}, Lcom/leidong/sdk/s/app/login/view/LoginByAccount;->access$500(Lcom/leidong/sdk/s/app/login/view/LoginByAccount;)Lcom/leidong/sdk/s/app/login/view/LoginContent;
 
-    const/4 v6, 0x0
+    move-result-object p1
 
-    iget-object v1, p0, Lcom/leidong/sdk/s/app/login/view/LoginByAccount$4$1;->this$1:Lcom/leidong/sdk/s/app/login/view/LoginByAccount$4;
+    invoke-virtual {p1}, Lcom/leidong/sdk/s/app/login/view/LoginContent;->getChildCallBack()Lcom/leidong/sdk/framework/interfaces/SdkResultCallback;
 
-    iget-object v1, v1, Lcom/leidong/sdk/s/app/login/view/LoginByAccount$4;->this$0:Lcom/leidong/sdk/s/app/login/view/LoginByAccount;
+    move-result-object v6
 
-    .line 427
-    # getter for: Lcom/leidong/sdk/s/app/login/view/LoginByAccount;->loginMain:Lcom/leidong/sdk/s/app/login/view/LoginContent;
-    invoke-static {v1}, Lcom/leidong/sdk/s/app/login/view/LoginByAccount;->access$500(Lcom/leidong/sdk/s/app/login/view/LoginByAccount;)Lcom/leidong/sdk/s/app/login/view/LoginContent;
-
-    move-result-object v1
-
-    invoke-virtual {v1}, Lcom/leidong/sdk/s/app/login/view/LoginContent;->getChildCallBack()Lcom/leidong/sdk/framework/interfaces/SdkResultCallback;
-
-    move-result-object v7
-
-    .line 426
-    invoke-virtual/range {v2 .. v7}, Lcom/leidong/sdk/s/core/http/ResponseManager;->handleLoginSuccess(Ljava/lang/String;Ljava/lang/String;Ljava/lang/Boolean;ZLcom/leidong/sdk/framework/interfaces/SdkResultCallback;)V
+    .line 461
+    invoke-virtual/range {v1 .. v6}, Lcom/leidong/sdk/s/core/http/ResponseManager;->handleLoginSuccess(Ljava/lang/String;Ljava/lang/String;IZLcom/leidong/sdk/framework/interfaces/SdkResultCallback;)V
     :try_end_0
     .catch Lorg/json/JSONException; {:try_start_0 .. :try_end_0} :catch_0
 
-    .line 430
-    .end local v0    # "jsonObject":Lorg/json/JSONObject;
     goto :goto_0
 
-    .line 428
     :catch_0
-    move-exception v0
+    move-exception p1
 
-    .line 429
-    .local v0, "e":Lorg/json/JSONException;
-    invoke-virtual {v0}, Lorg/json/JSONException;->printStackTrace()V
+    .line 464
+    invoke-virtual {p1}, Lorg/json/JSONException;->printStackTrace()V
 
-    .line 431
-    .end local v0    # "e":Lorg/json/JSONException;
     :goto_0
     return-void
 .end method

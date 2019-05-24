@@ -24,9 +24,8 @@
 # direct methods
 .method constructor <init>(Lcom/leidong/sdk/s/app/login/view/LoginByRegister;)V
     .locals 0
-    .param p1, "this$0"    # Lcom/leidong/sdk/s/app/login/view/LoginByRegister;
 
-    .line 626
+    .line 627
     iput-object p1, p0, Lcom/leidong/sdk/s/app/login/view/LoginByRegister$RegistBackListener;->this$0:Lcom/leidong/sdk/s/app/login/view/LoginByRegister;
 
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -37,19 +36,16 @@
 
 # virtual methods
 .method public onClick(Landroid/view/View;)V
-    .locals 1
-    .param p1, "v"    # Landroid/view/View;
-
-    .line 629
-    iget-object v0, p0, Lcom/leidong/sdk/s/app/login/view/LoginByRegister$RegistBackListener;->this$0:Lcom/leidong/sdk/s/app/login/view/LoginByRegister;
-
-    # getter for: Lcom/leidong/sdk/s/app/login/view/LoginByRegister;->loginMain:Lcom/leidong/sdk/s/app/login/view/LoginContent;
-    invoke-static {v0}, Lcom/leidong/sdk/s/app/login/view/LoginByRegister;->access$200(Lcom/leidong/sdk/s/app/login/view/LoginByRegister;)Lcom/leidong/sdk/s/app/login/view/LoginContent;
-
-    move-result-object v0
-
-    invoke-virtual {v0}, Lcom/leidong/sdk/s/app/login/view/LoginContent;->swtichToLoginHome()V
+    .locals 0
 
     .line 630
+    iget-object p1, p0, Lcom/leidong/sdk/s/app/login/view/LoginByRegister$RegistBackListener;->this$0:Lcom/leidong/sdk/s/app/login/view/LoginByRegister;
+
+    invoke-static {p1}, Lcom/leidong/sdk/s/app/login/view/LoginByRegister;->access$200(Lcom/leidong/sdk/s/app/login/view/LoginByRegister;)Lcom/leidong/sdk/s/app/login/view/LoginContent;
+
+    move-result-object p1
+
+    invoke-virtual {p1}, Lcom/leidong/sdk/s/app/login/view/LoginContent;->swtichToLoginHome()V
+
     return-void
 .end method

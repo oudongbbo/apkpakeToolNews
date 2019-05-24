@@ -24,7 +24,6 @@
 # direct methods
 .method constructor <init>(Lcom/leidong/sdk/s/app/LeiDemoActivity;)V
     .locals 0
-    .param p1, "this$0"    # Lcom/leidong/sdk/s/app/LeiDemoActivity;
 
     .line 201
     iput-object p1, p0, Lcom/leidong/sdk/s/app/LeiDemoActivity$6;->this$0:Lcom/leidong/sdk/s/app/LeiDemoActivity;
@@ -37,88 +36,66 @@
 
 # virtual methods
 .method public onClick(Landroid/view/View;)V
-    .locals 11
-    .param p1, "v"    # Landroid/view/View;
+    .locals 9
 
-    .line 204
-    const-string v0, "007"
+    const-string p1, "007"
 
-    .line 205
-    .local v0, "roleId":Ljava/lang/String;
-    const-string v1, "\u8a79\u59c6\u65af\u90a6\u5fb7"
+    const-string v0, "\u8a79\u59c6\u65af\u90a6\u5fb7"
 
-    .line 206
-    .local v1, "roleName":Ljava/lang/String;
-    const-string v2, "88"
+    const-string v1, "88"
 
-    .line 207
-    .local v2, "roleLevel":Ljava/lang/String;
-    const-string v3, "001"
+    const-string v2, "001"
 
-    .line 208
-    .local v3, "serverId":Ljava/lang/String;
-    const-string v4, "\u5f00\u5929\u8f9f\u5730"
+    const-string v3, "\u5f00\u5929\u8f9f\u5730"
 
-    .line 209
-    .local v4, "serverName":Ljava/lang/String;
-    const-string v5, "7"
+    const-string v4, "7"
 
-    .line 210
-    .local v5, "vip":Ljava/lang/String;
-    const-string v6, "100"
+    const-string v5, "100"
 
-    .line 211
-    .local v6, "balance":Ljava/lang/String;
-    const-string v7, "\u5730\u7403\u4eba\u4e00\u5bb6\u4eb2"
+    const-string v6, "\u5730\u7403\u4eba\u4e00\u5bb6\u4eb2"
 
-    .line 212
-    .local v7, "partyName":Ljava/lang/String;
-    const-string v8, "\u62d3\u5c55\u5b57\u6bb5"
+    const-string v7, "\u62d3\u5c55\u5b57\u6bb5"
 
     .line 214
-    .local v8, "extra":Ljava/lang/String;
-    new-instance v9, Lcom/leidong/sdk/s/core/model/bean/SubmitRoleBean;
+    new-instance v8, Lcom/leidong/sdk/s/core/model/bean/SubmitRoleBean;
 
-    invoke-direct {v9}, Lcom/leidong/sdk/s/core/model/bean/SubmitRoleBean;-><init>()V
+    invoke-direct {v8}, Lcom/leidong/sdk/s/core/model/bean/SubmitRoleBean;-><init>()V
 
     .line 215
-    .local v9, "info":Lcom/leidong/sdk/s/core/model/bean/SubmitRoleBean;
-    invoke-virtual {v9, v0}, Lcom/leidong/sdk/s/core/model/bean/SubmitRoleBean;->setRoleId(Ljava/lang/String;)V
+    invoke-virtual {v8, p1}, Lcom/leidong/sdk/s/core/model/bean/SubmitRoleBean;->setRoleId(Ljava/lang/String;)V
 
     .line 216
-    invoke-virtual {v9, v1}, Lcom/leidong/sdk/s/core/model/bean/SubmitRoleBean;->setRoleName(Ljava/lang/String;)V
+    invoke-virtual {v8, v0}, Lcom/leidong/sdk/s/core/model/bean/SubmitRoleBean;->setRoleName(Ljava/lang/String;)V
 
     .line 217
-    invoke-virtual {v9, v2}, Lcom/leidong/sdk/s/core/model/bean/SubmitRoleBean;->setRoleLevel(Ljava/lang/String;)V
+    invoke-virtual {v8, v1}, Lcom/leidong/sdk/s/core/model/bean/SubmitRoleBean;->setRoleLevel(Ljava/lang/String;)V
 
     .line 218
-    invoke-virtual {v9, v3}, Lcom/leidong/sdk/s/core/model/bean/SubmitRoleBean;->setServerId(Ljava/lang/String;)V
+    invoke-virtual {v8, v2}, Lcom/leidong/sdk/s/core/model/bean/SubmitRoleBean;->setServerId(Ljava/lang/String;)V
 
     .line 219
-    invoke-virtual {v9, v4}, Lcom/leidong/sdk/s/core/model/bean/SubmitRoleBean;->setServerName(Ljava/lang/String;)V
+    invoke-virtual {v8, v3}, Lcom/leidong/sdk/s/core/model/bean/SubmitRoleBean;->setServerName(Ljava/lang/String;)V
 
     .line 220
-    invoke-virtual {v9, v5}, Lcom/leidong/sdk/s/core/model/bean/SubmitRoleBean;->setVip(Ljava/lang/String;)V
+    invoke-virtual {v8, v4}, Lcom/leidong/sdk/s/core/model/bean/SubmitRoleBean;->setVip(Ljava/lang/String;)V
 
     .line 221
-    invoke-virtual {v9, v6}, Lcom/leidong/sdk/s/core/model/bean/SubmitRoleBean;->setBalance(Ljava/lang/String;)V
+    invoke-virtual {v8, v5}, Lcom/leidong/sdk/s/core/model/bean/SubmitRoleBean;->setBalance(Ljava/lang/String;)V
 
     .line 222
-    invoke-virtual {v9, v7}, Lcom/leidong/sdk/s/core/model/bean/SubmitRoleBean;->setPartyName(Ljava/lang/String;)V
+    invoke-virtual {v8, v6}, Lcom/leidong/sdk/s/core/model/bean/SubmitRoleBean;->setPartyName(Ljava/lang/String;)V
 
     .line 223
-    invoke-virtual {v9, v8}, Lcom/leidong/sdk/s/core/model/bean/SubmitRoleBean;->setExtra(Ljava/lang/String;)V
+    invoke-virtual {v8, v7}, Lcom/leidong/sdk/s/core/model/bean/SubmitRoleBean;->setExtra(Ljava/lang/String;)V
 
     .line 225
-    iget-object v10, p0, Lcom/leidong/sdk/s/app/LeiDemoActivity$6;->this$0:Lcom/leidong/sdk/s/app/LeiDemoActivity;
+    iget-object p1, p0, Lcom/leidong/sdk/s/app/LeiDemoActivity$6;->this$0:Lcom/leidong/sdk/s/app/LeiDemoActivity;
 
-    # getter for: Lcom/leidong/sdk/s/app/LeiDemoActivity;->mayaCore:Lcom/leidong/sdk/s/app/LeiSdkCore;
-    invoke-static {v10}, Lcom/leidong/sdk/s/app/LeiDemoActivity;->access$000(Lcom/leidong/sdk/s/app/LeiDemoActivity;)Lcom/leidong/sdk/s/app/LeiSdkCore;
+    invoke-static {p1}, Lcom/leidong/sdk/s/app/LeiDemoActivity;->access$000(Lcom/leidong/sdk/s/app/LeiDemoActivity;)Lcom/leidong/sdk/s/app/LeiSdkCore;
 
-    move-result-object v10
+    move-result-object p1
 
-    invoke-virtual {v10, v9}, Lcom/leidong/sdk/s/app/LeiSdkCore;->updateRoleInfos(Lcom/leidong/sdk/s/core/model/bean/SubmitRoleBean;)V
+    invoke-virtual {p1, v8}, Lcom/leidong/sdk/s/app/LeiSdkCore;->updateRoleInfos(Lcom/leidong/sdk/s/core/model/bean/SubmitRoleBean;)V
 
-    .line 226
     return-void
 .end method

@@ -49,7 +49,6 @@
 
     iput-object p1, p0, Lcom/leidong/open/http/okhttp3/internal/http1/Http1Codec$ChunkedSink;->timeout:Lcom/leidong/open/http/okio/ForwardingTimeout;
 
-    .line 314
     return-void
 .end method
 
@@ -77,10 +76,10 @@
 
     return-void
 
-    .line 337
     :cond_0
     const/4 v0, 0x1
 
+    .line 337
     :try_start_1
     iput-boolean v0, p0, Lcom/leidong/open/http/okhttp3/internal/http1/Http1Codec$ChunkedSink;->closed:Z
 
@@ -114,10 +113,10 @@
 
     return-void
 
-    .line 335
     :catchall_0
     move-exception v0
 
+    .line 335
     monitor-exit p0
 
     throw v0
@@ -161,10 +160,10 @@
 
     return-void
 
-    .line 330
     :catchall_0
     move-exception v0
 
+    .line 330
     monitor-exit p0
 
     throw v0
@@ -181,8 +180,6 @@
 
 .method public write(Lcom/leidong/open/http/okio/Buffer;J)V
     .locals 3
-    .param p1, "source"    # Lcom/leidong/open/http/okio/Buffer;
-    .param p2, "byteCount"    # J
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Ljava/io/IOException;
@@ -194,15 +191,14 @@
 
     if-eqz v0, :cond_0
 
-    new-instance v0, Ljava/lang/IllegalStateException;
+    new-instance p1, Ljava/lang/IllegalStateException;
 
-    const-string v1, "closed"
+    const-string p2, "closed"
 
-    invoke-direct {v0, v1}, Ljava/lang/IllegalStateException;-><init>(Ljava/lang/String;)V
+    invoke-direct {p1, p2}, Ljava/lang/IllegalStateException;-><init>(Ljava/lang/String;)V
 
-    throw v0
+    throw p1
 
-    .line 322
     :cond_0
     const-wide/16 v0, 0x0
 
@@ -237,14 +233,13 @@
     invoke-interface {v0, p1, p2, p3}, Lcom/leidong/open/http/okio/BufferedSink;->write(Lcom/leidong/open/http/okio/Buffer;J)V
 
     .line 327
-    iget-object v0, p0, Lcom/leidong/open/http/okhttp3/internal/http1/Http1Codec$ChunkedSink;->this$0:Lcom/leidong/open/http/okhttp3/internal/http1/Http1Codec;
+    iget-object p1, p0, Lcom/leidong/open/http/okhttp3/internal/http1/Http1Codec$ChunkedSink;->this$0:Lcom/leidong/open/http/okhttp3/internal/http1/Http1Codec;
 
-    iget-object v0, v0, Lcom/leidong/open/http/okhttp3/internal/http1/Http1Codec;->sink:Lcom/leidong/open/http/okio/BufferedSink;
+    iget-object p1, p1, Lcom/leidong/open/http/okhttp3/internal/http1/Http1Codec;->sink:Lcom/leidong/open/http/okio/BufferedSink;
 
-    const-string v1, "\r\n"
+    const-string p2, "\r\n"
 
-    invoke-interface {v0, v1}, Lcom/leidong/open/http/okio/BufferedSink;->writeUtf8(Ljava/lang/String;)Lcom/leidong/open/http/okio/BufferedSink;
+    invoke-interface {p1, p2}, Lcom/leidong/open/http/okio/BufferedSink;->writeUtf8(Ljava/lang/String;)Lcom/leidong/open/http/okio/BufferedSink;
 
-    .line 328
     return-void
 .end method

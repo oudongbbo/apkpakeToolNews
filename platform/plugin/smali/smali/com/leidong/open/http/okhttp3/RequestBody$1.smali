@@ -67,7 +67,6 @@
 
 .method public writeTo(Lcom/leidong/open/http/okio/BufferedSink;)V
     .locals 1
-    .param p1, "sink"    # Lcom/leidong/open/http/okio/BufferedSink;
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Ljava/io/IOException;
@@ -79,6 +78,5 @@
 
     invoke-interface {p1, v0}, Lcom/leidong/open/http/okio/BufferedSink;->write(Lcom/leidong/open/http/okio/ByteString;)Lcom/leidong/open/http/okio/BufferedSink;
 
-    .line 76
     return-void
 .end method

@@ -3,6 +3,14 @@
 .source "ResponseManager.java"
 
 
+# static fields
+.field public static final LOGIN_BY_ACCESS:I = 0x3
+
+.field public static final LOGIN_BY_PHONE:I = 0x1
+
+.field public static final LOGIN_BY_TOKEN:I = 0x2
+
+
 # instance fields
 .field public final ERROR_CODE_DATAPARSE:I
 
@@ -24,57 +32,53 @@
 # direct methods
 .method public constructor <init>(Landroid/content/Context;)V
     .locals 1
-    .param p1, "context"    # Landroid/content/Context;
 
-    .line 48
+    .line 53
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
-    .line 35
     const v0, 0x18704
 
+    .line 36
     iput v0, p0, Lcom/leidong/sdk/s/core/http/ResponseManager;->ERROR_CODE_DATAPARSE:I
 
-    .line 36
     const v0, 0x18705
 
+    .line 37
     iput v0, p0, Lcom/leidong/sdk/s/core/http/ResponseManager;->ERROR_CODE_INIT:I
 
-    .line 37
     const v0, 0x18706
 
+    .line 38
     iput v0, p0, Lcom/leidong/sdk/s/core/http/ResponseManager;->ERROR_CODE_SKIN:I
 
-    .line 39
     const-string v0, "\u6570\u636e\u89e3\u6790\u9519\u8bef"
 
+    .line 40
     iput-object v0, p0, Lcom/leidong/sdk/s/core/http/ResponseManager;->ERROR_STRING_DATAPARSE:Ljava/lang/String;
 
-    .line 40
     const-string v0, "\u5e73\u53f0\u521d\u59cb\u5316\u6570\u636e\u89e3\u6790\u5931\u8d25"
 
+    .line 41
     iput-object v0, p0, Lcom/leidong/sdk/s/core/http/ResponseManager;->ERROR_STRING_INIT:Ljava/lang/String;
 
-    .line 41
     const-string v0, "\u66f4\u65b0\u6362\u80a4\u8d44\u6e90\u6570\u636e\u89e3\u6790\u5931\u8d25"
 
+    .line 42
     iput-object v0, p0, Lcom/leidong/sdk/s/core/http/ResponseManager;->ERROR_STRING_SKIN:Ljava/lang/String;
 
-    .line 42
     const-string v0, "\u767b\u5f55\u65f6\u6570\u636e\u89e3\u6790\u5931\u8d25"
 
+    .line 43
     iput-object v0, p0, Lcom/leidong/sdk/s/core/http/ResponseManager;->ERROR_STRING_LOGIN:Ljava/lang/String;
 
-    .line 49
+    .line 54
     iput-object p1, p0, Lcom/leidong/sdk/s/core/http/ResponseManager;->mContext:Landroid/content/Context;
 
-    .line 50
     return-void
 .end method
 
 .method private getGameMessage(Ljava/util/List;Ljava/lang/String;Lorg/json/JSONObject;)V
-    .locals 3
-    .param p2, "field"    # Ljava/lang/String;
-    .param p3, "object"    # Lorg/json/JSONObject;
+    .locals 2
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -93,402 +97,333 @@
         }
     .end annotation
 
-    .line 694
-    .local p1, "list":Ljava/util/List;, "Ljava/util/List<Lcom/leidong/sdk/s/core/model/bean/ExitGameBean;>;"
+    .line 680
     new-instance v0, Lcom/leidong/sdk/s/core/model/bean/ExitGameBean;
 
     invoke-direct {v0}, Lcom/leidong/sdk/s/core/model/bean/ExitGameBean;-><init>()V
 
-    .line 695
-    .local v0, "gameBean":Lcom/leidong/sdk/s/core/model/bean/ExitGameBean;
+    .line 681
     new-instance v1, Lorg/json/JSONObject;
 
     invoke-static {p3, p2}, Lcom/leidong/sdk/framework/utils/JSONUtils;->getJsonStr(Lorg/json/JSONObject;Ljava/lang/String;)Ljava/lang/String;
 
-    move-result-object v2
+    move-result-object p2
 
-    invoke-direct {v1, v2}, Lorg/json/JSONObject;-><init>(Ljava/lang/String;)V
+    invoke-direct {v1, p2}, Lorg/json/JSONObject;-><init>(Ljava/lang/String;)V
 
-    .line 696
-    .local v1, "gameObject":Lorg/json/JSONObject;
-    const-string v2, "app_name"
+    const-string p2, "app_name"
 
-    invoke-static {v1, v2}, Lcom/leidong/sdk/framework/utils/JSONUtils;->getJsonStr(Lorg/json/JSONObject;Ljava/lang/String;)Ljava/lang/String;
+    .line 682
+    invoke-static {v1, p2}, Lcom/leidong/sdk/framework/utils/JSONUtils;->getJsonStr(Lorg/json/JSONObject;Ljava/lang/String;)Ljava/lang/String;
 
-    move-result-object v2
+    move-result-object p2
 
-    invoke-virtual {v0, v2}, Lcom/leidong/sdk/s/core/model/bean/ExitGameBean;->setAppName(Ljava/lang/String;)V
+    invoke-virtual {v0, p2}, Lcom/leidong/sdk/s/core/model/bean/ExitGameBean;->setAppName(Ljava/lang/String;)V
 
-    .line 697
-    const-string v2, "category_name"
+    const-string p2, "category_name"
 
-    invoke-static {v1, v2}, Lcom/leidong/sdk/framework/utils/JSONUtils;->getJsonStr(Lorg/json/JSONObject;Ljava/lang/String;)Ljava/lang/String;
+    .line 683
+    invoke-static {v1, p2}, Lcom/leidong/sdk/framework/utils/JSONUtils;->getJsonStr(Lorg/json/JSONObject;Ljava/lang/String;)Ljava/lang/String;
 
-    move-result-object v2
+    move-result-object p2
 
-    invoke-virtual {v0, v2}, Lcom/leidong/sdk/s/core/model/bean/ExitGameBean;->setCategoryName(Ljava/lang/String;)V
+    invoke-virtual {v0, p2}, Lcom/leidong/sdk/s/core/model/bean/ExitGameBean;->setCategoryName(Ljava/lang/String;)V
 
-    .line 698
-    const-string v2, "app_icon"
+    const-string p2, "app_icon"
 
-    invoke-static {v1, v2}, Lcom/leidong/sdk/framework/utils/JSONUtils;->getJsonStr(Lorg/json/JSONObject;Ljava/lang/String;)Ljava/lang/String;
+    .line 684
+    invoke-static {v1, p2}, Lcom/leidong/sdk/framework/utils/JSONUtils;->getJsonStr(Lorg/json/JSONObject;Ljava/lang/String;)Ljava/lang/String;
 
-    move-result-object v2
+    move-result-object p2
 
-    invoke-virtual {v0, v2}, Lcom/leidong/sdk/s/core/model/bean/ExitGameBean;->setIconUrl(Ljava/lang/String;)V
+    invoke-virtual {v0, p2}, Lcom/leidong/sdk/s/core/model/bean/ExitGameBean;->setIconUrl(Ljava/lang/String;)V
 
-    .line 699
-    const-string v2, "dow_url"
+    const-string p2, "dow_url"
 
-    invoke-static {v1, v2}, Lcom/leidong/sdk/framework/utils/JSONUtils;->getJsonStr(Lorg/json/JSONObject;Ljava/lang/String;)Ljava/lang/String;
+    .line 685
+    invoke-static {v1, p2}, Lcom/leidong/sdk/framework/utils/JSONUtils;->getJsonStr(Lorg/json/JSONObject;Ljava/lang/String;)Ljava/lang/String;
 
-    move-result-object v2
+    move-result-object p2
 
-    invoke-virtual {v0, v2}, Lcom/leidong/sdk/s/core/model/bean/ExitGameBean;->setDownloadUrl(Ljava/lang/String;)V
+    invoke-virtual {v0, p2}, Lcom/leidong/sdk/s/core/model/bean/ExitGameBean;->setDownloadUrl(Ljava/lang/String;)V
 
-    .line 700
+    .line 686
     invoke-interface {p1, v0}, Ljava/util/List;->add(Ljava/lang/Object;)Z
 
-    .line 701
     return-void
 .end method
 
 .method private handleDialogTips(Landroid/content/Context;)V
-    .locals 2
-    .param p1, "context"    # Landroid/content/Context;
+    .locals 1
 
-    .line 302
+    .line 288
     new-instance v0, Lcom/leidong/sdk/s/app/login/AutoLoginSuccessDialog;
 
     invoke-direct {v0, p1}, Lcom/leidong/sdk/s/app/login/AutoLoginSuccessDialog;-><init>(Landroid/content/Context;)V
 
-    .line 303
-    .local v0, "autoLoginSuccessDialog":Lcom/leidong/sdk/s/app/login/AutoLoginSuccessDialog;
+    .line 289
     invoke-virtual {v0}, Lcom/leidong/sdk/s/app/login/AutoLoginSuccessDialog;->show()V
 
-    .line 304
+    .line 290
     invoke-static {p1}, Lcom/leidong/sdk/s/core/model/SdkConfigManager;->getUserVname(Landroid/content/Context;)Ljava/lang/String;
 
-    move-result-object v1
+    move-result-object p1
 
-    invoke-virtual {v0, v1}, Lcom/leidong/sdk/s/app/login/AutoLoginSuccessDialog;->setUserName(Ljava/lang/CharSequence;)V
+    invoke-virtual {v0, p1}, Lcom/leidong/sdk/s/app/login/AutoLoginSuccessDialog;->setUserName(Ljava/lang/CharSequence;)V
 
-    .line 305
     return-void
 .end method
 
 
 # virtual methods
 .method public handlGetUname(Ljava/lang/String;Lcom/leidong/sdk/framework/interfaces/SdkResultCallback;)V
-    .locals 4
-    .param p1, "content"    # Ljava/lang/String;
-    .param p2, "callback"    # Lcom/leidong/sdk/framework/interfaces/SdkResultCallback;
+    .locals 2
 
-    .line 312
-    const-string v0, ""
-
-    .line 314
-    .local v0, "uname":Ljava/lang/String;
-    :try_start_0
-    new-instance v1, Lorg/json/JSONObject;
-
-    invoke-direct {v1, p1}, Lorg/json/JSONObject;-><init>(Ljava/lang/String;)V
-
-    const-string v2, "data"
-
-    invoke-static {v1, v2}, Lcom/leidong/sdk/framework/utils/JSONUtils;->getJsonObj(Lorg/json/JSONObject;Ljava/lang/String;)Lorg/json/JSONObject;
-
-    move-result-object v1
-
-    .line 316
-    .local v1, "dataObj":Lorg/json/JSONObject;
-    if-eqz p2, :cond_0
-
-    .line 317
-    new-instance v2, Landroid/os/Bundle;
-
-    invoke-direct {v2}, Landroid/os/Bundle;-><init>()V
-
-    .line 318
-    .local v2, "bundle":Landroid/os/Bundle;
-    const-string v3, "uname"
-
-    invoke-virtual {v1, v3}, Lorg/json/JSONObject;->getString(Ljava/lang/String;)Ljava/lang/String;
-
-    move-result-object v3
-
-    move-object v0, v3
-
-    .line 319
-    const-string v3, "uname"
-
-    invoke-virtual {v2, v3, v0}, Landroid/os/Bundle;->putString(Ljava/lang/String;Ljava/lang/String;)V
-
-    .line 320
-    invoke-interface {p2, v2}, Lcom/leidong/sdk/framework/interfaces/SdkResultCallback;->onSuccess(Landroid/os/Bundle;)V
-    :try_end_0
-    .catch Lorg/json/JSONException; {:try_start_0 .. :try_end_0} :catch_0
-
-    .line 325
-    .end local v1    # "dataObj":Lorg/json/JSONObject;
-    .end local v2    # "bundle":Landroid/os/Bundle;
-    :cond_0
-    goto :goto_0
-
-    .line 322
-    :catch_0
-    move-exception v1
-
-    .line 323
-    .local v1, "e":Lorg/json/JSONException;
-    invoke-virtual {v1}, Lorg/json/JSONException;->printStackTrace()V
-
-    .line 324
-    const-string v2, "\u83b7\u53d6\u7528\u6237\u540d\u65f6\u53d1\u751f\u9519\u8bef"
-
-    invoke-interface {p2, v2}, Lcom/leidong/sdk/framework/interfaces/SdkResultCallback;->onFail(Ljava/lang/String;)V
-
-    .line 326
-    .end local v1    # "e":Lorg/json/JSONException;
-    :goto_0
-    return-void
-.end method
-
-.method public handlPaySuccess(Ljava/lang/String;Lcom/leidong/sdk/framework/interfaces/SdkResultCallback;)V
-    .locals 7
-    .param p1, "content"    # Ljava/lang/String;
-    .param p2, "callback"    # Lcom/leidong/sdk/framework/interfaces/SdkResultCallback;
-
-    .line 331
-    const-string v0, ""
-
-    .line 332
-    .local v0, "r_order_no":Ljava/lang/String;
-    const-string v1, ""
-
-    .line 333
-    .local v1, "paycenter_url":Ljava/lang/String;
-    const-string v2, ""
-
-    .line 334
-    .local v2, "m_ext":Ljava/lang/String;
-    const-string v3, ""
-
-    .line 336
-    .local v3, "tm":Ljava/lang/String;
-    :try_start_0
-    new-instance v4, Lorg/json/JSONObject;
-
-    invoke-direct {v4, p1}, Lorg/json/JSONObject;-><init>(Ljava/lang/String;)V
-
-    const-string v5, "data"
-
-    invoke-static {v4, v5}, Lcom/leidong/sdk/framework/utils/JSONUtils;->getJsonObj(Lorg/json/JSONObject;Ljava/lang/String;)Lorg/json/JSONObject;
-
-    move-result-object v4
-
-    .line 338
-    .local v4, "data":Lorg/json/JSONObject;
-    const-string v5, "my_order_no"
-
-    invoke-virtual {v4, v5}, Lorg/json/JSONObject;->has(Ljava/lang/String;)Z
-
-    move-result v5
-
-    if-eqz v5, :cond_0
-
-    .line 339
-    const-string v5, "my_order_no"
-
-    invoke-static {v4, v5}, Lcom/leidong/sdk/framework/utils/JSONUtils;->getJsonStr(Lorg/json/JSONObject;Ljava/lang/String;)Ljava/lang/String;
-
-    move-result-object v5
-
-    move-object v0, v5
-
-    .line 341
-    :cond_0
-    const-string v5, "paycenter_url"
-
-    invoke-virtual {v4, v5}, Lorg/json/JSONObject;->has(Ljava/lang/String;)Z
-
-    move-result v5
-
-    if-eqz v5, :cond_1
-
-    .line 342
-    const-string v5, "paycenter_url"
-
-    invoke-static {v4, v5}, Lcom/leidong/sdk/framework/utils/JSONUtils;->getJsonStr(Lorg/json/JSONObject;Ljava/lang/String;)Ljava/lang/String;
-
-    move-result-object v5
-
-    move-object v1, v5
-
-    .line 344
-    :cond_1
-    const-string v5, "m_ext"
-
-    invoke-virtual {v4, v5}, Lorg/json/JSONObject;->has(Ljava/lang/String;)Z
-
-    move-result v5
-
-    if-eqz v5, :cond_2
-
-    .line 345
-    const-string v5, "m_ext"
-
-    invoke-static {v4, v5}, Lcom/leidong/sdk/framework/utils/JSONUtils;->getJsonStr(Lorg/json/JSONObject;Ljava/lang/String;)Ljava/lang/String;
-
-    move-result-object v5
-
-    move-object v2, v5
-
-    .line 348
-    :cond_2
-    if-eqz p2, :cond_3
-
-    .line 349
-    new-instance v5, Landroid/os/Bundle;
-
-    invoke-direct {v5}, Landroid/os/Bundle;-><init>()V
-
-    .line 350
-    .local v5, "bundle":Landroid/os/Bundle;
-    const-string v6, "no"
-
-    invoke-virtual {v5, v6, v0}, Landroid/os/Bundle;->putString(Ljava/lang/String;Ljava/lang/String;)V
-
-    .line 351
-    const-string v6, "url"
-
-    invoke-virtual {v5, v6, v1}, Landroid/os/Bundle;->putString(Ljava/lang/String;Ljava/lang/String;)V
-
-    .line 352
-    const-string v6, "ext"
-
-    invoke-virtual {v5, v6, v2}, Landroid/os/Bundle;->putString(Ljava/lang/String;Ljava/lang/String;)V
-
-    .line 354
-    invoke-interface {p2, v5}, Lcom/leidong/sdk/framework/interfaces/SdkResultCallback;->onSuccess(Landroid/os/Bundle;)V
-    :try_end_0
-    .catch Lorg/json/JSONException; {:try_start_0 .. :try_end_0} :catch_0
-
-    .line 359
-    .end local v5    # "bundle":Landroid/os/Bundle;
-    :cond_3
-    goto :goto_0
-
-    .line 356
-    .end local v4    # "data":Lorg/json/JSONObject;
-    :catch_0
-    move-exception v4
-
-    .line 357
-    .local v4, "e":Lorg/json/JSONException;
-    invoke-virtual {v4}, Lorg/json/JSONException;->printStackTrace()V
-
-    .line 358
-    const-string v5, "\u652f\u4ed8\u65f6\u53d1\u751f\u9519\u8bef"
-
-    invoke-interface {p2, v5}, Lcom/leidong/sdk/framework/interfaces/SdkResultCallback;->onFail(Ljava/lang/String;)V
-
-    .line 360
-    .end local v4    # "e":Lorg/json/JSONException;
-    :goto_0
-    return-void
-.end method
-
-.method public handleBindInfoByName(Ljava/lang/String;Lcom/leidong/sdk/framework/interfaces/ResultCallback2;)V
-    .locals 4
-    .param p1, "content"    # Ljava/lang/String;
-    .param p2, "callback"    # Lcom/leidong/sdk/framework/interfaces/ResultCallback2;
-
-    .line 711
+    .line 300
     :try_start_0
     new-instance v0, Lorg/json/JSONObject;
 
     invoke-direct {v0, p1}, Lorg/json/JSONObject;-><init>(Ljava/lang/String;)V
 
-    const-string v1, "data"
+    const-string p1, "data"
 
-    invoke-static {v0, v1}, Lcom/leidong/sdk/framework/utils/JSONUtils;->getJsonObj(Lorg/json/JSONObject;Ljava/lang/String;)Lorg/json/JSONObject;
+    invoke-static {v0, p1}, Lcom/leidong/sdk/framework/utils/JSONUtils;->getJsonObj(Lorg/json/JSONObject;Ljava/lang/String;)Lorg/json/JSONObject;
 
-    move-result-object v0
+    move-result-object p1
 
-    .line 713
-    .local v0, "data":Lorg/json/JSONObject;
-    const-string v1, "mobile"
+    if-eqz p2, :cond_0
 
-    invoke-static {v0, v1}, Lcom/leidong/sdk/framework/utils/JSONUtils;->getJsonStr(Lorg/json/JSONObject;Ljava/lang/String;)Ljava/lang/String;
+    .line 303
+    new-instance v0, Landroid/os/Bundle;
 
-    move-result-object v1
+    invoke-direct {v0}, Landroid/os/Bundle;-><init>()V
 
-    .line 715
-    .local v1, "mobile":Ljava/lang/String;
-    invoke-static {v1}, Landroid/text/TextUtils;->isEmpty(Ljava/lang/CharSequence;)Z
+    const-string v1, "uname"
 
-    move-result v2
+    .line 304
+    invoke-virtual {p1, v1}, Lorg/json/JSONObject;->getString(Ljava/lang/String;)Ljava/lang/String;
 
-    if-eqz v2, :cond_0
+    move-result-object p1
 
-    .line 717
-    const-string v2, "\u8be5\u5e10\u53f7\u6ca1\u6709\u7ed1\u5b9a\u4fe1\u606f\uff0c\u8bf7\u8f93\u5165\u5df2\u7ed1\u5b9a\u624b\u673a\u53f7\u7684\u5e10\u53f7"
+    const-string v1, "uname"
 
-    invoke-interface {p2, v2}, Lcom/leidong/sdk/framework/interfaces/ResultCallback2;->onFail(Ljava/lang/String;)V
+    .line 305
+    invoke-virtual {v0, v1, p1}, Landroid/os/Bundle;->putString(Ljava/lang/String;Ljava/lang/String;)V
 
-    goto :goto_0
-
-    .line 719
-    :cond_0
-    if-eqz p2, :cond_1
-
-    .line 720
-    new-instance v2, Landroid/os/Bundle;
-
-    invoke-direct {v2}, Landroid/os/Bundle;-><init>()V
-
-    .line 721
-    .local v2, "bundle":Landroid/os/Bundle;
-    const-string v3, "mobile"
-
-    invoke-virtual {v2, v3, v1}, Landroid/os/Bundle;->putString(Ljava/lang/String;Ljava/lang/String;)V
-
-    .line 722
-    invoke-interface {p2, v2}, Lcom/leidong/sdk/framework/interfaces/ResultCallback2;->onSuccess(Landroid/os/Bundle;)V
+    .line 306
+    invoke-interface {p2, v0}, Lcom/leidong/sdk/framework/interfaces/SdkResultCallback;->onSuccess(Landroid/os/Bundle;)V
     :try_end_0
     .catch Lorg/json/JSONException; {:try_start_0 .. :try_end_0} :catch_0
 
-    .line 728
-    .end local v1    # "mobile":Ljava/lang/String;
-    .end local v2    # "bundle":Landroid/os/Bundle;
+    goto :goto_0
+
+    :catch_0
+    move-exception p1
+
+    .line 309
+    invoke-virtual {p1}, Lorg/json/JSONException;->printStackTrace()V
+
+    const-string p1, "\u83b7\u53d6\u7528\u6237\u540d\u65f6\u53d1\u751f\u9519\u8bef"
+
+    .line 310
+    invoke-interface {p2, p1}, Lcom/leidong/sdk/framework/interfaces/SdkResultCallback;->onFail(Ljava/lang/String;)V
+
+    :cond_0
+    :goto_0
+    return-void
+.end method
+
+.method public handlPaySuccess(Ljava/lang/String;Lcom/leidong/sdk/framework/interfaces/SdkResultCallback;)V
+    .locals 4
+
+    const-string v0, ""
+
+    const-string v1, ""
+
+    const-string v2, ""
+
+    .line 322
+    :try_start_0
+    new-instance v3, Lorg/json/JSONObject;
+
+    invoke-direct {v3, p1}, Lorg/json/JSONObject;-><init>(Ljava/lang/String;)V
+
+    const-string p1, "data"
+
+    invoke-static {v3, p1}, Lcom/leidong/sdk/framework/utils/JSONUtils;->getJsonObj(Lorg/json/JSONObject;Ljava/lang/String;)Lorg/json/JSONObject;
+
+    move-result-object p1
+
+    const-string v3, "my_order_no"
+
+    .line 324
+    invoke-virtual {p1, v3}, Lorg/json/JSONObject;->has(Ljava/lang/String;)Z
+
+    move-result v3
+
+    if-eqz v3, :cond_0
+
+    const-string v0, "my_order_no"
+
+    .line 325
+    invoke-static {p1, v0}, Lcom/leidong/sdk/framework/utils/JSONUtils;->getJsonStr(Lorg/json/JSONObject;Ljava/lang/String;)Ljava/lang/String;
+
+    move-result-object v0
+
+    :cond_0
+    const-string v3, "paycenter_url"
+
+    .line 327
+    invoke-virtual {p1, v3}, Lorg/json/JSONObject;->has(Ljava/lang/String;)Z
+
+    move-result v3
+
+    if-eqz v3, :cond_1
+
+    const-string v1, "paycenter_url"
+
+    .line 328
+    invoke-static {p1, v1}, Lcom/leidong/sdk/framework/utils/JSONUtils;->getJsonStr(Lorg/json/JSONObject;Ljava/lang/String;)Ljava/lang/String;
+
+    move-result-object v1
+
+    :cond_1
+    const-string v3, "m_ext"
+
+    .line 330
+    invoke-virtual {p1, v3}, Lorg/json/JSONObject;->has(Ljava/lang/String;)Z
+
+    move-result v3
+
+    if-eqz v3, :cond_2
+
+    const-string v2, "m_ext"
+
+    .line 331
+    invoke-static {p1, v2}, Lcom/leidong/sdk/framework/utils/JSONUtils;->getJsonStr(Lorg/json/JSONObject;Ljava/lang/String;)Ljava/lang/String;
+
+    move-result-object v2
+
+    :cond_2
+    if-eqz p2, :cond_3
+
+    .line 335
+    new-instance p1, Landroid/os/Bundle;
+
+    invoke-direct {p1}, Landroid/os/Bundle;-><init>()V
+
+    const-string v3, "no"
+
+    .line 336
+    invoke-virtual {p1, v3, v0}, Landroid/os/Bundle;->putString(Ljava/lang/String;Ljava/lang/String;)V
+
+    const-string v0, "url"
+
+    .line 337
+    invoke-virtual {p1, v0, v1}, Landroid/os/Bundle;->putString(Ljava/lang/String;Ljava/lang/String;)V
+
+    const-string v0, "ext"
+
+    .line 338
+    invoke-virtual {p1, v0, v2}, Landroid/os/Bundle;->putString(Ljava/lang/String;Ljava/lang/String;)V
+
+    .line 340
+    invoke-interface {p2, p1}, Lcom/leidong/sdk/framework/interfaces/SdkResultCallback;->onSuccess(Landroid/os/Bundle;)V
+    :try_end_0
+    .catch Lorg/json/JSONException; {:try_start_0 .. :try_end_0} :catch_0
+
+    goto :goto_0
+
+    :catch_0
+    move-exception p1
+
+    .line 343
+    invoke-virtual {p1}, Lorg/json/JSONException;->printStackTrace()V
+
+    const-string p1, "\u652f\u4ed8\u65f6\u53d1\u751f\u9519\u8bef"
+
+    .line 344
+    invoke-interface {p2, p1}, Lcom/leidong/sdk/framework/interfaces/SdkResultCallback;->onFail(Ljava/lang/String;)V
+
+    :cond_3
+    :goto_0
+    return-void
+.end method
+
+.method public handleBindInfoByName(Ljava/lang/String;Lcom/leidong/sdk/framework/interfaces/ResultCallback2;)V
+    .locals 2
+
+    .line 697
+    :try_start_0
+    new-instance v0, Lorg/json/JSONObject;
+
+    invoke-direct {v0, p1}, Lorg/json/JSONObject;-><init>(Ljava/lang/String;)V
+
+    const-string p1, "data"
+
+    invoke-static {v0, p1}, Lcom/leidong/sdk/framework/utils/JSONUtils;->getJsonObj(Lorg/json/JSONObject;Ljava/lang/String;)Lorg/json/JSONObject;
+
+    move-result-object p1
+
+    const-string v0, "mobile"
+
+    .line 699
+    invoke-static {p1, v0}, Lcom/leidong/sdk/framework/utils/JSONUtils;->getJsonStr(Lorg/json/JSONObject;Ljava/lang/String;)Ljava/lang/String;
+
+    move-result-object p1
+
+    .line 701
+    invoke-static {p1}, Landroid/text/TextUtils;->isEmpty(Ljava/lang/CharSequence;)Z
+
+    move-result v0
+
+    if-eqz v0, :cond_0
+
+    const-string p1, "\u8be5\u5e10\u53f7\u6ca1\u6709\u7ed1\u5b9a\u4fe1\u606f\uff0c\u8bf7\u8f93\u5165\u5df2\u7ed1\u5b9a\u624b\u673a\u53f7\u7684\u5e10\u53f7"
+
+    .line 703
+    invoke-interface {p2, p1}, Lcom/leidong/sdk/framework/interfaces/ResultCallback2;->onFail(Ljava/lang/String;)V
+
+    goto :goto_0
+
+    :cond_0
+    if-eqz p2, :cond_1
+
+    .line 706
+    new-instance v0, Landroid/os/Bundle;
+
+    invoke-direct {v0}, Landroid/os/Bundle;-><init>()V
+
+    const-string v1, "mobile"
+
+    .line 707
+    invoke-virtual {v0, v1, p1}, Landroid/os/Bundle;->putString(Ljava/lang/String;Ljava/lang/String;)V
+
+    .line 708
+    invoke-interface {p2, v0}, Lcom/leidong/sdk/framework/interfaces/ResultCallback2;->onSuccess(Landroid/os/Bundle;)V
+    :try_end_0
+    .catch Lorg/json/JSONException; {:try_start_0 .. :try_end_0} :catch_0
+
+    goto :goto_0
+
+    :catch_0
+    move-exception p1
+
+    .line 712
+    invoke-virtual {p1}, Lorg/json/JSONException;->printStackTrace()V
+
+    const-string p1, "\u83b7\u53d6\u7ed1\u5b9a\u4fe1\u606f\u65f6\uff0c\u6570\u636e\u89e3\u6790\u5931\u8d25"
+
+    .line 713
+    invoke-interface {p2, p1}, Lcom/leidong/sdk/framework/interfaces/ResultCallback2;->onFail(Ljava/lang/String;)V
+
     :cond_1
     :goto_0
-    goto :goto_1
-
-    .line 725
-    .end local v0    # "data":Lorg/json/JSONObject;
-    :catch_0
-    move-exception v0
-
-    .line 726
-    .local v0, "e":Lorg/json/JSONException;
-    invoke-virtual {v0}, Lorg/json/JSONException;->printStackTrace()V
-
-    .line 727
-    const-string v1, "\u83b7\u53d6\u7ed1\u5b9a\u4fe1\u606f\u65f6\uff0c\u6570\u636e\u89e3\u6790\u5931\u8d25"
-
-    invoke-interface {p2, v1}, Lcom/leidong/sdk/framework/interfaces/ResultCallback2;->onFail(Ljava/lang/String;)V
-
-    .line 729
-    .end local v0    # "e":Lorg/json/JSONException;
-    :goto_1
     return-void
 .end method
 
 .method public handleExitGameData(Ljava/lang/String;)Ljava/util/List;
-    .locals 5
-    .param p1, "logout"    # Ljava/lang/String;
+    .locals 3
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -500,9 +435,9 @@
         }
     .end annotation
 
-    .line 664
     const/4 v0, 0x0
 
+    .line 650
     :try_start_0
     invoke-static {p1}, Landroid/text/TextUtils;->isEmpty(Ljava/lang/CharSequence;)Z
 
@@ -510,1843 +445,1557 @@
 
     if-nez v1, :cond_4
 
-    .line 665
+    .line 651
     new-instance v1, Lorg/json/JSONObject;
 
     invoke-direct {v1, p1}, Lorg/json/JSONObject;-><init>(Ljava/lang/String;)V
 
-    .line 666
-    .local v1, "object":Lorg/json/JSONObject;
-    const-string v2, "display_type"
+    const-string p1, "display_type"
 
-    invoke-static {v1, v2}, Lcom/leidong/sdk/framework/utils/JSONUtils;->getJsonInt(Lorg/json/JSONObject;Ljava/lang/String;)I
+    .line 652
+    invoke-static {v1, p1}, Lcom/leidong/sdk/framework/utils/JSONUtils;->getJsonInt(Lorg/json/JSONObject;Ljava/lang/String;)I
+
+    move-result p1
+
+    const/4 v2, 0x1
+
+    if-ne p1, v2, :cond_0
+
+    const-string p1, "image_url"
+
+    .line 654
+    invoke-static {v1, p1}, Lcom/leidong/sdk/framework/utils/JSONUtils;->getJsonStr(Lorg/json/JSONObject;Ljava/lang/String;)Ljava/lang/String;
+
+    move-result-object p1
+
+    sput-object p1, Lcom/leidong/sdk/s/core/http/RequestUrls;->URL_EXIT_IMAGE:Ljava/lang/String;
+
+    const-string p1, "target_url"
+
+    .line 655
+    invoke-static {v1, p1}, Lcom/leidong/sdk/framework/utils/JSONUtils;->getJsonStr(Lorg/json/JSONObject;Ljava/lang/String;)Ljava/lang/String;
+
+    move-result-object p1
+
+    sput-object p1, Lcom/leidong/sdk/s/core/http/RequestUrls;->URL_EXIT_URL:Ljava/lang/String;
+
+    return-object v0
+
+    :cond_0
+    const/4 v2, 0x2
+
+    if-ne p1, v2, :cond_4
+
+    .line 658
+    new-instance p1, Ljava/util/ArrayList;
+
+    invoke-direct {p1}, Ljava/util/ArrayList;-><init>()V
+
+    const-string v2, "app_game_1"
+
+    .line 660
+    invoke-virtual {v1, v2}, Lorg/json/JSONObject;->has(Ljava/lang/String;)Z
 
     move-result v2
 
-    .line 667
-    .local v2, "display_type":I
-    const/4 v3, 0x1
+    if-eqz v2, :cond_1
 
-    if-ne v2, v3, :cond_0
+    const-string v2, "app_game_1"
 
-    .line 668
-    const-string v3, "image_url"
+    .line 661
+    invoke-direct {p0, p1, v2, v1}, Lcom/leidong/sdk/s/core/http/ResponseManager;->getGameMessage(Ljava/util/List;Ljava/lang/String;Lorg/json/JSONObject;)V
 
-    invoke-static {v1, v3}, Lcom/leidong/sdk/framework/utils/JSONUtils;->getJsonStr(Lorg/json/JSONObject;Ljava/lang/String;)Ljava/lang/String;
-
-    move-result-object v3
-
-    sput-object v3, Lcom/leidong/sdk/s/core/http/RequestUrls;->URL_EXIT_IMAGE:Ljava/lang/String;
-
-    .line 669
-    const-string v3, "target_url"
-
-    invoke-static {v1, v3}, Lcom/leidong/sdk/framework/utils/JSONUtils;->getJsonStr(Lorg/json/JSONObject;Ljava/lang/String;)Ljava/lang/String;
-
-    move-result-object v3
-
-    sput-object v3, Lcom/leidong/sdk/s/core/http/RequestUrls;->URL_EXIT_URL:Ljava/lang/String;
-
-    .line 670
-    return-object v0
-
-    .line 671
-    :cond_0
-    const/4 v3, 0x2
-
-    if-ne v2, v3, :cond_4
-
-    .line 672
-    new-instance v3, Ljava/util/ArrayList;
-
-    invoke-direct {v3}, Ljava/util/ArrayList;-><init>()V
-
-    .line 674
-    .local v3, "list":Ljava/util/List;, "Ljava/util/List<Lcom/leidong/sdk/s/core/model/bean/ExitGameBean;>;"
-    const-string v4, "app_game_1"
-
-    invoke-virtual {v1, v4}, Lorg/json/JSONObject;->has(Ljava/lang/String;)Z
-
-    move-result v4
-
-    if-eqz v4, :cond_1
-
-    .line 675
-    const-string v4, "app_game_1"
-
-    invoke-direct {p0, v3, v4, v1}, Lcom/leidong/sdk/s/core/http/ResponseManager;->getGameMessage(Ljava/util/List;Ljava/lang/String;Lorg/json/JSONObject;)V
-
-    .line 677
     :cond_1
-    const-string v4, "app_game_2"
+    const-string v2, "app_game_2"
 
-    invoke-virtual {v1, v4}, Lorg/json/JSONObject;->has(Ljava/lang/String;)Z
+    .line 663
+    invoke-virtual {v1, v2}, Lorg/json/JSONObject;->has(Ljava/lang/String;)Z
 
-    move-result v4
+    move-result v2
 
-    if-eqz v4, :cond_2
+    if-eqz v2, :cond_2
 
-    .line 678
-    const-string v4, "app_game_2"
+    const-string v2, "app_game_2"
 
-    invoke-direct {p0, v3, v4, v1}, Lcom/leidong/sdk/s/core/http/ResponseManager;->getGameMessage(Ljava/util/List;Ljava/lang/String;Lorg/json/JSONObject;)V
+    .line 664
+    invoke-direct {p0, p1, v2, v1}, Lcom/leidong/sdk/s/core/http/ResponseManager;->getGameMessage(Ljava/util/List;Ljava/lang/String;Lorg/json/JSONObject;)V
 
-    .line 680
     :cond_2
-    const-string v4, "app_game_3"
+    const-string v2, "app_game_3"
 
-    invoke-virtual {v1, v4}, Lorg/json/JSONObject;->has(Ljava/lang/String;)Z
+    .line 666
+    invoke-virtual {v1, v2}, Lorg/json/JSONObject;->has(Ljava/lang/String;)Z
 
-    move-result v4
+    move-result v2
 
-    if-eqz v4, :cond_3
+    if-eqz v2, :cond_3
 
-    .line 681
-    const-string v4, "app_game_3"
+    const-string v2, "app_game_3"
 
-    invoke-direct {p0, v3, v4, v1}, Lcom/leidong/sdk/s/core/http/ResponseManager;->getGameMessage(Ljava/util/List;Ljava/lang/String;Lorg/json/JSONObject;)V
+    .line 667
+    invoke-direct {p0, p1, v2, v1}, Lcom/leidong/sdk/s/core/http/ResponseManager;->getGameMessage(Ljava/util/List;Ljava/lang/String;Lorg/json/JSONObject;)V
     :try_end_0
     .catch Lorg/json/JSONException; {:try_start_0 .. :try_end_0} :catch_0
 
-    .line 683
     :cond_3
-    return-object v3
+    return-object p1
 
-    .line 688
-    .end local v1    # "object":Lorg/json/JSONObject;
-    .end local v2    # "display_type":I
-    .end local v3    # "list":Ljava/util/List;, "Ljava/util/List<Lcom/leidong/sdk/s/core/model/bean/ExitGameBean;>;"
-    :cond_4
-    goto :goto_0
-
-    .line 686
     :catch_0
-    move-exception v1
+    move-exception p1
 
-    .line 687
-    .local v1, "e":Lorg/json/JSONException;
-    invoke-virtual {v1}, Lorg/json/JSONException;->printStackTrace()V
+    .line 673
+    invoke-virtual {p1}, Lorg/json/JSONException;->printStackTrace()V
 
-    .line 689
-    .end local v1    # "e":Lorg/json/JSONException;
-    :goto_0
+    :cond_4
     return-object v0
 .end method
 
 .method public handleInit(Ljava/lang/String;Lcom/leidong/sdk/framework/http/HttpCallBack;)V
-    .locals 17
-    .param p1, "content"    # Ljava/lang/String;
-    .param p2, "callback"    # Lcom/leidong/sdk/framework/http/HttpCallBack;
+    .locals 11
 
-    move-object/from16 v1, p0
-
-    .line 440
-    move-object/from16 v2, p2
-
+    .line 426
     :try_start_0
-    new-instance v3, Lorg/json/JSONObject;
+    new-instance v0, Lorg/json/JSONObject;
 
-    move-object/from16 v4, p1
+    invoke-direct {v0, p1}, Lorg/json/JSONObject;-><init>(Ljava/lang/String;)V
 
-    invoke-direct {v3, v4}, Lorg/json/JSONObject;-><init>(Ljava/lang/String;)V
+    const-string p1, "url"
 
-    .line 443
-    .local v3, "channelObj":Lorg/json/JSONObject;
-    const-string v5, "url"
+    .line 429
+    invoke-virtual {v0, p1}, Lorg/json/JSONObject;->has(Ljava/lang/String;)Z
 
-    invoke-virtual {v3, v5}, Lorg/json/JSONObject;->has(Ljava/lang/String;)Z
+    move-result p1
 
-    move-result v5
+    if-eqz p1, :cond_0
 
-    if-eqz v5, :cond_0
+    const-string p1, "url"
 
-    .line 445
-    const-string v5, "url"
+    .line 431
+    invoke-virtual {v0, p1}, Lorg/json/JSONObject;->getString(Ljava/lang/String;)Ljava/lang/String;
 
-    invoke-virtual {v3, v5}, Lorg/json/JSONObject;->getString(Ljava/lang/String;)Ljava/lang/String;
+    move-result-object p1
 
-    move-result-object v5
+    .line 432
+    new-instance v1, Lorg/json/JSONObject;
 
-    .line 446
-    .local v5, "urlContent":Ljava/lang/String;
-    new-instance v6, Lorg/json/JSONObject;
+    invoke-direct {v1, p1}, Lorg/json/JSONObject;-><init>(Ljava/lang/String;)V
 
-    invoke-direct {v6, v5}, Lorg/json/JSONObject;-><init>(Ljava/lang/String;)V
+    .line 435
+    invoke-static {v1}, Lcom/leidong/sdk/s/core/http/RequestUrls;->initWebpages(Lorg/json/JSONObject;)V
 
-    .line 449
-    .local v6, "urlObj":Lorg/json/JSONObject;
-    invoke-static {v6}, Lcom/leidong/sdk/s/core/http/RequestUrls;->initWebpages(Lorg/json/JSONObject;)V
+    .line 438
+    invoke-static {v1}, Lcom/leidong/sdk/s/core/http/RequestUrls;->initApis(Lorg/json/JSONObject;)V
 
-    .line 452
-    invoke-static {v6}, Lcom/leidong/sdk/s/core/http/RequestUrls;->initApis(Lorg/json/JSONObject;)V
-
-    .line 469
-    .end local v5    # "urlContent":Ljava/lang/String;
-    .end local v6    # "urlObj":Lorg/json/JSONObject;
     :cond_0
-    const-string v5, "authConf"
+    const-string p1, "authConf"
 
-    invoke-virtual {v3, v5}, Lorg/json/JSONObject;->has(Ljava/lang/String;)Z
+    .line 455
+    invoke-virtual {v0, p1}, Lorg/json/JSONObject;->has(Ljava/lang/String;)Z
+
+    move-result p1
+
+    if-eqz p1, :cond_1
+
+    const-string p1, "authConf"
+
+    .line 457
+    invoke-virtual {v0, p1}, Lorg/json/JSONObject;->getString(Ljava/lang/String;)Ljava/lang/String;
+
+    move-result-object p1
+
+    .line 458
+    new-instance v1, Lorg/json/JSONObject;
+
+    invoke-direct {v1, p1}, Lorg/json/JSONObject;-><init>(Ljava/lang/String;)V
+
+    const-string p1, "isLoginAuth"
+
+    .line 460
+    invoke-static {v1, p1}, Lcom/leidong/sdk/framework/utils/JSONUtils;->getJsonBoolean(Lorg/json/JSONObject;Ljava/lang/String;)Z
+
+    move-result p1
+
+    const-string v2, "isPlayAuth"
+
+    .line 461
+    invoke-static {v1, v2}, Lcom/leidong/sdk/framework/utils/JSONUtils;->getJsonBoolean(Lorg/json/JSONObject;Ljava/lang/String;)Z
+
+    move-result v2
+
+    const-string v3, "isAuthNotice"
+
+    .line 463
+    invoke-static {v1, v3}, Lcom/leidong/sdk/framework/utils/JSONUtils;->getJsonBoolean(Lorg/json/JSONObject;Ljava/lang/String;)Z
+
+    move-result v3
+
+    const-string v4, "isNoAdultNotice"
+
+    .line 464
+    invoke-static {v1, v4}, Lcom/leidong/sdk/framework/utils/JSONUtils;->getJsonBoolean(Lorg/json/JSONObject;Ljava/lang/String;)Z
+
+    move-result v4
+
+    const-string v5, "isPlayNotice"
+
+    .line 465
+    invoke-static {v1, v5}, Lcom/leidong/sdk/framework/utils/JSONUtils;->getJsonBoolean(Lorg/json/JSONObject;Ljava/lang/String;)Z
 
     move-result v5
 
-    if-eqz v5, :cond_1
+    const-string v6, "noAuthNoticeTime"
 
-    .line 471
-    const-string v5, "authConf"
+    .line 467
+    invoke-static {v1, v6}, Lcom/leidong/sdk/framework/utils/JSONUtils;->getJsonInt(Lorg/json/JSONObject;Ljava/lang/String;)I
 
-    invoke-virtual {v3, v5}, Lorg/json/JSONObject;->getString(Ljava/lang/String;)Ljava/lang/String;
+    move-result v6
 
-    move-result-object v5
+    const-string v7, "noAdultNoticeTime"
 
-    .line 472
-    .local v5, "authConf":Ljava/lang/String;
-    new-instance v6, Lorg/json/JSONObject;
-
-    invoke-direct {v6, v5}, Lorg/json/JSONObject;-><init>(Ljava/lang/String;)V
-
-    .line 474
-    .local v6, "authConfObj":Lorg/json/JSONObject;
-    const-string v7, "isLoginAuth"
-
-    invoke-static {v6, v7}, Lcom/leidong/sdk/framework/utils/JSONUtils;->getJsonBoolean(Lorg/json/JSONObject;Ljava/lang/String;)Z
+    .line 468
+    invoke-static {v1, v7}, Lcom/leidong/sdk/framework/utils/JSONUtils;->getJsonInt(Lorg/json/JSONObject;Ljava/lang/String;)I
 
     move-result v7
 
-    .line 475
-    .local v7, "isLoginAuth":Z
-    const-string v8, "isPlayAuth"
+    const-string v8, "noAdultPlayMax"
 
-    invoke-static {v6, v8}, Lcom/leidong/sdk/framework/utils/JSONUtils;->getJsonBoolean(Lorg/json/JSONObject;Ljava/lang/String;)Z
+    .line 469
+    invoke-static {v1, v8}, Lcom/leidong/sdk/framework/utils/JSONUtils;->getJsonInt(Lorg/json/JSONObject;Ljava/lang/String;)I
 
     move-result v8
 
-    .line 477
-    .local v8, "isPayAuth":Z
-    const-string v9, "isAuthNotice"
+    const-string v9, "isNoAuthClose"
 
-    invoke-static {v6, v9}, Lcom/leidong/sdk/framework/utils/JSONUtils;->getJsonBoolean(Lorg/json/JSONObject;Ljava/lang/String;)Z
+    .line 471
+    invoke-static {v1, v9}, Lcom/leidong/sdk/framework/utils/JSONUtils;->getJsonBoolean(Lorg/json/JSONObject;Ljava/lang/String;)Z
 
     move-result v9
 
+    const-string v10, "isNoAdultClose"
+
+    .line 472
+    invoke-static {v1, v10}, Lcom/leidong/sdk/framework/utils/JSONUtils;->getJsonBoolean(Lorg/json/JSONObject;Ljava/lang/String;)Z
+
+    move-result v1
+
+    .line 474
+    iget-object v10, p0, Lcom/leidong/sdk/s/core/http/ResponseManager;->mContext:Landroid/content/Context;
+
+    invoke-static {v10, p1}, Lcom/leidong/sdk/s/core/model/SdkConfigManager;->setUserIsLoginAuth(Landroid/content/Context;Z)V
+
+    .line 475
+    iget-object p1, p0, Lcom/leidong/sdk/s/core/http/ResponseManager;->mContext:Landroid/content/Context;
+
+    invoke-static {p1, v2}, Lcom/leidong/sdk/s/core/model/SdkConfigManager;->setUserIsPayAuth(Landroid/content/Context;Z)V
+
+    .line 476
+    iget-object p1, p0, Lcom/leidong/sdk/s/core/http/ResponseManager;->mContext:Landroid/content/Context;
+
+    invoke-static {p1, v3}, Lcom/leidong/sdk/s/core/model/SdkConfigManager;->setUserIsAuthNotice(Landroid/content/Context;Z)V
+
+    .line 477
+    iget-object p1, p0, Lcom/leidong/sdk/s/core/http/ResponseManager;->mContext:Landroid/content/Context;
+
+    invoke-static {p1, v4}, Lcom/leidong/sdk/s/core/model/SdkConfigManager;->setUserIsAdultNotice(Landroid/content/Context;Z)V
+
     .line 478
-    .local v9, "isAuthNotice":Z
-    const-string v10, "isNoAdultNotice"
+    iget-object p1, p0, Lcom/leidong/sdk/s/core/http/ResponseManager;->mContext:Landroid/content/Context;
 
-    invoke-static {v6, v10}, Lcom/leidong/sdk/framework/utils/JSONUtils;->getJsonBoolean(Lorg/json/JSONObject;Ljava/lang/String;)Z
-
-    move-result v10
+    invoke-static {p1, v5}, Lcom/leidong/sdk/s/core/model/SdkConfigManager;->setUserIsPayNotice(Landroid/content/Context;Z)V
 
     .line 479
-    .local v10, "isAdultNotice":Z
-    const-string v11, "isPlayNotice"
+    iget-object p1, p0, Lcom/leidong/sdk/s/core/http/ResponseManager;->mContext:Landroid/content/Context;
 
-    invoke-static {v6, v11}, Lcom/leidong/sdk/framework/utils/JSONUtils;->getJsonBoolean(Lorg/json/JSONObject;Ljava/lang/String;)Z
+    invoke-static {p1, v6}, Lcom/leidong/sdk/s/core/model/SdkConfigManager;->setUserIsAuthNoticeTime(Landroid/content/Context;I)V
 
-    move-result v11
+    .line 480
+    iget-object p1, p0, Lcom/leidong/sdk/s/core/http/ResponseManager;->mContext:Landroid/content/Context;
+
+    invoke-static {p1, v7}, Lcom/leidong/sdk/s/core/model/SdkConfigManager;->setUserIsAdultNoticeTime(Landroid/content/Context;I)V
 
     .line 481
-    .local v11, "isPayNotice":Z
-    const-string v12, "noAuthNoticeTime"
+    iget-object p1, p0, Lcom/leidong/sdk/s/core/http/ResponseManager;->mContext:Landroid/content/Context;
 
-    invoke-static {v6, v12}, Lcom/leidong/sdk/framework/utils/JSONUtils;->getJsonInt(Lorg/json/JSONObject;Ljava/lang/String;)I
-
-    move-result v12
+    invoke-static {p1, v8}, Lcom/leidong/sdk/s/core/model/SdkConfigManager;->setUserNoAdultPayMax(Landroid/content/Context;I)V
 
     .line 482
-    .local v12, "isAuthNoticeTime":I
-    const-string v13, "noAdultNoticeTime"
+    iget-object p1, p0, Lcom/leidong/sdk/s/core/http/ResponseManager;->mContext:Landroid/content/Context;
 
-    invoke-static {v6, v13}, Lcom/leidong/sdk/framework/utils/JSONUtils;->getJsonInt(Lorg/json/JSONObject;Ljava/lang/String;)I
-
-    move-result v13
+    invoke-static {p1, v9}, Lcom/leidong/sdk/s/core/model/SdkConfigManager;->setUserCanAuthClose(Landroid/content/Context;Z)V
 
     .line 483
-    .local v13, "isAdultNoticeTime":I
-    const-string v14, "noAdultPlayMax"
+    iget-object p1, p0, Lcom/leidong/sdk/s/core/http/ResponseManager;->mContext:Landroid/content/Context;
 
-    invoke-static {v6, v14}, Lcom/leidong/sdk/framework/utils/JSONUtils;->getJsonInt(Lorg/json/JSONObject;Ljava/lang/String;)I
+    invoke-static {p1, v1}, Lcom/leidong/sdk/s/core/model/SdkConfigManager;->setUserCanAdultClose(Landroid/content/Context;Z)V
 
-    move-result v14
-
-    .line 485
-    .local v14, "noAdultPayMax":I
-    const-string v15, "isNoAuthClose"
-
-    invoke-static {v6, v15}, Lcom/leidong/sdk/framework/utils/JSONUtils;->getJsonBoolean(Lorg/json/JSONObject;Ljava/lang/String;)Z
-
-    move-result v15
-
-    .line 486
-    .local v15, "noAuthClose":Z
-    const-string v4, "isNoAdultClose"
-
-    invoke-static {v6, v4}, Lcom/leidong/sdk/framework/utils/JSONUtils;->getJsonBoolean(Lorg/json/JSONObject;Ljava/lang/String;)Z
-
-    move-result v4
-
-    .line 488
-    .local v4, "noAdultClose":Z
-    move-object/from16 v16, v5
-
-    iget-object v5, v1, Lcom/leidong/sdk/s/core/http/ResponseManager;->mContext:Landroid/content/Context;
-
-    .line 488
-    .end local v5    # "authConf":Ljava/lang/String;
-    .local v16, "authConf":Ljava/lang/String;
-    invoke-static {v5, v7}, Lcom/leidong/sdk/s/core/model/SdkConfigManager;->setUserIsLoginAuth(Landroid/content/Context;Z)V
-
-    .line 489
-    iget-object v5, v1, Lcom/leidong/sdk/s/core/http/ResponseManager;->mContext:Landroid/content/Context;
-
-    invoke-static {v5, v8}, Lcom/leidong/sdk/s/core/model/SdkConfigManager;->setUserIsPayAuth(Landroid/content/Context;Z)V
-
-    .line 490
-    iget-object v5, v1, Lcom/leidong/sdk/s/core/http/ResponseManager;->mContext:Landroid/content/Context;
-
-    invoke-static {v5, v9}, Lcom/leidong/sdk/s/core/model/SdkConfigManager;->setUserIsAuthNotice(Landroid/content/Context;Z)V
-
-    .line 491
-    iget-object v5, v1, Lcom/leidong/sdk/s/core/http/ResponseManager;->mContext:Landroid/content/Context;
-
-    invoke-static {v5, v10}, Lcom/leidong/sdk/s/core/model/SdkConfigManager;->setUserIsAdultNotice(Landroid/content/Context;Z)V
-
-    .line 492
-    iget-object v5, v1, Lcom/leidong/sdk/s/core/http/ResponseManager;->mContext:Landroid/content/Context;
-
-    invoke-static {v5, v11}, Lcom/leidong/sdk/s/core/model/SdkConfigManager;->setUserIsPayNotice(Landroid/content/Context;Z)V
-
-    .line 493
-    iget-object v5, v1, Lcom/leidong/sdk/s/core/http/ResponseManager;->mContext:Landroid/content/Context;
-
-    invoke-static {v5, v12}, Lcom/leidong/sdk/s/core/model/SdkConfigManager;->setUserIsAuthNoticeTime(Landroid/content/Context;I)V
-
-    .line 494
-    iget-object v5, v1, Lcom/leidong/sdk/s/core/http/ResponseManager;->mContext:Landroid/content/Context;
-
-    invoke-static {v5, v13}, Lcom/leidong/sdk/s/core/model/SdkConfigManager;->setUserIsAdultNoticeTime(Landroid/content/Context;I)V
-
-    .line 495
-    iget-object v5, v1, Lcom/leidong/sdk/s/core/http/ResponseManager;->mContext:Landroid/content/Context;
-
-    invoke-static {v5, v14}, Lcom/leidong/sdk/s/core/model/SdkConfigManager;->setUserNoAdultPayMax(Landroid/content/Context;I)V
-
-    .line 496
-    iget-object v5, v1, Lcom/leidong/sdk/s/core/http/ResponseManager;->mContext:Landroid/content/Context;
-
-    invoke-static {v5, v15}, Lcom/leidong/sdk/s/core/model/SdkConfigManager;->setUserCanAuthClose(Landroid/content/Context;Z)V
-
-    .line 497
-    iget-object v5, v1, Lcom/leidong/sdk/s/core/http/ResponseManager;->mContext:Landroid/content/Context;
-
-    invoke-static {v5, v4}, Lcom/leidong/sdk/s/core/model/SdkConfigManager;->setUserCanAdultClose(Landroid/content/Context;Z)V
-
-    .line 498
-    .end local v4    # "noAdultClose":Z
-    .end local v6    # "authConfObj":Lorg/json/JSONObject;
-    .end local v7    # "isLoginAuth":Z
-    .end local v8    # "isPayAuth":Z
-    .end local v9    # "isAuthNotice":Z
-    .end local v10    # "isAdultNotice":Z
-    .end local v11    # "isPayNotice":Z
-    .end local v12    # "isAuthNoticeTime":I
-    .end local v13    # "isAdultNoticeTime":I
-    .end local v14    # "noAdultPayMax":I
-    .end local v15    # "noAuthClose":Z
-    .end local v16    # "authConf":Ljava/lang/String;
     goto :goto_0
 
-    .line 500
+    .line 486
     :cond_1
-    iget-object v4, v1, Lcom/leidong/sdk/s/core/http/ResponseManager;->mContext:Landroid/content/Context;
+    iget-object p1, p0, Lcom/leidong/sdk/s/core/http/ResponseManager;->mContext:Landroid/content/Context;
 
-    const/4 v5, 0x0
+    const/4 v1, 0x0
 
-    invoke-static {v4, v5}, Lcom/leidong/sdk/s/core/model/SdkConfigManager;->setUserIsLoginAuth(Landroid/content/Context;Z)V
+    invoke-static {p1, v1}, Lcom/leidong/sdk/s/core/model/SdkConfigManager;->setUserIsLoginAuth(Landroid/content/Context;Z)V
 
-    .line 501
-    iget-object v4, v1, Lcom/leidong/sdk/s/core/http/ResponseManager;->mContext:Landroid/content/Context;
+    .line 487
+    iget-object p1, p0, Lcom/leidong/sdk/s/core/http/ResponseManager;->mContext:Landroid/content/Context;
 
-    invoke-static {v4, v5}, Lcom/leidong/sdk/s/core/model/SdkConfigManager;->setUserIsPayAuth(Landroid/content/Context;Z)V
+    invoke-static {p1, v1}, Lcom/leidong/sdk/s/core/model/SdkConfigManager;->setUserIsPayAuth(Landroid/content/Context;Z)V
 
-    .line 502
-    iget-object v4, v1, Lcom/leidong/sdk/s/core/http/ResponseManager;->mContext:Landroid/content/Context;
+    .line 488
+    iget-object p1, p0, Lcom/leidong/sdk/s/core/http/ResponseManager;->mContext:Landroid/content/Context;
 
-    invoke-static {v4, v5}, Lcom/leidong/sdk/s/core/model/SdkConfigManager;->setUserIsAuthNotice(Landroid/content/Context;Z)V
+    invoke-static {p1, v1}, Lcom/leidong/sdk/s/core/model/SdkConfigManager;->setUserIsAuthNotice(Landroid/content/Context;Z)V
 
-    .line 503
-    iget-object v4, v1, Lcom/leidong/sdk/s/core/http/ResponseManager;->mContext:Landroid/content/Context;
+    .line 489
+    iget-object p1, p0, Lcom/leidong/sdk/s/core/http/ResponseManager;->mContext:Landroid/content/Context;
 
-    invoke-static {v4, v5}, Lcom/leidong/sdk/s/core/model/SdkConfigManager;->setUserIsAdultNotice(Landroid/content/Context;Z)V
+    invoke-static {p1, v1}, Lcom/leidong/sdk/s/core/model/SdkConfigManager;->setUserIsAdultNotice(Landroid/content/Context;Z)V
+
+    .line 490
+    iget-object p1, p0, Lcom/leidong/sdk/s/core/http/ResponseManager;->mContext:Landroid/content/Context;
+
+    invoke-static {p1, v1}, Lcom/leidong/sdk/s/core/model/SdkConfigManager;->setUserIsPayNotice(Landroid/content/Context;Z)V
+
+    .line 491
+    iget-object p1, p0, Lcom/leidong/sdk/s/core/http/ResponseManager;->mContext:Landroid/content/Context;
+
+    const/4 v1, 0x1
+
+    invoke-static {p1, v1}, Lcom/leidong/sdk/s/core/model/SdkConfigManager;->setUserCanAuthClose(Landroid/content/Context;Z)V
+
+    .line 492
+    iget-object p1, p0, Lcom/leidong/sdk/s/core/http/ResponseManager;->mContext:Landroid/content/Context;
+
+    invoke-static {p1, v1}, Lcom/leidong/sdk/s/core/model/SdkConfigManager;->setUserCanAdultClose(Landroid/content/Context;Z)V
+
+    :goto_0
+    const-string p1, "dialogQuit"
+
+    .line 496
+    invoke-virtual {v0, p1}, Lorg/json/JSONObject;->has(Ljava/lang/String;)Z
+
+    move-result p1
+
+    if-eqz p1, :cond_2
+
+    const-string p1, "dialogQuit"
+
+    .line 498
+    invoke-static {v0, p1}, Lcom/leidong/sdk/framework/utils/JSONUtils;->getJsonObj(Lorg/json/JSONObject;Ljava/lang/String;)Lorg/json/JSONObject;
+
+    move-result-object p1
+
+    if-eqz p1, :cond_3
+
+    .line 500
+    iget-object v1, p0, Lcom/leidong/sdk/s/core/http/ResponseManager;->mContext:Landroid/content/Context;
+
+    invoke-virtual {p1}, Lorg/json/JSONObject;->toString()Ljava/lang/String;
+
+    move-result-object p1
+
+    invoke-static {v1, p1}, Lcom/leidong/sdk/s/core/model/SdkConfigManager;->setExitGameData(Landroid/content/Context;Ljava/lang/String;)V
+
+    goto :goto_1
 
     .line 504
-    iget-object v4, v1, Lcom/leidong/sdk/s/core/http/ResponseManager;->mContext:Landroid/content/Context;
+    :cond_2
+    iget-object p1, p0, Lcom/leidong/sdk/s/core/http/ResponseManager;->mContext:Landroid/content/Context;
 
-    invoke-static {v4, v5}, Lcom/leidong/sdk/s/core/model/SdkConfigManager;->setUserIsPayNotice(Landroid/content/Context;Z)V
+    const-string v1, ""
 
-    .line 505
-    iget-object v4, v1, Lcom/leidong/sdk/s/core/http/ResponseManager;->mContext:Landroid/content/Context;
+    invoke-static {p1, v1}, Lcom/leidong/sdk/s/core/model/SdkConfigManager;->setExitGameData(Landroid/content/Context;Ljava/lang/String;)V
 
-    const/4 v5, 0x1
+    :cond_3
+    :goto_1
+    const-string p1, "topScroll"
 
-    invoke-static {v4, v5}, Lcom/leidong/sdk/s/core/model/SdkConfigManager;->setUserCanAuthClose(Landroid/content/Context;Z)V
+    .line 508
+    invoke-virtual {v0, p1}, Lorg/json/JSONObject;->has(Ljava/lang/String;)Z
 
-    .line 506
-    iget-object v4, v1, Lcom/leidong/sdk/s/core/http/ResponseManager;->mContext:Landroid/content/Context;
+    move-result p1
 
-    invoke-static {v4, v5}, Lcom/leidong/sdk/s/core/model/SdkConfigManager;->setUserCanAdultClose(Landroid/content/Context;Z)V
+    if-eqz p1, :cond_5
 
-    .line 510
-    :goto_0
-    const-string v4, "dialogQuit"
+    const-string p1, "topScroll"
 
-    invoke-virtual {v3, v4}, Lorg/json/JSONObject;->has(Ljava/lang/String;)Z
+    .line 509
+    invoke-static {v0, p1}, Lcom/leidong/sdk/framework/utils/JSONUtils;->getJsonObj(Lorg/json/JSONObject;Ljava/lang/String;)Lorg/json/JSONObject;
 
-    move-result v4
+    move-result-object p1
 
-    if-eqz v4, :cond_3
+    if-eqz p1, :cond_6
+
+    const-string v0, "content"
+
+    .line 511
+    invoke-static {p1, v0}, Lcom/leidong/sdk/framework/utils/JSONUtils;->getJsonStr(Lorg/json/JSONObject;Ljava/lang/String;)Ljava/lang/String;
+
+    move-result-object v0
+
+    const-string v1, "url"
 
     .line 512
-    const-string v4, "dialogQuit"
+    invoke-static {p1, v1}, Lcom/leidong/sdk/framework/utils/JSONUtils;->getJsonStr(Lorg/json/JSONObject;Ljava/lang/String;)Ljava/lang/String;
 
-    invoke-static {v3, v4}, Lcom/leidong/sdk/framework/utils/JSONUtils;->getJsonObj(Lorg/json/JSONObject;Ljava/lang/String;)Lorg/json/JSONObject;
+    move-result-object p1
+
+    .line 513
+    invoke-static {v0}, Landroid/text/TextUtils;->isEmpty(Ljava/lang/CharSequence;)Z
+
+    move-result v1
+
+    if-nez v1, :cond_4
+
+    .line 514
+    iget-object v1, p0, Lcom/leidong/sdk/s/core/http/ResponseManager;->mContext:Landroid/content/Context;
+
+    invoke-static {v1, v0}, Lcom/leidong/sdk/s/core/model/SdkConfigManager;->setScrollMessageText(Landroid/content/Context;Ljava/lang/String;)V
+
+    .line 516
+    :cond_4
+    invoke-static {p1}, Landroid/text/TextUtils;->isEmpty(Ljava/lang/CharSequence;)Z
+
+    move-result v0
+
+    if-nez v0, :cond_6
+
+    .line 517
+    iget-object v0, p0, Lcom/leidong/sdk/s/core/http/ResponseManager;->mContext:Landroid/content/Context;
+
+    invoke-static {v0, p1}, Lcom/leidong/sdk/s/core/model/SdkConfigManager;->setScrollMessageUrl(Landroid/content/Context;Ljava/lang/String;)V
+
+    goto :goto_2
+
+    .line 522
+    :cond_5
+    iget-object p1, p0, Lcom/leidong/sdk/s/core/http/ResponseManager;->mContext:Landroid/content/Context;
+
+    const-string v0, ""
+
+    invoke-static {p1, v0}, Lcom/leidong/sdk/s/core/model/SdkConfigManager;->setScrollMessageText(Landroid/content/Context;Ljava/lang/String;)V
+
+    .line 523
+    iget-object p1, p0, Lcom/leidong/sdk/s/core/http/ResponseManager;->mContext:Landroid/content/Context;
+
+    const-string v0, ""
+
+    invoke-static {p1, v0}, Lcom/leidong/sdk/s/core/model/SdkConfigManager;->setScrollMessageUrl(Landroid/content/Context;Ljava/lang/String;)V
+
+    :cond_6
+    :goto_2
+    const-string p1, "\u81ea\u8425SDK\u521d\u59cb\u5316\u5b8c\u6210"
+
+    .line 527
+    invoke-interface {p2, p1}, Lcom/leidong/sdk/framework/http/HttpCallBack;->onSuccess(Ljava/lang/String;)V
+    :try_end_0
+    .catch Ljava/lang/Exception; {:try_start_0 .. :try_end_0} :catch_0
+
+    goto :goto_3
+
+    :catch_0
+    move-exception p1
+
+    .line 531
+    invoke-virtual {p1}, Ljava/lang/Exception;->printStackTrace()V
+
+    const p1, 0x18705
+
+    const-string v0, "\u5e73\u53f0\u521d\u59cb\u5316\u6570\u636e\u89e3\u6790\u5931\u8d25"
+
+    .line 532
+    invoke-interface {p2, p1, v0}, Lcom/leidong/sdk/framework/http/HttpCallBack;->onFail(ILjava/lang/String;)V
+
+    :goto_3
+    return-void
+.end method
+
+.method public handleLoginSuccess(Ljava/lang/String;Ljava/lang/String;IZLcom/leidong/sdk/framework/interfaces/SdkResultCallback;)V
+    .locals 10
+
+    .line 93
+    :try_start_0
+    new-instance p4, Lorg/json/JSONObject;
+
+    invoke-direct {p4, p1}, Lorg/json/JSONObject;-><init>(Ljava/lang/String;)V
+
+    const-string p1, "data"
+
+    .line 94
+    invoke-static {p4, p1}, Lcom/leidong/sdk/framework/utils/JSONUtils;->getJsonObj(Lorg/json/JSONObject;Ljava/lang/String;)Lorg/json/JSONObject;
+
+    move-result-object p1
+
+    const-string v0, "uinfo"
+
+    .line 96
+    invoke-static {p1, v0}, Lcom/leidong/sdk/framework/utils/JSONUtils;->getJsonStr(Lorg/json/JSONObject;Ljava/lang/String;)Ljava/lang/String;
+
+    move-result-object v0
+
+    .line 97
+    iget-object v1, p0, Lcom/leidong/sdk/s/core/http/ResponseManager;->mContext:Landroid/content/Context;
+
+    invoke-static {v1, v0}, Lcom/leidong/sdk/framework/encrypt/CodeManager;->decodeSpecial(Landroid/content/Context;Ljava/lang/String;)Ljava/lang/String;
+
+    move-result-object v0
+
+    .line 99
+    new-instance v1, Ljava/lang/StringBuilder;
+
+    invoke-direct {v1}, Ljava/lang/StringBuilder;-><init>()V
+
+    const-string v2, "[uinfo]="
+
+    invoke-virtual {v1, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    invoke-virtual {v1, v0}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    invoke-virtual {v1}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+
+    move-result-object v1
+
+    invoke-static {v1}, Lcom/leidong/sdk/s/core/utils/SLogUtil;->w(Ljava/lang/String;)V
+
+    .line 101
+    new-instance v1, Lorg/json/JSONObject;
+
+    invoke-direct {v1, v0}, Lorg/json/JSONObject;-><init>(Ljava/lang/String;)V
+
+    packed-switch p3, :pswitch_data_0
+
+    goto/16 :goto_0
+
+    .line 125
+    :pswitch_0
+    iget-object v0, p0, Lcom/leidong/sdk/s/core/http/ResponseManager;->mContext:Landroid/content/Context;
+
+    const-string v2, "uid"
+
+    invoke-static {v1, v2}, Lcom/leidong/sdk/framework/utils/JSONUtils;->getJsonStr(Lorg/json/JSONObject;Ljava/lang/String;)Ljava/lang/String;
+
+    move-result-object v2
+
+    invoke-static {v0, v2}, Lcom/leidong/sdk/s/core/model/SdkConfigManager;->setUserId(Landroid/content/Context;Ljava/lang/String;)V
+
+    .line 126
+    iget-object v0, p0, Lcom/leidong/sdk/s/core/http/ResponseManager;->mContext:Landroid/content/Context;
+
+    const-string v2, "uname"
+
+    invoke-static {v1, v2}, Lcom/leidong/sdk/framework/utils/JSONUtils;->getJsonStr(Lorg/json/JSONObject;Ljava/lang/String;)Ljava/lang/String;
+
+    move-result-object v2
+
+    invoke-static {v0, v2}, Lcom/leidong/sdk/s/core/model/SdkConfigManager;->setUserName(Landroid/content/Context;Ljava/lang/String;)V
+
+    .line 127
+    iget-object v0, p0, Lcom/leidong/sdk/s/core/http/ResponseManager;->mContext:Landroid/content/Context;
+
+    const-string v2, "vname"
+
+    invoke-static {v1, v2}, Lcom/leidong/sdk/framework/utils/JSONUtils;->getJsonStr(Lorg/json/JSONObject;Ljava/lang/String;)Ljava/lang/String;
+
+    move-result-object v2
+
+    invoke-static {v0, v2}, Lcom/leidong/sdk/s/core/model/SdkConfigManager;->setUserVname(Landroid/content/Context;Ljava/lang/String;)V
+
+    .line 128
+    iget-object v0, p0, Lcom/leidong/sdk/s/core/http/ResponseManager;->mContext:Landroid/content/Context;
+
+    invoke-static {v1, p2}, Lcom/leidong/sdk/framework/utils/JSONUtils;->getJsonStr(Lorg/json/JSONObject;Ljava/lang/String;)Ljava/lang/String;
+
+    move-result-object v1
+
+    invoke-static {v0, v1}, Lcom/leidong/sdk/s/core/model/SdkConfigManager;->setUserPassword(Landroid/content/Context;Ljava/lang/String;)V
+
+    .line 130
+    iget-object v0, p0, Lcom/leidong/sdk/s/core/http/ResponseManager;->mContext:Landroid/content/Context;
+
+    const-string v1, "access_token"
+
+    invoke-static {p1, v1}, Lcom/leidong/sdk/framework/utils/JSONUtils;->getJsonStr(Lorg/json/JSONObject;Ljava/lang/String;)Ljava/lang/String;
+
+    move-result-object v1
+
+    invoke-static {v0, v1}, Lcom/leidong/sdk/s/core/model/SdkConfigManager;->setUserToken(Landroid/content/Context;Ljava/lang/String;)V
+
+    goto :goto_0
+
+    .line 120
+    :pswitch_1
+    iget-object v0, p0, Lcom/leidong/sdk/s/core/http/ResponseManager;->mContext:Landroid/content/Context;
+
+    const-string v1, "access_token"
+
+    invoke-static {p1, v1}, Lcom/leidong/sdk/framework/utils/JSONUtils;->getJsonStr(Lorg/json/JSONObject;Ljava/lang/String;)Ljava/lang/String;
+
+    move-result-object v1
+
+    invoke-static {v0, v1}, Lcom/leidong/sdk/s/core/model/SdkConfigManager;->setUserToken(Landroid/content/Context;Ljava/lang/String;)V
+
+    goto :goto_0
+
+    .line 107
+    :pswitch_2
+    iget-object v0, p0, Lcom/leidong/sdk/s/core/http/ResponseManager;->mContext:Landroid/content/Context;
+
+    const-string v2, "uid"
+
+    invoke-static {v1, v2}, Lcom/leidong/sdk/framework/utils/JSONUtils;->getJsonStr(Lorg/json/JSONObject;Ljava/lang/String;)Ljava/lang/String;
+
+    move-result-object v2
+
+    invoke-static {v0, v2}, Lcom/leidong/sdk/s/core/model/SdkConfigManager;->setUserId(Landroid/content/Context;Ljava/lang/String;)V
+
+    .line 108
+    iget-object v0, p0, Lcom/leidong/sdk/s/core/http/ResponseManager;->mContext:Landroid/content/Context;
+
+    const-string v2, "uname"
+
+    invoke-static {v1, v2}, Lcom/leidong/sdk/framework/utils/JSONUtils;->getJsonStr(Lorg/json/JSONObject;Ljava/lang/String;)Ljava/lang/String;
+
+    move-result-object v2
+
+    invoke-static {v0, v2}, Lcom/leidong/sdk/s/core/model/SdkConfigManager;->setUserName(Landroid/content/Context;Ljava/lang/String;)V
+
+    .line 109
+    iget-object v0, p0, Lcom/leidong/sdk/s/core/http/ResponseManager;->mContext:Landroid/content/Context;
+
+    const-string v2, "vname"
+
+    invoke-static {v1, v2}, Lcom/leidong/sdk/framework/utils/JSONUtils;->getJsonStr(Lorg/json/JSONObject;Ljava/lang/String;)Ljava/lang/String;
+
+    move-result-object v2
+
+    invoke-static {v0, v2}, Lcom/leidong/sdk/s/core/model/SdkConfigManager;->setUserVname(Landroid/content/Context;Ljava/lang/String;)V
+
+    .line 110
+    iget-object v0, p0, Lcom/leidong/sdk/s/core/http/ResponseManager;->mContext:Landroid/content/Context;
+
+    const-string v2, ""
+
+    invoke-static {v1, v2}, Lcom/leidong/sdk/framework/utils/JSONUtils;->getJsonStr(Lorg/json/JSONObject;Ljava/lang/String;)Ljava/lang/String;
+
+    move-result-object v2
+
+    invoke-static {v0, v2}, Lcom/leidong/sdk/s/core/model/SdkConfigManager;->setUserPassword(Landroid/content/Context;Ljava/lang/String;)V
+
+    .line 112
+    iget-object v0, p0, Lcom/leidong/sdk/s/core/http/ResponseManager;->mContext:Landroid/content/Context;
+
+    const-string v2, "access_token"
+
+    invoke-static {p1, v2}, Lcom/leidong/sdk/framework/utils/JSONUtils;->getJsonStr(Lorg/json/JSONObject;Ljava/lang/String;)Ljava/lang/String;
+
+    move-result-object v2
+
+    invoke-static {v0, v2}, Lcom/leidong/sdk/s/core/model/SdkConfigManager;->setUserToken(Landroid/content/Context;Ljava/lang/String;)V
+
+    .line 115
+    iget-object v0, p0, Lcom/leidong/sdk/s/core/http/ResponseManager;->mContext:Landroid/content/Context;
+
+    const-string v2, "vname"
+
+    invoke-static {v1, v2}, Lcom/leidong/sdk/framework/utils/JSONUtils;->getJsonStr(Lorg/json/JSONObject;Ljava/lang/String;)Ljava/lang/String;
+
+    move-result-object v1
+
+    const-string v2, "access_token"
+
+    invoke-static {p1, v2}, Lcom/leidong/sdk/framework/utils/JSONUtils;->getJsonStr(Lorg/json/JSONObject;Ljava/lang/String;)Ljava/lang/String;
+
+    move-result-object v2
+
+    invoke-static {v0, v1, v2}, Lcom/leidong/sdk/s/core/model/SdkConfigManager;->setStringData(Landroid/content/Context;Ljava/lang/String;Ljava/lang/String;)V
+
+    .line 137
+    :goto_0
+    new-instance v0, Lcom/leidong/sdk/s/app/floatwindow/FloatConfig;
+
+    iget-object v1, p0, Lcom/leidong/sdk/s/core/http/ResponseManager;->mContext:Landroid/content/Context;
+
+    invoke-direct {v0, v1}, Lcom/leidong/sdk/s/app/floatwindow/FloatConfig;-><init>(Landroid/content/Context;)V
+
+    const-string v1, "float"
+
+    .line 138
+    invoke-virtual {p1, v1}, Lorg/json/JSONObject;->has(Ljava/lang/String;)Z
+
+    move-result v1
+
+    const/4 v2, 0x0
+
+    const/4 v3, 0x1
+
+    if-eqz v1, :cond_7
+
+    const-string v1, "float"
+
+    .line 139
+    invoke-static {p1, v1}, Lcom/leidong/sdk/framework/utils/JSONUtils;->getJsonObj(Lorg/json/JSONObject;Ljava/lang/String;)Lorg/json/JSONObject;
+
+    move-result-object v1
+
+    const-string v4, "display"
+
+    .line 141
+    invoke-static {v1, v4}, Lcom/leidong/sdk/framework/utils/JSONUtils;->getJsonStr(Lorg/json/JSONObject;Ljava/lang/String;)Ljava/lang/String;
 
     move-result-object v4
 
-    .line 513
-    .local v4, "logout":Lorg/json/JSONObject;
-    if-eqz v4, :cond_2
+    .line 143
+    invoke-static {v4}, Landroid/text/TextUtils;->isEmpty(Ljava/lang/CharSequence;)Z
 
-    .line 514
-    iget-object v5, v1, Lcom/leidong/sdk/s/core/http/ResponseManager;->mContext:Landroid/content/Context;
+    move-result v5
 
-    invoke-virtual {v4}, Lorg/json/JSONObject;->toString()Ljava/lang/String;
+    if-nez v5, :cond_6
 
-    move-result-object v6
+    const-string v5, "1"
 
-    invoke-static {v5, v6}, Lcom/leidong/sdk/s/core/model/SdkConfigManager;->setExitGameData(Landroid/content/Context;Ljava/lang/String;)V
-
-    .line 516
-    .end local v4    # "logout":Lorg/json/JSONObject;
-    :cond_2
-    goto :goto_1
-
-    .line 518
-    :cond_3
-    iget-object v4, v1, Lcom/leidong/sdk/s/core/http/ResponseManager;->mContext:Landroid/content/Context;
-
-    const-string v5, ""
-
-    invoke-static {v4, v5}, Lcom/leidong/sdk/s/core/model/SdkConfigManager;->setExitGameData(Landroid/content/Context;Ljava/lang/String;)V
-
-    .line 522
-    :goto_1
-    const-string v4, "topScroll"
-
-    invoke-virtual {v3, v4}, Lorg/json/JSONObject;->has(Ljava/lang/String;)Z
+    invoke-virtual {v5, v4}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
 
     move-result v4
 
     if-eqz v4, :cond_6
 
-    .line 523
-    const-string v4, "topScroll"
+    .line 145
+    invoke-virtual {v0, v3}, Lcom/leidong/sdk/s/app/floatwindow/FloatConfig;->setShowFloatBall(Z)V
 
-    invoke-static {v3, v4}, Lcom/leidong/sdk/framework/utils/JSONUtils;->getJsonObj(Lorg/json/JSONObject;Ljava/lang/String;)Lorg/json/JSONObject;
+    .line 147
+    sget-object v4, Ljava/lang/System;->out:Ljava/io/PrintStream;
+
+    new-instance v5, Ljava/lang/StringBuilder;
+
+    invoke-direct {v5}, Ljava/lang/StringBuilder;-><init>()V
+
+    const-string v6, "\u8bbe\u7f6e\u662f\u5426\u6253\u5f00\u60ac\u6d6e\u7a97:"
+
+    invoke-virtual {v5, v6}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    invoke-virtual {v0}, Lcom/leidong/sdk/s/app/floatwindow/FloatConfig;->isShowFloatBall()Z
+
+    move-result v6
+
+    invoke-virtual {v5, v6}, Ljava/lang/StringBuilder;->append(Z)Ljava/lang/StringBuilder;
+
+    invoke-virtual {v5}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+
+    move-result-object v5
+
+    invoke-virtual {v4, v5}, Ljava/io/PrintStream;->println(Ljava/lang/String;)V
+
+    const-string v4, "conf"
+
+    .line 150
+    invoke-static {v1, v4}, Lcom/leidong/sdk/framework/utils/JSONUtils;->getJsonObj(Lorg/json/JSONObject;Ljava/lang/String;)Lorg/json/JSONObject;
+
+    move-result-object v1
+
+    const-string v4, "user_center"
+
+    .line 151
+    invoke-static {v1, v4}, Lcom/leidong/sdk/framework/utils/JSONUtils;->getJsonObj(Lorg/json/JSONObject;Ljava/lang/String;)Lorg/json/JSONObject;
 
     move-result-object v4
 
-    .line 524
-    .local v4, "topScrollObj":Lorg/json/JSONObject;
-    if-eqz v4, :cond_5
+    const-string v5, "msg_center"
 
-    .line 525
-    const-string v5, "content"
-
-    invoke-static {v4, v5}, Lcom/leidong/sdk/framework/utils/JSONUtils;->getJsonStr(Lorg/json/JSONObject;Ljava/lang/String;)Ljava/lang/String;
+    .line 152
+    invoke-static {v1, v5}, Lcom/leidong/sdk/framework/utils/JSONUtils;->getJsonObj(Lorg/json/JSONObject;Ljava/lang/String;)Lorg/json/JSONObject;
 
     move-result-object v5
 
-    .line 526
-    .local v5, "title":Ljava/lang/String;
-    const-string v6, "url"
-
-    invoke-static {v4, v6}, Lcom/leidong/sdk/framework/utils/JSONUtils;->getJsonStr(Lorg/json/JSONObject;Ljava/lang/String;)Ljava/lang/String;
-
-    move-result-object v6
-
-    .line 527
-    .local v6, "url":Ljava/lang/String;
-    invoke-static {v5}, Landroid/text/TextUtils;->isEmpty(Ljava/lang/CharSequence;)Z
-
-    move-result v7
-
-    if-nez v7, :cond_4
-
-    .line 528
-    iget-object v7, v1, Lcom/leidong/sdk/s/core/http/ResponseManager;->mContext:Landroid/content/Context;
-
-    invoke-static {v7, v5}, Lcom/leidong/sdk/s/core/model/SdkConfigManager;->setScrollMessageText(Landroid/content/Context;Ljava/lang/String;)V
-
-    .line 530
-    :cond_4
-    invoke-static {v6}, Landroid/text/TextUtils;->isEmpty(Ljava/lang/CharSequence;)Z
-
-    move-result v7
-
-    if-nez v7, :cond_5
-
-    .line 531
-    iget-object v7, v1, Lcom/leidong/sdk/s/core/http/ResponseManager;->mContext:Landroid/content/Context;
-
-    invoke-static {v7, v6}, Lcom/leidong/sdk/s/core/model/SdkConfigManager;->setScrollMessageUrl(Landroid/content/Context;Ljava/lang/String;)V
-
-    .line 534
-    .end local v4    # "topScrollObj":Lorg/json/JSONObject;
-    .end local v5    # "title":Ljava/lang/String;
-    .end local v6    # "url":Ljava/lang/String;
-    :cond_5
-    goto :goto_2
-
-    .line 536
-    :cond_6
-    iget-object v4, v1, Lcom/leidong/sdk/s/core/http/ResponseManager;->mContext:Landroid/content/Context;
-
-    const-string v5, ""
-
-    invoke-static {v4, v5}, Lcom/leidong/sdk/s/core/model/SdkConfigManager;->setScrollMessageText(Landroid/content/Context;Ljava/lang/String;)V
-
-    .line 537
-    iget-object v4, v1, Lcom/leidong/sdk/s/core/http/ResponseManager;->mContext:Landroid/content/Context;
-
-    const-string v5, ""
-
-    invoke-static {v4, v5}, Lcom/leidong/sdk/s/core/model/SdkConfigManager;->setScrollMessageUrl(Landroid/content/Context;Ljava/lang/String;)V
-
-    .line 541
-    :goto_2
-    const-string v4, "\u81ea\u8425SDK\u521d\u59cb\u5316\u5b8c\u6210"
-
-    invoke-interface {v2, v4}, Lcom/leidong/sdk/framework/http/HttpCallBack;->onSuccess(Ljava/lang/String;)V
-    :try_end_0
-    .catch Ljava/lang/Exception; {:try_start_0 .. :try_end_0} :catch_0
-
-    .line 547
-    goto :goto_3
-
-    .line 544
-    .end local v3    # "channelObj":Lorg/json/JSONObject;
-    :catch_0
-    move-exception v0
-
-    move-object v3, v0
-
-    .line 545
-    .local v3, "e":Ljava/lang/Exception;
-    invoke-virtual {v3}, Ljava/lang/Exception;->printStackTrace()V
-
-    .line 546
-    const v4, 0x18705
-
-    const-string v5, "\u5e73\u53f0\u521d\u59cb\u5316\u6570\u636e\u89e3\u6790\u5931\u8d25"
-
-    invoke-interface {v2, v4, v5}, Lcom/leidong/sdk/framework/http/HttpCallBack;->onFail(ILjava/lang/String;)V
-
-    .line 548
-    .end local v3    # "e":Ljava/lang/Exception;
-    :goto_3
-    return-void
-.end method
-
-.method public handleLoginSuccess(Ljava/lang/String;Ljava/lang/String;Ljava/lang/Boolean;ZLcom/leidong/sdk/framework/interfaces/SdkResultCallback;)V
-    .locals 26
-    .param p1, "content"    # Ljava/lang/String;
-    .param p2, "pwd"    # Ljava/lang/String;
-    .param p3, "isPhoneFastLogin"    # Ljava/lang/Boolean;
-    .param p4, "isAutoLogin"    # Z
-    .param p5, "callback"    # Lcom/leidong/sdk/framework/interfaces/SdkResultCallback;
-
-    move-object/from16 v1, p0
-
-    move-object/from16 v2, p2
-
-    .line 86
-    move-object/from16 v3, p5
-
-    :try_start_0
-    new-instance v4, Lorg/json/JSONObject;
-
-    move-object/from16 v5, p1
-
-    invoke-direct {v4, v5}, Lorg/json/JSONObject;-><init>(Ljava/lang/String;)V
-
-    .line 87
-    .local v4, "contentObj":Lorg/json/JSONObject;
-    const-string v6, "data"
-
-    invoke-static {v4, v6}, Lcom/leidong/sdk/framework/utils/JSONUtils;->getJsonObj(Lorg/json/JSONObject;Ljava/lang/String;)Lorg/json/JSONObject;
-
-    move-result-object v6
-
-    .line 89
-    .local v6, "dataObj":Lorg/json/JSONObject;
-    const-string v7, "uinfo"
-
-    invoke-static {v6, v7}, Lcom/leidong/sdk/framework/utils/JSONUtils;->getJsonStr(Lorg/json/JSONObject;Ljava/lang/String;)Ljava/lang/String;
-
-    move-result-object v7
-
-    .line 90
-    .local v7, "uinfo_encode":Ljava/lang/String;
-    iget-object v8, v1, Lcom/leidong/sdk/s/core/http/ResponseManager;->mContext:Landroid/content/Context;
-
-    invoke-static {v8, v7}, Lcom/leidong/sdk/framework/encrypt/CodeManager;->decodeSpecial(Landroid/content/Context;Ljava/lang/String;)Ljava/lang/String;
-
-    move-result-object v8
-
-    .line 92
-    .local v8, "uinfo_decode":Ljava/lang/String;
-    new-instance v9, Ljava/lang/StringBuilder;
-
-    invoke-direct {v9}, Ljava/lang/StringBuilder;-><init>()V
-
-    const-string v10, "[uinfo]="
-
-    invoke-virtual {v9, v10}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    invoke-virtual {v9, v8}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    invoke-virtual {v9}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
-
-    move-result-object v9
-
-    invoke-static {v9}, Lcom/leidong/sdk/s/core/utils/SLogUtil;->w(Ljava/lang/String;)V
-
-    .line 94
-    new-instance v9, Lorg/json/JSONObject;
-
-    invoke-direct {v9, v8}, Lorg/json/JSONObject;-><init>(Ljava/lang/String;)V
-
-    .line 125
-    .local v9, "unifo":Lorg/json/JSONObject;
-    iget-object v10, v1, Lcom/leidong/sdk/s/core/http/ResponseManager;->mContext:Landroid/content/Context;
-
-    const-string v11, "uid"
-
-    invoke-static {v9, v11}, Lcom/leidong/sdk/framework/utils/JSONUtils;->getJsonStr(Lorg/json/JSONObject;Ljava/lang/String;)Ljava/lang/String;
-
-    move-result-object v11
-
-    invoke-static {v10, v11}, Lcom/leidong/sdk/s/core/model/SdkConfigManager;->setUserId(Landroid/content/Context;Ljava/lang/String;)V
-
-    .line 126
-    iget-object v10, v1, Lcom/leidong/sdk/s/core/http/ResponseManager;->mContext:Landroid/content/Context;
-
-    const-string v11, "uname"
-
-    invoke-static {v9, v11}, Lcom/leidong/sdk/framework/utils/JSONUtils;->getJsonStr(Lorg/json/JSONObject;Ljava/lang/String;)Ljava/lang/String;
-
-    move-result-object v11
-
-    invoke-static {v10, v11}, Lcom/leidong/sdk/s/core/model/SdkConfigManager;->setUserName(Landroid/content/Context;Ljava/lang/String;)V
-
-    .line 127
-    iget-object v10, v1, Lcom/leidong/sdk/s/core/http/ResponseManager;->mContext:Landroid/content/Context;
-
-    const-string v11, "vname"
-
-    invoke-static {v9, v11}, Lcom/leidong/sdk/framework/utils/JSONUtils;->getJsonStr(Lorg/json/JSONObject;Ljava/lang/String;)Ljava/lang/String;
-
-    move-result-object v11
-
-    invoke-static {v10, v11}, Lcom/leidong/sdk/s/core/model/SdkConfigManager;->setUserVname(Landroid/content/Context;Ljava/lang/String;)V
-
-    .line 128
-    iget-object v10, v1, Lcom/leidong/sdk/s/core/http/ResponseManager;->mContext:Landroid/content/Context;
-
-    invoke-static {v9, v2}, Lcom/leidong/sdk/framework/utils/JSONUtils;->getJsonStr(Lorg/json/JSONObject;Ljava/lang/String;)Ljava/lang/String;
-
-    move-result-object v11
-
-    invoke-static {v10, v11}, Lcom/leidong/sdk/s/core/model/SdkConfigManager;->setUserPassword(Landroid/content/Context;Ljava/lang/String;)V
-
-    .line 129
-    invoke-static/range {p2 .. p2}, Landroid/text/TextUtils;->isEmpty(Ljava/lang/CharSequence;)Z
-
-    move-result v10
-
-    if-nez v10, :cond_0
-
-    .line 131
-    iget-object v10, v1, Lcom/leidong/sdk/s/core/http/ResponseManager;->mContext:Landroid/content/Context;
-
-    invoke-static {v10, v2}, Lcom/leidong/sdk/s/core/model/SdkConfigManager;->setUserPassword(Landroid/content/Context;Ljava/lang/String;)V
-
-    goto :goto_0
-
-    .line 133
-    :cond_0
-    iget-object v10, v1, Lcom/leidong/sdk/s/core/http/ResponseManager;->mContext:Landroid/content/Context;
-
-    const-string v11, "pwd"
-
-    invoke-static {v9, v11}, Lcom/leidong/sdk/framework/utils/JSONUtils;->getJsonStr(Lorg/json/JSONObject;Ljava/lang/String;)Ljava/lang/String;
-
-    move-result-object v11
-
-    invoke-static {v10, v11}, Lcom/leidong/sdk/s/core/model/SdkConfigManager;->setUserPassword(Landroid/content/Context;Ljava/lang/String;)V
-
-    .line 136
-    :goto_0
-    invoke-virtual/range {p3 .. p3}, Ljava/lang/Boolean;->booleanValue()Z
-
-    move-result v10
-
-    const/4 v11, 0x0
-
-    const/4 v12, 0x1
-
-    if-eqz v10, :cond_1
-
-    .line 138
-    iget-object v10, v1, Lcom/leidong/sdk/s/core/http/ResponseManager;->mContext:Landroid/content/Context;
-
-    invoke-static {v10, v12}, Lcom/leidong/sdk/s/core/model/SdkConfigManager;->setIsPhoneQuickLogin(Landroid/content/Context;Z)V
-
-    .line 139
-    const-string v10, "bind_info"
-
-    invoke-static {v9, v10}, Lcom/leidong/sdk/framework/utils/JSONUtils;->getJsonObj(Lorg/json/JSONObject;Ljava/lang/String;)Lorg/json/JSONObject;
-
-    move-result-object v10
-
-    .line 140
-    .local v10, "bind_info":Lorg/json/JSONObject;
-    const-string v13, "mobile"
-
-    invoke-static {v10, v13}, Lcom/leidong/sdk/framework/utils/JSONUtils;->getJsonStr(Lorg/json/JSONObject;Ljava/lang/String;)Ljava/lang/String;
-
-    move-result-object v13
-
-    .line 141
-    .local v13, "mobilePhone":Ljava/lang/String;
-    iget-object v14, v1, Lcom/leidong/sdk/s/core/http/ResponseManager;->mContext:Landroid/content/Context;
-
-    invoke-static {v14, v13}, Lcom/leidong/sdk/s/core/model/SdkConfigManager;->setPhoneNumber(Landroid/content/Context;Ljava/lang/String;)V
-
-    .line 144
-    const-string v14, "access_token"
-
-    invoke-static {v6, v14}, Lcom/leidong/sdk/framework/utils/JSONUtils;->getJsonStr(Lorg/json/JSONObject;Ljava/lang/String;)Ljava/lang/String;
-
-    move-result-object v14
-
-    .line 146
-    .local v14, "token":Ljava/lang/String;
-    iget-object v15, v1, Lcom/leidong/sdk/s/core/http/ResponseManager;->mContext:Landroid/content/Context;
-
-    invoke-static {v15, v13, v14}, Lcom/leidong/sdk/s/core/model/SdkConfigManager;->setStringData(Landroid/content/Context;Ljava/lang/String;Ljava/lang/String;)V
-
-    .line 147
-    .end local v10    # "bind_info":Lorg/json/JSONObject;
-    .end local v13    # "mobilePhone":Ljava/lang/String;
-    .end local v14    # "token":Ljava/lang/String;
-    goto :goto_1
-
-    .line 149
-    :cond_1
-    iget-object v10, v1, Lcom/leidong/sdk/s/core/http/ResponseManager;->mContext:Landroid/content/Context;
-
-    invoke-static {v10, v11}, Lcom/leidong/sdk/s/core/model/SdkConfigManager;->setIsPhoneQuickLogin(Landroid/content/Context;Z)V
+    const-string v6, "gift_center"
 
     .line 153
-    :goto_1
-    iget-object v10, v1, Lcom/leidong/sdk/s/core/http/ResponseManager;->mContext:Landroid/content/Context;
+    invoke-static {v1, v6}, Lcom/leidong/sdk/framework/utils/JSONUtils;->getJsonObj(Lorg/json/JSONObject;Ljava/lang/String;)Lorg/json/JSONObject;
 
-    const-string v13, "access_token"
+    move-result-object v6
 
-    invoke-static {v6, v13}, Lcom/leidong/sdk/framework/utils/JSONUtils;->getJsonStr(Lorg/json/JSONObject;Ljava/lang/String;)Ljava/lang/String;
+    const-string v7, "game_center"
 
-    move-result-object v13
-
-    invoke-static {v10, v13}, Lcom/leidong/sdk/s/core/model/SdkConfigManager;->setUserToken(Landroid/content/Context;Ljava/lang/String;)V
-
-    .line 156
-    new-instance v10, Lcom/leidong/sdk/s/app/floatwindow/FloatConfig;
-
-    iget-object v13, v1, Lcom/leidong/sdk/s/core/http/ResponseManager;->mContext:Landroid/content/Context;
-
-    invoke-direct {v10, v13}, Lcom/leidong/sdk/s/app/floatwindow/FloatConfig;-><init>(Landroid/content/Context;)V
-
-    .line 157
-    .local v10, "floatConfig":Lcom/leidong/sdk/s/app/floatwindow/FloatConfig;
-    const-string v13, "float"
-
-    invoke-virtual {v6, v13}, Lorg/json/JSONObject;->has(Ljava/lang/String;)Z
-
-    move-result v13
-
-    if-eqz v13, :cond_a
-
-    .line 158
-    const-string v13, "float"
-
-    invoke-static {v6, v13}, Lcom/leidong/sdk/framework/utils/JSONUtils;->getJsonObj(Lorg/json/JSONObject;Ljava/lang/String;)Lorg/json/JSONObject;
-
-    move-result-object v13
-
-    .line 160
-    .local v13, "floatObj":Lorg/json/JSONObject;
-    const-string v14, "display"
-
-    invoke-static {v13, v14}, Lcom/leidong/sdk/framework/utils/JSONUtils;->getJsonStr(Lorg/json/JSONObject;Ljava/lang/String;)Ljava/lang/String;
-
-    move-result-object v14
-
-    .line 162
-    .local v14, "display":Ljava/lang/String;
-    invoke-static {v14}, Landroid/text/TextUtils;->isEmpty(Ljava/lang/CharSequence;)Z
-
-    move-result v15
-
-    if-nez v15, :cond_9
-
-    const-string v15, "1"
-
-    invoke-virtual {v15, v14}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
-
-    move-result v15
-
-    if-eqz v15, :cond_9
-
-    .line 164
-    invoke-virtual {v10, v12}, Lcom/leidong/sdk/s/app/floatwindow/FloatConfig;->setShowFloatBall(Z)V
-
-    .line 166
-    sget-object v15, Ljava/lang/System;->out:Ljava/io/PrintStream;
-
-    new-instance v12, Ljava/lang/StringBuilder;
-
-    invoke-direct {v12}, Ljava/lang/StringBuilder;-><init>()V
-
-    const-string v11, "\u8bbe\u7f6e\u662f\u5426\u6253\u5f00\u60ac\u6d6e\u7a97:"
-
-    invoke-virtual {v12, v11}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    invoke-virtual {v10}, Lcom/leidong/sdk/s/app/floatwindow/FloatConfig;->isShowFloatBall()Z
-
-    move-result v11
-
-    invoke-virtual {v12, v11}, Ljava/lang/StringBuilder;->append(Z)Ljava/lang/StringBuilder;
-
-    invoke-virtual {v12}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
-
-    move-result-object v11
-
-    invoke-virtual {v15, v11}, Ljava/io/PrintStream;->println(Ljava/lang/String;)V
-
-    .line 169
-    const-string v11, "conf"
-
-    invoke-static {v13, v11}, Lcom/leidong/sdk/framework/utils/JSONUtils;->getJsonObj(Lorg/json/JSONObject;Ljava/lang/String;)Lorg/json/JSONObject;
-
-    move-result-object v11
-
-    .line 170
-    .local v11, "confObj":Lorg/json/JSONObject;
-    const-string v12, "user_center"
-
-    invoke-static {v11, v12}, Lcom/leidong/sdk/framework/utils/JSONUtils;->getJsonObj(Lorg/json/JSONObject;Ljava/lang/String;)Lorg/json/JSONObject;
-
-    move-result-object v12
-
-    .line 171
-    .local v12, "user_center":Lorg/json/JSONObject;
-    const-string v15, "msg_center"
-
-    invoke-static {v11, v15}, Lcom/leidong/sdk/framework/utils/JSONUtils;->getJsonObj(Lorg/json/JSONObject;Ljava/lang/String;)Lorg/json/JSONObject;
-
-    move-result-object v15
-
-    .line 172
-    .local v15, "msg_center":Lorg/json/JSONObject;
-    const-string v2, "gift_center"
-
-    invoke-static {v11, v2}, Lcom/leidong/sdk/framework/utils/JSONUtils;->getJsonObj(Lorg/json/JSONObject;Ljava/lang/String;)Lorg/json/JSONObject;
-
-    move-result-object v2
-
-    .line 173
-    .local v2, "gift_center":Lorg/json/JSONObject;
-    const-string v5, "game_center"
-
-    invoke-static {v11, v5}, Lcom/leidong/sdk/framework/utils/JSONUtils;->getJsonObj(Lorg/json/JSONObject;Ljava/lang/String;)Lorg/json/JSONObject;
-
-    move-result-object v5
-
-    .line 174
-    .local v5, "game_center":Lorg/json/JSONObject;
-    move-object/from16 v16, v7
-
-    const-string v7, "server_center"
-
-    .line 174
-    .end local v7    # "uinfo_encode":Ljava/lang/String;
-    .local v16, "uinfo_encode":Ljava/lang/String;
-    invoke-static {v11, v7}, Lcom/leidong/sdk/framework/utils/JSONUtils;->getJsonObj(Lorg/json/JSONObject;Ljava/lang/String;)Lorg/json/JSONObject;
+    .line 154
+    invoke-static {v1, v7}, Lcom/leidong/sdk/framework/utils/JSONUtils;->getJsonObj(Lorg/json/JSONObject;Ljava/lang/String;)Lorg/json/JSONObject;
 
     move-result-object v7
 
-    .line 175
-    .local v7, "server_center":Lorg/json/JSONObject;
-    move-object/from16 v17, v8
+    const-string v8, "server_center"
 
-    const-string v8, "game_forum"
-
-    .line 175
-    .end local v8    # "uinfo_decode":Ljava/lang/String;
-    .local v17, "uinfo_decode":Ljava/lang/String;
-    invoke-static {v11, v8}, Lcom/leidong/sdk/framework/utils/JSONUtils;->getJsonObj(Lorg/json/JSONObject;Ljava/lang/String;)Lorg/json/JSONObject;
+    .line 155
+    invoke-static {v1, v8}, Lcom/leidong/sdk/framework/utils/JSONUtils;->getJsonObj(Lorg/json/JSONObject;Ljava/lang/String;)Lorg/json/JSONObject;
 
     move-result-object v8
 
-    .line 177
-    .local v8, "game_forum":Lorg/json/JSONObject;
-    move-object/from16 v18, v9
+    const-string v9, "game_forum"
+
+    .line 156
+    invoke-static {v1, v9}, Lcom/leidong/sdk/framework/utils/JSONUtils;->getJsonObj(Lorg/json/JSONObject;Ljava/lang/String;)Lorg/json/JSONObject;
+
+    move-result-object v1
 
     const-string v9, "display"
 
-    .line 177
-    .end local v9    # "unifo":Lorg/json/JSONObject;
-    .local v18, "unifo":Lorg/json/JSONObject;
-    invoke-static {v12, v9}, Lcom/leidong/sdk/framework/utils/JSONUtils;->getJsonStr(Lorg/json/JSONObject;Ljava/lang/String;)Ljava/lang/String;
+    .line 158
+    invoke-static {v4, v9}, Lcom/leidong/sdk/framework/utils/JSONUtils;->getJsonStr(Lorg/json/JSONObject;Ljava/lang/String;)Ljava/lang/String;
 
-    move-result-object v9
+    move-result-object v4
 
-    .line 178
-    .local v9, "display_user_center":Ljava/lang/String;
-    move-object/from16 v19, v11
+    const-string v9, "display"
 
-    const-string v11, "display"
-
-    .line 178
-    .end local v11    # "confObj":Lorg/json/JSONObject;
-    .local v19, "confObj":Lorg/json/JSONObject;
-    invoke-static {v15, v11}, Lcom/leidong/sdk/framework/utils/JSONUtils;->getJsonStr(Lorg/json/JSONObject;Ljava/lang/String;)Ljava/lang/String;
-
-    move-result-object v11
-
-    .line 179
-    .local v11, "display_msg_center":Ljava/lang/String;
-    move-object/from16 v20, v12
-
-    const-string v12, "display"
-
-    .line 179
-    .end local v12    # "user_center":Lorg/json/JSONObject;
-    .local v20, "user_center":Lorg/json/JSONObject;
-    invoke-static {v2, v12}, Lcom/leidong/sdk/framework/utils/JSONUtils;->getJsonStr(Lorg/json/JSONObject;Ljava/lang/String;)Ljava/lang/String;
-
-    move-result-object v12
-
-    .line 180
-    .local v12, "display_gift_center":Ljava/lang/String;
-    move-object/from16 v21, v2
-
-    const-string v2, "display"
-
-    .line 180
-    .end local v2    # "gift_center":Lorg/json/JSONObject;
-    .local v21, "gift_center":Lorg/json/JSONObject;
-    invoke-static {v5, v2}, Lcom/leidong/sdk/framework/utils/JSONUtils;->getJsonStr(Lorg/json/JSONObject;Ljava/lang/String;)Ljava/lang/String;
-
-    move-result-object v2
-
-    .line 181
-    .local v2, "display_game_center":Ljava/lang/String;
-    move-object/from16 v22, v5
-
-    const-string v5, "display"
-
-    .line 181
-    .end local v5    # "game_center":Lorg/json/JSONObject;
-    .local v22, "game_center":Lorg/json/JSONObject;
-    invoke-static {v7, v5}, Lcom/leidong/sdk/framework/utils/JSONUtils;->getJsonStr(Lorg/json/JSONObject;Ljava/lang/String;)Ljava/lang/String;
+    .line 159
+    invoke-static {v5, v9}, Lcom/leidong/sdk/framework/utils/JSONUtils;->getJsonStr(Lorg/json/JSONObject;Ljava/lang/String;)Ljava/lang/String;
 
     move-result-object v5
 
-    .line 182
-    .local v5, "display_server_center":Ljava/lang/String;
-    move-object/from16 v23, v7
+    const-string v9, "display"
 
-    const-string v7, "display"
+    .line 160
+    invoke-static {v6, v9}, Lcom/leidong/sdk/framework/utils/JSONUtils;->getJsonStr(Lorg/json/JSONObject;Ljava/lang/String;)Ljava/lang/String;
 
-    .line 182
-    .end local v7    # "server_center":Lorg/json/JSONObject;
-    .local v23, "server_center":Lorg/json/JSONObject;
-    invoke-static {v8, v7}, Lcom/leidong/sdk/framework/utils/JSONUtils;->getJsonStr(Lorg/json/JSONObject;Ljava/lang/String;)Ljava/lang/String;
+    move-result-object v6
+
+    const-string v9, "display"
+
+    .line 161
+    invoke-static {v7, v9}, Lcom/leidong/sdk/framework/utils/JSONUtils;->getJsonStr(Lorg/json/JSONObject;Ljava/lang/String;)Ljava/lang/String;
 
     move-result-object v7
 
-    .line 185
-    .local v7, "display_game_forum":Ljava/lang/String;
-    invoke-static {v9}, Landroid/text/TextUtils;->isEmpty(Ljava/lang/CharSequence;)Z
+    const-string v9, "display"
 
-    move-result v24
+    .line 162
+    invoke-static {v8, v9}, Lcom/leidong/sdk/framework/utils/JSONUtils;->getJsonStr(Lorg/json/JSONObject;Ljava/lang/String;)Ljava/lang/String;
 
-    if-nez v24, :cond_2
+    move-result-object v8
 
-    move-object/from16 v25, v8
+    const-string v9, "display"
 
-    const-string v8, "1"
+    .line 163
+    invoke-static {v1, v9}, Lcom/leidong/sdk/framework/utils/JSONUtils;->getJsonStr(Lorg/json/JSONObject;Ljava/lang/String;)Ljava/lang/String;
 
-    .line 185
-    .end local v8    # "game_forum":Lorg/json/JSONObject;
-    .local v25, "game_forum":Lorg/json/JSONObject;
-    invoke-virtual {v8, v9}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+    move-result-object v1
 
-    move-result v8
+    .line 166
+    invoke-static {v4}, Landroid/text/TextUtils;->isEmpty(Ljava/lang/CharSequence;)Z
 
-    if-nez v8, :cond_3
+    move-result v9
 
-    .line 186
-    const/4 v8, 0x0
+    if-nez v9, :cond_0
 
-    invoke-virtual {v10, v8}, Lcom/leidong/sdk/s/app/floatwindow/FloatConfig;->setShowFloatButtonUcenter(Z)V
+    const-string v9, "1"
+
+    invoke-virtual {v9, v4}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+
+    move-result v4
+
+    if-nez v4, :cond_0
+
+    .line 167
+    invoke-virtual {v0, v2}, Lcom/leidong/sdk/s/app/floatwindow/FloatConfig;->setShowFloatButtonUcenter(Z)V
+
+    goto :goto_1
+
+    .line 169
+    :cond_0
+    invoke-virtual {v0, v3}, Lcom/leidong/sdk/s/app/floatwindow/FloatConfig;->setShowFloatButtonUcenter(Z)V
+
+    .line 171
+    :goto_1
+    invoke-static {v5}, Landroid/text/TextUtils;->isEmpty(Ljava/lang/CharSequence;)Z
+
+    move-result v4
+
+    if-nez v4, :cond_1
+
+    const-string v4, "1"
+
+    invoke-virtual {v4, v5}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+
+    move-result v4
+
+    if-eqz v4, :cond_1
+
+    .line 172
+    invoke-virtual {v0, v3}, Lcom/leidong/sdk/s/app/floatwindow/FloatConfig;->setShowFloatButtonMsg(Z)V
 
     goto :goto_2
 
-    .line 188
-    .end local v25    # "game_forum":Lorg/json/JSONObject;
-    .restart local v8    # "game_forum":Lorg/json/JSONObject;
-    :cond_2
-    move-object/from16 v25, v8
+    .line 174
+    :cond_1
+    invoke-virtual {v0, v2}, Lcom/leidong/sdk/s/app/floatwindow/FloatConfig;->setShowFloatButtonMsg(Z)V
 
-    .line 188
-    .end local v8    # "game_forum":Lorg/json/JSONObject;
-    .restart local v25    # "game_forum":Lorg/json/JSONObject;
-    :cond_3
-    const/4 v8, 0x1
-
-    invoke-virtual {v10, v8}, Lcom/leidong/sdk/s/app/floatwindow/FloatConfig;->setShowFloatButtonUcenter(Z)V
-
-    .line 190
+    .line 176
     :goto_2
-    invoke-static {v11}, Landroid/text/TextUtils;->isEmpty(Ljava/lang/CharSequence;)Z
+    invoke-static {v6}, Landroid/text/TextUtils;->isEmpty(Ljava/lang/CharSequence;)Z
 
-    move-result v8
+    move-result v4
 
-    if-nez v8, :cond_4
+    if-nez v4, :cond_2
 
-    const-string v8, "1"
+    const-string v4, "1"
 
-    invoke-virtual {v8, v11}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+    invoke-virtual {v4, v6}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
 
-    move-result v8
+    move-result v4
 
-    if-eqz v8, :cond_4
+    if-eqz v4, :cond_2
 
-    .line 191
-    const/4 v8, 0x1
-
-    invoke-virtual {v10, v8}, Lcom/leidong/sdk/s/app/floatwindow/FloatConfig;->setShowFloatButtonMsg(Z)V
+    .line 177
+    invoke-virtual {v0, v3}, Lcom/leidong/sdk/s/app/floatwindow/FloatConfig;->setShowFloatButtonGift(Z)V
 
     goto :goto_3
 
-    .line 193
-    :cond_4
-    const/4 v8, 0x0
+    .line 179
+    :cond_2
+    invoke-virtual {v0, v2}, Lcom/leidong/sdk/s/app/floatwindow/FloatConfig;->setShowFloatButtonGift(Z)V
 
-    invoke-virtual {v10, v8}, Lcom/leidong/sdk/s/app/floatwindow/FloatConfig;->setShowFloatButtonMsg(Z)V
-
-    .line 195
+    .line 181
     :goto_3
-    invoke-static {v12}, Landroid/text/TextUtils;->isEmpty(Ljava/lang/CharSequence;)Z
+    invoke-static {v7}, Landroid/text/TextUtils;->isEmpty(Ljava/lang/CharSequence;)Z
 
-    move-result v8
+    move-result v4
 
-    if-nez v8, :cond_5
+    if-nez v4, :cond_3
 
-    const-string v8, "1"
+    const-string v4, "1"
 
-    invoke-virtual {v8, v12}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+    invoke-virtual {v4, v7}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
 
-    move-result v8
+    move-result v4
 
-    if-eqz v8, :cond_5
+    if-eqz v4, :cond_3
 
-    .line 196
-    const/4 v8, 0x1
-
-    invoke-virtual {v10, v8}, Lcom/leidong/sdk/s/app/floatwindow/FloatConfig;->setShowFloatButtonGift(Z)V
+    .line 182
+    invoke-virtual {v0, v3}, Lcom/leidong/sdk/s/app/floatwindow/FloatConfig;->setShowFloatButtonGame(Z)V
 
     goto :goto_4
 
-    .line 198
-    :cond_5
-    const/4 v8, 0x0
+    .line 184
+    :cond_3
+    invoke-virtual {v0, v2}, Lcom/leidong/sdk/s/app/floatwindow/FloatConfig;->setShowFloatButtonGame(Z)V
 
-    invoke-virtual {v10, v8}, Lcom/leidong/sdk/s/app/floatwindow/FloatConfig;->setShowFloatButtonGift(Z)V
-
-    .line 200
+    .line 186
     :goto_4
-    invoke-static {v2}, Landroid/text/TextUtils;->isEmpty(Ljava/lang/CharSequence;)Z
+    invoke-static {v8}, Landroid/text/TextUtils;->isEmpty(Ljava/lang/CharSequence;)Z
 
-    move-result v8
+    move-result v4
 
-    if-nez v8, :cond_6
+    if-nez v4, :cond_4
 
-    const-string v8, "1"
+    const-string v4, "1"
 
-    invoke-virtual {v8, v2}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+    invoke-virtual {v4, v8}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
 
-    move-result v8
+    move-result v4
 
-    if-eqz v8, :cond_6
+    if-eqz v4, :cond_4
 
-    .line 201
-    const/4 v8, 0x1
-
-    invoke-virtual {v10, v8}, Lcom/leidong/sdk/s/app/floatwindow/FloatConfig;->setShowFloatButtonGame(Z)V
+    .line 187
+    invoke-virtual {v0, v3}, Lcom/leidong/sdk/s/app/floatwindow/FloatConfig;->setShowFloatButtonCService(Z)V
 
     goto :goto_5
 
-    .line 203
-    :cond_6
-    const/4 v8, 0x0
+    .line 189
+    :cond_4
+    invoke-virtual {v0, v2}, Lcom/leidong/sdk/s/app/floatwindow/FloatConfig;->setShowFloatButtonCService(Z)V
 
-    invoke-virtual {v10, v8}, Lcom/leidong/sdk/s/app/floatwindow/FloatConfig;->setShowFloatButtonGame(Z)V
-
-    .line 205
+    .line 191
     :goto_5
-    invoke-static {v5}, Landroid/text/TextUtils;->isEmpty(Ljava/lang/CharSequence;)Z
+    invoke-static {v1}, Landroid/text/TextUtils;->isEmpty(Ljava/lang/CharSequence;)Z
 
-    move-result v8
+    move-result v4
 
-    if-nez v8, :cond_7
+    if-nez v4, :cond_5
 
-    const-string v8, "1"
+    const-string v4, "1"
 
-    invoke-virtual {v8, v5}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+    invoke-virtual {v4, v1}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
 
-    move-result v8
+    move-result v1
 
-    if-eqz v8, :cond_7
+    if-eqz v1, :cond_5
 
-    .line 206
-    const/4 v8, 0x1
-
-    invoke-virtual {v10, v8}, Lcom/leidong/sdk/s/app/floatwindow/FloatConfig;->setShowFloatButtonCService(Z)V
+    .line 192
+    invoke-virtual {v0, v3}, Lcom/leidong/sdk/s/app/floatwindow/FloatConfig;->setShowFloatButtonBBS(Z)V
 
     goto :goto_6
 
-    .line 208
+    .line 194
+    :cond_5
+    invoke-virtual {v0, v2}, Lcom/leidong/sdk/s/app/floatwindow/FloatConfig;->setShowFloatButtonBBS(Z)V
+
+    goto :goto_6
+
+    .line 199
+    :cond_6
+    invoke-virtual {v0, v2}, Lcom/leidong/sdk/s/app/floatwindow/FloatConfig;->setShowFloatBall(Z)V
+
+    goto :goto_6
+
+    .line 205
     :cond_7
-    const/4 v8, 0x0
+    invoke-virtual {v0, v2}, Lcom/leidong/sdk/s/app/floatwindow/FloatConfig;->setShowFloatBall(Z)V
 
-    invoke-virtual {v10, v8}, Lcom/leidong/sdk/s/app/floatwindow/FloatConfig;->setShowFloatButtonCService(Z)V
-
-    .line 210
     :goto_6
-    invoke-static {v7}, Landroid/text/TextUtils;->isEmpty(Ljava/lang/CharSequence;)Z
+    const/4 v0, 0x3
 
-    move-result v8
+    if-ne p3, v0, :cond_8
 
-    if-nez v8, :cond_8
-
-    const-string v8, "1"
-
-    invoke-virtual {v8, v7}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
-
-    move-result v8
-
-    if-eqz v8, :cond_8
-
-    .line 211
-    const/4 v8, 0x1
-
-    invoke-virtual {v10, v8}, Lcom/leidong/sdk/s/app/floatwindow/FloatConfig;->setShowFloatButtonBBS(Z)V
+    const/4 v0, 0x1
 
     goto :goto_7
 
-    .line 213
     :cond_8
-    const/4 v8, 0x0
+    const/4 v0, 0x0
 
-    invoke-virtual {v10, v8}, Lcom/leidong/sdk/s/app/floatwindow/FloatConfig;->setShowFloatButtonBBS(Z)V
-
-    .line 216
-    .end local v2    # "display_game_center":Ljava/lang/String;
-    .end local v5    # "display_server_center":Ljava/lang/String;
-    .end local v7    # "display_game_forum":Ljava/lang/String;
-    .end local v9    # "display_user_center":Ljava/lang/String;
-    .end local v11    # "display_msg_center":Ljava/lang/String;
-    .end local v12    # "display_gift_center":Ljava/lang/String;
-    .end local v15    # "msg_center":Lorg/json/JSONObject;
-    .end local v19    # "confObj":Lorg/json/JSONObject;
-    .end local v20    # "user_center":Lorg/json/JSONObject;
-    .end local v21    # "gift_center":Lorg/json/JSONObject;
-    .end local v22    # "game_center":Lorg/json/JSONObject;
-    .end local v23    # "server_center":Lorg/json/JSONObject;
-    .end local v25    # "game_forum":Lorg/json/JSONObject;
     :goto_7
+    if-ne p3, v3, :cond_9
+
+    const/4 v1, 0x1
+
     goto :goto_8
 
-    .line 218
-    .end local v16    # "uinfo_encode":Ljava/lang/String;
-    .end local v17    # "uinfo_decode":Ljava/lang/String;
-    .end local v18    # "unifo":Lorg/json/JSONObject;
-    .local v7, "uinfo_encode":Ljava/lang/String;
-    .local v8, "uinfo_decode":Ljava/lang/String;
-    .local v9, "unifo":Lorg/json/JSONObject;
     :cond_9
-    move-object/from16 v16, v7
+    const/4 v1, 0x0
 
-    move-object/from16 v17, v8
-
-    move-object/from16 v18, v9
-
-    .line 218
-    .end local v7    # "uinfo_encode":Ljava/lang/String;
-    .end local v8    # "uinfo_decode":Ljava/lang/String;
-    .end local v9    # "unifo":Lorg/json/JSONObject;
-    .restart local v16    # "uinfo_encode":Ljava/lang/String;
-    .restart local v17    # "uinfo_decode":Ljava/lang/String;
-    .restart local v18    # "unifo":Lorg/json/JSONObject;
-    const/4 v2, 0x0
-
-    invoke-virtual {v10, v2}, Lcom/leidong/sdk/s/app/floatwindow/FloatConfig;->setShowFloatBall(Z)V
-
-    .line 223
-    .end local v13    # "floatObj":Lorg/json/JSONObject;
-    .end local v14    # "display":Ljava/lang/String;
     :goto_8
-    goto :goto_9
+    or-int/2addr v0, v1
 
-    .line 225
-    .end local v16    # "uinfo_encode":Ljava/lang/String;
-    .end local v17    # "uinfo_decode":Ljava/lang/String;
-    .end local v18    # "unifo":Lorg/json/JSONObject;
-    .restart local v7    # "uinfo_encode":Ljava/lang/String;
-    .restart local v8    # "uinfo_decode":Ljava/lang/String;
-    .restart local v9    # "unifo":Lorg/json/JSONObject;
+    if-eqz v0, :cond_a
+
+    .line 210
+    new-instance v0, Lcom/leidong/sdk/framework/user/UserInfoBean;
+
+    invoke-direct {v0}, Lcom/leidong/sdk/framework/user/UserInfoBean;-><init>()V
+
+    .line 211
+    iget-object v1, p0, Lcom/leidong/sdk/s/core/http/ResponseManager;->mContext:Landroid/content/Context;
+
+    invoke-static {v1}, Lcom/leidong/sdk/s/core/model/SdkConfigManager;->getUserName(Landroid/content/Context;)Ljava/lang/String;
+
+    move-result-object v1
+
+    invoke-virtual {v0, v1}, Lcom/leidong/sdk/framework/user/UserInfoBean;->setUname(Ljava/lang/String;)V
+
+    .line 212
+    iget-object v1, p0, Lcom/leidong/sdk/s/core/http/ResponseManager;->mContext:Landroid/content/Context;
+
+    invoke-static {v1}, Lcom/leidong/sdk/s/core/model/SdkConfigManager;->getUserVname(Landroid/content/Context;)Ljava/lang/String;
+
+    move-result-object v1
+
+    invoke-virtual {v0, v1}, Lcom/leidong/sdk/framework/user/UserInfoBean;->setVname(Ljava/lang/String;)V
+
+    .line 213
+    invoke-virtual {v0, p2}, Lcom/leidong/sdk/framework/user/UserInfoBean;->setPwd(Ljava/lang/String;)V
+
+    .line 214
+    new-instance p2, Lcom/leidong/sdk/framework/user/AccountManager;
+
+    iget-object v1, p0, Lcom/leidong/sdk/s/core/http/ResponseManager;->mContext:Landroid/content/Context;
+
+    invoke-direct {p2, v1}, Lcom/leidong/sdk/framework/user/AccountManager;-><init>(Landroid/content/Context;)V
+
+    iget-object v1, p0, Lcom/leidong/sdk/s/core/http/ResponseManager;->mContext:Landroid/content/Context;
+
+    invoke-virtual {p2, v1, v0}, Lcom/leidong/sdk/framework/user/AccountManager;->addAccountToFile(Landroid/content/Context;Lcom/leidong/sdk/framework/user/UserInfoBean;)V
+
+    .line 215
+    new-instance p2, Ljava/lang/StringBuilder;
+
+    invoke-direct {p2}, Ljava/lang/StringBuilder;-><init>()V
+
+    const-string v1, "[\u4fdd\u5b58\u5e10\u53f7]"
+
+    invoke-virtual {p2, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    invoke-virtual {v0}, Lcom/leidong/sdk/framework/user/UserInfoBean;->toString()Ljava/lang/String;
+
+    move-result-object v0
+
+    invoke-virtual {p2, v0}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    invoke-virtual {p2}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+
+    move-result-object p2
+
+    invoke-static {p2}, Lcom/leidong/sdk/s/core/utils/SLogUtil;->w(Ljava/lang/String;)V
+
     :cond_a
-    move-object/from16 v16, v7
+    const-string p2, "dialog"
 
-    move-object/from16 v17, v8
+    .line 221
+    invoke-virtual {p1, p2}, Lorg/json/JSONObject;->has(Ljava/lang/String;)Z
 
-    move-object/from16 v18, v9
+    move-result p2
+
+    if-eqz p2, :cond_b
+
+    const-string p2, "dialog"
+
+    .line 222
+    invoke-static {p1, p2}, Lcom/leidong/sdk/framework/utils/JSONUtils;->getJsonObj(Lorg/json/JSONObject;Ljava/lang/String;)Lorg/json/JSONObject;
+
+    move-result-object p2
+
+    if-eqz p2, :cond_b
+
+    const-string v0, "target_url"
+
+    .line 224
+    invoke-static {p2, v0}, Lcom/leidong/sdk/framework/utils/JSONUtils;->getJsonStr(Lorg/json/JSONObject;Ljava/lang/String;)Ljava/lang/String;
+
+    move-result-object v0
+
+    const-string v1, "touch_back_close"
 
     .line 225
-    .end local v7    # "uinfo_encode":Ljava/lang/String;
-    .end local v8    # "uinfo_decode":Ljava/lang/String;
-    .end local v9    # "unifo":Lorg/json/JSONObject;
-    .restart local v16    # "uinfo_encode":Ljava/lang/String;
-    .restart local v17    # "uinfo_decode":Ljava/lang/String;
-    .restart local v18    # "unifo":Lorg/json/JSONObject;
-    const/4 v2, 0x0
+    invoke-static {p2, v1}, Lcom/leidong/sdk/framework/utils/JSONUtils;->getJsonStr(Lorg/json/JSONObject;Ljava/lang/String;)Ljava/lang/String;
 
-    invoke-virtual {v10, v2}, Lcom/leidong/sdk/s/app/floatwindow/FloatConfig;->setShowFloatBall(Z)V
+    move-result-object p2
 
-    .line 229
-    :goto_9
-    if-nez p4, :cond_b
+    const-string v1, "2"
 
-    .line 230
-    new-instance v5, Lcom/leidong/sdk/framework/user/UserInfoBean;
+    .line 226
+    invoke-virtual {v1, p2}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
 
-    invoke-direct {v5}, Lcom/leidong/sdk/framework/user/UserInfoBean;-><init>()V
+    move-result p2
 
-    .line 231
-    .local v5, "user":Lcom/leidong/sdk/framework/user/UserInfoBean;
-    iget-object v7, v1, Lcom/leidong/sdk/s/core/http/ResponseManager;->mContext:Landroid/content/Context;
+    xor-int/2addr p2, v3
 
-    invoke-static {v7}, Lcom/leidong/sdk/s/core/model/SdkConfigManager;->getUserName(Landroid/content/Context;)Ljava/lang/String;
+    .line 227
+    iget-object v1, p0, Lcom/leidong/sdk/s/core/http/ResponseManager;->mContext:Landroid/content/Context;
 
-    move-result-object v7
+    const/4 v4, 0x0
 
-    invoke-virtual {v5, v7}, Lcom/leidong/sdk/framework/user/UserInfoBean;->setUname(Ljava/lang/String;)V
+    invoke-static {v1, v0, p2, v3, v4}, Lcom/leidong/sdk/s/core/utils/SdkUtil;->openWebDialog(Landroid/content/Context;Ljava/lang/String;ZZLcom/leidong/sdk/framework/interfaces/ResultCallback;)V
+
+    :cond_b
+    const-string p2, ""
+
+    const-string v0, "app_active"
 
     .line 232
-    iget-object v7, v1, Lcom/leidong/sdk/s/core/http/ResponseManager;->mContext:Landroid/content/Context;
+    invoke-virtual {p1, v0}, Lorg/json/JSONObject;->has(Ljava/lang/String;)Z
 
-    invoke-static {v7}, Lcom/leidong/sdk/s/core/model/SdkConfigManager;->getUserVname(Landroid/content/Context;)Ljava/lang/String;
+    move-result v0
 
-    move-result-object v7
+    if-eqz v0, :cond_c
 
-    invoke-virtual {v5, v7}, Lcom/leidong/sdk/framework/user/UserInfoBean;->setVname(Ljava/lang/String;)V
+    const-string p2, "app_active"
 
     .line 233
-    iget-object v7, v1, Lcom/leidong/sdk/s/core/http/ResponseManager;->mContext:Landroid/content/Context;
+    invoke-static {p1, p2}, Lcom/leidong/sdk/framework/utils/JSONUtils;->getJsonStr(Lorg/json/JSONObject;Ljava/lang/String;)Ljava/lang/String;
 
-    invoke-static {v7}, Lcom/leidong/sdk/s/core/model/SdkConfigManager;->getUserPassword(Landroid/content/Context;)Ljava/lang/String;
+    move-result-object p2
 
-    move-result-object v7
-
-    invoke-virtual {v5, v7}, Lcom/leidong/sdk/framework/user/UserInfoBean;->setPwd(Ljava/lang/String;)V
-
-    .line 234
-    new-instance v7, Lcom/leidong/sdk/framework/user/AccountManager;
-
-    iget-object v8, v1, Lcom/leidong/sdk/s/core/http/ResponseManager;->mContext:Landroid/content/Context;
-
-    invoke-direct {v7, v8}, Lcom/leidong/sdk/framework/user/AccountManager;-><init>(Landroid/content/Context;)V
-
-    iget-object v8, v1, Lcom/leidong/sdk/s/core/http/ResponseManager;->mContext:Landroid/content/Context;
-
-    invoke-virtual {v7, v8, v5}, Lcom/leidong/sdk/framework/user/AccountManager;->addAccountToFile(Landroid/content/Context;Lcom/leidong/sdk/framework/user/UserInfoBean;)V
-
-    .line 235
-    new-instance v7, Ljava/lang/StringBuilder;
-
-    invoke-direct {v7}, Ljava/lang/StringBuilder;-><init>()V
-
-    const-string v8, "[\u4fdd\u5b58\u5e10\u53f7]"
-
-    invoke-virtual {v7, v8}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    invoke-virtual {v5}, Lcom/leidong/sdk/framework/user/UserInfoBean;->toString()Ljava/lang/String;
-
-    move-result-object v8
-
-    invoke-virtual {v7, v8}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    invoke-virtual {v7}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
-
-    move-result-object v7
-
-    invoke-static {v7}, Lcom/leidong/sdk/s/core/utils/SLogUtil;->w(Ljava/lang/String;)V
+    :cond_c
+    if-eqz p5, :cond_f
 
     .line 239
-    .end local v5    # "user":Lcom/leidong/sdk/framework/user/UserInfoBean;
-    :cond_b
-    const-string v5, "dialog"
+    new-instance p1, Landroid/os/Bundle;
 
-    invoke-virtual {v6, v5}, Lorg/json/JSONObject;->has(Ljava/lang/String;)Z
+    invoke-direct {p1}, Landroid/os/Bundle;-><init>()V
 
-    move-result v5
-
-    if-eqz v5, :cond_c
+    const-string v0, "uid"
 
     .line 240
-    const-string v5, "dialog"
+    iget-object v1, p0, Lcom/leidong/sdk/s/core/http/ResponseManager;->mContext:Landroid/content/Context;
 
-    invoke-static {v6, v5}, Lcom/leidong/sdk/framework/utils/JSONUtils;->getJsonObj(Lorg/json/JSONObject;Ljava/lang/String;)Lorg/json/JSONObject;
+    invoke-static {v1}, Lcom/leidong/sdk/s/core/model/SdkConfigManager;->getUserId(Landroid/content/Context;)Ljava/lang/String;
 
-    move-result-object v5
+    move-result-object v1
+
+    invoke-virtual {p1, v0, v1}, Landroid/os/Bundle;->putString(Ljava/lang/String;Ljava/lang/String;)V
+
+    const-string v0, "uname"
 
     .line 241
-    .local v5, "dialog":Lorg/json/JSONObject;
-    if-eqz v5, :cond_c
+    iget-object v1, p0, Lcom/leidong/sdk/s/core/http/ResponseManager;->mContext:Landroid/content/Context;
+
+    invoke-static {v1}, Lcom/leidong/sdk/s/core/model/SdkConfigManager;->getUserName(Landroid/content/Context;)Ljava/lang/String;
+
+    move-result-object v1
+
+    invoke-virtual {p1, v0, v1}, Landroid/os/Bundle;->putString(Ljava/lang/String;Ljava/lang/String;)V
+
+    const-string v0, "vname"
 
     .line 242
-    const-string v7, "target_url"
+    iget-object v1, p0, Lcom/leidong/sdk/s/core/http/ResponseManager;->mContext:Landroid/content/Context;
 
-    invoke-static {v5, v7}, Lcom/leidong/sdk/framework/utils/JSONUtils;->getJsonStr(Lorg/json/JSONObject;Ljava/lang/String;)Ljava/lang/String;
+    invoke-static {v1}, Lcom/leidong/sdk/s/core/model/SdkConfigManager;->getUserVname(Landroid/content/Context;)Ljava/lang/String;
 
-    move-result-object v7
+    move-result-object v1
+
+    invoke-virtual {p1, v0, v1}, Landroid/os/Bundle;->putString(Ljava/lang/String;Ljava/lang/String;)V
+
+    const-string v0, "token"
 
     .line 243
-    .local v7, "url":Ljava/lang/String;
-    const-string v8, "touch_back_close"
+    iget-object v1, p0, Lcom/leidong/sdk/s/core/http/ResponseManager;->mContext:Landroid/content/Context;
 
-    invoke-static {v5, v8}, Lcom/leidong/sdk/framework/utils/JSONUtils;->getJsonStr(Lorg/json/JSONObject;Ljava/lang/String;)Ljava/lang/String;
+    invoke-static {v1}, Lcom/leidong/sdk/s/core/model/SdkConfigManager;->getUserToken(Landroid/content/Context;)Ljava/lang/String;
 
-    move-result-object v8
+    move-result-object v1
+
+    invoke-virtual {p1, v0, v1}, Landroid/os/Bundle;->putString(Ljava/lang/String;Ljava/lang/String;)V
+
+    const-string v0, "app_active"
 
     .line 244
-    .local v8, "state":Ljava/lang/String;
-    const-string v9, "2"
+    invoke-virtual {p1, v0, p2}, Landroid/os/Bundle;->putString(Ljava/lang/String;Ljava/lang/String;)V
 
-    invoke-virtual {v9, v8}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+    const-string p2, "is_reg"
 
-    move-result v9
+    .line 247
+    invoke-virtual {p4, p2}, Lorg/json/JSONObject;->has(Ljava/lang/String;)Z
 
-    const/4 v11, 0x1
+    move-result p2
 
-    xor-int/2addr v9, v11
+    if-eqz p2, :cond_d
 
-    .line 245
-    .local v9, "canBack":Z
-    iget-object v12, v1, Lcom/leidong/sdk/s/core/http/ResponseManager;->mContext:Landroid/content/Context;
+    const-string p2, "is_reg"
 
-    const/4 v13, 0x0
+    const-string v0, "is_reg"
 
-    invoke-static {v12, v7, v9, v11, v13}, Lcom/leidong/sdk/s/core/utils/SdkUtil;->openWebDialog(Landroid/content/Context;Ljava/lang/String;ZZLcom/leidong/sdk/framework/interfaces/ResultCallback;)V
+    .line 248
+    invoke-static {p4, v0}, Lcom/leidong/sdk/framework/utils/JSONUtils;->getJsonBoolean(Lorg/json/JSONObject;Ljava/lang/String;)Z
 
-    .line 249
-    .end local v5    # "dialog":Lorg/json/JSONObject;
-    .end local v7    # "url":Ljava/lang/String;
-    .end local v8    # "state":Ljava/lang/String;
-    .end local v9    # "canBack":Z
-    :cond_c
-    const-string v5, ""
+    move-result v0
+
+    invoke-virtual {p1, p2, v0}, Landroid/os/Bundle;->putBoolean(Ljava/lang/String;Z)V
+
+    goto :goto_9
+
+    :cond_d
+    const-string p2, "is_reg"
 
     .line 250
-    .local v5, "app_active":Ljava/lang/String;
-    const-string v7, "app_active"
+    invoke-virtual {p1, p2, v2}, Landroid/os/Bundle;->putBoolean(Ljava/lang/String;Z)V
 
-    invoke-virtual {v6, v7}, Lorg/json/JSONObject;->has(Ljava/lang/String;)Z
+    :goto_9
+    const-string p2, "loginType"
 
-    move-result v7
+    .line 253
+    invoke-virtual {p4, p2}, Lorg/json/JSONObject;->has(Ljava/lang/String;)Z
 
-    if-eqz v7, :cond_d
+    move-result p2
 
-    .line 251
-    const-string v7, "app_active"
+    if-eqz p2, :cond_e
 
-    invoke-static {v6, v7}, Lcom/leidong/sdk/framework/utils/JSONUtils;->getJsonStr(Lorg/json/JSONObject;Ljava/lang/String;)Ljava/lang/String;
+    const-string p2, "loginType"
 
-    move-result-object v7
-
-    move-object v5, v7
+    const-string p3, "loginType"
 
     .line 254
-    :cond_d
-    if-eqz v3, :cond_11
+    invoke-static {p4, p3}, Lcom/leidong/sdk/framework/utils/JSONUtils;->getJsonStr(Lorg/json/JSONObject;Ljava/lang/String;)Ljava/lang/String;
 
-    .line 257
-    new-instance v7, Landroid/os/Bundle;
+    move-result-object p3
 
-    invoke-direct {v7}, Landroid/os/Bundle;-><init>()V
-
-    .line 258
-    .local v7, "callbackBundle":Landroid/os/Bundle;
-    const-string v8, "uid"
-
-    iget-object v9, v1, Lcom/leidong/sdk/s/core/http/ResponseManager;->mContext:Landroid/content/Context;
-
-    invoke-static {v9}, Lcom/leidong/sdk/s/core/model/SdkConfigManager;->getUserId(Landroid/content/Context;)Ljava/lang/String;
-
-    move-result-object v9
-
-    invoke-virtual {v7, v8, v9}, Landroid/os/Bundle;->putString(Ljava/lang/String;Ljava/lang/String;)V
-
-    .line 259
-    const-string v8, "uname"
-
-    iget-object v9, v1, Lcom/leidong/sdk/s/core/http/ResponseManager;->mContext:Landroid/content/Context;
-
-    invoke-static {v9}, Lcom/leidong/sdk/s/core/model/SdkConfigManager;->getUserName(Landroid/content/Context;)Ljava/lang/String;
-
-    move-result-object v9
-
-    invoke-virtual {v7, v8, v9}, Landroid/os/Bundle;->putString(Ljava/lang/String;Ljava/lang/String;)V
-
-    .line 260
-    const-string v8, "vname"
-
-    iget-object v9, v1, Lcom/leidong/sdk/s/core/http/ResponseManager;->mContext:Landroid/content/Context;
-
-    invoke-static {v9}, Lcom/leidong/sdk/s/core/model/SdkConfigManager;->getUserVname(Landroid/content/Context;)Ljava/lang/String;
-
-    move-result-object v9
-
-    invoke-virtual {v7, v8, v9}, Landroid/os/Bundle;->putString(Ljava/lang/String;Ljava/lang/String;)V
-
-    .line 261
-    const-string v8, "token"
-
-    iget-object v9, v1, Lcom/leidong/sdk/s/core/http/ResponseManager;->mContext:Landroid/content/Context;
-
-    invoke-static {v9}, Lcom/leidong/sdk/s/core/model/SdkConfigManager;->getUserToken(Landroid/content/Context;)Ljava/lang/String;
-
-    move-result-object v9
-
-    invoke-virtual {v7, v8, v9}, Landroid/os/Bundle;->putString(Ljava/lang/String;Ljava/lang/String;)V
-
-    .line 262
-    const-string v8, "app_active"
-
-    invoke-virtual {v7, v8, v5}, Landroid/os/Bundle;->putString(Ljava/lang/String;Ljava/lang/String;)V
-
-    .line 265
-    const-string v8, "is_reg"
-
-    invoke-virtual {v4, v8}, Lorg/json/JSONObject;->has(Ljava/lang/String;)Z
-
-    move-result v8
-
-    if-eqz v8, :cond_e
-
-    .line 266
-    const-string v8, "is_reg"
-
-    const-string v9, "is_reg"
-
-    invoke-static {v4, v9}, Lcom/leidong/sdk/framework/utils/JSONUtils;->getJsonBoolean(Lorg/json/JSONObject;Ljava/lang/String;)Z
-
-    move-result v9
-
-    invoke-virtual {v7, v8, v9}, Landroid/os/Bundle;->putBoolean(Ljava/lang/String;Z)V
+    invoke-virtual {p1, p2, p3}, Landroid/os/Bundle;->putString(Ljava/lang/String;Ljava/lang/String;)V
 
     goto :goto_a
 
-    .line 268
     :cond_e
-    const-string v8, "is_reg"
+    packed-switch p3, :pswitch_data_1
 
-    const/4 v9, 0x0
+    goto :goto_a
 
-    invoke-virtual {v7, v8, v9}, Landroid/os/Bundle;->putBoolean(Ljava/lang/String;Z)V
+    :pswitch_3
+    const-string p2, "loginType"
 
-    .line 271
-    :goto_a
-    const-string v8, "loginType"
+    const-string p3, "account"
 
-    invoke-virtual {v4, v8}, Lorg/json/JSONObject;->has(Ljava/lang/String;)Z
+    .line 265
+    invoke-virtual {p1, p2, p3}, Landroid/os/Bundle;->putString(Ljava/lang/String;Ljava/lang/String;)V
 
-    move-result v8
+    goto :goto_a
 
-    if-eqz v8, :cond_f
+    :pswitch_4
+    const-string p2, "loginType"
+
+    const-string p3, "token"
+
+    .line 262
+    invoke-virtual {p1, p2, p3}, Landroid/os/Bundle;->putString(Ljava/lang/String;Ljava/lang/String;)V
+
+    goto :goto_a
+
+    :pswitch_5
+    const-string p2, "loginType"
+
+    const-string p3, "phone"
+
+    .line 259
+    invoke-virtual {p1, p2, p3}, Landroid/os/Bundle;->putString(Ljava/lang/String;Ljava/lang/String;)V
 
     .line 272
-    const-string v8, "loginType"
+    :goto_a
+    invoke-interface {p5, p1}, Lcom/leidong/sdk/framework/interfaces/SdkResultCallback;->onSuccess(Landroid/os/Bundle;)V
 
-    const-string v9, "loginType"
+    .line 275
+    iget-object p1, p0, Lcom/leidong/sdk/s/core/http/ResponseManager;->mContext:Landroid/content/Context;
 
-    invoke-static {v4, v9}, Lcom/leidong/sdk/framework/utils/JSONUtils;->getJsonStr(Lorg/json/JSONObject;Ljava/lang/String;)Ljava/lang/String;
-
-    move-result-object v9
-
-    invoke-virtual {v7, v8, v9}, Landroid/os/Bundle;->putString(Ljava/lang/String;Ljava/lang/String;)V
-
-    goto :goto_b
-
-    .line 276
-    :cond_f
-    invoke-virtual/range {p3 .. p3}, Ljava/lang/Boolean;->booleanValue()Z
-
-    move-result v8
-
-    if-eqz v8, :cond_10
-
-    .line 277
-    const-string v8, "loginType"
-
-    const-string v9, "phone"
-
-    invoke-virtual {v7, v8, v9}, Landroid/os/Bundle;->putString(Ljava/lang/String;Ljava/lang/String;)V
-
-    goto :goto_b
-
-    .line 279
-    :cond_10
-    const-string v8, "loginType"
-
-    const-string v9, "account"
-
-    invoke-virtual {v7, v8, v9}, Landroid/os/Bundle;->putString(Ljava/lang/String;Ljava/lang/String;)V
-
-    .line 286
-    :goto_b
-    invoke-interface {v3, v7}, Lcom/leidong/sdk/framework/interfaces/SdkResultCallback;->onSuccess(Landroid/os/Bundle;)V
-
-    .line 289
-    iget-object v8, v1, Lcom/leidong/sdk/s/core/http/ResponseManager;->mContext:Landroid/content/Context;
-
-    invoke-direct {v1, v8}, Lcom/leidong/sdk/s/core/http/ResponseManager;->handleDialogTips(Landroid/content/Context;)V
+    invoke-direct {p0, p1}, Lcom/leidong/sdk/s/core/http/ResponseManager;->handleDialogTips(Landroid/content/Context;)V
     :try_end_0
     .catch Lorg/json/JSONException; {:try_start_0 .. :try_end_0} :catch_0
 
-    .line 294
-    .end local v5    # "app_active":Ljava/lang/String;
-    .end local v7    # "callbackBundle":Landroid/os/Bundle;
-    .end local v10    # "floatConfig":Lcom/leidong/sdk/s/app/floatwindow/FloatConfig;
-    .end local v16    # "uinfo_encode":Ljava/lang/String;
-    .end local v17    # "uinfo_decode":Ljava/lang/String;
-    .end local v18    # "unifo":Lorg/json/JSONObject;
-    :cond_11
-    goto :goto_c
+    goto :goto_b
 
-    .line 291
-    .end local v4    # "contentObj":Lorg/json/JSONObject;
-    .end local v6    # "dataObj":Lorg/json/JSONObject;
     :catch_0
-    move-exception v0
+    move-exception p1
 
-    move-object v4, v0
+    .line 278
+    invoke-virtual {p1}, Lorg/json/JSONException;->printStackTrace()V
 
-    .line 292
-    .local v4, "e":Lorg/json/JSONException;
-    invoke-virtual {v4}, Lorg/json/JSONException;->printStackTrace()V
+    const-string p1, "\u767b\u5f55\u65f6\u6570\u636e\u89e3\u6790\u5931\u8d25"
 
-    .line 293
-    const-string v5, "\u767b\u5f55\u65f6\u6570\u636e\u89e3\u6790\u5931\u8d25"
+    .line 279
+    invoke-interface {p5, p1}, Lcom/leidong/sdk/framework/interfaces/SdkResultCallback;->onFail(Ljava/lang/String;)V
 
-    invoke-interface {v3, v5}, Lcom/leidong/sdk/framework/interfaces/SdkResultCallback;->onFail(Ljava/lang/String;)V
-
-    .line 295
-    .end local v4    # "e":Lorg/json/JSONException;
-    :goto_c
+    :cond_f
+    :goto_b
     return-void
+
+    nop
+
+    :pswitch_data_0
+    .packed-switch 0x1
+        :pswitch_2
+        :pswitch_1
+        :pswitch_0
+    .end packed-switch
+
+    :pswitch_data_1
+    .packed-switch 0x1
+        :pswitch_5
+        :pswitch_4
+        :pswitch_3
+    .end packed-switch
 .end method
 
 .method public handleRepContent(Ljava/lang/String;Lcom/leidong/sdk/framework/http/HttpCallBack;)V
     .locals 3
-    .param p1, "content"    # Ljava/lang/String;
-    .param p2, "callback"    # Lcom/leidong/sdk/framework/http/HttpCallBack;
 
-    .line 59
+    .line 64
     :try_start_0
     new-instance v0, Lorg/json/JSONObject;
 
     invoke-direct {v0, p1}, Lorg/json/JSONObject;-><init>(Ljava/lang/String;)V
 
-    .line 60
-    .local v0, "jsonObj":Lorg/json/JSONObject;
     const-string v1, "code"
 
+    .line 65
     invoke-virtual {v0, v1}, Lorg/json/JSONObject;->getInt(Ljava/lang/String;)I
 
     move-result v1
 
-    .line 61
-    .local v1, "code":I
     const/16 v2, 0xc8
 
     if-ne v1, v2, :cond_0
 
-    .line 62
+    .line 67
     invoke-interface {p2, p1}, Lcom/leidong/sdk/framework/http/HttpCallBack;->onSuccess(Ljava/lang/String;)V
 
     goto :goto_0
 
-    .line 64
     :cond_0
-    const-string v2, "msg"
+    const-string p1, "msg"
 
-    invoke-virtual {v0, v2}, Lorg/json/JSONObject;->getString(Ljava/lang/String;)Ljava/lang/String;
+    .line 69
+    invoke-virtual {v0, p1}, Lorg/json/JSONObject;->getString(Ljava/lang/String;)Ljava/lang/String;
 
-    move-result-object v2
+    move-result-object p1
 
-    .line 65
-    .local v2, "errorMsg":Ljava/lang/String;
-    invoke-interface {p2, v1, v2}, Lcom/leidong/sdk/framework/http/HttpCallBack;->onFail(ILjava/lang/String;)V
+    .line 70
+    invoke-interface {p2, v1, p1}, Lcom/leidong/sdk/framework/http/HttpCallBack;->onFail(ILjava/lang/String;)V
     :try_end_0
     .catch Ljava/lang/Exception; {:try_start_0 .. :try_end_0} :catch_0
 
-    .line 70
-    .end local v0    # "jsonObj":Lorg/json/JSONObject;
-    .end local v1    # "code":I
-    .end local v2    # "errorMsg":Ljava/lang/String;
-    :goto_0
-    goto :goto_1
+    goto :goto_0
 
-    .line 67
     :catch_0
-    move-exception v0
+    move-exception p1
 
-    .line 68
-    .local v0, "e":Ljava/lang/Exception;
-    invoke-virtual {v0}, Ljava/lang/Exception;->printStackTrace()V
+    .line 73
+    invoke-virtual {p1}, Ljava/lang/Exception;->printStackTrace()V
 
-    .line 69
-    const v1, 0x18704
+    const p1, 0x18704
 
-    const-string v2, "\u6570\u636e\u89e3\u6790\u9519\u8bef"
+    const-string v0, "\u6570\u636e\u89e3\u6790\u9519\u8bef"
 
-    invoke-interface {p2, v1, v2}, Lcom/leidong/sdk/framework/http/HttpCallBack;->onFail(ILjava/lang/String;)V
+    .line 74
+    invoke-interface {p2, p1, v0}, Lcom/leidong/sdk/framework/http/HttpCallBack;->onFail(ILjava/lang/String;)V
 
-    .line 71
-    .end local v0    # "e":Ljava/lang/Exception;
-    :goto_1
+    :goto_0
     return-void
 .end method
 
 .method public handleUserAuth(Ljava/lang/String;Lcom/leidong/sdk/framework/interfaces/ResultCallback2;)V
-    .locals 8
-    .param p1, "content"    # Ljava/lang/String;
-    .param p2, "callback"    # Lcom/leidong/sdk/framework/interfaces/ResultCallback2;
+    .locals 5
 
-    .line 739
+    .line 725
     :try_start_0
     new-instance v0, Lorg/json/JSONObject;
 
     invoke-direct {v0, p1}, Lorg/json/JSONObject;-><init>(Ljava/lang/String;)V
 
-    const-string v1, "data"
+    const-string p1, "data"
 
-    invoke-static {v0, v1}, Lcom/leidong/sdk/framework/utils/JSONUtils;->getJsonObj(Lorg/json/JSONObject;Ljava/lang/String;)Lorg/json/JSONObject;
+    invoke-static {v0, p1}, Lcom/leidong/sdk/framework/utils/JSONUtils;->getJsonObj(Lorg/json/JSONObject;Ljava/lang/String;)Lorg/json/JSONObject;
 
-    move-result-object v0
+    move-result-object p1
 
-    .line 741
-    .local v0, "data":Lorg/json/JSONObject;
-    const-string v1, "hasNameAuth"
+    const-string v0, "hasNameAuth"
 
-    invoke-static {v0, v1}, Lcom/leidong/sdk/framework/utils/JSONUtils;->getJsonBoolean(Lorg/json/JSONObject;Ljava/lang/String;)Z
+    .line 727
+    invoke-static {p1, v0}, Lcom/leidong/sdk/framework/utils/JSONUtils;->getJsonBoolean(Lorg/json/JSONObject;Ljava/lang/String;)Z
+
+    move-result v0
+
+    const-string v1, "isAdult"
+
+    .line 728
+    invoke-static {p1, v1}, Lcom/leidong/sdk/framework/utils/JSONUtils;->getJsonBoolean(Lorg/json/JSONObject;Ljava/lang/String;)Z
 
     move-result v1
 
-    .line 742
-    .local v1, "hasNameAuth":Z
-    const-string v2, "isAdult"
+    const-string v2, "age"
 
-    invoke-static {v0, v2}, Lcom/leidong/sdk/framework/utils/JSONUtils;->getJsonBoolean(Lorg/json/JSONObject;Ljava/lang/String;)Z
+    .line 729
+    invoke-static {p1, v2}, Lcom/leidong/sdk/framework/utils/JSONUtils;->getJsonInt(Lorg/json/JSONObject;Ljava/lang/String;)I
 
     move-result v2
 
-    .line 743
-    .local v2, "isAdult":Z
-    const-string v3, "age"
+    const-string v3, "hasGuard"
 
-    invoke-static {v0, v3}, Lcom/leidong/sdk/framework/utils/JSONUtils;->getJsonInt(Lorg/json/JSONObject;Ljava/lang/String;)I
+    .line 730
+    invoke-static {p1, v3}, Lcom/leidong/sdk/framework/utils/JSONUtils;->getJsonBoolean(Lorg/json/JSONObject;Ljava/lang/String;)Z
 
-    move-result v3
+    move-result p1
 
-    .line 744
-    .local v3, "age":I
-    const-string v4, "hasGuard"
+    .line 733
+    new-instance v3, Landroid/os/Bundle;
 
-    invoke-static {v0, v4}, Lcom/leidong/sdk/framework/utils/JSONUtils;->getJsonBoolean(Lorg/json/JSONObject;Ljava/lang/String;)Z
+    invoke-direct {v3}, Landroid/os/Bundle;-><init>()V
 
-    move-result v4
+    const-string v4, "hasNameAuth"
 
-    .line 747
-    .local v4, "hasGuard":Z
-    new-instance v5, Landroid/os/Bundle;
+    .line 734
+    invoke-virtual {v3, v4, v0}, Landroid/os/Bundle;->putBoolean(Ljava/lang/String;Z)V
 
-    invoke-direct {v5}, Landroid/os/Bundle;-><init>()V
+    const-string v0, "isAdult"
 
-    .line 748
-    .local v5, "result":Landroid/os/Bundle;
-    const-string v6, "hasNameAuth"
+    .line 735
+    invoke-virtual {v3, v0, v1}, Landroid/os/Bundle;->putBoolean(Ljava/lang/String;Z)V
 
-    invoke-virtual {v5, v6, v1}, Landroid/os/Bundle;->putBoolean(Ljava/lang/String;Z)V
+    const-string v0, "hasGuard"
 
-    .line 749
-    const-string v6, "isAdult"
+    .line 736
+    invoke-virtual {v3, v0, p1}, Landroid/os/Bundle;->putBoolean(Ljava/lang/String;Z)V
 
-    invoke-virtual {v5, v6, v2}, Landroid/os/Bundle;->putBoolean(Ljava/lang/String;Z)V
+    const-string p1, "age"
 
-    .line 750
-    const-string v6, "hasGuard"
+    .line 737
+    invoke-virtual {v3, p1, v2}, Landroid/os/Bundle;->putInt(Ljava/lang/String;I)V
 
-    invoke-virtual {v5, v6, v4}, Landroid/os/Bundle;->putBoolean(Ljava/lang/String;Z)V
+    .line 739
+    new-instance p1, Ljava/lang/StringBuilder;
 
-    .line 751
-    const-string v6, "age"
+    invoke-direct {p1}, Ljava/lang/StringBuilder;-><init>()V
 
-    invoke-virtual {v5, v6, v3}, Landroid/os/Bundle;->putInt(Ljava/lang/String;I)V
+    const-string v0, "\u5f53\u524d\u7528\u5b9e\u540d\u4fe1\u606f\uff1a"
 
-    .line 753
-    new-instance v6, Ljava/lang/StringBuilder;
+    invoke-virtual {p1, v0}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    invoke-direct {v6}, Ljava/lang/StringBuilder;-><init>()V
+    invoke-virtual {v3}, Landroid/os/Bundle;->toString()Ljava/lang/String;
 
-    const-string v7, "\u5f53\u524d\u7528\u5b9e\u540d\u4fe1\u606f\uff1a"
+    move-result-object v0
 
-    invoke-virtual {v6, v7}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-virtual {p1, v0}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    invoke-virtual {v5}, Landroid/os/Bundle;->toString()Ljava/lang/String;
+    invoke-virtual {p1}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
 
-    move-result-object v7
+    move-result-object p1
 
-    invoke-virtual {v6, v7}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-static {p1}, Lcom/leidong/sdk/framework/utils/LogUtil;->i(Ljava/lang/String;)V
 
-    invoke-virtual {v6}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
-
-    move-result-object v6
-
-    invoke-static {v6}, Lcom/leidong/sdk/framework/utils/LogUtil;->i(Ljava/lang/String;)V
-
-    .line 755
-    invoke-interface {p2, v5}, Lcom/leidong/sdk/framework/interfaces/ResultCallback2;->onSuccess(Landroid/os/Bundle;)V
+    .line 741
+    invoke-interface {p2, v3}, Lcom/leidong/sdk/framework/interfaces/ResultCallback2;->onSuccess(Landroid/os/Bundle;)V
     :try_end_0
     .catch Ljava/lang/Exception; {:try_start_0 .. :try_end_0} :catch_0
 
-    .line 759
-    .end local v0    # "data":Lorg/json/JSONObject;
-    .end local v1    # "hasNameAuth":Z
-    .end local v2    # "isAdult":Z
-    .end local v3    # "age":I
-    .end local v4    # "hasGuard":Z
-    .end local v5    # "result":Landroid/os/Bundle;
     goto :goto_0
 
-    .line 756
     :catch_0
-    move-exception v0
+    move-exception p1
 
-    .line 757
-    .local v0, "e":Ljava/lang/Exception;
-    invoke-virtual {v0}, Ljava/lang/Exception;->printStackTrace()V
+    .line 743
+    invoke-virtual {p1}, Ljava/lang/Exception;->printStackTrace()V
 
-    .line 758
-    const-string v1, "\u83b7\u53d6\u7528\u6237\u5b9e\u540d\u4fe1\u606f\u662f\u53d1\u751f\u9519\u8bef"
+    const-string p1, "\u83b7\u53d6\u7528\u6237\u5b9e\u540d\u4fe1\u606f\u662f\u53d1\u751f\u9519\u8bef"
 
-    invoke-interface {p2, v1}, Lcom/leidong/sdk/framework/interfaces/ResultCallback2;->onFail(Ljava/lang/String;)V
+    .line 744
+    invoke-interface {p2, p1}, Lcom/leidong/sdk/framework/interfaces/ResultCallback2;->onFail(Ljava/lang/String;)V
 
-    .line 760
-    .end local v0    # "e":Ljava/lang/Exception;
     :goto_0
     return-void
 .end method
 
 .method public handleUserNoAdultPayMount(Ljava/lang/String;Lcom/leidong/sdk/framework/interfaces/ResultCallback2;)V
-    .locals 4
-    .param p1, "content"    # Ljava/lang/String;
-    .param p2, "callback"    # Lcom/leidong/sdk/framework/interfaces/ResultCallback2;
+    .locals 2
 
-    .line 769
+    .line 755
     :try_start_0
     new-instance v0, Lorg/json/JSONObject;
 
     invoke-direct {v0, p1}, Lorg/json/JSONObject;-><init>(Ljava/lang/String;)V
 
-    const-string v1, "data"
+    const-string p1, "data"
 
-    invoke-static {v0, v1}, Lcom/leidong/sdk/framework/utils/JSONUtils;->getJsonObj(Lorg/json/JSONObject;Ljava/lang/String;)Lorg/json/JSONObject;
+    invoke-static {v0, p1}, Lcom/leidong/sdk/framework/utils/JSONUtils;->getJsonObj(Lorg/json/JSONObject;Ljava/lang/String;)Lorg/json/JSONObject;
 
-    move-result-object v0
+    move-result-object p1
 
-    .line 771
-    .local v0, "data":Lorg/json/JSONObject;
+    const-string v0, "amount"
+
+    .line 757
+    invoke-static {p1, v0}, Lcom/leidong/sdk/framework/utils/JSONUtils;->getJsonInt(Lorg/json/JSONObject;Ljava/lang/String;)I
+
+    move-result p1
+
+    .line 760
+    new-instance v0, Landroid/os/Bundle;
+
+    invoke-direct {v0}, Landroid/os/Bundle;-><init>()V
+
     const-string v1, "amount"
 
-    invoke-static {v0, v1}, Lcom/leidong/sdk/framework/utils/JSONUtils;->getJsonInt(Lorg/json/JSONObject;Ljava/lang/String;)I
+    .line 761
+    invoke-virtual {v0, v1, p1}, Landroid/os/Bundle;->putInt(Ljava/lang/String;I)V
 
-    move-result v1
-
-    .line 774
-    .local v1, "amount":I
-    new-instance v2, Landroid/os/Bundle;
-
-    invoke-direct {v2}, Landroid/os/Bundle;-><init>()V
-
-    .line 775
-    .local v2, "result":Landroid/os/Bundle;
-    const-string v3, "amount"
-
-    invoke-virtual {v2, v3, v1}, Landroid/os/Bundle;->putInt(Ljava/lang/String;I)V
-
-    .line 776
-    invoke-interface {p2, v2}, Lcom/leidong/sdk/framework/interfaces/ResultCallback2;->onSuccess(Landroid/os/Bundle;)V
+    .line 762
+    invoke-interface {p2, v0}, Lcom/leidong/sdk/framework/interfaces/ResultCallback2;->onSuccess(Landroid/os/Bundle;)V
     :try_end_0
     .catch Ljava/lang/Exception; {:try_start_0 .. :try_end_0} :catch_0
 
-    .line 780
-    .end local v0    # "data":Lorg/json/JSONObject;
-    .end local v1    # "amount":I
-    .end local v2    # "result":Landroid/os/Bundle;
     goto :goto_0
 
-    .line 777
     :catch_0
-    move-exception v0
+    move-exception p1
 
-    .line 778
-    .local v0, "e":Ljava/lang/Exception;
-    invoke-virtual {v0}, Ljava/lang/Exception;->printStackTrace()V
+    .line 764
+    invoke-virtual {p1}, Ljava/lang/Exception;->printStackTrace()V
 
-    .line 779
-    const-string v1, "\u83b7\u53d6\u672a\u6210\u5e74\u7528\u6237\u7684\u6bcf\u65e5\u91d1\u989d\u9650\u989d\uff0c\u53d1\u751f\u9519\u8bef"
+    const-string p1, "\u83b7\u53d6\u672a\u6210\u5e74\u7528\u6237\u7684\u6bcf\u65e5\u91d1\u989d\u9650\u989d\uff0c\u53d1\u751f\u9519\u8bef"
 
-    invoke-interface {p2, v1}, Lcom/leidong/sdk/framework/interfaces/ResultCallback2;->onFail(Ljava/lang/String;)V
+    .line 765
+    invoke-interface {p2, p1}, Lcom/leidong/sdk/framework/interfaces/ResultCallback2;->onFail(Ljava/lang/String;)V
 
-    .line 781
-    .end local v0    # "e":Ljava/lang/Exception;
     :goto_0
     return-void
 .end method

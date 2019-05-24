@@ -26,9 +26,8 @@
 # direct methods
 .method constructor <init>(Lcom/leidong/sdk/m/controller/PlatformManager;Ljava/lang/String;)V
     .locals 0
-    .param p1, "this$0"    # Lcom/leidong/sdk/m/controller/PlatformManager;
 
-    .line 1285
+    .line 1289
     iput-object p1, p0, Lcom/leidong/sdk/m/controller/PlatformManager$15;->this$0:Lcom/leidong/sdk/m/controller/PlatformManager;
 
     iput-object p2, p0, Lcom/leidong/sdk/m/controller/PlatformManager$15;->val$moid:Ljava/lang/String;
@@ -41,55 +40,49 @@
 
 # virtual methods
 .method public onCancel(Ljava/lang/String;)V
-    .locals 2
-    .param p1, "arg0"    # Ljava/lang/String;
+    .locals 1
 
-    .line 1293
-    iget-object v0, p0, Lcom/leidong/sdk/m/controller/PlatformManager$15;->this$0:Lcom/leidong/sdk/m/controller/PlatformManager;
+    .line 1297
+    iget-object p1, p0, Lcom/leidong/sdk/m/controller/PlatformManager$15;->this$0:Lcom/leidong/sdk/m/controller/PlatformManager;
 
-    iget-object v0, v0, Lcom/leidong/sdk/m/controller/PlatformManager;->mCallBack:Lcom/leidong/sdk/m/LeiMsdkCallback;
+    iget-object p1, p1, Lcom/leidong/sdk/m/controller/PlatformManager;->mCallBack:Lcom/leidong/sdk/m/LeiMsdkCallback;
 
-    const-string v1, "pay_cancel"
+    const-string v0, "pay_cancel"
 
-    invoke-interface {v0, v1}, Lcom/leidong/sdk/m/LeiMsdkCallback;->onPayFail(Ljava/lang/String;)V
+    invoke-interface {p1, v0}, Lcom/leidong/sdk/m/LeiMsdkCallback;->onPayFail(Ljava/lang/String;)V
 
-    .line 1294
     return-void
 .end method
 
 .method public onFail(Ljava/lang/String;)V
     .locals 1
-    .param p1, "message"    # Ljava/lang/String;
 
-    .line 1297
+    .line 1301
     iget-object v0, p0, Lcom/leidong/sdk/m/controller/PlatformManager$15;->this$0:Lcom/leidong/sdk/m/controller/PlatformManager;
 
     iget-object v0, v0, Lcom/leidong/sdk/m/controller/PlatformManager;->mCallBack:Lcom/leidong/sdk/m/LeiMsdkCallback;
 
     invoke-interface {v0, p1}, Lcom/leidong/sdk/m/LeiMsdkCallback;->onPayFail(Ljava/lang/String;)V
 
-    .line 1298
     return-void
 .end method
 
 .method public onSuccess(Landroid/os/Bundle;)V
     .locals 2
-    .param p1, "bundle"    # Landroid/os/Bundle;
 
-    .line 1288
     const-string v0, "moid"
 
+    .line 1292
     iget-object v1, p0, Lcom/leidong/sdk/m/controller/PlatformManager$15;->val$moid:Ljava/lang/String;
 
     invoke-virtual {p1, v0, v1}, Landroid/os/Bundle;->putString(Ljava/lang/String;Ljava/lang/String;)V
 
-    .line 1289
+    .line 1293
     iget-object v0, p0, Lcom/leidong/sdk/m/controller/PlatformManager$15;->this$0:Lcom/leidong/sdk/m/controller/PlatformManager;
 
     iget-object v0, v0, Lcom/leidong/sdk/m/controller/PlatformManager;->mCallBack:Lcom/leidong/sdk/m/LeiMsdkCallback;
 
     invoke-interface {v0, p1}, Lcom/leidong/sdk/m/LeiMsdkCallback;->onPaySuccess(Landroid/os/Bundle;)V
 
-    .line 1290
     return-void
 .end method

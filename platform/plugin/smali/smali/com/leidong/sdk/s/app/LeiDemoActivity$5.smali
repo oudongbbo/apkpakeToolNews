@@ -24,7 +24,6 @@
 # direct methods
 .method constructor <init>(Lcom/leidong/sdk/s/app/LeiDemoActivity;)V
     .locals 0
-    .param p1, "this$0"    # Lcom/leidong/sdk/s/app/LeiDemoActivity;
 
     .line 170
     iput-object p1, p0, Lcom/leidong/sdk/s/app/LeiDemoActivity$5;->this$0:Lcom/leidong/sdk/s/app/LeiDemoActivity;
@@ -37,25 +36,22 @@
 
 # virtual methods
 .method public onClick(Landroid/view/View;)V
-    .locals 3
-    .param p1, "v"    # Landroid/view/View;
+    .locals 2
 
     .line 173
+    iget-object p1, p0, Lcom/leidong/sdk/s/app/LeiDemoActivity$5;->this$0:Lcom/leidong/sdk/s/app/LeiDemoActivity;
+
+    invoke-static {p1}, Lcom/leidong/sdk/s/app/LeiDemoActivity;->access$000(Lcom/leidong/sdk/s/app/LeiDemoActivity;)Lcom/leidong/sdk/s/app/LeiSdkCore;
+
+    move-result-object p1
+
     iget-object v0, p0, Lcom/leidong/sdk/s/app/LeiDemoActivity$5;->this$0:Lcom/leidong/sdk/s/app/LeiDemoActivity;
 
-    # getter for: Lcom/leidong/sdk/s/app/LeiDemoActivity;->mayaCore:Lcom/leidong/sdk/s/app/LeiSdkCore;
-    invoke-static {v0}, Lcom/leidong/sdk/s/app/LeiDemoActivity;->access$000(Lcom/leidong/sdk/s/app/LeiDemoActivity;)Lcom/leidong/sdk/s/app/LeiSdkCore;
+    new-instance v1, Lcom/leidong/sdk/s/app/LeiDemoActivity$5$1;
 
-    move-result-object v0
+    invoke-direct {v1, p0}, Lcom/leidong/sdk/s/app/LeiDemoActivity$5$1;-><init>(Lcom/leidong/sdk/s/app/LeiDemoActivity$5;)V
 
-    iget-object v1, p0, Lcom/leidong/sdk/s/app/LeiDemoActivity$5;->this$0:Lcom/leidong/sdk/s/app/LeiDemoActivity;
+    invoke-virtual {p1, v0, v1}, Lcom/leidong/sdk/s/app/LeiSdkCore;->userSwitch(Landroid/content/Context;Lcom/leidong/sdk/framework/interfaces/SdkResultCallback;)V
 
-    new-instance v2, Lcom/leidong/sdk/s/app/LeiDemoActivity$5$1;
-
-    invoke-direct {v2, p0}, Lcom/leidong/sdk/s/app/LeiDemoActivity$5$1;-><init>(Lcom/leidong/sdk/s/app/LeiDemoActivity$5;)V
-
-    invoke-virtual {v0, v1, v2}, Lcom/leidong/sdk/s/app/LeiSdkCore;->userSwitch(Landroid/content/Context;Lcom/leidong/sdk/framework/interfaces/SdkResultCallback;)V
-
-    .line 194
     return-void
 .end method

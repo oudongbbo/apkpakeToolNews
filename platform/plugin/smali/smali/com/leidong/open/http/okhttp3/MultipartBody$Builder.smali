@@ -45,13 +45,11 @@
 
     invoke-direct {p0, v0}, Lcom/leidong/open/http/okhttp3/MultipartBody$Builder;-><init>(Ljava/lang/String;)V
 
-    .line 285
     return-void
 .end method
 
 .method public constructor <init>(Ljava/lang/String;)V
     .locals 1
-    .param p1, "boundary"    # Ljava/lang/String;
 
     .line 287
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -71,82 +69,73 @@
     .line 288
     invoke-static {p1}, Lcom/leidong/open/http/okio/ByteString;->encodeUtf8(Ljava/lang/String;)Lcom/leidong/open/http/okio/ByteString;
 
-    move-result-object v0
+    move-result-object p1
 
-    iput-object v0, p0, Lcom/leidong/open/http/okhttp3/MultipartBody$Builder;->boundary:Lcom/leidong/open/http/okio/ByteString;
+    iput-object p1, p0, Lcom/leidong/open/http/okhttp3/MultipartBody$Builder;->boundary:Lcom/leidong/open/http/okio/ByteString;
 
-    .line 289
     return-void
 .end method
 
 
 # virtual methods
 .method public addFormDataPart(Ljava/lang/String;Ljava/lang/String;)Lcom/leidong/open/http/okhttp3/MultipartBody$Builder;
-    .locals 1
-    .param p1, "name"    # Ljava/lang/String;
-    .param p2, "value"    # Ljava/lang/String;
+    .locals 0
 
     .line 318
     invoke-static {p1, p2}, Lcom/leidong/open/http/okhttp3/MultipartBody$Part;->createFormData(Ljava/lang/String;Ljava/lang/String;)Lcom/leidong/open/http/okhttp3/MultipartBody$Part;
 
-    move-result-object v0
+    move-result-object p1
 
-    invoke-virtual {p0, v0}, Lcom/leidong/open/http/okhttp3/MultipartBody$Builder;->addPart(Lcom/leidong/open/http/okhttp3/MultipartBody$Part;)Lcom/leidong/open/http/okhttp3/MultipartBody$Builder;
+    invoke-virtual {p0, p1}, Lcom/leidong/open/http/okhttp3/MultipartBody$Builder;->addPart(Lcom/leidong/open/http/okhttp3/MultipartBody$Part;)Lcom/leidong/open/http/okhttp3/MultipartBody$Builder;
 
-    move-result-object v0
+    move-result-object p1
 
-    return-object v0
+    return-object p1
 .end method
 
 .method public addFormDataPart(Ljava/lang/String;Ljava/lang/String;Lcom/leidong/open/http/okhttp3/RequestBody;)Lcom/leidong/open/http/okhttp3/MultipartBody$Builder;
-    .locals 1
-    .param p1, "name"    # Ljava/lang/String;
-    .param p2, "filename"    # Ljava/lang/String;
-    .param p3, "body"    # Lcom/leidong/open/http/okhttp3/RequestBody;
+    .locals 0
 
     .line 323
     invoke-static {p1, p2, p3}, Lcom/leidong/open/http/okhttp3/MultipartBody$Part;->createFormData(Ljava/lang/String;Ljava/lang/String;Lcom/leidong/open/http/okhttp3/RequestBody;)Lcom/leidong/open/http/okhttp3/MultipartBody$Part;
 
-    move-result-object v0
+    move-result-object p1
 
-    invoke-virtual {p0, v0}, Lcom/leidong/open/http/okhttp3/MultipartBody$Builder;->addPart(Lcom/leidong/open/http/okhttp3/MultipartBody$Part;)Lcom/leidong/open/http/okhttp3/MultipartBody$Builder;
+    invoke-virtual {p0, p1}, Lcom/leidong/open/http/okhttp3/MultipartBody$Builder;->addPart(Lcom/leidong/open/http/okhttp3/MultipartBody$Part;)Lcom/leidong/open/http/okhttp3/MultipartBody$Builder;
 
-    move-result-object v0
+    move-result-object p1
 
-    return-object v0
+    return-object p1
 .end method
 
 .method public addPart(Lcom/leidong/open/http/okhttp3/Headers;Lcom/leidong/open/http/okhttp3/RequestBody;)Lcom/leidong/open/http/okhttp3/MultipartBody$Builder;
-    .locals 1
-    .param p1, "headers"    # Lcom/leidong/open/http/okhttp3/Headers;
-    .param p2, "body"    # Lcom/leidong/open/http/okhttp3/RequestBody;
+    .locals 0
 
     .line 313
     invoke-static {p1, p2}, Lcom/leidong/open/http/okhttp3/MultipartBody$Part;->create(Lcom/leidong/open/http/okhttp3/Headers;Lcom/leidong/open/http/okhttp3/RequestBody;)Lcom/leidong/open/http/okhttp3/MultipartBody$Part;
 
-    move-result-object v0
+    move-result-object p1
 
-    invoke-virtual {p0, v0}, Lcom/leidong/open/http/okhttp3/MultipartBody$Builder;->addPart(Lcom/leidong/open/http/okhttp3/MultipartBody$Part;)Lcom/leidong/open/http/okhttp3/MultipartBody$Builder;
+    invoke-virtual {p0, p1}, Lcom/leidong/open/http/okhttp3/MultipartBody$Builder;->addPart(Lcom/leidong/open/http/okhttp3/MultipartBody$Part;)Lcom/leidong/open/http/okhttp3/MultipartBody$Builder;
 
-    move-result-object v0
+    move-result-object p1
 
-    return-object v0
+    return-object p1
 .end method
 
 .method public addPart(Lcom/leidong/open/http/okhttp3/MultipartBody$Part;)Lcom/leidong/open/http/okhttp3/MultipartBody$Builder;
-    .locals 2
-    .param p1, "part"    # Lcom/leidong/open/http/okhttp3/MultipartBody$Part;
+    .locals 1
 
-    .line 328
     if-nez p1, :cond_0
 
-    new-instance v0, Ljava/lang/NullPointerException;
+    .line 328
+    new-instance p1, Ljava/lang/NullPointerException;
 
-    const-string v1, "part == null"
+    const-string v0, "part == null"
 
-    invoke-direct {v0, v1}, Ljava/lang/NullPointerException;-><init>(Ljava/lang/String;)V
+    invoke-direct {p1, v0}, Ljava/lang/NullPointerException;-><init>(Ljava/lang/String;)V
 
-    throw v0
+    throw p1
 
     .line 329
     :cond_0
@@ -154,24 +143,22 @@
 
     invoke-interface {v0, p1}, Ljava/util/List;->add(Ljava/lang/Object;)Z
 
-    .line 330
     return-object p0
 .end method
 
 .method public addPart(Lcom/leidong/open/http/okhttp3/RequestBody;)Lcom/leidong/open/http/okhttp3/MultipartBody$Builder;
-    .locals 1
-    .param p1, "body"    # Lcom/leidong/open/http/okhttp3/RequestBody;
+    .locals 0
 
     .line 308
     invoke-static {p1}, Lcom/leidong/open/http/okhttp3/MultipartBody$Part;->create(Lcom/leidong/open/http/okhttp3/RequestBody;)Lcom/leidong/open/http/okhttp3/MultipartBody$Part;
 
-    move-result-object v0
+    move-result-object p1
 
-    invoke-virtual {p0, v0}, Lcom/leidong/open/http/okhttp3/MultipartBody$Builder;->addPart(Lcom/leidong/open/http/okhttp3/MultipartBody$Part;)Lcom/leidong/open/http/okhttp3/MultipartBody$Builder;
+    invoke-virtual {p0, p1}, Lcom/leidong/open/http/okhttp3/MultipartBody$Builder;->addPart(Lcom/leidong/open/http/okhttp3/MultipartBody$Part;)Lcom/leidong/open/http/okhttp3/MultipartBody$Builder;
 
-    move-result-object v0
+    move-result-object p1
 
-    return-object v0
+    return-object p1
 .end method
 
 .method public build()Lcom/leidong/open/http/okhttp3/MultipartBody;
@@ -212,19 +199,17 @@
 
 .method public setType(Lcom/leidong/open/http/okhttp3/MediaType;)Lcom/leidong/open/http/okhttp3/MultipartBody$Builder;
     .locals 3
-    .param p1, "type"    # Lcom/leidong/open/http/okhttp3/MediaType;
 
-    .line 296
     if-nez p1, :cond_0
 
     .line 297
-    new-instance v0, Ljava/lang/NullPointerException;
+    new-instance p1, Ljava/lang/NullPointerException;
 
-    const-string v1, "type == null"
+    const-string v0, "type == null"
 
-    invoke-direct {v0, v1}, Ljava/lang/NullPointerException;-><init>(Ljava/lang/String;)V
+    invoke-direct {p1, v0}, Ljava/lang/NullPointerException;-><init>(Ljava/lang/String;)V
 
-    throw v0
+    throw p1
 
     .line 299
     :cond_0
@@ -255,9 +240,9 @@
 
     invoke-virtual {v1}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
 
-    move-result-object v1
+    move-result-object p1
 
-    invoke-direct {v0, v1}, Ljava/lang/IllegalArgumentException;-><init>(Ljava/lang/String;)V
+    invoke-direct {v0, p1}, Ljava/lang/IllegalArgumentException;-><init>(Ljava/lang/String;)V
 
     throw v0
 
@@ -265,6 +250,5 @@
     :cond_1
     iput-object p1, p0, Lcom/leidong/open/http/okhttp3/MultipartBody$Builder;->type:Lcom/leidong/open/http/okhttp3/MediaType;
 
-    .line 303
     return-object p0
 .end method

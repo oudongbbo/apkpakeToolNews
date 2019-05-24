@@ -26,9 +26,8 @@
 # direct methods
 .method constructor <init>(Lcom/leidong/sdk/m/controller/PlatformManager;Lcom/leidong/sdk/m/interfaces/MResultCallback;)V
     .locals 0
-    .param p1, "this$0"    # Lcom/leidong/sdk/m/controller/PlatformManager;
 
-    .line 977
+    .line 980
     iput-object p1, p0, Lcom/leidong/sdk/m/controller/PlatformManager$7;->this$0:Lcom/leidong/sdk/m/controller/PlatformManager;
 
     iput-object p2, p0, Lcom/leidong/sdk/m/controller/PlatformManager$7;->val$callback:Lcom/leidong/sdk/m/interfaces/MResultCallback;
@@ -41,87 +40,79 @@
 
 # virtual methods
 .method public onFail(Ljava/lang/String;)V
-    .locals 1
-    .param p1, "msg"    # Ljava/lang/String;
+    .locals 0
 
-    .line 1003
-    iget-object v0, p0, Lcom/leidong/sdk/m/controller/PlatformManager$7;->val$callback:Lcom/leidong/sdk/m/interfaces/MResultCallback;
+    .line 1006
+    iget-object p1, p0, Lcom/leidong/sdk/m/controller/PlatformManager$7;->val$callback:Lcom/leidong/sdk/m/interfaces/MResultCallback;
 
-    invoke-interface {v0}, Lcom/leidong/sdk/m/interfaces/MResultCallback;->onSuccess()V
+    invoke-interface {p1}, Lcom/leidong/sdk/m/interfaces/MResultCallback;->onSuccess()V
 
-    .line 1004
     return-void
 .end method
 
 .method public onSuccess(Landroid/os/Bundle;)V
-    .locals 6
-    .param p1, "bundle"    # Landroid/os/Bundle;
+    .locals 5
 
-    .line 981
     const-string v0, "url"
 
+    .line 984
     invoke-virtual {p1, v0}, Landroid/os/Bundle;->getString(Ljava/lang/String;)Ljava/lang/String;
 
     move-result-object v0
 
-    .line 982
-    .local v0, "url":Ljava/lang/String;
     const-string v1, "a_qq_group_key"
 
+    .line 985
     invoke-virtual {p1, v1}, Landroid/os/Bundle;->getString(Ljava/lang/String;)Ljava/lang/String;
 
     move-result-object v1
 
-    .line 983
-    .local v1, "a_qq_group_key":Ljava/lang/String;
     const-string v2, "code_id"
 
+    .line 986
     invoke-virtual {p1, v2}, Landroid/os/Bundle;->getString(Ljava/lang/String;)Ljava/lang/String;
 
-    move-result-object v2
+    move-result-object p1
 
-    .line 985
-    .local v2, "code_id":Ljava/lang/String;
-    iget-object v3, p0, Lcom/leidong/sdk/m/controller/PlatformManager$7;->this$0:Lcom/leidong/sdk/m/controller/PlatformManager;
+    .line 988
+    iget-object v2, p0, Lcom/leidong/sdk/m/controller/PlatformManager$7;->this$0:Lcom/leidong/sdk/m/controller/PlatformManager;
 
-    new-instance v4, Ljava/lang/StringBuilder;
+    new-instance v3, Ljava/lang/StringBuilder;
 
-    invoke-direct {v4}, Ljava/lang/StringBuilder;-><init>()V
+    invoke-direct {v3}, Ljava/lang/StringBuilder;-><init>()V
 
-    const-string v5, "<a_qq_group_key>"
+    const-string v4, "<a_qq_group_key>"
 
-    invoke-virtual {v4, v5}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-virtual {v3, v4}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    invoke-virtual {v4, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-virtual {v3, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    const-string v5, "<url>"
+    const-string v4, "<url>"
 
-    invoke-virtual {v4, v5}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-virtual {v3, v4}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    invoke-virtual {v4, v0}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-virtual {v3, v0}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    const-string v5, "<code_id>"
+    const-string v4, "<code_id>"
 
-    invoke-virtual {v4, v5}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-virtual {v3, v4}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    invoke-virtual {v4, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-virtual {v3, p1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    invoke-virtual {v4}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+    invoke-virtual {v3}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
 
-    move-result-object v4
+    move-result-object v3
 
-    invoke-virtual {v3, v4}, Lcom/leidong/sdk/m/controller/PlatformManager;->sendLog(Ljava/lang/String;)V
+    invoke-virtual {v2, v3}, Lcom/leidong/sdk/m/controller/PlatformManager;->sendLog(Ljava/lang/String;)V
 
-    .line 987
-    iget-object v3, p0, Lcom/leidong/sdk/m/controller/PlatformManager$7;->this$0:Lcom/leidong/sdk/m/controller/PlatformManager;
+    .line 990
+    iget-object v2, p0, Lcom/leidong/sdk/m/controller/PlatformManager$7;->this$0:Lcom/leidong/sdk/m/controller/PlatformManager;
 
-    new-instance v4, Lcom/leidong/sdk/m/controller/PlatformManager$7$1;
+    new-instance v3, Lcom/leidong/sdk/m/controller/PlatformManager$7$1;
 
-    invoke-direct {v4, p0}, Lcom/leidong/sdk/m/controller/PlatformManager$7$1;-><init>(Lcom/leidong/sdk/m/controller/PlatformManager$7;)V
+    invoke-direct {v3, p0}, Lcom/leidong/sdk/m/controller/PlatformManager$7$1;-><init>(Lcom/leidong/sdk/m/controller/PlatformManager$7;)V
 
-    # invokes: Lcom/leidong/sdk/m/controller/PlatformManager;->handleAppActiveAction(Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Lcom/leidong/sdk/m/interfaces/MResultCallback;)V
-    invoke-static {v3, v2, v1, v0, v4}, Lcom/leidong/sdk/m/controller/PlatformManager;->access$200(Lcom/leidong/sdk/m/controller/PlatformManager;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Lcom/leidong/sdk/m/interfaces/MResultCallback;)V
+    invoke-static {v2, p1, v1, v0, v3}, Lcom/leidong/sdk/m/controller/PlatformManager;->access$200(Lcom/leidong/sdk/m/controller/PlatformManager;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Lcom/leidong/sdk/m/interfaces/MResultCallback;)V
 
-    .line 999
     return-void
 .end method

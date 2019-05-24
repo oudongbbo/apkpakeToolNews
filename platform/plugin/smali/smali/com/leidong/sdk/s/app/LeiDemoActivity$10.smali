@@ -24,7 +24,6 @@
 # direct methods
 .method constructor <init>(Lcom/leidong/sdk/s/app/LeiDemoActivity;)V
     .locals 0
-    .param p1, "this$0"    # Lcom/leidong/sdk/s/app/LeiDemoActivity;
 
     .line 393
     iput-object p1, p0, Lcom/leidong/sdk/s/app/LeiDemoActivity$10;->this$0:Lcom/leidong/sdk/s/app/LeiDemoActivity;
@@ -38,7 +37,6 @@
 # virtual methods
 .method public onCancel(Ljava/lang/String;)V
     .locals 3
-    .param p1, "message"    # Ljava/lang/String;
 
     .line 407
     iget-object v0, p0, Lcom/leidong/sdk/s/app/LeiDemoActivity$10;->this$0:Lcom/leidong/sdk/s/app/LeiDemoActivity;
@@ -55,23 +53,21 @@
 
     invoke-virtual {v1}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
 
-    move-result-object v1
+    move-result-object p1
 
-    const/4 v2, 0x0
+    const/4 v1, 0x0
 
-    invoke-static {v0, v1, v2}, Landroid/widget/Toast;->makeText(Landroid/content/Context;Ljava/lang/CharSequence;I)Landroid/widget/Toast;
+    invoke-static {v0, p1, v1}, Landroid/widget/Toast;->makeText(Landroid/content/Context;Ljava/lang/CharSequence;I)Landroid/widget/Toast;
 
-    move-result-object v0
+    move-result-object p1
 
-    invoke-virtual {v0}, Landroid/widget/Toast;->show()V
+    invoke-virtual {p1}, Landroid/widget/Toast;->show()V
 
-    .line 408
     return-void
 .end method
 
 .method public onFail(Ljava/lang/String;)V
     .locals 3
-    .param p1, "msg"    # Ljava/lang/String;
 
     .line 402
     iget-object v0, p0, Lcom/leidong/sdk/s/app/LeiDemoActivity$10;->this$0:Lcom/leidong/sdk/s/app/LeiDemoActivity;
@@ -88,29 +84,26 @@
 
     invoke-virtual {v1}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
 
-    move-result-object v1
+    move-result-object p1
 
-    const/4 v2, 0x0
+    const/4 v1, 0x0
 
-    invoke-static {v0, v1, v2}, Landroid/widget/Toast;->makeText(Landroid/content/Context;Ljava/lang/CharSequence;I)Landroid/widget/Toast;
+    invoke-static {v0, p1, v1}, Landroid/widget/Toast;->makeText(Landroid/content/Context;Ljava/lang/CharSequence;I)Landroid/widget/Toast;
 
-    move-result-object v0
+    move-result-object p1
 
-    invoke-virtual {v0}, Landroid/widget/Toast;->show()V
+    invoke-virtual {p1}, Landroid/widget/Toast;->show()V
 
-    .line 403
     return-void
 .end method
 
 .method public onSuccess(Landroid/os/Bundle;)V
-    .locals 1
-    .param p1, "bundle"    # Landroid/os/Bundle;
+    .locals 0
 
     .line 397
-    iget-object v0, p0, Lcom/leidong/sdk/s/app/LeiDemoActivity$10;->this$0:Lcom/leidong/sdk/s/app/LeiDemoActivity;
+    iget-object p1, p0, Lcom/leidong/sdk/s/app/LeiDemoActivity$10;->this$0:Lcom/leidong/sdk/s/app/LeiDemoActivity;
 
-    invoke-virtual {v0}, Lcom/leidong/sdk/s/app/LeiDemoActivity;->finish()V
+    invoke-virtual {p1}, Lcom/leidong/sdk/s/app/LeiDemoActivity;->finish()V
 
-    .line 398
     return-void
 .end method

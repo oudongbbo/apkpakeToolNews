@@ -26,7 +26,6 @@
 # direct methods
 .method constructor <init>(Lcom/leidong/sdk/framework/utils/ImageUtil;Lcom/leidong/sdk/framework/utils/ImageUtil$ImageCallback;)V
     .locals 0
-    .param p1, "this$0"    # Lcom/leidong/sdk/framework/utils/ImageUtil;
 
     .line 39
     iput-object p1, p0, Lcom/leidong/sdk/framework/utils/ImageUtil$1;->this$0:Lcom/leidong/sdk/framework/utils/ImageUtil;
@@ -42,27 +41,22 @@
 # virtual methods
 .method public onFail(Ljava/lang/String;)V
     .locals 1
-    .param p1, "paramString"    # Ljava/lang/String;
 
     .line 48
     iget-object v0, p0, Lcom/leidong/sdk/framework/utils/ImageUtil$1;->val$callback:Lcom/leidong/sdk/framework/utils/ImageUtil$ImageCallback;
 
     invoke-interface {v0, p1}, Lcom/leidong/sdk/framework/utils/ImageUtil$ImageCallback;->onFail(Ljava/lang/String;)V
 
-    .line 49
     return-void
 .end method
 
 .method public onSuccess(Landroid/graphics/Bitmap;Ljava/lang/String;)V
     .locals 1
-    .param p1, "paramBitmap"    # Landroid/graphics/Bitmap;
-    .param p2, "paramString"    # Ljava/lang/String;
 
     .line 43
     iget-object v0, p0, Lcom/leidong/sdk/framework/utils/ImageUtil$1;->val$callback:Lcom/leidong/sdk/framework/utils/ImageUtil$ImageCallback;
 
     invoke-interface {v0, p1, p2}, Lcom/leidong/sdk/framework/utils/ImageUtil$ImageCallback;->onSuccess(Landroid/graphics/Bitmap;Ljava/lang/String;)V
 
-    .line 44
     return-void
 .end method

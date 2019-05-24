@@ -28,40 +28,30 @@
 # virtual methods
 .method public onError(Lcom/leidong/open/http/okserver/upload/UploadInfo;Ljava/lang/String;Ljava/lang/Exception;)V
     .locals 0
-    .param p1, "downloadInfo"    # Lcom/leidong/open/http/okserver/upload/UploadInfo;
-    .param p2, "errorMsg"    # Ljava/lang/String;
-    .param p3, "e"    # Ljava/lang/Exception;
 
-    .line 62
     return-void
 .end method
 
 .method public onFinish(Ljava/lang/Object;)V
     .locals 0
-    .param p1, "downloadInfo"    # Ljava/lang/Object;
 
-    .line 58
     return-void
 .end method
 
 .method public onProgress(Lcom/leidong/open/http/okserver/upload/UploadInfo;)V
     .locals 0
-    .param p1, "downloadInfo"    # Lcom/leidong/open/http/okserver/upload/UploadInfo;
 
-    .line 54
     return-void
 .end method
 
 .method public parseNetworkResponse(Lcom/leidong/open/http/okhttp3/Response;)Lcom/leidong/open/http/okhttp3/Response;
     .locals 0
-    .param p1, "response"    # Lcom/leidong/open/http/okhttp3/Response;
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Ljava/lang/Exception;
         }
     .end annotation
 
-    .line 66
     return-object p1
 .end method
 

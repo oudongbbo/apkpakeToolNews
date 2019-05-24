@@ -24,7 +24,6 @@
 # direct methods
 .method constructor <init>(Lcom/leidong/sdk/m/views/ActivationDialog$1$1;)V
     .locals 0
-    .param p1, "this$2"    # Lcom/leidong/sdk/m/views/ActivationDialog$1$1;
 
     .line 172
     iput-object p1, p0, Lcom/leidong/sdk/m/views/ActivationDialog$1$1$1;->this$2:Lcom/leidong/sdk/m/views/ActivationDialog$1$1;
@@ -37,66 +36,57 @@
 
 # virtual methods
 .method public onFail(ILjava/lang/String;)V
-    .locals 2
-    .param p1, "code"    # I
-    .param p2, "msg"    # Ljava/lang/String;
+    .locals 1
 
     .line 192
-    iget-object v0, p0, Lcom/leidong/sdk/m/views/ActivationDialog$1$1$1;->this$2:Lcom/leidong/sdk/m/views/ActivationDialog$1$1;
+    iget-object p1, p0, Lcom/leidong/sdk/m/views/ActivationDialog$1$1$1;->this$2:Lcom/leidong/sdk/m/views/ActivationDialog$1$1;
 
-    iget-object v0, v0, Lcom/leidong/sdk/m/views/ActivationDialog$1$1;->this$1:Lcom/leidong/sdk/m/views/ActivationDialog$1;
+    iget-object p1, p1, Lcom/leidong/sdk/m/views/ActivationDialog$1$1;->this$1:Lcom/leidong/sdk/m/views/ActivationDialog$1;
 
-    iget-object v0, v0, Lcom/leidong/sdk/m/views/ActivationDialog$1;->this$0:Lcom/leidong/sdk/m/views/ActivationDialog;
+    iget-object p1, p1, Lcom/leidong/sdk/m/views/ActivationDialog$1;->this$0:Lcom/leidong/sdk/m/views/ActivationDialog;
 
-    const/4 v1, 0x1
+    const/4 v0, 0x1
 
-    # invokes: Lcom/leidong/sdk/m/views/ActivationDialog;->controlErrorTips(ZLjava/lang/String;)V
-    invoke-static {v0, v1, p2}, Lcom/leidong/sdk/m/views/ActivationDialog;->access$000(Lcom/leidong/sdk/m/views/ActivationDialog;ZLjava/lang/String;)V
+    invoke-static {p1, v0, p2}, Lcom/leidong/sdk/m/views/ActivationDialog;->access$000(Lcom/leidong/sdk/m/views/ActivationDialog;ZLjava/lang/String;)V
 
-    .line 194
     return-void
 .end method
 
 .method public onSuccess(Ljava/lang/String;)V
-    .locals 4
-    .param p1, "content"    # Ljava/lang/String;
+    .locals 2
 
     .line 177
     invoke-static {p1}, Ljava/lang/Integer;->parseInt(Ljava/lang/String;)I
 
-    move-result v0
+    move-result p1
 
-    .line 178
-    .local v0, "active":I
-    const/4 v1, 0x1
+    const/4 v0, 0x1
 
-    if-ne v0, v1, :cond_0
+    if-ne p1, v0, :cond_0
 
     .line 180
-    iget-object v1, p0, Lcom/leidong/sdk/m/views/ActivationDialog$1$1$1;->this$2:Lcom/leidong/sdk/m/views/ActivationDialog$1$1;
+    iget-object p1, p0, Lcom/leidong/sdk/m/views/ActivationDialog$1$1$1;->this$2:Lcom/leidong/sdk/m/views/ActivationDialog$1$1;
 
-    iget-object v1, v1, Lcom/leidong/sdk/m/views/ActivationDialog$1$1;->this$1:Lcom/leidong/sdk/m/views/ActivationDialog$1;
+    iget-object p1, p1, Lcom/leidong/sdk/m/views/ActivationDialog$1$1;->this$1:Lcom/leidong/sdk/m/views/ActivationDialog$1;
 
-    iget-object v1, v1, Lcom/leidong/sdk/m/views/ActivationDialog$1;->this$0:Lcom/leidong/sdk/m/views/ActivationDialog;
+    iget-object p1, p1, Lcom/leidong/sdk/m/views/ActivationDialog$1;->this$0:Lcom/leidong/sdk/m/views/ActivationDialog;
 
-    invoke-virtual {v1}, Lcom/leidong/sdk/m/views/ActivationDialog;->dismiss()V
+    invoke-virtual {p1}, Lcom/leidong/sdk/m/views/ActivationDialog;->dismiss()V
 
     goto :goto_0
 
     .line 184
     :cond_0
-    iget-object v2, p0, Lcom/leidong/sdk/m/views/ActivationDialog$1$1$1;->this$2:Lcom/leidong/sdk/m/views/ActivationDialog$1$1;
+    iget-object p1, p0, Lcom/leidong/sdk/m/views/ActivationDialog$1$1$1;->this$2:Lcom/leidong/sdk/m/views/ActivationDialog$1$1;
 
-    iget-object v2, v2, Lcom/leidong/sdk/m/views/ActivationDialog$1$1;->this$1:Lcom/leidong/sdk/m/views/ActivationDialog$1;
+    iget-object p1, p1, Lcom/leidong/sdk/m/views/ActivationDialog$1$1;->this$1:Lcom/leidong/sdk/m/views/ActivationDialog$1;
 
-    iget-object v2, v2, Lcom/leidong/sdk/m/views/ActivationDialog$1;->this$0:Lcom/leidong/sdk/m/views/ActivationDialog;
+    iget-object p1, p1, Lcom/leidong/sdk/m/views/ActivationDialog$1;->this$0:Lcom/leidong/sdk/m/views/ActivationDialog;
 
-    const-string v3, "\u6fc0\u6d3b\u5931\u8d25"
+    const-string v1, "\u6fc0\u6d3b\u5931\u8d25"
 
-    # invokes: Lcom/leidong/sdk/m/views/ActivationDialog;->controlErrorTips(ZLjava/lang/String;)V
-    invoke-static {v2, v1, v3}, Lcom/leidong/sdk/m/views/ActivationDialog;->access$000(Lcom/leidong/sdk/m/views/ActivationDialog;ZLjava/lang/String;)V
+    invoke-static {p1, v0, v1}, Lcom/leidong/sdk/m/views/ActivationDialog;->access$000(Lcom/leidong/sdk/m/views/ActivationDialog;ZLjava/lang/String;)V
 
-    .line 187
     :goto_0
     return-void
 .end method

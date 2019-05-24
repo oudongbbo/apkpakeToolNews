@@ -33,7 +33,6 @@
 # direct methods
 .method constructor <init>(Lcom/leidong/open/utils/AnimCircular$FullActivityBuilder;Landroid/widget/ImageView;IIIJLandroid/view/ViewGroup;)V
     .locals 0
-    .param p1, "this$0"    # Lcom/leidong/open/utils/AnimCircular$FullActivityBuilder;
 
     .line 238
     iput-object p1, p0, Lcom/leidong/open/utils/AnimCircular$FullActivityBuilder$1;->this$0:Lcom/leidong/open/utils/AnimCircular$FullActivityBuilder;
@@ -58,62 +57,55 @@
 
 # virtual methods
 .method public onAnimationEnd(Landroid/animation/Animator;)V
-    .locals 4
-    .param p1, "animation"    # Landroid/animation/Animator;
+    .locals 3
 
     .line 241
     invoke-super {p0, p1}, Landroid/animation/AnimatorListenerAdapter;->onAnimationEnd(Landroid/animation/Animator;)V
 
     .line 243
-    iget-object v0, p0, Lcom/leidong/open/utils/AnimCircular$FullActivityBuilder$1;->this$0:Lcom/leidong/open/utils/AnimCircular$FullActivityBuilder;
+    iget-object p1, p0, Lcom/leidong/open/utils/AnimCircular$FullActivityBuilder$1;->this$0:Lcom/leidong/open/utils/AnimCircular$FullActivityBuilder;
 
-    # getter for: Lcom/leidong/open/utils/AnimCircular$FullActivityBuilder;->mOnAnimationEndListener:Lcom/leidong/open/utils/AnimCircular$OnAnimationEndListener;
-    invoke-static {v0}, Lcom/leidong/open/utils/AnimCircular$FullActivityBuilder;->access$300(Lcom/leidong/open/utils/AnimCircular$FullActivityBuilder;)Lcom/leidong/open/utils/AnimCircular$OnAnimationEndListener;
+    invoke-static {p1}, Lcom/leidong/open/utils/AnimCircular$FullActivityBuilder;->access$300(Lcom/leidong/open/utils/AnimCircular$FullActivityBuilder;)Lcom/leidong/open/utils/AnimCircular$OnAnimationEndListener;
 
-    move-result-object v0
+    move-result-object p1
 
-    invoke-interface {v0}, Lcom/leidong/open/utils/AnimCircular$OnAnimationEndListener;->onAnimationEnd()V
+    invoke-interface {p1}, Lcom/leidong/open/utils/AnimCircular$OnAnimationEndListener;->onAnimationEnd()V
 
     .line 245
+    iget-object p1, p0, Lcom/leidong/open/utils/AnimCircular$FullActivityBuilder$1;->this$0:Lcom/leidong/open/utils/AnimCircular$FullActivityBuilder;
+
+    invoke-static {p1}, Lcom/leidong/open/utils/AnimCircular$FullActivityBuilder;->access$600(Lcom/leidong/open/utils/AnimCircular$FullActivityBuilder;)Landroid/app/Activity;
+
+    move-result-object p1
+
     iget-object v0, p0, Lcom/leidong/open/utils/AnimCircular$FullActivityBuilder$1;->this$0:Lcom/leidong/open/utils/AnimCircular$FullActivityBuilder;
 
-    # getter for: Lcom/leidong/open/utils/AnimCircular$FullActivityBuilder;->mActivity:Landroid/app/Activity;
-    invoke-static {v0}, Lcom/leidong/open/utils/AnimCircular$FullActivityBuilder;->access$600(Lcom/leidong/open/utils/AnimCircular$FullActivityBuilder;)Landroid/app/Activity;
+    invoke-static {v0}, Lcom/leidong/open/utils/AnimCircular$FullActivityBuilder;->access$400(Lcom/leidong/open/utils/AnimCircular$FullActivityBuilder;)I
 
-    move-result-object v0
+    move-result v0
 
     iget-object v1, p0, Lcom/leidong/open/utils/AnimCircular$FullActivityBuilder$1;->this$0:Lcom/leidong/open/utils/AnimCircular$FullActivityBuilder;
 
-    # getter for: Lcom/leidong/open/utils/AnimCircular$FullActivityBuilder;->mEnterAnim:I
-    invoke-static {v1}, Lcom/leidong/open/utils/AnimCircular$FullActivityBuilder;->access$400(Lcom/leidong/open/utils/AnimCircular$FullActivityBuilder;)I
+    invoke-static {v1}, Lcom/leidong/open/utils/AnimCircular$FullActivityBuilder;->access$500(Lcom/leidong/open/utils/AnimCircular$FullActivityBuilder;)I
 
     move-result v1
 
-    iget-object v2, p0, Lcom/leidong/open/utils/AnimCircular$FullActivityBuilder$1;->this$0:Lcom/leidong/open/utils/AnimCircular$FullActivityBuilder;
-
-    # getter for: Lcom/leidong/open/utils/AnimCircular$FullActivityBuilder;->mExitAnim:I
-    invoke-static {v2}, Lcom/leidong/open/utils/AnimCircular$FullActivityBuilder;->access$500(Lcom/leidong/open/utils/AnimCircular$FullActivityBuilder;)I
-
-    move-result v2
-
-    invoke-virtual {v0, v1, v2}, Landroid/app/Activity;->overridePendingTransition(II)V
+    invoke-virtual {p1, v0, v1}, Landroid/app/Activity;->overridePendingTransition(II)V
 
     .line 248
-    iget-object v0, p0, Lcom/leidong/open/utils/AnimCircular$FullActivityBuilder$1;->this$0:Lcom/leidong/open/utils/AnimCircular$FullActivityBuilder;
+    iget-object p1, p0, Lcom/leidong/open/utils/AnimCircular$FullActivityBuilder$1;->this$0:Lcom/leidong/open/utils/AnimCircular$FullActivityBuilder;
 
-    # getter for: Lcom/leidong/open/utils/AnimCircular$FullActivityBuilder;->mTriggerView:Landroid/view/View;
-    invoke-static {v0}, Lcom/leidong/open/utils/AnimCircular$FullActivityBuilder;->access$800(Lcom/leidong/open/utils/AnimCircular$FullActivityBuilder;)Landroid/view/View;
+    invoke-static {p1}, Lcom/leidong/open/utils/AnimCircular$FullActivityBuilder;->access$800(Lcom/leidong/open/utils/AnimCircular$FullActivityBuilder;)Landroid/view/View;
 
-    move-result-object v0
+    move-result-object p1
 
-    new-instance v1, Lcom/leidong/open/utils/AnimCircular$FullActivityBuilder$1$1;
+    new-instance v0, Lcom/leidong/open/utils/AnimCircular$FullActivityBuilder$1$1;
 
-    invoke-direct {v1, p0}, Lcom/leidong/open/utils/AnimCircular$FullActivityBuilder$1$1;-><init>(Lcom/leidong/open/utils/AnimCircular$FullActivityBuilder$1;)V
+    invoke-direct {v0, p0}, Lcom/leidong/open/utils/AnimCircular$FullActivityBuilder$1$1;-><init>(Lcom/leidong/open/utils/AnimCircular$FullActivityBuilder$1;)V
 
-    const-wide/16 v2, 0x3e8
+    const-wide/16 v1, 0x3e8
 
-    invoke-virtual {v0, v1, v2, v3}, Landroid/view/View;->postDelayed(Ljava/lang/Runnable;J)Z
+    invoke-virtual {p1, v0, v1, v2}, Landroid/view/View;->postDelayed(Ljava/lang/Runnable;J)Z
 
-    .line 271
     return-void
 .end method

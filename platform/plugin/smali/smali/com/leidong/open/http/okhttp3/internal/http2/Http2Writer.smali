@@ -45,9 +45,7 @@
 .end method
 
 .method public constructor <init>(Lcom/leidong/open/http/okio/BufferedSink;Z)V
-    .locals 2
-    .param p1, "sink"    # Lcom/leidong/open/http/okio/BufferedSink;
-    .param p2, "client"    # Z
+    .locals 0
 
     .line 58
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -59,41 +57,37 @@
     iput-boolean p2, p0, Lcom/leidong/open/http/okhttp3/internal/http2/Http2Writer;->client:Z
 
     .line 61
-    new-instance v0, Lcom/leidong/open/http/okio/Buffer;
+    new-instance p1, Lcom/leidong/open/http/okio/Buffer;
 
-    invoke-direct {v0}, Lcom/leidong/open/http/okio/Buffer;-><init>()V
+    invoke-direct {p1}, Lcom/leidong/open/http/okio/Buffer;-><init>()V
 
-    iput-object v0, p0, Lcom/leidong/open/http/okhttp3/internal/http2/Http2Writer;->hpackBuffer:Lcom/leidong/open/http/okio/Buffer;
+    iput-object p1, p0, Lcom/leidong/open/http/okhttp3/internal/http2/Http2Writer;->hpackBuffer:Lcom/leidong/open/http/okio/Buffer;
 
     .line 62
-    new-instance v0, Lcom/leidong/open/http/okhttp3/internal/http2/Hpack$Writer;
+    new-instance p1, Lcom/leidong/open/http/okhttp3/internal/http2/Hpack$Writer;
 
-    iget-object v1, p0, Lcom/leidong/open/http/okhttp3/internal/http2/Http2Writer;->hpackBuffer:Lcom/leidong/open/http/okio/Buffer;
+    iget-object p2, p0, Lcom/leidong/open/http/okhttp3/internal/http2/Http2Writer;->hpackBuffer:Lcom/leidong/open/http/okio/Buffer;
 
-    invoke-direct {v0, v1}, Lcom/leidong/open/http/okhttp3/internal/http2/Hpack$Writer;-><init>(Lcom/leidong/open/http/okio/Buffer;)V
+    invoke-direct {p1, p2}, Lcom/leidong/open/http/okhttp3/internal/http2/Hpack$Writer;-><init>(Lcom/leidong/open/http/okio/Buffer;)V
 
-    iput-object v0, p0, Lcom/leidong/open/http/okhttp3/internal/http2/Http2Writer;->hpackWriter:Lcom/leidong/open/http/okhttp3/internal/http2/Hpack$Writer;
+    iput-object p1, p0, Lcom/leidong/open/http/okhttp3/internal/http2/Http2Writer;->hpackWriter:Lcom/leidong/open/http/okhttp3/internal/http2/Hpack$Writer;
+
+    const/16 p1, 0x4000
 
     .line 63
-    const/16 v0, 0x4000
+    iput p1, p0, Lcom/leidong/open/http/okhttp3/internal/http2/Http2Writer;->maxFrameSize:I
 
-    iput v0, p0, Lcom/leidong/open/http/okhttp3/internal/http2/Http2Writer;->maxFrameSize:I
-
-    .line 64
     return-void
 .end method
 
 .method private writeContinuationFrames(IJ)V
     .locals 7
-    .param p1, "streamId"    # I
-    .param p2, "byteCount"    # J
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Ljava/io/IOException;
         }
     .end annotation
 
-    .line 290
     :goto_0
     const-wide/16 v0, 0x0
 
@@ -112,15 +106,10 @@
 
     long-to-int v2, v2
 
-    .line 292
-    .local v2, "length":I
     int-to-long v3, v2
 
     sub-long v5, p2, v3
 
-    .line 293
-    .end local p2    # "byteCount":J
-    .local v5, "byteCount":J
     const/16 p2, 0x9
 
     cmp-long p3, v5, v0
@@ -134,6 +123,7 @@
     :cond_0
     const/4 p3, 0x0
 
+    .line 293
     :goto_1
     invoke-virtual {p0, p1, v2, p2, p3}, Lcom/leidong/open/http/okhttp3/internal/http2/Http2Writer;->frameHeader(IIBB)V
 
@@ -142,64 +132,50 @@
 
     iget-object p3, p0, Lcom/leidong/open/http/okhttp3/internal/http2/Http2Writer;->hpackBuffer:Lcom/leidong/open/http/okio/Buffer;
 
-    int-to-long v0, v2
+    invoke-interface {p2, p3, v3, v4}, Lcom/leidong/open/http/okio/BufferedSink;->write(Lcom/leidong/open/http/okio/Buffer;J)V
 
-    invoke-interface {p2, p3, v0, v1}, Lcom/leidong/open/http/okio/BufferedSink;->write(Lcom/leidong/open/http/okio/Buffer;J)V
-
-    .line 295
-    .end local v2    # "length":I
-    nop
-
-    .line 290
     move-wide p2, v5
 
     goto :goto_0
 
-    .line 296
-    .end local v5    # "byteCount":J
-    .restart local p2    # "byteCount":J
     :cond_1
     return-void
 .end method
 
 .method private static writeMedium(Lcom/leidong/open/http/okio/BufferedSink;I)V
     .locals 1
-    .param p0, "sink"    # Lcom/leidong/open/http/okio/BufferedSink;
-    .param p1, "i"    # I
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Ljava/io/IOException;
         }
     .end annotation
 
-    .line 284
     ushr-int/lit8 v0, p1, 0x10
 
     and-int/lit16 v0, v0, 0xff
 
+    .line 284
     invoke-interface {p0, v0}, Lcom/leidong/open/http/okio/BufferedSink;->writeByte(I)Lcom/leidong/open/http/okio/BufferedSink;
 
-    .line 285
     ushr-int/lit8 v0, p1, 0x8
 
     and-int/lit16 v0, v0, 0xff
 
+    .line 285
     invoke-interface {p0, v0}, Lcom/leidong/open/http/okio/BufferedSink;->writeByte(I)Lcom/leidong/open/http/okio/BufferedSink;
+
+    and-int/lit16 p1, p1, 0xff
 
     .line 286
-    and-int/lit16 v0, p1, 0xff
+    invoke-interface {p0, p1}, Lcom/leidong/open/http/okio/BufferedSink;->writeByte(I)Lcom/leidong/open/http/okio/BufferedSink;
 
-    invoke-interface {p0, v0}, Lcom/leidong/open/http/okio/BufferedSink;->writeByte(I)Lcom/leidong/open/http/okio/BufferedSink;
-
-    .line 287
     return-void
 .end method
 
 
 # virtual methods
 .method public declared-synchronized applyAndAckSettings(Lcom/leidong/open/http/okhttp3/internal/http2/Settings;)V
-    .locals 5
-    .param p1, "peerSettings"    # Lcom/leidong/open/http/okhttp3/internal/http2/Settings;
+    .locals 2
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Ljava/io/IOException;
@@ -214,13 +190,13 @@
 
     if-eqz v0, :cond_0
 
-    new-instance v0, Ljava/io/IOException;
+    new-instance p1, Ljava/io/IOException;
 
-    const-string v1, "closed"
+    const-string v0, "closed"
 
-    invoke-direct {v0, v1}, Ljava/io/IOException;-><init>(Ljava/lang/String;)V
+    invoke-direct {p1, v0}, Ljava/io/IOException;-><init>(Ljava/lang/String;)V
 
-    throw v0
+    throw p1
 
     .line 79
     :cond_0
@@ -246,34 +222,24 @@
 
     invoke-virtual {p1}, Lcom/leidong/open/http/okhttp3/internal/http2/Settings;->getHeaderTableSize()I
 
-    move-result v1
+    move-result p1
 
-    invoke-virtual {v0, v1}, Lcom/leidong/open/http/okhttp3/internal/http2/Hpack$Writer;->setHeaderTableSizeSetting(I)V
+    invoke-virtual {v0, p1}, Lcom/leidong/open/http/okhttp3/internal/http2/Hpack$Writer;->setHeaderTableSizeSetting(I)V
 
-    .line 83
     :cond_1
-    const/4 v0, 0x0
+    const/4 p1, 0x4
 
-    .line 84
-    .local v0, "length":I
-    const/4 v1, 0x4
+    const/4 v0, 0x1
 
-    .line 85
-    .local v1, "type":B
-    const/4 v2, 0x1
-
-    .line 86
-    .local v2, "flags":B
-    const/4 v3, 0x0
+    const/4 v1, 0x0
 
     .line 87
-    .local v3, "streamId":I
-    invoke-virtual {p0, v3, v0, v1, v2}, Lcom/leidong/open/http/okhttp3/internal/http2/Http2Writer;->frameHeader(IIBB)V
+    invoke-virtual {p0, v1, v1, p1, v0}, Lcom/leidong/open/http/okhttp3/internal/http2/Http2Writer;->frameHeader(IIBB)V
 
     .line 88
-    iget-object v4, p0, Lcom/leidong/open/http/okhttp3/internal/http2/Http2Writer;->sink:Lcom/leidong/open/http/okio/BufferedSink;
+    iget-object p1, p0, Lcom/leidong/open/http/okhttp3/internal/http2/Http2Writer;->sink:Lcom/leidong/open/http/okio/BufferedSink;
 
-    invoke-interface {v4}, Lcom/leidong/open/http/okio/BufferedSink;->flush()V
+    invoke-interface {p1}, Lcom/leidong/open/http/okio/BufferedSink;->flush()V
     :try_end_0
     .catchall {:try_start_0 .. :try_end_0} :catchall_0
 
@@ -282,15 +248,10 @@
 
     return-void
 
-    .line 77
-    .end local v0    # "length":I
-    .end local v1    # "type":B
-    .end local v2    # "flags":B
-    .end local v3    # "streamId":I
-    .end local p1    # "peerSettings":Lcom/leidong/open/http/okhttp3/internal/http2/Settings;
     :catchall_0
     move-exception p1
 
+    .line 77
     monitor-exit p0
 
     throw p1
@@ -306,9 +267,9 @@
 
     monitor-enter p0
 
-    .line 279
     const/4 v0, 0x1
 
+    .line 279
     :try_start_0
     iput-boolean v0, p0, Lcom/leidong/open/http/okhttp3/internal/http2/Http2Writer;->closed:Z
 
@@ -324,10 +285,10 @@
 
     return-void
 
-    .line 278
     :catchall_0
     move-exception v0
 
+    .line 278
     monitor-exit p0
 
     throw v0
@@ -431,21 +392,17 @@
 
     return-void
 
-    .line 66
     :catchall_0
     move-exception v0
 
+    .line 66
     monitor-exit p0
 
     throw v0
 .end method
 
 .method public declared-synchronized data(ZILcom/leidong/open/http/okio/Buffer;I)V
-    .locals 2
-    .param p1, "outFinished"    # Z
-    .param p2, "streamId"    # I
-    .param p3, "source"    # Lcom/leidong/open/http/okio/Buffer;
-    .param p4, "byteCount"    # I
+    .locals 1
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Ljava/io/IOException;
@@ -460,25 +417,22 @@
 
     if-eqz v0, :cond_0
 
-    new-instance v0, Ljava/io/IOException;
+    new-instance p1, Ljava/io/IOException;
 
-    const-string v1, "closed"
+    const-string p2, "closed"
 
-    invoke-direct {v0, v1}, Ljava/io/IOException;-><init>(Ljava/lang/String;)V
+    invoke-direct {p1, p2}, Ljava/io/IOException;-><init>(Ljava/lang/String;)V
 
-    throw v0
+    throw p1
 
-    .line 172
     :cond_0
     const/4 v0, 0x0
 
-    .line 173
-    .local v0, "flags":B
     if-eqz p1, :cond_1
 
-    or-int/lit8 v1, v0, 0x1
+    const/4 p1, 0x1
 
-    int-to-byte v0, v1
+    int-to-byte v0, p1
 
     .line 174
     :cond_1
@@ -491,50 +445,37 @@
 
     return-void
 
-    .line 170
-    .end local v0    # "flags":B
-    .end local p1    # "outFinished":Z
-    .end local p2    # "streamId":I
-    .end local p3    # "source":Lcom/leidong/open/http/okio/Buffer;
-    .end local p4    # "byteCount":I
     :catchall_0
     move-exception p1
 
+    .line 170
     monitor-exit p0
 
     throw p1
 .end method
 
 .method dataFrame(IBLcom/leidong/open/http/okio/Buffer;I)V
-    .locals 4
-    .param p1, "streamId"    # I
-    .param p2, "flags"    # B
-    .param p3, "buffer"    # Lcom/leidong/open/http/okio/Buffer;
-    .param p4, "byteCount"    # I
+    .locals 2
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Ljava/io/IOException;
         }
     .end annotation
 
-    .line 178
     const/4 v0, 0x0
 
     .line 179
-    .local v0, "type":B
     invoke-virtual {p0, p1, p4, v0, p2}, Lcom/leidong/open/http/okhttp3/internal/http2/Http2Writer;->frameHeader(IIBB)V
 
-    .line 180
     if-lez p4, :cond_0
 
     .line 181
-    iget-object v1, p0, Lcom/leidong/open/http/okhttp3/internal/http2/Http2Writer;->sink:Lcom/leidong/open/http/okio/BufferedSink;
+    iget-object p1, p0, Lcom/leidong/open/http/okhttp3/internal/http2/Http2Writer;->sink:Lcom/leidong/open/http/okio/BufferedSink;
 
-    int-to-long v2, p4
+    int-to-long v0, p4
 
-    invoke-interface {v1, p3, v2, v3}, Lcom/leidong/open/http/okio/BufferedSink;->write(Lcom/leidong/open/http/okio/Buffer;J)V
+    invoke-interface {p1, p3, v0, v1}, Lcom/leidong/open/http/okio/BufferedSink;->write(Lcom/leidong/open/http/okio/Buffer;J)V
 
-    .line 183
     :cond_0
     return-void
 .end method
@@ -576,21 +517,17 @@
 
     return-void
 
-    .line 120
     :catchall_0
     move-exception v0
 
+    .line 120
     monitor-exit p0
 
     throw v0
 .end method
 
 .method public frameHeader(IIBB)V
-    .locals 5
-    .param p1, "streamId"    # I
-    .param p2, "length"    # I
-    .param p3, "type"    # B
-    .param p4, "flags"    # B
+    .locals 3
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Ljava/io/IOException;
@@ -626,34 +563,33 @@
 
     if-le p2, v0, :cond_1
 
+    const-string p1, "FRAME_SIZE_ERROR length > %d: %d"
+
+    const/4 p3, 0x2
+
     .line 269
-    const-string v0, "FRAME_SIZE_ERROR length > %d: %d"
+    new-array p3, p3, [Ljava/lang/Object;
 
-    const/4 v3, 0x2
+    iget p4, p0, Lcom/leidong/open/http/okhttp3/internal/http2/Http2Writer;->maxFrameSize:I
 
-    new-array v3, v3, [Ljava/lang/Object;
+    invoke-static {p4}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
 
-    iget v4, p0, Lcom/leidong/open/http/okhttp3/internal/http2/Http2Writer;->maxFrameSize:I
+    move-result-object p4
 
-    invoke-static {v4}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
-
-    move-result-object v4
-
-    aput-object v4, v3, v1
+    aput-object p4, p3, v1
 
     invoke-static {p2}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
 
-    move-result-object v1
+    move-result-object p2
 
-    aput-object v1, v3, v2
+    aput-object p2, p3, v2
 
-    invoke-static {v0, v3}, Lcom/leidong/open/http/okhttp3/internal/http2/Http2;->illegalArgument(Ljava/lang/String;[Ljava/lang/Object;)Ljava/lang/IllegalArgumentException;
+    invoke-static {p1, p3}, Lcom/leidong/open/http/okhttp3/internal/http2/Http2;->illegalArgument(Ljava/lang/String;[Ljava/lang/Object;)Ljava/lang/IllegalArgumentException;
 
-    move-result-object v0
+    move-result-object p1
 
-    throw v0
+    throw p1
 
-    .line 271
     :cond_1
     const/high16 v0, -0x80000000
 
@@ -661,21 +597,22 @@
 
     if-eqz v0, :cond_2
 
-    const-string v0, "reserved bit set: %s"
+    const-string p2, "reserved bit set: %s"
 
-    new-array v2, v2, [Ljava/lang/Object;
+    .line 271
+    new-array p3, v2, [Ljava/lang/Object;
 
     invoke-static {p1}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
 
-    move-result-object v3
+    move-result-object p1
 
-    aput-object v3, v2, v1
+    aput-object p1, p3, v1
 
-    invoke-static {v0, v2}, Lcom/leidong/open/http/okhttp3/internal/http2/Http2;->illegalArgument(Ljava/lang/String;[Ljava/lang/Object;)Ljava/lang/IllegalArgumentException;
+    invoke-static {p2, p3}, Lcom/leidong/open/http/okhttp3/internal/http2/Http2;->illegalArgument(Ljava/lang/String;[Ljava/lang/Object;)Ljava/lang/IllegalArgumentException;
 
-    move-result-object v0
+    move-result-object p1
 
-    throw v0
+    throw p1
 
     .line 272
     :cond_2
@@ -684,37 +621,33 @@
     invoke-static {v0, p2}, Lcom/leidong/open/http/okhttp3/internal/http2/Http2Writer;->writeMedium(Lcom/leidong/open/http/okio/BufferedSink;I)V
 
     .line 273
-    iget-object v0, p0, Lcom/leidong/open/http/okhttp3/internal/http2/Http2Writer;->sink:Lcom/leidong/open/http/okio/BufferedSink;
+    iget-object p2, p0, Lcom/leidong/open/http/okhttp3/internal/http2/Http2Writer;->sink:Lcom/leidong/open/http/okio/BufferedSink;
 
-    and-int/lit16 v1, p3, 0xff
+    and-int/lit16 p3, p3, 0xff
 
-    invoke-interface {v0, v1}, Lcom/leidong/open/http/okio/BufferedSink;->writeByte(I)Lcom/leidong/open/http/okio/BufferedSink;
+    invoke-interface {p2, p3}, Lcom/leidong/open/http/okio/BufferedSink;->writeByte(I)Lcom/leidong/open/http/okio/BufferedSink;
 
     .line 274
-    iget-object v0, p0, Lcom/leidong/open/http/okhttp3/internal/http2/Http2Writer;->sink:Lcom/leidong/open/http/okio/BufferedSink;
+    iget-object p2, p0, Lcom/leidong/open/http/okhttp3/internal/http2/Http2Writer;->sink:Lcom/leidong/open/http/okio/BufferedSink;
 
-    and-int/lit16 v1, p4, 0xff
+    and-int/lit16 p3, p4, 0xff
 
-    invoke-interface {v0, v1}, Lcom/leidong/open/http/okio/BufferedSink;->writeByte(I)Lcom/leidong/open/http/okio/BufferedSink;
+    invoke-interface {p2, p3}, Lcom/leidong/open/http/okio/BufferedSink;->writeByte(I)Lcom/leidong/open/http/okio/BufferedSink;
 
     .line 275
-    iget-object v0, p0, Lcom/leidong/open/http/okhttp3/internal/http2/Http2Writer;->sink:Lcom/leidong/open/http/okio/BufferedSink;
+    iget-object p2, p0, Lcom/leidong/open/http/okhttp3/internal/http2/Http2Writer;->sink:Lcom/leidong/open/http/okio/BufferedSink;
 
-    const v1, 0x7fffffff
+    const p3, 0x7fffffff
 
-    and-int/2addr v1, p1
+    and-int/2addr p1, p3
 
-    invoke-interface {v0, v1}, Lcom/leidong/open/http/okio/BufferedSink;->writeInt(I)Lcom/leidong/open/http/okio/BufferedSink;
+    invoke-interface {p2, p1}, Lcom/leidong/open/http/okio/BufferedSink;->writeInt(I)Lcom/leidong/open/http/okio/BufferedSink;
 
-    .line 276
     return-void
 .end method
 
 .method public declared-synchronized goAway(ILcom/leidong/open/http/okhttp3/internal/http2/ErrorCode;[B)V
-    .locals 6
-    .param p1, "lastGoodStreamId"    # I
-    .param p2, "errorCode"    # Lcom/leidong/open/http/okhttp3/internal/http2/ErrorCode;
-    .param p3, "debugData"    # [B
+    .locals 3
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Ljava/io/IOException;
@@ -729,13 +662,13 @@
 
     if-eqz v0, :cond_0
 
-    new-instance v0, Ljava/io/IOException;
+    new-instance p1, Ljava/io/IOException;
 
-    const-string v1, "closed"
+    const-string p2, "closed"
 
-    invoke-direct {v0, v1}, Ljava/io/IOException;-><init>(Ljava/lang/String;)V
+    invoke-direct {p1, p2}, Ljava/io/IOException;-><init>(Ljava/lang/String;)V
 
-    throw v0
+    throw p1
 
     .line 234
     :cond_0
@@ -743,19 +676,19 @@
 
     const/4 v1, -0x1
 
+    const/4 v2, 0x0
+
     if-ne v0, v1, :cond_1
 
-    const-string v0, "errorCode.httpCode == -1"
+    const-string p1, "errorCode.httpCode == -1"
 
-    const/4 v1, 0x0
+    new-array p2, v2, [Ljava/lang/Object;
 
-    new-array v1, v1, [Ljava/lang/Object;
+    invoke-static {p1, p2}, Lcom/leidong/open/http/okhttp3/internal/http2/Http2;->illegalArgument(Ljava/lang/String;[Ljava/lang/Object;)Ljava/lang/IllegalArgumentException;
 
-    invoke-static {v0, v1}, Lcom/leidong/open/http/okhttp3/internal/http2/Http2;->illegalArgument(Ljava/lang/String;[Ljava/lang/Object;)Ljava/lang/IllegalArgumentException;
+    move-result-object p1
 
-    move-result-object v0
-
-    throw v0
+    throw p1
 
     .line 235
     :cond_1
@@ -763,49 +696,38 @@
 
     add-int/lit8 v0, v0, 0x8
 
-    .line 236
-    .local v0, "length":I
     const/4 v1, 0x7
 
-    .line 237
-    .local v1, "type":B
-    const/4 v2, 0x0
-
-    .line 238
-    .local v2, "flags":B
-    const/4 v3, 0x0
-
     .line 239
-    .local v3, "streamId":I
-    invoke-virtual {p0, v3, v0, v1, v2}, Lcom/leidong/open/http/okhttp3/internal/http2/Http2Writer;->frameHeader(IIBB)V
+    invoke-virtual {p0, v2, v0, v1, v2}, Lcom/leidong/open/http/okhttp3/internal/http2/Http2Writer;->frameHeader(IIBB)V
 
     .line 240
-    iget-object v4, p0, Lcom/leidong/open/http/okhttp3/internal/http2/Http2Writer;->sink:Lcom/leidong/open/http/okio/BufferedSink;
+    iget-object v0, p0, Lcom/leidong/open/http/okhttp3/internal/http2/Http2Writer;->sink:Lcom/leidong/open/http/okio/BufferedSink;
 
-    invoke-interface {v4, p1}, Lcom/leidong/open/http/okio/BufferedSink;->writeInt(I)Lcom/leidong/open/http/okio/BufferedSink;
+    invoke-interface {v0, p1}, Lcom/leidong/open/http/okio/BufferedSink;->writeInt(I)Lcom/leidong/open/http/okio/BufferedSink;
 
     .line 241
-    iget-object v4, p0, Lcom/leidong/open/http/okhttp3/internal/http2/Http2Writer;->sink:Lcom/leidong/open/http/okio/BufferedSink;
+    iget-object p1, p0, Lcom/leidong/open/http/okhttp3/internal/http2/Http2Writer;->sink:Lcom/leidong/open/http/okio/BufferedSink;
 
-    iget v5, p2, Lcom/leidong/open/http/okhttp3/internal/http2/ErrorCode;->httpCode:I
+    iget p2, p2, Lcom/leidong/open/http/okhttp3/internal/http2/ErrorCode;->httpCode:I
 
-    invoke-interface {v4, v5}, Lcom/leidong/open/http/okio/BufferedSink;->writeInt(I)Lcom/leidong/open/http/okio/BufferedSink;
+    invoke-interface {p1, p2}, Lcom/leidong/open/http/okio/BufferedSink;->writeInt(I)Lcom/leidong/open/http/okio/BufferedSink;
 
     .line 242
-    array-length v4, p3
+    array-length p1, p3
 
-    if-lez v4, :cond_2
+    if-lez p1, :cond_2
 
     .line 243
-    iget-object v4, p0, Lcom/leidong/open/http/okhttp3/internal/http2/Http2Writer;->sink:Lcom/leidong/open/http/okio/BufferedSink;
+    iget-object p1, p0, Lcom/leidong/open/http/okhttp3/internal/http2/Http2Writer;->sink:Lcom/leidong/open/http/okio/BufferedSink;
 
-    invoke-interface {v4, p3}, Lcom/leidong/open/http/okio/BufferedSink;->write([B)Lcom/leidong/open/http/okio/BufferedSink;
+    invoke-interface {p1, p3}, Lcom/leidong/open/http/okio/BufferedSink;->write([B)Lcom/leidong/open/http/okio/BufferedSink;
 
     .line 245
     :cond_2
-    iget-object v4, p0, Lcom/leidong/open/http/okhttp3/internal/http2/Http2Writer;->sink:Lcom/leidong/open/http/okio/BufferedSink;
+    iget-object p1, p0, Lcom/leidong/open/http/okhttp3/internal/http2/Http2Writer;->sink:Lcom/leidong/open/http/okio/BufferedSink;
 
-    invoke-interface {v4}, Lcom/leidong/open/http/okio/BufferedSink;->flush()V
+    invoke-interface {p1}, Lcom/leidong/open/http/okio/BufferedSink;->flush()V
     :try_end_0
     .catchall {:try_start_0 .. :try_end_0} :catchall_0
 
@@ -814,25 +736,17 @@
 
     return-void
 
-    .line 232
-    .end local v0    # "length":I
-    .end local v1    # "type":B
-    .end local v2    # "flags":B
-    .end local v3    # "streamId":I
-    .end local p1    # "lastGoodStreamId":I
-    .end local p2    # "errorCode":Lcom/leidong/open/http/okhttp3/internal/http2/ErrorCode;
-    .end local p3    # "debugData":[B
     :catchall_0
     move-exception p1
 
+    .line 232
     monitor-exit p0
 
     throw p1
 .end method
 
 .method public declared-synchronized headers(ILjava/util/List;)V
-    .locals 2
-    .param p1, "streamId"    # I
+    .locals 1
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(I",
@@ -848,8 +762,6 @@
         }
     .end annotation
 
-    .line 139
-    .local p2, "headerBlock":Ljava/util/List;, "Ljava/util/List<Lcom/leidong/open/http/okhttp3/internal/http2/Header;>;"
     monitor-enter p0
 
     .line 139
@@ -858,18 +770,18 @@
 
     if-eqz v0, :cond_0
 
-    new-instance v0, Ljava/io/IOException;
+    new-instance p1, Ljava/io/IOException;
 
-    const-string v1, "closed"
+    const-string p2, "closed"
 
-    invoke-direct {v0, v1}, Ljava/io/IOException;-><init>(Ljava/lang/String;)V
+    invoke-direct {p1, p2}, Ljava/io/IOException;-><init>(Ljava/lang/String;)V
 
-    throw v0
+    throw p1
 
-    .line 140
     :cond_0
     const/4 v0, 0x0
 
+    .line 140
     invoke-virtual {p0, v0, p1, p2}, Lcom/leidong/open/http/okhttp3/internal/http2/Http2Writer;->headers(ZILjava/util/List;)V
     :try_end_0
     .catchall {:try_start_0 .. :try_end_0} :catchall_0
@@ -879,21 +791,17 @@
 
     return-void
 
-    .line 138
-    .end local p1    # "streamId":I
-    .end local p2    # "headerBlock":Ljava/util/List;, "Ljava/util/List<Lcom/leidong/open/http/okhttp3/internal/http2/Header;>;"
     :catchall_0
     move-exception p1
 
+    .line 138
     monitor-exit p0
 
     throw p1
 .end method
 
 .method headers(ZILjava/util/List;)V
-    .locals 9
-    .param p1, "outFinished"    # Z
-    .param p2, "streamId"    # I
+    .locals 6
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(ZI",
@@ -910,18 +818,17 @@
     .end annotation
 
     .line 299
-    .local p3, "headerBlock":Ljava/util/List;, "Ljava/util/List<Lcom/leidong/open/http/okhttp3/internal/http2/Header;>;"
     iget-boolean v0, p0, Lcom/leidong/open/http/okhttp3/internal/http2/Http2Writer;->closed:Z
 
     if-eqz v0, :cond_0
 
-    new-instance v0, Ljava/io/IOException;
+    new-instance p1, Ljava/io/IOException;
 
-    const-string v1, "closed"
+    const-string p2, "closed"
 
-    invoke-direct {v0, v1}, Ljava/io/IOException;-><init>(Ljava/lang/String;)V
+    invoke-direct {p1, p2}, Ljava/io/IOException;-><init>(Ljava/lang/String;)V
 
-    throw v0
+    throw p1
 
     .line 300
     :cond_0
@@ -930,35 +837,28 @@
     invoke-virtual {v0, p3}, Lcom/leidong/open/http/okhttp3/internal/http2/Hpack$Writer;->writeHeaders(Ljava/util/List;)V
 
     .line 302
-    iget-object v0, p0, Lcom/leidong/open/http/okhttp3/internal/http2/Http2Writer;->hpackBuffer:Lcom/leidong/open/http/okio/Buffer;
+    iget-object p3, p0, Lcom/leidong/open/http/okhttp3/internal/http2/Http2Writer;->hpackBuffer:Lcom/leidong/open/http/okio/Buffer;
 
-    invoke-virtual {v0}, Lcom/leidong/open/http/okio/Buffer;->size()J
+    invoke-virtual {p3}, Lcom/leidong/open/http/okio/Buffer;->size()J
 
     move-result-wide v0
 
     .line 303
-    .local v0, "byteCount":J
-    iget v2, p0, Lcom/leidong/open/http/okhttp3/internal/http2/Http2Writer;->maxFrameSize:I
+    iget p3, p0, Lcom/leidong/open/http/okhttp3/internal/http2/Http2Writer;->maxFrameSize:I
 
-    int-to-long v2, v2
+    int-to-long v2, p3
 
     invoke-static {v2, v3, v0, v1}, Ljava/lang/Math;->min(JJ)J
 
     move-result-wide v2
 
-    long-to-int v2, v2
+    long-to-int p3, v2
 
-    .line 304
-    .local v2, "length":I
-    const/4 v3, 0x1
+    int-to-long v2, p3
 
-    .line 305
-    .local v3, "type":B
-    int-to-long v4, v2
+    cmp-long v4, v0, v2
 
-    cmp-long v6, v0, v4
-
-    if-nez v6, :cond_1
+    if-nez v4, :cond_1
 
     const/4 v4, 0x4
 
@@ -967,42 +867,35 @@
     :cond_1
     const/4 v4, 0x0
 
-    .line 306
-    .local v4, "flags":B
     :goto_0
     if-eqz p1, :cond_2
 
-    or-int/lit8 v5, v4, 0x1
+    or-int/lit8 p1, v4, 0x1
 
-    int-to-byte v4, v5
+    int-to-byte v4, p1
+
+    :cond_2
+    const/4 p1, 0x1
 
     .line 307
-    :cond_2
-    invoke-virtual {p0, p2, v2, v3, v4}, Lcom/leidong/open/http/okhttp3/internal/http2/Http2Writer;->frameHeader(IIBB)V
+    invoke-virtual {p0, p2, p3, p1, v4}, Lcom/leidong/open/http/okhttp3/internal/http2/Http2Writer;->frameHeader(IIBB)V
 
     .line 308
-    iget-object v5, p0, Lcom/leidong/open/http/okhttp3/internal/http2/Http2Writer;->sink:Lcom/leidong/open/http/okio/BufferedSink;
+    iget-object p1, p0, Lcom/leidong/open/http/okhttp3/internal/http2/Http2Writer;->sink:Lcom/leidong/open/http/okio/BufferedSink;
 
-    iget-object v6, p0, Lcom/leidong/open/http/okhttp3/internal/http2/Http2Writer;->hpackBuffer:Lcom/leidong/open/http/okio/Buffer;
+    iget-object p3, p0, Lcom/leidong/open/http/okhttp3/internal/http2/Http2Writer;->hpackBuffer:Lcom/leidong/open/http/okio/Buffer;
 
-    int-to-long v7, v2
+    invoke-interface {p1, p3, v2, v3}, Lcom/leidong/open/http/okio/BufferedSink;->write(Lcom/leidong/open/http/okio/Buffer;J)V
 
-    invoke-interface {v5, v6, v7, v8}, Lcom/leidong/open/http/okio/BufferedSink;->write(Lcom/leidong/open/http/okio/Buffer;J)V
+    cmp-long p1, v0, v2
+
+    if-lez p1, :cond_3
+
+    sub-long v4, v0, v2
 
     .line 310
-    int-to-long v5, v2
+    invoke-direct {p0, p2, v4, v5}, Lcom/leidong/open/http/okhttp3/internal/http2/Http2Writer;->writeContinuationFrames(IJ)V
 
-    cmp-long v7, v0, v5
-
-    if-lez v7, :cond_3
-
-    int-to-long v5, v2
-
-    sub-long v7, v0, v5
-
-    invoke-direct {p0, p2, v7, v8}, Lcom/leidong/open/http/okhttp3/internal/http2/Http2Writer;->writeContinuationFrames(IJ)V
-
-    .line 311
     :cond_3
     return-void
 .end method
@@ -1017,10 +910,7 @@
 .end method
 
 .method public declared-synchronized ping(ZII)V
-    .locals 5
-    .param p1, "ack"    # Z
-    .param p2, "payload1"    # I
-    .param p3, "payload2"    # I
+    .locals 3
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Ljava/io/IOException;
@@ -1035,48 +925,38 @@
 
     if-eqz v0, :cond_0
 
-    new-instance v0, Ljava/io/IOException;
+    new-instance p1, Ljava/io/IOException;
 
-    const-string v1, "closed"
+    const-string p2, "closed"
 
-    invoke-direct {v0, v1}, Ljava/io/IOException;-><init>(Ljava/lang/String;)V
+    invoke-direct {p1, p2}, Ljava/io/IOException;-><init>(Ljava/lang/String;)V
 
-    throw v0
+    throw p1
 
-    .line 213
     :cond_0
     const/16 v0, 0x8
 
-    .line 214
-    .local v0, "length":I
     const/4 v1, 0x6
 
-    .line 215
-    .local v1, "type":B
-    move v2, p1
-
-    .line 216
-    .local v2, "flags":B
-    const/4 v3, 0x0
+    const/4 v2, 0x0
 
     .line 217
-    .local v3, "streamId":I
-    invoke-virtual {p0, v3, v0, v1, v2}, Lcom/leidong/open/http/okhttp3/internal/http2/Http2Writer;->frameHeader(IIBB)V
+    invoke-virtual {p0, v2, v0, v1, p1}, Lcom/leidong/open/http/okhttp3/internal/http2/Http2Writer;->frameHeader(IIBB)V
 
     .line 218
-    iget-object v4, p0, Lcom/leidong/open/http/okhttp3/internal/http2/Http2Writer;->sink:Lcom/leidong/open/http/okio/BufferedSink;
+    iget-object p1, p0, Lcom/leidong/open/http/okhttp3/internal/http2/Http2Writer;->sink:Lcom/leidong/open/http/okio/BufferedSink;
 
-    invoke-interface {v4, p2}, Lcom/leidong/open/http/okio/BufferedSink;->writeInt(I)Lcom/leidong/open/http/okio/BufferedSink;
+    invoke-interface {p1, p2}, Lcom/leidong/open/http/okio/BufferedSink;->writeInt(I)Lcom/leidong/open/http/okio/BufferedSink;
 
     .line 219
-    iget-object v4, p0, Lcom/leidong/open/http/okhttp3/internal/http2/Http2Writer;->sink:Lcom/leidong/open/http/okio/BufferedSink;
+    iget-object p1, p0, Lcom/leidong/open/http/okhttp3/internal/http2/Http2Writer;->sink:Lcom/leidong/open/http/okio/BufferedSink;
 
-    invoke-interface {v4, p3}, Lcom/leidong/open/http/okio/BufferedSink;->writeInt(I)Lcom/leidong/open/http/okio/BufferedSink;
+    invoke-interface {p1, p3}, Lcom/leidong/open/http/okio/BufferedSink;->writeInt(I)Lcom/leidong/open/http/okio/BufferedSink;
 
     .line 220
-    iget-object v4, p0, Lcom/leidong/open/http/okhttp3/internal/http2/Http2Writer;->sink:Lcom/leidong/open/http/okio/BufferedSink;
+    iget-object p1, p0, Lcom/leidong/open/http/okhttp3/internal/http2/Http2Writer;->sink:Lcom/leidong/open/http/okio/BufferedSink;
 
-    invoke-interface {v4}, Lcom/leidong/open/http/okio/BufferedSink;->flush()V
+    invoke-interface {p1}, Lcom/leidong/open/http/okio/BufferedSink;->flush()V
     :try_end_0
     .catchall {:try_start_0 .. :try_end_0} :catchall_0
 
@@ -1085,26 +965,17 @@
 
     return-void
 
-    .line 211
-    .end local v0    # "length":I
-    .end local v1    # "type":B
-    .end local v2    # "flags":B
-    .end local v3    # "streamId":I
-    .end local p1    # "ack":Z
-    .end local p2    # "payload1":I
-    .end local p3    # "payload2":I
     :catchall_0
     move-exception p1
 
+    .line 211
     monitor-exit p0
 
     throw p1
 .end method
 
 .method public declared-synchronized pushPromise(IILjava/util/List;)V
-    .locals 9
-    .param p1, "streamId"    # I
-    .param p2, "promisedStreamId"    # I
+    .locals 7
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(II",
@@ -1120,8 +991,6 @@
         }
     .end annotation
 
-    .line 106
-    .local p3, "requestHeaders":Ljava/util/List;, "Ljava/util/List<Lcom/leidong/open/http/okhttp3/internal/http2/Header;>;"
     monitor-enter p0
 
     .line 106
@@ -1130,13 +999,13 @@
 
     if-eqz v0, :cond_0
 
-    new-instance v0, Ljava/io/IOException;
+    new-instance p1, Ljava/io/IOException;
 
-    const-string v1, "closed"
+    const-string p2, "closed"
 
-    invoke-direct {v0, v1}, Ljava/io/IOException;-><init>(Ljava/lang/String;)V
+    invoke-direct {p1, p2}, Ljava/io/IOException;-><init>(Ljava/lang/String;)V
 
-    throw v0
+    throw p1
 
     .line 107
     :cond_0
@@ -1145,82 +1014,72 @@
     invoke-virtual {v0, p3}, Lcom/leidong/open/http/okhttp3/internal/http2/Hpack$Writer;->writeHeaders(Ljava/util/List;)V
 
     .line 109
-    iget-object v0, p0, Lcom/leidong/open/http/okhttp3/internal/http2/Http2Writer;->hpackBuffer:Lcom/leidong/open/http/okio/Buffer;
+    iget-object p3, p0, Lcom/leidong/open/http/okhttp3/internal/http2/Http2Writer;->hpackBuffer:Lcom/leidong/open/http/okio/Buffer;
 
-    invoke-virtual {v0}, Lcom/leidong/open/http/okio/Buffer;->size()J
+    invoke-virtual {p3}, Lcom/leidong/open/http/okio/Buffer;->size()J
 
     move-result-wide v0
 
     .line 110
-    .local v0, "byteCount":J
-    iget v2, p0, Lcom/leidong/open/http/okhttp3/internal/http2/Http2Writer;->maxFrameSize:I
+    iget p3, p0, Lcom/leidong/open/http/okhttp3/internal/http2/Http2Writer;->maxFrameSize:I
 
-    const/4 v3, 0x4
+    const/4 v2, 0x4
 
-    sub-int/2addr v2, v3
+    sub-int/2addr p3, v2
 
-    int-to-long v4, v2
+    int-to-long v3, p3
 
-    invoke-static {v4, v5, v0, v1}, Ljava/lang/Math;->min(JJ)J
+    invoke-static {v3, v4, v0, v1}, Ljava/lang/Math;->min(JJ)J
 
-    move-result-wide v4
+    move-result-wide v3
 
-    long-to-int v2, v4
+    long-to-int p3, v3
 
-    .line 111
-    .local v2, "length":I
-    const/4 v4, 0x5
+    const/4 v3, 0x5
 
-    .line 112
-    .local v4, "type":B
-    int-to-long v5, v2
+    int-to-long v4, p3
 
-    cmp-long v7, v0, v5
+    cmp-long v6, v0, v4
 
-    if-nez v7, :cond_1
+    if-nez v6, :cond_1
+
+    const/4 v6, 0x4
 
     goto :goto_0
 
     :cond_1
-    const/4 v3, 0x0
+    const/4 v6, 0x0
+
+    :goto_0
+    add-int/2addr p3, v2
 
     .line 113
-    .local v3, "flags":B
-    :goto_0
-    add-int/lit8 v5, v2, 0x4
-
-    invoke-virtual {p0, p1, v5, v4, v3}, Lcom/leidong/open/http/okhttp3/internal/http2/Http2Writer;->frameHeader(IIBB)V
+    invoke-virtual {p0, p1, p3, v3, v6}, Lcom/leidong/open/http/okhttp3/internal/http2/Http2Writer;->frameHeader(IIBB)V
 
     .line 114
-    iget-object v5, p0, Lcom/leidong/open/http/okhttp3/internal/http2/Http2Writer;->sink:Lcom/leidong/open/http/okio/BufferedSink;
+    iget-object p3, p0, Lcom/leidong/open/http/okhttp3/internal/http2/Http2Writer;->sink:Lcom/leidong/open/http/okio/BufferedSink;
 
-    const v6, 0x7fffffff
+    const v2, 0x7fffffff
 
-    and-int/2addr v6, p2
+    and-int/2addr p2, v2
 
-    invoke-interface {v5, v6}, Lcom/leidong/open/http/okio/BufferedSink;->writeInt(I)Lcom/leidong/open/http/okio/BufferedSink;
+    invoke-interface {p3, p2}, Lcom/leidong/open/http/okio/BufferedSink;->writeInt(I)Lcom/leidong/open/http/okio/BufferedSink;
 
     .line 115
-    iget-object v5, p0, Lcom/leidong/open/http/okhttp3/internal/http2/Http2Writer;->sink:Lcom/leidong/open/http/okio/BufferedSink;
+    iget-object p2, p0, Lcom/leidong/open/http/okhttp3/internal/http2/Http2Writer;->sink:Lcom/leidong/open/http/okio/BufferedSink;
 
-    iget-object v6, p0, Lcom/leidong/open/http/okhttp3/internal/http2/Http2Writer;->hpackBuffer:Lcom/leidong/open/http/okio/Buffer;
+    iget-object p3, p0, Lcom/leidong/open/http/okhttp3/internal/http2/Http2Writer;->hpackBuffer:Lcom/leidong/open/http/okio/Buffer;
 
-    int-to-long v7, v2
+    invoke-interface {p2, p3, v4, v5}, Lcom/leidong/open/http/okio/BufferedSink;->write(Lcom/leidong/open/http/okio/Buffer;J)V
 
-    invoke-interface {v5, v6, v7, v8}, Lcom/leidong/open/http/okio/BufferedSink;->write(Lcom/leidong/open/http/okio/Buffer;J)V
+    cmp-long p2, v0, v4
+
+    if-lez p2, :cond_2
+
+    sub-long p2, v0, v4
 
     .line 117
-    int-to-long v5, v2
-
-    cmp-long v7, v0, v5
-
-    if-lez v7, :cond_2
-
-    int-to-long v5, v2
-
-    sub-long v7, v0, v5
-
-    invoke-direct {p0, p1, v7, v8}, Lcom/leidong/open/http/okhttp3/internal/http2/Http2Writer;->writeContinuationFrames(IJ)V
+    invoke-direct {p0, p1, p2, p3}, Lcom/leidong/open/http/okhttp3/internal/http2/Http2Writer;->writeContinuationFrames(IJ)V
     :try_end_0
     .catchall {:try_start_0 .. :try_end_0} :catchall_0
 
@@ -1230,26 +1089,17 @@
 
     return-void
 
-    .line 105
-    .end local v0    # "byteCount":J
-    .end local v2    # "length":I
-    .end local v3    # "flags":B
-    .end local v4    # "type":B
-    .end local p1    # "streamId":I
-    .end local p2    # "promisedStreamId":I
-    .end local p3    # "requestHeaders":Ljava/util/List;, "Ljava/util/List<Lcom/leidong/open/http/okhttp3/internal/http2/Header;>;"
     :catchall_0
     move-exception p1
 
+    .line 105
     monitor-exit p0
 
     throw p1
 .end method
 
 .method public declared-synchronized rstStream(ILcom/leidong/open/http/okhttp3/internal/http2/ErrorCode;)V
-    .locals 5
-    .param p1, "streamId"    # I
-    .param p2, "errorCode"    # Lcom/leidong/open/http/okhttp3/internal/http2/ErrorCode;
+    .locals 3
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Ljava/io/IOException;
@@ -1264,13 +1114,13 @@
 
     if-eqz v0, :cond_0
 
-    new-instance v0, Ljava/io/IOException;
+    new-instance p1, Ljava/io/IOException;
 
-    const-string v1, "closed"
+    const-string p2, "closed"
 
-    invoke-direct {v0, v1}, Ljava/io/IOException;-><init>(Ljava/lang/String;)V
+    invoke-direct {p1, p2}, Ljava/io/IOException;-><init>(Ljava/lang/String;)V
 
-    throw v0
+    throw p1
 
     .line 146
     :cond_0
@@ -1280,39 +1130,33 @@
 
     if-ne v0, v1, :cond_1
 
-    new-instance v0, Ljava/lang/IllegalArgumentException;
+    new-instance p1, Ljava/lang/IllegalArgumentException;
 
-    invoke-direct {v0}, Ljava/lang/IllegalArgumentException;-><init>()V
+    invoke-direct {p1}, Ljava/lang/IllegalArgumentException;-><init>()V
 
-    throw v0
+    throw p1
 
-    .line 148
     :cond_1
     const/4 v0, 0x4
 
-    .line 149
-    .local v0, "length":I
     const/4 v1, 0x3
 
-    .line 150
-    .local v1, "type":B
     const/4 v2, 0x0
 
     .line 151
-    .local v2, "flags":B
     invoke-virtual {p0, p1, v0, v1, v2}, Lcom/leidong/open/http/okhttp3/internal/http2/Http2Writer;->frameHeader(IIBB)V
 
     .line 152
-    iget-object v3, p0, Lcom/leidong/open/http/okhttp3/internal/http2/Http2Writer;->sink:Lcom/leidong/open/http/okio/BufferedSink;
+    iget-object p1, p0, Lcom/leidong/open/http/okhttp3/internal/http2/Http2Writer;->sink:Lcom/leidong/open/http/okio/BufferedSink;
 
-    iget v4, p2, Lcom/leidong/open/http/okhttp3/internal/http2/ErrorCode;->httpCode:I
+    iget p2, p2, Lcom/leidong/open/http/okhttp3/internal/http2/ErrorCode;->httpCode:I
 
-    invoke-interface {v3, v4}, Lcom/leidong/open/http/okio/BufferedSink;->writeInt(I)Lcom/leidong/open/http/okio/BufferedSink;
+    invoke-interface {p1, p2}, Lcom/leidong/open/http/okio/BufferedSink;->writeInt(I)Lcom/leidong/open/http/okio/BufferedSink;
 
     .line 153
-    iget-object v3, p0, Lcom/leidong/open/http/okhttp3/internal/http2/Http2Writer;->sink:Lcom/leidong/open/http/okio/BufferedSink;
+    iget-object p1, p0, Lcom/leidong/open/http/okhttp3/internal/http2/Http2Writer;->sink:Lcom/leidong/open/http/okio/BufferedSink;
 
-    invoke-interface {v3}, Lcom/leidong/open/http/okio/BufferedSink;->flush()V
+    invoke-interface {p1}, Lcom/leidong/open/http/okio/BufferedSink;->flush()V
     :try_end_0
     .catchall {:try_start_0 .. :try_end_0} :catchall_0
 
@@ -1321,23 +1165,17 @@
 
     return-void
 
-    .line 144
-    .end local v0    # "length":I
-    .end local v1    # "type":B
-    .end local v2    # "flags":B
-    .end local p1    # "streamId":I
-    .end local p2    # "errorCode":Lcom/leidong/open/http/okhttp3/internal/http2/ErrorCode;
     :catchall_0
     move-exception p1
 
+    .line 144
     monitor-exit p0
 
     throw p1
 .end method
 
 .method public declared-synchronized settings(Lcom/leidong/open/http/okhttp3/internal/http2/Settings;)V
-    .locals 8
-    .param p1, "settings"    # Lcom/leidong/open/http/okhttp3/internal/http2/Settings;
+    .locals 4
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Ljava/io/IOException;
@@ -1352,13 +1190,13 @@
 
     if-eqz v0, :cond_0
 
-    new-instance v0, Ljava/io/IOException;
+    new-instance p1, Ljava/io/IOException;
 
-    const-string v1, "closed"
+    const-string v0, "closed"
 
-    invoke-direct {v0, v1}, Ljava/io/IOException;-><init>(Ljava/lang/String;)V
+    invoke-direct {p1, v0}, Ljava/io/IOException;-><init>(Ljava/lang/String;)V
 
-    throw v0
+    throw p1
 
     .line 188
     :cond_0
@@ -1368,94 +1206,71 @@
 
     mul-int/lit8 v0, v0, 0x6
 
-    .line 189
-    .local v0, "length":I
-    const/4 v1, 0x4
+    const/4 v1, 0x0
 
-    .line 190
-    .local v1, "type":B
-    const/4 v2, 0x0
-
-    .line 191
-    .local v2, "flags":B
-    const/4 v3, 0x0
+    const/4 v2, 0x4
 
     .line 192
-    .local v3, "streamId":I
-    invoke-virtual {p0, v3, v0, v1, v2}, Lcom/leidong/open/http/okhttp3/internal/http2/Http2Writer;->frameHeader(IIBB)V
+    invoke-virtual {p0, v1, v0, v2, v1}, Lcom/leidong/open/http/okhttp3/internal/http2/Http2Writer;->frameHeader(IIBB)V
 
-    .line 193
-    const/4 v4, 0x0
-
-    .line 193
-    .local v4, "i":I
     :goto_0
-    const/16 v5, 0xa
+    const/16 v0, 0xa
 
-    if-ge v4, v5, :cond_4
+    if-ge v1, v0, :cond_4
 
     .line 194
-    invoke-virtual {p1, v4}, Lcom/leidong/open/http/okhttp3/internal/http2/Settings;->isSet(I)Z
+    invoke-virtual {p1, v1}, Lcom/leidong/open/http/okhttp3/internal/http2/Settings;->isSet(I)Z
 
-    move-result v5
+    move-result v0
 
-    if-nez v5, :cond_1
+    if-nez v0, :cond_1
 
     goto :goto_2
 
-    .line 195
     :cond_1
-    move v5, v4
+    if-ne v1, v2, :cond_2
 
-    .line 196
-    .local v5, "id":I
-    const/4 v6, 0x4
-
-    if-ne v5, v6, :cond_2
-
-    .line 197
-    const/4 v5, 0x3
+    const/4 v0, 0x3
 
     goto :goto_1
 
-    .line 198
     :cond_2
-    const/4 v6, 0x7
+    const/4 v0, 0x7
 
-    if-ne v5, v6, :cond_3
+    if-ne v1, v0, :cond_3
 
-    .line 199
-    const/4 v5, 0x4
+    const/4 v0, 0x4
+
+    goto :goto_1
+
+    :cond_3
+    move v0, v1
 
     .line 201
-    :cond_3
     :goto_1
-    iget-object v6, p0, Lcom/leidong/open/http/okhttp3/internal/http2/Http2Writer;->sink:Lcom/leidong/open/http/okio/BufferedSink;
+    iget-object v3, p0, Lcom/leidong/open/http/okhttp3/internal/http2/Http2Writer;->sink:Lcom/leidong/open/http/okio/BufferedSink;
 
-    invoke-interface {v6, v5}, Lcom/leidong/open/http/okio/BufferedSink;->writeShort(I)Lcom/leidong/open/http/okio/BufferedSink;
+    invoke-interface {v3, v0}, Lcom/leidong/open/http/okio/BufferedSink;->writeShort(I)Lcom/leidong/open/http/okio/BufferedSink;
 
     .line 202
-    iget-object v6, p0, Lcom/leidong/open/http/okhttp3/internal/http2/Http2Writer;->sink:Lcom/leidong/open/http/okio/BufferedSink;
+    iget-object v0, p0, Lcom/leidong/open/http/okhttp3/internal/http2/Http2Writer;->sink:Lcom/leidong/open/http/okio/BufferedSink;
 
-    invoke-virtual {p1, v4}, Lcom/leidong/open/http/okhttp3/internal/http2/Settings;->get(I)I
+    invoke-virtual {p1, v1}, Lcom/leidong/open/http/okhttp3/internal/http2/Settings;->get(I)I
 
-    move-result v7
+    move-result v3
 
-    invoke-interface {v6, v7}, Lcom/leidong/open/http/okio/BufferedSink;->writeInt(I)Lcom/leidong/open/http/okio/BufferedSink;
+    invoke-interface {v0, v3}, Lcom/leidong/open/http/okio/BufferedSink;->writeInt(I)Lcom/leidong/open/http/okio/BufferedSink;
 
-    .line 193
-    .end local v5    # "id":I
     :goto_2
-    add-int/lit8 v4, v4, 0x1
+    add-int/lit8 v1, v1, 0x1
 
     goto :goto_0
 
     .line 204
-    .end local v4    # "i":I
     :cond_4
-    iget-object v4, p0, Lcom/leidong/open/http/okhttp3/internal/http2/Http2Writer;->sink:Lcom/leidong/open/http/okio/BufferedSink;
+    iget-object p1, p0, Lcom/leidong/open/http/okhttp3/internal/http2/Http2Writer;->sink:Lcom/leidong/open/http/okio/BufferedSink;
 
-    invoke-interface {v4}, Lcom/leidong/open/http/okio/BufferedSink;->flush()V
+    invoke-interface {p1}, Lcom/leidong/open/http/okio/BufferedSink;->flush()V
     :try_end_0
     .catchall {:try_start_0 .. :try_end_0} :catchall_0
 
@@ -1464,24 +1279,17 @@
 
     return-void
 
-    .line 186
-    .end local v0    # "length":I
-    .end local v1    # "type":B
-    .end local v2    # "flags":B
-    .end local v3    # "streamId":I
-    .end local p1    # "settings":Lcom/leidong/open/http/okhttp3/internal/http2/Settings;
     :catchall_0
     move-exception p1
 
+    .line 186
     monitor-exit p0
 
     throw p1
 .end method
 
 .method public declared-synchronized synReply(ZILjava/util/List;)V
-    .locals 2
-    .param p1, "outFinished"    # Z
-    .param p2, "streamId"    # I
+    .locals 1
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(ZI",
@@ -1497,8 +1305,6 @@
         }
     .end annotation
 
-    .line 133
-    .local p3, "headerBlock":Ljava/util/List;, "Ljava/util/List<Lcom/leidong/open/http/okhttp3/internal/http2/Header;>;"
     monitor-enter p0
 
     .line 133
@@ -1507,13 +1313,13 @@
 
     if-eqz v0, :cond_0
 
-    new-instance v0, Ljava/io/IOException;
+    new-instance p1, Ljava/io/IOException;
 
-    const-string v1, "closed"
+    const-string p2, "closed"
 
-    invoke-direct {v0, v1}, Ljava/io/IOException;-><init>(Ljava/lang/String;)V
+    invoke-direct {p1, p2}, Ljava/io/IOException;-><init>(Ljava/lang/String;)V
 
-    throw v0
+    throw p1
 
     .line 134
     :cond_0
@@ -1526,23 +1332,17 @@
 
     return-void
 
-    .line 132
-    .end local p1    # "outFinished":Z
-    .end local p2    # "streamId":I
-    .end local p3    # "headerBlock":Ljava/util/List;, "Ljava/util/List<Lcom/leidong/open/http/okhttp3/internal/http2/Header;>;"
     :catchall_0
     move-exception p1
 
+    .line 132
     monitor-exit p0
 
     throw p1
 .end method
 
 .method public declared-synchronized synStream(ZIILjava/util/List;)V
-    .locals 2
-    .param p1, "outFinished"    # Z
-    .param p2, "streamId"    # I
-    .param p3, "associatedStreamId"    # I
+    .locals 0
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(ZII",
@@ -1558,23 +1358,21 @@
         }
     .end annotation
 
-    .line 127
-    .local p4, "headerBlock":Ljava/util/List;, "Ljava/util/List<Lcom/leidong/open/http/okhttp3/internal/http2/Header;>;"
     monitor-enter p0
 
     .line 127
     :try_start_0
-    iget-boolean v0, p0, Lcom/leidong/open/http/okhttp3/internal/http2/Http2Writer;->closed:Z
+    iget-boolean p3, p0, Lcom/leidong/open/http/okhttp3/internal/http2/Http2Writer;->closed:Z
 
-    if-eqz v0, :cond_0
+    if-eqz p3, :cond_0
 
-    new-instance v0, Ljava/io/IOException;
+    new-instance p1, Ljava/io/IOException;
 
-    const-string v1, "closed"
+    const-string p2, "closed"
 
-    invoke-direct {v0, v1}, Ljava/io/IOException;-><init>(Ljava/lang/String;)V
+    invoke-direct {p1, p2}, Ljava/io/IOException;-><init>(Ljava/lang/String;)V
 
-    throw v0
+    throw p1
 
     .line 128
     :cond_0
@@ -1587,23 +1385,17 @@
 
     return-void
 
-    .line 126
-    .end local p1    # "outFinished":Z
-    .end local p2    # "streamId":I
-    .end local p3    # "associatedStreamId":I
-    .end local p4    # "headerBlock":Ljava/util/List;, "Ljava/util/List<Lcom/leidong/open/http/okhttp3/internal/http2/Header;>;"
     :catchall_0
     move-exception p1
 
+    .line 126
     monitor-exit p0
 
     throw p1
 .end method
 
 .method public declared-synchronized windowUpdate(IJ)V
-    .locals 5
-    .param p1, "streamId"    # I
-    .param p2, "windowSizeIncrement"    # J
+    .locals 4
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Ljava/io/IOException;
@@ -1618,57 +1410,50 @@
 
     if-eqz v0, :cond_0
 
-    new-instance v0, Ljava/io/IOException;
+    new-instance p1, Ljava/io/IOException;
 
-    const-string v1, "closed"
+    const-string p2, "closed"
 
-    invoke-direct {v0, v1}, Ljava/io/IOException;-><init>(Ljava/lang/String;)V
+    invoke-direct {p1, p2}, Ljava/io/IOException;-><init>(Ljava/lang/String;)V
 
-    throw v0
+    throw p1
 
-    .line 254
     :cond_0
     const-wide/16 v0, 0x0
 
     cmp-long v2, p2, v0
 
+    const/4 v0, 0x0
+
     if-eqz v2, :cond_2
 
-    const-wide/32 v0, 0x7fffffff
+    const-wide/32 v1, 0x7fffffff
 
-    cmp-long v2, p2, v0
+    cmp-long v3, p2, v1
 
-    if-lez v2, :cond_1
+    if-lez v3, :cond_1
 
     goto :goto_0
 
-    .line 258
     :cond_1
-    const/4 v0, 0x4
+    const/4 v1, 0x4
 
-    .line 259
-    .local v0, "length":I
-    const/16 v1, 0x8
-
-    .line 260
-    .local v1, "type":B
-    const/4 v2, 0x0
+    const/16 v2, 0x8
 
     .line 261
-    .local v2, "flags":B
-    invoke-virtual {p0, p1, v0, v1, v2}, Lcom/leidong/open/http/okhttp3/internal/http2/Http2Writer;->frameHeader(IIBB)V
+    invoke-virtual {p0, p1, v1, v2, v0}, Lcom/leidong/open/http/okhttp3/internal/http2/Http2Writer;->frameHeader(IIBB)V
 
     .line 262
-    iget-object v3, p0, Lcom/leidong/open/http/okhttp3/internal/http2/Http2Writer;->sink:Lcom/leidong/open/http/okio/BufferedSink;
+    iget-object p1, p0, Lcom/leidong/open/http/okhttp3/internal/http2/Http2Writer;->sink:Lcom/leidong/open/http/okio/BufferedSink;
 
-    long-to-int v4, p2
+    long-to-int p2, p2
 
-    invoke-interface {v3, v4}, Lcom/leidong/open/http/okio/BufferedSink;->writeInt(I)Lcom/leidong/open/http/okio/BufferedSink;
+    invoke-interface {p1, p2}, Lcom/leidong/open/http/okio/BufferedSink;->writeInt(I)Lcom/leidong/open/http/okio/BufferedSink;
 
     .line 263
-    iget-object v3, p0, Lcom/leidong/open/http/okhttp3/internal/http2/Http2Writer;->sink:Lcom/leidong/open/http/okio/BufferedSink;
+    iget-object p1, p0, Lcom/leidong/open/http/okhttp3/internal/http2/Http2Writer;->sink:Lcom/leidong/open/http/okio/BufferedSink;
 
-    invoke-interface {v3}, Lcom/leidong/open/http/okio/BufferedSink;->flush()V
+    invoke-interface {p1}, Lcom/leidong/open/http/okio/BufferedSink;->flush()V
     :try_end_0
     .catchall {:try_start_0 .. :try_end_0} :catchall_0
 
@@ -1677,43 +1462,36 @@
 
     return-void
 
-    .line 255
-    .end local v0    # "length":I
-    .end local v1    # "type":B
-    .end local v2    # "flags":B
     :cond_2
     :goto_0
     :try_start_1
-    const-string v0, "windowSizeIncrement == 0 || windowSizeIncrement > 0x7fffffffL: %s"
+    const-string p1, "windowSizeIncrement == 0 || windowSizeIncrement > 0x7fffffffL: %s"
 
     const/4 v1, 0x1
 
+    .line 255
     new-array v1, v1, [Ljava/lang/Object;
-
-    const/4 v2, 0x0
 
     .line 256
     invoke-static {p2, p3}, Ljava/lang/Long;->valueOf(J)Ljava/lang/Long;
 
-    move-result-object v3
+    move-result-object p2
 
-    aput-object v3, v1, v2
+    aput-object p2, v1, v0
 
     .line 255
-    invoke-static {v0, v1}, Lcom/leidong/open/http/okhttp3/internal/http2/Http2;->illegalArgument(Ljava/lang/String;[Ljava/lang/Object;)Ljava/lang/IllegalArgumentException;
+    invoke-static {p1, v1}, Lcom/leidong/open/http/okhttp3/internal/http2/Http2;->illegalArgument(Ljava/lang/String;[Ljava/lang/Object;)Ljava/lang/IllegalArgumentException;
 
-    move-result-object v0
+    move-result-object p1
 
-    throw v0
+    throw p1
     :try_end_1
     .catchall {:try_start_1 .. :try_end_1} :catchall_0
 
-    .line 252
-    .end local p1    # "streamId":I
-    .end local p2    # "windowSizeIncrement":J
     :catchall_0
     move-exception p1
 
+    .line 252
     monitor-exit p0
 
     throw p1

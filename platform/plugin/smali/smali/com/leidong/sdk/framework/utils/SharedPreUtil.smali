@@ -14,217 +14,169 @@
 .end method
 
 .method public static getBooleanData(Landroid/content/Context;Ljava/lang/String;Ljava/lang/String;Z)Z
-    .locals 2
-    .param p0, "context"    # Landroid/content/Context;
-    .param p1, "spName"    # Ljava/lang/String;
-    .param p2, "key"    # Ljava/lang/String;
-    .param p3, "dValue"    # Z
+    .locals 1
 
-    .line 30
     const/4 v0, 0x0
 
+    .line 30
     invoke-virtual {p0, p1, v0}, Landroid/content/Context;->getSharedPreferences(Ljava/lang/String;I)Landroid/content/SharedPreferences;
 
-    move-result-object v0
+    move-result-object p0
 
     .line 31
-    .local v0, "uiState":Landroid/content/SharedPreferences;
-    invoke-interface {v0, p2, p3}, Landroid/content/SharedPreferences;->getBoolean(Ljava/lang/String;Z)Z
+    invoke-interface {p0, p2, p3}, Landroid/content/SharedPreferences;->getBoolean(Ljava/lang/String;Z)Z
 
-    move-result v1
+    move-result p0
 
-    return v1
+    return p0
 .end method
 
 .method public static getIntData(Landroid/content/Context;Ljava/lang/String;Ljava/lang/String;I)I
-    .locals 2
-    .param p0, "context"    # Landroid/content/Context;
-    .param p1, "spName"    # Ljava/lang/String;
-    .param p2, "key"    # Ljava/lang/String;
-    .param p3, "dValue"    # I
+    .locals 1
 
-    .line 42
     const/4 v0, 0x0
 
+    .line 42
     invoke-virtual {p0, p1, v0}, Landroid/content/Context;->getSharedPreferences(Ljava/lang/String;I)Landroid/content/SharedPreferences;
 
-    move-result-object v0
+    move-result-object p0
 
     .line 43
-    .local v0, "uiState":Landroid/content/SharedPreferences;
-    invoke-interface {v0, p2, p3}, Landroid/content/SharedPreferences;->getInt(Ljava/lang/String;I)I
+    invoke-interface {p0, p2, p3}, Landroid/content/SharedPreferences;->getInt(Ljava/lang/String;I)I
 
-    move-result v1
+    move-result p0
 
-    return v1
+    return p0
 .end method
 
 .method public static getLongData(Landroid/content/Context;Ljava/lang/String;Ljava/lang/String;J)J
-    .locals 3
-    .param p0, "context"    # Landroid/content/Context;
-    .param p1, "spName"    # Ljava/lang/String;
-    .param p2, "key"    # Ljava/lang/String;
-    .param p3, "dValue"    # J
+    .locals 1
 
-    .line 47
     const/4 v0, 0x0
 
+    .line 47
     invoke-virtual {p0, p1, v0}, Landroid/content/Context;->getSharedPreferences(Ljava/lang/String;I)Landroid/content/SharedPreferences;
 
-    move-result-object v0
+    move-result-object p0
 
     .line 48
-    .local v0, "uiState":Landroid/content/SharedPreferences;
-    invoke-interface {v0, p2, p3, p4}, Landroid/content/SharedPreferences;->getLong(Ljava/lang/String;J)J
+    invoke-interface {p0, p2, p3, p4}, Landroid/content/SharedPreferences;->getLong(Ljava/lang/String;J)J
 
-    move-result-wide v1
+    move-result-wide p0
 
-    return-wide v1
+    return-wide p0
 .end method
 
 .method public static getStringData(Landroid/content/Context;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;)Ljava/lang/String;
-    .locals 2
-    .param p0, "context"    # Landroid/content/Context;
-    .param p1, "spName"    # Ljava/lang/String;
-    .param p2, "key"    # Ljava/lang/String;
-    .param p3, "dValue"    # Ljava/lang/String;
+    .locals 1
 
-    .line 18
     const/4 v0, 0x0
 
+    .line 18
     invoke-virtual {p0, p1, v0}, Landroid/content/Context;->getSharedPreferences(Ljava/lang/String;I)Landroid/content/SharedPreferences;
 
-    move-result-object v0
+    move-result-object p0
 
     .line 19
-    .local v0, "uiState":Landroid/content/SharedPreferences;
-    invoke-interface {v0, p2, p3}, Landroid/content/SharedPreferences;->getString(Ljava/lang/String;Ljava/lang/String;)Ljava/lang/String;
+    invoke-interface {p0, p2, p3}, Landroid/content/SharedPreferences;->getString(Ljava/lang/String;Ljava/lang/String;)Ljava/lang/String;
 
-    move-result-object v1
+    move-result-object p0
 
-    return-object v1
+    return-object p0
 .end method
 
 .method public static setBooleanData(Landroid/content/Context;Ljava/lang/String;Ljava/lang/String;Z)V
-    .locals 2
-    .param p0, "context"    # Landroid/content/Context;
-    .param p1, "spName"    # Ljava/lang/String;
-    .param p2, "key"    # Ljava/lang/String;
-    .param p3, "value"    # Z
+    .locals 1
 
-    .line 23
     const/4 v0, 0x0
 
+    .line 23
     invoke-virtual {p0, p1, v0}, Landroid/content/Context;->getSharedPreferences(Ljava/lang/String;I)Landroid/content/SharedPreferences;
 
-    move-result-object v0
+    move-result-object p0
 
     .line 24
-    .local v0, "uiState":Landroid/content/SharedPreferences;
-    invoke-interface {v0}, Landroid/content/SharedPreferences;->edit()Landroid/content/SharedPreferences$Editor;
+    invoke-interface {p0}, Landroid/content/SharedPreferences;->edit()Landroid/content/SharedPreferences$Editor;
 
-    move-result-object v1
+    move-result-object p0
 
     .line 25
-    .local v1, "editor":Landroid/content/SharedPreferences$Editor;
-    invoke-interface {v1, p2, p3}, Landroid/content/SharedPreferences$Editor;->putBoolean(Ljava/lang/String;Z)Landroid/content/SharedPreferences$Editor;
+    invoke-interface {p0, p2, p3}, Landroid/content/SharedPreferences$Editor;->putBoolean(Ljava/lang/String;Z)Landroid/content/SharedPreferences$Editor;
 
     .line 26
-    invoke-interface {v1}, Landroid/content/SharedPreferences$Editor;->commit()Z
+    invoke-interface {p0}, Landroid/content/SharedPreferences$Editor;->commit()Z
 
-    .line 27
     return-void
 .end method
 
 .method public static setIntData(Landroid/content/Context;Ljava/lang/String;Ljava/lang/String;I)V
-    .locals 2
-    .param p0, "context"    # Landroid/content/Context;
-    .param p1, "spName"    # Ljava/lang/String;
-    .param p2, "key"    # Ljava/lang/String;
-    .param p3, "value"    # I
+    .locals 1
 
-    .line 35
     const/4 v0, 0x0
 
+    .line 35
     invoke-virtual {p0, p1, v0}, Landroid/content/Context;->getSharedPreferences(Ljava/lang/String;I)Landroid/content/SharedPreferences;
 
-    move-result-object v0
+    move-result-object p0
 
     .line 36
-    .local v0, "uiState":Landroid/content/SharedPreferences;
-    invoke-interface {v0}, Landroid/content/SharedPreferences;->edit()Landroid/content/SharedPreferences$Editor;
+    invoke-interface {p0}, Landroid/content/SharedPreferences;->edit()Landroid/content/SharedPreferences$Editor;
 
-    move-result-object v1
+    move-result-object p0
 
     .line 37
-    .local v1, "editor":Landroid/content/SharedPreferences$Editor;
-    invoke-interface {v1, p2, p3}, Landroid/content/SharedPreferences$Editor;->putInt(Ljava/lang/String;I)Landroid/content/SharedPreferences$Editor;
+    invoke-interface {p0, p2, p3}, Landroid/content/SharedPreferences$Editor;->putInt(Ljava/lang/String;I)Landroid/content/SharedPreferences$Editor;
 
     .line 38
-    invoke-interface {v1}, Landroid/content/SharedPreferences$Editor;->commit()Z
+    invoke-interface {p0}, Landroid/content/SharedPreferences$Editor;->commit()Z
 
-    .line 39
     return-void
 .end method
 
 .method public static setLongData(Landroid/content/Context;Ljava/lang/String;Ljava/lang/String;J)V
-    .locals 2
-    .param p0, "context"    # Landroid/content/Context;
-    .param p1, "spName"    # Ljava/lang/String;
-    .param p2, "key"    # Ljava/lang/String;
-    .param p3, "value"    # J
+    .locals 1
 
-    .line 52
     const/4 v0, 0x0
 
+    .line 52
     invoke-virtual {p0, p1, v0}, Landroid/content/Context;->getSharedPreferences(Ljava/lang/String;I)Landroid/content/SharedPreferences;
 
-    move-result-object v0
+    move-result-object p0
 
     .line 53
-    .local v0, "uiState":Landroid/content/SharedPreferences;
-    invoke-interface {v0}, Landroid/content/SharedPreferences;->edit()Landroid/content/SharedPreferences$Editor;
+    invoke-interface {p0}, Landroid/content/SharedPreferences;->edit()Landroid/content/SharedPreferences$Editor;
 
-    move-result-object v1
+    move-result-object p0
 
     .line 54
-    .local v1, "editor":Landroid/content/SharedPreferences$Editor;
-    invoke-interface {v1, p2, p3, p4}, Landroid/content/SharedPreferences$Editor;->putLong(Ljava/lang/String;J)Landroid/content/SharedPreferences$Editor;
+    invoke-interface {p0, p2, p3, p4}, Landroid/content/SharedPreferences$Editor;->putLong(Ljava/lang/String;J)Landroid/content/SharedPreferences$Editor;
 
     .line 55
-    invoke-interface {v1}, Landroid/content/SharedPreferences$Editor;->commit()Z
+    invoke-interface {p0}, Landroid/content/SharedPreferences$Editor;->commit()Z
 
-    .line 56
     return-void
 .end method
 
 .method public static setStringData(Landroid/content/Context;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;)V
-    .locals 2
-    .param p0, "context"    # Landroid/content/Context;
-    .param p1, "spName"    # Ljava/lang/String;
-    .param p2, "key"    # Ljava/lang/String;
-    .param p3, "value"    # Ljava/lang/String;
+    .locals 1
 
-    .line 11
     const/4 v0, 0x0
 
+    .line 11
     invoke-virtual {p0, p1, v0}, Landroid/content/Context;->getSharedPreferences(Ljava/lang/String;I)Landroid/content/SharedPreferences;
 
-    move-result-object v0
+    move-result-object p0
 
     .line 12
-    .local v0, "uiState":Landroid/content/SharedPreferences;
-    invoke-interface {v0}, Landroid/content/SharedPreferences;->edit()Landroid/content/SharedPreferences$Editor;
+    invoke-interface {p0}, Landroid/content/SharedPreferences;->edit()Landroid/content/SharedPreferences$Editor;
 
-    move-result-object v1
+    move-result-object p0
 
     .line 13
-    .local v1, "editor":Landroid/content/SharedPreferences$Editor;
-    invoke-interface {v1, p2, p3}, Landroid/content/SharedPreferences$Editor;->putString(Ljava/lang/String;Ljava/lang/String;)Landroid/content/SharedPreferences$Editor;
+    invoke-interface {p0, p2, p3}, Landroid/content/SharedPreferences$Editor;->putString(Ljava/lang/String;Ljava/lang/String;)Landroid/content/SharedPreferences$Editor;
 
     .line 14
-    invoke-interface {v1}, Landroid/content/SharedPreferences$Editor;->commit()Z
+    invoke-interface {p0}, Landroid/content/SharedPreferences$Editor;->commit()Z
 
-    .line 15
     return-void
 .end method

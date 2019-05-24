@@ -24,7 +24,6 @@
 # direct methods
 .method constructor <init>(Lcom/leidong/open/main/OpenDownloadUtils;)V
     .locals 0
-    .param p1, "this$0"    # Lcom/leidong/open/main/OpenDownloadUtils;
 
     .line 25
     iput-object p1, p0, Lcom/leidong/open/main/OpenDownloadUtils$1;->this$0:Lcom/leidong/open/main/OpenDownloadUtils;
@@ -39,6 +38,5 @@
 .method public onAllTaskEnd()V
     .locals 0
 
-    .line 31
     return-void
 .end method

@@ -35,8 +35,6 @@
 
 .method synthetic constructor <init>(Lcom/leidong/sdk/m/activity/SdkCustomerServiceActivity;Lcom/leidong/sdk/m/activity/SdkCustomerServiceActivity$1;)V
     .locals 0
-    .param p1, "x0"    # Lcom/leidong/sdk/m/activity/SdkCustomerServiceActivity;
-    .param p2, "x1"    # Lcom/leidong/sdk/m/activity/SdkCustomerServiceActivity$1;
 
     .line 250
     invoke-direct {p0, p1}, Lcom/leidong/sdk/m/activity/SdkCustomerServiceActivity$MyWebViewDownLoadListener;-><init>(Lcom/leidong/sdk/m/activity/SdkCustomerServiceActivity;)V
@@ -47,23 +45,16 @@
 
 # virtual methods
 .method public onDownloadStart(Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;J)V
-    .locals 1
-    .param p1, "url"    # Ljava/lang/String;
-    .param p2, "userAgent"    # Ljava/lang/String;
-    .param p3, "contentDisposition"    # Ljava/lang/String;
-    .param p4, "mimetype"    # Ljava/lang/String;
-    .param p5, "contentLength"    # J
+    .locals 0
 
     .line 256
-    iget-object v0, p0, Lcom/leidong/sdk/m/activity/SdkCustomerServiceActivity$MyWebViewDownLoadListener;->this$0:Lcom/leidong/sdk/m/activity/SdkCustomerServiceActivity;
+    iget-object p2, p0, Lcom/leidong/sdk/m/activity/SdkCustomerServiceActivity$MyWebViewDownLoadListener;->this$0:Lcom/leidong/sdk/m/activity/SdkCustomerServiceActivity;
 
-    # getter for: Lcom/leidong/sdk/m/activity/SdkCustomerServiceActivity;->mContext:Landroid/content/Context;
-    invoke-static {v0}, Lcom/leidong/sdk/m/activity/SdkCustomerServiceActivity;->access$200(Lcom/leidong/sdk/m/activity/SdkCustomerServiceActivity;)Landroid/content/Context;
+    invoke-static {p2}, Lcom/leidong/sdk/m/activity/SdkCustomerServiceActivity;->access$200(Lcom/leidong/sdk/m/activity/SdkCustomerServiceActivity;)Landroid/content/Context;
 
-    move-result-object v0
+    move-result-object p2
 
-    invoke-static {v0, p1}, Lcom/leidong/sdk/framework/utils/CommonUtil;->toUri(Landroid/content/Context;Ljava/lang/String;)V
+    invoke-static {p2, p1}, Lcom/leidong/sdk/framework/utils/CommonUtil;->toUri(Landroid/content/Context;Ljava/lang/String;)V
 
-    .line 258
     return-void
 .end method

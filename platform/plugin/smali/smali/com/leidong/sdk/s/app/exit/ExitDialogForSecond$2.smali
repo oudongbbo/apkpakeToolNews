@@ -26,7 +26,6 @@
 # direct methods
 .method constructor <init>(Lcom/leidong/sdk/s/app/exit/ExitDialogForSecond;Landroid/widget/ImageView;)V
     .locals 0
-    .param p1, "this$0"    # Lcom/leidong/sdk/s/app/exit/ExitDialogForSecond;
 
     .line 227
     iput-object p1, p0, Lcom/leidong/sdk/s/app/exit/ExitDialogForSecond$2;->this$0:Lcom/leidong/sdk/s/app/exit/ExitDialogForSecond;
@@ -41,30 +40,25 @@
 
 # virtual methods
 .method public onFail(Ljava/lang/String;)V
-    .locals 2
-    .param p1, "url"    # Ljava/lang/String;
+    .locals 1
 
     .line 231
-    iget-object v0, p0, Lcom/leidong/sdk/s/app/exit/ExitDialogForSecond$2;->val$view:Landroid/widget/ImageView;
+    iget-object p1, p0, Lcom/leidong/sdk/s/app/exit/ExitDialogForSecond$2;->val$view:Landroid/widget/ImageView;
 
-    const/16 v1, 0x8
+    const/16 v0, 0x8
 
-    invoke-virtual {v0, v1}, Landroid/widget/ImageView;->setVisibility(I)V
+    invoke-virtual {p1, v0}, Landroid/widget/ImageView;->setVisibility(I)V
 
-    .line 232
     return-void
 .end method
 
 .method public onSuccess(Landroid/graphics/Bitmap;Ljava/lang/String;)V
-    .locals 1
-    .param p1, "bitmap"    # Landroid/graphics/Bitmap;
-    .param p2, "url"    # Ljava/lang/String;
+    .locals 0
 
     .line 236
-    iget-object v0, p0, Lcom/leidong/sdk/s/app/exit/ExitDialogForSecond$2;->val$view:Landroid/widget/ImageView;
+    iget-object p2, p0, Lcom/leidong/sdk/s/app/exit/ExitDialogForSecond$2;->val$view:Landroid/widget/ImageView;
 
-    invoke-virtual {v0, p1}, Landroid/widget/ImageView;->setImageBitmap(Landroid/graphics/Bitmap;)V
+    invoke-virtual {p2, p1}, Landroid/widget/ImageView;->setImageBitmap(Landroid/graphics/Bitmap;)V
 
-    .line 237
     return-void
 .end method

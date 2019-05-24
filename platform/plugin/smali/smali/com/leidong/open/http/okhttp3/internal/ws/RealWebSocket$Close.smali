@@ -25,9 +25,6 @@
 # direct methods
 .method constructor <init>(ILcom/leidong/open/http/okio/ByteString;J)V
     .locals 0
-    .param p1, "code"    # I
-    .param p2, "reason"    # Lcom/leidong/open/http/okio/ByteString;
-    .param p3, "cancelAfterCloseMillis"    # J
 
     .line 565
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -41,6 +38,5 @@
     .line 568
     iput-wide p3, p0, Lcom/leidong/open/http/okhttp3/internal/ws/RealWebSocket$Close;->cancelAfterCloseMillis:J
 
-    .line 569
     return-void
 .end method

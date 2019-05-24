@@ -136,7 +136,7 @@ public class PlatformBuild {
 
 
                 case Platforms.SDK_WUKONG:
-                    builder = new XiongMaoWanBuilder(apkParser);
+                    builder = new WuKongBuilder(apkParser);
 
                     break;
 
@@ -211,6 +211,22 @@ public class PlatformBuild {
 
                 case Platforms.SDK_8868:
                     builder = new M8868Builder(apkParser);
+                    break;
+
+                case Platforms.SDK_JULERONGCHENG:
+                    builder = new JuLeRongChengBuilder(apkParser);
+                    break;
+
+                case Platforms.SDK_YESHEN:
+                    builder = new YeShenBuilder(apkParser);
+                    break;
+
+                case Platforms.SDK_KaLiuZaiXian:
+                    builder = new KaLiuZaiXianBuilder(apkParser);
+                    break;
+
+                case Platforms.SDK_KuaiYou:
+                    builder = new KuaiYouBuilder(apkParser);
                     break;
 
 

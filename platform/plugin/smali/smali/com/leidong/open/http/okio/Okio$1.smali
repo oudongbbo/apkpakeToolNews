@@ -52,7 +52,6 @@
 
     invoke-virtual {v0}, Ljava/io/OutputStream;->close()V
 
-    .line 96
     return-void
 .end method
 
@@ -69,7 +68,6 @@
 
     invoke-virtual {v0}, Ljava/io/OutputStream;->flush()V
 
-    .line 92
     return-void
 .end method
 
@@ -110,9 +108,7 @@
 .end method
 
 .method public write(Lcom/leidong/open/http/okio/Buffer;J)V
-    .locals 8
-    .param p1, "source"    # Lcom/leidong/open/http/okio/Buffer;
-    .param p2, "byteCount"    # J
+    .locals 7
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Ljava/io/IOException;
@@ -128,7 +124,6 @@
 
     invoke-static/range {v0 .. v5}, Lcom/leidong/open/http/okio/Util;->checkOffsetAndCount(JJJ)V
 
-    .line 73
     :goto_0
     const-wide/16 v0, 0x0
 
@@ -145,7 +140,6 @@
     iget-object v0, p1, Lcom/leidong/open/http/okio/Buffer;->head:Lcom/leidong/open/http/okio/Segment;
 
     .line 76
-    .local v0, "head":Lcom/leidong/open/http/okio/Segment;
     iget v1, v0, Lcom/leidong/open/http/okio/Segment;->limit:I
 
     iget v2, v0, Lcom/leidong/open/http/okio/Segment;->pos:I
@@ -161,7 +155,6 @@
     long-to-int v1, v1
 
     .line 77
-    .local v1, "toCopy":I
     iget-object v2, p0, Lcom/leidong/open/http/okio/Okio$1;->val$out:Ljava/io/OutputStream;
 
     iget-object v3, v0, Lcom/leidong/open/http/okio/Segment;->data:[B
@@ -177,21 +170,16 @@
 
     iput v2, v0, Lcom/leidong/open/http/okio/Segment;->pos:I
 
-    .line 80
-    int-to-long v2, v1
+    int-to-long v1, v1
 
-    sub-long v4, p2, v2
+    sub-long v3, p2, v1
 
     .line 81
-    .end local p2    # "byteCount":J
-    .local v4, "byteCount":J
     iget-wide p2, p1, Lcom/leidong/open/http/okio/Buffer;->size:J
 
-    int-to-long v2, v1
+    sub-long v5, p2, v1
 
-    sub-long v6, p2, v2
-
-    iput-wide v6, p1, Lcom/leidong/open/http/okio/Buffer;->size:J
+    iput-wide v5, p1, Lcom/leidong/open/http/okio/Buffer;->size:J
 
     .line 83
     iget p2, v0, Lcom/leidong/open/http/okio/Segment;->pos:I
@@ -210,20 +198,11 @@
     .line 85
     invoke-static {v0}, Lcom/leidong/open/http/okio/SegmentPool;->recycle(Lcom/leidong/open/http/okio/Segment;)V
 
-    .line 87
-    .end local v0    # "head":Lcom/leidong/open/http/okio/Segment;
-    .end local v1    # "toCopy":I
     :cond_0
-    nop
-
-    .line 73
-    move-wide p2, v4
+    move-wide p2, v3
 
     goto :goto_0
 
-    .line 88
-    .end local v4    # "byteCount":J
-    .restart local p2    # "byteCount":J
     :cond_1
     return-void
 .end method

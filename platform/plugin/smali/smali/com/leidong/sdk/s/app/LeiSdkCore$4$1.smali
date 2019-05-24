@@ -24,7 +24,6 @@
 # direct methods
 .method constructor <init>(Lcom/leidong/sdk/s/app/LeiSdkCore$4;)V
     .locals 0
-    .param p1, "this$1"    # Lcom/leidong/sdk/s/app/LeiSdkCore$4;
 
     .line 194
     iput-object p1, p0, Lcom/leidong/sdk/s/app/LeiSdkCore$4$1;->this$1:Lcom/leidong/sdk/s/app/LeiSdkCore$4;
@@ -38,9 +37,7 @@
 # virtual methods
 .method public onFail(Ljava/lang/String;)V
     .locals 0
-    .param p1, "errorMsg"    # Ljava/lang/String;
 
-    .line 221
     return-void
 .end method
 
@@ -52,7 +49,6 @@
 
     iget-object v0, v0, Lcom/leidong/sdk/s/app/LeiSdkCore$4;->this$0:Lcom/leidong/sdk/s/app/LeiSdkCore;
 
-    # getter for: Lcom/leidong/sdk/s/app/LeiSdkCore;->sdkManager:Lcom/leidong/sdk/s/core/SdkManager;
     invoke-static {v0}, Lcom/leidong/sdk/s/app/LeiSdkCore;->access$200(Lcom/leidong/sdk/s/app/LeiSdkCore;)Lcom/leidong/sdk/s/core/SdkManager;
 
     move-result-object v0
@@ -71,6 +67,5 @@
 
     invoke-virtual {v0, v1, v2, v3}, Lcom/leidong/sdk/s/core/SdkManager;->userPay(Landroid/content/Context;Lcom/leidong/sdk/framework/pay/PayInfoBean;Lcom/leidong/sdk/framework/interfaces/SdkResultCallback;)V
 
-    .line 217
     return-void
 .end method

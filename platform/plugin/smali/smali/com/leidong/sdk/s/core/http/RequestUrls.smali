@@ -4,222 +4,72 @@
 
 
 # static fields
-.field public static API_COLLECT_SDK_RUNNING:Ljava/lang/String;
+.field public static API_COLLECT_SDK_RUNNING:Ljava/lang/String; = "http://logapi.thunderplaygame.com/api/v1/sdkRun/index"
 
-.field public static API_FINDPWD:Ljava/lang/String;
+.field public static API_FINDPWD:Ljava/lang/String; = ""
 
-.field public static API_FINDPWD_GET_USER:Ljava/lang/String;
+.field public static API_FINDPWD_GET_USER:Ljava/lang/String; = ""
 
-.field public static API_GET_USER_PAYMONEY:Ljava/lang/String;
+.field public static API_GET_USER_PAYMONEY:Ljava/lang/String; = ""
 
-.field public static API_GET_VCODE:Ljava/lang/String;
+.field public static API_GET_VCODE:Ljava/lang/String; = ""
 
-.field public static API_LOGIN:Ljava/lang/String;
+.field public static API_LOGIN:Ljava/lang/String; = ""
 
-.field public static API_LOGIN_BY_ACCESSTOKEN:Ljava/lang/String;
+.field public static API_LOGIN_BY_ACCESSTOKEN:Ljava/lang/String; = ""
 
-.field public static API_LOGIN_MOBILE_QUICK:Ljava/lang/String;
+.field public static API_LOGIN_MOBILE_QUICK:Ljava/lang/String; = ""
 
-.field public static API_PAY_ORDER_CREATE:Ljava/lang/String;
+.field public static API_PAY_ORDER_CREATE:Ljava/lang/String; = ""
 
-.field public static API_PAY_ORDER_QUERY:Ljava/lang/String;
+.field public static API_PAY_ORDER_QUERY:Ljava/lang/String; = ""
 
-.field public static API_REG_ACCOUNT:Ljava/lang/String;
+.field public static API_REG_ACCOUNT:Ljava/lang/String; = ""
 
-.field public static API_REG_GETNAME:Ljava/lang/String;
+.field public static API_REG_GETNAME:Ljava/lang/String; = ""
 
-.field public static API_REG_MOBILE:Ljava/lang/String;
+.field public static API_REG_MOBILE:Ljava/lang/String; = ""
 
-.field public static API_REG_VISITOR:Ljava/lang/String;
+.field public static API_REG_VISITOR:Ljava/lang/String; = ""
 
-.field public static API_USER_GUARD_AUTH:Ljava/lang/String;
+.field public static API_USER_GUARD_AUTH:Ljava/lang/String; = ""
 
-.field public static API_USER_NAME_AUTH:Ljava/lang/String;
+.field public static API_USER_NAME_AUTH:Ljava/lang/String; = ""
 
-.field public static URL_EXIT_IMAGE:Ljava/lang/String;
+.field public static URL_EXIT_IMAGE:Ljava/lang/String; = ""
 
-.field public static URL_EXIT_URL:Ljava/lang/String;
+.field public static URL_EXIT_URL:Ljava/lang/String; = ""
 
-.field public static WEB_AGREMENT:Ljava/lang/String;
+.field public static WEB_AGREMENT:Ljava/lang/String; = null
 
-.field public static WEB_HELP:Ljava/lang/String;
+.field public static WEB_HELP:Ljava/lang/String; = ""
 
-.field public static WEB_PAY_PAGE:Ljava/lang/String;
+.field public static WEB_PAY_PAGE:Ljava/lang/String; = ""
 
-.field public static WEB_SIDEBAR_BBS:Ljava/lang/String;
+.field public static WEB_SIDEBAR_BBS:Ljava/lang/String; = ""
 
-.field public static WEB_SIDEBAR_GAME_CENTER:Ljava/lang/String;
+.field public static WEB_SIDEBAR_GAME_CENTER:Ljava/lang/String; = ""
 
-.field public static WEB_SIDEBAR_GAME_GIFT:Ljava/lang/String;
+.field public static WEB_SIDEBAR_GAME_GIFT:Ljava/lang/String; = ""
 
-.field public static WEB_SIDEBAR_HOME:Ljava/lang/String;
+.field public static WEB_SIDEBAR_HOME:Ljava/lang/String; = ""
 
-.field public static WEB_SIDEBAR_KEFU:Ljava/lang/String;
+.field public static WEB_SIDEBAR_KEFU:Ljava/lang/String; = ""
 
-.field public static WEB_SIDEBAR_MESSAGE:Ljava/lang/String;
+.field public static WEB_SIDEBAR_MESSAGE:Ljava/lang/String; = ""
 
-.field public static WEB_SIDEBAR_USERCENTER:Ljava/lang/String;
+.field public static WEB_SIDEBAR_USERCENTER:Ljava/lang/String; = ""
 
-.field public static WEB_USER_CERTIFICATION:Ljava/lang/String;
+.field public static WEB_USER_CERTIFICATION:Ljava/lang/String; = ""
 
-.field public static WEB_USER_NAMEAUTH:Ljava/lang/String;
+.field public static WEB_USER_NAMEAUTH:Ljava/lang/String; = ""
 
-.field public static WEB_USER_SUPERVIP:Ljava/lang/String;
+.field public static WEB_USER_SUPERVIP:Ljava/lang/String; = ""
 
 
 # direct methods
 .method static constructor <clinit>()V
-    .locals 1
-
-    .line 13
-    const-string v0, "http://logapi.thunderplaygame.com/api/v1/sdkRun/index"
-
-    sput-object v0, Lcom/leidong/sdk/s/core/http/RequestUrls;->API_COLLECT_SDK_RUNNING:Ljava/lang/String;
-
-    .line 16
-    const-string v0, ""
-
-    sput-object v0, Lcom/leidong/sdk/s/core/http/RequestUrls;->API_LOGIN:Ljava/lang/String;
-
-    .line 17
-    const-string v0, ""
-
-    sput-object v0, Lcom/leidong/sdk/s/core/http/RequestUrls;->API_LOGIN_MOBILE_QUICK:Ljava/lang/String;
-
-    .line 18
-    const-string v0, ""
-
-    sput-object v0, Lcom/leidong/sdk/s/core/http/RequestUrls;->API_LOGIN_BY_ACCESSTOKEN:Ljava/lang/String;
-
-    .line 19
-    const-string v0, ""
-
-    sput-object v0, Lcom/leidong/sdk/s/core/http/RequestUrls;->API_REG_GETNAME:Ljava/lang/String;
-
-    .line 20
-    const-string v0, ""
-
-    sput-object v0, Lcom/leidong/sdk/s/core/http/RequestUrls;->API_REG_VISITOR:Ljava/lang/String;
-
-    .line 21
-    const-string v0, ""
-
-    sput-object v0, Lcom/leidong/sdk/s/core/http/RequestUrls;->API_REG_ACCOUNT:Ljava/lang/String;
-
-    .line 22
-    const-string v0, ""
-
-    sput-object v0, Lcom/leidong/sdk/s/core/http/RequestUrls;->API_REG_MOBILE:Ljava/lang/String;
-
-    .line 23
-    const-string v0, ""
-
-    sput-object v0, Lcom/leidong/sdk/s/core/http/RequestUrls;->API_GET_VCODE:Ljava/lang/String;
-
-    .line 24
-    const-string v0, ""
-
-    sput-object v0, Lcom/leidong/sdk/s/core/http/RequestUrls;->API_FINDPWD_GET_USER:Ljava/lang/String;
-
-    .line 25
-    const-string v0, ""
-
-    sput-object v0, Lcom/leidong/sdk/s/core/http/RequestUrls;->API_FINDPWD:Ljava/lang/String;
-
-    .line 26
-    const-string v0, ""
-
-    sput-object v0, Lcom/leidong/sdk/s/core/http/RequestUrls;->API_USER_NAME_AUTH:Ljava/lang/String;
-
-    .line 27
-    const-string v0, ""
-
-    sput-object v0, Lcom/leidong/sdk/s/core/http/RequestUrls;->API_USER_GUARD_AUTH:Ljava/lang/String;
-
-    .line 31
-    const-string v0, ""
-
-    sput-object v0, Lcom/leidong/sdk/s/core/http/RequestUrls;->API_PAY_ORDER_CREATE:Ljava/lang/String;
-
-    .line 32
-    const-string v0, ""
-
-    sput-object v0, Lcom/leidong/sdk/s/core/http/RequestUrls;->API_PAY_ORDER_QUERY:Ljava/lang/String;
-
-    .line 33
-    const-string v0, ""
-
-    sput-object v0, Lcom/leidong/sdk/s/core/http/RequestUrls;->API_GET_USER_PAYMONEY:Ljava/lang/String;
-
-    .line 34
-    const-string v0, ""
-
-    sput-object v0, Lcom/leidong/sdk/s/core/http/RequestUrls;->WEB_PAY_PAGE:Ljava/lang/String;
-
-    .line 38
-    const-string v0, ""
-
-    sput-object v0, Lcom/leidong/sdk/s/core/http/RequestUrls;->WEB_SIDEBAR_HOME:Ljava/lang/String;
-
-    .line 39
-    const-string v0, ""
-
-    sput-object v0, Lcom/leidong/sdk/s/core/http/RequestUrls;->WEB_SIDEBAR_USERCENTER:Ljava/lang/String;
-
-    .line 40
-    const-string v0, ""
-
-    sput-object v0, Lcom/leidong/sdk/s/core/http/RequestUrls;->WEB_SIDEBAR_MESSAGE:Ljava/lang/String;
-
-    .line 41
-    const-string v0, ""
-
-    sput-object v0, Lcom/leidong/sdk/s/core/http/RequestUrls;->WEB_SIDEBAR_GAME_GIFT:Ljava/lang/String;
-
-    .line 42
-    const-string v0, ""
-
-    sput-object v0, Lcom/leidong/sdk/s/core/http/RequestUrls;->WEB_SIDEBAR_GAME_CENTER:Ljava/lang/String;
-
-    .line 43
-    const-string v0, ""
-
-    sput-object v0, Lcom/leidong/sdk/s/core/http/RequestUrls;->WEB_SIDEBAR_KEFU:Ljava/lang/String;
-
-    .line 44
-    const-string v0, ""
-
-    sput-object v0, Lcom/leidong/sdk/s/core/http/RequestUrls;->WEB_SIDEBAR_BBS:Ljava/lang/String;
-
-    .line 46
-    const-string v0, ""
-
-    sput-object v0, Lcom/leidong/sdk/s/core/http/RequestUrls;->WEB_HELP:Ljava/lang/String;
-
-    .line 47
-    const-string v0, ""
-
-    sput-object v0, Lcom/leidong/sdk/s/core/http/RequestUrls;->WEB_USER_NAMEAUTH:Ljava/lang/String;
-
-    .line 48
-    const-string v0, ""
-
-    sput-object v0, Lcom/leidong/sdk/s/core/http/RequestUrls;->WEB_USER_CERTIFICATION:Ljava/lang/String;
-
-    .line 49
-    const-string v0, ""
-
-    sput-object v0, Lcom/leidong/sdk/s/core/http/RequestUrls;->WEB_USER_SUPERVIP:Ljava/lang/String;
-
-    .line 54
-    const-string v0, ""
-
-    sput-object v0, Lcom/leidong/sdk/s/core/http/RequestUrls;->URL_EXIT_IMAGE:Ljava/lang/String;
-
-    .line 55
-    const-string v0, ""
-
-    sput-object v0, Lcom/leidong/sdk/s/core/http/RequestUrls;->URL_EXIT_URL:Ljava/lang/String;
+    .locals 0
 
     return-void
 .end method
@@ -234,19 +84,16 @@
 .end method
 
 .method public static handleString(Lorg/json/JSONObject;Ljava/lang/String;Ljava/lang/String;)Ljava/lang/String;
-    .locals 2
-    .param p0, "data"    # Lorg/json/JSONObject;
-    .param p1, "key"    # Ljava/lang/String;
-    .param p2, "defaultData"    # Ljava/lang/String;
+    .locals 1
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Ljava/lang/Exception;
         }
     .end annotation
 
-    .line 151
     if-eqz p0, :cond_0
 
+    .line 151
     invoke-virtual {p0, p1}, Lorg/json/JSONObject;->has(Ljava/lang/String;)Z
 
     move-result v0
@@ -264,327 +111,313 @@
     if-nez v0, :cond_0
 
     .line 152
-    new-instance v0, Ljava/lang/StringBuilder;
+    new-instance p2, Ljava/lang/StringBuilder;
 
-    invoke-direct {v0}, Ljava/lang/StringBuilder;-><init>()V
+    invoke-direct {p2}, Ljava/lang/StringBuilder;-><init>()V
 
-    invoke-virtual {v0, p1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-virtual {p2, p1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    const-string v1, "\u6709\u66f4\u65b0\uff01\u65b0\u5730\u5740\uff1a"
+    const-string v0, "\u6709\u66f4\u65b0\uff01\u65b0\u5730\u5740\uff1a"
 
-    invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-virtual {p2, v0}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
     invoke-virtual {p0, p1}, Lorg/json/JSONObject;->getString(Ljava/lang/String;)Ljava/lang/String;
 
-    move-result-object v1
-
-    invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    invoke-virtual {v0}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
-
     move-result-object v0
 
-    invoke-static {v0}, Lcom/leidong/sdk/s/core/utils/SLogUtil;->d(Ljava/lang/String;)V
+    invoke-virtual {p2, v0}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    invoke-virtual {p2}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+
+    move-result-object p2
+
+    invoke-static {p2}, Lcom/leidong/sdk/s/core/utils/SLogUtil;->d(Ljava/lang/String;)V
 
     .line 153
     invoke-virtual {p0, p1}, Lorg/json/JSONObject;->getString(Ljava/lang/String;)Ljava/lang/String;
 
-    move-result-object v0
+    move-result-object p0
 
-    return-object v0
+    return-object p0
 
-    .line 156
     :cond_0
     return-object p2
 .end method
 
 .method public static initApis(Lorg/json/JSONObject;)V
-    .locals 4
-    .param p0, "urlObj"    # Lorg/json/JSONObject;
+    .locals 3
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Ljava/lang/Exception;
         }
     .end annotation
 
-    .line 60
     if-eqz p0, :cond_3
 
     const-string v0, "api"
 
+    .line 60
     invoke-virtual {p0, v0}, Lorg/json/JSONObject;->has(Ljava/lang/String;)Z
 
     move-result v0
 
     if-eqz v0, :cond_3
 
-    .line 61
     const-string v0, "api"
 
+    .line 61
     invoke-static {p0, v0}, Lcom/leidong/sdk/framework/utils/JSONUtils;->getJsonObj(Lorg/json/JSONObject;Ljava/lang/String;)Lorg/json/JSONObject;
 
-    move-result-object v0
+    move-result-object p0
+
+    const-string v0, "user"
 
     .line 63
-    .local v0, "apiObj":Lorg/json/JSONObject;
-    const-string v1, "user"
-
-    invoke-virtual {v0, v1}, Lorg/json/JSONObject;->has(Ljava/lang/String;)Z
-
-    move-result v1
-
-    if-eqz v1, :cond_0
-
-    .line 64
-    const-string v1, "user"
-
-    invoke-virtual {v0, v1}, Lorg/json/JSONObject;->getJSONObject(Ljava/lang/String;)Lorg/json/JSONObject;
-
-    move-result-object v1
-
-    .line 77
-    .local v1, "userObj":Lorg/json/JSONObject;
-    const-string v2, "login"
-
-    sget-object v3, Lcom/leidong/sdk/s/core/http/RequestUrls;->API_LOGIN:Ljava/lang/String;
-
-    invoke-static {v1, v2, v3}, Lcom/leidong/sdk/s/core/http/RequestUrls;->handleString(Lorg/json/JSONObject;Ljava/lang/String;Ljava/lang/String;)Ljava/lang/String;
-
-    move-result-object v2
-
-    sput-object v2, Lcom/leidong/sdk/s/core/http/RequestUrls;->API_LOGIN:Ljava/lang/String;
-
-    .line 78
-    const-string v2, "accessTokenLogin"
-
-    sget-object v3, Lcom/leidong/sdk/s/core/http/RequestUrls;->API_LOGIN_BY_ACCESSTOKEN:Ljava/lang/String;
-
-    .line 79
-    invoke-static {v1, v2, v3}, Lcom/leidong/sdk/s/core/http/RequestUrls;->handleString(Lorg/json/JSONObject;Ljava/lang/String;Ljava/lang/String;)Ljava/lang/String;
-
-    move-result-object v2
-
-    sput-object v2, Lcom/leidong/sdk/s/core/http/RequestUrls;->API_LOGIN_BY_ACCESSTOKEN:Ljava/lang/String;
-
-    .line 80
-    const-string v2, "mobileQuickLogin"
-
-    sget-object v3, Lcom/leidong/sdk/s/core/http/RequestUrls;->API_LOGIN_MOBILE_QUICK:Ljava/lang/String;
-
-    invoke-static {v1, v2, v3}, Lcom/leidong/sdk/s/core/http/RequestUrls;->handleString(Lorg/json/JSONObject;Ljava/lang/String;Ljava/lang/String;)Ljava/lang/String;
-
-    move-result-object v2
-
-    sput-object v2, Lcom/leidong/sdk/s/core/http/RequestUrls;->API_LOGIN_MOBILE_QUICK:Ljava/lang/String;
-
-    .line 81
-    const-string v2, "regAccount"
-
-    sget-object v3, Lcom/leidong/sdk/s/core/http/RequestUrls;->API_REG_ACCOUNT:Ljava/lang/String;
-
-    invoke-static {v1, v2, v3}, Lcom/leidong/sdk/s/core/http/RequestUrls;->handleString(Lorg/json/JSONObject;Ljava/lang/String;Ljava/lang/String;)Ljava/lang/String;
-
-    move-result-object v2
-
-    sput-object v2, Lcom/leidong/sdk/s/core/http/RequestUrls;->API_REG_ACCOUNT:Ljava/lang/String;
-
-    .line 82
-    const-string v2, "regMobile"
-
-    sget-object v3, Lcom/leidong/sdk/s/core/http/RequestUrls;->API_REG_MOBILE:Ljava/lang/String;
-
-    invoke-static {v1, v2, v3}, Lcom/leidong/sdk/s/core/http/RequestUrls;->handleString(Lorg/json/JSONObject;Ljava/lang/String;Ljava/lang/String;)Ljava/lang/String;
-
-    move-result-object v2
-
-    sput-object v2, Lcom/leidong/sdk/s/core/http/RequestUrls;->API_REG_MOBILE:Ljava/lang/String;
-
-    .line 83
-    const-string v2, "getUname"
-
-    sget-object v3, Lcom/leidong/sdk/s/core/http/RequestUrls;->API_REG_GETNAME:Ljava/lang/String;
-
-    invoke-static {v1, v2, v3}, Lcom/leidong/sdk/s/core/http/RequestUrls;->handleString(Lorg/json/JSONObject;Ljava/lang/String;Ljava/lang/String;)Ljava/lang/String;
-
-    move-result-object v2
-
-    sput-object v2, Lcom/leidong/sdk/s/core/http/RequestUrls;->API_REG_GETNAME:Ljava/lang/String;
-
-    .line 84
-    const-string v2, "findPwd"
-
-    sget-object v3, Lcom/leidong/sdk/s/core/http/RequestUrls;->API_FINDPWD:Ljava/lang/String;
-
-    invoke-static {v1, v2, v3}, Lcom/leidong/sdk/s/core/http/RequestUrls;->handleString(Lorg/json/JSONObject;Ljava/lang/String;Ljava/lang/String;)Ljava/lang/String;
-
-    move-result-object v2
-
-    sput-object v2, Lcom/leidong/sdk/s/core/http/RequestUrls;->API_FINDPWD:Ljava/lang/String;
-
-    .line 85
-    const-string v2, "findPwdVerifyUser"
-
-    sget-object v3, Lcom/leidong/sdk/s/core/http/RequestUrls;->API_FINDPWD_GET_USER:Ljava/lang/String;
-
-    invoke-static {v1, v2, v3}, Lcom/leidong/sdk/s/core/http/RequestUrls;->handleString(Lorg/json/JSONObject;Ljava/lang/String;Ljava/lang/String;)Ljava/lang/String;
-
-    move-result-object v2
-
-    sput-object v2, Lcom/leidong/sdk/s/core/http/RequestUrls;->API_FINDPWD_GET_USER:Ljava/lang/String;
-
-    .line 86
-    const-string v2, "idConfirmInfo"
-
-    sget-object v3, Lcom/leidong/sdk/s/core/http/RequestUrls;->API_USER_NAME_AUTH:Ljava/lang/String;
-
-    invoke-static {v1, v2, v3}, Lcom/leidong/sdk/s/core/http/RequestUrls;->handleString(Lorg/json/JSONObject;Ljava/lang/String;Ljava/lang/String;)Ljava/lang/String;
-
-    move-result-object v2
-
-    sput-object v2, Lcom/leidong/sdk/s/core/http/RequestUrls;->API_USER_NAME_AUTH:Ljava/lang/String;
-
-    .line 87
-    const-string v2, "guardConfirmInfo"
-
-    sget-object v3, Lcom/leidong/sdk/s/core/http/RequestUrls;->API_USER_GUARD_AUTH:Ljava/lang/String;
-
-    invoke-static {v1, v2, v3}, Lcom/leidong/sdk/s/core/http/RequestUrls;->handleString(Lorg/json/JSONObject;Ljava/lang/String;Ljava/lang/String;)Ljava/lang/String;
-
-    move-result-object v2
-
-    sput-object v2, Lcom/leidong/sdk/s/core/http/RequestUrls;->API_USER_GUARD_AUTH:Ljava/lang/String;
-
-    .line 92
-    .end local v1    # "userObj":Lorg/json/JSONObject;
-    :cond_0
-    const-string v1, "smsCode"
-
-    invoke-virtual {v0, v1}, Lorg/json/JSONObject;->has(Ljava/lang/String;)Z
-
-    move-result v1
-
-    if-eqz v1, :cond_1
-
-    .line 93
-    const-string v1, "smsCode"
-
-    invoke-virtual {v0, v1}, Lorg/json/JSONObject;->getJSONObject(Ljava/lang/String;)Lorg/json/JSONObject;
-
-    move-result-object v1
-
-    .line 94
-    .local v1, "smsCodeObj":Lorg/json/JSONObject;
-    const-string v2, "mobileCode"
-
-    sget-object v3, Lcom/leidong/sdk/s/core/http/RequestUrls;->API_GET_VCODE:Ljava/lang/String;
-
-    invoke-static {v1, v2, v3}, Lcom/leidong/sdk/s/core/http/RequestUrls;->handleString(Lorg/json/JSONObject;Ljava/lang/String;Ljava/lang/String;)Ljava/lang/String;
-
-    move-result-object v2
-
-    sput-object v2, Lcom/leidong/sdk/s/core/http/RequestUrls;->API_GET_VCODE:Ljava/lang/String;
-
-    .line 97
-    .end local v1    # "smsCodeObj":Lorg/json/JSONObject;
-    :cond_1
-    const-string v1, "order"
-
-    invoke-virtual {v0, v1}, Lorg/json/JSONObject;->has(Ljava/lang/String;)Z
-
-    move-result v1
-
-    if-eqz v1, :cond_2
-
-    .line 99
-    const-string v1, "order"
-
-    invoke-static {v0, v1}, Lcom/leidong/sdk/framework/utils/JSONUtils;->getJsonObj(Lorg/json/JSONObject;Ljava/lang/String;)Lorg/json/JSONObject;
-
-    move-result-object v1
-
-    .line 100
-    .local v1, "pay":Lorg/json/JSONObject;
-    const-string v2, "createOrder"
-
-    sget-object v3, Lcom/leidong/sdk/s/core/http/RequestUrls;->API_PAY_ORDER_CREATE:Ljava/lang/String;
-
-    invoke-static {v1, v2, v3}, Lcom/leidong/sdk/s/core/http/RequestUrls;->handleString(Lorg/json/JSONObject;Ljava/lang/String;Ljava/lang/String;)Ljava/lang/String;
-
-    move-result-object v2
-
-    sput-object v2, Lcom/leidong/sdk/s/core/http/RequestUrls;->API_PAY_ORDER_CREATE:Ljava/lang/String;
-
-    .line 101
-    const-string v2, "queryOrder"
-
-    sget-object v3, Lcom/leidong/sdk/s/core/http/RequestUrls;->API_PAY_ORDER_QUERY:Ljava/lang/String;
-
-    invoke-static {v1, v2, v3}, Lcom/leidong/sdk/s/core/http/RequestUrls;->handleString(Lorg/json/JSONObject;Ljava/lang/String;Ljava/lang/String;)Ljava/lang/String;
-
-    move-result-object v2
-
-    sput-object v2, Lcom/leidong/sdk/s/core/http/RequestUrls;->API_PAY_ORDER_QUERY:Ljava/lang/String;
-
-    .line 103
-    .end local v1    # "pay":Lorg/json/JSONObject;
-    :cond_2
-    const-string v1, "currech"
-
-    invoke-virtual {v0, v1}, Lorg/json/JSONObject;->has(Ljava/lang/String;)Z
-
-    move-result v1
-
-    if-eqz v1, :cond_3
-
-    .line 104
-    const-string v1, "currech"
-
-    sget-object v2, Lcom/leidong/sdk/s/core/http/RequestUrls;->API_GET_USER_PAYMONEY:Ljava/lang/String;
-
-    invoke-static {v0, v1, v2}, Lcom/leidong/sdk/s/core/http/RequestUrls;->handleString(Lorg/json/JSONObject;Ljava/lang/String;Ljava/lang/String;)Ljava/lang/String;
-
-    move-result-object v1
-
-    sput-object v1, Lcom/leidong/sdk/s/core/http/RequestUrls;->API_GET_USER_PAYMONEY:Ljava/lang/String;
-
-    .line 108
-    .end local v0    # "apiObj":Lorg/json/JSONObject;
-    :cond_3
-    return-void
-.end method
-
-.method public static initWebpages(Lorg/json/JSONObject;)V
-    .locals 3
-    .param p0, "urlObj"    # Lorg/json/JSONObject;
-    .annotation system Ldalvik/annotation/Throws;
-        value = {
-            Ljava/lang/Exception;
-        }
-    .end annotation
-
-    .line 124
-    const-string v0, "sideBar"
-
     invoke-virtual {p0, v0}, Lorg/json/JSONObject;->has(Ljava/lang/String;)Z
 
     move-result v0
 
     if-eqz v0, :cond_0
 
-    .line 125
-    const-string v0, "sideBar"
+    const-string v0, "user"
 
+    .line 64
     invoke-virtual {p0, v0}, Lorg/json/JSONObject;->getJSONObject(Ljava/lang/String;)Lorg/json/JSONObject;
 
     move-result-object v0
 
-    .line 126
-    .local v0, "sideBar":Lorg/json/JSONObject;
+    const-string v1, "login"
+
+    .line 77
+    sget-object v2, Lcom/leidong/sdk/s/core/http/RequestUrls;->API_LOGIN:Ljava/lang/String;
+
+    invoke-static {v0, v1, v2}, Lcom/leidong/sdk/s/core/http/RequestUrls;->handleString(Lorg/json/JSONObject;Ljava/lang/String;Ljava/lang/String;)Ljava/lang/String;
+
+    move-result-object v1
+
+    sput-object v1, Lcom/leidong/sdk/s/core/http/RequestUrls;->API_LOGIN:Ljava/lang/String;
+
+    const-string v1, "accessTokenLogin"
+
+    .line 78
+    sget-object v2, Lcom/leidong/sdk/s/core/http/RequestUrls;->API_LOGIN_BY_ACCESSTOKEN:Ljava/lang/String;
+
+    .line 79
+    invoke-static {v0, v1, v2}, Lcom/leidong/sdk/s/core/http/RequestUrls;->handleString(Lorg/json/JSONObject;Ljava/lang/String;Ljava/lang/String;)Ljava/lang/String;
+
+    move-result-object v1
+
+    sput-object v1, Lcom/leidong/sdk/s/core/http/RequestUrls;->API_LOGIN_BY_ACCESSTOKEN:Ljava/lang/String;
+
+    const-string v1, "mobileQuickLogin"
+
+    .line 80
+    sget-object v2, Lcom/leidong/sdk/s/core/http/RequestUrls;->API_LOGIN_MOBILE_QUICK:Ljava/lang/String;
+
+    invoke-static {v0, v1, v2}, Lcom/leidong/sdk/s/core/http/RequestUrls;->handleString(Lorg/json/JSONObject;Ljava/lang/String;Ljava/lang/String;)Ljava/lang/String;
+
+    move-result-object v1
+
+    sput-object v1, Lcom/leidong/sdk/s/core/http/RequestUrls;->API_LOGIN_MOBILE_QUICK:Ljava/lang/String;
+
+    const-string v1, "regAccount"
+
+    .line 81
+    sget-object v2, Lcom/leidong/sdk/s/core/http/RequestUrls;->API_REG_ACCOUNT:Ljava/lang/String;
+
+    invoke-static {v0, v1, v2}, Lcom/leidong/sdk/s/core/http/RequestUrls;->handleString(Lorg/json/JSONObject;Ljava/lang/String;Ljava/lang/String;)Ljava/lang/String;
+
+    move-result-object v1
+
+    sput-object v1, Lcom/leidong/sdk/s/core/http/RequestUrls;->API_REG_ACCOUNT:Ljava/lang/String;
+
+    const-string v1, "regMobile"
+
+    .line 82
+    sget-object v2, Lcom/leidong/sdk/s/core/http/RequestUrls;->API_REG_MOBILE:Ljava/lang/String;
+
+    invoke-static {v0, v1, v2}, Lcom/leidong/sdk/s/core/http/RequestUrls;->handleString(Lorg/json/JSONObject;Ljava/lang/String;Ljava/lang/String;)Ljava/lang/String;
+
+    move-result-object v1
+
+    sput-object v1, Lcom/leidong/sdk/s/core/http/RequestUrls;->API_REG_MOBILE:Ljava/lang/String;
+
+    const-string v1, "getUname"
+
+    .line 83
+    sget-object v2, Lcom/leidong/sdk/s/core/http/RequestUrls;->API_REG_GETNAME:Ljava/lang/String;
+
+    invoke-static {v0, v1, v2}, Lcom/leidong/sdk/s/core/http/RequestUrls;->handleString(Lorg/json/JSONObject;Ljava/lang/String;Ljava/lang/String;)Ljava/lang/String;
+
+    move-result-object v1
+
+    sput-object v1, Lcom/leidong/sdk/s/core/http/RequestUrls;->API_REG_GETNAME:Ljava/lang/String;
+
+    const-string v1, "findPwd"
+
+    .line 84
+    sget-object v2, Lcom/leidong/sdk/s/core/http/RequestUrls;->API_FINDPWD:Ljava/lang/String;
+
+    invoke-static {v0, v1, v2}, Lcom/leidong/sdk/s/core/http/RequestUrls;->handleString(Lorg/json/JSONObject;Ljava/lang/String;Ljava/lang/String;)Ljava/lang/String;
+
+    move-result-object v1
+
+    sput-object v1, Lcom/leidong/sdk/s/core/http/RequestUrls;->API_FINDPWD:Ljava/lang/String;
+
+    const-string v1, "findPwdVerifyUser"
+
+    .line 85
+    sget-object v2, Lcom/leidong/sdk/s/core/http/RequestUrls;->API_FINDPWD_GET_USER:Ljava/lang/String;
+
+    invoke-static {v0, v1, v2}, Lcom/leidong/sdk/s/core/http/RequestUrls;->handleString(Lorg/json/JSONObject;Ljava/lang/String;Ljava/lang/String;)Ljava/lang/String;
+
+    move-result-object v1
+
+    sput-object v1, Lcom/leidong/sdk/s/core/http/RequestUrls;->API_FINDPWD_GET_USER:Ljava/lang/String;
+
+    const-string v1, "idConfirmInfo"
+
+    .line 86
+    sget-object v2, Lcom/leidong/sdk/s/core/http/RequestUrls;->API_USER_NAME_AUTH:Ljava/lang/String;
+
+    invoke-static {v0, v1, v2}, Lcom/leidong/sdk/s/core/http/RequestUrls;->handleString(Lorg/json/JSONObject;Ljava/lang/String;Ljava/lang/String;)Ljava/lang/String;
+
+    move-result-object v1
+
+    sput-object v1, Lcom/leidong/sdk/s/core/http/RequestUrls;->API_USER_NAME_AUTH:Ljava/lang/String;
+
+    const-string v1, "guardConfirmInfo"
+
+    .line 87
+    sget-object v2, Lcom/leidong/sdk/s/core/http/RequestUrls;->API_USER_GUARD_AUTH:Ljava/lang/String;
+
+    invoke-static {v0, v1, v2}, Lcom/leidong/sdk/s/core/http/RequestUrls;->handleString(Lorg/json/JSONObject;Ljava/lang/String;Ljava/lang/String;)Ljava/lang/String;
+
+    move-result-object v0
+
+    sput-object v0, Lcom/leidong/sdk/s/core/http/RequestUrls;->API_USER_GUARD_AUTH:Ljava/lang/String;
+
+    :cond_0
+    const-string v0, "smsCode"
+
+    .line 92
+    invoke-virtual {p0, v0}, Lorg/json/JSONObject;->has(Ljava/lang/String;)Z
+
+    move-result v0
+
+    if-eqz v0, :cond_1
+
+    const-string v0, "smsCode"
+
+    .line 93
+    invoke-virtual {p0, v0}, Lorg/json/JSONObject;->getJSONObject(Ljava/lang/String;)Lorg/json/JSONObject;
+
+    move-result-object v0
+
+    const-string v1, "mobileCode"
+
+    .line 94
+    sget-object v2, Lcom/leidong/sdk/s/core/http/RequestUrls;->API_GET_VCODE:Ljava/lang/String;
+
+    invoke-static {v0, v1, v2}, Lcom/leidong/sdk/s/core/http/RequestUrls;->handleString(Lorg/json/JSONObject;Ljava/lang/String;Ljava/lang/String;)Ljava/lang/String;
+
+    move-result-object v0
+
+    sput-object v0, Lcom/leidong/sdk/s/core/http/RequestUrls;->API_GET_VCODE:Ljava/lang/String;
+
+    :cond_1
+    const-string v0, "order"
+
+    .line 97
+    invoke-virtual {p0, v0}, Lorg/json/JSONObject;->has(Ljava/lang/String;)Z
+
+    move-result v0
+
+    if-eqz v0, :cond_2
+
+    const-string v0, "order"
+
+    .line 99
+    invoke-static {p0, v0}, Lcom/leidong/sdk/framework/utils/JSONUtils;->getJsonObj(Lorg/json/JSONObject;Ljava/lang/String;)Lorg/json/JSONObject;
+
+    move-result-object v0
+
+    const-string v1, "createOrder"
+
+    .line 100
+    sget-object v2, Lcom/leidong/sdk/s/core/http/RequestUrls;->API_PAY_ORDER_CREATE:Ljava/lang/String;
+
+    invoke-static {v0, v1, v2}, Lcom/leidong/sdk/s/core/http/RequestUrls;->handleString(Lorg/json/JSONObject;Ljava/lang/String;Ljava/lang/String;)Ljava/lang/String;
+
+    move-result-object v1
+
+    sput-object v1, Lcom/leidong/sdk/s/core/http/RequestUrls;->API_PAY_ORDER_CREATE:Ljava/lang/String;
+
+    const-string v1, "queryOrder"
+
+    .line 101
+    sget-object v2, Lcom/leidong/sdk/s/core/http/RequestUrls;->API_PAY_ORDER_QUERY:Ljava/lang/String;
+
+    invoke-static {v0, v1, v2}, Lcom/leidong/sdk/s/core/http/RequestUrls;->handleString(Lorg/json/JSONObject;Ljava/lang/String;Ljava/lang/String;)Ljava/lang/String;
+
+    move-result-object v0
+
+    sput-object v0, Lcom/leidong/sdk/s/core/http/RequestUrls;->API_PAY_ORDER_QUERY:Ljava/lang/String;
+
+    :cond_2
+    const-string v0, "currech"
+
+    .line 103
+    invoke-virtual {p0, v0}, Lorg/json/JSONObject;->has(Ljava/lang/String;)Z
+
+    move-result v0
+
+    if-eqz v0, :cond_3
+
+    const-string v0, "currech"
+
+    .line 104
+    sget-object v1, Lcom/leidong/sdk/s/core/http/RequestUrls;->API_GET_USER_PAYMONEY:Ljava/lang/String;
+
+    invoke-static {p0, v0, v1}, Lcom/leidong/sdk/s/core/http/RequestUrls;->handleString(Lorg/json/JSONObject;Ljava/lang/String;Ljava/lang/String;)Ljava/lang/String;
+
+    move-result-object p0
+
+    sput-object p0, Lcom/leidong/sdk/s/core/http/RequestUrls;->API_GET_USER_PAYMONEY:Ljava/lang/String;
+
+    :cond_3
+    return-void
+.end method
+
+.method public static initWebpages(Lorg/json/JSONObject;)V
+    .locals 3
+    .annotation system Ldalvik/annotation/Throws;
+        value = {
+            Ljava/lang/Exception;
+        }
+    .end annotation
+
+    const-string v0, "sideBar"
+
+    .line 124
+    invoke-virtual {p0, v0}, Lorg/json/JSONObject;->has(Ljava/lang/String;)Z
+
+    move-result v0
+
     if-eqz v0, :cond_0
 
-    .line 127
+    const-string v0, "sideBar"
+
+    .line 125
+    invoke-virtual {p0, v0}, Lorg/json/JSONObject;->getJSONObject(Ljava/lang/String;)Lorg/json/JSONObject;
+
+    move-result-object v0
+
+    if-eqz v0, :cond_0
+
     const-string v1, "gameGift"
 
+    .line 127
     sget-object v2, Lcom/leidong/sdk/s/core/http/RequestUrls;->WEB_SIDEBAR_GAME_GIFT:Ljava/lang/String;
 
     invoke-static {v0, v1, v2}, Lcom/leidong/sdk/s/core/http/RequestUrls;->handleString(Lorg/json/JSONObject;Ljava/lang/String;Ljava/lang/String;)Ljava/lang/String;
@@ -593,9 +426,9 @@
 
     sput-object v1, Lcom/leidong/sdk/s/core/http/RequestUrls;->WEB_SIDEBAR_GAME_GIFT:Ljava/lang/String;
 
-    .line 128
     const-string v1, "help"
 
+    .line 128
     sget-object v2, Lcom/leidong/sdk/s/core/http/RequestUrls;->WEB_HELP:Ljava/lang/String;
 
     invoke-static {v0, v1, v2}, Lcom/leidong/sdk/s/core/http/RequestUrls;->handleString(Lorg/json/JSONObject;Ljava/lang/String;Ljava/lang/String;)Ljava/lang/String;
@@ -604,9 +437,9 @@
 
     sput-object v1, Lcom/leidong/sdk/s/core/http/RequestUrls;->WEB_HELP:Ljava/lang/String;
 
-    .line 129
     const-string v1, "userCenter"
 
+    .line 129
     sget-object v2, Lcom/leidong/sdk/s/core/http/RequestUrls;->WEB_SIDEBAR_USERCENTER:Ljava/lang/String;
 
     invoke-static {v0, v1, v2}, Lcom/leidong/sdk/s/core/http/RequestUrls;->handleString(Lorg/json/JSONObject;Ljava/lang/String;Ljava/lang/String;)Ljava/lang/String;
@@ -615,9 +448,9 @@
 
     sput-object v1, Lcom/leidong/sdk/s/core/http/RequestUrls;->WEB_SIDEBAR_USERCENTER:Ljava/lang/String;
 
-    .line 130
     const-string v1, "msg"
 
+    .line 130
     sget-object v2, Lcom/leidong/sdk/s/core/http/RequestUrls;->WEB_SIDEBAR_MESSAGE:Ljava/lang/String;
 
     invoke-static {v0, v1, v2}, Lcom/leidong/sdk/s/core/http/RequestUrls;->handleString(Lorg/json/JSONObject;Ljava/lang/String;Ljava/lang/String;)Ljava/lang/String;
@@ -626,9 +459,9 @@
 
     sput-object v1, Lcom/leidong/sdk/s/core/http/RequestUrls;->WEB_SIDEBAR_MESSAGE:Ljava/lang/String;
 
-    .line 131
     const-string v1, "customerService"
 
+    .line 131
     sget-object v2, Lcom/leidong/sdk/s/core/http/RequestUrls;->WEB_SIDEBAR_KEFU:Ljava/lang/String;
 
     invoke-static {v0, v1, v2}, Lcom/leidong/sdk/s/core/http/RequestUrls;->handleString(Lorg/json/JSONObject;Ljava/lang/String;Ljava/lang/String;)Ljava/lang/String;
@@ -637,9 +470,9 @@
 
     sput-object v1, Lcom/leidong/sdk/s/core/http/RequestUrls;->WEB_SIDEBAR_KEFU:Ljava/lang/String;
 
-    .line 132
     const-string v1, "gameCenter"
 
+    .line 132
     sget-object v2, Lcom/leidong/sdk/s/core/http/RequestUrls;->WEB_SIDEBAR_GAME_CENTER:Ljava/lang/String;
 
     invoke-static {v0, v1, v2}, Lcom/leidong/sdk/s/core/http/RequestUrls;->handleString(Lorg/json/JSONObject;Ljava/lang/String;Ljava/lang/String;)Ljava/lang/String;
@@ -648,9 +481,9 @@
 
     sput-object v1, Lcom/leidong/sdk/s/core/http/RequestUrls;->WEB_SIDEBAR_GAME_CENTER:Ljava/lang/String;
 
-    .line 133
     const-string v1, "userVerified"
 
+    .line 133
     sget-object v2, Lcom/leidong/sdk/s/core/http/RequestUrls;->WEB_USER_CERTIFICATION:Ljava/lang/String;
 
     invoke-static {v0, v1, v2}, Lcom/leidong/sdk/s/core/http/RequestUrls;->handleString(Lorg/json/JSONObject;Ljava/lang/String;Ljava/lang/String;)Ljava/lang/String;
@@ -659,9 +492,9 @@
 
     sput-object v1, Lcom/leidong/sdk/s/core/http/RequestUrls;->WEB_USER_CERTIFICATION:Ljava/lang/String;
 
-    .line 134
     const-string v1, "nameAuth"
 
+    .line 134
     sget-object v2, Lcom/leidong/sdk/s/core/http/RequestUrls;->WEB_USER_NAMEAUTH:Ljava/lang/String;
 
     invoke-static {v0, v1, v2}, Lcom/leidong/sdk/s/core/http/RequestUrls;->handleString(Lorg/json/JSONObject;Ljava/lang/String;Ljava/lang/String;)Ljava/lang/String;
@@ -670,9 +503,9 @@
 
     sput-object v1, Lcom/leidong/sdk/s/core/http/RequestUrls;->WEB_USER_NAMEAUTH:Ljava/lang/String;
 
-    .line 135
     const-string v1, "superVip"
 
+    .line 135
     sget-object v2, Lcom/leidong/sdk/s/core/http/RequestUrls;->WEB_USER_SUPERVIP:Ljava/lang/String;
 
     invoke-static {v0, v1, v2}, Lcom/leidong/sdk/s/core/http/RequestUrls;->handleString(Lorg/json/JSONObject;Ljava/lang/String;Ljava/lang/String;)Ljava/lang/String;
@@ -681,9 +514,9 @@
 
     sput-object v1, Lcom/leidong/sdk/s/core/http/RequestUrls;->WEB_USER_SUPERVIP:Ljava/lang/String;
 
-    .line 136
     const-string v1, "agreement"
 
+    .line 136
     sget-object v2, Lcom/leidong/sdk/s/core/http/RequestUrls;->WEB_AGREMENT:Ljava/lang/String;
 
     invoke-static {v0, v1, v2}, Lcom/leidong/sdk/s/core/http/RequestUrls;->handleString(Lorg/json/JSONObject;Ljava/lang/String;Ljava/lang/String;)Ljava/lang/String;
@@ -692,49 +525,45 @@
 
     sput-object v1, Lcom/leidong/sdk/s/core/http/RequestUrls;->WEB_AGREMENT:Ljava/lang/String;
 
-    .line 137
     const-string v1, "sidebar"
 
+    .line 137
     sget-object v2, Lcom/leidong/sdk/s/core/http/RequestUrls;->WEB_SIDEBAR_HOME:Ljava/lang/String;
 
     invoke-static {v0, v1, v2}, Lcom/leidong/sdk/s/core/http/RequestUrls;->handleString(Lorg/json/JSONObject;Ljava/lang/String;Ljava/lang/String;)Ljava/lang/String;
 
-    move-result-object v1
+    move-result-object v0
 
-    sput-object v1, Lcom/leidong/sdk/s/core/http/RequestUrls;->WEB_SIDEBAR_HOME:Ljava/lang/String;
+    sput-object v0, Lcom/leidong/sdk/s/core/http/RequestUrls;->WEB_SIDEBAR_HOME:Ljava/lang/String;
 
-    .line 142
-    .end local v0    # "sideBar":Lorg/json/JSONObject;
     :cond_0
     const-string v0, "play"
 
+    .line 142
     invoke-virtual {p0, v0}, Lorg/json/JSONObject;->has(Ljava/lang/String;)Z
 
     move-result v0
 
     if-eqz v0, :cond_1
 
-    .line 143
     const-string v0, "play"
 
+    .line 143
     invoke-virtual {p0, v0}, Lorg/json/JSONObject;->getJSONObject(Ljava/lang/String;)Lorg/json/JSONObject;
 
-    move-result-object v0
+    move-result-object p0
+
+    const-string v0, "goToPlay"
 
     .line 144
-    .local v0, "playObj":Lorg/json/JSONObject;
-    const-string v1, "goToPlay"
+    sget-object v1, Lcom/leidong/sdk/s/core/http/RequestUrls;->WEB_PAY_PAGE:Ljava/lang/String;
 
-    sget-object v2, Lcom/leidong/sdk/s/core/http/RequestUrls;->WEB_PAY_PAGE:Ljava/lang/String;
+    invoke-static {p0, v0, v1}, Lcom/leidong/sdk/s/core/http/RequestUrls;->handleString(Lorg/json/JSONObject;Ljava/lang/String;Ljava/lang/String;)Ljava/lang/String;
 
-    invoke-static {v0, v1, v2}, Lcom/leidong/sdk/s/core/http/RequestUrls;->handleString(Lorg/json/JSONObject;Ljava/lang/String;Ljava/lang/String;)Ljava/lang/String;
+    move-result-object p0
 
-    move-result-object v1
+    sput-object p0, Lcom/leidong/sdk/s/core/http/RequestUrls;->WEB_PAY_PAGE:Ljava/lang/String;
 
-    sput-object v1, Lcom/leidong/sdk/s/core/http/RequestUrls;->WEB_PAY_PAGE:Ljava/lang/String;
-
-    .line 146
-    .end local v0    # "playObj":Lorg/json/JSONObject;
     :cond_1
     return-void
 .end method

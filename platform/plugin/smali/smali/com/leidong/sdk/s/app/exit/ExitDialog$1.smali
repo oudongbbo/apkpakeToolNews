@@ -24,7 +24,6 @@
 # direct methods
 .method constructor <init>(Lcom/leidong/sdk/s/app/exit/ExitDialog;)V
     .locals 0
-    .param p1, "this$0"    # Lcom/leidong/sdk/s/app/exit/ExitDialog;
 
     .line 61
     iput-object p1, p0, Lcom/leidong/sdk/s/app/exit/ExitDialog$1;->this$0:Lcom/leidong/sdk/s/app/exit/ExitDialog;
@@ -37,33 +36,29 @@
 
 # virtual methods
 .method public onDismiss(Landroid/content/DialogInterface;)V
-    .locals 1
-    .param p1, "dialog"    # Landroid/content/DialogInterface;
+    .locals 0
 
     .line 64
-    iget-object v0, p0, Lcom/leidong/sdk/s/app/exit/ExitDialog$1;->this$0:Lcom/leidong/sdk/s/app/exit/ExitDialog;
+    iget-object p1, p0, Lcom/leidong/sdk/s/app/exit/ExitDialog$1;->this$0:Lcom/leidong/sdk/s/app/exit/ExitDialog;
 
-    # getter for: Lcom/leidong/sdk/s/app/exit/ExitDialog;->isExitClick:Z
-    invoke-static {v0}, Lcom/leidong/sdk/s/app/exit/ExitDialog;->access$000(Lcom/leidong/sdk/s/app/exit/ExitDialog;)Z
+    invoke-static {p1}, Lcom/leidong/sdk/s/app/exit/ExitDialog;->access$000(Lcom/leidong/sdk/s/app/exit/ExitDialog;)Z
 
-    move-result v0
+    move-result p1
 
-    if-eqz v0, :cond_0
+    if-eqz p1, :cond_0
 
     goto :goto_0
 
     .line 67
     :cond_0
-    iget-object v0, p0, Lcom/leidong/sdk/s/app/exit/ExitDialog$1;->this$0:Lcom/leidong/sdk/s/app/exit/ExitDialog;
+    iget-object p1, p0, Lcom/leidong/sdk/s/app/exit/ExitDialog$1;->this$0:Lcom/leidong/sdk/s/app/exit/ExitDialog;
 
-    # getter for: Lcom/leidong/sdk/s/app/exit/ExitDialog;->mCallback:Lcom/leidong/sdk/s/app/exit/ExitDialog$ExitCallBack;
-    invoke-static {v0}, Lcom/leidong/sdk/s/app/exit/ExitDialog;->access$100(Lcom/leidong/sdk/s/app/exit/ExitDialog;)Lcom/leidong/sdk/s/app/exit/ExitDialog$ExitCallBack;
+    invoke-static {p1}, Lcom/leidong/sdk/s/app/exit/ExitDialog;->access$100(Lcom/leidong/sdk/s/app/exit/ExitDialog;)Lcom/leidong/sdk/s/app/exit/ExitDialog$ExitCallBack;
 
-    move-result-object v0
+    move-result-object p1
 
-    invoke-interface {v0}, Lcom/leidong/sdk/s/app/exit/ExitDialog$ExitCallBack;->close()V
+    invoke-interface {p1}, Lcom/leidong/sdk/s/app/exit/ExitDialog$ExitCallBack;->close()V
 
-    .line 69
     :goto_0
     return-void
 .end method

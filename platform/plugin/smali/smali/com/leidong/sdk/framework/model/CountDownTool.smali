@@ -23,7 +23,6 @@
 # direct methods
 .method public constructor <init>(I)V
     .locals 0
-    .param p1, "time"    # I
 
     .line 16
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -31,30 +30,26 @@
     .line 17
     iput p1, p0, Lcom/leidong/sdk/framework/model/CountDownTool;->showTime:I
 
-    .line 18
     return-void
 .end method
 
 .method static synthetic access$000(Lcom/leidong/sdk/framework/model/CountDownTool;)Lcom/leidong/sdk/framework/model/CountDownTool$CountDownFeedBack;
-    .locals 1
-    .param p0, "x0"    # Lcom/leidong/sdk/framework/model/CountDownTool;
+    .locals 0
 
     .line 5
-    iget-object v0, p0, Lcom/leidong/sdk/framework/model/CountDownTool;->feedback:Lcom/leidong/sdk/framework/model/CountDownTool$CountDownFeedBack;
+    iget-object p0, p0, Lcom/leidong/sdk/framework/model/CountDownTool;->feedback:Lcom/leidong/sdk/framework/model/CountDownTool$CountDownFeedBack;
 
-    return-object v0
+    return-object p0
 .end method
 
 
 # virtual methods
 .method public setFeedBack(Lcom/leidong/sdk/framework/model/CountDownTool$CountDownFeedBack;)V
     .locals 0
-    .param p1, "feed"    # Lcom/leidong/sdk/framework/model/CountDownTool$CountDownFeedBack;
 
     .line 64
     iput-object p1, p0, Lcom/leidong/sdk/framework/model/CountDownTool;->feedback:Lcom/leidong/sdk/framework/model/CountDownTool$CountDownFeedBack;
 
-    .line 65
     return-void
 .end method
 
@@ -96,7 +91,6 @@
 
     invoke-virtual {v0}, Lcom/leidong/sdk/framework/model/CountDownTool$MyCountDownTimer;->start()Landroid/os/CountDownTimer;
 
-    .line 28
     return-void
 .end method
 
@@ -124,7 +118,6 @@
 
     invoke-interface {v0}, Lcom/leidong/sdk/framework/model/CountDownTool$CountDownFeedBack;->onEnd()V
 
-    .line 38
     :cond_1
     return-void
 .end method

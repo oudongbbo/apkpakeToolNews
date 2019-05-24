@@ -24,7 +24,6 @@
 # direct methods
 .method constructor <init>(Lcom/leidong/sdk/m/views/MoneySelectDialog;)V
     .locals 0
-    .param p1, "this$0"    # Lcom/leidong/sdk/m/views/MoneySelectDialog;
 
     .line 42
     iput-object p1, p0, Lcom/leidong/sdk/m/views/MoneySelectDialog$1;->this$0:Lcom/leidong/sdk/m/views/MoneySelectDialog;
@@ -37,35 +36,31 @@
 
 # virtual methods
 .method public onClick(Landroid/view/View;)V
-    .locals 1
-    .param p1, "v"    # Landroid/view/View;
+    .locals 0
 
     .line 46
-    iget-object v0, p0, Lcom/leidong/sdk/m/views/MoneySelectDialog$1;->this$0:Lcom/leidong/sdk/m/views/MoneySelectDialog;
+    iget-object p1, p0, Lcom/leidong/sdk/m/views/MoneySelectDialog$1;->this$0:Lcom/leidong/sdk/m/views/MoneySelectDialog;
 
-    # getter for: Lcom/leidong/sdk/m/views/MoneySelectDialog;->callback:Lcom/leidong/sdk/m/views/MoneySelectDialog$MoneyCallback;
-    invoke-static {v0}, Lcom/leidong/sdk/m/views/MoneySelectDialog;->access$000(Lcom/leidong/sdk/m/views/MoneySelectDialog;)Lcom/leidong/sdk/m/views/MoneySelectDialog$MoneyCallback;
+    invoke-static {p1}, Lcom/leidong/sdk/m/views/MoneySelectDialog;->access$000(Lcom/leidong/sdk/m/views/MoneySelectDialog;)Lcom/leidong/sdk/m/views/MoneySelectDialog$MoneyCallback;
 
-    move-result-object v0
+    move-result-object p1
 
-    if-eqz v0, :cond_0
+    if-eqz p1, :cond_0
 
     .line 47
-    iget-object v0, p0, Lcom/leidong/sdk/m/views/MoneySelectDialog$1;->this$0:Lcom/leidong/sdk/m/views/MoneySelectDialog;
+    iget-object p1, p0, Lcom/leidong/sdk/m/views/MoneySelectDialog$1;->this$0:Lcom/leidong/sdk/m/views/MoneySelectDialog;
 
-    # getter for: Lcom/leidong/sdk/m/views/MoneySelectDialog;->callback:Lcom/leidong/sdk/m/views/MoneySelectDialog$MoneyCallback;
-    invoke-static {v0}, Lcom/leidong/sdk/m/views/MoneySelectDialog;->access$000(Lcom/leidong/sdk/m/views/MoneySelectDialog;)Lcom/leidong/sdk/m/views/MoneySelectDialog$MoneyCallback;
+    invoke-static {p1}, Lcom/leidong/sdk/m/views/MoneySelectDialog;->access$000(Lcom/leidong/sdk/m/views/MoneySelectDialog;)Lcom/leidong/sdk/m/views/MoneySelectDialog$MoneyCallback;
 
-    move-result-object v0
+    move-result-object p1
 
-    invoke-interface {v0}, Lcom/leidong/sdk/m/views/MoneySelectDialog$MoneyCallback;->onCancel()V
+    invoke-interface {p1}, Lcom/leidong/sdk/m/views/MoneySelectDialog$MoneyCallback;->onCancel()V
 
     .line 49
     :cond_0
-    iget-object v0, p0, Lcom/leidong/sdk/m/views/MoneySelectDialog$1;->this$0:Lcom/leidong/sdk/m/views/MoneySelectDialog;
+    iget-object p1, p0, Lcom/leidong/sdk/m/views/MoneySelectDialog$1;->this$0:Lcom/leidong/sdk/m/views/MoneySelectDialog;
 
-    invoke-virtual {v0}, Lcom/leidong/sdk/m/views/MoneySelectDialog;->dismiss()V
+    invoke-virtual {p1}, Lcom/leidong/sdk/m/views/MoneySelectDialog;->dismiss()V
 
-    .line 51
     return-void
 .end method

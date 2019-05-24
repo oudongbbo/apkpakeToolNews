@@ -21,7 +21,6 @@
 # direct methods
 .method constructor <init>(Lcom/leidong/open/http/okhttp3/internal/http2/Http2Stream;)V
     .locals 0
-    .param p1, "this$0"    # Lcom/leidong/open/http/okhttp3/internal/http2/Http2Stream;
 
     .line 588
     iput-object p1, p0, Lcom/leidong/open/http/okhttp3/internal/http2/Http2Stream$StreamTimeout;->this$0:Lcom/leidong/open/http/okhttp3/internal/http2/Http2Stream;
@@ -56,14 +55,12 @@
 
     throw v0
 
-    .line 603
     :cond_0
     return-void
 .end method
 
 .method protected newTimeoutException(Ljava/io/IOException;)Ljava/io/IOException;
     .locals 2
-    .param p1, "cause"    # Ljava/io/IOException;
 
     .line 594
     new-instance v0, Ljava/net/SocketTimeoutException;
@@ -72,14 +69,11 @@
 
     invoke-direct {v0, v1}, Ljava/net/SocketTimeoutException;-><init>(Ljava/lang/String;)V
 
-    .line 595
-    .local v0, "socketTimeoutException":Ljava/net/SocketTimeoutException;
     if-eqz p1, :cond_0
 
     .line 596
     invoke-virtual {v0, p1}, Ljava/net/SocketTimeoutException;->initCause(Ljava/lang/Throwable;)Ljava/lang/Throwable;
 
-    .line 598
     :cond_0
     return-object v0
 .end method
@@ -94,6 +88,5 @@
 
     invoke-virtual {v0, v1}, Lcom/leidong/open/http/okhttp3/internal/http2/Http2Stream;->closeLater(Lcom/leidong/open/http/okhttp3/internal/http2/ErrorCode;)V
 
-    .line 591
     return-void
 .end method

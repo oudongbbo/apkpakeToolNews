@@ -24,7 +24,6 @@
 # direct methods
 .method constructor <init>(Lcom/leidong/sdk/s/app/floatwindow/FloatManager;)V
     .locals 0
-    .param p1, "this$0"    # Lcom/leidong/sdk/s/app/floatwindow/FloatManager;
 
     .line 169
     iput-object p1, p0, Lcom/leidong/sdk/s/app/floatwindow/FloatManager$FloatClickListener;->this$0:Lcom/leidong/sdk/s/app/floatwindow/FloatManager;
@@ -38,12 +37,10 @@
 # virtual methods
 .method public onClick(Landroid/view/View;)V
     .locals 1
-    .param p1, "v"    # Landroid/view/View;
 
     .line 173
     iget-object v0, p0, Lcom/leidong/sdk/s/app/floatwindow/FloatManager$FloatClickListener;->this$0:Lcom/leidong/sdk/s/app/floatwindow/FloatManager;
 
-    # getter for: Lcom/leidong/sdk/s/app/floatwindow/FloatManager;->FloatView:Landroid/view/View;
     invoke-static {v0}, Lcom/leidong/sdk/s/app/floatwindow/FloatManager;->access$000(Lcom/leidong/sdk/s/app/floatwindow/FloatManager;)Landroid/view/View;
 
     move-result-object v0
@@ -51,21 +48,19 @@
     if-ne p1, v0, :cond_0
 
     .line 175
-    iget-object v0, p0, Lcom/leidong/sdk/s/app/floatwindow/FloatManager$FloatClickListener;->this$0:Lcom/leidong/sdk/s/app/floatwindow/FloatManager;
+    iget-object p1, p0, Lcom/leidong/sdk/s/app/floatwindow/FloatManager$FloatClickListener;->this$0:Lcom/leidong/sdk/s/app/floatwindow/FloatManager;
 
-    # getter for: Lcom/leidong/sdk/s/app/floatwindow/FloatManager;->floatConfig:Lcom/leidong/sdk/s/app/floatwindow/FloatConfig;
-    invoke-static {v0}, Lcom/leidong/sdk/s/app/floatwindow/FloatManager;->access$100(Lcom/leidong/sdk/s/app/floatwindow/FloatManager;)Lcom/leidong/sdk/s/app/floatwindow/FloatConfig;
+    invoke-static {p1}, Lcom/leidong/sdk/s/app/floatwindow/FloatManager;->access$100(Lcom/leidong/sdk/s/app/floatwindow/FloatManager;)Lcom/leidong/sdk/s/app/floatwindow/FloatConfig;
 
-    move-result-object v0
+    move-result-object p1
 
-    invoke-virtual {v0}, Lcom/leidong/sdk/s/app/floatwindow/FloatConfig;->setIsTouchFW()V
+    invoke-virtual {p1}, Lcom/leidong/sdk/s/app/floatwindow/FloatConfig;->setIsTouchFW()V
 
     .line 176
-    iget-object v0, p0, Lcom/leidong/sdk/s/app/floatwindow/FloatManager$FloatClickListener;->this$0:Lcom/leidong/sdk/s/app/floatwindow/FloatManager;
+    iget-object p1, p0, Lcom/leidong/sdk/s/app/floatwindow/FloatManager$FloatClickListener;->this$0:Lcom/leidong/sdk/s/app/floatwindow/FloatManager;
 
-    invoke-virtual {v0}, Lcom/leidong/sdk/s/app/floatwindow/FloatManager;->showPopView()V
+    invoke-virtual {p1}, Lcom/leidong/sdk/s/app/floatwindow/FloatManager;->showPopView()V
 
-    .line 178
     :cond_0
     return-void
 .end method

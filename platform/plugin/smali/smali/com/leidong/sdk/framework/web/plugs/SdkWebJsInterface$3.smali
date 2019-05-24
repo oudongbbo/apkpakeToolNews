@@ -24,7 +24,6 @@
 # direct methods
 .method constructor <init>(Lcom/leidong/sdk/framework/web/plugs/SdkWebJsInterface;)V
     .locals 0
-    .param p1, "this$0"    # Lcom/leidong/sdk/framework/web/plugs/SdkWebJsInterface;
 
     .line 83
     iput-object p1, p0, Lcom/leidong/sdk/framework/web/plugs/SdkWebJsInterface$3;->this$0:Lcom/leidong/sdk/framework/web/plugs/SdkWebJsInterface;
@@ -57,7 +56,6 @@
 
     invoke-virtual {v0}, Landroid/webkit/WebView;->goBack()V
 
-    .line 89
     :cond_0
     return-void
 .end method

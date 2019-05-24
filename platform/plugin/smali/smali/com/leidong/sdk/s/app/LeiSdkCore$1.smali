@@ -26,7 +26,6 @@
 # direct methods
 .method constructor <init>(Lcom/leidong/sdk/s/app/LeiSdkCore;Lcom/leidong/sdk/framework/interfaces/SdkResultCallback;)V
     .locals 0
-    .param p1, "this$0"    # Lcom/leidong/sdk/s/app/LeiSdkCore;
 
     .line 73
     iput-object p1, p0, Lcom/leidong/sdk/s/app/LeiSdkCore$1;->this$0:Lcom/leidong/sdk/s/app/LeiSdkCore;
@@ -42,38 +41,32 @@
 # virtual methods
 .method public onCancel(Ljava/lang/String;)V
     .locals 1
-    .param p1, "message"    # Ljava/lang/String;
 
     .line 89
     iget-object v0, p0, Lcom/leidong/sdk/s/app/LeiSdkCore$1;->val$callback:Lcom/leidong/sdk/framework/interfaces/SdkResultCallback;
 
     invoke-interface {v0, p1}, Lcom/leidong/sdk/framework/interfaces/SdkResultCallback;->onCancel(Ljava/lang/String;)V
 
-    .line 90
     return-void
 .end method
 
 .method public onFail(Ljava/lang/String;)V
     .locals 1
-    .param p1, "message"    # Ljava/lang/String;
 
     .line 85
     iget-object v0, p0, Lcom/leidong/sdk/s/app/LeiSdkCore$1;->val$callback:Lcom/leidong/sdk/framework/interfaces/SdkResultCallback;
 
     invoke-interface {v0, p1}, Lcom/leidong/sdk/framework/interfaces/SdkResultCallback;->onFail(Ljava/lang/String;)V
 
-    .line 86
     return-void
 .end method
 
 .method public onSuccess(Landroid/os/Bundle;)V
     .locals 2
-    .param p1, "bundle"    # Landroid/os/Bundle;
 
     .line 77
     iget-object v0, p0, Lcom/leidong/sdk/s/app/LeiSdkCore$1;->this$0:Lcom/leidong/sdk/s/app/LeiSdkCore;
 
-    # getter for: Lcom/leidong/sdk/s/app/LeiSdkCore;->mContext:Landroid/content/Context;
     invoke-static {v0}, Lcom/leidong/sdk/s/app/LeiSdkCore;->access$000(Lcom/leidong/sdk/s/app/LeiSdkCore;)Landroid/content/Context;
 
     move-result-object v0
@@ -85,7 +78,6 @@
     .line 78
     iget-object v0, p0, Lcom/leidong/sdk/s/app/LeiSdkCore$1;->this$0:Lcom/leidong/sdk/s/app/LeiSdkCore;
 
-    # getter for: Lcom/leidong/sdk/s/app/LeiSdkCore;->mContext:Landroid/content/Context;
     invoke-static {v0}, Lcom/leidong/sdk/s/app/LeiSdkCore;->access$000(Lcom/leidong/sdk/s/app/LeiSdkCore;)Landroid/content/Context;
 
     move-result-object v0
@@ -97,7 +89,6 @@
     .line 79
     iget-object v0, p0, Lcom/leidong/sdk/s/app/LeiSdkCore$1;->this$0:Lcom/leidong/sdk/s/app/LeiSdkCore;
 
-    # getter for: Lcom/leidong/sdk/s/app/LeiSdkCore;->mContext:Landroid/content/Context;
     invoke-static {v0}, Lcom/leidong/sdk/s/app/LeiSdkCore;->access$000(Lcom/leidong/sdk/s/app/LeiSdkCore;)Landroid/content/Context;
 
     move-result-object v0
@@ -106,9 +97,9 @@
 
     invoke-static {v0, v1}, Lcom/leidong/sdk/s/core/model/SdkConfigManager;->setUserVname(Landroid/content/Context;Ljava/lang/String;)V
 
-    .line 80
     const/4 v0, 0x0
 
+    .line 80
     sput-boolean v0, Lcom/leidong/sdk/s/app/LeiSdkCore;->isLoginSuccess:Z
 
     .line 81
@@ -116,6 +107,5 @@
 
     invoke-interface {v0, p1}, Lcom/leidong/sdk/framework/interfaces/SdkResultCallback;->onSuccess(Landroid/os/Bundle;)V
 
-    .line 82
     return-void
 .end method

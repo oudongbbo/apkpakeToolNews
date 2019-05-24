@@ -21,7 +21,6 @@
 # direct methods
 .method constructor <init>(Lcom/leidong/sdk/s/app/floatwindow/FloatManager;)V
     .locals 0
-    .param p1, "this$0"    # Lcom/leidong/sdk/s/app/floatwindow/FloatManager;
 
     .line 341
     iput-object p1, p0, Lcom/leidong/sdk/s/app/floatwindow/FloatManager$1;->this$0:Lcom/leidong/sdk/s/app/floatwindow/FloatManager;
@@ -34,212 +33,189 @@
 
 # virtual methods
 .method public handleMessage(Landroid/os/Message;)V
-    .locals 6
-    .param p1, "msg"    # Landroid/os/Message;
+    .locals 5
 
     .line 343
-    iget v0, p1, Landroid/os/Message;->what:I
+    iget p1, p1, Landroid/os/Message;->what:I
 
-    const/4 v1, 0x2
+    const/4 v0, 0x2
 
-    const/4 v2, 0x1
+    const/4 v1, 0x1
 
-    const/4 v3, 0x0
+    const/4 v2, 0x0
 
-    packed-switch v0, :pswitch_data_0
+    packed-switch p1, :pswitch_data_0
 
     goto/16 :goto_0
 
     .line 385
     :pswitch_0
-    iget-object v0, p0, Lcom/leidong/sdk/s/app/floatwindow/FloatManager$1;->this$0:Lcom/leidong/sdk/s/app/floatwindow/FloatManager;
+    iget-object p1, p0, Lcom/leidong/sdk/s/app/floatwindow/FloatManager$1;->this$0:Lcom/leidong/sdk/s/app/floatwindow/FloatManager;
 
-    # invokes: Lcom/leidong/sdk/s/app/floatwindow/FloatManager;->setHalfHideStatus(Z)V
-    invoke-static {v0, v2}, Lcom/leidong/sdk/s/app/floatwindow/FloatManager;->access$900(Lcom/leidong/sdk/s/app/floatwindow/FloatManager;Z)V
+    invoke-static {p1, v1}, Lcom/leidong/sdk/s/app/floatwindow/FloatManager;->access$900(Lcom/leidong/sdk/s/app/floatwindow/FloatManager;Z)V
 
     goto/16 :goto_0
 
     .line 372
     :pswitch_1
-    iget-object v0, p0, Lcom/leidong/sdk/s/app/floatwindow/FloatManager$1;->this$0:Lcom/leidong/sdk/s/app/floatwindow/FloatManager;
+    iget-object p1, p0, Lcom/leidong/sdk/s/app/floatwindow/FloatManager$1;->this$0:Lcom/leidong/sdk/s/app/floatwindow/FloatManager;
 
-    # getter for: Lcom/leidong/sdk/s/app/floatwindow/FloatManager;->floatPop:Lcom/leidong/sdk/framework/view/common/RelativePopupWindow;
-    invoke-static {v0}, Lcom/leidong/sdk/s/app/floatwindow/FloatManager;->access$1700(Lcom/leidong/sdk/s/app/floatwindow/FloatManager;)Lcom/leidong/sdk/framework/view/common/RelativePopupWindow;
+    invoke-static {p1}, Lcom/leidong/sdk/s/app/floatwindow/FloatManager;->access$1700(Lcom/leidong/sdk/s/app/floatwindow/FloatManager;)Lcom/leidong/sdk/framework/view/common/RelativePopupWindow;
 
-    move-result-object v0
+    move-result-object p1
 
-    const-string v2, "leidong_left_popwin_anim_style"
+    const-string v1, "leidong_left_popwin_anim_style"
 
-    const-string v4, "style"
+    const-string v3, "style"
 
-    iget-object v5, p0, Lcom/leidong/sdk/s/app/floatwindow/FloatManager$1;->this$0:Lcom/leidong/sdk/s/app/floatwindow/FloatManager;
+    iget-object v4, p0, Lcom/leidong/sdk/s/app/floatwindow/FloatManager$1;->this$0:Lcom/leidong/sdk/s/app/floatwindow/FloatManager;
 
     .line 373
-    # getter for: Lcom/leidong/sdk/s/app/floatwindow/FloatManager;->mainAtivity:Landroid/app/Activity;
-    invoke-static {v5}, Lcom/leidong/sdk/s/app/floatwindow/FloatManager;->access$1600(Lcom/leidong/sdk/s/app/floatwindow/FloatManager;)Landroid/app/Activity;
+    invoke-static {v4}, Lcom/leidong/sdk/s/app/floatwindow/FloatManager;->access$1600(Lcom/leidong/sdk/s/app/floatwindow/FloatManager;)Landroid/app/Activity;
 
-    move-result-object v5
+    move-result-object v4
 
-    invoke-static {v2, v4, v5}, Lcom/leidong/sdk/framework/utils/CommonUtil;->getResourcesID(Ljava/lang/String;Ljava/lang/String;Landroid/content/Context;)I
+    invoke-static {v1, v3, v4}, Lcom/leidong/sdk/framework/utils/CommonUtil;->getResourcesID(Ljava/lang/String;Ljava/lang/String;Landroid/content/Context;)I
 
-    move-result v2
+    move-result v1
 
     .line 372
-    invoke-virtual {v0, v2}, Lcom/leidong/sdk/framework/view/common/RelativePopupWindow;->setAnimationStyle(I)V
+    invoke-virtual {p1, v1}, Lcom/leidong/sdk/framework/view/common/RelativePopupWindow;->setAnimationStyle(I)V
 
     .line 377
-    iget-object v0, p0, Lcom/leidong/sdk/s/app/floatwindow/FloatManager$1;->this$0:Lcom/leidong/sdk/s/app/floatwindow/FloatManager;
+    iget-object p1, p0, Lcom/leidong/sdk/s/app/floatwindow/FloatManager$1;->this$0:Lcom/leidong/sdk/s/app/floatwindow/FloatManager;
 
-    # getter for: Lcom/leidong/sdk/s/app/floatwindow/FloatManager;->floatPop:Lcom/leidong/sdk/framework/view/common/RelativePopupWindow;
-    invoke-static {v0}, Lcom/leidong/sdk/s/app/floatwindow/FloatManager;->access$1700(Lcom/leidong/sdk/s/app/floatwindow/FloatManager;)Lcom/leidong/sdk/framework/view/common/RelativePopupWindow;
+    invoke-static {p1}, Lcom/leidong/sdk/s/app/floatwindow/FloatManager;->access$1700(Lcom/leidong/sdk/s/app/floatwindow/FloatManager;)Lcom/leidong/sdk/framework/view/common/RelativePopupWindow;
 
-    move-result-object v0
+    move-result-object p1
 
-    iget-object v2, p0, Lcom/leidong/sdk/s/app/floatwindow/FloatManager$1;->this$0:Lcom/leidong/sdk/s/app/floatwindow/FloatManager;
+    iget-object v1, p0, Lcom/leidong/sdk/s/app/floatwindow/FloatManager$1;->this$0:Lcom/leidong/sdk/s/app/floatwindow/FloatManager;
 
-    # getter for: Lcom/leidong/sdk/s/app/floatwindow/FloatManager;->FloatView:Landroid/view/View;
-    invoke-static {v2}, Lcom/leidong/sdk/s/app/floatwindow/FloatManager;->access$000(Lcom/leidong/sdk/s/app/floatwindow/FloatManager;)Landroid/view/View;
+    invoke-static {v1}, Lcom/leidong/sdk/s/app/floatwindow/FloatManager;->access$000(Lcom/leidong/sdk/s/app/floatwindow/FloatManager;)Landroid/view/View;
 
-    move-result-object v2
+    move-result-object v1
 
-    invoke-virtual {v0, v2, v3, v1, v3}, Lcom/leidong/sdk/framework/view/common/RelativePopupWindow;->showOnAnchor(Landroid/view/View;IIZ)V
+    invoke-virtual {p1, v1, v2, v0, v2}, Lcom/leidong/sdk/framework/view/common/RelativePopupWindow;->showOnAnchor(Landroid/view/View;IIZ)V
 
     .line 380
-    iget-object v0, p0, Lcom/leidong/sdk/s/app/floatwindow/FloatManager$1;->this$0:Lcom/leidong/sdk/s/app/floatwindow/FloatManager;
+    iget-object p1, p0, Lcom/leidong/sdk/s/app/floatwindow/FloatManager$1;->this$0:Lcom/leidong/sdk/s/app/floatwindow/FloatManager;
 
-    # getter for: Lcom/leidong/sdk/s/app/floatwindow/FloatManager;->floatPop:Lcom/leidong/sdk/framework/view/common/RelativePopupWindow;
-    invoke-static {v0}, Lcom/leidong/sdk/s/app/floatwindow/FloatManager;->access$1700(Lcom/leidong/sdk/s/app/floatwindow/FloatManager;)Lcom/leidong/sdk/framework/view/common/RelativePopupWindow;
+    invoke-static {p1}, Lcom/leidong/sdk/s/app/floatwindow/FloatManager;->access$1700(Lcom/leidong/sdk/s/app/floatwindow/FloatManager;)Lcom/leidong/sdk/framework/view/common/RelativePopupWindow;
 
-    move-result-object v0
+    move-result-object p1
 
-    invoke-virtual {v0}, Lcom/leidong/sdk/framework/view/common/RelativePopupWindow;->update()V
+    invoke-virtual {p1}, Lcom/leidong/sdk/framework/view/common/RelativePopupWindow;->update()V
 
-    .line 381
     goto :goto_0
 
     .line 362
     :pswitch_2
-    iget-object v0, p0, Lcom/leidong/sdk/s/app/floatwindow/FloatManager$1;->this$0:Lcom/leidong/sdk/s/app/floatwindow/FloatManager;
+    iget-object p1, p0, Lcom/leidong/sdk/s/app/floatwindow/FloatManager$1;->this$0:Lcom/leidong/sdk/s/app/floatwindow/FloatManager;
 
-    # getter for: Lcom/leidong/sdk/s/app/floatwindow/FloatManager;->floatPop:Lcom/leidong/sdk/framework/view/common/RelativePopupWindow;
-    invoke-static {v0}, Lcom/leidong/sdk/s/app/floatwindow/FloatManager;->access$1700(Lcom/leidong/sdk/s/app/floatwindow/FloatManager;)Lcom/leidong/sdk/framework/view/common/RelativePopupWindow;
+    invoke-static {p1}, Lcom/leidong/sdk/s/app/floatwindow/FloatManager;->access$1700(Lcom/leidong/sdk/s/app/floatwindow/FloatManager;)Lcom/leidong/sdk/framework/view/common/RelativePopupWindow;
 
-    move-result-object v0
+    move-result-object p1
 
-    const-string v1, "leidong_right_popwin_anim_style"
+    const-string v0, "leidong_right_popwin_anim_style"
 
-    const-string v4, "style"
+    const-string v3, "style"
 
-    iget-object v5, p0, Lcom/leidong/sdk/s/app/floatwindow/FloatManager$1;->this$0:Lcom/leidong/sdk/s/app/floatwindow/FloatManager;
+    iget-object v4, p0, Lcom/leidong/sdk/s/app/floatwindow/FloatManager$1;->this$0:Lcom/leidong/sdk/s/app/floatwindow/FloatManager;
 
     .line 363
-    # getter for: Lcom/leidong/sdk/s/app/floatwindow/FloatManager;->mainAtivity:Landroid/app/Activity;
-    invoke-static {v5}, Lcom/leidong/sdk/s/app/floatwindow/FloatManager;->access$1600(Lcom/leidong/sdk/s/app/floatwindow/FloatManager;)Landroid/app/Activity;
+    invoke-static {v4}, Lcom/leidong/sdk/s/app/floatwindow/FloatManager;->access$1600(Lcom/leidong/sdk/s/app/floatwindow/FloatManager;)Landroid/app/Activity;
 
-    move-result-object v5
+    move-result-object v4
 
-    invoke-static {v1, v4, v5}, Lcom/leidong/sdk/framework/utils/CommonUtil;->getResourcesID(Ljava/lang/String;Ljava/lang/String;Landroid/content/Context;)I
+    invoke-static {v0, v3, v4}, Lcom/leidong/sdk/framework/utils/CommonUtil;->getResourcesID(Ljava/lang/String;Ljava/lang/String;Landroid/content/Context;)I
 
-    move-result v1
+    move-result v0
 
     .line 362
-    invoke-virtual {v0, v1}, Lcom/leidong/sdk/framework/view/common/RelativePopupWindow;->setAnimationStyle(I)V
+    invoke-virtual {p1, v0}, Lcom/leidong/sdk/framework/view/common/RelativePopupWindow;->setAnimationStyle(I)V
 
     .line 365
+    iget-object p1, p0, Lcom/leidong/sdk/s/app/floatwindow/FloatManager$1;->this$0:Lcom/leidong/sdk/s/app/floatwindow/FloatManager;
+
+    invoke-static {p1}, Lcom/leidong/sdk/s/app/floatwindow/FloatManager;->access$1700(Lcom/leidong/sdk/s/app/floatwindow/FloatManager;)Lcom/leidong/sdk/framework/view/common/RelativePopupWindow;
+
+    move-result-object p1
+
     iget-object v0, p0, Lcom/leidong/sdk/s/app/floatwindow/FloatManager$1;->this$0:Lcom/leidong/sdk/s/app/floatwindow/FloatManager;
 
-    # getter for: Lcom/leidong/sdk/s/app/floatwindow/FloatManager;->floatPop:Lcom/leidong/sdk/framework/view/common/RelativePopupWindow;
-    invoke-static {v0}, Lcom/leidong/sdk/s/app/floatwindow/FloatManager;->access$1700(Lcom/leidong/sdk/s/app/floatwindow/FloatManager;)Lcom/leidong/sdk/framework/view/common/RelativePopupWindow;
+    invoke-static {v0}, Lcom/leidong/sdk/s/app/floatwindow/FloatManager;->access$000(Lcom/leidong/sdk/s/app/floatwindow/FloatManager;)Landroid/view/View;
 
     move-result-object v0
 
-    iget-object v1, p0, Lcom/leidong/sdk/s/app/floatwindow/FloatManager$1;->this$0:Lcom/leidong/sdk/s/app/floatwindow/FloatManager;
-
-    # getter for: Lcom/leidong/sdk/s/app/floatwindow/FloatManager;->FloatView:Landroid/view/View;
-    invoke-static {v1}, Lcom/leidong/sdk/s/app/floatwindow/FloatManager;->access$000(Lcom/leidong/sdk/s/app/floatwindow/FloatManager;)Landroid/view/View;
-
-    move-result-object v1
-
-    invoke-virtual {v0, v1, v3, v2, v3}, Lcom/leidong/sdk/framework/view/common/RelativePopupWindow;->showOnAnchor(Landroid/view/View;IIZ)V
+    invoke-virtual {p1, v0, v2, v1, v2}, Lcom/leidong/sdk/framework/view/common/RelativePopupWindow;->showOnAnchor(Landroid/view/View;IIZ)V
 
     .line 367
-    iget-object v0, p0, Lcom/leidong/sdk/s/app/floatwindow/FloatManager$1;->this$0:Lcom/leidong/sdk/s/app/floatwindow/FloatManager;
+    iget-object p1, p0, Lcom/leidong/sdk/s/app/floatwindow/FloatManager$1;->this$0:Lcom/leidong/sdk/s/app/floatwindow/FloatManager;
 
-    # getter for: Lcom/leidong/sdk/s/app/floatwindow/FloatManager;->floatPop:Lcom/leidong/sdk/framework/view/common/RelativePopupWindow;
-    invoke-static {v0}, Lcom/leidong/sdk/s/app/floatwindow/FloatManager;->access$1700(Lcom/leidong/sdk/s/app/floatwindow/FloatManager;)Lcom/leidong/sdk/framework/view/common/RelativePopupWindow;
+    invoke-static {p1}, Lcom/leidong/sdk/s/app/floatwindow/FloatManager;->access$1700(Lcom/leidong/sdk/s/app/floatwindow/FloatManager;)Lcom/leidong/sdk/framework/view/common/RelativePopupWindow;
 
-    move-result-object v0
+    move-result-object p1
 
-    invoke-virtual {v0}, Lcom/leidong/sdk/framework/view/common/RelativePopupWindow;->update()V
+    invoke-virtual {p1}, Lcom/leidong/sdk/framework/view/common/RelativePopupWindow;->update()V
 
-    .line 368
     goto :goto_0
 
     .line 355
     :pswitch_3
-    iget-object v0, p0, Lcom/leidong/sdk/s/app/floatwindow/FloatManager$1;->this$0:Lcom/leidong/sdk/s/app/floatwindow/FloatManager;
+    iget-object p1, p0, Lcom/leidong/sdk/s/app/floatwindow/FloatManager$1;->this$0:Lcom/leidong/sdk/s/app/floatwindow/FloatManager;
 
-    # getter for: Lcom/leidong/sdk/s/app/floatwindow/FloatManager;->messagePop:Lcom/leidong/sdk/framework/view/common/RelativePopupWindow;
-    invoke-static {v0}, Lcom/leidong/sdk/s/app/floatwindow/FloatManager;->access$1500(Lcom/leidong/sdk/s/app/floatwindow/FloatManager;)Lcom/leidong/sdk/framework/view/common/RelativePopupWindow;
+    invoke-static {p1}, Lcom/leidong/sdk/s/app/floatwindow/FloatManager;->access$1500(Lcom/leidong/sdk/s/app/floatwindow/FloatManager;)Lcom/leidong/sdk/framework/view/common/RelativePopupWindow;
 
-    move-result-object v0
-
-    iget-object v2, p0, Lcom/leidong/sdk/s/app/floatwindow/FloatManager$1;->this$0:Lcom/leidong/sdk/s/app/floatwindow/FloatManager;
-
-    # getter for: Lcom/leidong/sdk/s/app/floatwindow/FloatManager;->FloatView:Landroid/view/View;
-    invoke-static {v2}, Lcom/leidong/sdk/s/app/floatwindow/FloatManager;->access$000(Lcom/leidong/sdk/s/app/floatwindow/FloatManager;)Landroid/view/View;
-
-    move-result-object v2
-
-    invoke-virtual {v0, v2, v3, v1, v3}, Lcom/leidong/sdk/framework/view/common/RelativePopupWindow;->showOnAnchor(Landroid/view/View;IIZ)V
-
-    .line 357
-    iget-object v0, p0, Lcom/leidong/sdk/s/app/floatwindow/FloatManager$1;->this$0:Lcom/leidong/sdk/s/app/floatwindow/FloatManager;
-
-    # getter for: Lcom/leidong/sdk/s/app/floatwindow/FloatManager;->messagePop:Lcom/leidong/sdk/framework/view/common/RelativePopupWindow;
-    invoke-static {v0}, Lcom/leidong/sdk/s/app/floatwindow/FloatManager;->access$1500(Lcom/leidong/sdk/s/app/floatwindow/FloatManager;)Lcom/leidong/sdk/framework/view/common/RelativePopupWindow;
-
-    move-result-object v0
-
-    invoke-virtual {v0}, Lcom/leidong/sdk/framework/view/common/RelativePopupWindow;->update()V
-
-    .line 358
-    goto :goto_0
-
-    .line 348
-    :pswitch_4
-    iget-object v0, p0, Lcom/leidong/sdk/s/app/floatwindow/FloatManager$1;->this$0:Lcom/leidong/sdk/s/app/floatwindow/FloatManager;
-
-    # getter for: Lcom/leidong/sdk/s/app/floatwindow/FloatManager;->messagePop:Lcom/leidong/sdk/framework/view/common/RelativePopupWindow;
-    invoke-static {v0}, Lcom/leidong/sdk/s/app/floatwindow/FloatManager;->access$1500(Lcom/leidong/sdk/s/app/floatwindow/FloatManager;)Lcom/leidong/sdk/framework/view/common/RelativePopupWindow;
-
-    move-result-object v0
+    move-result-object p1
 
     iget-object v1, p0, Lcom/leidong/sdk/s/app/floatwindow/FloatManager$1;->this$0:Lcom/leidong/sdk/s/app/floatwindow/FloatManager;
 
-    # getter for: Lcom/leidong/sdk/s/app/floatwindow/FloatManager;->FloatView:Landroid/view/View;
     invoke-static {v1}, Lcom/leidong/sdk/s/app/floatwindow/FloatManager;->access$000(Lcom/leidong/sdk/s/app/floatwindow/FloatManager;)Landroid/view/View;
 
     move-result-object v1
 
-    invoke-virtual {v0, v1, v3, v2, v3}, Lcom/leidong/sdk/framework/view/common/RelativePopupWindow;->showOnAnchor(Landroid/view/View;IIZ)V
+    invoke-virtual {p1, v1, v2, v0, v2}, Lcom/leidong/sdk/framework/view/common/RelativePopupWindow;->showOnAnchor(Landroid/view/View;IIZ)V
 
-    .line 350
+    .line 357
+    iget-object p1, p0, Lcom/leidong/sdk/s/app/floatwindow/FloatManager$1;->this$0:Lcom/leidong/sdk/s/app/floatwindow/FloatManager;
+
+    invoke-static {p1}, Lcom/leidong/sdk/s/app/floatwindow/FloatManager;->access$1500(Lcom/leidong/sdk/s/app/floatwindow/FloatManager;)Lcom/leidong/sdk/framework/view/common/RelativePopupWindow;
+
+    move-result-object p1
+
+    invoke-virtual {p1}, Lcom/leidong/sdk/framework/view/common/RelativePopupWindow;->update()V
+
+    goto :goto_0
+
+    .line 348
+    :pswitch_4
+    iget-object p1, p0, Lcom/leidong/sdk/s/app/floatwindow/FloatManager$1;->this$0:Lcom/leidong/sdk/s/app/floatwindow/FloatManager;
+
+    invoke-static {p1}, Lcom/leidong/sdk/s/app/floatwindow/FloatManager;->access$1500(Lcom/leidong/sdk/s/app/floatwindow/FloatManager;)Lcom/leidong/sdk/framework/view/common/RelativePopupWindow;
+
+    move-result-object p1
+
     iget-object v0, p0, Lcom/leidong/sdk/s/app/floatwindow/FloatManager$1;->this$0:Lcom/leidong/sdk/s/app/floatwindow/FloatManager;
 
-    # getter for: Lcom/leidong/sdk/s/app/floatwindow/FloatManager;->messagePop:Lcom/leidong/sdk/framework/view/common/RelativePopupWindow;
-    invoke-static {v0}, Lcom/leidong/sdk/s/app/floatwindow/FloatManager;->access$1500(Lcom/leidong/sdk/s/app/floatwindow/FloatManager;)Lcom/leidong/sdk/framework/view/common/RelativePopupWindow;
+    invoke-static {v0}, Lcom/leidong/sdk/s/app/floatwindow/FloatManager;->access$000(Lcom/leidong/sdk/s/app/floatwindow/FloatManager;)Landroid/view/View;
 
     move-result-object v0
 
-    invoke-virtual {v0}, Lcom/leidong/sdk/framework/view/common/RelativePopupWindow;->update()V
+    invoke-virtual {p1, v0, v2, v1, v2}, Lcom/leidong/sdk/framework/view/common/RelativePopupWindow;->showOnAnchor(Landroid/view/View;IIZ)V
 
-    .line 351
-    nop
+    .line 350
+    iget-object p1, p0, Lcom/leidong/sdk/s/app/floatwindow/FloatManager$1;->this$0:Lcom/leidong/sdk/s/app/floatwindow/FloatManager;
 
-    .line 388
+    invoke-static {p1}, Lcom/leidong/sdk/s/app/floatwindow/FloatManager;->access$1500(Lcom/leidong/sdk/s/app/floatwindow/FloatManager;)Lcom/leidong/sdk/framework/view/common/RelativePopupWindow;
+
+    move-result-object p1
+
+    invoke-virtual {p1}, Lcom/leidong/sdk/framework/view/common/RelativePopupWindow;->update()V
+
     :goto_0
     return-void
+
+    nop
 
     :pswitch_data_0
     .packed-switch 0x0

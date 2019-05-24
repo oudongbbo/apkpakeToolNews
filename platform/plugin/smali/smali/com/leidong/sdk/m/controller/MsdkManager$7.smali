@@ -26,9 +26,8 @@
 # direct methods
 .method constructor <init>(Lcom/leidong/sdk/m/controller/MsdkManager;Ljava/util/HashMap;)V
     .locals 0
-    .param p1, "this$0"    # Lcom/leidong/sdk/m/controller/MsdkManager;
 
-    .line 442
+    .line 443
     iput-object p1, p0, Lcom/leidong/sdk/m/controller/MsdkManager$7;->this$0:Lcom/leidong/sdk/m/controller/MsdkManager;
 
     iput-object p2, p0, Lcom/leidong/sdk/m/controller/MsdkManager$7;->val$newInfos:Ljava/util/HashMap;
@@ -42,28 +41,23 @@
 # virtual methods
 .method public onFail(Ljava/lang/String;)V
     .locals 0
-    .param p1, "msg"    # Ljava/lang/String;
 
-    .line 449
     return-void
 .end method
 
 .method public onSuccess(Landroid/os/Bundle;)V
-    .locals 2
-    .param p1, "bundle"    # Landroid/os/Bundle;
-
-    .line 444
-    iget-object v0, p0, Lcom/leidong/sdk/m/controller/MsdkManager$7;->this$0:Lcom/leidong/sdk/m/controller/MsdkManager;
-
-    # getter for: Lcom/leidong/sdk/m/controller/MsdkManager;->platformCore:Lcom/leidong/sdk/m/controller/PlatformCore;
-    invoke-static {v0}, Lcom/leidong/sdk/m/controller/MsdkManager;->access$700(Lcom/leidong/sdk/m/controller/MsdkManager;)Lcom/leidong/sdk/m/controller/PlatformCore;
-
-    move-result-object v0
-
-    iget-object v1, p0, Lcom/leidong/sdk/m/controller/MsdkManager$7;->val$newInfos:Ljava/util/HashMap;
-
-    invoke-virtual {v0, v1}, Lcom/leidong/sdk/m/controller/PlatformCore;->serverSelect(Ljava/util/HashMap;)V
+    .locals 1
 
     .line 445
+    iget-object p1, p0, Lcom/leidong/sdk/m/controller/MsdkManager$7;->this$0:Lcom/leidong/sdk/m/controller/MsdkManager;
+
+    invoke-static {p1}, Lcom/leidong/sdk/m/controller/MsdkManager;->access$700(Lcom/leidong/sdk/m/controller/MsdkManager;)Lcom/leidong/sdk/m/controller/PlatformCore;
+
+    move-result-object p1
+
+    iget-object v0, p0, Lcom/leidong/sdk/m/controller/MsdkManager$7;->val$newInfos:Ljava/util/HashMap;
+
+    invoke-virtual {p1, v0}, Lcom/leidong/sdk/m/controller/PlatformCore;->serverSelect(Ljava/util/HashMap;)V
+
     return-void
 .end method

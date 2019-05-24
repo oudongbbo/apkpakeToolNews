@@ -24,7 +24,6 @@
 # direct methods
 .method constructor <init>(Lcom/leidong/sdk/m/views/UpdateDialog;)V
     .locals 0
-    .param p1, "this$0"    # Lcom/leidong/sdk/m/views/UpdateDialog;
 
     .line 114
     iput-object p1, p0, Lcom/leidong/sdk/m/views/UpdateDialog$2;->this$0:Lcom/leidong/sdk/m/views/UpdateDialog;
@@ -37,46 +36,41 @@
 
 # virtual methods
 .method public onClick(Landroid/view/View;)V
-    .locals 2
-    .param p1, "v"    # Landroid/view/View;
+    .locals 1
 
     .line 120
+    iget-object p1, p0, Lcom/leidong/sdk/m/views/UpdateDialog$2;->this$0:Lcom/leidong/sdk/m/views/UpdateDialog;
+
     iget-object v0, p0, Lcom/leidong/sdk/m/views/UpdateDialog$2;->this$0:Lcom/leidong/sdk/m/views/UpdateDialog;
 
-    iget-object v1, p0, Lcom/leidong/sdk/m/views/UpdateDialog$2;->this$0:Lcom/leidong/sdk/m/views/UpdateDialog;
+    invoke-static {v0}, Lcom/leidong/sdk/m/views/UpdateDialog;->access$300(Lcom/leidong/sdk/m/views/UpdateDialog;)Ljava/lang/String;
 
-    # getter for: Lcom/leidong/sdk/m/views/UpdateDialog;->url:Ljava/lang/String;
-    invoke-static {v1}, Lcom/leidong/sdk/m/views/UpdateDialog;->access$300(Lcom/leidong/sdk/m/views/UpdateDialog;)Ljava/lang/String;
+    move-result-object v0
 
-    move-result-object v1
-
-    invoke-virtual {v0, v1}, Lcom/leidong/sdk/m/views/UpdateDialog;->checkDownload(Ljava/lang/String;)V
+    invoke-virtual {p1, v0}, Lcom/leidong/sdk/m/views/UpdateDialog;->checkDownload(Ljava/lang/String;)V
 
     .line 122
-    iget-object v0, p0, Lcom/leidong/sdk/m/views/UpdateDialog$2;->this$0:Lcom/leidong/sdk/m/views/UpdateDialog;
+    iget-object p1, p0, Lcom/leidong/sdk/m/views/UpdateDialog$2;->this$0:Lcom/leidong/sdk/m/views/UpdateDialog;
 
-    # getter for: Lcom/leidong/sdk/m/views/UpdateDialog;->isForceUpdate:Z
-    invoke-static {v0}, Lcom/leidong/sdk/m/views/UpdateDialog;->access$400(Lcom/leidong/sdk/m/views/UpdateDialog;)Z
+    invoke-static {p1}, Lcom/leidong/sdk/m/views/UpdateDialog;->access$400(Lcom/leidong/sdk/m/views/UpdateDialog;)Z
 
-    move-result v0
+    move-result p1
 
-    if-eqz v0, :cond_0
+    if-eqz p1, :cond_0
 
     .line 124
-    iget-object v0, p0, Lcom/leidong/sdk/m/views/UpdateDialog$2;->this$0:Lcom/leidong/sdk/m/views/UpdateDialog;
+    iget-object p1, p0, Lcom/leidong/sdk/m/views/UpdateDialog$2;->this$0:Lcom/leidong/sdk/m/views/UpdateDialog;
 
-    # invokes: Lcom/leidong/sdk/m/views/UpdateDialog;->back2Launcher()V
-    invoke-static {v0}, Lcom/leidong/sdk/m/views/UpdateDialog;->access$500(Lcom/leidong/sdk/m/views/UpdateDialog;)V
+    invoke-static {p1}, Lcom/leidong/sdk/m/views/UpdateDialog;->access$500(Lcom/leidong/sdk/m/views/UpdateDialog;)V
 
     goto :goto_0
 
     .line 127
     :cond_0
-    iget-object v0, p0, Lcom/leidong/sdk/m/views/UpdateDialog$2;->this$0:Lcom/leidong/sdk/m/views/UpdateDialog;
+    iget-object p1, p0, Lcom/leidong/sdk/m/views/UpdateDialog$2;->this$0:Lcom/leidong/sdk/m/views/UpdateDialog;
 
-    invoke-virtual {v0}, Lcom/leidong/sdk/m/views/UpdateDialog;->dismiss()V
+    invoke-virtual {p1}, Lcom/leidong/sdk/m/views/UpdateDialog;->dismiss()V
 
-    .line 130
     :goto_0
     return-void
 .end method
