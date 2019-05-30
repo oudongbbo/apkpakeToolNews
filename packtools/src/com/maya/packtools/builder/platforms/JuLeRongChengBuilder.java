@@ -34,8 +34,8 @@ public class JuLeRongChengBuilder extends BaseBuilder {
         sdk_content = sdk_content.replaceAll(HS_APPID, appid);
 
 
-         p = Pattern.compile("<meta-data android:name=\"HS_CLIENTID\" android:value=\"(.*?)\"/>");
-         m = p.matcher(sdk_content);
+        p = Pattern.compile("<meta-data android:name=\"HS_CLIENTID\" android:value=\"(.*?)\"/>");
+        m = p.matcher(sdk_content);
         m.find();
         String HS_CLIENTID = m.group(1);
         sdk_content = sdk_content.replaceAll(HS_CLIENTID, clientid);
@@ -43,7 +43,7 @@ public class JuLeRongChengBuilder extends BaseBuilder {
 
          p = Pattern.compile("<meta-data android:name=\"HS_CLIENTKEY\" android:value=\"(.*?)\"/>");
          m = p.matcher(sdk_content);
-        m.find();
+         m.find();
         String HS_CLIENTKEY = m.group(1);
         sdk_content = sdk_content.replaceAll(HS_CLIENTKEY, clientkey);
 
@@ -51,5 +51,9 @@ public class JuLeRongChengBuilder extends BaseBuilder {
 
     }
 
+    @Override
+    protected String handleApplication(String manifest) {
+        return replaceApplication("com.leidong.sdk.m.platform.App", manifest);
+    }
 
 }

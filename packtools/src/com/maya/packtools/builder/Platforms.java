@@ -215,24 +215,19 @@ public class Platforms {
     public static final String SDK_NAME_8868 = "8868";
 
 
-
-
     //聚乐荣城
     public static final int SDK_JULERONGCHENG = 320;
     public static final String SDK_NAME_JULERONGCHENG = "julerongcheng";
 
 
-   //
+
     public static final int SDK_KaLiuZaiXian = 324;
     public static final String SDK_NAME_KaLiuZaiXian = "KaLiuZaiXian";
-
 
 
     //快游
     public static final int SDK_KuaiYou = 322;
     public static final String SDK_NAME_KuaiYou = "KuaiYou";
-
-
 
 
     public static int getSdkNoByName(String sdkName) {
@@ -246,7 +241,7 @@ public class Platforms {
                 return SDK_KaLiuZaiXian;
 
 
-   case SDK_NAME_JULERONGCHENG:
+            case SDK_NAME_JULERONGCHENG:
                 return SDK_JULERONGCHENG;
 
 
@@ -410,12 +405,9 @@ public class Platforms {
     }
 
 
-
     public static String getSdkNameByNo(int sdk) {
 
         switch (sdk) {
-
-
 
 
             case SDK_KuaiYou:
