@@ -36,14 +36,14 @@ public class CoolpadBuilder extends BaseBuilder{
 	protected void handleSdkPlugins(String sdkplugin, Properties prop) {
 		
 		String coolpadContent = FileUtil.read(sdkplugin);
-		
+		//android:authorities="com.coolpay.example.fileprovider"
 		Pattern p = Pattern
-				.compile("<meta-data android:name=\"DC_APPID\" android:value=\"(.*?)\"");
+				.compile("android:authorities=\"(.*?).fileprovider\"");
 		Matcher m = p.matcher(coolpadContent);
 		m.find();
-		String DC_APPID = m.group(1);
-		coolpadContent = coolpadContent.replaceAll(DC_APPID,prop.getProperty("appid"));
+		String packName = m.group(1);
 
+		coolpadContent = coolpadContent.replaceAll(packName,pname);
 
 		FileUtil.write(sdkplugin, coolpadContent);
 		

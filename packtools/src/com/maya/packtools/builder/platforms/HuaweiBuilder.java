@@ -27,10 +27,10 @@ public class HuaweiBuilder extends BaseBuilder {
     public void handlePlatformComConfig(Properties newPro, Properties oldPro) {
 
         String mAppId = oldPro.getProperty("appid").trim();
-        String mPayId = oldPro.getProperty("payid").trim();
+        String cpid = oldPro.getProperty("cpid").trim();
 
         newPro.setProperty("mAppId", ZipMain.zipOption("0", mAppId));
-        newPro.setProperty("mPayId", ZipMain.zipOption("0", mPayId));
+        newPro.setProperty("mPayId", ZipMain.zipOption("0", cpid));
     }
 
 
@@ -40,25 +40,33 @@ public class HuaweiBuilder extends BaseBuilder {
         String hwContent = FileUtil.read(sdkplugin);
 
         //替换appid
-        Pattern p = Pattern.compile("<meta-data android:name=\"com.huawei.hms.client.appid\" android:value=\"(.*?)\"/>");
+        Pattern p = Pattern.compile("<meta-data android:name=\"com.huawei.hms.client.appid\" android:value=\"appid=(.*?)\"/>");
         Matcher m = p.matcher(hwContent);
         m.find();
         String appid = m.group(1);
-        hwContent = hwContent.replaceAll(appid, "appid=" + prop.getProperty("appid"));
+        hwContent = hwContent.replaceAll(appid, prop.getProperty("appid"));
 
         //替换CPID
-        p = Pattern.compile("<meta-data android:name=\"com.huawei.hms.client.cpid\" android:value=\"(.*?)\"/>");
+        p = Pattern.compile("<meta-data android:name=\"com.huawei.hms.client.cpid\" android:value=\"cpid=(.*?)\"/>");
         m = p.matcher(hwContent);
         m.find();
         String cpid = m.group(1);
-        hwContent = hwContent.replaceAll(cpid, "cpid=" + prop.getProperty("payid"));
+        hwContent = hwContent.replaceAll(cpid, prop.getProperty("cpid"));
 
         //替换包名相关
-        p = Pattern.compile(" android:authorities=\"(.*?).hms.update.provider\"");
+        p = Pattern.compile("android:authorities=\"(.*?).updateSdk.fileProvider\"");
         m = p.matcher(hwContent);
         m.find();
         String pkgName = m.group(1);
         hwContent = hwContent.replaceAll(pkgName, pname);
+
+
+        p = Pattern.compile("android:authorities=\"(.*?).hms.update.provider\"");
+        m = p.matcher(hwContent);
+        m.find();
+        String pkgName1 = m.group(1);
+        hwContent = hwContent.replaceAll(pkgName1, pname);
+
 
         FileUtil.write(sdkplugin, hwContent);
 
@@ -85,7 +93,7 @@ public class HuaweiBuilder extends BaseBuilder {
             }
         }
 
-        return replaceApplication("com.feimiao.sdk.m.platform.HuaweiSDKApplication", manifest);
+        return replaceApplication("com.leidong.sdk.m.platform.HuaweiSDKApplication", manifest);
     }
 
 

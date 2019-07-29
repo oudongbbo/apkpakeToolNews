@@ -15,7 +15,6 @@ public class XiongMaoWanBuilder extends BaseBuilder {
     }
 
 
-
     @Override
     protected void handleSdkPlugins(String sdkplugin, Properties prop) {
         super.handleSdkPlugins(sdkplugin, prop);
