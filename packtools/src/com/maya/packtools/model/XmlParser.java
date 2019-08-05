@@ -56,7 +56,7 @@ public class XmlParser {
 					if(isExist(newXmlProperties, nodeName, nodeItemName)){
 //						System.out.println("--->"+sourcePath+"\n"+nodeName+"_"+nodeItemName);
 						element.getParentNode().removeChild(element);
-//						System.out.println("--->");					
+//						System.out.println("--->");
 					}
 				}
 			}

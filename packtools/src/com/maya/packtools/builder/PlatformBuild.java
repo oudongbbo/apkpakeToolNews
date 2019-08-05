@@ -87,7 +87,7 @@ public class PlatformBuild {
                     break;
 
                 case Platforms.SDK_BILIBILI:
-                    builder = new M4399Builder(apkParser);
+                    builder = new BiliBiliBuilder(apkParser);
                     break;
 
                 case Platforms.SDK_JQGAME:
